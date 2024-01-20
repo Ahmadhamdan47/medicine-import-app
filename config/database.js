@@ -2,8 +2,8 @@
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('Pharmacy', 'sa', 'Therooadof1', {
-  host: 'localhost  ',
+const sequelize = new Sequelize('MedLebDrugs', 'dbo', '', {
+  host: 'DESKTOP-DH3QQ1J',
   dialect: 'mssql',
   define: {
     timestamps: false,
