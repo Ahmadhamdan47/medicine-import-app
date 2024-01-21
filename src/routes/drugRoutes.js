@@ -7,6 +7,6 @@ const router = express.Router();
 const drugController = require('../controllers/drugController');
 
 // Define routes
-router.get('/search/:query', drugController.searchDrug);
+router.get('/search/:query', drugController.searchDrug); // Remove 'drugs' from the path
 
 module.exports = router;

@@ -1,10 +1,11 @@
-// config/database.js
-
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('MedLebDrugs', 'dbo', '', {
-  host: 'DESKTOP-DH3QQ1J',
+const sequelize = new Sequelize('MedLebDrugs', 'sa', 'Theroadof1', {
+  host: 'localhost',
   dialect: 'mssql',
+  dialectOptions: {
+    instanceName: 'SQLEXPRESS',
+  },
   define: {
     timestamps: false,
   },
