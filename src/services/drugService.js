@@ -3,24 +3,36 @@
 const { Op } = require('sequelize');
 const Drug = require('../models/Drug');
 
-const searchDrug = async (query) => {
+const searchDrugByATCName = async (query) => {
   try {
     const drugs = await Drug.findAll({
       where: {
-        [Op.or]: [
-          { ATCName: { [Op.like]: `%${query}%` } },
-          { BrandName: { [Op.like]: `%${query}%` } },
-          { DrugLabelName : { [Op.like]: `%${query}%` } },
-          // Add more search criteria as needed
-
-        ],
+        ATCName: { [Op.like]: `%${query}%` }
       },
+      attributes: ['BrandName', 'ATCName', 'PriceUSD', 'PriceLBP', 'DosageName', 'PresentationName', 'FormName', 'RouteName', 'StratumTypeName', 'CountryName', 'ManufacturerName', 'ImageDefault']
     });
+    console.log(drugs);
     return drugs;
-  }catch (error) {
-  console.error(error);
-  throw new Error('Error in drugService: ' + error.message);
-}
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error in drugService: ' + error.message);
+  }
+};
+
+const searchDrugByBrandName = async (query) => {
+  try {
+    const drugs = await Drug.findAll({
+      where: {
+        BrandName: { [Op.like]: `%${query}%` }
+      },
+      attributes: ['BrandName', 'ATCName', 'PriceUSD', 'PriceLBP', 'DosageName', 'PresentationName', 'FormName', 'RouteName', 'StratumTypeName', 'CountryName', 'ManufacturerName', 'ImageDefault']
+    });
+    console.log(drugs);
+    return drugs;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error in drugService: ' + error.message);
+  }
 };
 
 const getDrugByGuid = async (guid) => {
@@ -35,8 +47,22 @@ const getDrugByGuid = async (guid) => {
     throw new Error('Error in drugService: ' + error.message);
   }
 };
+// src/services/drugService.js
+
+const filterDrugs = async (drugs) => {
+  try {
+    const sortedDrugs = drugs.sort((a, b) => a.BrandName.localeCompare(b.BrandName));
+    console.log(sortedDrugs);
+    return sortedDrugs;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error in drugService: ' + error.message);
+  }
+};
 
 module.exports = {
-  searchDrug,
+  searchDrugByATCName,
+  searchDrugByBrandName,
   getDrugByGuid,
+  filterDrugs, // Export the new service function
 };
