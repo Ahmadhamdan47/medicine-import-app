@@ -24,21 +24,34 @@ const searchDrugByBrandName = async (req, res) => {
   }
 };
 
+const getDrugByGuid = async (req, res) => {
+  try {
+    const { guid } = req.params;
+    const drug = await getDrugByGuid(guid);
+    if (!drug) {
+      return res.status(404).json({ error: 'Drug not found' });
+    }
+    res.json(drug);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 
 const filterDrugs = async (req, res) => {
   const query = req.params.query;
 
   try {
-      const searchResults = await DrugService.searchDrugByATCName(query);
-      const filteredResults = await DrugService.filterDrugs(searchResults);
-      res.json(filteredResults);
+    const searchResults = await DrugService.searchDrugByATCName(query);
+    const filteredResults = await DrugService.filterDrugs(searchResults);
+    res.json(filteredResults);
   } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 module.exports = {
   searchDrugByATCName,
   searchDrugByBrandName,
+  getDrugByGuid,
   filterDrugs,
 };
