@@ -10,6 +10,8 @@ const rfiRoutes = require('./src/routes/rfiRoutes');
 const piRoutes = require('./src/routes/piRoutes');
 const swiftRoutes = require('./src/routes/swiftRoutes');
 const shipmentRoutes = require('./src/routes/shipmentRoutes');
+const rfdRoutes = require('./src/routes/rfdRoutes');
+const agentStockRoutes = require('./src/routes/agentStockRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +26,8 @@ app.use('/rfi', rfiRoutes);
 app.use('/pi', piRoutes);
 app.use('/swift', swiftRoutes);
 app.use('/shipment', shipmentRoutes);
+app.use('/rfd', rfdRoutes);
+app.use('/agentStock', agentStockRoutes);
 // Sample route
 app.get('/', (req, res) => {
   res.send('Hello, Medicine Import App!');

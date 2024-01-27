@@ -1,6 +1,7 @@
 
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/database');
+const submitOrder = require('./submittedOrder');
 
 const RFI = sequelize.define('RFI', {
     rfiId: {
@@ -10,8 +11,12 @@ const RFI = sequelize.define('RFI', {
         autoIncrement: true
     },
     orderId: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: submitOrder,
+            key: 'orderId'
+        }
     },
     drugId: {
         type: DataTypes.UUID,
