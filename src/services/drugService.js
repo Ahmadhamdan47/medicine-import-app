@@ -59,10 +59,19 @@ const filterDrugs = async (drugs) => {
     throw new Error('Error in drugService: ' + error.message);
   }
 };
-
+const addDrug = async (drugData) => {
+  try {
+    const newDrug = await Drug.create(drugData);
+    return newDrug;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error in drugService: ' + error.message);
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByBrandName,
   getDrugByGuid,
-  filterDrugs, // Export the new service function
+  filterDrugs, 
+  addDrug,
 };
