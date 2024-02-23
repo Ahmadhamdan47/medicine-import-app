@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 // Create a new Sequelize instance and connect to the 'MedLebDrugs' database
 // using the username 'sa' and the password 'Theroadof1'
-const sequelize = new Sequelize('MedLebDrugs', 'sa', 'Theroadof1', {
+const sequelize = new Sequelize('MedLebPharmacyServices', 'sa', 'Theroadof1', {
   // The host of the database server
   host: 'localhost',
   
@@ -22,6 +22,8 @@ const sequelize = new Sequelize('MedLebDrugs', 'sa', 'Theroadof1', {
     timestamps: false,
   },
 });
+
+
 
 // Export the Sequelize instance to be used in other parts of the application
 module.exports = sequelize;
