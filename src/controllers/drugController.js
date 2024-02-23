@@ -1,4 +1,15 @@
 const DrugService = require('../services/drugService');
+
+const addPharmacyDrug = async (req, res) => {
+  const drugData = req.body;
+
+  try {
+    const newDrug = await DrugService.addPharmacyDrug(drugData);
+    res.json(newDrug);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 // Define an asynchronous function named 'addDrug'
 const addDrug = async (req, res) => {
   // Extract the drug data from the request body
@@ -96,5 +107,6 @@ module.exports = {
   searchDrugByBrandName,
   getDrugByGuid,
   filterDrugs,
-  addDrug
+  addDrug,
+  addPharmacyDrug
 };

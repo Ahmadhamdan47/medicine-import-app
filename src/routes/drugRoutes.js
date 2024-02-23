@@ -22,5 +22,8 @@ router.get('/filter/:query', drugController.filterDrugs);
 // Define a route for POST requests to '/add', and assign the 'addDrug' function from the 'drugController' module as the route handler
 router.post('/add', drugController.addDrug);
 
+// Define a route for POST requests to '/addpharmacy', and assign the 'addPharmacyDrug' function from the 'drugController' module as the route handler
+router.post('/addPharmacy', drugController.addPharmacyDrug);
+
 // Export the router object
 module.exports = router;
