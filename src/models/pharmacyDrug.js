@@ -4,6 +4,7 @@ const sequelize = require('../../config/databasePharmacy');
 const PharmacyDrug = sequelize.define('Drug_List', {
     Guid: {
         type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
@@ -168,13 +169,15 @@ const PharmacyDrug = sequelize.define('Drug_List', {
         type: DataTypes.BOOLEAN
     },
     CreatedDate: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
     },
     CreatedBy: {
         type: DataTypes.UUID
     },
     UpdatedDate: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
     },
     UpdatedBy: {
         type: DataTypes.UUID

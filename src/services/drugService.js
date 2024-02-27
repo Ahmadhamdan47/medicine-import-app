@@ -72,6 +72,7 @@ const addDrug = async (drugData) => {
 const addPharmacyDrug = async (drugData) => {
   try {
     const newDrug = await PharmacyDrug.create(drugData);
+    console.log(newDrug);
     return newDrug;
   } catch (error) {
   console.error(error);
