@@ -12,6 +12,9 @@ const swiftRoutes = require('./src/routes/swiftRoutes');
 const shipmentRoutes = require('./src/routes/shipmentRoutes');
 const rfdRoutes = require('./src/routes/rfdRoutes');
 const agentStockRoutes = require('./src/routes/agentStockRoutes');
+const donorRoutes = require('./src/routes/donorRoutes');
+const recipientRoutes = require('./src/routes/recipientRoutes');
+const donationRoutes = require('./src/routes/donationRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +31,9 @@ app.use('/swift', swiftRoutes);
 app.use('/shipment', shipmentRoutes);
 app.use('/rfd', rfdRoutes);
 app.use('/agentStock', agentStockRoutes);
+app.use('/donor', donorRoutes);
+app.use('/recipient', recipientRoutes);
+app.use('/donation', donationRoutes);
 // Sample route
 app.get('/', (req, res) => {
   res.send('Hello, Medicine Import App!');

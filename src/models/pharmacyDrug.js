@@ -1,190 +1,144 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const PharmacyDrug = sequelize.define('Drug_List', {
-    Guid: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
-        allowNull: false
+const NewDrug = sequelize.define('Drug', {
+    DrugID: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
     },
-    ATCGuid: {
-        type: DataTypes.UUID,
-        allowNull: false
+    DrugName: {
+        type: DataTypes.STRING(255)
     },
-    DosageGuid: {
-        type: DataTypes.UUID
-    },
-    PresentationGuid: {
-        type: DataTypes.UUID
-    },
-    FormGuid: {
-        type: DataTypes.UUID
-    },
-    RouteGuid: {
-        type: DataTypes.UUID
-    },
-    StratumGuid: {
-        type: DataTypes.UUID
-    },
-    StratumTypeGuid: {
-        type: DataTypes.UUID
-    },
-    AgentGuid: {
-        type: DataTypes.UUID
-    },
-    BrandGuid: {
-        type: DataTypes.UUID
-    },
-    ManufacturerGuid: {
-        type: DataTypes.UUID
-    },
-    CountryGuid: {
-        type: DataTypes.UUID
-    },
-    ResponsiblePartyGuid: {
-        type: DataTypes.UUID
-    },
-    DrugLabelGuid: {
-        type: DataTypes.UUID
-    },
-    Code: {
-        type: DataTypes.STRING
+    ManufacturerID: {
+        type: DataTypes.INTEGER
     },
     RegistrationNumber: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING(255)
     },
-    REP_date: {
-        type: DataTypes.DATE
+    GTIN: {
+        type: DataTypes.STRING(255)
+    },
+    Notes: {
+        type: DataTypes.TEXT
+    },
+    Description: {
+        type: DataTypes.STRING(500)
+    },
+    IngredientAndStrength: {
+        type: DataTypes.STRING(500)
+    },
+    Indication: {
+        type: DataTypes.STRING(500)
+    },
+    Posology: {
+        type: DataTypes.STRING(500)
+    },
+    MethodOfAdministration: {
+        type: DataTypes.STRING(500)
+    },
+    Contraindications: {
+        type: DataTypes.STRING(500)
+    },
+    PrecautionForUse: {
+        type: DataTypes.STRING(500)
+    },
+    EffectOnFGN: {
+        type: DataTypes.STRING(500)
+    },
+    SideEffect: {
+        type: DataTypes.STRING(500)
+    },
+    Toxicity: {
+        type: DataTypes.STRING(500)
+    },
+    StorageCondition: {
+        type: DataTypes.STRING(500)
+    },
+    ShelfLife: {
+        type: DataTypes.STRING(500)
+    },
+    IngredientLabel: {
+        type: DataTypes.STRING(500)
+    },
+    Price: {
+        type: DataTypes.DECIMAL(18, 6)
+    },
+    ImagesPath: {
+        type: DataTypes.TEXT
+    },
+    ImageDefault: {
+        type: DataTypes.BOOLEAN
+    },
+    InteractionIngredientName: {
+        type: DataTypes.STRING(255)
     },
     IsDouanes: {
         type: DataTypes.BOOLEAN
     },
-    Date_dc: {
+    RegistrationDate: {
         type: DataTypes.DATE
     },
-    LASTEffective_Date: {
-        type: DataTypes.DATE
-    },
-    CIF_FOB: {
-        type: DataTypes.STRING
-    },
-    LASTPublicABP: {
+    PublicPrice: {
         type: DataTypes.DECIMAL(18, 6)
-    },
-    LASTCurrencyGuid: {
-        type: DataTypes.UUID
     },
     SubsidyLabel: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING(255)
     },
     SubsidyPercentage: {
-        type: DataTypes.DECIMAL(18, 6)
-    },
-    LJ_FOB_ValueUSD: {
         type: DataTypes.DECIMAL(18, 6)
     },
     HospPricing: {
         type: DataTypes.BOOLEAN
     },
-    WJ_Leb_PubPriceHos: {
-        type: DataTypes.STRING
-    },
-    Seq: {
-        type: DataTypes.STRING
-    },
-    B_G: {
-        type: DataTypes.STRING
-    },
     Substitutable: {
         type: DataTypes.BOOLEAN
-    },
-    WEBCIF_FOB: {
-        type: DataTypes.STRING
-    },
-    WEBPublicABP: {
-        type: DataTypes.DECIMAL(18, 6)
-    },
-    WEBCurrency: {
-        type: DataTypes.UUID
-    },
-    NM: {
-        type: DataTypes.BOOLEAN
-    },
-    GTIN: {
-        type: DataTypes.STRING
-    },
-    Notes: {
-        type: DataTypes.STRING
-    },
-    Description: {
-        type: DataTypes.STRING
-    },
-    ActiveInactiveIngredient: {
-        type: DataTypes.STRING
-    },
-    Indication: {
-        type: DataTypes.STRING
-    },
-    Posology: {
-        type: DataTypes.STRING
-    },
-    MethodOfAdministration: {
-        type: DataTypes.STRING
-    },
-    Contraindications: {
-        type: DataTypes.STRING
-    },
-    PrecautionForUse: {
-        type: DataTypes.STRING
-    },
-    EffectOnFGN: {
-        type: DataTypes.STRING
-    },
-    SideEffect: {
-        type: DataTypes.STRING
-    },
-    Toxicity: {
-        type: DataTypes.STRING
-    },
-    StorageCondition: {
-        type: DataTypes.STRING
-    },
-    ShelfLife: {
-        type: DataTypes.STRING
-    },
-    IngredientLabel: {
-        type: DataTypes.STRING
-    },
-    IsBiological: {
-        type: DataTypes.BOOLEAN
-    },
-    IsNarcotis: {
-        type: DataTypes.BOOLEAN
-    },
-    IsOTC: {
-        type: DataTypes.BOOLEAN
-    },
-    IsNSSF: {
-        type: DataTypes.BOOLEAN
-    },
-    CreatedDate: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
     },
     CreatedBy: {
         type: DataTypes.UUID
     },
-    UpdatedDate: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+    CreatedDate: {
+        type: DataTypes.DATE
     },
     UpdatedBy: {
         type: DataTypes.UUID
+    },
+    UpdatedDate: {
+        type: DataTypes.DATE
+    },
+    OtherIngredients: {
+        type: DataTypes.STRING(500)
+    },
+    ATCRelatedIngredient: {
+        type: DataTypes.STRING(500)
+    },
+    ReviewDate: {
+        type: DataTypes.DATE
+    },
+    MoPHCode: {
+        type: DataTypes.STRING(10)
+    },
+    CargoShippingTerms: {
+        type: DataTypes.STRING(255)
+    },
+    ProductType: {
+        type: DataTypes.STRING(255)
+    },
+    NotMarketed: {
+        type: DataTypes.BOOLEAN
+    },
+    DFSequence: {
+        type: DataTypes.STRING(255)
+    },
+    PriceForeign: {
+        type: DataTypes.DECIMAL(18, 6)
+    },
+    CurrencyForeign: {
+        type: DataTypes.UUID
     }
 }, {
-    tableName: 'Drug_List',
+    tableName: 'Drug',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 
-module.exports = PharmacyDrug;
+module.exports = NewDrug;
