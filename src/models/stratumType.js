@@ -1,31 +1,19 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const City = sequelize.define('City', {
-    CityId: {
+const StratumType = sequelize.define('StratumType', {
+    StratumTypeId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    DistrictId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'District',
-            key: 'DistrictId'
-        }
-    },
-    Name: {
+    Code: {
         type: DataTypes.STRING(255),
         allowNull: true
     },
-    NameAr: {
-        type: DataTypes.STRING(255),
+    Description: {
+        type: DataTypes.TEXT,
         allowNull: true
-    },
-    Enabled: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
     },
     CreatedDate: {
         type: DataTypes.DATE,
@@ -45,8 +33,8 @@ const City = sequelize.define('City', {
         allowNull: true
     }
 }, {
-    tableName: 'Cities',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    tableName: 'StratumType',
+    timestamps: false
 });
 
-module.exports = City;
+module.exports = StratumType;

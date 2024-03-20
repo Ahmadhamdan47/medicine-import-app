@@ -1,18 +1,18 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const City = sequelize.define('City', {
-    CityId: {
+const Governorate = sequelize.define('Governorate', {
+    GovernorateId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    DistrictId: {
+    CountryId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'District',
-            key: 'DistrictId'
+            model: 'Country',
+            key: 'CountryId',
         }
     },
     Name: {
@@ -25,6 +25,7 @@ const City = sequelize.define('City', {
     },
     Enabled: {
         type: DataTypes.BOOLEAN,
+        allowNull: false,
         defaultValue: true
     },
     CreatedDate: {
@@ -45,8 +46,8 @@ const City = sequelize.define('City', {
         allowNull: true
     }
 }, {
-    tableName: 'Cities',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    tableName: 'Governorates',
+    timestamps: false
 });
 
-module.exports = City;
+module.exports = Governorate;
