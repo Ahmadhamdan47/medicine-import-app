@@ -1,44 +1,69 @@
-// index.js
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const logger = require('./config/logger');
-const drugRouter = require('./src/routes/drugRoutes'); 
-const submittedOrderRoutes = require('./src/routes/submittedOrderRoutes');
-const rfiRoutes = require('./src/routes/rfiRoutes');
-const piRoutes = require('./src/routes/piRoutes');
-const swiftRoutes = require('./src/routes/swiftRoutes');
-const shipmentRoutes = require('./src/routes/shipmentRoutes');
-const rfdRoutes = require('./src/routes/rfdRoutes');
-const agentStockRoutes = require('./src/routes/agentStockRoutes');
-const donorRoutes = require('./src/routes/donorRoutes');
-const recipientRoutes = require('./src/routes/recipientRoutes');
-const donationRoutes = require('./src/routes/donationRoutes');
-const atcRoutes = require('./src/routes/atcRoutes');
+const express = require("express");
+const swaggerUi = require("swagger-ui-express");
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerConfig = require("./config/swagger");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const logger = require("./config/logger");
+const drugRouter = require("./src/routes/drugRoutes");
+const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
+const rfiRoutes = require("./src/routes/rfiRoutes");
+const piRoutes = require("./src/routes/piRoutes");
+const swiftRoutes = require("./src/routes/swiftRoutes");
+const shipmentRoutes = require("./src/routes/shipmentRoutes");
+const rfdRoutes = require("./src/routes/rfdRoutes");
+const agentStockRoutes = require("./src/routes/agentStockRoutes");
+const donorRoutes = require("./src/routes/donorRoutes");
+const recipientRoutes = require("./src/routes/recipientRoutes");
+const donationRoutes = require("./src/routes/donationRoutes");
+const atcRoutes = require("./src/routes/atcRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
+
+// Swagger definition
+const swaggerSpec = swaggerJSDoc(swaggerConfig);
+
+// Serve Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Middleware for logging incoming requests
+app.use((req, res, next) => {
+  logger.info(`[${new Date().toISOString()}] [${req.method}] ${req.url}`);
+  next();
+});
 
 app.use(bodyParser.json());
 app.use(cors());
 
 // Use your router
-app.use('/drugs', drugRouter);
-app.use('/submittedOrders', submittedOrderRoutes);
-app.use('/rfi', rfiRoutes);
-app.use('/pi', piRoutes);
-app.use('/swift', swiftRoutes);
-app.use('/shipment', shipmentRoutes);
-app.use('/rfd', rfdRoutes);
-app.use('/agentStock', agentStockRoutes);
-app.use('/donor', donorRoutes);
-app.use('/recipient', recipientRoutes);
-app.use('/donation', donationRoutes);
-app.use('/atc', atcRoutes);
+app.use("/drugs", drugRouter);
+app.use("/submittedOrders", submittedOrderRoutes);
+app.use("/rfi", rfiRoutes);
+app.use("/pi", piRoutes);
+app.use("/swift", swiftRoutes);
+app.use("/shipment", shipmentRoutes);
+app.use("/rfd", rfdRoutes);
+app.use("/agentStock", agentStockRoutes);
+app.use("/donor", donorRoutes);
+app.use("/recipient", recipientRoutes);
+app.use("/donation", donationRoutes);
+app.use("/atc", atcRoutes);
+
 // Sample route
-app.get('/', (req, res) => {
-  res.send('Hello, Medicine Import App!');
+app.get("/", (req, res) => {
+  logger.info(
+    `[${new Date().toISOString()}] [GET] / - Hello, Medicine Import App!`
+  );
+  res.send("Hello, Medicine Import App!");
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  logger.error(
+    `[${new Date().toISOString()}] An error occurred: ${err.message}`
+  );
+  res.status(500).send("Something went wrong!");
 });
 
 app.listen(PORT, () => {

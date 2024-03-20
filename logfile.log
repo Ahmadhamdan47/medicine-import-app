@@ -1,14 +1,143 @@
-info: Server is running on port 3000 {"timestamp":"2024-01-20T17:26:18.908Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-20T17:31:16.257Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T12:52:45.751Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T12:59:19.220Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:05:41.430Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:08:59.511Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:09:27.895Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:10:05.137Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:26:20.001Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:30:32.088Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:38:32.736Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-21T13:41:06.662Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-27T14:30:42.380Z"}
-info: Server is running on port 3000 {"timestamp":"2024-01-27T14:37:16.698Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:44:58.725Z"}
+info: [2024-03-20T09:45:04.629Z] [GET] /swagger {"timestamp":"2024-03-20T09:45:04.629Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:49:01.054Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:49:14.437Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:52:11.678Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:56:21.124Z"}
+info: [2024-03-20T09:56:43.216Z] [GET] /search/atc/a {"timestamp":"2024-03-20T09:56:43.216Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:58:11.501Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:58:17.656Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:58:58.435Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:59:06.120Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T09:59:51.192Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:00:28.793Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:01:02.206Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:01:44.334Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:02:21.710Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:02:29.289Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:02:50.862Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:03:09.782Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:03:30.544Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:03:54.435Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:04:19.647Z"}
+info: [2024-03-20T10:04:56.354Z] [GET] /search/brand/panadol {"timestamp":"2024-03-20T10:04:56.354Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:05:41.265Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:05:46.005Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:05:52.970Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:06:04.116Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:06:13.946Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:06:21.280Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:06:56.932Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:07:09.919Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:09:01.170Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:09:04.814Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:09:51.944Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:10:08.914Z"}
+info: [2024-03-20T10:10:17.127Z] [GET] /search/brand/panadol {"timestamp":"2024-03-20T10:10:17.127Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:10:59.674Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:11:03.617Z"}
+info: [2024-03-20T10:12:12.459Z] [GET] /search/brand/a {"timestamp":"2024-03-20T10:12:12.460Z"}
+info: [2024-03-20T10:12:29.011Z] [GET] /search/brand/w {"timestamp":"2024-03-20T10:12:29.011Z"}
+info: [2024-03-20T10:12:42.170Z] [GET] /search/atc/a {"timestamp":"2024-03-20T10:12:42.170Z"}
+info: [2024-03-20T10:13:23.427Z] [GET] /search/atc/s {"timestamp":"2024-03-20T10:13:23.427Z"}
+info: [2024-03-20T10:13:29.973Z] [GET] /search/atc/a {"timestamp":"2024-03-20T10:13:29.974Z"}
+info: [2024-03-20T10:13:59.584Z] [GET] /guid/089ED2A0-7342-4DF5-AE53-21113037AA96 {"timestamp":"2024-03-20T10:13:59.584Z"}
+info: [2024-03-20T10:14:16.360Z] [GET] /guid/7 {"timestamp":"2024-03-20T10:14:16.360Z"}
+info: [2024-03-20T10:14:52.286Z] [GET] /guid/7 {"timestamp":"2024-03-20T10:14:52.286Z"}
+info: [2024-03-20T10:15:02.703Z] [GET] /guid/089ED2A0-7342-4DF5-AE53-21113037AA96 {"timestamp":"2024-03-20T10:15:02.703Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:15:29.639Z"}
+info: [2024-03-20T10:16:29.549Z] [GET] /drugs {"timestamp":"2024-03-20T10:16:29.549Z"}
+info: [2024-03-20T10:16:39.851Z] [GET] /api/drugs {"timestamp":"2024-03-20T10:16:39.851Z"}
+info: [2024-03-20T10:17:20.249Z] [GET] /drugs/guid/089ED2A0-7342-4DF5-AE53-21113037AA96 {"timestamp":"2024-03-20T10:17:20.249Z"}
+info: [2024-03-20T10:17:45.869Z] [GET] /drugs/guid/7 {"timestamp":"2024-03-20T10:17:45.869Z"}
+info: [2024-03-20T10:17:55.517Z] [GET] /drugs/guid/ {"timestamp":"2024-03-20T10:17:55.517Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:20:56.869Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:21:31.542Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:22:54.381Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:22:56.627Z"}
+info: [2024-03-20T10:23:12.098Z] [GET] /drugs {"timestamp":"2024-03-20T10:23:12.098Z"}
+error: [2024-03-20T10:23:12.102Z] An error occurred: drugService is not defined {"timestamp":"2024-03-20T10:23:12.102Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:25:13.136Z"}
+info: [2024-03-20T10:25:17.187Z] [GET] /drugs {"timestamp":"2024-03-20T10:25:17.187Z"}
+error: [2024-03-20T10:25:17.221Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:25:17.221Z"}
+info: [2024-03-20T10:26:46.513Z] [GET] /drugs/ {"timestamp":"2024-03-20T10:26:46.513Z"}
+error: [2024-03-20T10:26:46.596Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:26:46.596Z"}
+info: [2024-03-20T10:26:54.475Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:26:54.475Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:27:06.182Z"}
+info: [2024-03-20T10:27:08.631Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:27:08.631Z"}
+error: [2024-03-20T10:27:08.680Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:27:08.681Z"}
+info: [2024-03-20T10:27:22.115Z] [GET] /drugs {"timestamp":"2024-03-20T10:27:22.115Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:27:49.141Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:28:14.223Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:28:17.997Z"}
+info: [2024-03-20T10:28:28.609Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:28:28.609Z"}
+error: [2024-03-20T10:28:28.670Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:28:28.670Z"}
+info: [2024-03-20T10:28:42.863Z] [POST] /add {"timestamp":"2024-03-20T10:28:42.864Z"}
+error: [2024-03-20T10:28:42.882Z] An error occurred: Unexpected token '"', ""string"" is not valid JSON {"timestamp":"2024-03-20T10:28:42.882Z"}
+info: [2024-03-20T10:30:25.346Z] [POST] /drugs/all {"timestamp":"2024-03-20T10:30:25.346Z"}
+info: [2024-03-20T10:30:32.622Z] [POST] /drugs/add {"timestamp":"2024-03-20T10:30:32.622Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:32:53.351Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:33:37.000Z"}
+info: [2024-03-20T10:33:54.040Z] [POST] /drugs/add {"timestamp":"2024-03-20T10:33:54.040Z"}
+info: [2024-03-20T10:34:03.406Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:34:03.406Z"}
+error: [2024-03-20T10:34:03.440Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:34:03.440Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:38:31.209Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:39:19.536Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:39:57.043Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:40:45.166Z"}
+info: [2024-03-20T10:40:52.926Z] [POST] /add {"timestamp":"2024-03-20T10:40:52.926Z"}
+error: [2024-03-20T10:40:52.945Z] An error occurred: Unexpected token '"', ""string"" is not valid JSON {"timestamp":"2024-03-20T10:40:52.945Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:41:09.306Z"}
+info: [2024-03-20T10:41:14.740Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:41:14.740Z"}
+error: [2024-03-20T10:41:14.787Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:41:14.787Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:43:13.003Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:43:20.492Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:44:04.002Z"}
+info: [2024-03-20T10:44:20.121Z] [GET] /drugs/all {"timestamp":"2024-03-20T10:44:20.121Z"}
+error: [2024-03-20T10:44:20.220Z] An error occurred: Error in drugService:  {"timestamp":"2024-03-20T10:44:20.220Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:48:40.062Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:53:58.639Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:54:47.380Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:55:15.752Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:56:53.816Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T10:58:07.220Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:12:35.970Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:12:55.729Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:13:19.073Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:15:33.715Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:15:40.935Z"}
+info: [2024-03-20T11:16:36.668Z] [GET] /drugSwagger {"timestamp":"2024-03-20T11:16:36.668Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:17:20.052Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:20:02.662Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:20:33.834Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:21:32.044Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:22:15.414Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:22:53.810Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:23:13.066Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:23:19.952Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:23:33.036Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:24:02.605Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:24:06.808Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:24:10.919Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:24:29.758Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:25:05.905Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:25:43.235Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:26:07.393Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:26:37.093Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:26:41.778Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:27:02.776Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:27:24.717Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:27:36.729Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:28:32.942Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:28:57.992Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:29:00.306Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:30:00.416Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:31:00.017Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:31:56.121Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:32:12.214Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:32:37.708Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:32:47.563Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:33:06.799Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:33:18.661Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:33:37.518Z"}
+info: Server is running on port 9000 {"timestamp":"2024-03-20T11:33:44.151Z"}

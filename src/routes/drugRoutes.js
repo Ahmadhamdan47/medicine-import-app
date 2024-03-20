@@ -1,29 +1,271 @@
-// Import the 'express' module
-const express = require('express');
-
-// Create a new router object
+const express = require("express");
 const router = express.Router();
 
-// Import the 'drugController' module
-const drugController = require('../controllers/drugController');
+const drugController = require("../controllers/drugController");
+/**
+ * @swagger
+ * /search/atc/{query}:
+ *   get:
+ *     summary: Search drugs by ATC name
+ *     description: Retrieve drugs matching the specified ATC name.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The ATC name to search for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the ATC name retrieved successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified ATC name.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/search/atc/:query", drugController.searchDrugByATCName);
 
-// Define a route for GET requests to '/search/atc/:query', and assign the 'searchDrugByATCName' function from the 'drugController' module as the route handler
-router.get('/search/atc/:query', drugController.searchDrugByATCName);
+/**
+ * @swagger
+ * /search/brand/{query}:
+ *   get:
+ *     summary: Search drugs by brand name
+ *     description: Retrieve drugs matching the specified brand name.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The brand name to search for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the brand name retrieved successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified brand name.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/search/brand/:query", drugController.searchDrugByBrandName);
 
-// Define a route for GET requests to '/search/brand/:query', and assign the 'searchDrugByBrandName' function from the 'drugController' module as the route handler
-router.get('/search/brand/:query', drugController.searchDrugByBrandName);
+/**
+ * @swagger
+ * /guid/{guid}:
+ *   get:
+ *     summary: Get drug by GUID
+ *     description: Retrieve a drug by its GUID.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: guid
+ *         required: true
+ *         description: The GUID of the drug to retrieve.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drug retrieved successfully.
+ *       '404':
+ *         description: Not Found. Drug not found for the specified GUID.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drug.
+ */
+router.get("/guid/:guid", drugController.getDrugByGuid);
 
-// Define a route for GET requests to '/guid/:guid', and assign the 'getDrugByGuid' function from the 'drugController' module as the route handler
-router.get('/guid/:guid', drugController.getDrugByGuid);
+/**
+ * @swagger
+ * /filter/{query}:
+ *   get:
+ *     summary: Filter drugs
+ *     description: Filter drugs based on the specified criteria.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The filter criteria.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs filtered successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified criteria.
+ *       '500':
+ *         description: Internal Server Error. Failed to filter drugs.
+ */
+router.get("/filter/:query", drugController.filterDrugs);
 
-// Define a route for GET requests to '/filter/:query', and assign the 'filterDrugs' function from the 'drugController' module as the route handler
-router.get('/filter/:query', drugController.filterDrugs);
+/**
+ * @swagger
+ * /add:
+ *   post:
+ *     summary: Add a new drug
+ *     description: Add a new drug to the database.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DrugName:
+ *                 type: string
+ *               ManufacturerID:
+ *                 type: integer
+ *               RegistrationNumber:
+ *                 type: string
+ *               GTIN:
+ *                 type: string
+ *               Notes:
+ *                 type: string
+ *               Description:
+ *                 type: string
+ *               IngredientAndStrength:
+ *                 type: string
+ *               Indication:
+ *                 type: string
+ *               Posology:
+ *                 type: string
+ *               MethodOfAdministration:
+ *                 type: string
+ *               Contraindications:
+ *                 type: string
+ *               PrecautionForUse:
+ *                 type: string
+ *               EffectOnFGN:
+ *                 type: string
+ *               SideEffect:
+ *                 type: string
+ *               Toxicity:
+ *                 type: string
+ *               StorageCondition:
+ *                 type: string
+ *               ShelfLife:
+ *                 type: string
+ *               IngredientLabel:
+ *                 type: string
+ *               Price:
+ *                 type: number
+ *               ImagesPath:
+ *                 type: string
+ *               ImageDefault:
+ *                 type: boolean
+ *               InteractionIngredientName:
+ *                 type: string
+ *               IsDouanes:
+ *                 type: boolean
+ *               RegistrationDate:
+ *                 type: string
+ *                 format: date
+ *               PublicPrice:
+ *                 type: number
+ *               SubsidyLabel:
+ *                 type: string
+ *               SubsidyPercentage:
+ *                 type: number
+ *               HospPricing:
+ *                 type: boolean
+ *               Substitutable:
+ *                 type: boolean
+ *               CreatedBy:
+ *                 type: string
+ *                 format: uuid
+ *               CreatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               UpdatedBy:
+ *                 type: string
+ *                 format: uuid
+ *               UpdatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               OtherIngredients:
+ *                 type: string
+ *               ATCRelatedIngredient:
+ *                 type: string
+ *               ReviewDate:
+ *                 type: string
+ *                 format: date
+ *               MoPHCode:
+ *                 type: string
+ *               CargoShippingTerms:
+ *                 type: string
+ *               ProductType:
+ *                 type: string
+ *               NotMarketed:
+ *                 type: boolean
+ *               DFSequence:
+ *                 type: string
+ *               PriceForeign:
+ *                 type: number
+ *               CurrencyForeign:
+ *                 type: string
+ *                 format: uuid
+ *     responses:
+ *       '200':
+ *         description: OK. Drug added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add drug.
+ */
+router.post("/add", drugController.addDrug);
 
-// Define a route for POST requests to '/add', and assign the 'addDrug' function from the 'drugController' module as the route handler
-router.post('/add', drugController.addDrug);
+/**
+ * @swagger
+ * /addPharmacy:
+ *   post:
+ *     summary: Add a new patient to pharmacy
+ *     description: Add a new patient to the pharmacy database.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               FirstName:
+ *                 type: string
+ *               LastName:
+ *                 type: string
+ *               DateOfBirth:
+ *                 type: string
+ *                 format: date
+ *               Gender:
+ *                 type: string
+ *               PhoneNumber:
+ *                 type: string
+ *               Email:
+ *                 type: string
+ *               Address:
+ *                 type: string
+ *               IsActive:
+ *                 type: boolean
+ *     responses:
+ *       '200':
+ *         description: OK. Patient added to pharmacy successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add patient to pharmacy.
+ */
+router.post("/addPharmacy", drugController.addPharmacyDrug);
 
-// Define a route for POST requests to '/addpharmacy', and assign the 'addPharmacyDrug' function from the 'drugController' module as the route handler
-router.post('/addPharmacy', drugController.addPharmacyDrug);
+/**
+ * @swagger
+ * /drugs/all:
+ *   get:
+ *     summary: Get all drugs
+ *     description: Retrieve all drugs available in the system.
+ *     tags: [Drug]
+ *     response:
+ *       '200':
+ *         description: OK. Drugs retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/all", drugController.getAllDrugs); // Add this route definition
 
 // Export the router object
 module.exports = router;
