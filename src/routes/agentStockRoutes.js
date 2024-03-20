@@ -1,14 +1,39 @@
-// Import the 'express' module
-const express = require('express');
-
-// Create a new router object
+const express = require("express");
 const router = express.Router();
 
-// Import the 'agentStockController' module
-const agentStockController = require('../controllers/agentStockController');
+const agentStockController = require("../controllers/agentStockController");
 
-// Define a route for PUT requests to '/:id/stock', and assign the 'stockAgent' function from the 'agentStockController' module as the route handler
-router.put('/:id/stock', agentStockController.stockAgent);
+/**
+ * @swagger
+ * /agentStock/{id}/stock:
+ *   put:
+ *     summary: Update agent stock
+ *     description: Update the stock of an agent by agent ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the agent whose stock needs to be updated.
+ *         schema:
+ *           type: string
+ *       - in: body
+ *         name: stock
+ *         required: true
+ *         description: The new stock value for the agent.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             stock:
+ *               type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. Agent stock updated successfully.
+ *       '404':
+ *         description: Not Found. Agent not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to update agent stock.
+ */
+router.put("/:id/stock", agentStockController.stockAgent);
 
-// Export the router object
 module.exports = router;

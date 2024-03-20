@@ -1,17 +1,53 @@
-// Import the 'express' module
-const express = require('express');
-
-// Create a new router object
+const express = require("express");
 const router = express.Router();
+const rfiController = require("../controllers/rfiController");
 
-// Import the 'rfiController' module
-const rfiController = require('../controllers/rfiController');
+/**
+ * @swagger
+ * /rfi/edit/{id}:
+ *   put:
+ *     summary: Edit RFI
+ *     description: Edit an RFI by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the RFI to edit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. RFI edited successfully.
+ *       '404':
+ *         description: Not Found. RFI not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to edit RFI.
+ */
+router.put("/edit/:id", rfiController.editRfi);
 
-// Define a route for PUT requests to '/edit/:id', and assign the 'editRfi' function from the 'rfiController' module as the route handler
-router.put('/edit/:id', rfiController.editRfi); // id is a URL parameter
+/**
+ * @swagger
+ * /rfi/approve/{id}:
+ *   put:
+ *     summary: Approve RFI Quantity
+ *     description: Approve the quantity of an RFI by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the RFI to approve quantity for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. RFI quantity approved successfully.
+ *       '404':
+ *         description: Not Found. RFI not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to approve RFI quantity.
+ */
+router.put("/approve/:id", rfiController.approveQuantity);
 
-// Define a route for PUT requests to '/approve/:id', and assign the 'approveQuantity' function from the 'rfiController' module as the route handler
-router.put('/approve/:id', rfiController.approveQuantity);
-
-// Export the router object
 module.exports = router;

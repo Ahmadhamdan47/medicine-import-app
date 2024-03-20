@@ -1,14 +1,29 @@
-// Import the 'express' module
 const express = require('express');
-
-// Create a new router object
 const router = express.Router();
-
-// Import the 'shipmentController' module
 const shipmentController = require('../controllers/shipmentController');
 
-// Define a route for PUT requests to '/submit/:id', and assign the 'submitShipment' function from the 'shipmentController' module as the route handler
+/**
+ * @swagger
+ * /shipment/submit/{id}:
+ *   put:
+ *     summary: Submit Shipment
+ *     description: Submit a shipment by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the shipment to submit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Shipment submitted successfully.
+ *       '404':
+ *         description: Not Found. Shipment not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to submit shipment.
+ */
 router.put('/submit/:id', shipmentController.submitShipment);
 
-// Export the router object
 module.exports = router;
