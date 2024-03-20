@@ -15,6 +15,7 @@ const agentStockRoutes = require('./src/routes/agentStockRoutes');
 const donorRoutes = require('./src/routes/donorRoutes');
 const recipientRoutes = require('./src/routes/recipientRoutes');
 const donationRoutes = require('./src/routes/donationRoutes');
+const atcRoutes = require('./src/routes/atcRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ app.use('/agentStock', agentStockRoutes);
 app.use('/donor', donorRoutes);
 app.use('/recipient', recipientRoutes);
 app.use('/donation', donationRoutes);
+app.use('/atc', atcRoutes);
 // Sample route
 app.get('/', (req, res) => {
   res.send('Hello, Medicine Import App!');

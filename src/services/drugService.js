@@ -1,18 +1,43 @@
 // src/services/drugService.js
 const Sequelize = require('sequelize');
 const { Op } = require('sequelize');
-const Drug = require('../models/Drug');
+const Drug = require('../models/pharmacyDrug');
 const PharmacyDrug = require('../models/pharmacyDrug');
+const Drug_ATC_Mapping = require('../models/AtcMapping');
+const ATC_Code = require('../models/ATC'); // Assuming you have a model for ATC_Code
+const ATCService = require('./atcService');
 
-const searchDrugByATCName = async (query) => {
+const searchDrugByATCName = async (atcName) => {
   try {
-    const drugs = await Drug.findAll({
-      where: {
-        ATCName: { [Op.like]: `%${query}%` }
-      },
-      attributes: ['BrandName', 'ATCName', 'PriceUSD', 'PriceLBP', 'DosageName', 'PresentationName', 'FormName', 'RouteName', 'StratumTypeName', 'CountryName', 'ManufacturerName', 'ImageDefault']
+    // Find the ATC code
+    const atcCode = await ATC_Code.findOne({
+      where: { ATCName: atcName }
     });
-    console.log(drugs);
+
+    if (!atcCode) {
+      throw new Error(`ATC code not found: ${atcName}`);
+    }
+
+    // Find the mappings
+    const mappings = await Drug_ATC_Mapping.findAll({
+      where: { ATC_ID: atcCode.ATC_ID }
+    });
+
+    // Find the drugs and their corresponding ATC codes
+    const drugs = await Promise.all(mappings.map(async mapping => {
+      const drug = await Drug.findOne({
+        where: { DrugID: mapping.DrugID },
+        attributes: ['BrandName', 'PriceForeign', 'PublicPrice', 'ImageDefault']
+      });
+
+      const atc = await ATCService.getATCByDrugID(mapping.DrugID);
+
+      return {
+        ...drug.get({ plain: true }), // Convert Sequelize instance to plain JavaScript object
+        ATC: atc
+      };
+    }));
+
     return drugs;
   } catch (error) {
     console.error(error);

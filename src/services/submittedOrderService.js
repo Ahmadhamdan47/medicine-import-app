@@ -13,7 +13,7 @@ const submitOrder = async (guid, quantity) => {
 
         const order = await submittedOrder.create({
             brandName: drug.BrandName,
-            drugId:drug.Guid,
+            drugId:drug.DrugId,
             quantityRequested: quantity,
             RFI: false,
             Result: false,
