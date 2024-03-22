@@ -4,7 +4,7 @@ const { Op } = require('sequelize');
 const Drug = require('../models/pharmacyDrug');
 const PharmacyDrug = require('../models/pharmacyDrug');
 const Drug_ATC_Mapping = require('../models/AtcMapping');
-const ATC_Code = require('../models/ATC'); // Assuming you have a model for ATC_Code
+const ATC_Code = require('../models/atc'); // Assuming you have a model for ATC_Code
 const ATCService = require('./atcService');
 
 const searchDrugByATCName = async (atcName) => {
