@@ -1,7 +1,7 @@
 
 
 const Drug_ATC_Mapping = require('../models/AtcMapping');
-const ATC_Code = require('../models/Atc');
+const ATC_Code = require('../models/atc');
 
 const getATCByDrugID = async (drugID) => {
     try {
