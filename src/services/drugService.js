@@ -153,34 +153,28 @@ const addPharmacyDrug = async (drugData) => {
 const getAllDrugs = async () => {
   try {
     const drugs = await Drug.findAll({
-      attributes: [
-        "BrandName",
-        "ATCName",
-        "PriceUSD",
-        "PriceLBP",
-        "DosageName",
-        "PresentationName",
-        "FormName",
-        "RouteName",
-        "StratumTypeName",
-        "CountryName",
-        "ManufacturerName",
-        "ImageDefault",
-      ],
-      logging: (query) => {
-        if (!query || !query.sql) {
-          return; // Exit early if the query or SQL string is undefined
-        }
-
-        logger.info(`Generated SQL Query: ${query.sql}`);
-      },
+      // attributes: [
+      //   "BrandName",
+      //   "ATCName",
+      //   "PriceUSD",
+      //   "PriceLBP",
+      //   "DosageName",
+      //   "PresentationName",
+      //   "FormName",
+      //   "RouteName",
+      //   "StratumTypeName",
+      //   "CountryName",
+      //   "ManufacturerName",
+      //   "ImageDefault",
+      // ],
     });
     return drugs;
   } catch (error) {
-    console.error(error);
-    throw new Error("Error in drugService: " + error.message);
+    console.error("Error fetching drugs:", error);
+    throw new Error("Failed to fetch drugs");
   }
 };
+
 
 module.exports = {
   searchDrugByATCName,

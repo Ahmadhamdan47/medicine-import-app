@@ -21,11 +21,31 @@ const atcRoutes = require("./src/routes/atcRoutes");
 const app = express();
 const PORT = process.env.PORT || 9000;
 
-// Swagger definition
+
+
+// // Swagger definition
 const swaggerSpec = swaggerJSDoc(swaggerConfig);
 
 // Serve Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Serve Swagger UI static files
+app.use("/swagger-ui", express.static("node_modules/swagger-ui-dist"));
+
+// Serve Swagger specification as JSON
+app.get("/swagger.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(swaggerSpec);
+});
+
+// Swagger definition
+// const swaggerSpec = swaggerJSDoc(swaggerConfig);
+
+// Serve Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Serve Swagger UI static files
+app.use("/api-docs", express.static("node_modules/swagger-ui-dist"));
 
 // Middleware for logging incoming requests
 app.use((req, res, next) => {

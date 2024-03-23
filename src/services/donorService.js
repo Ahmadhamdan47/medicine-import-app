@@ -10,4 +10,14 @@ const addDonor = async (donorData) => {
     }
 };
 
-module.exports = { addDonor };
+const getAllDonors = async () => {
+    try {
+        const donors = await Donor.findAll();
+        return donors;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in donorService: ' + error.message);
+    }
+};
+
+module.exports = { addDonor, getAllDonors };

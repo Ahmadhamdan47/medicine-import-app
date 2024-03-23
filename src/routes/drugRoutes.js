@@ -4,7 +4,7 @@ const router = express.Router();
 const drugController = require("../controllers/drugController");
 /**
  * @swagger
- * /search/atc/{query}:
+ * /drugs/search/atc/{query}:
  *   get:
  *     summary: Search drugs by ATC name
  *     description: Retrieve drugs matching the specified ATC name.
@@ -28,7 +28,7 @@ router.get("/search/atc/:query", drugController.searchDrugByATCName);
 
 /**
  * @swagger
- * /search/brand/{query}:
+ * /drugs/search/brand/{query}:
  *   get:
  *     summary: Search drugs by brand name
  *     description: Retrieve drugs matching the specified brand name.
@@ -52,7 +52,7 @@ router.get("/search/brand/:query", drugController.searchDrugByBrandName);
 
 /**
  * @swagger
- * /guid/{guid}:
+ * /drugs/guid/{guid}:
  *   get:
  *     summary: Get drug by GUID
  *     description: Retrieve a drug by its GUID.
@@ -76,7 +76,7 @@ router.get("/guid/:guid", drugController.getDrugByGuid);
 
 /**
  * @swagger
- * /filter/{query}:
+ * /drugs/filter/{query}:
  *   get:
  *     summary: Filter drugs
  *     description: Filter drugs based on the specified criteria.
@@ -100,7 +100,7 @@ router.get("/filter/:query", drugController.filterDrugs);
 
 /**
  * @swagger
- * /add:
+ * /drugs/add:
  *   post:
  *     summary: Add a new drug
  *     description: Add a new drug to the database.
@@ -215,7 +215,7 @@ router.post("/add", drugController.addDrug);
 
 /**
  * @swagger
- * /addPharmacy:
+ * /drugs/addPharmacy:
  *   post:
  *     summary: Add a new patient to pharmacy
  *     description: Add a new patient to the pharmacy database.

@@ -138,7 +138,7 @@ const NewDrug = sequelize.define('Drug', {
     }
 }, {
     tableName: 'Drug',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false
 });
 
 module.exports = NewDrug;

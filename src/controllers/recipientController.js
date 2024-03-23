@@ -5,10 +5,19 @@ const addRecipient = async (req, res) => {
 
     try {
         const newRecipient = await recipientService.addRecipient(recipientData);
-        res.json(newRecipient);
+        res.status(201).json(newRecipient);
     } catch (error) {
         res.status(500).json({ error: error.toString() });
     }
 };
 
-module.exports = { addRecipient };
+const getAllRecipients = async (req, res) => {
+    try {
+        const recipients = await recipientService.getAllRecipients();
+        res.json(recipients);
+    } catch (error) {
+        res.status(500).json({ error: error.toString() });
+    }
+};
+
+module.exports = { addRecipient, getAllRecipients };

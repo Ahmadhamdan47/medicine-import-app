@@ -45,4 +45,19 @@ const donationController = require("../controllers/donationController");
  */
 router.post("/add", donationController.addDonation);
 
+/**
+ * @swagger
+ * /donation/all:
+ *   get:
+ *     summary: Get all donation
+ *     description: Retrieve all donation from the system.
+ *     tags: [Donation]
+ *     responses:
+ *       '200':
+ *         description: OK. List of all donation retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve donation.
+ */
+router.get("/all", donationController.getAllDonations);
+
 module.exports = router;
