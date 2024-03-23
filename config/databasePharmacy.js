@@ -1,79 +1,82 @@
-const Sequelize = require('sequelize');
-const winston = require('winston');
+const Sequelize = require("sequelize");
+const winston = require("winston");
 
 // Configure winston logger
 const logger = winston.createLogger({
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    ],
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.simple()
-    ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "error.log", level: "error" }),
+  ],
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.simple()
+  ),
 });
 
 // Function to handle errors during Sequelize initialization
 function handleSequelizeError(error) {
-    logger.error('Error occurred while initializing Sequelize:', error);
-    process.exit(1); // Exit the process with a non-zero status code
+  logger.error("Error occurred while initializing Sequelize:", error);
+  process.exit(1); // Exit the process with a non-zero status code
 }
 
 try {
-    const sequelize = new Sequelize('PharmacyService', 'sa', '1234', {
-        host: 'localhost',
-        dialect: 'mssql',
-        dialectOptions: {
-            instanceName: 'SQLEXPRESS',
-        },
-        logging: (query) => {
-            if (!query || !query.sql) {
-                return; // Exit early if the query or SQL string is undefined
-            }
-            
-            const { sql, bind } = query;
-            let logMessage = `[${new Date().toISOString()}]`;
+  const sequelize = new Sequelize("PharmacyService", "sa", "1234", {
+    host: "localhost",
+    dialect: "mssql",
+    dialectOptions: {
+      instanceName: "SQLEXPRESS",
+    },
+    logging: (query) => {
+      if (!query || !query.sql) {
+        return; // Exit early if the query or SQL string is undefined
+      }
 
-            // Extract SQL command (SELECT, INSERT, UPDATE, DELETE)
-            const sqlCommand = sql.split(' ')[0];
-            logMessage += ` ${sqlCommand}`;
+      const { sql, bind } = query;
+      let logMessage = `[${new Date().toISOString()}]`;
 
-            // Extract table name from SQL query (for SELECT, INSERT INTO)
-            let tableName = '';
-            if (sqlCommand === 'SELECT') {
-                tableName = sql.match(/FROM\s+(\w+)/i);
-            } else if (sqlCommand === 'INSERT') {
-                tableName = sql.match(/INTO\s+(\w+)/i);
-            } else if (sqlCommand === 'UPDATE') {
-                tableName = sql.match(/UPDATE\s+(\w+)/i);
-            } else if (sqlCommand === 'DELETE') {
-                tableName = sql.match(/FROM\s+(\w+)/i);
-            }
+      // Extract SQL command (SELECT, INSERT, UPDATE, DELETE)
+      const sqlCommand = sql.split(" ")[0];
+      logMessage += ` ${sqlCommand}`;
 
-            if (tableName && tableName.length > 1) {
-                logMessage += ` ${tableName[1]}`;
-            }
+      // Extract table name from SQL query (for SELECT, INSERT INTO)
+      let tableName = "";
+      if (sqlCommand === "SELECT") {
+        tableName = sql.match(/FROM\s+(\w+)/i);
+      } else if (sqlCommand === "INSERT") {
+        tableName = sql.match(/INTO\s+(\w+)/i);
+      } else if (sqlCommand === "UPDATE") {
+        tableName = sql.match(/UPDATE\s+(\w+)/i);
+      } else if (sqlCommand === "DELETE") {
+        tableName = sql.match(/FROM\s+(\w+)/i);
+      }
 
-            // Include bound parameters
-            if (bind) {
-                logMessage += ` with parameters ${JSON.stringify(bind)}`;
-            }
+      if (tableName && tableName.length > 1) {
+        logMessage += ` ${tableName[1]}`;
+      }
 
-            logger.info(`Database Query: ${logMessage}`);
-        },
-        define: {
-            timestamps: false,
-        },
-    });
+      // Include bound parameters
+      if (bind) {
+        logMessage += ` with parameters ${JSON.stringify(bind)}`;
+      }
 
-    // Test the connection to the database
-    sequelize.authenticate()
-        .then(() => {
-            logger.info('Connection to the database PharmacyService has been established successfully.');
-        })
-        .catch(handleSequelizeError);
+      logger.info(`Database Query: ${logMessage}`);
+    },
+    define: {
+      timestamps: false,
+    },
+  });
 
-    module.exports = sequelize;
+  // Test the connection to the database
+  sequelize
+    .authenticate()
+    .then(() => {
+      logger.info(
+        "Connection to the database PharmacyService has been established successfully."
+      );
+    })
+    .catch(handleSequelizeError);
+
+  module.exports = sequelize;
 } catch (error) {
-    handleSequelizeError(error);
+  handleSequelizeError(error);
 }

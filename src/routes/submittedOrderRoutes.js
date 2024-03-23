@@ -7,7 +7,7 @@ const mockDrugSelection = require("../middlewares/mockDrugSelection");
 
 /**
  * @swagger
- * /submittedOrder/submit:
+ * /submittedOrders/submit:
  *   post:
  *     summary: Submit Order
  *     description: Submit an order.
