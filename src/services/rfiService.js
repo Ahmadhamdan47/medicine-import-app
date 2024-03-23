@@ -15,19 +15,45 @@ const editRfi = async (rfiId, offerType, offerInput, notes) => {
         }
     }
 }
+const approveQuantity = async (rfiId, quantityApproved, scenario, substitute = null) => {
+    let quantityToApprove = quantityApproved;
+    let substituteUsed = false;
 
-const approveQuantity = async (rfiId, quantityApproved) => {
-    await RFI.update({ isApproved: true, quantityApproved }, { where: { rfiId } });
+    if (scenario === 'diplomatic') {
+        quantityToApprove = Math.floor(quantityApproved * 0.2);
+        substituteUsed = true;
+    } else if (scenario === 'customize' && substitute) {
+        quantityToApprove = substitute.quantity;
+        substituteUsed = true;
+    }
+
+    await RFI.update({ isApproved: true, quantityApproved: quantityToApprove }, { where: { rfiId } });
     const rfi = await RFI.findOne({ where: { rfiId } });
-   
+
     if (rfi) {
         // Update the Result field in the SubmittedOrder
         const [updatedRows] = await submittedOrder.update({ Result: true }, { where: { orderId: rfi.orderId } });
         console.log(`Updated ${updatedRows} rows in SubmittedOrder`);
     }
-    await PI.create({ rfiId });
 
+    if (substituteUsed) {
+        // Create a PI with the substitute
+        await PI.create({ rfiId, substituteId: substitute.id });
+    } else {
+        await PI.create({ rfiId });
+    }
 
 }
+const getApprovedRFIs = async () => {
+    const approvedRFIs = await RFI.findAll({
+        where: {
+            isApproved: true
+        },
+        attributes: ['rfiId', 'quantityApproved', 'scenario']
+    });
 
-module.exports = { editRfi, approveQuantity };
+    return approvedRFIs;
+}
+
+
+module.exports = { editRfi, approveQuantity,getApprovedRFIs };
