@@ -10,4 +10,14 @@ const addRecipient = async (recipientData) => {
     }
 };
 
-module.exports = { addRecipient };
+const getAllRecipients = async () => {
+    try {
+        const recipients = await Recipient.findAll();
+        return recipients;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in recipientService: ' + error.message);
+    }
+};
+
+module.exports = { addRecipient, getAllRecipients };

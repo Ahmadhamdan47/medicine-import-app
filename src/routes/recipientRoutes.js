@@ -46,4 +46,19 @@ const recipientController = require("../controllers/recipientController");
  */
 router.post("/add", recipientController.addRecipient);
 
+/**
+ * @swagger
+ * /recipient/all:
+ *   get:
+ *     summary: Get all recipients
+ *     description: Retrieve all recipients from the system.
+ *     tags: [Donation]
+ *     responses:
+ *       '200':
+ *         description: OK. List of all recipients retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve recipients.
+ */
+router.get("/all", recipientController.getAllRecipients);
+
 module.exports = router;
