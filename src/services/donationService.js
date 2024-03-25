@@ -31,7 +31,7 @@ const createDonation = async (donationData) => {
   // Fetch the donor data
   const donor = await Donor.findOne({
     where: {
-      id: DonorId
+      DonorId:DonorId
     }
   });
 
