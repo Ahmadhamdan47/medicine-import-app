@@ -42,7 +42,7 @@ const createDonation = async (donationData) => {
   // Fetch the drug data
   const drug = await Drug.findOne({
     where: {
-      name: drugName
+      DrugName: drugName
     }
   });
 
