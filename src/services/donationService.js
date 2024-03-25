@@ -52,7 +52,7 @@ const createDonation = async (donationData) => {
 
   // Create a new donation with the fetched data
   const donation = await Donation.create({
-    DonorId: donor.id,
+    DonorId: donor.DonorId,
     RecipientId: RecipientId,
     Quantity: quantity,
     DonationPurpose: donationPurpose,
@@ -62,7 +62,7 @@ const createDonation = async (donationData) => {
 
   // Add a row in the BatchLotTracking table
   await BatchLotTracking.create({
-    DrugId: drug.id,
+    DrugId: drug.DrugId,
     BatchNumber: LOT,
     ProductionDate: ProductionDate,
     ExpiryDate: ExpiryDate,
