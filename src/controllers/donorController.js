@@ -5,10 +5,19 @@ const addDonor = async (req, res) => {
 
     try {
         const newDonor = await donorService.addDonor(donorData);
-        res.json(newDonor);
+        res.status(201).json(newDonor);
     } catch (error) {
         res.status(500).json({ error: error.toString() });
     }
 };
 
-module.exports = { addDonor };
+const getAllDonors = async (req, res) => {
+    try {
+        const donors = await donorService.getAllDonors();
+        res.json(donors);
+    } catch (error) {
+        res.status(500).json({ error: error.toString() });
+    }
+};
+
+module.exports = { addDonor, getAllDonors };
