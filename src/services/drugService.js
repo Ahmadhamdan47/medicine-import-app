@@ -178,35 +178,44 @@ const getAllDrugs = async () => {
 
 
 
-const smartSearch = async (searchTerm) => {
+const smartSearch = async (query) => {
   try {
-    // Search for drugs that match the search term
+    console.log("Query:", query); // Log the query
+
     const drugs = await Drug.findAll({
       where: {
-        DrugName: {
-          [Op.like]: `%${searchTerm}%`
-        }
-      }
-    });
-
-    // Search for substitutes that match the search term
-    const substitutes = await Substitute.findAll({
-      where: {
-        Substitute: {
-          [Op.like]: `%${searchTerm}%`
-        }
+        [Op.or]: [
+          { DrugName: { [Op.like]: `%${query}%` } },
+          { ATCRelatedIngredient: { [Op.like]: `%${query}%` } },
+        ],
       },
-      include: Drug
     });
 
-    // Combine the results
-    const results = [...drugs, ...substitutes.map(sub => sub.Drug)];
+    console.log("Drugs found:", drugs); // Log the drugs found
 
-    return results;
+    if (drugs.some(drug => drug.DrugName === query)) {
+      const drugId = drugs.find(drug => drug.DrugName === query).DrugID;
+
+      try {
+        const substitutes = await Substitute.findAll({
+          where: { DrugID: drugId },
+          include: Drug
+        });
+
+        console.log("Substitutes found:", substitutes); // Log the substitutes found
+
+        drugs.push(...substitutes.map(sub => sub.Drug));
+      } catch (error) {
+        console.error("No substitutes found for drug:", error);
+      }
+    }
+
+    return drugs;
   } catch (error) {
     console.error("Error in smartSearch:", error);
     throw new Error('Error occurred in smartSearch: ' + error.message);
   }
+
 };
 module.exports = {
   searchDrugByATCName,
