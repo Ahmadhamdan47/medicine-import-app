@@ -22,7 +22,7 @@ const createDonation = async (donationData) => {
     LOT,
     ProductionDate,
     ExpiryDate,
-    quantity,
+    Quantity,
     donationPurpose,
     Laboratory,
     LaboratoryCountry,
@@ -54,7 +54,7 @@ const createDonation = async (donationData) => {
   const donation = await Donation.create({
     DonorId: donor.DonorId,
     RecipientId: RecipientId,
-    Quantity: quantity,
+    Quantity: Quantity,
     DonationPurpose: donationPurpose,
     Laboratory: Laboratory,
     LaboratoryCountry: LaboratoryCountry,
@@ -66,6 +66,7 @@ const createDonation = async (donationData) => {
     BatchNumber: LOT,
     ProductionDate: ProductionDate,
     ExpiryDate: ExpiryDate,
+    Quantity: Quantity,
   });
 
   return donation;
