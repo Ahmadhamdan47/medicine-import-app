@@ -48,7 +48,7 @@ router.get("/search/atc/:query", drugController.searchDrugByATCName);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/search/brand/:query", drugController.searchDrugByBrandName);
+router.get("/search/DrugName/:query", drugController.searchDrugByName);
 
 /**
  * @swagger
@@ -72,7 +72,7 @@ router.get("/search/brand/:query", drugController.searchDrugByBrandName);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drug.
  */
-router.get("/guid/:guid", drugController.getDrugByGuid);
+router.get("/Id/:DrugID", drugController.getDrugById);
 
 /**
  * @swagger

@@ -54,26 +54,12 @@ const searchDrugByATCName = async (atcName) => {
   }
 };
 
-const searchDrugByBrandName = async (query) => {
+const searchDrugByName = async (query) => {
   try {
     const drugs = await Drug.findAll({
       where: {
-        BrandName: { [Op.like]: `%${query}%` },
+        DrugName: { [Op.like]: `%${query}%` },
       },
-      attributes: [
-        "BrandName",
-        "ATCName",
-        "PriceUSD",
-        "PriceLBP",
-        "DosageName",
-        "PresentationName",
-        "FormName",
-        "RouteName",
-        "StratumTypeName",
-        "CountryName",
-        "ManufacturerName",
-        "ImageDefault",
-      ],
     });
     console.log(drugs);
     return drugs;
@@ -82,12 +68,11 @@ const searchDrugByBrandName = async (query) => {
     throw new Error("Error in drugService: " + error.message);
   }
 };
-
-const getDrugByGuid = async (guid) => {
+const getDrugById = async (DrugID) => {
   try {
     const drug = await Drug.findOne({
       where: {
-        Guid: guid,
+        DrugID: DrugID,
       },
     });
     return drug;
@@ -100,7 +85,7 @@ const getDrugByGuid = async (guid) => {
 const filterDrugs = async (drugs) => {
   try {
     const sortedDrugs = drugs.sort((a, b) =>
-      a.BrandName.localeCompare(b.BrandName)
+      a.DrugName.localeCompare(b.DrugName)
     );
     console.log(sortedDrugs);
     return sortedDrugs;
@@ -219,9 +204,9 @@ const smartSearch = async (query) => {
 };
 module.exports = {
   searchDrugByATCName,
-  searchDrugByBrandName,
+  searchDrugByName,
   smartSearch,
-  getDrugByGuid,
+  getDrugById,
   filterDrugs,
   addDrug,
   addPharmacyDrug,
