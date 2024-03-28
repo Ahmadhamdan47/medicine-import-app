@@ -266,6 +266,26 @@ router.post("/addPharmacy", drugController.addPharmacyDrug);
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
 router.get("/all", drugController.getAllDrugs); // Add this route definition
-
+/**
+ * @swagger
+ * /drugs/smartSearch/{query}:
+ *   get:
+ *     summary: Smart search for drugs
+ *     description: Retrieve drugs matching the specified search term using the smart search algorithm.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The search term to use for the smart search.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the search term retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/smartSearch/:query", drugController.smartSearch);
 // Export the router object
 module.exports = router;

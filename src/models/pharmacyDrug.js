@@ -136,9 +136,11 @@ const NewDrug = sequelize.define('Drug', {
     CurrencyForeign: {
         type: DataTypes.UUID
     }
+    
 }, {
     tableName: 'Drug',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    
 });
 
 module.exports = NewDrug;

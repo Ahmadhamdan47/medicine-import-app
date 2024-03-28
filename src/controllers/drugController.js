@@ -80,6 +80,17 @@ const getAllDrugs = async (req, res, next) => {
   }
 };
 
+const smartSearch = async (req, res) => {
+  const searchTerm = req.params.searchTerm;
+
+  try {
+    const results = await DrugService.smartSearch(searchTerm);
+    res.json(results);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByBrandName,
@@ -88,4 +99,5 @@ module.exports = {
   addDrug,
   addPharmacyDrug,
   getAllDrugs,
+  smartSearch,
 };
