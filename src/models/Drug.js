@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
+
 const NewDrug = sequelize.define('Drug', {
     DrugID: {
         type: DataTypes.INTEGER,

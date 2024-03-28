@@ -7,6 +7,7 @@ const Drug_ATC_Mapping = require("../models/AtcMapping");
 const ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_Code
 const ATCService = require("./atcService");
 const { v4: uuidv4 } = require("uuid");
+const Substitute = require('../models/substitute');
 
 const searchDrugByATCName = async (atcName) => {
   try {
@@ -176,9 +177,41 @@ const getAllDrugs = async () => {
 };
 
 
+
+const smartSearch = async (searchTerm) => {
+  try {
+    // Search for drugs that match the search term
+    const drugs = await Drug.findAll({
+      where: {
+        DrugName: {
+          [Op.like]: `%${searchTerm}%`
+        }
+      }
+    });
+
+    // Search for substitutes that match the search term
+    const substitutes = await Substitute.findAll({
+      where: {
+        Substitute: {
+          [Op.like]: `%${searchTerm}%`
+        }
+      },
+      include: Drug
+    });
+
+    // Combine the results
+    const results = [...drugs, ...substitutes.map(sub => sub.Drug)];
+
+    return results;
+  } catch (error) {
+    console.error("Error in smartSearch:", error);
+    throw new Error('Error occurred in smartSearch: ' + error.message);
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByBrandName,
+  smartSearch,
   getDrugByGuid,
   filterDrugs,
   addDrug,
