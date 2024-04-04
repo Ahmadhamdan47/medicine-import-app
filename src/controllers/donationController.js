@@ -20,4 +20,13 @@ const getAllDonations = async (req, res) => {
     }
 };
 
-module.exports = { addDonation, getAllDonations };
+const getDonationById = async (req, res) => {
+    try {
+      const donation = await donationService.getDonationById(req.params.id);
+      res.json(donation);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
+module.exports = { addDonation, getAllDonations, getDonationById};

@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const Donation = require('./donation');
 
 const BatchLotTracking = sequelize.define('BatchLotTracking', {
     BatchLotId: {
@@ -7,11 +8,18 @@ const BatchLotTracking = sequelize.define('BatchLotTracking', {
         autoIncrement: true,
         primaryKey: true
     },
+    donationId:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Donation',
+            key: 'DonationId'
+        }
+    },
     DrugId: {
         type: DataTypes.INTEGER,
         references: {
             model: 'Drug',
-            key: 'DrugId'
+            key: 'DrugID'
         }
     },
     BatchNumber: {
