@@ -69,6 +69,7 @@ const createDonation = async (donationData) => {
     });
 
     await BatchLotTracking.create({
+      donationId: donation.DonationId,
       DrugId: drug.DrugID,
       BatchNumber: LOT,
       ProductionDate: ProductionDate,
@@ -106,7 +107,7 @@ const getDonationById = async (DonationId) => {
     const donation = await Donation.findByPk(DonationId, {
       include: [{
         model: BatchLotTracking,
-        where: { DrugId: sequelize.col('Donation.DrugId') },
+        where: { DonationId: DonationId },
         required: false
       }]
     });
@@ -123,7 +124,6 @@ const getDonationById = async (DonationId) => {
     throw error;
   }
 };
-
 
 
 module.exports = {

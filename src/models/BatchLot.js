@@ -1,12 +1,19 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-// const Donation = require('./donation');
+const Donation = require('./donation');
 
 const BatchLotTracking = sequelize.define('BatchLotTracking', {
     BatchLotId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
+    },
+    DonationId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Donation,
+            key: 'DonationId'
+        }
     },
     DrugId: {
         type: DataTypes.INTEGER,
@@ -36,6 +43,6 @@ const BatchLotTracking = sequelize.define('BatchLotTracking', {
     timestamps: false 
 });
 
-// BatchLotTracking.belongsTo(Donation, { foreignKey: 'DonationId' });
+BatchLotTracking.belongsTo(Donation, { foreignKey: 'DonationId' });
 
 module.exports = BatchLotTracking;
