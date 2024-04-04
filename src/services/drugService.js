@@ -7,7 +7,7 @@ const Drug_ATC_Mapping = require("../models/AtcMapping");
 const ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_Code
 const ATCService = require("./atcService");
 const { v4: uuidv4 } = require("uuid");
-const Substitute = require('../models/substitute');
+const Substitute = require("../models/substitute");
 
 const searchDrugByATCName = async (atcName) => {
   try {
@@ -80,7 +80,7 @@ const getDrugById = async (DrugID) => {
     throw new Error("Error in drugService: " + error.message);
   }
 };
-// src/services/drugService.js
+
 
 const filterDrugs = async (drugs) => {
   try {
@@ -138,30 +138,13 @@ const addPharmacyDrug = async (drugData) => {
 
 const getAllDrugs = async () => {
   try {
-    const drugs = await Drug.findAll({
-      // attributes: [
-      //   "BrandName",
-      //   "ATCName",
-      //   "PriceUSD",
-      //   "PriceLBP",
-      //   "DosageName",
-      //   "PresentationName",
-      //   "FormName",
-      //   "RouteName",
-      //   "StratumTypeName",
-      //   "CountryName",
-      //   "ManufacturerName",
-      //   "ImageDefault",
-      // ],
-    });
+    const drugs = await Drug.findAll({});
     return drugs;
   } catch (error) {
     console.error("Error fetching drugs:", error);
     throw new Error("Failed to fetch drugs");
   }
 };
-
-
 
 const smartSearch = async (query) => {
   try {
@@ -178,18 +161,18 @@ const smartSearch = async (query) => {
 
     console.log("Drugs found:", drugs); // Log the drugs found
 
-    if (drugs.some(drug => drug.DrugName === query)) {
-      const drugId = drugs.find(drug => drug.DrugName === query).DrugID;
+    if (drugs.some((drug) => drug.DrugName === query)) {
+      const drugId = drugs.find((drug) => drug.DrugName === query).DrugID;
 
       try {
         const substitutes = await Substitute.findAll({
           where: { DrugID: drugId },
-          include: Drug
+          include: Drug,
         });
 
         console.log("Substitutes found:", substitutes); // Log the substitutes found
 
-        drugs.push(...substitutes.map(sub => sub.Drug));
+        drugs.push(...substitutes.map((sub) => sub.Drug));
       } catch (error) {
         console.error("No substitutes found for drug:", error);
       }
@@ -198,9 +181,8 @@ const smartSearch = async (query) => {
     return drugs;
   } catch (error) {
     console.error("Error in smartSearch:", error);
-    throw new Error('Error occurred in smartSearch: ' + error.message);
+    throw new Error("Error occurred in smartSearch: " + error.message);
   }
-
 };
 module.exports = {
   searchDrugByATCName,

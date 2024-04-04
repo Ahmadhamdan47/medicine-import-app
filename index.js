@@ -20,7 +20,7 @@ const atcRoutes = require("./src/routes/atcRoutes");
 const substituteRoutes = require("./src/routes/substituteRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 3000;
 
 
 
