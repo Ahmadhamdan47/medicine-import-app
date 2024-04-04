@@ -60,4 +60,26 @@ router.post("/add", donationController.addDonation);
  */
 router.get("/all", donationController.getAllDonations);
 
+/**
+ * @swagger
+ * /donation/:id:
+ *   get:
+ *     summary: Get donation by ID
+ *     description: Retrieve a donation by its ID from the system.
+ *     tags: [Donation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the donation to retrieve.
+ *     responses:
+ *       '200':
+ *         description: OK. Donation retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve donation.
+ */
+router.get("/:id", donationController.getDonationById);
+
 module.exports = router;

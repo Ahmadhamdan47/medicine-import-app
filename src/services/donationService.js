@@ -51,7 +51,7 @@ const createDonation = async (donationData) => {
         DrugName: DrugName,
       },
     });
-    console.log("This is Drugggg", drug);
+    // console.log("This is Drugggg", drug);
     if (!drug) {
       throw new Error("Drug not found");
     }
@@ -59,6 +59,7 @@ const createDonation = async (donationData) => {
     const donation = await Donation.create({
       DonorId: donor.DonorId || DonorId,
       RecipientId: RecipientId,
+      DrugId: drug.DrugID,
       Quantity: Quantity,
       Serial: Serial,
       DonationPurpose: DonationPurpose,
@@ -97,7 +98,38 @@ const getAllDonations = async () => {
   }
 };
 
+/**
+ * Retrieves a donation by its ID from the database.
+ * Includes associated data from BatchLotTracking.
+ * @param {number} DonationId - The ID of the donation to retrieve.
+ * @returns {Promise<Object>} A promise that resolves to the donation data and associated BatchLotTracking data.
+ */
+const getDonationById = async (DonationId) => {
+  try {
+    console.log("Retrieving donation by ID:", DonationId);
+    
+    // Find the donation by its ID and include BatchLotTracking data
+    const donation = await Donation.findByPk(DonationId, {
+      include: BatchLotTracking
+    });
+
+    if (!donation) {
+      throw new Error(`Donation with ID ${DonationId} not found`);
+    }
+
+    console.log("Donation found with ID:", DonationId);
+
+    return { donation };
+  } catch (error) {
+    console.error("Error retrieving donation by ID:", error.message);
+    throw error;
+  }
+};
+
+
+
 module.exports = {
   createDonation,
   getAllDonations,
+  getDonationById,
 };

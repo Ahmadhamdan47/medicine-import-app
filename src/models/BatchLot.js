@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+// const Donation = require('./donation');
 
 const BatchLotTracking = sequelize.define('BatchLotTracking', {
     BatchLotId: {
@@ -32,7 +33,9 @@ const BatchLotTracking = sequelize.define('BatchLotTracking', {
     }
 }, {
     tableName: 'BatchLotTracking',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false 
 });
+
+// BatchLotTracking.belongsTo(Donation, { foreignKey: 'DonationId' });
 
 module.exports = BatchLotTracking;

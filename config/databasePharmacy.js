@@ -16,7 +16,7 @@ const logger = winston.createLogger({
 // Function to handle errors during Sequelize initialization
 function handleSequelizeError(error) {
   logger.error("Error occurred while initializing Sequelize:", error);
-  process.exit(1); // Exit the process with a non-zero status code
+  process.exit(1); 
 }
 
 try {
@@ -27,6 +27,7 @@ try {
       instanceName: "SQLEXPRESS",
     },
     logging: (query) => {
+      logger.info(`Executing SQL Query: ${query}`);
       if (!query || !query.sql) {
         return; // Exit early if the query or SQL string is undefined
       }
@@ -73,6 +74,11 @@ try {
       logger.info(
         "Connection to the database PharmacyService has been established successfully."
       );
+
+      // Sync the database models with the database
+      sequelize.sync().then(() => {
+        logger.info("Database models synchronized successfully.");
+      });
     })
     .catch(handleSequelizeError);
 

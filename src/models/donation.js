@@ -9,7 +9,15 @@ const Donation = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
-    
+
+    DrugId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Drug",
+        key: "DrugId",
+      },
+    },
+
     RecipientId: {
       type: DataTypes.INTEGER,
       references: {
@@ -25,6 +33,7 @@ const Donation = sequelize.define(
         key: "DonorId",
       },
     },
+
     DonationDate: {
       type: DataTypes.DATE,
     },
