@@ -98,19 +98,17 @@ const getAllDonations = async () => {
   }
 };
 
-/**
- * Retrieves a donation by its ID from the database.
- * Includes associated data from BatchLotTracking.
- * @param {number} DonationId - The ID of the donation to retrieve.
- * @returns {Promise<Object>} A promise that resolves to the donation data and associated BatchLotTracking data.
- */
 const getDonationById = async (DonationId) => {
   try {
     console.log("Retrieving donation by ID:", DonationId);
     
     // Find the donation by its ID and include BatchLotTracking data
     const donation = await Donation.findByPk(DonationId, {
-      include: BatchLotTracking
+      include: [{
+        model: BatchLotTracking,
+        where: { DrugId: sequelize.col('Donation.DrugId') },
+        required: false
+      }]
     });
 
     if (!donation) {

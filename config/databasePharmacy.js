@@ -20,7 +20,7 @@ function handleSequelizeError(error) {
 }
 
 try {
-  const sequelize = new Sequelize("PharmacyService", "sa", "Oummal@123", {
+  const sequelize = new Sequelize("PharmacyService", "sa", "Theroadof1", {
     host: "localhost",
     dialect: "mssql",
     dialectOptions: {
