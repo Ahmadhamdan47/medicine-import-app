@@ -60,4 +60,6 @@ router.post("/add", donationController.addDonation);
  */
 router.get("/all", donationController.getAllDonations);
 
+router.get("/:id", donationController.getDonationById);
+
 module.exports = router;

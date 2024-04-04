@@ -52,17 +52,19 @@ const createDonation = async (donationData) => {
 
   // Create a new donation with the fetched data
   const donation = await Donation.create({
-    DonorId: donor.DonorId,
+    DonorId: donor.DonorId ||DonorId,
     RecipientId: RecipientId,
     Quantity: Quantity,
     DonationPurpose: donationPurpose,
     Laboratory: Laboratory,
     LaboratoryCountry: LaboratoryCountry,
+    donationDate: new Date(),
   });
 
   // Add a row in the BatchLotTracking table
   await BatchLotTracking.create({
-    DrugId: drug.DrugId,
+    donationId: donation.DonationId,
+    DrugId: drug.DrugID,
     BatchNumber: LOT,
     ProductionDate: ProductionDate,
     ExpiryDate: ExpiryDate,
@@ -72,6 +74,40 @@ const createDonation = async (donationData) => {
   return donation;
 };
 
+const getAllDonations = async () => {
+  try {
+    const donations = await Donation.findAll();
+    return donations;
+  } catch (error) {
+    console.error('Error getting all donations:', error);
+    throw error;
+  }
+};
+const getDonationById = async (id) => {
+  try {
+    const donation = await Donation.findOne({
+      where: { DonationId: id }
+    });
+
+    if (!donation) {
+      throw new Error(`No donation found with id: ${id}`);
+    }
+
+    const batchLots = await BatchLotTracking.findAll({
+      where: { DonationId: id }
+    });
+
+    donation.dataValues.BatchLotTrackings = batchLots;
+
+    return donation;
+  } catch (error) {
+    console.error(`Error getting donation by id: ${id}`, error);
+    throw error;
+  }
+};
+
 module.exports = {
-  createDonation
+  createDonation,
+  getAllDonations,
+  getDonationById
 };
