@@ -93,6 +93,14 @@ const getDonationById = async (id) => {
       throw new Error(`No donation found with id: ${id}`);
     }
 
+    const recipient = await Recipient.findOne({
+      where: { RecipientId: donation.RecipientId }
+    });
+
+    if (recipient) {
+      donation.dataValues.RecipientName = recipient.RecipientName;
+    }
+
     const batchLots = await BatchLotTracking.findAll({
       where: { DonationId: id }
     });
@@ -116,7 +124,6 @@ const getDonationById = async (id) => {
     throw error;
   }
 };
-
 module.exports = {
   createDonation,
   getAllDonations,
