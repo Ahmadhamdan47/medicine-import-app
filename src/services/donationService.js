@@ -97,6 +97,17 @@ const getDonationById = async (id) => {
       where: { DonationId: id }
     });
 
+    // Fetch the DrugName for each BatchLotTracking record
+    for (let batchLot of batchLots) {
+      const drug = await Drug.findOne({
+        where: { DrugID: batchLot.DrugId }
+      });
+
+      if (drug) {
+        batchLot.dataValues.DrugName = drug.DrugName;
+      }
+    }
+
     donation.dataValues.BatchLotTrackings = batchLots;
 
     return donation;
