@@ -164,6 +164,7 @@ const getAllDrugs = async () => {
 
 
 const smartSearch = async (query) => {
+  
   try {
     console.log("Query:", query); // Log the query
 
