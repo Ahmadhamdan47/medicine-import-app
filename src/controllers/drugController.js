@@ -81,7 +81,7 @@ const getAllDrugs = async (req, res, next) => {
 };
 
 const smartSearch = async (req, res) => {
-  const searchTerm = req.params.searchTerm;
+  const searchTerm = req.params.query;
 
   try {
     const results = await DrugService.smartSearch(searchTerm);
