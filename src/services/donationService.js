@@ -77,6 +77,26 @@ const createDonation = async (donationData) => {
 const getAllDonations = async () => {
   try {
     const donations = await Donation.findAll();
+
+    // Fetch the DrugName for each donation
+    for (let donation of donations) {
+      const batchLots = await BatchLotTracking.findAll({
+        where: { DonationId: donation.DonationId }
+      });
+
+      for (let batchLot of batchLots) {
+        const drug = await Drug.findOne({
+          where: { DrugID: batchLot.DrugId }
+        });
+
+        if (drug) {
+          batchLot.dataValues.DrugName = drug.DrugName;
+        }
+      }
+
+      donation.dataValues.BatchLotTrackings = batchLots;
+    }
+
     return donations;
   } catch (error) {
     console.error('Error getting all donations:', error);
@@ -125,7 +145,7 @@ const getDonationById = async (id) => {
   }
 };
 module.exports = {
-  createDonation,
+  createDonation, 
   getAllDonations,
   getDonationById
 };
