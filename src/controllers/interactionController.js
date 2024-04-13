@@ -1,4 +1,4 @@
-const drugInteractionService = require('../services/drugInteractionService');
+const drugInteractionService = require('../services/interactionService');
 
 const getInteractionsByDrugId = async (req, res) => {
     try {

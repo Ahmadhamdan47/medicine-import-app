@@ -144,8 +144,26 @@ const getDonationById = async (id) => {
     throw error;
   }
 };
+const editDonation = async (DonationId, donationData) => {
+  try {
+    const donation = await Donation.update(donationData, {
+      where: { DonationId }
+    });
+
+    if (donation[0] === 0) {
+      throw new Error(`Donation not found: ${DonationId}`);
+    }
+
+    return donation;
+  } catch (error) {
+    console.error(`Error editing donation: ${DonationId}`, error);
+    throw error;
+  }
+};
+
 module.exports = {
   createDonation, 
   getAllDonations,
-  getDonationById
+  getDonationById,
+  editDonation
 };

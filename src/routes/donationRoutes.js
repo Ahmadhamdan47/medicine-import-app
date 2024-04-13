@@ -83,4 +83,7 @@ router.get("/all", donationController.getAllDonations);
     */
 router.get("/:id", donationController.getDonationById);
 
+
+router.put('/:DonationId', donationController.editDonation);
+
 module.exports = router;

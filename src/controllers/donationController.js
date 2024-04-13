@@ -28,5 +28,17 @@ const getDonationById = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+  const editDonation = async (req, res) => {
+  try {
+    const { DonationId } = req.params;
+    const donationData = req.body;
+    const donation = await donationService.editDonation(DonationId, donationData);
+    res.json(donation);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 
-module.exports = { addDonation, getAllDonations, getDonationById};
+module.exports = { addDonation, getAllDonations, getDonationById, editDonation };
+
+
