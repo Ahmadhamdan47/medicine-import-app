@@ -9,11 +9,11 @@ const ATCService = require("./atcService");
 const { v4: uuidv4 } = require("uuid");
 const Substitute = require('../models/substitute');
 
-const searchDrugByATCName = async (atcName) => {
+const searchDrugByATCName = async (Name) => {
   try {
     // Find the ATC code
     const atcCode = await ATC_Code.findOne({
-      where: { ATCName: atcName },
+      where: { Name: Name },
     });
 
     if (!atcCode) {
@@ -31,7 +31,7 @@ const searchDrugByATCName = async (atcName) => {
         const drug = await Drug.findOne({
           where: { DrugID: mapping.DrugID },
           attributes: [
-            "BrandName",
+            "DrugName",
             "PriceForeign",
             "PublicPrice",
             "ImageDefault",

@@ -23,7 +23,7 @@ const DiseaseCategory = sequelize.define('DiseaseCategory', {
     CreatedDate: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: DataTypes.NOW
+        defaultValue: sequelize.fn('GETDATE')
     },
     UpdatedDate: {
         type: DataTypes.DATE,
