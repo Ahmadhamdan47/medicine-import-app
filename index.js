@@ -19,6 +19,8 @@ const donationRoutes = require("./src/routes/donationRoutes");
 const atcRoutes = require("./src/routes/atcRoutes");
 const substituteRoutes = require("./src/routes/substituteRoutes");
 const interactionRoutes = require("./src/routes/interactionRoutes");
+const diseaseCategoryRoutes = require("./src/routes/diseaseCategoryRoutes");
+const diseaseATCRoutes = require("./src/routes/diseaseATCRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -73,6 +75,9 @@ app.use("/donation", donationRoutes);
 app.use("/atc", atcRoutes);
 app.use("/substitute", substituteRoutes);
 app.use("/interaction", interactionRoutes);
+app.use("/diseaseCategory", diseaseCategoryRoutes);
+app.use("/diseaseATC", diseaseATCRoutes);
+
 
 // Sample route
 app.get("/", (req, res) => {
