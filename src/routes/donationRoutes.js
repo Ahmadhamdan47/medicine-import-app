@@ -81,7 +81,7 @@ router.get("/all", donationController.getAllDonations);
     *       '500':
     *         description: Internal Server Error. Failed to retrieve donation.
     */
-router.get("/:id", donationController.getDonationById);
+router.get("/:DonationId", donationController.getDonationById);
 
 
 router.put('/:DonationId', donationController.editDonation);

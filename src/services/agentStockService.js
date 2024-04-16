@@ -38,3 +38,7 @@ const stockAgent = async (id) => {
         }
     }
 }
+
+module.exports = {
+    stockAgent
+};

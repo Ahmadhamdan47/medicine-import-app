@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const Drug = require('./Drug');
 
 const Dosage = sequelize.define('Dosage', {
     DosageId: {
@@ -28,6 +29,14 @@ const Dosage = sequelize.define('Dosage', {
     },
     DenominatorUnit: {
         type: DataTypes.STRING(50)
+    },
+    DrugId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Drug,
+            key: 'DrugID'
+        }
     }
 }, {
     tableName: 'Dosage',

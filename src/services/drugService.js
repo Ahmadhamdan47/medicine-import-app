@@ -203,6 +203,21 @@ const smartSearch = async (query) => {
   }
 
 };
+const getDrugByATCLevel = async (atcCode) => {
+  try {
+      const drugs = await Drug.findAll({
+          where: {
+              ATCCode: {
+                  [Op.like]: `${atcCode}%`
+              }
+          }
+      });
+      return drugs;
+  } catch (error) {
+      console.error(error);
+      throw error;
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -212,4 +227,5 @@ module.exports = {
   addDrug,
   addPharmacyDrug,
   getAllDrugs,
+  getDrugByATCLevel
 };
