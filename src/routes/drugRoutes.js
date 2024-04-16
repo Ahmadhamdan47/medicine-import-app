@@ -287,5 +287,7 @@ router.get("/all", drugController.getAllDrugs); // Add this route definition
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
 router.get("/smartSearch/:query", drugController.smartSearch);
-// Export the router object
+
+router.get("/atc/{atcCode}", drugController.getDrugByATCLevel);
+
 module.exports = router;

@@ -91,6 +91,17 @@ const smartSearch = async (req, res) => {
   }
 };
 
+const getDrugByATCLevel = async (req, res) => {
+  const atcCode = req.params.atcCode;
+
+  try {
+    const drugs = await DrugService.getDrugByATCLevel(atcCode);
+    res.json(drugs);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -100,4 +111,5 @@ module.exports = {
   addPharmacyDrug,
   getAllDrugs,
   smartSearch,
+  getDrugByATCLevel
 };

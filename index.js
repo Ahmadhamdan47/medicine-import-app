@@ -21,6 +21,11 @@ const substituteRoutes = require("./src/routes/substituteRoutes");
 const interactionRoutes = require("./src/routes/interactionRoutes");
 const diseaseCategoryRoutes = require("./src/routes/diseaseCategoryRoutes");
 const diseaseATCRoutes = require("./src/routes/diseaseATCRoutes");
+const cityRoutes = require("./src/routes/cityRoutes");
+const brandRoutes = require("./src/routes/brandRoutes");
+const agentRoutes = require("./src/routes/agentRoutes");
+const containerTypeRoutes = require("./src/routes/containerTypeRoutes");
+const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 9000;
@@ -77,7 +82,11 @@ app.use("/substitute", substituteRoutes);
 app.use("/interaction", interactionRoutes);
 app.use("/diseaseCategory", diseaseCategoryRoutes);
 app.use("/diseaseATC", diseaseATCRoutes);
-
+app.use("/city", cityRoutes);
+app.use("/brand", brandRoutes);
+app.use("/agent", agentRoutes);
+app.use("/containerType", containerTypeRoutes);
+app.use("/dispensingCategory", dispensingCategoryRoutes);
 
 // Sample route
 app.get("/", (req, res) => {

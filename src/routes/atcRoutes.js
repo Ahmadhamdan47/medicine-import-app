@@ -26,4 +26,8 @@ const ATCController = require("../controllers/atcController");
  */
 router.get("/atc/:drugID", ATCController.getATCByDrugID);
 
+router.post("/", ATCController.addATC);
+router.put("/:atcId", ATCController.editATC);
+router.delete("/:atcId", ATCController.deleteATC);
+
 module.exports = router;

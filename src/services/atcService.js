@@ -1,7 +1,7 @@
 
 
 const Drug_ATC_Mapping = require('../models/AtcMapping');
-const ATC_Code = require('../models/atc');
+const ATC_Code = require('../models/ATC');
 
 const getATCByDrugID = async (drugID) => {
     try {
@@ -27,7 +27,42 @@ const getATCByDrugID = async (drugID) => {
         throw new Error('Error in getATCByDrugID service: ' + error.message);
     }
 };
+const addATC = async (atcData) => {
+    try {
+        const atcCode = await ATC_Code.create(atcData);
+        return atcCode;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in addATC service: ' + error.message);
+    }
+};
+
+const editATC = async (atcId, atcData) => {
+    try {
+        const atcCode = await ATC_Code.update(atcData, {
+            where: { ATC_ID: atcId }
+        });
+        return atcCode;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in editATC service: ' + error.message);
+    }
+};
+
+const deleteATC = async (atcId) => {
+    try {
+        await ATC_Code.destroy({
+            where: { ATC_ID: atcId }
+        });
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in deleteATC service: ' + error.message);
+    }
+};
 
 module.exports = {
-    getATCByDrugID
+    getATCByDrugID,
+    addATC,
+    editATC,
+    deleteATC
 };
