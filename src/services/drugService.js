@@ -8,6 +8,8 @@ const ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_
 const ATCService = require("./atcService");
 const { v4: uuidv4 } = require("uuid");
 const Substitute = require('../models/substitute');
+const DrugATCMapping = require('../models/AtcMapping');
+const substituteService = require('./substituteService');
 
 const searchDrugByATCName = async (Name) => {
   try {
@@ -218,6 +220,30 @@ const getDrugByATCLevel = async (atcCode) => {
       throw error;
   }
 };
+
+const addDrugATC = async (DrugID, ATC_ID) => {
+  try {
+      // Create a new mapping
+      const mapping = await DrugATCMapping.create({
+          DrugID: DrugID,
+          ATC_ID: ATC_ID
+      });
+      const sameATCDrugs = await DrugATCMapping.findAll({
+        where: { ATC_ID: ATC_ID }
+    });
+    for (let drug of sameATCDrugs) {
+      if (drug.DrugID !== DrugID) {
+          await substituteService.addSubstitute(DrugID, drug.DrugID);
+          await substituteService.addSubstitute(drug.DrugID, DrugID);
+      }
+  }
+      return mapping;
+  } catch (error) {
+      console.error("Error in addDrugATC:", error);
+      throw error;
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -227,5 +253,6 @@ module.exports = {
   addDrug,
   addPharmacyDrug,
   getAllDrugs,
-  getDrugByATCLevel
+  getDrugByATCLevel,
+  addDrugATC
 };

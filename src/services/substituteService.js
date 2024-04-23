@@ -1,6 +1,11 @@
 const Substitute = require('../models/substitute');
 
 const addSubstitute = async (drugId, substituteId) => {
+    if (drugId === substituteId) {
+        console.log("A drug cannot be a substitute for itself. Skipping...");
+        return;
+    }
+
     try {
         const substitute = await Substitute.create({
             Drug: drugId,
@@ -13,8 +18,6 @@ const addSubstitute = async (drugId, substituteId) => {
         throw new Error('Error in drugService: ' + error.message);
     }
 };
-
-
 const getSubstituteById = async (id) => {
     try {
         const substitute = await Substitute.findByPk(id);

@@ -290,4 +290,7 @@ router.get("/smartSearch/:query", drugController.smartSearch);
 
 router.get("/atc/{atcCode}", drugController.getDrugByATCLevel);
 
+router.post("/addDrugATC", drugController.addDrugATC);
+
+
 module.exports = router;

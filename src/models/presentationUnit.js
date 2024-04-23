@@ -23,6 +23,16 @@ const PresentationUnit = sequelize.define('PresentationUnit', {
     },
     UpdatedBy: {
         type: DataTypes.UUID
+    },
+    
+    ValueType: {
+        type: DataTypes.STRING(255),
+        validate: {
+            isIn: {
+                args: [['Package', 'Content', null]],
+                msg: "The ValueType field must be either 'Package', 'Content', or null"
+            }
+        }
     }
 }, {
     tableName: 'PresentationUnit',
