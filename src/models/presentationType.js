@@ -24,10 +24,17 @@ const PresentationType = sequelize.define('PresentationType', {
     UpdatedBy: {
         type: DataTypes.UUID
     },
-    Definition: {
-        type: DataTypes.STRING(255)
+   Definition: {
+    type: DataTypes.STRING(255),
+    validate: {
+        isIn: {
+            args: [['Package', 'Content', null]],
+            msg: "The Definition field must be either 'Package', 'Content', or null"
+        }
     }
-}, {
+}, 
+},
+{
     tableName: 'PresentationType',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });

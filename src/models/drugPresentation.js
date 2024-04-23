@@ -38,13 +38,6 @@ const DrugPresentation = sequelize.define('DrugPresentation', {
     PackageAmount: {
         type: DataTypes.DECIMAL(18, 3)
     },
-    PackageUnitId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'PresentationUnit',
-            key: 'PresentationUnitId'
-        }
-    },
     CreatedDate: {
         type: DataTypes.DATE,
         allowNull: false,

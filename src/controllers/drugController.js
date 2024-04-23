@@ -101,7 +101,21 @@ const getDrugByATCLevel = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+const addDrugATC = async (req, res) => {
+  const { DrugID, ATC_ID } = req.body;
 
+  try {
+    const newMapping = await DrugService.addDrugATC(DrugID, ATC_ID);
+    res.json(newMapping);
+  } catch (error) {
+    // Handle the error when the drug is already a substitute
+    if (error.message === 'Drug is already a substitute') {
+      res.status(400).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: error.toString() });
+    }
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -111,5 +125,6 @@ module.exports = {
   addPharmacyDrug,
   getAllDrugs,
   smartSearch,
-  getDrugByATCLevel
+  getDrugByATCLevel,
+  addDrugATC
 };
