@@ -1,0 +1,19 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../../config/databasePharmacy');
+
+const Brand = sequelize.define('Brand', {
+    BrandId: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    BrandName: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    }
+}, {
+    tableName: 'Brands',
+    timestamps: false 
+});
+
+module.exports = Brand;
