@@ -1,0 +1,50 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../../config/databasePharmacy');
+const Donation = require('./donation');
+
+const BatchLotTracking = sequelize.define('BatchLotTracking', {
+    BatchLotId: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    donationId:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Donation',
+            key: 'DonationId'
+        }
+    },
+    DrugId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Drug',
+            key: 'DrugID'
+        }
+    },
+    BatchNumber: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+    },
+    ProductionDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    ExpiryDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    },
+    Quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Serial: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
+}, {
+    tableName: 'BatchLotTracking',
+    timestamps: false 
+});
+
+module.exports = BatchLotTracking;
