@@ -28,7 +28,7 @@ const containerTypeRoutes = require("./src/routes/containerTypeRoutes");
 const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 3000;
 
 
 

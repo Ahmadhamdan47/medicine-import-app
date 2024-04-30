@@ -20,7 +20,7 @@ const logger = winston.createLogger({
 });
 
 try {
-    const sequelize = new Sequelize('MedLebPharmacyServices', 'sa', 'Theroadof1', {
+    const sequelize = new Sequelize('MedLebPharmacyServices', 'sa', 'Oummal@123', {
         host: 'localhost',
         dialect: 'mssql',
         dialectOptions: {

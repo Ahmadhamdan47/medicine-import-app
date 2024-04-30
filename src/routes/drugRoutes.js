@@ -259,13 +259,14 @@ router.post("/addPharmacy", drugController.addPharmacyDrug);
  *     summary: Get all drugs
  *     description: Retrieve all drugs available in the system.
  *     tags: [Drug]
- *     response:
+ *     responses:
  *       '200':
  *         description: OK. Drugs retrieved successfully.
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/all", drugController.getAllDrugs); // Add this route definition
+router.get("/all", drugController.getAllDrugs);
+
 /**
  * @swagger
  * /drugs/smartSearch/{query}:
@@ -290,7 +291,34 @@ router.get("/smartSearch/:query", drugController.smartSearch);
 
 router.get("/atc/{atcCode}", drugController.getDrugByATCLevel);
 
+/**
+ * @swagger
+ * /drugs/addDrugATC:
+ *   post:
+ *     summary: Add drug to ATC mapping
+ *     description: Add a drug to the Anatomical Therapeutic Chemical (ATC) classification mapping.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DrugID:
+ *                 type: string
+ *                 description: The ID of the drug.
+ *               ATC_ID:
+ *                 type: string
+ *                 description: The ID of the ATC classification.
+ *     responses:
+ *       '200':
+ *         description: OK. Drug mapped to ATC successfully.
+ *       '400':
+ *         description: Bad Request. Drug is already a substitute.
+ *       '500':
+ *         description: Internal Server Error. Failed to map drug to ATC.
+ */
 router.post("/addDrugATC", drugController.addDrugATC);
-
 
 module.exports = router;
