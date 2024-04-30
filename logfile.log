@@ -1,0 +1,127 @@
+info: Server is running on port 9000 {"timestamp":"2024-04-23T06:32:53.525Z"}
+info: Server is running on port 9000 {"timestamp":"2024-04-24T05:40:39.894Z"}
+info: Server is running on port 3000 {"timestamp":"2024-04-24T06:08:40.996Z"}
+info: [2024-04-24T06:08:57.481Z] [GET] /drugs/all {"timestamp":"2024-04-24T06:08:57.481Z"}
+info: [2024-04-24T06:09:14.287Z] [GET] /atc/all {"timestamp":"2024-04-24T06:09:14.287Z"}
+info: [2024-04-24T07:46:11.837Z] [GET] /drugs/all {"timestamp":"2024-04-24T07:46:11.837Z"}
+info: Server is running on port 3000 {"timestamp":"2024-04-24T08:38:52.947Z"}
+info: Server is running on port 3000 {"timestamp":"2024-04-24T08:49:57.852Z"}
+info: [2024-04-24T08:50:03.324Z] [GET] /drugs/all {"timestamp":"2024-04-24T08:50:03.324Z"}
+info: [2024-04-24T08:50:03.635Z] [GET] /favicon.ico {"timestamp":"2024-04-24T08:50:03.635Z"}
+info: Server is running on port 3000 {"timestamp":"2024-04-24T08:57:26.399Z"}
+info: [2024-04-24T09:00:11.973Z] [GET] /drugs/all {"timestamp":"2024-04-24T09:00:11.973Z"}
+info: [2024-04-24T10:20:22.014Z] [GET] / {"timestamp":"2024-04-24T10:20:22.014Z"}
+info: [2024-04-24T10:20:22.017Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-24T10:20:22.017Z"}
+info: [2024-04-24T10:39:48.848Z] [GET] /drugs/all {"timestamp":"2024-04-24T10:39:48.848Z"}
+info: [2024-04-24T13:48:53.461Z] [GET] / {"timestamp":"2024-04-24T13:48:53.461Z"}
+info: [2024-04-24T13:48:53.464Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-24T13:48:53.464Z"}
+info: [2024-04-24T17:42:16.540Z] [GET] / {"timestamp":"2024-04-24T17:42:16.540Z"}
+info: [2024-04-24T17:42:16.541Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-24T17:42:16.542Z"}
+info: [2024-04-24T18:15:15.082Z] [GET] / {"timestamp":"2024-04-24T18:15:15.082Z"}
+info: [2024-04-24T18:15:15.084Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-24T18:15:15.084Z"}
+info: [2024-04-24T21:14:37.915Z] [GET] / {"timestamp":"2024-04-24T21:14:37.915Z"}
+info: [2024-04-24T21:14:37.924Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-24T21:14:37.924Z"}
+info: [2024-04-25T05:46:47.237Z] [GET] /drugs/all {"timestamp":"2024-04-25T05:46:47.237Z"}
+info: [2024-04-25T05:57:40.687Z] [GET] /diseaseCategory {"timestamp":"2024-04-25T05:57:40.687Z"}
+info: [2024-04-25T09:43:36.660Z] [GET] / {"timestamp":"2024-04-25T09:43:36.661Z"}
+info: [2024-04-25T09:43:36.662Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-25T09:43:36.662Z"}
+info: [2024-04-25T12:26:49.638Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.638Z"}
+info: [2024-04-25T12:26:49.642Z] [GET] /donor/all {"timestamp":"2024-04-25T12:26:49.642Z"}
+info: [2024-04-25T12:26:49.645Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.645Z"}
+info: [2024-04-25T12:26:49.648Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:26:49.648Z"}
+info: [2024-04-25T12:26:49.651Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:26:49.651Z"}
+info: [2024-04-25T12:26:49.852Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.852Z"}
+info: [2024-04-25T12:26:49.854Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.854Z"}
+info: [2024-04-25T12:26:49.857Z] [GET] /donor/all {"timestamp":"2024-04-25T12:26:49.857Z"}
+info: [2024-04-25T12:26:49.864Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:26:49.864Z"}
+info: [2024-04-25T12:26:49.905Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.905Z"}
+info: [2024-04-25T12:26:49.913Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:49.913Z"}
+info: [2024-04-25T12:26:49.977Z] [GET] /donor/all {"timestamp":"2024-04-25T12:26:49.977Z"}
+info: [2024-04-25T12:26:59.199Z] [GET] /donor/all {"timestamp":"2024-04-25T12:26:59.199Z"}
+info: [2024-04-25T12:26:59.203Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:59.203Z"}
+info: [2024-04-25T12:26:59.208Z] [GET] /drugs/all {"timestamp":"2024-04-25T12:26:59.208Z"}
+info: [2024-04-25T12:26:59.212Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:26:59.212Z"}
+info: [2024-04-25T12:26:59.216Z] [GET] /donor/all {"timestamp":"2024-04-25T12:26:59.216Z"}
+info: [2024-04-25T12:26:59.269Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:26:59.269Z"}
+info: [2024-04-25T12:28:14.451Z] [GET] /donation/all {"timestamp":"2024-04-25T12:28:14.451Z"}
+info: [2024-04-25T12:28:14.453Z] [GET] /recipient/all {"timestamp":"2024-04-25T12:28:14.453Z"}
+info: [2024-04-25T12:29:29.189Z] [GET] /donation/all {"timestamp":"2024-04-25T12:29:29.189Z"}
+info: [2024-04-25T12:29:59.964Z] [GET] /donation/all {"timestamp":"2024-04-25T12:29:59.964Z"}
+info: [2024-04-25T15:09:57.152Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:09:57.152Z"}
+info: [2024-04-25T15:09:57.857Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:09:57.857Z"}
+info: [2024-04-25T15:17:04.016Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:17:04.016Z"}
+info: [2024-04-25T15:17:04.199Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:17:04.199Z"}
+info: [2024-04-25T15:19:35.799Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:19:35.799Z"}
+info: [2024-04-25T15:19:36.335Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:19:36.335Z"}
+info: [2024-04-25T15:20:54.678Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:20:54.678Z"}
+info: [2024-04-25T15:20:54.937Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:20:54.937Z"}
+info: [2024-04-25T15:22:03.535Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:22:03.535Z"}
+info: [2024-04-25T15:22:03.786Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:22:03.787Z"}
+info: [2024-04-25T15:23:24.527Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:23:24.527Z"}
+info: [2024-04-25T15:23:25.512Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:23:25.512Z"}
+info: [2024-04-25T15:24:46.132Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:24:46.132Z"}
+info: [2024-04-25T15:24:46.459Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:24:46.459Z"}
+info: [2024-04-25T15:24:58.780Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:24:58.780Z"}
+info: [2024-04-25T15:24:58.891Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:24:58.891Z"}
+info: [2024-04-25T15:25:31.962Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:25:31.962Z"}
+info: [2024-04-25T15:25:32.322Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:25:32.322Z"}
+info: [2024-04-25T15:25:34.679Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:25:34.679Z"}
+info: [2024-04-25T15:25:35.157Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:25:35.157Z"}
+info: [2024-04-25T15:27:00.203Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:27:00.203Z"}
+info: [2024-04-25T15:27:00.562Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:27:00.562Z"}
+info: [2024-04-25T15:28:28.488Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:28:28.488Z"}
+info: [2024-04-25T15:28:28.731Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:28:28.731Z"}
+info: [2024-04-25T15:28:37.179Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:28:37.179Z"}
+info: [2024-04-25T15:28:37.274Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:28:37.274Z"}
+info: [2024-04-25T15:30:52.305Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:30:52.305Z"}
+info: [2024-04-25T15:30:52.436Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:30:52.436Z"}
+info: [2024-04-25T15:32:14.480Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:32:14.480Z"}
+info: [2024-04-25T15:32:14.688Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:32:14.688Z"}
+info: [2024-04-25T15:33:15.558Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:33:15.558Z"}
+info: [2024-04-25T15:33:15.757Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:33:15.757Z"}
+info: [2024-04-25T15:38:29.013Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:38:29.013Z"}
+info: [2024-04-25T15:38:29.150Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:38:29.150Z"}
+info: [2024-04-25T15:38:55.565Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:38:55.565Z"}
+info: [2024-04-25T15:38:55.668Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:38:55.668Z"}
+info: [2024-04-25T15:39:10.588Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:10.588Z"}
+info: [2024-04-25T15:39:10.724Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:10.724Z"}
+info: [2024-04-25T15:39:21.375Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:21.375Z"}
+info: [2024-04-25T15:39:21.448Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:21.448Z"}
+info: [2024-04-25T15:39:31.810Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:31.810Z"}
+info: [2024-04-25T15:39:31.909Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:39:31.910Z"}
+info: [2024-04-25T15:40:50.028Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:40:50.029Z"}
+info: [2024-04-25T15:40:50.688Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:40:50.688Z"}
+info: [2024-04-25T15:41:52.807Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:41:52.807Z"}
+info: [2024-04-25T15:41:52.914Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:41:52.914Z"}
+info: [2024-04-25T15:42:36.412Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:42:36.412Z"}
+info: [2024-04-25T15:42:36.531Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:42:36.531Z"}
+info: [2024-04-25T15:46:53.588Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:46:53.588Z"}
+info: [2024-04-25T15:46:53.680Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:46:53.680Z"}
+info: [2024-04-25T15:47:13.600Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:47:13.600Z"}
+info: [2024-04-25T15:47:13.806Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:47:13.806Z"}
+info: [2024-04-25T15:47:14.748Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:47:14.748Z"}
+info: [2024-04-25T15:47:14.925Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:47:14.925Z"}
+info: [2024-04-25T15:49:37.693Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:37.693Z"}
+info: [2024-04-25T15:49:37.934Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:37.934Z"}
+info: [2024-04-25T15:49:49.874Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:49.874Z"}
+info: [2024-04-25T15:49:50.118Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:50.118Z"}
+info: [2024-04-25T15:49:51.936Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:51.936Z"}
+info: [2024-04-25T15:49:52.052Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:49:52.052Z"}
+info: [2024-04-25T15:50:30.932Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:50:30.932Z"}
+info: [2024-04-25T15:50:31.373Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:50:31.373Z"}
+info: [2024-04-25T15:51:33.313Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:51:33.313Z"}
+info: [2024-04-25T15:51:33.513Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:51:33.513Z"}
+info: [2024-04-25T15:55:47.890Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:55:47.890Z"}
+info: [2024-04-25T15:55:48.112Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:55:48.112Z"}
+info: [2024-04-25T15:57:06.939Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:57:06.939Z"}
+info: [2024-04-25T15:57:07.249Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:57:07.249Z"}
+info: [2024-04-25T15:57:42.780Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:57:42.780Z"}
+info: [2024-04-25T15:57:42.993Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:57:42.993Z"}
+info: [2024-04-25T15:58:03.890Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:58:03.890Z"}
+info: [2024-04-25T15:58:04.166Z] [GET] /drugs/all {"timestamp":"2024-04-25T15:58:04.166Z"}
+info: [2024-04-25T21:31:20.536Z] [GET] / {"timestamp":"2024-04-25T21:31:20.536Z"}
+info: [2024-04-25T21:31:20.537Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-25T21:31:20.537Z"}
+info: [2024-04-26T02:58:21.155Z] [GET] / {"timestamp":"2024-04-26T02:58:21.155Z"}
+info: [2024-04-26T02:58:21.156Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-26T02:58:21.156Z"}
+info: [2024-04-26T07:13:25.851Z] [GET] / {"timestamp":"2024-04-26T07:13:25.851Z"}
+info: [2024-04-26T07:13:25.861Z] [GET] / - Hello, Medicine Import App! {"timestamp":"2024-04-26T07:13:25.861Z"}
