@@ -4,10 +4,10 @@ const router = express.Router();
 const drugController = require("../controllers/drugController");
 /**
  * @swagger
- * /drugs/search/atc/{query}:
+ * /drugs/search/ATCName/{query}:
  *   get:
  *     summary: Search drugs by ATC name
- *     description: Retrieve drugs matching the specified ATC name.
+ *     description: Retrieve drugs and their details matching the specified ATC name.
  *     tags: [Drug]
  *     parameters:
  *       - in: path
@@ -19,6 +19,37 @@ const drugController = require("../controllers/drugController");
  *     responses:
  *       '200':
  *         description: OK. Drugs matching the ATC name retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   DrugName:
+ *                     type: string
+ *                   ATCRelatedIngredient:
+ *                     type: string
+ *                   ProductType:
+ *                     type: string
+ *                   Price:
+ *                     type: number
+ *                   ImageDefault:
+ *                     type: string
+ *                   SubsidyPercentage:
+ *                     type: number
+ *                   dosage:
+ *                     type: string
+ *                   route:
+ *                     type: string
+ *                   presentation:
+ *                     type: object
+ *                   priceInLBP:
+ *                     type: number
+ *                   unitPriceInLBP:
+ *                     type: number
+ *                   unitPrice:
+ *                     type: number
  *       '404':
  *         description: Not Found. No drugs found for the specified ATC name.
  *       '500':
@@ -28,23 +59,54 @@ router.get("/search/atc/:query", drugController.searchDrugByATCName);
 
 /**
  * @swagger
- * /drugs/search/brand/{query}:
+ * /drugs/search/DrugName/{query}:
  *   get:
- *     summary: Search drugs by brand name
- *     description: Retrieve drugs matching the specified brand name.
+ *     summary: Search drugs by name
+ *     description: Retrieve drugs and their details matching the specified name.
  *     tags: [Drug]
  *     parameters:
  *       - in: path
  *         name: query
  *         required: true
- *         description: The brand name to search for.
+ *         description: The drug name to search for.
  *         schema:
  *           type: string
  *     responses:
  *       '200':
- *         description: OK. Drugs matching the brand name retrieved successfully.
+ *         description: OK. Drugs matching the name retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   DrugName:
+ *                     type: string
+ *                   ATCRelatedIngredient:
+ *                     type: string
+ *                   ProductType:
+ *                     type: string
+ *                   Price:
+ *                     type: number
+ *                   ImageDefault:
+ *                     type: string
+ *                   SubsidyPercentage:
+ *                     type: number
+ *                   dosage:
+ *                     type: string
+ *                   route:
+ *                     type: string
+ *                   presentation:
+ *                     type: object
+ *                   priceInLBP:
+ *                     type: number
+ *                   unitPriceInLBP:
+ *                     type: number
+ *                   unitPrice:
+ *                     type: number
  *       '404':
- *         description: Not Found. No drugs found for the specified brand name.
+ *         description: Not Found. No drugs found for the specified name.
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
@@ -268,21 +330,54 @@ router.post("/addPharmacy", drugController.addPharmacyDrug);
 router.get("/all", drugController.getAllDrugs); // Add this route definition
 /**
  * @swagger
- * /drugs/smartSearch/{query}:
+ * /drugs/search/smart/{query}:
  *   get:
  *     summary: Smart search for drugs
- *     description: Retrieve drugs matching the specified search term using the smart search algorithm.
+ *     description: Retrieve drugs and their details matching the specified query in either the drug name or ATC name.
  *     tags: [Drug]
  *     parameters:
  *       - in: path
  *         name: query
  *         required: true
- *         description: The search term to use for the smart search.
+ *         description: The query to search for.
  *         schema:
  *           type: string
  *     responses:
  *       '200':
- *         description: OK. Drugs matching the search term retrieved successfully.
+ *         description: OK. Drugs matching the query retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   DrugName:
+ *                     type: string
+ *                   ATCRelatedIngredient:
+ *                     type: string
+ *                   ProductType:
+ *                     type: string
+ *                   Price:
+ *                     type: number
+ *                   ImageDefault:
+ *                     type: string
+ *                   SubsidyPercentage:
+ *                     type: number
+ *                   dosage:
+ *                     type: string
+ *                   route:
+ *                     type: string
+ *                   presentation:
+ *                     type: object
+ *                   priceInLBP:
+ *                     type: number
+ *                   unitPriceInLBP:
+ *                     type: number
+ *                   unitPrice:
+ *                     type: number
+ *       '404':
+ *         description: Not Found. No drugs found for the specified query.
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
@@ -292,5 +387,13 @@ router.get("/atc/{atcCode}", drugController.getDrugByATCLevel);
 
 router.post("/addDrugATC", drugController.addDrugATC);
 
+router.get("/dosage/id/:drugId", drugController.getDosageByDrugId);
+router.get("/dosage/name/:drugName", drugController.getDosageByDrugName);
+
+router.get("/route/id/:drugId", drugController.getRouteByDrugId);
+router.get("/route/name/:drugName", drugController.getRouteByDrugName);
+
+router.get('/presentation/id/:drugId', drugController.getPresentationByDrugId);
+router.get('/presentation/name/:drugName', drugController.getPresentationByDrugName);
 
 module.exports = router;
