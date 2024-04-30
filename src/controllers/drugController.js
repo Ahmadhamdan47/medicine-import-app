@@ -116,6 +116,59 @@ const addDrugATC = async (req, res) => {
     }
   }
 };
+const getDosageByDrugId = async (req, res) => {
+  try {
+      const dosage = await drugService.getDosageByDrugId(req.params.drugId);
+      res.json(dosage);
+  } catch (error) {
+      res.status(500).json({ error: error.toString() });
+  }
+};
+
+const getDosageByDrugName = async (req, res) => {
+  try {
+      const dosage = await drugService.getDosageByDrugName(req.params.drugName);
+      res.json(dosage);
+  } catch (error) {
+      res.status(500).json({ error: error.toString() });
+  }
+};
+
+const getRouteByDrugId = async (req, res) => {
+  try {
+      const route = await drugService.getRouteByDrugId(req.params.drugId);
+      res.json(route);
+  } catch (error) {
+      res.status(500).json({ error: error.toString() });
+  }
+};
+
+const getRouteByDrugName = async (req, res) => {
+  try {
+      const route = await drugService.getRouteByDrugName(req.params.drugName);
+      res.json(route);
+  } catch (error) {
+      res.status(500).json({ error: error.toString() });
+  }
+};
+const getPresentationByDrugId = async (req, res) => {
+  try {
+    const presentation = await drugService.getPresentationByDrugId(req.params.drugId);
+    res.json(presentation);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getPresentationByDrugName = async (req, res) => {
+  try {
+    const presentation = await drugService.getPresentationByDrugName(req.params.drugName);
+    res.json(presentation);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -126,5 +179,11 @@ module.exports = {
   getAllDrugs,
   smartSearch,
   getDrugByATCLevel,
-  addDrugATC
+  addDrugATC,
+  getDosageByDrugId,
+  getDosageByDrugName,
+  getRouteByDrugId, 
+  getRouteByDrugName,
+  getPresentationByDrugId,
+  getPresentationByDrugName,
 };

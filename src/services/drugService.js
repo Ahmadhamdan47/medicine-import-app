@@ -10,61 +10,60 @@ const { v4: uuidv4 } = require("uuid");
 const Substitute = require('../models/substitute');
 const DrugATCMapping = require('../models/AtcMapping');
 const substituteService = require('./substituteService');
+const Dosage = require('../models/dosage');
+const DosageForm= require('../models/dosageForm');
+const DosageFormMapping = require('../models/dosageFormMapping');
+const DrugRoute = require('../models/drugRoute');
+const Agent = require('../models/agent');
+const Route = require('../models/Route');
+const PresentationType = require('../models/presentationType');
+const DrugPresentation = require('../models/drugPresentation');
 
-const searchDrugByATCName = async (Name) => {
+const searchDrugByATCName = async (query) => {
   try {
-    // Find the ATC code
-    const atcCode = await ATC_Code.findOne({
-      where: { Name: Name },
+    const drugs = await Drug.findAll({
+      where: {
+        ATCRelatedIngredient: { [Op.like]: `%${query}%` },
+        attributes: ["DrugName", "ATCRelatedIngredient", "ProductType", "Price", "ImageDefault","SubsidyPercentage", "ManufacturerID"],
+      },
     });
 
-    if (!atcCode) {
-      throw new Error(`ATC code not found: ${atcName}`);
-    }
+    const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
+      const dosage = await getDosageByDrugName(drug.DrugName);
+      const route = await getRouteByDrugName(drug.DrugName);
+      const presentation= await getPresentationByDrugName(drug.DrugName);
+      const priceInLBP = drug.Price * 90000;
+      const unitPrice = drug.Price / presentation.Amount;
+      const unitPriceInLBP = unitPrice * 90000;
+      return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice};
+    }));
 
-    // Find the mappings
-    const mappings = await Drug_ATC_Mapping.findAll({
-      where: { ATC_ID: atcCode.ATC_ID },
-    });
-
-    // Find the drugs and their corresponding ATC codes
-    const drugs = await Promise.all(
-      mappings.map(async (mapping) => {
-        const drug = await Drug.findOne({
-          where: { DrugID: mapping.DrugID },
-          attributes: [
-            "DrugName",
-            "PriceForeign",
-            "PublicPrice",
-            "ImageDefault",
-          ],
-        });
-
-        const atc = await ATCService.getATCByDrugID(mapping.DrugID);
-
-        return {
-          ...drug.get({ plain: true }), // Convert Sequelize instance to plain JavaScript object
-          ATC: atc,
-        };
-      })
-    );
-
-    return drugs;
+    return drugsWithDosageAndRoute;
   } catch (error) {
     console.error(error);
     throw new Error("Error in drugService: " + error.message);
   }
 };
-
 const searchDrugByName = async (query) => {
   try {
     const drugs = await Drug.findAll({
       where: {
         DrugName: { [Op.like]: `%${query}%` },
+        
       },
+      attributes: ["DrugName", "ATCRelatedIngredient", "ProductType", "Price", "ImageDefault","SubsidyPercentage"],
     });
     console.log(drugs);
-    return drugs;
+    const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
+      const dosage = await getDosageByDrugName(drug.DrugName);
+      const route = await getRouteByDrugName(drug.DrugName);
+      const presentation = await getPresentationByDrugName(drug.DrugName);
+      const priceInLBP = drug.Price * 90000;
+      const unitPrice = drug.Price / presentation.Amount;
+      const unitPriceInLBP = unitPrice * 90000;
+      return { ...drug.get({ plain: true }), dosage,route,presentation, priceInLBP, unitPriceInLBP, unitPrice};
+    }));
+    return drugsWithDosageAndRoute;
   } catch (error) {
     console.error(error);
     throw new Error("Error in drugService: " + error.message);
@@ -166,7 +165,6 @@ const getAllDrugs = async () => {
 
 
 const smartSearch = async (query) => {
-  
   try {
     console.log("Query:", query); // Log the query
 
@@ -181,6 +179,16 @@ const smartSearch = async (query) => {
 
     console.log("Drugs found:", drugs); // Log the drugs found
 
+    const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
+      const dosage = await getDosageByDrugName(drug.DrugName);
+      const route = await getRouteByDrugName(drug.DrugName);
+      const presentation = await getPresentationByDrugName(drug.DrugName);
+      const priceInLBP = drug.Price * 90000;
+      const unitPrice = drug.Price / presentation.Amount;
+      const unitPriceInLBP = unitPrice * 90000;
+      return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
+    }));
+
     if (drugs.some(drug => drug.DrugName === query)) {
       const drugId = drugs.find(drug => drug.DrugName === query).DrugID;
 
@@ -192,18 +200,27 @@ const smartSearch = async (query) => {
 
         console.log("Substitutes found:", substitutes); // Log the substitutes found
 
-        drugs.push(...substitutes.map(sub => sub.Drug));
+        const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
+          const dosage = await getDosageByDrugName(substitute.DrugName);
+          const route = await getRouteByDrugName(substitute.DrugName);
+          const presentation = await getPresentationByDrugName(substitute.DrugName);
+          const priceInLBP = substitute.Price * 90000;
+          const unitPrice = substitute.Price / presentation.Amount;
+          const unitPriceInLBP = unitPrice * 90000;
+          return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
+        }));
+
+        drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
       } catch (error) {
         console.error("No substitutes found for drug:", error);
       }
     }
 
-    return drugs;
+    return drugsWithDosageAndRoute;
   } catch (error) {
     console.error("Error in smartSearch:", error);
     throw new Error('Error occurred in smartSearch: ' + error.message);
   }
-
 };
 const getDrugByATCLevel = async (atcCode) => {
   try {
@@ -243,6 +260,141 @@ const addDrugATC = async (DrugID, ATC_ID) => {
       throw error;
   }
 };
+const getDosageByDrugId = async (DrugID) => {
+  try {
+    const dosage = await Dosage.findOne({
+      where: { DrugID: DrugID },
+    });
+
+    if (!dosage) {
+      throw new Error(`No dosage found for drug ID: ${DrugID}`);
+    }
+
+    const dosageFormMapping = await DosageFormMapping.findOne({
+      where: { DosageID: dosage.DosageId },
+    });
+
+    if (!dosageFormMapping) {
+      throw new Error(`No dosage form mapping found for dosage ID: ${dosage.DosageId}`);
+    }
+
+    const dosageForm = await DosageForm.findOne({
+      where: { DosageFormID: dosageFormMapping.DosageFormId },
+    });
+
+    if (!dosageForm) {
+      throw new Error(`No dosage form found for ID: ${dosageFormMapping.DosageFormId}`);
+    }
+
+    return { dosage, dosageForm };
+  } catch (error) {
+    console.error("Error in getDosageByDrugId:", error);
+    throw new Error('Error occurred in getDosageByDrugId: ' + error.message);
+  }
+};
+
+const getDosageByDrugName = async (DrugName) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugName: DrugName },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found with name: ${DrugName}`);
+    }
+
+    return getDosageByDrugId(drug.DrugID);
+  } catch (error) {
+    console.error("Error in getDosageByDrugName:", error);
+    throw new Error('Error occurred in getDosageByDrugName: ' + error.message);
+  }
+};
+
+const getRouteByDrugId = async (DrugID) => {
+  try {
+    const drugRoute = await DrugRoute.findOne({
+      where: { DrugID: DrugID },
+    });
+
+    if (!drugRoute) {
+      throw new Error(`No route found for drug ID: ${DrugID}`);
+    }
+
+    const route = await Route.findOne({
+      where: { RouteID: drugRoute.RouteId },
+      attributes: ['Name'],
+    });
+
+    if (!route) {
+      throw new Error(`No route name found for RouteID: ${drugRoute.RouteId}`);
+    }
+
+    return route;
+  } catch (error) {
+    console.error("Error in getRouteByDrugId:", error);
+    throw new Error('Error occurred in getRouteByDrugId: ' + error.message);
+  }
+};
+
+const getRouteByDrugName = async (DrugName) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugName: DrugName },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found with name: ${DrugName}`);
+    }
+
+    return getRouteByDrugId(drug.DrugID);
+  } catch (error) {
+    console.error("Error in getRouteByDrugName:", error);
+    throw new Error('Error occurred in getRouteByDrugName: ' + error.message);
+  }
+};
+
+const getPresentationByDrugId = async (DrugID) => {
+  try {
+    const drugPresentation = await DrugPresentation.findOne({
+      where: { DrugId: DrugID },
+    });
+
+    if (!drugPresentation) {
+      throw new Error(`No presentation found for drug ID: ${DrugID}`);
+    }
+
+    const presentationType = await PresentationType.findOne({
+      where: { PresentationTypeId: drugPresentation.TypeId },
+      attributes: ['Name'],
+    });
+
+    if (!presentationType) {
+      throw new Error(`No presentation type found for ID: ${drugPresentation.TypeId}`);
+    }
+
+    return { ...drugPresentation.get({ plain: true }), presentationType };
+  } catch (error) {
+    console.error("Error in getPresentationByDrugId:", error);
+    throw new Error('Error occurred in getPresentationByDrugId: ' + error.message);
+  }
+};
+
+const getPresentationByDrugName = async (DrugName) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugName: DrugName },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found with name: ${DrugName}`);
+    }
+
+    return getPresentationByDrugId(drug.DrugID);
+  } catch (error) {
+    console.error("Error in getPresentationByDrugName:", error);
+    throw new Error('Error occurred in getPresentationByDrugName: ' + error.message);
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -254,5 +406,11 @@ module.exports = {
   addPharmacyDrug,
   getAllDrugs,
   getDrugByATCLevel,
-  addDrugATC
+  addDrugATC,
+  getDosageByDrugId,
+  getDosageByDrugName,
+  getRouteByDrugId,
+  getRouteByDrugName,
+  getPresentationByDrugId,
+  getPresentationByDrugName,
 };

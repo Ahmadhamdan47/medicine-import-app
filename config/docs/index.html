@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MedLeb API</title>
+    <style type="text/css">
+      body {
+        font-family: Trebuchet MS, sans-serif;
+        font-size: 15px;
+        color: #444;
+        margin-right: 24px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      hr {
+        height: 1px;
+        border: 0;
+        color: #ddd;
+        background-color: #ddd;
+      }
+
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+
+      .license-url {
+        margin-left: 20px;
+      }
+
+      .model {
+        margin: 0 0 0px 20px;
+      }
+
+      .method {
+        margin-left: 20px;
+      }
+
+      .method-notes {
+        margin: 10px 0 20px 0;
+        font-size: 90%;
+        color: #555;
+      }
+
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+
+      .http-method {
+        text-transform: uppercase;
+      }
+
+      pre.get {
+        background-color: #0f6ab4;
+      }
+
+      pre.post {
+        background-color: #10a54a;
+      }
+
+      pre.put {
+        background-color: #c5862b;
+      }
+
+      pre.delete {
+        background-color: #a41e22;
+      }
+
+      .huge {
+        color: #fff;
+      }
+
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+
+      code {
+        white-space: pre;
+      }
+
+      .nickname {
+        font-weight: bold;
+      }
+
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+
+      .up {
+        float: right;
+      }
+
+      .parameter {
+        width: 500px;
+      }
+
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+
+      .param-type {
+        font-style: italic;
+      }
+
+      .param-enum-header {
+        width: 700px;
+        padding: 0 0 0 60px;
+        color: #777;
+        font-weight: bold;
+      }
+
+      .param-enum {
+        width: 700px;
+        padding: 0 0 0 80px;
+        color: #777;
+        font-style: italic;
+      }
+
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+
+      .field-items {
+        padding: 0 0 15px 0;
+        margin-bottom: 15px;
+      }
+
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+
+      .param-header {
+        font-weight: bold;
+      }
+
+      .method-tags {
+        text-align: right;
+      }
+
+      .method-tag {
+        background: none repeat scroll 0% 0% #24a600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #fff;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MedLeb API</h1>
+    <div class="app-desc">API documentation for Medicine Import App</div>
+    <div class="app-desc">
+      More information:
+      <a href="https://helloreverb.com">https://helloreverb.com</a>
+    </div>
+    <div class="app-desc">
+      Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a>
+    </div>
+    <div class="app-desc">Version: 1.0.0</div>
+
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+    <h2>Access</h2>
+
+    <h2><a name="__Methods">Methods</a></h2>
+    [ Jump to <a href="#__Models">Models</a> ]
+
+    <h3>Table of Contents</h3>
+    <div class="method-summary"></div>
+    <h4><a href="#ATC">ATC</a></h4>
+    <ul>
+      <li>
+        <a href="#atcAddPost"
+          ><code><span class="http-method">post</span> /atc/add</code></a
+        >
+      </li>
+      <li>
+        <a href="#atcAllGet"
+          ><code><span class="http-method">get</span> /atc/all</code></a
+        >
+      </li>
+      <li>
+        <a href="#atcDrugIDGet"
+          ><code><span class="http-method">get</span> /atc/{drugID}</code></a
+        >
+      </li>
+      <li>
+        <a href="#atcIdDelete"
+          ><code><span class="http-method">delete</span> /atc/{id}</code></a
+        >
+      </li>
+    </ul>
+    <h4><a href="#Donation">Donation</a></h4>
+    <ul>
+      <li>
+        <a href="#donationAddPost"
+          ><code><span class="http-method">post</span> /donation/add</code></a
+        >
+      </li>
+      <li>
+        <a href="#donationAllGet"
+          ><code><span class="http-method">get</span> /donation/all</code></a
+        >
+      </li>
+      <li>
+        <a href="#donationIdGet"
+          ><code><span class="http-method">get</span> /donation/{id}</code></a
+        >
+      </li>
+      <li>
+        <a href="#donorAddPost"
+          ><code><span class="http-method">post</span> /donor/add</code></a
+        >
+      </li>
+      <li>
+        <a href="#donorAllGet"
+          ><code><span class="http-method">get</span> /donor/all</code></a
+        >
+      </li>
+      <li>
+        <a href="#recipientAddPost"
+          ><code><span class="http-method">post</span> /recipient/add</code></a
+        >
+      </li>
+      <li>
+        <a href="#recipientAllGet"
+          ><code><span class="http-method">get</span> /recipient/all</code></a
+        >
+      </li>
+    </ul>
+    <h4><a href="#Drug">Drug</a></h4>
+    <ul>
+      <li>
+        <a href="#drugsAddPharmacyPost"
+          ><code
+            ><span class="http-method">post</span> /drugs/addPharmacy</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#drugsAddPost"
+          ><code><span class="http-method">post</span> /drugs/add</code></a
+        >
+      </li>
+      <li>
+        <a href="#drugsAllGet"
+          ><code><span class="http-method">get</span> /drugs/all</code></a
+        >
+      </li>
+      <li>
+        <a href="#drugsDrugIDDrugIDGet"
+          ><code
+            ><span class="http-method">get</span> /drugs/DrugID/{DrugID}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#drugsFilterQueryGet"
+          ><code
+            ><span class="http-method">get</span> /drugs/filter/{query}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#drugsSearchAtcQueryGet"
+          ><code
+            ><span class="http-method">get</span>
+            /drugs/search/atc/{query}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#drugsSearchBrandQueryGet"
+          ><code
+            ><span class="http-method">get</span>
+            /drugs/search/brand/{query}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#drugsSmartSearchQueryGet"
+          ><code
+            ><span class="http-method">get</span>
+            /drugs/smartSearch/{query}</code
+          ></a
+        >
+      </li>
+    </ul>
+    <h4><a href="#Importation">Importation</a></h4>
+    <ul>
+      <li>
+        <a href="#agentStockIdStockPut"
+          ><code
+            ><span class="http-method">put</span> /agentStock/{id}/stock</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#piSubmitIdPut"
+          ><code><span class="http-method">put</span> /pi/submit/{id}</code></a
+        >
+      </li>
+      <li>
+        <a href="#rfdIdReceivePut"
+          ><code
+            ><span class="http-method">put</span> /rfd/{id}/receive</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#rfiApproveIdPut"
+          ><code
+            ><span class="http-method">put</span> /rfi/approve/{id}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#rfiEditIdPut"
+          ><code><span class="http-method">put</span> /rfi/edit/{id}</code></a
+        >
+      </li>
+      <li>
+        <a href="#shipmentSubmitIdPut"
+          ><code
+            ><span class="http-method">put</span> /shipment/submit/{id}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#submittedOrdersGet"
+          ><code><span class="http-method">get</span> /submittedOrders</code></a
+        >
+      </li>
+      <li>
+        <a href="#submittedOrdersOrderIdDelete"
+          ><code
+            ><span class="http-method">delete</span>
+            /submittedOrders/{orderId}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#submittedOrdersOrderIdPut"
+          ><code
+            ><span class="http-method">put</span>
+            /submittedOrders/{orderId}</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#submittedOrdersSubmitPost"
+          ><code
+            ><span class="http-method">post</span> /submittedOrders/submit</code
+          ></a
+        >
+      </li>
+      <li>
+        <a href="#swiftSubmitIdPut"
+          ><code
+            ><span class="http-method">put</span> /swift/submit/{id}</code
+          ></a
+        >
+      </li>
+    </ul>
+
+    <h1><a name="ATC">ATC</a></h1>
+    <div class="method">
+      <a name="atcAddPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /atc/add</code></pre>
+      </div>
+      <div class="method-summary">
+        Add ATC codes (<span class="nickname">atcAddPost</span>)
+      </div>
+      <div class="method-notes">Add/Post New ATC Code.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. All ATC code Added successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to Add ATC code.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="atcAllGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /atc/all</code></pre>
+      </div>
+      <div class="method-summary">
+        Get all ATC codes (<span class="nickname">atcAllGet</span>)
+      </div>
+      <div class="method-notes">Retrieve all ATC Codes.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. All ATC codes retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve ATC codes.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="atcDrugIDGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /atc/{drugID}</code></pre>
+      </div>
+      <div class="method-summary">
+        Get ATC code by drug ID (<span class="nickname">atcDrugIDGet</span>)
+      </div>
+      <div class="method-notes">
+        Retrieve ATC code associated with a drug ID.
+      </div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">drugID (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          drug to retrieve the ATC code for.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. ATC code retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. No ATC mapping found for the specified drug ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve ATC code.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="atcIdDelete"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="delete"
+        ><code class="huge"><span class="http-method">delete</span> /atc/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Delete ATC code (<span class="nickname">atcIdDelete</span>)
+      </div>
+      <div class="method-notes">Delete an ATC code by ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; ID of the ATC
+          code to delete.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. ATC code deleted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to delete ATC code.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <h1><a name="Donation">Donation</a></h1>
+    <div class="method">
+      <a name="donationAddPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /donation/add</code></pre>
+      </div>
+      <div class="method-summary">
+        Add a new donation (<span class="nickname">donationAddPost</span>)
+      </div>
+      <div class="method-notes">Add a new donation to the system.</div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body <a href="#donation_add_body">donation_add_body</a> (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Donation added successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to add donation.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="donationAllGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /donation/all</code></pre>
+      </div>
+      <div class="method-summary">
+        Get all donation (<span class="nickname">donationAllGet</span>)
+      </div>
+      <div class="method-notes">Retrieve all donation from the system.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. List of all donation retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve donation.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="donationIdGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /donation/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Get donation by ID (<span class="nickname">donationIdGet</span>)
+      </div>
+      <div class="method-notes">Retrieve a donation by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          donation to retrieve.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Donation retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Donation not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve donation.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="donorAddPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /donor/add</code></pre>
+      </div>
+      <div class="method-summary">
+        Add a new donor (<span class="nickname">donorAddPost</span>)
+      </div>
+      <div class="method-notes">Add a new donor to the system.</div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body <a href="#donor_add_body">donor_add_body</a> (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Donor added successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to add donor.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="donorAllGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /donor/all</code></pre>
+      </div>
+      <div class="method-summary">
+        Get all donors (<span class="nickname">donorAllGet</span>)
+      </div>
+      <div class="method-notes">Retrieve all donors from the system.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. List of all donors retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve donors.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="recipientAddPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /recipient/add</code></pre>
+      </div>
+      <div class="method-summary">
+        Add a new recipient (<span class="nickname">recipientAddPost</span>)
+      </div>
+      <div class="method-notes">Add a new recipient to the system.</div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body <a href="#recipient_add_body">recipient_add_body</a> (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Recipient added successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to add recipient.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="recipientAllGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /recipient/all</code></pre>
+      </div>
+      <div class="method-summary">
+        Get all recipients (<span class="nickname">recipientAllGet</span>)
+      </div>
+      <div class="method-notes">Retrieve all recipients from the system.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. List of all recipients retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve recipients.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <h1><a name="Drug">Drug</a></h1>
+    <div class="method">
+      <a name="drugsAddPharmacyPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /drugs/addPharmacy</code></pre>
+      </div>
+      <div class="method-summary">
+        Add a new patient to pharmacy (<span class="nickname"
+          >drugsAddPharmacyPost</span
+        >)
+      </div>
+      <div class="method-notes">
+        Add a new patient to the pharmacy database.
+      </div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body
+          <a href="#drugs_addPharmacy_body">drugs_addPharmacy_body</a>
+          (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Patient added to pharmacy successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to add patient to pharmacy.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsAddPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /drugs/add</code></pre>
+      </div>
+      <div class="method-summary">
+        Add a new drug (<span class="nickname">drugsAddPost</span>)
+      </div>
+      <div class="method-notes">Add a new drug to the database.</div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body <a href="#drugs_add_body">drugs_add_body</a> (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drug added successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to add drug.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsAllGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/all</code></pre>
+      </div>
+      <div class="method-summary">
+        Get all drugs (<span class="nickname">drugsAllGet</span>)
+      </div>
+      <div class="method-notes">
+        Retrieve all drugs available in the system.
+      </div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drugs retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve drugs.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsDrugIDDrugIDGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/DrugID/{DrugID}</code></pre>
+      </div>
+      <div class="method-summary">
+        Get drug by DrugID (<span class="nickname">drugsDrugIDDrugIDGet</span>)
+      </div>
+      <div class="method-notes">Retrieve a drug by its DrugID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">DrugID (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The DrugID of
+          the drug to retrieve.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drug retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Drug not found for the specified DrugID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve drug.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsFilterQueryGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/filter/{query}</code></pre>
+      </div>
+      <div class="method-summary">
+        Filter drugs (<span class="nickname">drugsFilterQueryGet</span>)
+      </div>
+      <div class="method-notes">
+        Filter drugs based on the specified criteria.
+      </div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">query (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The filter
+          criteria.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drugs filtered successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. No drugs found for the specified criteria.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to filter drugs.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsSearchAtcQueryGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/search/atc/{query}</code></pre>
+      </div>
+      <div class="method-summary">
+        Search drugs by ATC name (<span class="nickname"
+          >drugsSearchAtcQueryGet</span
+        >)
+      </div>
+      <div class="method-notes">
+        Retrieve drugs matching the specified ATC name.
+      </div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">query (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ATC name to
+          search for.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drugs matching the ATC name retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. No drugs found for the specified ATC name.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve drugs.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsSearchBrandQueryGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/search/brand/{query}</code></pre>
+      </div>
+      <div class="method-summary">
+        Search drugs by brand name (<span class="nickname"
+          >drugsSearchBrandQueryGet</span
+        >)
+      </div>
+      <div class="method-notes">
+        Retrieve drugs matching the specified brand name.
+      </div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">query (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The brand name
+          to search for.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drugs matching the brand name retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. No drugs found for the specified brand name.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve drugs.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="drugsSmartSearchQueryGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /drugs/smartSearch/{query}</code></pre>
+      </div>
+      <div class="method-summary">
+        Smart search for drugs (<span class="nickname"
+          >drugsSmartSearchQueryGet</span
+        >)
+      </div>
+      <div class="method-notes">
+        Retrieve drugs matching the specified search term using the smart search
+        algorithm.
+      </div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">query (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The search term
+          to use for the smart search.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Drugs matching the search term retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve drugs.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <h1><a name="Importation">Importation</a></h1>
+    <div class="method">
+      <a name="agentStockIdStockPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /agentStock/{id}/stock</code></pre>
+      </div>
+      <div class="method-summary">
+        Update agent stock (<span class="nickname">agentStockIdStockPut</span>)
+      </div>
+      <div class="method-notes">Update the stock of an agent by agent ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          agent whose stock needs to be updated.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Agent stock updated successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Agent not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to update agent stock.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="piSubmitIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /pi/submit/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Submit PI (<span class="nickname">piSubmitIdPut</span>)
+      </div>
+      <div class="method-notes">Submit PI by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          PI to submit.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. PI submitted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. PI not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to submit PI.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="rfdIdReceivePut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /rfd/{id}/receive</code></pre>
+      </div>
+      <div class="method-summary">
+        Receive RFD (<span class="nickname">rfdIdReceivePut</span>)
+      </div>
+      <div class="method-notes">Receive RFD by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          RFD to receive.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. RFD received successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. RFD not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to receive RFD.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="rfiApproveIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /rfi/approve/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Approve RFI Quantity (<span class="nickname">rfiApproveIdPut</span>)
+      </div>
+      <div class="method-notes">Approve the quantity of an RFI by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          RFI to approve quantity for.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. RFI quantity approved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. RFI not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to approve RFI quantity.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="rfiEditIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /rfi/edit/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Edit RFI (<span class="nickname">rfiEditIdPut</span>)
+      </div>
+      <div class="method-notes">Edit an RFI by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          RFI to edit.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. RFI edited successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. RFI not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to edit RFI.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="shipmentSubmitIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /shipment/submit/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Submit Shipment (<span class="nickname">shipmentSubmitIdPut</span>)
+      </div>
+      <div class="method-notes">Submit a shipment by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          shipment to submit.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Shipment submitted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Shipment not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to submit shipment.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="submittedOrdersGet"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="get"
+        ><code class="huge"><span class="http-method">get</span> /submittedOrders</code></pre>
+      </div>
+      <div class="method-summary">
+        Get All Orders (<span class="nickname">submittedOrdersGet</span>)
+      </div>
+      <div class="method-notes">Retrieve all orders.</div>
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Orders retrieved successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to retrieve orders.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="submittedOrdersOrderIdDelete"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="delete"
+        ><code class="huge"><span class="http-method">delete</span> /submittedOrders/{orderId}</code></pre>
+      </div>
+      <div class="method-summary">
+        Delete Order (<span class="nickname">submittedOrdersOrderIdDelete</span
+        >)
+      </div>
+      <div class="method-notes">Delete an existing order.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">orderId (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; ID of the order
+          to delete.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Order deleted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Order not found.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to delete order.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="submittedOrdersOrderIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /submittedOrders/{orderId}</code></pre>
+      </div>
+      <div class="method-summary">
+        Update Order (<span class="nickname">submittedOrdersOrderIdPut</span>)
+      </div>
+      <div class="method-notes">Update an existing order.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">orderId (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; ID of the order
+          to update.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body
+          <a href="#submittedOrders_orderId_body"
+            >submittedOrders_orderId_body</a
+          >
+          (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Order updated successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Order not found.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to update order.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="submittedOrdersSubmitPost"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="post"
+        ><code class="huge"><span class="http-method">post</span> /submittedOrders/submit</code></pre>
+      </div>
+      <div class="method-summary">
+        Submit Order (<span class="nickname">submittedOrdersSubmitPost</span>)
+      </div>
+      <div class="method-notes">Submit an order.</div>
+
+      <h3 class="field-label">Consumes</h3>
+      This API call consumes the following media types via the
+      <span class="header">Content-Type</span> request header:
+      <ul>
+        <li><code>application/json</code></li>
+      </ul>
+
+      <h3 class="field-label">Request body</h3>
+      <div class="field-items">
+        <div class="param">
+          body
+          <a href="#submittedOrders_submit_body">submittedOrders_submit_body</a>
+          (required)
+        </div>
+
+        <div class="param-desc">
+          <span class="param-type">Body Parameter</span> &mdash;
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Order submitted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to submit order.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+    <div class="method">
+      <a name="swiftSubmitIdPut"></a>
+      <div class="method-path">
+        <a class="up" href="#__Methods">Up</a>
+        <pre
+          class="put"
+        ><code class="huge"><span class="http-method">put</span> /swift/submit/{id}</code></pre>
+      </div>
+      <div class="method-summary">
+        Submit Swift (<span class="nickname">swiftSubmitIdPut</span>)
+      </div>
+      <div class="method-notes">Submit a Swift by its ID.</div>
+
+      <h3 class="field-label">Path parameters</h3>
+      <div class="field-items">
+        <div class="param">id (required)</div>
+
+        <div class="param-desc">
+          <span class="param-type">Path Parameter</span> &mdash; The ID of the
+          Swift to submit.
+        </div>
+      </div>
+      <!-- field-items -->
+
+      <!--Todo: process Response Object and its headers, schema, examples -->
+
+      <h3 class="field-label">Responses</h3>
+      <h4 class="field-label">200</h4>
+      OK. Swift submitted successfully.
+      <a href="#"></a>
+      <h4 class="field-label">404</h4>
+      Not Found. Swift not found for the specified ID.
+      <a href="#"></a>
+      <h4 class="field-label">500</h4>
+      Internal Server Error. Failed to submit Swift.
+      <a href="#"></a>
+    </div>
+    <!-- method -->
+    <hr />
+
+    <h2><a name="__Models">Models</a></h2>
+    [ Jump to <a href="#__Methods">Methods</a> ]
+
+    <h3>Table of Contents</h3>
+    <ol>
+      <li>
+        <a href="#donation_add_body"><code>donation_add_body</code></a>
+      </li>
+      <li>
+        <a href="#donor_add_body"><code>donor_add_body</code></a>
+      </li>
+      <li>
+        <a href="#drugs_addPharmacy_body"
+          ><code>drugs_addPharmacy_body</code></a
+        >
+      </li>
+      <li>
+        <a href="#drugs_add_body"><code>drugs_add_body</code></a>
+      </li>
+      <li>
+        <a href="#recipient_add_body"><code>recipient_add_body</code></a>
+      </li>
+      <li>
+        <a href="#submittedOrders_orderId_body"
+          ><code>submittedOrders_orderId_body</code></a
+        >
+      </li>
+      <li>
+        <a href="#submittedOrders_submit_body"
+          ><code>submittedOrders_submit_body</code></a
+        >
+      </li>
+    </ol>
+
+    <div class="model">
+      <h3>
+        <a name="donation_add_body"><code>donation_add_body</code></a>
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">DonorId (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">RecipientId (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">DonationDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">Quantity (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">DonationPurpose (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">CreatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">UpdatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">Laboratory (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">LaboratoryCountry (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="donor_add_body"><code>donor_add_body</code></a>
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">DonorName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">DonorType (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">Organization</div>
+        <div class="param-enum">Individual</div>
+        <div class="param">Address (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">PhoneNumber (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Email (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span> format:
+          email
+        </div>
+        <div class="param">DonorCountry (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IsActive (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">CreatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">UpdatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="drugs_addPharmacy_body"><code>drugs_addPharmacy_body</code></a>
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">FirstName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">LastName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">DateOfBirth (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#date">date</a></span> format: date
+        </div>
+        <div class="param">Gender (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">PhoneNumber (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Email (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Address (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IsActive (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="drugs_add_body"><code>drugs_add_body</code></a>
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">DrugName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ManufacturerID (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">RegistrationNumber (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">GTIN (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Notes (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Description (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IngredientAndStrength (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Indication (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Posology (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">MethodOfAdministration (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Contraindications (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">PrecautionForUse (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">EffectOnFGN (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">SideEffect (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Toxicity (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">StorageCondition (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ShelfLife (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IngredientLabel (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Price (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>
+        </div>
+        <div class="param">ImagesPath (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ImageDefault (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">InteractionIngredientName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IsDouanes (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">RegistrationDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#date">date</a></span> format: date
+        </div>
+        <div class="param">PublicPrice (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>
+        </div>
+        <div class="param">SubsidyLabel (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">SubsidyPercentage (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>
+        </div>
+        <div class="param">HospPricing (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">Substitutable (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">CreatedBy (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#UUID">UUID</a></span> format: uuid
+        </div>
+        <div class="param">CreatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">UpdatedBy (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#UUID">UUID</a></span> format: uuid
+        </div>
+        <div class="param">UpdatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">OtherIngredients (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ATCRelatedIngredient (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ReviewDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#date">date</a></span> format: date
+        </div>
+        <div class="param">MoPHCode (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">CargoShippingTerms (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ProductType (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">NotMarketed (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">DFSequence (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">PriceForeign (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>
+        </div>
+        <div class="param">CurrencyForeign (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#UUID">UUID</a></span> format: uuid
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="recipient_add_body"><code>recipient_add_body</code></a>
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">RecipientName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">RecipientType (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Address (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">City (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">Country (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ContactPerson (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">ContactNumber (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">IsActive (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">CreatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+        <div class="param">UpdatedDate (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#DateTime">Date</a></span> format:
+          date-time
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="submittedOrders_orderId_body"
+          ><code>submittedOrders_orderId_body</code></a
+        >
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">brandName (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">quantityRequested (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">RFI (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">Result (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">PI (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">swift (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">invoice (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">rfd (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">stock (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+    <div class="model">
+      <h3>
+        <a name="submittedOrders_submit_body"
+          ><code>submittedOrders_submit_body</code></a
+        >
+        <a class="up" href="#__Models">Up</a>
+      </h3>
+
+      <div class="field-items">
+        <div class="param">DrugID (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#string">String</a></span>
+        </div>
+        <div class="param">quantity (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#integer">Integer</a></span>
+        </div>
+        <div class="param">RFI (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">Result (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">PI (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">swift (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">invoice (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">rfd (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+        <div class="param">stock (optional)</div>
+        <div class="param-desc">
+          <span class="param-type"><a href="#boolean">Boolean</a></span>
+        </div>
+      </div>
+      <!-- field-items -->
+    </div>
+  </body>
+</html>
