@@ -18,7 +18,8 @@ const Agent = require('../models/agent');
 const Route = require('../models/Route');
 const PresentationType = require('../models/presentationType');
 const DrugPresentation = require('../models/drugPresentation');
-
+const StratumType = require('../models/stratumType');
+const DrugStratum = require('../models/drugStratum');
 const searchDrugByATCName = async (query) => {
   try {
     const drugs = await Drug.findAll({
@@ -75,8 +76,20 @@ const getDrugById = async (DrugID) => {
       where: {
         DrugID: DrugID,
       },
+      attributes: ["DrugName", "ATCRelatedIngredient", "ProductType", "ImageDefault","SubsidyPercentage","MoPHCode","Price"],
+
     });
-    return drug;
+    const dosage = await getDosageByDrugId(DrugID);
+    const route = await getRouteByDrugId(DrugID);
+    const presentation = await getPresentationByDrugId(DrugID);
+    const ATC = await ATCService.getATCByDrugID(DrugID);
+    const priceInLBP = drug.Price * 90000;
+    const unitPrice = drug.Price / presentation.Amount;
+    const unitPriceInLBP = unitPrice * 90000;
+    const Stratum= await getStratumByDrugId(DrugID);
+
+    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation,ATC, priceInLBP, unitPriceInLBP, unitPrice,Stratum};
+    return allDrugData;
   } catch (error) {
     throw new Error("Error in drugService: " + error.message);
   }
@@ -393,6 +406,40 @@ const getPresentationByDrugName = async (DrugName) => {
   } catch (error) {
     console.error("Error in getPresentationByDrugName:", error);
     throw new Error('Error occurred in getPresentationByDrugName: ' + error.message);
+  }
+};
+
+const getStratumByDrugId = async (DrugID) => {
+  try {
+    // Find the corresponding mapping in the drugStratum table
+    const drugStratum = await DrugStratum.findOne({
+      where: {
+        DrugID: DrugID,
+      },
+    });
+
+    if (!drugStratum) {
+      throw new Error(`No stratum mapping found for DrugID: ${DrugID}`);
+    }
+
+    // Get the stratumTypeId from the drugStratum
+    const { stratumTypeId } = drugStratum;
+
+    // Get the stratumCode from the StratumType table
+    const stratumType = await StratumType.findOne({
+      where: {
+        id: stratumTypeId,
+      },
+    });
+
+    if (!stratumType) {
+      throw new Error(`No StratumType found for id: ${stratumTypeId}`);
+    }
+
+    // Return the stratumCode
+    return stratumType.Code;
+  } catch (error) {
+    throw new Error("Error in drugService: " + error.message);
   }
 };
 

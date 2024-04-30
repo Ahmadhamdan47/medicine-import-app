@@ -114,26 +114,60 @@ router.get("/search/DrugName/:query", drugController.searchDrugByName);
 
 /**
  * @swagger
- * /drugs/guid/{guid}:
+ * /drugs/{DrugID}:
  *   get:
- *     summary: Get drug by GUID
- *     description: Retrieve a drug by its GUID.
+ *     summary: Get drug by ID
+ *     description: Retrieve a drug and its details by its ID.
  *     tags: [Drug]
  *     parameters:
  *       - in: path
- *         name: guid
+ *         name: DrugID
  *         required: true
- *         description: The GUID of the drug to retrieve.
+ *         description: The ID of the drug to retrieve.
  *         schema:
- *           type: string
+ *           type: integer
  *     responses:
  *       '200':
  *         description: OK. Drug retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 DrugName:
+ *                   type: string
+ *                 ATCRelatedIngredient:
+ *                   type: string
+ *                 ProductType:
+ *                   type: string
+ *                 Price:
+ *                   type: number
+ *                 ImageDefault:
+ *                   type: string
+ *                 SubsidyPercentage:
+ *                   type: number
+ *                 dosage:
+ *                   type: string
+ *                 route:
+ *                   type: string
+ *                 presentation:
+ *                   type: object
+ *                 ATC:
+ *                   type: string
+ *                 priceInLBP:
+ *                   type: number
+ *                 unitPriceInLBP:
+ *                   type: number
+ *                 unitPrice:
+ *                   type: number
+ *                 Stratum:
+ *                   type: string
  *       '404':
- *         description: Not Found. Drug not found for the specified GUID.
+ *         description: Not Found. No drug found for the specified ID.
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drug.
  */
+
 router.get("/Id/:DrugID", drugController.getDrugById);
 
 /**
@@ -427,5 +461,6 @@ router.get(
   "/presentation/name/:drugName",
   drugController.getPresentationByDrugName
 );
+router.get('/stratum/:DrugID', drugController.getStratumByDrugId);
 
 module.exports = router;

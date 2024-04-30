@@ -168,7 +168,20 @@ const getPresentationByDrugName = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const getStratumByDrugId = async (req, res) => {
+  try {
+    const { DrugID } = req.params;
+    const stratum = await DrugService.getStratumByDrugId(DrugID);
 
+    if (!stratum) {
+      return res.status(404).json({ error: "Stratum not found" });
+    }
+
+    res.json(stratum);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -186,4 +199,5 @@ module.exports = {
   getRouteByDrugName,
   getPresentationByDrugId,
   getPresentationByDrugName,
+  getStratumByDrugId,
 };
