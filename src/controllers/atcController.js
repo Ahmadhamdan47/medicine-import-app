@@ -37,9 +37,22 @@ const deleteATC = async (req, res) => {
     }
 };
 
+
+
+const getAllATC = async (req, res) => {
+    try {
+        const allATC = await ATCService.getAllATC();
+        res.json(allATC);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
 module.exports = {
     getATCByDrugID,
     addATC,
     editATC,
-    deleteATC
+    deleteATC,
+    getAllATC
 };

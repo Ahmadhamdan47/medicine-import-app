@@ -22,13 +22,15 @@ const getBrandById = async (BrandId) => {
 
 const getAllBrands = async () => {
     try {
-        const brands = await Brand.findAll();
-        return brands;
+        const brand = await Brand.findAll();
+        return brand;
     } catch (error) {
         console.error(error);
         throw new Error('Error in brandService: ' + error.message);
     }
 };
+
+
 
 const editBrand = async (BrandId, brandData) => {
     try {
