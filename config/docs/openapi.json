@@ -1,0 +1,1125 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "MedLeb API",
+    "description" : "API documentation for Medicine Import App",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:3000",
+    "description" : "Local Development Server"
+  } ],
+  "tags" : [ {
+    "name" : "Drug",
+    "description" : "Operations related to drugs"
+  }, {
+    "name" : "Donation",
+    "description" : "Operations related to donations"
+  }, {
+    "name" : "Importation",
+    "description" : "Operations related to importations"
+  }, {
+    "name" : "ATC",
+    "description" : "Operations related to ATCs"
+  } ],
+  "paths" : {
+    "/agentStock/{id}/stock" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Update agent stock",
+        "description" : "Update the stock of an agent by agent ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the agent whose stock needs to be updated.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Agent stock updated successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Agent not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to update agent stock."
+          }
+        }
+      }
+    },
+    "/atc/{drugID}" : {
+      "get" : {
+        "tags" : [ "ATC" ],
+        "summary" : "Get ATC code by drug ID",
+        "description" : "Retrieve ATC code associated with a drug ID.",
+        "parameters" : [ {
+          "name" : "drugID",
+          "in" : "path",
+          "description" : "The ID of the drug to retrieve the ATC code for.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. ATC code retrieved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. No ATC mapping found for the specified drug ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve ATC code."
+          }
+        }
+      }
+    },
+    "/atc/all" : {
+      "get" : {
+        "tags" : [ "ATC" ],
+        "summary" : "Get all ATC codes",
+        "description" : "Retrieve all ATC Codes.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. All ATC codes retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve ATC codes."
+          }
+        }
+      }
+    },
+    "/atc/add" : {
+      "post" : {
+        "tags" : [ "ATC" ],
+        "summary" : "Add ATC codes",
+        "description" : "Add/Post New ATC Code.",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. All ATC code Added successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to Add ATC code."
+          }
+        }
+      }
+    },
+    "/atc/{id}" : {
+      "delete" : {
+        "tags" : [ "ATC" ],
+        "summary" : "Delete ATC code",
+        "description" : "Delete an ATC code by ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the ATC code to delete.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. ATC code deleted successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to delete ATC code."
+          }
+        }
+      }
+    },
+    "/donation/add" : {
+      "post" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Add a new donation",
+        "description" : "Add a new donation to the system.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/donation_add_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Donation added successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to add donation."
+          }
+        }
+      }
+    },
+    "/donation/all" : {
+      "get" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Get all donation",
+        "description" : "Retrieve all donation from the system.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. List of all donation retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve donation."
+          }
+        }
+      }
+    },
+    "/donation/{id}" : {
+      "get" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Get donation by ID",
+        "description" : "Retrieve a donation by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the donation to retrieve.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Donation retrieved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Donation not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve donation."
+          }
+        }
+      }
+    },
+    "/donor/add" : {
+      "post" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Add a new donor",
+        "description" : "Add a new donor to the system.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/donor_add_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Donor added successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to add donor."
+          }
+        }
+      }
+    },
+    "/donor/all" : {
+      "get" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Get all donors",
+        "description" : "Retrieve all donors from the system.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. List of all donors retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve donors."
+          }
+        }
+      }
+    },
+    "/drugs/search/atc/{query}" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Search drugs by ATC name",
+        "description" : "Retrieve drugs matching the specified ATC name.",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "path",
+          "description" : "The ATC name to search for.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drugs matching the ATC name retrieved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. No drugs found for the specified ATC name."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve drugs."
+          }
+        }
+      }
+    },
+    "/drugs/search/brand/{query}" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Search drugs by brand name",
+        "description" : "Retrieve drugs matching the specified brand name.",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "path",
+          "description" : "The brand name to search for.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drugs matching the brand name retrieved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. No drugs found for the specified brand name."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve drugs."
+          }
+        }
+      }
+    },
+    "/drugs/DrugID/{DrugID}" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Get drug by DrugID",
+        "description" : "Retrieve a drug by its DrugID.",
+        "parameters" : [ {
+          "name" : "DrugID",
+          "in" : "path",
+          "description" : "The DrugID of the drug to retrieve.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drug retrieved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Drug not found for the specified DrugID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve drug."
+          }
+        }
+      }
+    },
+    "/drugs/filter/{query}" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Filter drugs",
+        "description" : "Filter drugs based on the specified criteria.",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "path",
+          "description" : "The filter criteria.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drugs filtered successfully."
+          },
+          "404" : {
+            "description" : "Not Found. No drugs found for the specified criteria."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to filter drugs."
+          }
+        }
+      }
+    },
+    "/drugs/add" : {
+      "post" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Add a new drug",
+        "description" : "Add a new drug to the database.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/drugs_add_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drug added successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to add drug."
+          }
+        }
+      }
+    },
+    "/drugs/addPharmacy" : {
+      "post" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Add a new patient to pharmacy",
+        "description" : "Add a new patient to the pharmacy database.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/drugs_addPharmacy_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Patient added to pharmacy successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to add patient to pharmacy."
+          }
+        }
+      }
+    },
+    "/drugs/all" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Get all drugs",
+        "description" : "Retrieve all drugs available in the system.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drugs retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve drugs."
+          }
+        }
+      }
+    },
+    "/drugs/smartSearch/{query}" : {
+      "get" : {
+        "tags" : [ "Drug" ],
+        "summary" : "Smart search for drugs",
+        "description" : "Retrieve drugs matching the specified search term using the smart search algorithm.",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "path",
+          "description" : "The search term to use for the smart search.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Drugs matching the search term retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve drugs."
+          }
+        }
+      }
+    },
+    "/pi/submit/{id}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Submit PI",
+        "description" : "Submit PI by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the PI to submit.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. PI submitted successfully."
+          },
+          "404" : {
+            "description" : "Not Found. PI not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to submit PI."
+          }
+        }
+      }
+    },
+    "/recipient/add" : {
+      "post" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Add a new recipient",
+        "description" : "Add a new recipient to the system.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/recipient_add_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Recipient added successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to add recipient."
+          }
+        }
+      }
+    },
+    "/recipient/all" : {
+      "get" : {
+        "tags" : [ "Donation" ],
+        "summary" : "Get all recipients",
+        "description" : "Retrieve all recipients from the system.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. List of all recipients retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve recipients."
+          }
+        }
+      }
+    },
+    "/rfd/{id}/receive" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Receive RFD",
+        "description" : "Receive RFD by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the RFD to receive.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. RFD received successfully."
+          },
+          "404" : {
+            "description" : "Not Found. RFD not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to receive RFD."
+          }
+        }
+      }
+    },
+    "/rfi/edit/{id}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Edit RFI",
+        "description" : "Edit an RFI by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the RFI to edit.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. RFI edited successfully."
+          },
+          "404" : {
+            "description" : "Not Found. RFI not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to edit RFI."
+          }
+        }
+      }
+    },
+    "/rfi/approve/{id}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Approve RFI Quantity",
+        "description" : "Approve the quantity of an RFI by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the RFI to approve quantity for.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. RFI quantity approved successfully."
+          },
+          "404" : {
+            "description" : "Not Found. RFI not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to approve RFI quantity."
+          }
+        }
+      }
+    },
+    "/shipment/submit/{id}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Submit Shipment",
+        "description" : "Submit a shipment by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the shipment to submit.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Shipment submitted successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Shipment not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to submit shipment."
+          }
+        }
+      }
+    },
+    "/submittedOrders/submit" : {
+      "post" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Submit Order",
+        "description" : "Submit an order.",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/submittedOrders_submit_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Order submitted successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to submit order."
+          }
+        }
+      }
+    },
+    "/submittedOrders" : {
+      "get" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Get All Orders",
+        "description" : "Retrieve all orders.",
+        "responses" : {
+          "200" : {
+            "description" : "OK. Orders retrieved successfully."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to retrieve orders."
+          }
+        }
+      }
+    },
+    "/submittedOrders/{orderId}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Update Order",
+        "description" : "Update an existing order.",
+        "parameters" : [ {
+          "name" : "orderId",
+          "in" : "path",
+          "description" : "ID of the order to update.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/submittedOrders_orderId_body"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK. Order updated successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Order not found."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to update order."
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Delete Order",
+        "description" : "Delete an existing order.",
+        "parameters" : [ {
+          "name" : "orderId",
+          "in" : "path",
+          "description" : "ID of the order to delete.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Order deleted successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Order not found."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to delete order."
+          }
+        }
+      }
+    },
+    "/swift/submit/{id}" : {
+      "put" : {
+        "tags" : [ "Importation" ],
+        "summary" : "Submit Swift",
+        "description" : "Submit a Swift by its ID.",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The ID of the Swift to submit.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK. Swift submitted successfully."
+          },
+          "404" : {
+            "description" : "Not Found. Swift not found for the specified ID."
+          },
+          "500" : {
+            "description" : "Internal Server Error. Failed to submit Swift."
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "donation_add_body" : {
+        "type" : "object",
+        "properties" : {
+          "DonorId" : {
+            "type" : "integer"
+          },
+          "RecipientId" : {
+            "type" : "integer"
+          },
+          "DonationDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "Quantity" : {
+            "type" : "integer"
+          },
+          "DonationPurpose" : {
+            "type" : "string"
+          },
+          "CreatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "UpdatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "Laboratory" : {
+            "type" : "string"
+          },
+          "LaboratoryCountry" : {
+            "type" : "string"
+          }
+        }
+      },
+      "donor_add_body" : {
+        "type" : "object",
+        "properties" : {
+          "DonorName" : {
+            "type" : "string"
+          },
+          "DonorType" : {
+            "type" : "string",
+            "enum" : [ "Organization", "Individual" ]
+          },
+          "Address" : {
+            "type" : "string"
+          },
+          "PhoneNumber" : {
+            "type" : "string"
+          },
+          "Email" : {
+            "type" : "string",
+            "format" : "email"
+          },
+          "DonorCountry" : {
+            "type" : "string"
+          },
+          "IsActive" : {
+            "type" : "boolean"
+          },
+          "CreatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "UpdatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "drugs_add_body" : {
+        "type" : "object",
+        "properties" : {
+          "DrugName" : {
+            "type" : "string"
+          },
+          "ManufacturerID" : {
+            "type" : "integer"
+          },
+          "RegistrationNumber" : {
+            "type" : "string"
+          },
+          "GTIN" : {
+            "type" : "string"
+          },
+          "Notes" : {
+            "type" : "string"
+          },
+          "Description" : {
+            "type" : "string"
+          },
+          "IngredientAndStrength" : {
+            "type" : "string"
+          },
+          "Indication" : {
+            "type" : "string"
+          },
+          "Posology" : {
+            "type" : "string"
+          },
+          "MethodOfAdministration" : {
+            "type" : "string"
+          },
+          "Contraindications" : {
+            "type" : "string"
+          },
+          "PrecautionForUse" : {
+            "type" : "string"
+          },
+          "EffectOnFGN" : {
+            "type" : "string"
+          },
+          "SideEffect" : {
+            "type" : "string"
+          },
+          "Toxicity" : {
+            "type" : "string"
+          },
+          "StorageCondition" : {
+            "type" : "string"
+          },
+          "ShelfLife" : {
+            "type" : "string"
+          },
+          "IngredientLabel" : {
+            "type" : "string"
+          },
+          "Price" : {
+            "type" : "number"
+          },
+          "ImagesPath" : {
+            "type" : "string"
+          },
+          "ImageDefault" : {
+            "type" : "boolean"
+          },
+          "InteractionIngredientName" : {
+            "type" : "string"
+          },
+          "IsDouanes" : {
+            "type" : "boolean"
+          },
+          "RegistrationDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "PublicPrice" : {
+            "type" : "number"
+          },
+          "SubsidyLabel" : {
+            "type" : "string"
+          },
+          "SubsidyPercentage" : {
+            "type" : "number"
+          },
+          "HospPricing" : {
+            "type" : "boolean"
+          },
+          "Substitutable" : {
+            "type" : "boolean"
+          },
+          "CreatedBy" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "CreatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "UpdatedBy" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "UpdatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "OtherIngredients" : {
+            "type" : "string"
+          },
+          "ATCRelatedIngredient" : {
+            "type" : "string"
+          },
+          "ReviewDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "MoPHCode" : {
+            "type" : "string"
+          },
+          "CargoShippingTerms" : {
+            "type" : "string"
+          },
+          "ProductType" : {
+            "type" : "string"
+          },
+          "NotMarketed" : {
+            "type" : "boolean"
+          },
+          "DFSequence" : {
+            "type" : "string"
+          },
+          "PriceForeign" : {
+            "type" : "number"
+          },
+          "CurrencyForeign" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        }
+      },
+      "drugs_addPharmacy_body" : {
+        "type" : "object",
+        "properties" : {
+          "FirstName" : {
+            "type" : "string"
+          },
+          "LastName" : {
+            "type" : "string"
+          },
+          "DateOfBirth" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "Gender" : {
+            "type" : "string"
+          },
+          "PhoneNumber" : {
+            "type" : "string"
+          },
+          "Email" : {
+            "type" : "string"
+          },
+          "Address" : {
+            "type" : "string"
+          },
+          "IsActive" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "recipient_add_body" : {
+        "type" : "object",
+        "properties" : {
+          "RecipientName" : {
+            "type" : "string"
+          },
+          "RecipientType" : {
+            "type" : "string"
+          },
+          "Address" : {
+            "type" : "string"
+          },
+          "City" : {
+            "type" : "string"
+          },
+          "Country" : {
+            "type" : "string"
+          },
+          "ContactPerson" : {
+            "type" : "string"
+          },
+          "ContactNumber" : {
+            "type" : "string"
+          },
+          "IsActive" : {
+            "type" : "boolean"
+          },
+          "CreatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "UpdatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "submittedOrders_submit_body" : {
+        "type" : "object",
+        "properties" : {
+          "DrugID" : {
+            "type" : "string"
+          },
+          "quantity" : {
+            "type" : "integer"
+          },
+          "RFI" : {
+            "type" : "boolean"
+          },
+          "Result" : {
+            "type" : "boolean"
+          },
+          "PI" : {
+            "type" : "boolean"
+          },
+          "swift" : {
+            "type" : "boolean"
+          },
+          "invoice" : {
+            "type" : "boolean"
+          },
+          "rfd" : {
+            "type" : "boolean"
+          },
+          "stock" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "submittedOrders_orderId_body" : {
+        "type" : "object",
+        "properties" : {
+          "brandName" : {
+            "type" : "string"
+          },
+          "quantityRequested" : {
+            "type" : "integer"
+          },
+          "RFI" : {
+            "type" : "boolean"
+          },
+          "Result" : {
+            "type" : "boolean"
+          },
+          "PI" : {
+            "type" : "boolean"
+          },
+          "swift" : {
+            "type" : "boolean"
+          },
+          "invoice" : {
+            "type" : "boolean"
+          },
+          "rfd" : {
+            "type" : "boolean"
+          },
+          "stock" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    }
+  }
+}

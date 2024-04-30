@@ -20,9 +20,12 @@ const createDonation = async (donationData) => {
     DrugName,
     GTIN,
     LOT,
+    Serial,
     ProductionDate,
     ExpiryDate,
     Quantity,
+    Presentation,
+    Form,
     donationPurpose,
     Laboratory,
     LaboratoryCountry,
@@ -55,6 +58,8 @@ const createDonation = async (donationData) => {
     DonorId: donor.DonorId ||DonorId,
     RecipientId: RecipientId,
     Quantity: Quantity,
+    Presentation: Presentation,
+    Form: Form,
     DonationPurpose: donationPurpose,
     Laboratory: Laboratory,
     LaboratoryCountry: LaboratoryCountry,
@@ -69,6 +74,7 @@ const createDonation = async (donationData) => {
     ProductionDate: ProductionDate,
     ExpiryDate: ExpiryDate,
     Quantity: Quantity,
+    Serial: Serial,
   });
 
   return donation;
@@ -144,8 +150,20 @@ const getDonationById = async (id) => {
     throw error;
   }
 };
+
+
 const editDonation = async (DonationId, donationData) => {
   try {
+
+    // Remove the DonationDate from the donationData object
+    delete donationData.DonationDate;
+
+    // Log the updated donation data
+    console.log("Updated Donation Data:", donationData);
+
+    // Add the current timestamp to the UpdatedDate field
+    donationData.UpdatedDate = new Date();
+
     const donation = await Donation.update(donationData, {
       where: { DonationId }
     });
