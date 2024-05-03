@@ -29,7 +29,7 @@ const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes"
 const HospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8066;
 
 
 
