@@ -1,8 +1,8 @@
 // src/services/donationService.js
 const Donation = require("../models/donation");
-const Donor = require("../models/Donor");
+const Donor = require("../models/donor");
 const Recipient = require("../models/recipient");
-const Drug = require("../models/Drug");
+const Drug = require("../models/drug");
 const BatchLotTracking = require("../models/BatchLot");
 
 /**
