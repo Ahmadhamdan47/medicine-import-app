@@ -1,5 +1,5 @@
 // src/models/index.js
-const Drug = require('./Drug');
+const Drug = require('./drug');
 const Substitute = require('./substitute');
 
 Drug.hasMany(Substitute, { foreignKey: 'Drug' });
