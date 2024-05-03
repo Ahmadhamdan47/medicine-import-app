@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-const Drug = require('./Drug');
-const Route = require('./Route');
+const Drug = require('./drug');
+const Route = require('./route');
 
 const DrugRoute = sequelize.define('DrugRoute', {
     DrugRouteId: {
