@@ -22,10 +22,7 @@ const logger = winston.createLogger({
 try {
     const sequelize = new Sequelize("ommal_medapiv2", "ommal_ahmad", "fISfGr^8q!_gUPMY", {
         host: 'localhost',
-        dialect: 'mssql',
-        dialectOptions: {
-            instanceName: 'SQLEXPRESS',
-        },
+        dialect: 'mysql',
         logging: (query) => {
             if (!query || !query.sql) {
                 return; // Exit early if the query or SQL string is undefined
