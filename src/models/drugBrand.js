@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-const Drug = require('./Drug');
+const Drug = require('./drug');
 const Brand = require('./brand');
 
 const DrugBrand = sequelize.define('DrugBrand', {

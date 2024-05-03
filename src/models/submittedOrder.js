@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/database');
-const Drug = require('./Drug');
+const Drug = require('./drug');
 
 const SubmittedOrder = sequelize.define('submittedOrder', {
     orderId: {
