@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Drug = require('./drug');
-const StratumType = require('./StratumType');
+const StratumType = require('./stratumType');
 
 const DrugStratum = sequelize.define('DrugStratum', {
     DrugStratumId: {
