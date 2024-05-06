@@ -37,7 +37,7 @@ const Country = sequelize.define('Country', {
         allowNull: true
     }
 }, {
-    tableName: 'Countries',
+    tableName: 'countries',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

@@ -55,7 +55,7 @@ const DrugLabel = sequelize.define('DrugLabel', {
         type: DataTypes.UUID
     }
 }, {
-    tableName: 'DrugLabel',
+    tableName: 'druglabel',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

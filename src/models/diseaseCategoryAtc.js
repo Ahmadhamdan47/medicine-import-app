@@ -22,7 +22,7 @@ const DiseaseCategoryATC = sequelize.define('DiseaseCategoryATC', {
         }
     }
 }, {
-    tableName: 'DiseaseCategoryATC',
+    tableName: 'diseasecategoryatc',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

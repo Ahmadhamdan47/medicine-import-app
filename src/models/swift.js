@@ -38,7 +38,7 @@ const Swift = sequelize.define('Swift', {
         allowNull: true,
     }
 }, {
-    tableName: 'Swift',
+    tableName: 'swift',
 });
 
 module.exports = Swift;

@@ -45,7 +45,7 @@ const City = sequelize.define('City', {
         allowNull: true
     }
 }, {
-    tableName: 'Cities',
+    tableName: 'cities',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

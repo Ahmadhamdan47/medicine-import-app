@@ -33,7 +33,7 @@ const TransactionHistory = sequelize.define('TransactionHistory', {
         allowNull: true
     }
 }, {
-    tableName: 'TransactionHistory',
+    tableName: 'transactionhistory',
     timestamps: false
 });
 

@@ -23,7 +23,7 @@ const Hospital = sequelize.define('Hospital', {
 }, {
   sequelize,
   modelName: 'Hospital',
-  tableName: 'Hospital',
+  tableName: 'hospital',
 });
 
 module.exports = Hospital;

@@ -33,7 +33,7 @@ const StratumType = sequelize.define('StratumType', {
         allowNull: true
     }
 }, {
-    tableName: 'StratumType',
+    tableName: 'stratumtype',
     timestamps: false
 });
 

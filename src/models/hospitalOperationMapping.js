@@ -21,7 +21,7 @@ const HospitalOperationMapping = sequelize.define('HospitalOperationMapping', {
 }, {
   sequelize,
   modelName: 'HospitalOperationMapping',
-  tableName: 'HospitalOperationMapping',
+  tableName: 'hospitaloperationmapping',
 });
 
 module.exports = HospitalOperationMapping;

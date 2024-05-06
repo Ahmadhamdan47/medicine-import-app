@@ -26,7 +26,7 @@ const DosageFormMapping = sequelize.define('DosageFormMapping', {
         }
     }
 }, {
-    tableName: 'DosageFormMapping',
+    tableName: 'dosageformmapping',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

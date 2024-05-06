@@ -56,7 +56,7 @@ const Agent = sequelize.define('Agent', {
         type: DataTypes.DATE
     }
 }, {
-    tableName: 'Agent',
+    tableName: 'agent',
     timestamps: false
 });
 

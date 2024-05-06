@@ -24,7 +24,7 @@ const RFD = sequelize.define('RFD', {
         defaultValue: 'false'
     }
 }, {
-    tableName: 'RFD',
+    tableName: 'rfd',
 });
 
 module.exports = RFD;

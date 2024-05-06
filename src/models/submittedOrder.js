@@ -54,7 +54,7 @@ const SubmittedOrder = sequelize.define('submittedOrder', {
         allowNull: false
     }
 }, {
-    tableName: 'submittedOrder',
+    tableName: 'submittedorder',
     timestamps: false
 });
 

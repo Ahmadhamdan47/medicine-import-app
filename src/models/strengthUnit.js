@@ -12,7 +12,7 @@ const Strength = sequelize.define('strengthUnit', {
         allowNull: false
     }
 }, {
-    tableName: 'StrengthUnit',
+    tableName: 'strengthunit',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

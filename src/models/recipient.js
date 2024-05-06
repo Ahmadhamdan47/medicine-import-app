@@ -38,7 +38,7 @@ const Recipient = sequelize.define('Recipient', {
         type: DataTypes.DATE
     }
 }, {
-    tableName: 'Recipient',
+    tableName: 'recipient',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

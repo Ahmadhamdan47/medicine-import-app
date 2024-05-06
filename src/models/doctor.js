@@ -27,7 +27,7 @@ const Doctor = sequelize.define('Doctor', {
         }
     }
 }, {
-    tableName: 'Doctors',
+    tableName: 'doctors',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

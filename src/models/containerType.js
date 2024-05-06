@@ -29,7 +29,7 @@ const ContainerType = sequelize.define('ContainerType', {
         type: DataTypes.INTEGER
     }
 }, {
-    tableName: 'ContainerType',
+    tableName: 'containerType',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

@@ -70,7 +70,7 @@ const Shipment = sequelize.define('Shipment', {
         allowNull: true,
     }
 }, {
-    tableName: 'Shipment',
+    tableName: 'shipment',
 });
 
 module.exports = Shipment;

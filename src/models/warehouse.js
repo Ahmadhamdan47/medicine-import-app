@@ -30,7 +30,7 @@ const Warehouse = sequelize.define('Warehouse', {
         }
     }
 }, {
-    tableName: 'Warehouse',
+    tableName: 'warehouse',
     timestamps: false
 });
 

@@ -21,7 +21,7 @@ const DrugBrand = sequelize.define('DrugBrand', {
         }
     }
 }, {
-    tableName: 'drugBrands',
+    tableName: 'drugbrands',
     timestamps: false
 });
 

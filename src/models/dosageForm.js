@@ -24,7 +24,7 @@ const DosageForm = sequelize.define('DosageForm', {
         type: DataTypes.DATE
     }
 }, {
-    tableName: 'DosageForm',
+    tableName: 'dosageform',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

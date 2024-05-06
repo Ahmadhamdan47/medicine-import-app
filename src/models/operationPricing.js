@@ -49,7 +49,7 @@ const CategoryPricing = sequelize.define('CategoryPricing', {
 }, {
   sequelize,
   modelName: 'CategoryPricing',
-  tableName: 'CategoryPricing',
+  tableName: 'categorypricing',
 });
 
 module.exports = CategoryPricing;

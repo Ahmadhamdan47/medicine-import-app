@@ -39,7 +39,7 @@ const AuditTrail = sequelize.define('AuditTrail', {
         allowNull: true
     }
 }, {
-    tableName: 'AuditTrail',
+    tableName: 'audittrail',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 
