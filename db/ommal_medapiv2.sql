@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2024 at 04:05 PM
+-- Generation Time: May 06, 2024 at 05:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -47,6 +47,29 @@ CREATE TABLE `agent` (
   `UpdatedDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `agent`
+--
+
+INSERT INTO `agent` (`AgentID`, `AgentName`, `AgentType`, `ContactName`, `ContactEmail`, `ContactPhone`, `Address`, `City`, `Country`, `PostalCode`, `IsSupplier`, `IsManufacturer`, `IsActive`, `CreatedBy`, `CreatedDate`, `UpdatedBy`, `UpdatedDate`) VALUES
+(1, 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 1, 0, 1, '{4A657A64-052E-4F27-ADB4-EC9556ABFE3E}', '2023-07-24 08:23:26', NULL, '2023-07-24 08:23:26');
+
+--
+-- Triggers `agent`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Agent` AFTER DELETE ON `agent` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Agent';						SET @pk_d = CONCAT('<AgentID>',OLD.`AgentID`,'</AgentID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Agent` AFTER INSERT ON `agent` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Agent'; 						SET @pk_d = CONCAT('<AgentID>',NEW.`AgentID`,'</AgentID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Agent` AFTER UPDATE ON `agent` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Agent';						SET @pk_d_old = CONCAT('<AgentID>',OLD.`AgentID`,'</AgentID>');						SET @pk_d = CONCAT('<AgentID>',NEW.`AgentID`,'</AgentID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +84,22 @@ CREATE TABLE `alertsnotifications` (
   `AlertDate` datetime NOT NULL,
   `IsRead` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `alertsnotifications`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_AlertsNotifications` AFTER DELETE ON `alertsnotifications` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'AlertsNotifications';						SET @pk_d = CONCAT('<AlertId>',OLD.`AlertId`,'</AlertId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_AlertsNotifications` AFTER INSERT ON `alertsnotifications` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'AlertsNotifications'; 						SET @pk_d = CONCAT('<AlertId>',NEW.`AlertId`,'</AlertId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_AlertsNotifications` AFTER UPDATE ON `alertsnotifications` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'AlertsNotifications';						SET @pk_d_old = CONCAT('<AlertId>',OLD.`AlertId`,'</AlertId>');						SET @pk_d = CONCAT('<AlertId>',NEW.`AlertId`,'</AlertId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -81,869 +120,885 @@ CREATE TABLE `atc_code` (
 --
 
 INSERT INTO `atc_code` (`ATC_ID`, `Code`, `Name`, `Description`, `ParentID`) VALUES
-(601, '22-TRIAL- 11', '80-TRIAL-glimepiride  55', '258-TRIAL- 147', 601),
-(602, '70-TRIAL- 90', '273-TRIAL-acetohexamide  127', '113-TRIAL- 154', 602),
-(603, '96-TRIAL- 172', '150-TRIAL-glymidine  141', '141-TRIAL- 246', 603),
-(604, '125-TRIAL-A10BC  13', '24-TRIAL-Sulfonamides (heterocyclic) 229', '295-TRIAL- 203', 604),
-(605, '294-TRIAL-A10BD  193', '267-TRIAL-Combinations of oral blood glucose lowering drugs 287', '140-TRIAL- 179', 605),
-(606, '141-TRIAL- 125', '234-TRIAL-phenformin and sulfonylureas  60', '200-TRIAL- 107', 606),
-(607, '221-TRIAL- 92', '93-TRIAL-metformin and sulfonylureas  17', '217-TRIAL- 3', 607),
-(608, '43-TRIAL- 193', '139-TRIAL-metformin and rosiglitazone  211', '225-TRIAL- 28', 608),
-(609, '178-TRIAL- 248', '150-TRIAL-glimepiride and rosiglitazone  92', '44-TRIAL- 154', 609),
-(610, '223-TRIAL- 53', '36-TRIAL-metformin and pioglitazone  47', '46-TRIAL- 226', 610),
-(611, '161-TRIAL- 4', '38-TRIAL-glimepiride and pioglitazone  171', '186-TRIAL- 205', 611),
-(612, '199-TRIAL- 156', '28-TRIAL-metformin and sitagliptin  67', '151-TRIAL- 219', 612),
-(613, '191-TRIAL- 166', '17-TRIAL-metformin and vildagliptin  46', '293-TRIAL- 187', 613),
-(614, '221-TRIAL- 112', '267-TRIAL-pioglitazone and alogliptin  99', '44-TRIAL- 197', 614),
-(615, '1-TRIAL-A10BD10  28', '42-TRIAL-metformin and saxagliptin  204', '268-TRIAL- 68', 615),
-(616, '241-TRIAL- 96', '162-TRIAL-metformin and linagliptin  220', '244-TRIAL- 18', 616),
-(617, '25-TRIAL- 219', '184-TRIAL-pioglitazone and sitagliptin  174', '184-TRIAL- 259', 617),
-(618, '249-TRIAL- 214', '295-TRIAL-metformin and alogliptin  203', '232-TRIAL- 51', 618),
-(619, '37-TRIAL- 114', '263-TRIAL-metformin and repaglinide  151', '19-TRIAL- 290', 619),
-(620, '117-TRIAL- 83', '118-TRIAL-metformin and dapagliflozin  184', '252-TRIAL- 286', 620),
-(621, '69-TRIAL- 148', '137-TRIAL-metformin and canagliflozin  297', '124-TRIAL- 68', 621),
-(622, '227-TRIAL- 248', '193-TRIAL-metformin and acarbose  182', '171-TRIAL- 69', 622),
-(623, '293-TRIAL- 177', '114-TRIAL-metformin and gemigliptin  204', '184-TRIAL- 243', 623),
-(624, '95-TRIAL- 111', '93-TRIAL-linagliptin and empagliflozin  92', '198-TRIAL- 190', 624),
-(625, '199-TRIAL- 190', '93-TRIAL-metformin and empagliflozin  274', '49-TRIAL- 274', 625),
-(626, '14-TRIAL- 73', '69-TRIAL-saxagliptin and dapagliflozin  118', '165-TRIAL- 33', 626),
-(627, '238-TRIAL- 111', '52-TRIAL-metformin and evogliptin  163', '208-TRIAL- 249', 627),
-(628, '288-TRIAL- 245', '231-TRIAL-metformin and ertugliflozin  120', '206-TRIAL- 71', 628),
-(629, '68-TRIAL- 121', '258-TRIAL-sitagliptin and ertugliflozin  257', '47-TRIAL- 182', 629),
-(630, '238-TRIAL- 122', '23-TRIAL-metformin, saxagliptin and dapagliflozin  6', '106-TRIAL- 289', 630),
-(631, '56-TRIAL- 45', '51-TRIAL-metformin and lobeglitazone  23', '218-TRIAL- 50', 631),
-(632, '297-TRIAL- 136', '91-TRIAL-metformin, linagliptin and empagliflozin  206', '10-TRIAL- 13', 632),
-(633, '251-TRIAL-A10BF 80', '244-TRIAL- Alpha glucosidase inhibitors 143', '241-TRIAL- 145', 633),
-(634, '178-TRIAL- 149', '105-TRIAL-acarbose  214', '285-TRIAL- 227', 634),
-(635, '224-TRIAL- 104', '156-TRIAL-miglitol  217', '227-TRIAL- 255', 635),
-(636, '202-TRIAL- 186', '268-TRIAL-voglibose  298', '279-TRIAL- 111', 636),
-(637, '189-TRIAL- 258', '290-TRIAL-troglitazone  175', '210-TRIAL- 32', 637),
-(638, '89-TRIAL-A10BG  296', '250-TRIAL-Thiazolidinediones 12', '22-TRIAL- 229', 638),
-(639, '172-TRIAL- 36', '277-TRIAL-rosiglitazone  153', '176-TRIAL- 170', 639),
-(640, '85-TRIAL- 252', '251-TRIAL-pioglitazone  97', '251-TRIAL- 201', 640),
-(641, '135-TRIAL- 193', '72-TRIAL-lobeglitazone  216', '116-TRIAL- 128', 641),
-(642, '11-TRIAL-A10BH  25', '138-TRIAL-Dipeptidyl peptidase 4 (DPP-4) inhibitors 296', '39-TRIAL- 144', 642),
-(643, '156-TRIAL- 226', '2-TRIAL-sitagliptin  58', '288-TRIAL- 21', 643),
-(644, '86-TRIAL- 8', '77-TRIAL-vildagliptin  28', '79-TRIAL- 247', 644),
-(645, '249-TRIAL- 80', '45-TRIAL-saxagliptin  228', '262-TRIAL- 226', 645),
-(646, '219-TRIAL- 177', '291-TRIAL-alogliptin  147', '285-TRIAL- 131', 646),
-(647, '206-TRIAL- 284', '54-TRIAL-linagliptin  269', '9-TRIAL- 56', 647),
-(648, '221-TRIAL- 45', '265-TRIAL-gemigliptin  116', '260-TRIAL- 297', 648),
-(649, '35-TRIAL- 90', '277-TRIAL-evogliptin  149', '5-TRIAL- 86', 649),
-(650, '288-TRIAL- 75', '243-TRIAL-teneligliptin  277', '230-TRIAL- 287', 650),
-(651, '155-TRIAL- 282', '53-TRIAL-sitagliptin and simvastatin  0', '154-TRIAL- 289', 651),
-(652, '88-TRIAL- 15', '8-TRIAL-gemigliptin and rosuvastatin  110', '40-TRIAL- 199', 652),
-(653, '297-TRIAL-A10BJ  107', '54-TRIAL-Glucagon-like peptide-1 (GLP-1) analogues 4', '137-TRIAL- 285', 653),
-(654, '199-TRIAL- 192', '213-TRIAL-exenatide  212', '82-TRIAL- 83', 654),
-(655, '51-TRIAL- 229', '37-TRIAL- 233', '100-TRIAL- 64', NULL),
-(656, '283-TRIAL- 157', '268-TRIAL-liraglutide  210', '68-TRIAL- 208', 656),
-(657, '241-TRIAL- 132', '137-TRIAL-lixisenatide  284', '99-TRIAL- 1', 657),
-(658, '169-TRIAL- 83', '156-TRIAL-albiglutide  192', '140-TRIAL- 87', 658),
-(659, '12-TRIAL- 10', '120-TRIAL-dulaglutide  135', '163-TRIAL- 115', 659),
-(660, '97-TRIAL- 77', '74-TRIAL-semaglutide  234', '253-TRIAL- 33', 660),
-(661, '78-TRIAL- 186', '124-TRIAL- 34', '75-TRIAL- 49', NULL),
-(662, '112-TRIAL- 284', '24-TRIAL-beinaglutide  192', '204-TRIAL- 22', 662),
-(663, '155-TRIAL- 13', '162-TRIAL-dapagliflozin  173', '284-TRIAL- 160', 663),
-(664, '222-TRIAL- 253', '197-TRIAL-canagliflozin  122', '250-TRIAL- 37', 664),
-(665, '117-TRIAL-A10BK  106', '131-TRIAL-Sodium-glucose co-transporter 2 (SGLT2) inhibitors 297', '205-TRIAL- 136', 665),
-(666, '157-TRIAL- 299', '90-TRIAL-empagliflozin  98', '85-TRIAL- 147', 666),
-(667, '184-TRIAL- 292', '125-TRIAL-ertugliflozin  296', '155-TRIAL- 228', 667),
-(668, '38-TRIAL- 242', '28-TRIAL-ipragliflozin  95', '142-TRIAL- 37', 668),
-(669, '106-TRIAL- 167', '253-TRIAL-sotagliflozin  193', '5-TRIAL- 146', 669),
-(670, '9-TRIAL-A10BK07  124', '54-TRIAL-luseogliflozin  65', '239-TRIAL- 106', 670),
-(671, '209-TRIAL-A10BX  192', '299-TRIAL-Other blood glucose lowering drugs, excl. insulins 175', '136-TRIAL- 261', 671),
-(672, '147-TRIAL- 18', '113-TRIAL-guar gum  27', '112-TRIAL- 296', 672),
-(673, '9-TRIAL-A10BX02  241', '30-TRIAL-repaglinide  90', '34-TRIAL- 115', 673),
-(674, '286-TRIAL- 223', '266-TRIAL-nateglinide  144', '36-TRIAL- 137', 674),
-(675, '16-TRIAL- 193', '149-TRIAL-pramlintide  71', '44-TRIAL- 277', 675),
-(676, '85-TRIAL- 100', '190-TRIAL-benfluorex  85', '125-TRIAL- 18', 676),
-(677, '168-TRIAL- 106', '129-TRIAL-mitiglinide  8', '141-TRIAL- 225', 677),
-(678, '236-TRIAL- 280', '116-TRIAL-imeglimin  170', '84-TRIAL- 247', 678),
-(679, '228-TRIAL- 36', '204-TRIAL-tirzepatide  200', '23-TRIAL- 264', 679),
-(680, '211-TRIAL- 140', '250-TRIAL-carfloglitazar  104', '83-TRIAL- 166', 680),
-(681, '241-TRIAL- 270', '45-TRIAL-dorzagliatin  6', '88-TRIAL- 156', 681),
-(682, '207-TRIAL-A10X  166', '157-TRIAL-OTHER DRUGS USED IN DIABETES 178', '99-TRIAL- 74', 682),
-(683, '55-TRIAL-A10XA  291', '290-TRIAL-Aldose reductase inhibitors 132', '258-TRIAL- 196', 683),
-(684, '217-TRIAL-A11A  90', '67-TRIAL-MULTIVITAMINS, COMBINATIONS 207', '134-TRIAL- 46', 684),
-(685, '62-TRIAL-A11AA  202', '139-TRIAL-Multivitamins with minerals 126', '195-TRIAL- 6', 685),
-(686, '214-TRIAL-A11  150', '86-TRIAL-VITAMINS 179', '76-TRIAL- 22', 686),
-(687, '279-TRIAL- 201', '212-TRIAL-multivitamins and iron  276', '164-TRIAL- 157', 687),
-(688, '170-TRIAL- 38', '12-TRIAL-multivitamins and calcium  244', '61-TRIAL- 280', 688),
-(689, '200-TRIAL- 43', '256-TRIAL-multivitamins and trace elements  61', '247-TRIAL- 239', 689),
-(690, '8-TRIAL-A11AA03  290', '52-TRIAL-multivitamins and other minerals, incl. combinations  79', '218-TRIAL- 119', 690),
-(691, '7-TRIAL-A11AB  84', '247-TRIAL-Multivitamins, other combinations 277', '75-TRIAL- 13', 691),
-(692, '109-TRIAL-A11B  171', '142-TRIAL-MULTIVITAMINS, PLAIN 139', '36-TRIAL- 221', 692),
-(693, '201-TRIAL-A11BA  234', '129-TRIAL-Multivitamins, plain 58', '236-TRIAL- 269', 693),
-(694, '97-TRIAL-A11C  4', '298-TRIAL-VITAMIN A AND D, INCL. COMBINATIONS OF THE TWO 2', '5-TRIAL- 38', 694),
-(695, '32-TRIAL- 265', '216-TRIAL-retinol (vit A)  81', '279-TRIAL- 23', 695),
-(696, '227-TRIAL- 271', '113-TRIAL- 182', '140-TRIAL- 216', NULL),
-(697, '288-TRIAL-A11CA  19', '189-TRIAL-Vitamin A, plain 113', '259-TRIAL- 151', 697),
-(698, '171-TRIAL- 183', '164-TRIAL-betacarotene  38', '12-TRIAL- 184', 698),
-(699, '159-TRIAL-A11CB  101', '274-TRIAL-Vitamin A and D in combination 233', '259-TRIAL- 114', 699),
-(700, '49-TRIAL-A11CC  295', '22-TRIAL-Vitamin D and analogues 241', '16-TRIAL- 77', 700),
-(801, '218-TRIAL- 57', '261-TRIAL-sodium selenite  120', '228-TRIAL- 256', 801),
-(802, '213-TRIAL-A12CX  32', '292-TRIAL-Other mineral products 82', '67-TRIAL- 220', 802),
-(803, '158-TRIAL-A13A  74', '87-TRIAL-TONICS 94', '183-TRIAL- 64', 803),
-(804, '264-TRIAL-A13  214', '46-TRIAL-TONICS 90', '225-TRIAL- 155', 804),
-(805, '263-TRIAL-A14  267', '92-TRIAL-ANABOLIC AGENTS FOR SYSTEMIC USE 131', '119-TRIAL- 180', 805),
-(806, '218-TRIAL-A14A  228', '148-TRIAL-ANABOLIC STEROIDS 220', '79-TRIAL- 291', 806),
-(807, '166-TRIAL-A14AA  287', '108-TRIAL-Androstan derivatives 126', '125-TRIAL- 259', 807),
-(808, '118-TRIAL- 220', '135-TRIAL-androstanolone  114', '256-TRIAL- 147', 808),
-(809, '56-TRIAL- 134', '60-TRIAL-stanozolol  151', '8-TRIAL- 278', 809),
-(810, '94-TRIAL- 289', '124-TRIAL- 176', '94-TRIAL- 190', NULL),
-(811, '89-TRIAL- 272', '219-TRIAL-metandienone  1', '102-TRIAL- 244', 811),
-(812, '123-TRIAL- 139', '209-TRIAL-metenolone  127', '37-TRIAL- 86', 812),
-(813, '116-TRIAL- 27', '169-TRIAL- 223', '199-TRIAL- 14', NULL),
-(814, '215-TRIAL- 44', '36-TRIAL-oxymetholone  269', '178-TRIAL- 176', 814),
-(815, '158-TRIAL- 152', '246-TRIAL-quinbolone  137', '215-TRIAL- 188', 815),
-(816, '16-TRIAL- 88', '282-TRIAL-prasterone  174', '233-TRIAL- 15', 816),
-(817, '256-TRIAL- 156', '62-TRIAL-oxandrolone  16', '224-TRIAL- 129', 817),
-(818, '142-TRIAL- 184', '72-TRIAL-norethandrolone  149', '296-TRIAL- 26', 818),
-(819, '182-TRIAL-A14AB  2', '175-TRIAL-Estren derivatives 16', '65-TRIAL- 152', 819),
-(820, '159-TRIAL- 155', '17-TRIAL-nandrolone  44', '254-TRIAL- 243', 820),
-(821, '224-TRIAL- 199', '222-TRIAL-ethylestrenol  121', '133-TRIAL- 213', 821),
-(822, '117-TRIAL- 193', '273-TRIAL-oxabolone cipionate  60', '275-TRIAL- 74', 822),
-(823, '285-TRIAL-A14B  101', '122-TRIAL-OTHER ANABOLIC AGENTS 8', '95-TRIAL- 226', 823),
-(824, '20-TRIAL-A15  191', '188-TRIAL-APPETITE STIMULANTS 129', '72-TRIAL- 77', 824),
-(825, '293-TRIAL-A16  8', '254-TRIAL-OTHER ALIMENTARY TRACT AND METABOLISM PRODUCTS 22', '276-TRIAL- 137', 825),
-(826, '216-TRIAL-A16A  3', '90-TRIAL-OTHER ALIMENTARY TRACT AND METABOLISM PRODUCTS 112', '289-TRIAL- 153', 826),
-(827, '279-TRIAL-A16AA  99', '22-TRIAL-Amino acids and derivatives 102', '2-TRIAL- 69', 827),
-(828, '54-TRIAL- 129', '134-TRIAL-levocarnitine  138', '274-TRIAL- 126', 828),
-(829, '263-TRIAL- 234', '172-TRIAL- 48', '253-TRIAL- 203', NULL),
-(830, '207-TRIAL- 18', '33-TRIAL-ademetionine  137', '295-TRIAL- 279', 830),
-(831, '61-TRIAL- 44', '259-TRIAL-glutamine  161', '7-TRIAL- 276', 831),
-(832, '272-TRIAL- 245', '292-TRIAL-mercaptamine  172', '28-TRIAL- 196', 832),
-(833, '211-TRIAL- 235', '235-TRIAL-carglumic acid  29', '116-TRIAL- 132', 833),
-(834, '56-TRIAL- 258', '49-TRIAL-betaine  20', '196-TRIAL- 224', 834),
-(835, '220-TRIAL- 226', '206-TRIAL-metreleptin  283', '145-TRIAL- 274', 835),
-(836, '91-TRIAL- 188', '238-TRIAL-alglucerase  264', '104-TRIAL- 177', 836),
-(837, '253-TRIAL-A16AB  242', '204-TRIAL-Enzymes 23', '152-TRIAL- 25', 837),
-(838, '211-TRIAL- 242', '24-TRIAL-imiglucerase  249', '35-TRIAL- 90', 838),
-(839, '246-TRIAL- 128', '155-TRIAL-agalsidase alfa  204', '241-TRIAL- 109', 839),
-(840, '181-TRIAL- 179', '2-TRIAL-agalsidase beta  183', '92-TRIAL- 32', 840),
-(841, '212-TRIAL- 299', '161-TRIAL-sacrosidase  247', '205-TRIAL- 290', 841),
-(842, '169-TRIAL- 259', '228-TRIAL-laronidase  239', '228-TRIAL- 280', 842),
-(843, '71-TRIAL- 178', '140-TRIAL-alglucosidase alfa  156', '248-TRIAL- 44', 843),
-(844, '145-TRIAL- 225', '10-TRIAL-galsulfase  198', '116-TRIAL- 280', 844),
-(845, '215-TRIAL- 64', '26-TRIAL-idursulfase  72', '179-TRIAL- 93', 845),
-(846, '82-TRIAL- 5', '236-TRIAL-velaglucerase alfa  33', '5-TRIAL- 287', 846),
-(847, '132-TRIAL- 38', '265-TRIAL-taliglucerase alfa  164', '118-TRIAL- 299', 847),
-(848, '232-TRIAL- 108', '96-TRIAL-elosulfase alfa  238', '278-TRIAL- 138', 848),
-(849, '145-TRIAL- 159', '169-TRIAL-asfotase alfa  144', '62-TRIAL- 169', 849),
-(850, '249-TRIAL- 118', '267-TRIAL-sebelipase alfa  58', '43-TRIAL- 261', 850),
-(851, '103-TRIAL- 190', '286-TRIAL-velmanase alfa  26', '3-TRIAL- 204', 851),
-(852, '0-TRIAL-A16AB16  268', '123-TRIAL-idursulfase beta  147', '296-TRIAL- 66', 852),
-(853, '30-TRIAL- 65', '52-TRIAL-cerliponase alfa  200', '17-TRIAL- 73', 853),
-(854, '186-TRIAL- 168', '97-TRIAL-vestronidase alfa  79', '124-TRIAL- 28', 854),
-(855, '160-TRIAL- 158', '25-TRIAL-pegvaliase  167', '112-TRIAL- 134', 855),
-(856, '152-TRIAL- 69', '162-TRIAL-pegunigalsidase alfa  70', '111-TRIAL- 135', 856),
-(857, '290-TRIAL- 211', '264-TRIAL-atidarsagene autotemcel  250', '160-TRIAL- 45', 857),
-(858, '67-TRIAL- 154', '187-TRIAL-avalglucosidase alfa  117', '265-TRIAL- 242', 858),
-(859, '288-TRIAL- 73', '115-TRIAL-cipaglucosidase alfa  279', '237-TRIAL- 88', 859),
-(860, '69-TRIAL- 186', '30-TRIAL-pegzilarginase  9', '140-TRIAL- 121', 860),
-(861, '19-TRIAL- 181', '126-TRIAL-olipudase alfa  120', '211-TRIAL- 54', 861),
-(862, '93-TRIAL- 84', '257-TRIAL-thioctic acid  199', '36-TRIAL- 229', 862),
-(863, '250-TRIAL-A16AX  157', '5-TRIAL-Various alimentary tract and metabolism products 165', '234-TRIAL- 49', 863),
-(864, '194-TRIAL- 92', '70-TRIAL- 119', '217-TRIAL- 213', NULL),
-(865, '253-TRIAL- 217', '177-TRIAL-anethole trithione  260', '205-TRIAL- 153', 865),
-(866, '291-TRIAL- 262', '276-TRIAL-sodium phenylbutyrate  54', '272-TRIAL- 34', 866),
-(867, '216-TRIAL- 150', '193-TRIAL-nitisinone  45', '52-TRIAL- 47', 867),
-(868, '121-TRIAL- 261', '44-TRIAL-zinc acetate  159', '166-TRIAL- 185', 868),
-(869, '39-TRIAL- 18', '107-TRIAL-miglustat  168', '254-TRIAL- 250', 869),
-(870, '232-TRIAL- 299', '220-TRIAL-sapropterin  235', '198-TRIAL- 92', 870),
-(871, '16-TRIAL- 82', '129-TRIAL-teduglutide  116', '59-TRIAL- 258', 871),
-(872, '83-TRIAL- 199', '235-TRIAL-glycerol phenylbutyrate  257', '270-TRIAL- 271', 872),
-(873, '142-TRIAL- 80', '77-TRIAL-eliglustat  106', '95-TRIAL- 286', 873),
-(874, '3-TRIAL-A16AX11  152', '118-TRIAL-sodium benzoate  235', '85-TRIAL- 228', 874),
-(875, '178-TRIAL- 160', '101-TRIAL-trientine  249', '264-TRIAL- 285', 875),
-(876, '26-TRIAL- 57', '37-TRIAL-uridine triacetate  41', '38-TRIAL- 193', 876),
-(877, '296-TRIAL- 133', '293-TRIAL-migalastat  68', '273-TRIAL- 235', 877),
-(878, '209-TRIAL- 96', '281-TRIAL-telotristat  261', '239-TRIAL- 184', 878),
-(879, '123-TRIAL- 299', '231-TRIAL-givosiran  149', '242-TRIAL- 206', 879),
-(880, '250-TRIAL- 87', '240-TRIAL-triheptanoin  269', '223-TRIAL- 88', 880),
-(881, '267-TRIAL- 83', '100-TRIAL-lumasiran  58', '6-TRIAL- 138', 881),
-(882, '263-TRIAL- 220', '66-TRIAL-fosdenopterin  158', '185-TRIAL- 23', 882),
-(883, '129-TRIAL- 98', '256-TRIAL-lonafarnib  70', '75-TRIAL- 196', 883),
-(884, '183-TRIAL- 88', '119-TRIAL-elivaldogene autotemcel  246', '90-TRIAL- 175', 884),
-(885, '69-TRIAL- 19', '241-TRIAL-tiomolibdic acid  97', '145-TRIAL- 154', 885),
-(886, '258-TRIAL- 258', '94-TRIAL-sodium benzoate and sodium phenylacetate  91', '141-TRIAL- 237', 886),
-(887, '100-TRIAL-B01AA  32', '75-TRIAL-Vitamin K antagonists 236', '38-TRIAL- 58', 887),
-(888, '280-TRIAL- 85', '13-TRIAL-dicoumarol  184', '153-TRIAL- 27', 888),
-(889, '285-TRIAL-B01  26', '170-TRIAL-ANTITHROMBOTIC AGENTS 136', '281-TRIAL- 270', 889),
-(890, '249-TRIAL-B  148', '77-TRIAL-BLOOD AND BLOOD FORMING ORGANS 99', '35-TRIAL- 273', 890),
-(891, '237-TRIAL-B01A  251', '231-TRIAL-ANTITHROMBOTIC AGENTS 17', '133-TRIAL- 271', 891),
-(892, '76-TRIAL- 29', '31-TRIAL-phenindione  244', '242-TRIAL- 267', 892),
-(893, '0-TRIAL-B01AA03  28', '16-TRIAL-warfarin  34', '199-TRIAL- 57', 893),
-(894, '140-TRIAL- 281', '123-TRIAL- 41', '231-TRIAL- 149', NULL),
-(895, '39-TRIAL- 299', '75-TRIAL-phenprocoumon  199', '263-TRIAL- 45', 895),
-(896, '26-TRIAL- 201', '124-TRIAL-acenocoumarol  83', '189-TRIAL- 35', 896),
-(897, '124-TRIAL- 295', '245-TRIAL-ethyl biscoumacetate  170', '83-TRIAL- 217', 897),
-(898, '192-TRIAL- 252', '224-TRIAL-clorindione  273', '140-TRIAL- 255', 898),
-(899, '268-TRIAL- 170', '43-TRIAL-diphenadione  130', '156-TRIAL- 265', 899),
-(900, '114-TRIAL- 280', '258-TRIAL-tioclomarol  58', '24-TRIAL- 8', 900),
-(1301, '45-TRIAL- 197', '266-TRIAL- 143', '248-TRIAL- 292', NULL),
-(1302, '31-TRIAL- 4', '195-TRIAL-tocainide  294', '50-TRIAL- 249', 1302),
-(1303, '151-TRIAL- 181', '98-TRIAL- 245', '175-TRIAL- 245', NULL),
-(1304, '84-TRIAL- 133', '100-TRIAL-aprindine  299', '267-TRIAL- 197', 1304),
-(1305, '209-TRIAL-C01BC  241', '131-TRIAL-Antiarrhythmics, class Ic 299', '98-TRIAL- 174', 1305),
-(1306, '87-TRIAL- 159', '62-TRIAL-propafenone  245', '129-TRIAL- 159', 1306),
-(1307, '24-TRIAL- 167', '166-TRIAL- 68', '27-TRIAL- 294', NULL),
-(1308, '49-TRIAL- 296', '142-TRIAL-flecainide  223', '96-TRIAL- 17', 1308),
-(1309, '111-TRIAL- 268', '48-TRIAL- 181', '133-TRIAL- 74', NULL),
-(1310, '88-TRIAL- 284', '168-TRIAL-lorcainide  268', '25-TRIAL- 204', 1310),
-(1311, '44-TRIAL- 21', '260-TRIAL-encainide  111', '222-TRIAL- 151', 1311),
-(1312, '0-TRIAL-C01BC09  142', '30-TRIAL-ethacizine  125', '230-TRIAL- 251', 1312),
-(1313, '20-TRIAL-C01BD  298', '27-TRIAL-Antiarrhythmics, class III 280', '105-TRIAL- 82', 1313),
-(1314, '125-TRIAL- 14', '112-TRIAL-amiodarone  204', '192-TRIAL- 109', 1314),
-(1315, '238-TRIAL- 105', '166-TRIAL- 166', '71-TRIAL- 80', NULL),
-(1316, '64-TRIAL- 241', '26-TRIAL-bretylium tosilate  86', '135-TRIAL- 133', 1316),
-(1317, '151-TRIAL- 224', '276-TRIAL-bunaftine  292', '59-TRIAL- 51', 1317),
-(1318, '296-TRIAL- 227', '7-TRIAL-dofetilide  87', '27-TRIAL- 120', 1318),
-(1319, '5-TRIAL-C01BD05  27', '237-TRIAL-ibutilide  10', '83-TRIAL- 203', 1319),
-(1320, '137-TRIAL- 83', '41-TRIAL-tedisamil  235', '121-TRIAL- 177', 1320),
-(1321, '78-TRIAL- 80', '234-TRIAL-dronedarone  211', '29-TRIAL- 153', 1321),
-(1322, '30-TRIAL-C01BG  8', '30-TRIAL-Other antiarrhythmics, class I and III 248', '32-TRIAL- 241', 1322),
-(1323, '270-TRIAL- 116', '63-TRIAL-moracizine  18', '215-TRIAL- 184', 1323),
-(1324, '109-TRIAL- 274', '241-TRIAL-cibenzoline  285', '208-TRIAL- 60', 1324),
-(1325, '248-TRIAL- 285', '78-TRIAL-vernakalant  101', '71-TRIAL- 105', 1325),
-(1326, '101-TRIAL-C01C  196', '272-TRIAL-CARDIAC STIMULANTS EXCL. CARDIAC GLYCOSIDES 109', '31-TRIAL- 287', 1326),
-(1327, '270-TRIAL-C01CA  225', '284-TRIAL-Adrenergic and dopaminergic agents 202', '127-TRIAL- 246', 1327),
-(1328, '188-TRIAL- 252', '197-TRIAL-etilefrine  289', '195-TRIAL- 98', 1328),
-(1329, '151-TRIAL- 18', '173-TRIAL- 57', '219-TRIAL- 173', NULL),
-(1330, '15-TRIAL- 68', '183-TRIAL-isoprenaline  110', '159-TRIAL- 25', 1330),
-(1331, '296-TRIAL- 39', '183-TRIAL- 18', '159-TRIAL- 218', NULL),
-(1332, '261-TRIAL- 167', '103-TRIAL-norepinephrine  266', '238-TRIAL- 126', 1332),
-(1333, '293-TRIAL- 182', '276-TRIAL-dopamine  160', '38-TRIAL- 157', 1333),
-(1334, '180-TRIAL- 254', '78-TRIAL-norfenefrine  61', '68-TRIAL- 221', 1334),
-(1335, '173-TRIAL- 98', '257-TRIAL-phenylephrine  58', '219-TRIAL- 245', 1335),
-(1336, '201-TRIAL- 189', '16-TRIAL-dobutamine  156', '139-TRIAL- 25', 1336),
-(1337, '25-TRIAL- 32', '278-TRIAL-oxedrine  21', '16-TRIAL- 162', 1337),
-(1338, '87-TRIAL- 8', '238-TRIAL- 30', '105-TRIAL- 290', NULL),
-(1339, '199-TRIAL- 169', '7-TRIAL-metaraminol  53', '213-TRIAL- 56', 1339),
-(1340, '285-TRIAL- 283', '148-TRIAL-methoxamine  293', '99-TRIAL- 162', 1340),
-(1341, '206-TRIAL- 66', '135-TRIAL-mephentermine  219', '71-TRIAL- 264', 1341),
-(1342, '199-TRIAL- 8', '247-TRIAL-dimetofrine  14', '214-TRIAL- 212', 1342),
-(1343, '7-TRIAL-C01CA13  122', '227-TRIAL-prenalterol  292', '220-TRIAL- 299', 1343),
-(1344, '98-TRIAL- 171', '86-TRIAL-dopexamine  92', '152-TRIAL- 17', 1344),
-(1345, '124-TRIAL- 288', '93-TRIAL-gepefrine  89', '188-TRIAL- 214', 1345),
-(1346, '296-TRIAL- 168', '146-TRIAL-ibopamine  158', '237-TRIAL- 145', 1346),
-(1347, '168-TRIAL- 297', '225-TRIAL-midodrine  247', '21-TRIAL- 37', 1347),
-(1348, '243-TRIAL- 207', '70-TRIAL-octopamine  49', '246-TRIAL- 139', 1348),
-(1349, '152-TRIAL- 12', '220-TRIAL-fenoldopam  31', '76-TRIAL- 91', 1349),
-(1350, '225-TRIAL- 145', '299-TRIAL-cafedrine  216', '274-TRIAL- 256', 1350),
-(1351, '77-TRIAL- 272', '236-TRIAL-arbutamine  108', '296-TRIAL- 9', 1351),
-(1352, '132-TRIAL- 258', '288-TRIAL-theodrenaline  144', '4-TRIAL- 230', 1352),
-(1353, '227-TRIAL- 49', '219-TRIAL-epinephrine  68', '174-TRIAL- 101', 1353),
-(1354, '261-TRIAL- 55', '266-TRIAL-amezinium metilsulfate  227', '13-TRIAL- 62', 1354),
-(1355, '80-TRIAL- 18', '28-TRIAL-ephedrine  189', '113-TRIAL- 141', 1355),
-(1356, '23-TRIAL- 96', '131-TRIAL-droxidopa  240', '231-TRIAL- 135', 1356),
-(1357, '32-TRIAL- 82', '182-TRIAL-combinations  50', '44-TRIAL- 152', 1357),
-(1358, '57-TRIAL- 1', '168-TRIAL-etilefrine, combinations  33', '173-TRIAL- 294', 1358),
-(1359, '219-TRIAL-C01CE  126', '83-TRIAL-Phosphodiesterase inhibitors 233', '282-TRIAL- 212', 1359),
-(1360, '36-TRIAL- 25', '52-TRIAL-amrinone  12', '24-TRIAL- 145', 1360),
-(1361, '96-TRIAL- 2', '73-TRIAL-milrinone  58', '105-TRIAL- 177', 1361),
-(1362, '58-TRIAL- 111', '181-TRIAL-enoximone  250', '170-TRIAL- 80', 1362),
-(1363, '53-TRIAL- 227', '259-TRIAL-bucladesine  216', '97-TRIAL- 118', 1363),
-(1364, '18-TRIAL-C01CX  177', '281-TRIAL-Other cardiac stimulants 165', '52-TRIAL- 113', 1364),
-(1365, '171-TRIAL- 76', '286-TRIAL-angiotensinamide  174', '242-TRIAL- 241', 1365),
-(1366, '209-TRIAL- 197', '262-TRIAL-xamoterol  48', '142-TRIAL- 48', 1366),
-(1367, '192-TRIAL- 36', '20-TRIAL-levosimendan  117', '229-TRIAL- 24', 1367),
-(1368, '81-TRIAL- 138', '106-TRIAL-angiotensin II  61', '250-TRIAL- 247', 1368),
-(1369, '258-TRIAL-C01D  139', '105-TRIAL-VASODILATORS USED IN CARDIAC DISEASES 281', '68-TRIAL- 14', 1369),
-(1370, '1-TRIAL-C01DA  116', '294-TRIAL-Organic nitrates 167', '45-TRIAL- 267', 1370),
-(1371, '139-TRIAL- 263', '100-TRIAL-glyceryl trinitrate  174', '144-TRIAL- 99', 1371),
-(1372, '125-TRIAL- 280', '217-TRIAL- 124', '49-TRIAL- 286', NULL),
-(1373, '74-TRIAL- 57', '85-TRIAL- 15', '58-TRIAL- 275', NULL),
-(1374, '130-TRIAL- 282', '111-TRIAL- 37', '270-TRIAL- 262', NULL),
-(1375, '91-TRIAL- 28', '261-TRIAL-methylpropylpropanediol dinitrate  112', '296-TRIAL- 76', 1375),
-(1376, '0-TRIAL-C01DA05  158', '171-TRIAL-pentaerithrityl tetranitrate  191', '148-TRIAL- 22', 1376),
-(1377, '98-TRIAL- 50', '58-TRIAL-propatylnitrate  28', '245-TRIAL- 42', 1377),
-(1378, '238-TRIAL- 160', '73-TRIAL-isosorbide dinitrate  177', '93-TRIAL- 95', 1378),
-(1379, '104-TRIAL- 113', '132-TRIAL- 125', '104-TRIAL- 195', NULL),
-(1380, '121-TRIAL- 148', '168-TRIAL- 184', '220-TRIAL- 191', NULL),
-(1381, '138-TRIAL- 32', '119-TRIAL- 37', '166-TRIAL- 132', NULL),
-(1382, '162-TRIAL- 234', '131-TRIAL-trolnitrate  37', '294-TRIAL- 102', 1382),
-(1383, '211-TRIAL- 114', '142-TRIAL-eritrityl tetranitrate  169', '234-TRIAL- 247', 1383),
-(1384, '130-TRIAL- 3', '141-TRIAL-isosorbide mononitrate  6', '211-TRIAL- 97', 1384),
-(1385, '37-TRIAL- 202', '115-TRIAL-organic nitrates in combination  163', '17-TRIAL- 117', 1385),
-(1386, '299-TRIAL- 151', '243-TRIAL-tenitramine  38', '182-TRIAL- 54', 1386),
-(1387, '87-TRIAL- 12', '12-TRIAL-glyceryl trinitrate, combinations  222', '137-TRIAL- 274', 1387),
-(1388, '191-TRIAL- 208', '18-TRIAL-methylpropylpropanediol dinitrate, combinations  51', '77-TRIAL- 123', 1388),
-(1389, '52-TRIAL- 111', '30-TRIAL-pentaerithrityl tetranitrate, combinations  89', '201-TRIAL- 115', 1389),
-(1390, '87-TRIAL- 228', '29-TRIAL-propatylnitrate, combinations  21', '287-TRIAL- 263', 1390),
-(1391, '27-TRIAL- 188', '177-TRIAL-isosorbide dinitrate, combinations  214', '246-TRIAL- 175', 1391),
-(1392, '82-TRIAL- 231', '239-TRIAL-trolnitrate, combinations  19', '169-TRIAL- 147', 1392),
-(1393, '162-TRIAL- 106', '260-TRIAL-eritrityl tetranitrate, combinations  252', '5-TRIAL- 261', 1393),
-(1394, '220-TRIAL- 80', '41-TRIAL-organic nitrates in combination with psycholeptics 250', '139-TRIAL- 138', 1394),
-(1395, '124-TRIAL-C01DB  151', '105-TRIAL-Quinolone vasodilators 140', '289-TRIAL- 225', 1395),
-(1396, '282-TRIAL- 204', '53-TRIAL-flosequinan  280', '130-TRIAL- 11', 1396),
-(1397, '6-TRIAL-C01DX  258', '287-TRIAL-Other vasodilators used in cardiac diseases 251', '27-TRIAL- 30', 1397),
-(1398, '222-TRIAL- 247', '207-TRIAL-itramin tosilate  296', '14-TRIAL- 5', 1398),
-(1399, '49-TRIAL- 106', '210-TRIAL-prenylamine  215', '35-TRIAL- 88', 1399),
-(1400, '285-TRIAL- 34', '213-TRIAL-oxyfedrine  223', '276-TRIAL- 63', 1400),
-(4202, '96-TRIAL- 108', '5-TRIAL-dabrafenib  195', '217-TRIAL- 17', 4202),
-(4203, '254-TRIAL- 239', '54-TRIAL-encorafenib  154', '13-TRIAL- 115', 4203),
-(4204, '170-TRIAL-L01ED  126', '209-TRIAL-Anaplastic lymphoma kinase (ALK) inhibitors 70', '278-TRIAL- 288', 4204),
-(4205, '23-TRIAL- 113', '96-TRIAL-crizotinib  232', '219-TRIAL- 275', 4205),
-(4206, '253-TRIAL- 60', '11-TRIAL-ceritinib  182', '3-TRIAL- 138', 4206),
-(4207, '66-TRIAL- 36', '197-TRIAL-alectinib  81', '118-TRIAL- 240', 4207),
-(4208, '147-TRIAL- 117', '97-TRIAL-brigatinib  126', '85-TRIAL- 84', 4208),
-(4209, '266-TRIAL- 36', '12-TRIAL-lorlatinib  95', '234-TRIAL- 107', 4209),
-(4210, '205-TRIAL-L01EE  162', '233-TRIAL-Mitogen-activated protein kinase (MEK) inhibitors 34', '208-TRIAL- 91', 4210),
-(4211, '130-TRIAL- 181', '103-TRIAL-trametinib  196', '298-TRIAL- 272', 4211),
-(4212, '90-TRIAL- 3', '281-TRIAL-cobimetinib  180', '230-TRIAL- 178', 4212),
-(4213, '1-TRIAL-L01EE03  186', '119-TRIAL-binimetinib  275', '167-TRIAL- 192', 4213),
-(4214, '151-TRIAL- 197', '115-TRIAL-selumetinib  57', '288-TRIAL- 299', 4214),
-(4215, '88-TRIAL-L01EF  225', '207-TRIAL-Cyclin-dependent kinase (CDK) inhibitors 224', '168-TRIAL- 115', 4215),
-(4216, '125-TRIAL- 80', '133-TRIAL-palbociclib  65', '26-TRIAL- 223', 4216),
-(4217, '4-TRIAL-L01EF02  257', '105-TRIAL-ribociclib  296', '5-TRIAL- 33', 4217),
-(4218, '171-TRIAL- 127', '127-TRIAL-abemaciclib  170', '8-TRIAL- 82', 4218),
-(4219, '117-TRIAL-L01EG  264', '110-TRIAL-Mammalian target of rapamycin (mTOR) kinase inhibitors 36', '93-TRIAL- 9', 4219),
-(4220, '191-TRIAL- 159', '212-TRIAL-temsirolimus  230', '189-TRIAL- 255', 4220),
-(4221, '174-TRIAL- 46', '207-TRIAL-everolimus  235', '211-TRIAL- 298', 4221),
-(4222, '227-TRIAL- 288', '115-TRIAL-ridaforolimus  170', '70-TRIAL- 260', 4222),
-(4223, '290-TRIAL- 158', '152-TRIAL-sirolimus  197', '247-TRIAL- 30', 4223),
-(4224, '261-TRIAL-L01EH  86', '30-TRIAL-Human epidermal growth factor receptor 2 (HER2) tyrosine kinase inhibitors 193', '211-TRIAL- 217', 4224),
-(4225, '39-TRIAL- 192', '112-TRIAL-lapatinib  282', '141-TRIAL- 12', 4225),
-(4226, '6-TRIAL-L01EH02  111', '10-TRIAL-neratinib  78', '22-TRIAL- 184', 4226),
-(4227, '277-TRIAL- 174', '30-TRIAL-tucatinib  112', '62-TRIAL- 141', 4227),
-(4228, '118-TRIAL-L01EJ  0', '221-TRIAL-Janus-associated kinase (JAK) inhibitors 134', '53-TRIAL- 132', 4228),
-(4229, '157-TRIAL- 200', '31-TRIAL-ruxolitinib  60', '178-TRIAL- 9', 4229),
-(4230, '54-TRIAL- 165', '109-TRIAL-fedratinib  38', '21-TRIAL- 132', 4230),
-(4231, '35-TRIAL- 177', '136-TRIAL-pacritinib  255', '109-TRIAL- 31', 4231),
-(4232, '37-TRIAL-L01EK  209', '238-TRIAL-Vascular endothelial growth factor receptor (VEGFR) tyrosine kinase inhibitors 128', '279-TRIAL- 186', 4232),
-(4233, '289-TRIAL- 103', '13-TRIAL-axitinib  112', '37-TRIAL- 127', 4233),
-(4234, '45-TRIAL- 147', '134-TRIAL-cediranib  282', '38-TRIAL- 132', 4234),
-(4235, '269-TRIAL- 159', '226-TRIAL-tivozanib  212', '299-TRIAL- 143', 4235),
-(4236, '280-TRIAL-L01EL  35', '119-TRIAL-Bruton\'s tyrosine kinase (BTK) inhibitors 11', '173-TRIAL- 191', 4236),
-(4237, '86-TRIAL- 221', '162-TRIAL-ibrutinib  285', '94-TRIAL- 48', 4237),
-(4238, '269-TRIAL- 15', '181-TRIAL-acalabrutinib  253', '159-TRIAL- 143', 4238),
-(4239, '178-TRIAL- 148', '49-TRIAL-zanubrutinib  167', '129-TRIAL- 78', 4239),
-(4240, '6-TRIAL-L01EM  21', '200-TRIAL-Phosphatidylinositol-3-kinase (Pi3K) inhibitors 135', '233-TRIAL- 193', 4240),
-(4241, '254-TRIAL- 71', '231-TRIAL-idelalisib  1', '11-TRIAL- 185', 4241),
-(4242, '266-TRIAL- 264', '133-TRIAL-copanlisib  232', '167-TRIAL- 110', 4242),
-(4243, '141-TRIAL- 270', '217-TRIAL-alpelisib  107', '173-TRIAL- 218', 4243),
-(4244, '292-TRIAL- 105', '276-TRIAL-duvelisib  56', '209-TRIAL- 192', 4244),
-(4245, '138-TRIAL- 18', '230-TRIAL-parsaclisib  240', '298-TRIAL- 285', 4245),
-(4246, '101-TRIAL-L01EN  225', '261-TRIAL-Fibroblast growth factor receptor (FGFR) tyrosine kinase inhibitors 114', '44-TRIAL- 2', 4246),
-(4247, '258-TRIAL- 251', '119-TRIAL-erdafitinib  226', '118-TRIAL- 213', 4247),
-(4248, '1-TRIAL-L01EN02  40', '140-TRIAL-pemigatinib  146', '196-TRIAL- 9', 4248),
-(4249, '173-TRIAL- 25', '255-TRIAL-infigratinib  96', '192-TRIAL- 297', 4249),
-(4250, '21-TRIAL- 257', '106-TRIAL-futibatinib  104', '272-TRIAL- 88', 4250),
-(4251, '220-TRIAL-L01EX  166', '179-TRIAL-Other protein kinase inhibitors 23', '53-TRIAL- 36', 4251),
-(4252, '164-TRIAL- 299', '33-TRIAL-sunitinib  209', '220-TRIAL- 0', 4252),
-(4253, '226-TRIAL- 178', '212-TRIAL-sorafenib  189', '106-TRIAL- 76', 4253),
-(4254, '24-TRIAL- 14', '269-TRIAL-pazopanib  36', '262-TRIAL- 73', 4254),
-(4255, '81-TRIAL- 262', '65-TRIAL-vandetanib  10', '252-TRIAL- 95', 4255),
-(4256, '166-TRIAL- 190', '81-TRIAL-regorafenib  120', '263-TRIAL- 184', 4256),
-(4257, '72-TRIAL- 262', '270-TRIAL-masitinib  144', '242-TRIAL- 43', 4257),
-(4258, '177-TRIAL- 23', '112-TRIAL-cabozantinib  272', '283-TRIAL- 26', 4258),
-(4259, '24-TRIAL- 213', '45-TRIAL-lenvatinib  217', '62-TRIAL- 42', 4259),
-(4260, '59-TRIAL- 83', '260-TRIAL-nintedanib  159', '176-TRIAL- 172', 4260),
-(4261, '8-TRIAL-L01EX10  191', '181-TRIAL-midostaurin  298', '225-TRIAL- 204', 4261),
-(4262, '140-TRIAL- 276', '44-TRIAL-quizartinib  182', '180-TRIAL- 180', 4262),
-(4263, '12-TRIAL- 185', '217-TRIAL-larotrectinib  98', '116-TRIAL- 111', 4263),
-(4264, '272-TRIAL- 213', '132-TRIAL-gilteritinib  51', '257-TRIAL- 191', 4264),
-(4265, '164-TRIAL- 235', '62-TRIAL-entrectinib  264', '140-TRIAL- 44', 4265),
-(4266, '212-TRIAL- 135', '50-TRIAL-pexidartinib  120', '25-TRIAL- 247', 4266),
-(4267, '92-TRIAL- 226', '16-TRIAL-capmatinib  270', '201-TRIAL- 121', 4267),
-(4268, '212-TRIAL- 139', '172-TRIAL-avapritinib  83', '57-TRIAL- 242', 4268),
-(4269, '187-TRIAL- 204', '233-TRIAL-ripretinib  102', '137-TRIAL- 39', 4269),
-(4270, '6-TRIAL-L01EX21  47', '29-TRIAL-tepotinib  171', '197-TRIAL- 76', 4270),
-(4271, '261-TRIAL- 189', '143-TRIAL-selpercatinib  34', '267-TRIAL- 174', 4271),
-(4272, '5-TRIAL-L01EX23  269', '183-TRIAL-pralsetinib  75', '17-TRIAL- 119', 4272),
-(4273, '285-TRIAL- 204', '155-TRIAL-surufatinib  179', '140-TRIAL- 1', 4273),
-(4274, '265-TRIAL- 43', '152-TRIAL-umbralisib  161', '195-TRIAL- 1', 4274),
-(4275, '200-TRIAL-L01F  242', '230-TRIAL-MONOCLONAL ANTIBODIES AND ANTIBODY DRUG CONJUGATES 70', '127-TRIAL- 174', 4275),
-(4276, '251-TRIAL-L01FA  140', '191-TRIAL-CD20 (Clusters of Differentiation 20) inhibitors 19', '166-TRIAL- 178', 4276),
-(4277, '58-TRIAL- 281', '35-TRIAL-ofatumumab  53', '229-TRIAL- 153', 4277),
-(4278, '252-TRIAL- 110', '58-TRIAL-rituximab  217', '137-TRIAL- 113', 4278),
-(4279, '234-TRIAL- 51', '93-TRIAL-obinutuzumab  228', '115-TRIAL- 160', 4279),
-(4280, '158-TRIAL-L01FB  109', '251-TRIAL-CD22 (Clusters of Differentiation 22) inhibitors 270', '15-TRIAL- 155', 4280),
-(4281, '1-TRIAL-L01FB01  164', '119-TRIAL-inotuzumab ozogamicin  232', '27-TRIAL- 32', 4281),
-(4282, '128-TRIAL- 282', '68-TRIAL-moxetumomab pasudotox 265', '297-TRIAL- 243', 4282),
-(4283, '218-TRIAL-L01FC  250', '57-TRIAL-CD38 (Clusters of Differentiation 38) inhibitors 7', '184-TRIAL- 282', 4283),
-(4284, '286-TRIAL- 48', '262-TRIAL-daratumumab  194', '217-TRIAL- 34', 4284),
-(4285, '129-TRIAL- 40', '286-TRIAL-isatuximab 82', '77-TRIAL- 253', 4285),
-(4286, '269-TRIAL-L01FD  167', '276-TRIAL-HER2 (Human Epidermal Growth Factor Receptor 2) inhibitors 161', '66-TRIAL- 19', 4286),
-(4287, '92-TRIAL- 17', '63-TRIAL-trastuzumab  3', '152-TRIAL- 186', 4287),
-(4288, '76-TRIAL- 174', '203-TRIAL-pertuzumab  164', '180-TRIAL- 48', 4288),
-(4289, '277-TRIAL- 86', '265-TRIAL-trastuzumab emtansine  46', '163-TRIAL- 208', 4289),
-(4290, '296-TRIAL- 272', '153-TRIAL-trastuzumab deruxtecan  108', '182-TRIAL- 137', 4290),
-(4291, '294-TRIAL- 233', '122-TRIAL-trastuzumab duocarmazine  250', '254-TRIAL- 285', 4291),
-(4292, '124-TRIAL- 58', '38-TRIAL-margetuximab  143', '225-TRIAL- 205', 4292),
-(4293, '210-TRIAL-L01FE  232', '196-TRIAL-EGFR (Epidermal Growth Factor Receptor) inhibitors 139', '231-TRIAL- 117', 4293),
-(4294, '161-TRIAL- 11', '95-TRIAL-cetuximab  112', '79-TRIAL- 23', 4294),
-(4295, '269-TRIAL- 50', '11-TRIAL-panitumumab  290', '27-TRIAL- 106', 4295),
-(4296, '255-TRIAL- 110', '178-TRIAL-necitumumab  36', '220-TRIAL- 283', 4296),
-(4297, '281-TRIAL- 88', '297-TRIAL-nivolumab  264', '114-TRIAL- 124', 4297),
-(4298, '87-TRIAL- 191', '22-TRIAL-pembrolizumab  159', '145-TRIAL- 22', 4298),
-(4299, '210-TRIAL-L01FF  108', '255-TRIAL-PD-1/PDL-1 (Programmed cell death protein 1/death ligand 1) inhibitors 80', '174-TRIAL- 182', 4299),
-(4300, '33-TRIAL- 128', '76-TRIAL-durvalumab  165', '262-TRIAL- 250', 4300),
-(4301, '236-TRIAL- 37', '149-TRIAL-avelumab  164', '38-TRIAL- 137', 4301),
-(4302, '33-TRIAL- 155', '117-TRIAL-atezolizumab  55', '192-TRIAL- 10', 4302),
-(4303, '127-TRIAL- 30', '177-TRIAL-cemiplimab  241', '245-TRIAL- 56', 4303),
-(4304, '254-TRIAL- 62', '277-TRIAL-dostarlimab  53', '207-TRIAL- 148', 4304),
-(4305, '260-TRIAL- 243', '265-TRIAL-prolgolimab  157', '73-TRIAL- 175', 4305),
-(4306, '237-TRIAL- 114', '175-TRIAL-tislelizumab  73', '108-TRIAL- 84', 4306),
-(4307, '206-TRIAL- 192', '179-TRIAL-retifanlimab  197', '28-TRIAL- 100', 4307),
-(4308, '251-TRIAL-L01FG  223', '113-TRIAL-VEGF/VEGFR (Vascular Endothelial Growth Factor) inhibitors 239', '7-TRIAL- 72', 4308),
-(4309, '214-TRIAL- 41', '53-TRIAL-bevacizumab  91', '194-TRIAL- 247', 4309),
-(4310, '217-TRIAL- 251', '79-TRIAL-ramucirumab  179', '55-TRIAL- 205', 4310),
-(4311, '75-TRIAL-L01FX  154', '208-TRIAL-Other monoclonal antibodies and antibody drug conjugates 222', '252-TRIAL- 282', 4311),
-(4312, '116-TRIAL- 281', '108-TRIAL-edrecolomab  209', '99-TRIAL- 246', 4312),
-(4313, '232-TRIAL- 240', '188-TRIAL-gemtuzumab ozogamicin  60', '37-TRIAL- 285', 4313),
-(4314, '77-TRIAL- 280', '73-TRIAL-catumaxomab  267', '144-TRIAL- 298', 4314),
-(4315, '92-TRIAL- 276', '233-TRIAL-ipilimumab  92', '134-TRIAL- 70', 4315),
-(4316, '185-TRIAL- 85', '30-TRIAL-brentuximab vedotin  89', '234-TRIAL- 255', 4316),
-(4317, '19-TRIAL- 0', '293-TRIAL-dinutuximab beta  188', '138-TRIAL- 208', 4317),
-(4318, '220-TRIAL- 77', '253-TRIAL-blinatumomab  88', '184-TRIAL- 97', 4318),
-(4319, '294-TRIAL- 147', '6-TRIAL-elotuzumab  228', '283-TRIAL- 155', 4319),
-(4320, '96-TRIAL- 163', '120-TRIAL-mogamulizumab  131', '58-TRIAL- 187', 4320),
-(4321, '142-TRIAL- 96', '137-TRIAL-olaratumab  4', '278-TRIAL- 183', 4321),
-(4322, '261-TRIAL- 65', '273-TRIAL-bermekimab  95', '158-TRIAL- 28', 4322),
-(4323, '179-TRIAL- 193', '24-TRIAL-tafasitamab  211', '229-TRIAL- 91', 4323),
-(4324, '159-TRIAL- 133', '36-TRIAL-enfortumab vedotin  184', '267-TRIAL- 93', 4324),
-(4325, '11-TRIAL- 151', '184-TRIAL-polatuzumab vedotin  121', '196-TRIAL- 60', 4325),
-(4326, '50-TRIAL- 94', '25-TRIAL-belantamab mafodotin  5', '201-TRIAL- 159', 4326),
-(4327, '120-TRIAL- 94', '223-TRIAL-oportuzumab monatox  15', '189-TRIAL- 267', 4327),
-(4328, '240-TRIAL- 286', '112-TRIAL-sacituzumab govitecan  16', '209-TRIAL- 140', 4328),
-(4329, '142-TRIAL- 60', '100-TRIAL-amivantamab  296', '280-TRIAL- 142', 4329),
-(4330, '152-TRIAL- 155', '105-TRIAL-sabatolimab  41', '86-TRIAL- 133', 4330),
-(4331, '163-TRIAL- 23', '119-TRIAL-tremelimumab  70', '26-TRIAL- 273', 4331),
-(4332, '131-TRIAL- 269', '188-TRIAL-naxitamab  253', '269-TRIAL- 137', 4332),
-(4333, '188-TRIAL- 180', '167-TRIAL-loncastuximab tesirine  234', '275-TRIAL- 181', 4333),
-(4334, '228-TRIAL- 195', '152-TRIAL-tisotumab vedotin  141', '269-TRIAL- 267', 4334),
-(4335, '169-TRIAL-L01X  116', '173-TRIAL-OTHER ANTINEOPLASTIC AGENTS 169', '26-TRIAL- 104', 4335),
-(4336, '48-TRIAL-L01XA  282', '94-TRIAL-Platinum compounds 197', '226-TRIAL- 290', 4336),
-(4337, '290-TRIAL- 112', '255-TRIAL-cisplatin  247', '236-TRIAL- 12', 4337),
-(4338, '74-TRIAL- 145', '132-TRIAL-carboplatin  266', '71-TRIAL- 167', 4338),
-(4339, '175-TRIAL- 236', '289-TRIAL-oxaliplatin  48', '297-TRIAL- 277', 4339),
-(4340, '92-TRIAL- 54', '43-TRIAL-satraplatin  146', '262-TRIAL- 199', 4340),
-(4341, '109-TRIAL- 256', '20-TRIAL-polyplatillen  13', '219-TRIAL- 4', 4341),
-(4342, '255-TRIAL-L01XB  60', '247-TRIAL-Methylhydrazines 199', '71-TRIAL- 129', 4342),
-(4343, '154-TRIAL- 71', '196-TRIAL-procarbazine  17', '67-TRIAL- 21', 4343),
-(4344, '151-TRIAL-L01XD  138', '5-TRIAL-Sensitizers used in photodynamic/radiation therapy 217', '48-TRIAL- 117', 4344),
-(4345, '227-TRIAL- 75', '34-TRIAL-porfimer sodium  21', '34-TRIAL- 24', 4345),
-(4346, '70-TRIAL- 114', '202-TRIAL-methyl aminolevulinate  8', '288-TRIAL- 122', 4346),
-(4347, '4-TRIAL-L01XD04  121', '42-TRIAL-aminolevulinic acid  100', '268-TRIAL- 40', 4347),
-(4348, '110-TRIAL- 238', '153-TRIAL-temoporfin  146', '145-TRIAL- 13', 4348),
-(4349, '245-TRIAL- 10', '281-TRIAL-efaproxiral  226', '259-TRIAL- 104', 4349),
-(4350, '121-TRIAL- 87', '137-TRIAL-padeliporfin  145', '231-TRIAL- 54', 4350),
-(4351, '39-TRIAL-L01XF  290', '171-TRIAL-Retinoids for cancer treatment 158', '265-TRIAL- 174', 4351),
-(4352, '8-TRIAL-L01XF01  0', '69-TRIAL-tretinoin  104', '42-TRIAL- 35', 4352),
-(4353, '237-TRIAL- 76', '275-TRIAL-alitretinoin  259', '278-TRIAL- 101', 4353),
-(4354, '287-TRIAL- 62', '33-TRIAL-bexarotene  91', '235-TRIAL- 132', 4354),
-(4355, '224-TRIAL-L01XG  162', '203-TRIAL-Proteasome inhibitors 189', '200-TRIAL- 294', 4355),
-(4356, '218-TRIAL- 32', '45-TRIAL-bortezomib  132', '187-TRIAL- 282', 4356),
-(4357, '139-TRIAL- 97', '42-TRIAL-carfilzomib  227', '32-TRIAL- 26', 4357),
-(4358, '64-TRIAL- 97', '83-TRIAL-ixazomib  248', '7-TRIAL- 231', 4358),
-(4359, '131-TRIAL-L01XH  84', '240-TRIAL-Histone deacetylase (HDAC) inhibitors 3', '139-TRIAL- 226', 4359),
-(4360, '90-TRIAL- 115', '248-TRIAL-vorinostat  37', '215-TRIAL- 289', 4360),
-(4361, '99-TRIAL- 226', '173-TRIAL-romidepsin  225', '173-TRIAL- 222', 4361),
-(4362, '63-TRIAL- 79', '103-TRIAL-panobinostat  285', '116-TRIAL- 173', 4362),
-(4363, '71-TRIAL- 173', '237-TRIAL-belinostat  157', '145-TRIAL- 294', 4363),
-(4364, '246-TRIAL- 19', '146-TRIAL-entinostat  23', '40-TRIAL- 81', 4364),
-(4365, '87-TRIAL-L01XJ  173', '194-TRIAL-Hedgehog pathway inhibitors 192', '8-TRIAL- 59', 4365),
-(4366, '29-TRIAL- 99', '230-TRIAL-vismodegib  181', '270-TRIAL- 226', 4366),
-(4367, '33-TRIAL- 249', '62-TRIAL-sonidegib  280', '154-TRIAL- 50', 4367),
-(4368, '164-TRIAL- 267', '30-TRIAL-glasdegib  15', '174-TRIAL- 164', 4368),
-(4369, '275-TRIAL-L01XK  152', '239-TRIAL-Poly (ADP-ribose) polymerase (PARP) inhibitors 278', '15-TRIAL- 63', 4369),
-(4370, '113-TRIAL- 84', '278-TRIAL-olaparib  258', '63-TRIAL- 203', 4370),
-(4371, '75-TRIAL- 170', '69-TRIAL-niraparib  268', '201-TRIAL- 295', 4371),
-(4372, '58-TRIAL- 50', '68-TRIAL-rucaparib  279', '238-TRIAL- 126', 4372),
-(4373, '31-TRIAL- 265', '88-TRIAL-talazoparib  196', '7-TRIAL- 106', 4373),
-(4374, '46-TRIAL- 237', '2-TRIAL-veliparib  225', '136-TRIAL- 221', 4374),
-(4375, '161-TRIAL- 98', '69-TRIAL-pamiparib  203', '254-TRIAL- 72', 4375),
-(4376, '152-TRIAL-L01XL  111', '49-TRIAL-Antineoplastic cell and gene therapy 68', '179-TRIAL- 156', 4376),
-(4377, '129-TRIAL- 205', '53-TRIAL-sitimagene ceradenovec  205', '179-TRIAL- 297', 4377),
-(4378, '225-TRIAL- 297', '282-TRIAL-talimogene laherparepvec  168', '25-TRIAL- 65', 4378),
-(4379, '236-TRIAL- 212', '272-TRIAL-axicabtagene ciloleucel  273', '233-TRIAL- 48', 4379),
-(4380, '287-TRIAL- 84', '64-TRIAL-tisagenlecleucel  38', '6-TRIAL- 107', 4380),
-(4381, '274-TRIAL- 2', '250-TRIAL-ciltacabtagene autoleucel  236', '223-TRIAL- 224', 4381),
-(4382, '58-TRIAL- 58', '213-TRIAL-brexucabtagene autoleucel  177', '143-TRIAL- 125', 4382),
-(4383, '64-TRIAL- 40', '116-TRIAL-idecabtagene vicleucel  212', '271-TRIAL- 0', 4383),
-(4384, '218-TRIAL-L01XX  245', '5-TRIAL-Other antineoplastic agents 52', '227-TRIAL- 271', 4384),
-(4385, '188-TRIAL- 23', '282-TRIAL-amsacrine  294', '236-TRIAL- 5', 4385),
-(4386, '38-TRIAL- 3', '103-TRIAL-asparaginase  238', '186-TRIAL- 28', 4386),
-(4387, '120-TRIAL- 165', '123-TRIAL-altretamine  182', '126-TRIAL- 280', 4387),
-(4388, '216-TRIAL- 263', '246-TRIAL-hydroxycarbamide  154', '51-TRIAL- 35', 4388),
-(4389, '239-TRIAL- 197', '245-TRIAL-lonidamine  258', '136-TRIAL- 257', 4389),
-(4390, '72-TRIAL- 76', '31-TRIAL-pentostatin  49', '142-TRIAL- 299', 4390),
-(4391, '286-TRIAL- 177', '70-TRIAL-masoprocol  40', '223-TRIAL- 235', 4391),
-(4392, '85-TRIAL- 52', '256-TRIAL-estramustine  197', '279-TRIAL- 174', 4392),
-(4393, '86-TRIAL- 15', '199-TRIAL-mitoguazone  234', '113-TRIAL- 73', 4393),
-(4394, '162-TRIAL- 35', '237-TRIAL-tiazofurine  232', '88-TRIAL- 52', 4394),
-(4395, '75-TRIAL- 41', '287-TRIAL-mitotane  72', '271-TRIAL- 126', 4395),
-(4396, '98-TRIAL- 244', '145-TRIAL-pegaspargase  140', '257-TRIAL- 74', 4396),
-(4397, '257-TRIAL- 177', '118-TRIAL-arsenic trioxide  103', '11-TRIAL- 211', 4397),
-(4398, '215-TRIAL- 187', '195-TRIAL-denileukin diftitox  44', '21-TRIAL- 72', 4398),
-(4399, '182-TRIAL- 43', '233-TRIAL-celecoxib  120', '293-TRIAL- 139', 4399),
-(4400, '196-TRIAL- 232', '133-TRIAL-anagrelide  71', '8-TRIAL- 146', 4400),
-(4401, '27-TRIAL- 286', '281-TRIAL-oblimersen  193', '109-TRIAL- 68', 4401),
-(4502, '256-TRIAL- 1', '286-TRIAL-ropeginterferon alfa-2b  283', '48-TRIAL- 296', 4502),
-(4503, '159-TRIAL- 65', '88-TRIAL-peginterferon alfacon-2  56', '127-TRIAL- 230', 4503),
-(4504, '131-TRIAL- 41', '138-TRIAL-peginterferon alfa-2b, combinations  226', '46-TRIAL- 130', 4504),
-(4505, '197-TRIAL- 32', '67-TRIAL-peginterferon alfa-2a, combinations  143', '142-TRIAL- 81', 4505),
-(4506, '209-TRIAL-L03AC  12', '154-TRIAL-Interleukins 91', '162-TRIAL- 35', 4506),
-(4507, '269-TRIAL- 18', '285-TRIAL-aldesleukin  78', '141-TRIAL- 260', 4507),
-(4508, '75-TRIAL- 288', '298-TRIAL-oprelvekin  262', '96-TRIAL- 78', 4508),
-(4509, '26-TRIAL-L03AX  195', '213-TRIAL-Other immunostimulants 292', '143-TRIAL- 235', 4509),
-(4510, '97-TRIAL- 170', '217-TRIAL-lentinan  218', '153-TRIAL- 36', 4510),
-(4511, '130-TRIAL- 177', '48-TRIAL- 281', '187-TRIAL- 297', NULL),
-(4512, '83-TRIAL- 139', '73-TRIAL-roquinimex  204', '232-TRIAL- 154', 4512),
-(4513, '47-TRIAL- 169', '169-TRIAL-BCG vaccine  92', '78-TRIAL- 107', 4513),
-(4514, '207-TRIAL- 204', '299-TRIAL-pegademase  108', '40-TRIAL- 185', 4514),
-(4515, '11-TRIAL- 74', '26-TRIAL-pidotimod  88', '197-TRIAL- 71', 4515),
-(4516, '181-TRIAL- 200', '123-TRIAL-poly I:C  253', '178-TRIAL- 122', 4516),
-(4517, '266-TRIAL- 200', '285-TRIAL-poly ICLC  206', '48-TRIAL- 255', 4517),
-(4518, '164-TRIAL- 213', '78-TRIAL-thymopentin  20', '193-TRIAL- 167', 4518),
-(4519, '79-TRIAL- 284', '166-TRIAL-immunocyanin  190', '134-TRIAL- 262', 4519),
-(4520, '15-TRIAL- 127', '167-TRIAL-tasonermin  295', '12-TRIAL- 37', 4520),
-(4521, '169-TRIAL- 130', '288-TRIAL-melanoma vaccine  224', '86-TRIAL- 249', 4521),
-(4522, '137-TRIAL- 148', '284-TRIAL-glatiramer acetate  176', '88-TRIAL- 226', 4522),
-(4523, '50-TRIAL- 96', '239-TRIAL-histamine dihydrochloride  246', '118-TRIAL- 118', 4523),
-(4524, '53-TRIAL- 61', '45-TRIAL-mifamurtide  289', '174-TRIAL- 169', 4524),
-(4525, '196-TRIAL- 190', '147-TRIAL-plerixafor  255', '266-TRIAL- 127', 4525),
-(4526, '189-TRIAL- 80', '102-TRIAL-sipuleucel-T  205', '145-TRIAL- 120', 4526),
-(4527, '142-TRIAL- 253', '215-TRIAL-cridanimod  242', '79-TRIAL- 237', 4527),
-(4528, '119-TRIAL- 180', '0-TRIAL-dasiprotimut-T  32', '99-TRIAL- 185', 4528),
-(4529, '93-TRIAL- 240', '19-TRIAL-elapegademase  184', '45-TRIAL- 271', 4529),
-(4530, '245-TRIAL-L04  144', '264-TRIAL-IMMUNOSUPPRESSANTS 14', '280-TRIAL- 160', 4530),
-(4531, '220-TRIAL-L04A  116', '39-TRIAL-IMMUNOSUPPRESSANTS 86', '182-TRIAL- 67', 4531),
-(4532, '26-TRIAL-L04AA  255', '140-TRIAL-Selective immunosuppressants 38', '57-TRIAL- 229', 4532),
-(4533, '2-TRIAL-L04AA02  59', '176-TRIAL-muromonab-CD3  103', '141-TRIAL- 117', 4533),
-(4534, '37-TRIAL- 203', '45-TRIAL-antilymphocyte immunoglobulin (horse)  220', '36-TRIAL- 165', 4534),
-(4535, '46-TRIAL- 224', '183-TRIAL-antithymocyte immunoglobulin (rabbit)  196', '258-TRIAL- 164', 4535),
-(4536, '94-TRIAL- 227', '142-TRIAL-mycophenolic acid  292', '171-TRIAL- 298', 4536),
-(4537, '72-TRIAL- 120', '241-TRIAL- 289', '194-TRIAL- 190', NULL),
-(4538, '294-TRIAL- 144', '278-TRIAL-sirolimus  18', '189-TRIAL- 291', 4538),
-(4539, '113-TRIAL- 189', '37-TRIAL-leflunomide  248', '126-TRIAL- 132', 4539),
-(4540, '47-TRIAL- 227', '41-TRIAL-alefacept  293', '250-TRIAL- 277', 4540),
-(4541, '47-TRIAL- 294', '141-TRIAL-everolimus  228', '235-TRIAL- 65', 4541),
-(4542, '41-TRIAL- 233', '277-TRIAL-gusperimus  37', '39-TRIAL- 7', 4542),
-(4543, '10-TRIAL- 110', '176-TRIAL-efalizumab  224', '49-TRIAL- 154', 4543),
-(4544, '227-TRIAL- 130', '153-TRIAL-abetimus  298', '199-TRIAL- 207', 4544),
-(4545, '230-TRIAL- 79', '270-TRIAL-natalizumab  180', '84-TRIAL- 6', 4545),
-(4546, '153-TRIAL- 278', '74-TRIAL-abatacept  230', '140-TRIAL- 194', 4546),
-(4547, '99-TRIAL- 197', '160-TRIAL-eculizumab  15', '151-TRIAL- 284', 4547),
-(4548, '168-TRIAL- 217', '228-TRIAL-belimumab  287', '209-TRIAL- 16', 4548),
-(4549, '298-TRIAL- 7', '262-TRIAL-fingolimod  230', '192-TRIAL- 182', 4549),
-(4550, '110-TRIAL- 73', '299-TRIAL-belatacept  196', '155-TRIAL- 96', 4550),
-(4551, '257-TRIAL- 240', '55-TRIAL-tofacitinib  4', '227-TRIAL- 263', 4551),
-(4552, '17-TRIAL- 146', '95-TRIAL-teriflunomide  162', '162-TRIAL- 143', 4552),
-(4553, '289-TRIAL- 230', '216-TRIAL-apremilast  282', '106-TRIAL- 251', 4553),
-(4554, '146-TRIAL- 278', '185-TRIAL-vedolizumab  118', '170-TRIAL- 223', 4554),
-(4555, '118-TRIAL- 188', '48-TRIAL-alemtuzumab  50', '152-TRIAL- 217', 4555),
-(4556, '191-TRIAL- 268', '8-TRIAL-begelomab  149', '209-TRIAL- 58', 4556),
-(4557, '110-TRIAL- 145', '62-TRIAL-ocrelizumab  63', '210-TRIAL- 186', 4557),
-(4558, '93-TRIAL- 90', '267-TRIAL-baricitinib  11', '206-TRIAL- 291', 4558),
-(4559, '6-TRIAL-L04AA38  120', '235-TRIAL-ozanimod  299', '87-TRIAL- 21', 4559),
-(4560, '194-TRIAL- 234', '88-TRIAL-emapalumab  115', '103-TRIAL- 213', 4560),
-(4561, '254-TRIAL- 109', '170-TRIAL-cladribine  280', '239-TRIAL- 211', 4561),
-(4562, '83-TRIAL- 193', '136-TRIAL-imlifidase  231', '172-TRIAL- 282', 4562),
-(4563, '264-TRIAL- 108', '294-TRIAL-siponimod  167', '238-TRIAL- 192', 4563),
-(4564, '232-TRIAL- 292', '80-TRIAL-ravulizumab  224', '36-TRIAL- 253', 4564),
-(4565, '219-TRIAL- 89', '183-TRIAL-upadacitinib  143', '281-TRIAL- 281', 4565),
-(4566, '292-TRIAL- 278', '144-TRIAL-filgotinib  172', '184-TRIAL- 139', 4566),
-(4567, '188-TRIAL- 148', '200-TRIAL-itacitinib  129', '160-TRIAL- 175', 4567),
-(4568, '146-TRIAL- 226', '34-TRIAL-inebilizumab  52', '89-TRIAL- 163', 4568),
-(4569, '165-TRIAL- 71', '288-TRIAL-belumosudil  88', '10-TRIAL- 213', 4569),
-(4570, '233-TRIAL- 48', '213-TRIAL-peficitinib  291', '190-TRIAL- 157', 4570),
-(4571, '273-TRIAL- 181', '147-TRIAL-ponesimod  270', '46-TRIAL- 2', 4571),
-(4572, '201-TRIAL- 278', '247-TRIAL-anifrolumab  298', '70-TRIAL- 97', 4572),
-(4573, '219-TRIAL- 96', '290-TRIAL-ofatumumab  84', '27-TRIAL- 222', 4573),
-(4574, '186-TRIAL- 269', '124-TRIAL-teprotumumab  46', '275-TRIAL- 3', 4574),
-(4575, '106-TRIAL- 114', '193-TRIAL-pegcetacoplan  199', '142-TRIAL- 93', 4575),
-(4576, '265-TRIAL- 36', '168-TRIAL-sutimlimab  127', '187-TRIAL- 153', 4576),
-(4577, '189-TRIAL- 31', '52-TRIAL-deucravacitinib  52', '174-TRIAL- 148', 4577),
-(4578, '255-TRIAL- 133', '160-TRIAL-ublituximab  242', '238-TRIAL- 59', 4578),
-(4579, '11-TRIAL- 138', '16-TRIAL-efgartigimod alfa  290', '4-TRIAL- 147', 4579),
-(4580, '93-TRIAL- 226', '72-TRIAL-avacopan  74', '109-TRIAL- 167', 4580),
-(4581, '93-TRIAL-L04AB  265', '268-TRIAL-Tumor necrosis factor alpha (TNF-α) inhibitors 102', '299-TRIAL- 183', 4581),
-(4582, '122-TRIAL- 266', '215-TRIAL-etanercept  55', '142-TRIAL- 210', 4582),
-(4583, '55-TRIAL- 2', '72-TRIAL-infliximab  282', '39-TRIAL- 266', 4583),
-(4584, '104-TRIAL- 220', '214-TRIAL-afelimomab  204', '165-TRIAL- 66', 4584),
-(4585, '36-TRIAL- 236', '117-TRIAL-adalimumab  197', '206-TRIAL- 187', 4585),
-(4586, '221-TRIAL- 48', '130-TRIAL-certolizumab pegol  38', '225-TRIAL- 264', 4586),
-(4587, '93-TRIAL- 57', '210-TRIAL-golimumab  154', '114-TRIAL- 134', 4587),
-(4588, '111-TRIAL- 287', '269-TRIAL-opinercept  12', '289-TRIAL- 296', 4588),
-(4589, '296-TRIAL-L04AC  14', '229-TRIAL-Interleukin inhibitors 255', '97-TRIAL- 4', 4589),
-(4590, '131-TRIAL- 180', '196-TRIAL-daclizumab  39', '221-TRIAL- 147', 4590),
-(4591, '138-TRIAL- 228', '93-TRIAL-basiliximab  12', '62-TRIAL- 243', 4591),
-(4592, '266-TRIAL- 193', '39-TRIAL-anakinra  245', '296-TRIAL- 36', 4592),
-(4593, '286-TRIAL- 196', '103-TRIAL-rilonacept  12', '157-TRIAL- 177', 4593),
-(4594, '262-TRIAL- 234', '176-TRIAL-ustekinumab  103', '264-TRIAL- 275', 4594),
-(4595, '111-TRIAL- 6', '239-TRIAL-tocilizumab  257', '41-TRIAL- 286', 4595),
-(4596, '15-TRIAL- 37', '187-TRIAL-canakinumab  25', '5-TRIAL- 242', 4596),
-(4597, '108-TRIAL- 178', '60-TRIAL-briakinumab  143', '19-TRIAL- 219', 4597),
-(4598, '148-TRIAL- 73', '206-TRIAL-secukinumab  202', '166-TRIAL- 137', 4598),
-(4599, '90-TRIAL- 183', '199-TRIAL-siltuximab  29', '274-TRIAL- 77', 4599),
-(4600, '128-TRIAL- 53', '37-TRIAL-brodalumab  294', '232-TRIAL- 92', 4600),
-(4601, '70-TRIAL- 100', '284-TRIAL-ixekizumab  142', '138-TRIAL- 18', 4601),
-(5102, '119-TRIAL- 246', '57-TRIAL-codeine and acetylsalicylic acid  37', '241-TRIAL- 2', 5102),
-(5103, '273-TRIAL- 240', '221-TRIAL-codeine and ibuprofen  16', '162-TRIAL- 50', 5103),
-(5104, '134-TRIAL- 73', '261-TRIAL-codeine and other non-opioid analgesics  35', '111-TRIAL- 290', 5104),
-(5105, '78-TRIAL- 73', '190-TRIAL-tramadol and paracetamol  255', '147-TRIAL- 288', 5105),
-(5106, '49-TRIAL- 233', '224-TRIAL-tramadol and dexketoprofen  149', '155-TRIAL- 7', 5106),
-(5107, '64-TRIAL- 199', '69-TRIAL-tramadol and other non-opioid analgesics  133', '228-TRIAL- 257', 5107),
-(5108, '257-TRIAL- 130', '100-TRIAL-tramadol and celecoxib  155', '155-TRIAL- 48', 5108),
-(5109, '298-TRIAL- 271', '114-TRIAL-oxycodone and paracetamol  233', '8-TRIAL- 27', 5109),
-(5110, '285-TRIAL- 129', '20-TRIAL-oxycodone and acetylsalicylic acid  36', '223-TRIAL- 201', 5110),
-(5111, '69-TRIAL- 240', '60-TRIAL-oxycodone and ibuprofen  42', '8-TRIAL- 13', 5111),
-(5112, '125-TRIAL-N02AX  98', '140-TRIAL-Other opioids 253', '241-TRIAL- 202', 5112),
-(5113, '279-TRIAL- 153', '220-TRIAL-tilidine  285', '296-TRIAL- 62', 5113);
+(601, '231-TRIAL- 289', '165-TRIAL-glimepiride  21', '127-TRIAL- 64', 601),
+(602, '140-TRIAL- 113', '89-TRIAL-acetohexamide  210', '88-TRIAL- 263', 602),
+(603, '20-TRIAL- 88', '121-TRIAL-glymidine  164', '3-TRIAL- 154', 603),
+(604, '22-TRIAL-A10BC  116', '154-TRIAL-Sulfonamides (heterocyclic) 286', '25-TRIAL- 224', 604),
+(605, '218-TRIAL-A10BD  2', '120-TRIAL-Combinations of oral blood glucose lowering drugs 259', '188-TRIAL- 82', 605),
+(606, '41-TRIAL- 174', '200-TRIAL-phenformin and sulfonylureas  66', '122-TRIAL- 54', 606),
+(607, '52-TRIAL- 250', '16-TRIAL-metformin and sulfonylureas  26', '86-TRIAL- 2', 607),
+(608, '237-TRIAL- 101', '201-TRIAL-metformin and rosiglitazone  249', '67-TRIAL- 102', 608),
+(609, '65-TRIAL- 281', '43-TRIAL-glimepiride and rosiglitazone  210', '108-TRIAL- 89', 609),
+(610, '258-TRIAL- 284', '121-TRIAL-metformin and pioglitazone  206', '286-TRIAL- 287', 610),
+(611, '171-TRIAL- 90', '72-TRIAL-glimepiride and pioglitazone  18', '273-TRIAL- 253', 611),
+(612, '81-TRIAL- 262', '96-TRIAL-metformin and sitagliptin  13', '151-TRIAL- 15', 612),
+(613, '104-TRIAL- 285', '233-TRIAL-metformin and vildagliptin  264', '4-TRIAL- 237', 613),
+(614, '53-TRIAL- 284', '133-TRIAL-pioglitazone and alogliptin  172', '221-TRIAL- 44', 614),
+(615, '70-TRIAL- 57', '88-TRIAL-metformin and saxagliptin  129', '197-TRIAL- 40', 615),
+(616, '123-TRIAL- 1', '43-TRIAL-metformin and linagliptin  176', '231-TRIAL- 200', 616),
+(617, '48-TRIAL- 113', '253-TRIAL-pioglitazone and sitagliptin  211', '93-TRIAL- 32', 617),
+(618, '151-TRIAL- 14', '99-TRIAL-metformin and alogliptin  216', '112-TRIAL- 234', 618),
+(619, '249-TRIAL- 152', '212-TRIAL-metformin and repaglinide  241', '109-TRIAL- 150', 619),
+(620, '180-TRIAL- 169', '235-TRIAL-metformin and dapagliflozin  62', '265-TRIAL- 211', 620),
+(621, '217-TRIAL- 211', '163-TRIAL-metformin and canagliflozin  121', '206-TRIAL- 145', 621),
+(622, '243-TRIAL- 250', '93-TRIAL-metformin and acarbose  64', '42-TRIAL- 144', 622),
+(623, '233-TRIAL- 136', '202-TRIAL-metformin and gemigliptin  25', '259-TRIAL- 253', 623),
+(624, '207-TRIAL- 6', '43-TRIAL-linagliptin and empagliflozin  129', '51-TRIAL- 70', 624),
+(625, '95-TRIAL- 228', '141-TRIAL-metformin and empagliflozin  59', '220-TRIAL- 215', 625),
+(626, '244-TRIAL- 278', '158-TRIAL-saxagliptin and dapagliflozin  284', '238-TRIAL- 83', 626),
+(627, '138-TRIAL- 137', '135-TRIAL-metformin and evogliptin  230', '282-TRIAL- 215', 627),
+(628, '280-TRIAL- 221', '225-TRIAL-metformin and ertugliflozin  52', '204-TRIAL- 46', 628),
+(629, '212-TRIAL- 104', '245-TRIAL-sitagliptin and ertugliflozin  25', '44-TRIAL- 149', 629),
+(630, '294-TRIAL- 129', '32-TRIAL-metformin, saxagliptin and dapagliflozin  9', '116-TRIAL- 29', 630),
+(631, '261-TRIAL- 133', '30-TRIAL-metformin and lobeglitazone  246', '132-TRIAL- 83', 631),
+(632, '273-TRIAL- 139', '280-TRIAL-metformin, linagliptin and empagliflozin  135', '87-TRIAL- 170', 632),
+(633, '89-TRIAL-A10BF 129', '160-TRIAL- Alpha glucosidase inhibitors 121', '97-TRIAL- 89', 633),
+(634, '263-TRIAL- 144', '21-TRIAL-acarbose  105', '115-TRIAL- 213', 634),
+(635, '134-TRIAL- 199', '237-TRIAL-miglitol  115', '64-TRIAL- 258', 635),
+(636, '111-TRIAL- 283', '246-TRIAL-voglibose  243', '37-TRIAL- 131', 636),
+(637, '155-TRIAL- 251', '51-TRIAL-troglitazone  90', '152-TRIAL- 295', 637),
+(638, '120-TRIAL-A10BG  61', '260-TRIAL-Thiazolidinediones 67', '273-TRIAL- 234', 638),
+(639, '33-TRIAL- 291', '1-TRIAL-rosiglitazone  78', '187-TRIAL- 279', 639),
+(640, '0-TRIAL-A10BG03  15', '109-TRIAL-pioglitazone  72', '161-TRIAL- 152', 640),
+(641, '170-TRIAL- 23', '64-TRIAL-lobeglitazone  137', '150-TRIAL- 110', 641),
+(642, '291-TRIAL-A10BH  78', '243-TRIAL-Dipeptidyl peptidase 4 (DPP-4) inhibitors 261', '21-TRIAL- 18', 642),
+(643, '98-TRIAL- 183', '133-TRIAL-sitagliptin  295', '9-TRIAL- 72', 643),
+(644, '268-TRIAL- 3', '264-TRIAL-vildagliptin  245', '49-TRIAL- 50', 644),
+(645, '146-TRIAL- 242', '244-TRIAL-saxagliptin  155', '59-TRIAL- 168', 645),
+(646, '185-TRIAL- 1', '168-TRIAL-alogliptin  247', '206-TRIAL- 187', 646),
+(647, '135-TRIAL- 109', '164-TRIAL-linagliptin  233', '151-TRIAL- 240', 647),
+(648, '25-TRIAL- 224', '46-TRIAL-gemigliptin  200', '138-TRIAL- 231', 648),
+(649, '121-TRIAL- 217', '224-TRIAL-evogliptin  84', '115-TRIAL- 244', 649),
+(650, '252-TRIAL- 19', '70-TRIAL-teneligliptin  267', '219-TRIAL- 74', 650),
+(651, '187-TRIAL- 130', '145-TRIAL-sitagliptin and simvastatin  216', '144-TRIAL- 199', 651),
+(652, '262-TRIAL- 85', '215-TRIAL-gemigliptin and rosuvastatin  121', '202-TRIAL- 41', 652),
+(653, '4-TRIAL-A10BJ  73', '233-TRIAL-Glucagon-like peptide-1 (GLP-1) analogues 52', '11-TRIAL- 229', 653),
+(654, '124-TRIAL- 259', '83-TRIAL-exenatide  165', '245-TRIAL- 150', 654),
+(655, '226-TRIAL- 191', '197-TRIAL- 113', '171-TRIAL- 286', NULL),
+(656, '262-TRIAL- 190', '184-TRIAL-liraglutide  6', '18-TRIAL- 22', 656),
+(657, '119-TRIAL- 266', '18-TRIAL-lixisenatide  191', '59-TRIAL- 266', 657),
+(658, '3-TRIAL-A10BJ04  179', '198-TRIAL-albiglutide  67', '45-TRIAL- 3', 658),
+(659, '30-TRIAL- 20', '25-TRIAL-dulaglutide  34', '121-TRIAL- 33', 659),
+(660, '35-TRIAL- 87', '193-TRIAL-semaglutide  27', '48-TRIAL- 124', 660),
+(661, '292-TRIAL- 218', '200-TRIAL- 144', '131-TRIAL- 86', NULL),
+(662, '95-TRIAL- 108', '153-TRIAL-beinaglutide  197', '92-TRIAL- 221', 662),
+(663, '119-TRIAL- 207', '271-TRIAL-dapagliflozin  222', '161-TRIAL- 191', 663),
+(664, '152-TRIAL- 151', '23-TRIAL-canagliflozin  165', '56-TRIAL- 280', 664),
+(665, '61-TRIAL-A10BK  265', '223-TRIAL-Sodium-glucose co-transporter 2 (SGLT2) inhibitors 0', '28-TRIAL- 135', 665),
+(666, '53-TRIAL- 12', '182-TRIAL-empagliflozin  176', '157-TRIAL- 189', 666),
+(667, '292-TRIAL- 199', '276-TRIAL-ertugliflozin  61', '142-TRIAL- 231', 667),
+(668, '60-TRIAL- 0', '238-TRIAL-ipragliflozin  80', '20-TRIAL- 145', 668),
+(669, '29-TRIAL- 168', '41-TRIAL-sotagliflozin  162', '134-TRIAL- 133', 669),
+(670, '170-TRIAL- 282', '100-TRIAL-luseogliflozin  160', '164-TRIAL- 141', 670),
+(671, '199-TRIAL-A10BX  36', '165-TRIAL-Other blood glucose lowering drugs, excl. insulins 233', '229-TRIAL- 27', 671),
+(672, '254-TRIAL- 28', '119-TRIAL-guar gum  284', '110-TRIAL- 168', 672),
+(673, '117-TRIAL- 297', '25-TRIAL-repaglinide  206', '10-TRIAL- 263', 673),
+(674, '248-TRIAL- 190', '169-TRIAL-nateglinide  244', '99-TRIAL- 243', 674),
+(675, '255-TRIAL- 164', '137-TRIAL-pramlintide  158', '106-TRIAL- 111', 675),
+(676, '14-TRIAL- 147', '293-TRIAL-benfluorex  129', '187-TRIAL- 280', 676),
+(677, '85-TRIAL- 64', '34-TRIAL-mitiglinide  276', '215-TRIAL- 118', 677),
+(678, '184-TRIAL- 247', '248-TRIAL-imeglimin  147', '155-TRIAL- 32', 678),
+(679, '81-TRIAL- 237', '127-TRIAL-tirzepatide  96', '159-TRIAL- 224', 679),
+(680, '199-TRIAL- 53', '201-TRIAL-carfloglitazar  41', '204-TRIAL- 129', 680),
+(681, '15-TRIAL- 265', '50-TRIAL-dorzagliatin  32', '83-TRIAL- 19', 681),
+(682, '296-TRIAL-A10X  139', '178-TRIAL-OTHER DRUGS USED IN DIABETES 238', '141-TRIAL- 103', 682),
+(683, '6-TRIAL-A10XA  120', '270-TRIAL-Aldose reductase inhibitors 49', '5-TRIAL- 24', 683),
+(684, '178-TRIAL-A11A  87', '84-TRIAL-MULTIVITAMINS, COMBINATIONS 29', '139-TRIAL- 98', 684),
+(685, '173-TRIAL-A11AA  138', '215-TRIAL-Multivitamins with minerals 2', '41-TRIAL- 185', 685),
+(686, '63-TRIAL-A11  11', '266-TRIAL-VITAMINS 227', '283-TRIAL- 30', 686),
+(687, '165-TRIAL- 82', '82-TRIAL-multivitamins and iron  131', '35-TRIAL- 190', 687),
+(688, '112-TRIAL- 256', '202-TRIAL-multivitamins and calcium  248', '213-TRIAL- 26', 688),
+(689, '197-TRIAL- 64', '215-TRIAL-multivitamins and trace elements  293', '107-TRIAL- 37', 689),
+(690, '118-TRIAL- 138', '224-TRIAL-multivitamins and other minerals, incl. combinations  70', '83-TRIAL- 45', 690),
+(691, '28-TRIAL-A11AB  259', '283-TRIAL-Multivitamins, other combinations 21', '237-TRIAL- 160', 691),
+(692, '149-TRIAL-A11B  123', '283-TRIAL-MULTIVITAMINS, PLAIN 5', '247-TRIAL- 213', 692),
+(693, '86-TRIAL-A11BA  284', '9-TRIAL-Multivitamins, plain 34', '200-TRIAL- 170', 693),
+(694, '239-TRIAL-A11C  157', '268-TRIAL-VITAMIN A AND D, INCL. COMBINATIONS OF THE TWO 256', '285-TRIAL- 192', 694),
+(695, '122-TRIAL- 233', '35-TRIAL-retinol (vit A)  283', '227-TRIAL- 199', 695),
+(696, '61-TRIAL- 190', '35-TRIAL- 100', '179-TRIAL- 173', NULL),
+(697, '106-TRIAL-A11CA  285', '145-TRIAL-Vitamin A, plain 9', '36-TRIAL- 181', 697),
+(698, '239-TRIAL- 99', '101-TRIAL-betacarotene  107', '195-TRIAL- 19', 698),
+(699, '84-TRIAL-A11CB  27', '255-TRIAL-Vitamin A and D in combination 60', '233-TRIAL- 152', 699),
+(700, '200-TRIAL-A11CC  3', '188-TRIAL-Vitamin D and analogues 298', '275-TRIAL- 169', 700),
+(801, '86-TRIAL- 92', '152-TRIAL-sodium selenite  17', '124-TRIAL- 288', 801),
+(802, '93-TRIAL-A12CX  89', '188-TRIAL-Other mineral products 214', '296-TRIAL- 168', 802),
+(803, '146-TRIAL-A13A  158', '237-TRIAL-TONICS 145', '168-TRIAL- 297', 803),
+(804, '225-TRIAL-A13  247', '21-TRIAL-TONICS 37', '243-TRIAL- 207', 804),
+(805, '70-TRIAL-A14  49', '246-TRIAL-ANABOLIC AGENTS FOR SYSTEMIC USE 139', '152-TRIAL- 12', 805),
+(806, '220-TRIAL-A14A  31', '76-TRIAL-ANABOLIC STEROIDS 91', '225-TRIAL- 145', 806),
+(807, '299-TRIAL-A14AA  216', '274-TRIAL-Androstan derivatives 256', '77-TRIAL- 272', 807),
+(808, '236-TRIAL- 108', '296-TRIAL-androstanolone  9', '132-TRIAL- 258', 808),
+(809, '288-TRIAL- 144', '4-TRIAL-stanozolol  230', '227-TRIAL- 49', 809),
+(810, '219-TRIAL- 68', '174-TRIAL- 101', '261-TRIAL- 55', NULL),
+(811, '266-TRIAL- 227', '13-TRIAL-metandienone  62', '80-TRIAL- 18', 811),
+(812, '28-TRIAL- 189', '113-TRIAL-metenolone  141', '23-TRIAL- 96', 812),
+(813, '131-TRIAL- 240', '231-TRIAL- 135', '32-TRIAL- 82', NULL),
+(814, '182-TRIAL- 50', '44-TRIAL-oxymetholone  152', '57-TRIAL- 1', 814),
+(815, '168-TRIAL- 33', '173-TRIAL-quinbolone  294', '219-TRIAL- 126', 815),
+(816, '83-TRIAL- 233', '282-TRIAL-prasterone  212', '36-TRIAL- 25', 816),
+(817, '52-TRIAL- 12', '24-TRIAL-oxandrolone  145', '96-TRIAL- 2', 817),
+(818, '73-TRIAL- 58', '105-TRIAL-norethandrolone  177', '58-TRIAL- 111', 818),
+(819, '181-TRIAL-A14AB  250', '170-TRIAL-Estren derivatives 80', '53-TRIAL- 227', 819),
+(820, '259-TRIAL- 216', '97-TRIAL-nandrolone  118', '18-TRIAL- 177', 820),
+(821, '281-TRIAL- 165', '52-TRIAL-ethylestrenol  113', '171-TRIAL- 76', 821),
+(822, '286-TRIAL- 174', '242-TRIAL-oxabolone cipionate  241', '209-TRIAL- 197', 822),
+(823, '262-TRIAL-A14B  48', '142-TRIAL-OTHER ANABOLIC AGENTS 48', '192-TRIAL- 36', 823),
+(824, '20-TRIAL-A15  117', '229-TRIAL-APPETITE STIMULANTS 24', '81-TRIAL- 138', 824),
+(825, '106-TRIAL-A16  61', '250-TRIAL-OTHER ALIMENTARY TRACT AND METABOLISM PRODUCTS 247', '258-TRIAL- 139', 825),
+(826, '105-TRIAL-A16A  281', '68-TRIAL-OTHER ALIMENTARY TRACT AND METABOLISM PRODUCTS 14', '1-TRIAL- 116', 826),
+(827, '294-TRIAL-A16AA  167', '45-TRIAL-Amino acids and derivatives 267', '139-TRIAL- 263', 827),
+(828, '100-TRIAL- 174', '144-TRIAL-levocarnitine  99', '125-TRIAL- 280', 828),
+(829, '217-TRIAL- 124', '49-TRIAL- 286', '74-TRIAL- 57', NULL),
+(830, '85-TRIAL- 15', '58-TRIAL-ademetionine  275', '130-TRIAL- 282', 830),
+(831, '111-TRIAL- 37', '270-TRIAL-glutamine  262', '91-TRIAL- 28', 831),
+(832, '261-TRIAL- 112', '296-TRIAL-mercaptamine  76', '0-TRIAL- 158', 832),
+(833, '171-TRIAL- 191', '148-TRIAL-carglumic acid  22', '98-TRIAL- 50', 833),
+(834, '58-TRIAL- 28', '245-TRIAL-betaine  42', '238-TRIAL- 160', 834),
+(835, '73-TRIAL- 177', '93-TRIAL-metreleptin  95', '104-TRIAL- 113', 835),
+(836, '132-TRIAL- 125', '104-TRIAL-alglucerase  195', '121-TRIAL- 148', 836),
+(837, '168-TRIAL-A16AB  184', '220-TRIAL-Enzymes 191', '138-TRIAL- 32', 837),
+(838, '119-TRIAL- 37', '166-TRIAL-imiglucerase  132', '162-TRIAL- 234', 838),
+(839, '131-TRIAL- 37', '294-TRIAL-agalsidase alfa  102', '211-TRIAL- 114', 839),
+(840, '142-TRIAL- 169', '234-TRIAL-agalsidase beta  247', '130-TRIAL- 3', 840),
+(841, '141-TRIAL- 6', '211-TRIAL-sacrosidase  97', '37-TRIAL- 202', 841),
+(842, '115-TRIAL- 163', '17-TRIAL-laronidase  117', '299-TRIAL- 151', 842),
+(843, '243-TRIAL- 38', '182-TRIAL-alglucosidase alfa  54', '87-TRIAL- 12', 843),
+(844, '12-TRIAL- 222', '137-TRIAL-galsulfase  274', '191-TRIAL- 208', 844),
+(845, '18-TRIAL- 51', '77-TRIAL-idursulfase  123', '52-TRIAL- 111', 845),
+(846, '30-TRIAL- 89', '201-TRIAL-velaglucerase alfa  115', '87-TRIAL- 228', 846),
+(847, '29-TRIAL- 21', '287-TRIAL-taliglucerase alfa  263', '27-TRIAL- 188', 847),
+(848, '177-TRIAL- 214', '246-TRIAL-elosulfase alfa  175', '82-TRIAL- 231', 848),
+(849, '239-TRIAL- 19', '169-TRIAL-asfotase alfa  147', '162-TRIAL- 106', 849),
+(850, '260-TRIAL- 252', '5-TRIAL-sebelipase alfa  261', '220-TRIAL- 80', 850),
+(851, '41-TRIAL- 250', '139-TRIAL-velmanase alfa  138', '124-TRIAL- 151', 851),
+(852, '105-TRIAL- 140', '289-TRIAL-idursulfase beta  225', '282-TRIAL- 204', 852),
+(853, '53-TRIAL- 280', '130-TRIAL-cerliponase alfa  11', '6-TRIAL- 258', 853),
+(854, '287-TRIAL- 251', '27-TRIAL-vestronidase alfa  30', '222-TRIAL- 247', 854),
+(855, '207-TRIAL- 296', '14-TRIAL-pegvaliase  5', '49-TRIAL- 106', 855),
+(856, '210-TRIAL- 215', '35-TRIAL-pegunigalsidase alfa  88', '285-TRIAL- 34', 856),
+(857, '213-TRIAL- 223', '276-TRIAL-atidarsagene autotemcel  63', '77-TRIAL- 126', 857),
+(858, '222-TRIAL- 7', '129-TRIAL-avalglucosidase alfa  266', '227-TRIAL- 125', 858),
+(859, '100-TRIAL- 248', '175-TRIAL-cipaglucosidase alfa  130', '257-TRIAL- 113', 859),
+(860, '196-TRIAL- 216', '292-TRIAL-pegzilarginase  205', '51-TRIAL- 7', 860),
+(861, '230-TRIAL- 103', '147-TRIAL-olipudase alfa  252', '55-TRIAL- 284', 861),
+(862, '135-TRIAL- 294', '146-TRIAL-thioctic acid  290', '36-TRIAL- 147', 862),
+(863, '105-TRIAL-A16AX  107', '278-TRIAL-Various alimentary tract and metabolism products 158', '81-TRIAL- 46', 863),
+(864, '299-TRIAL- 22', '292-TRIAL- 113', '208-TRIAL- 52', NULL),
+(865, '141-TRIAL- 91', '276-TRIAL-anethole trithione  124', '157-TRIAL- 108', 865),
+(866, '246-TRIAL- 258', '232-TRIAL-sodium phenylbutyrate  163', '127-TRIAL- 131', 866),
+(867, '141-TRIAL- 279', '137-TRIAL-nitisinone  100', '237-TRIAL- 109', 867),
+(868, '250-TRIAL- 154', '40-TRIAL-zinc acetate  97', '127-TRIAL- 279', 868),
+(869, '146-TRIAL- 39', '38-TRIAL-miglustat  281', '298-TRIAL- 292', 869),
+(870, '221-TRIAL- 97', '93-TRIAL-sapropterin  213', '206-TRIAL- 29', 870),
+(871, '93-TRIAL- 51', '16-TRIAL-teduglutide  94', '38-TRIAL- 288', 871),
+(872, '175-TRIAL- 171', '121-TRIAL-glycerol phenylbutyrate  80', '183-TRIAL- 266', 872),
+(873, '299-TRIAL- 256', '209-TRIAL-eliglustat  66', '268-TRIAL- 59', 873),
+(874, '95-TRIAL- 184', '28-TRIAL-sodium benzoate  94', '32-TRIAL- 266', 874),
+(875, '58-TRIAL- 266', '163-TRIAL-trientine  213', '31-TRIAL- 86', 875),
+(876, '160-TRIAL- 66', '249-TRIAL-uridine triacetate  22', '60-TRIAL- 83', 876),
+(877, '273-TRIAL- 266', '106-TRIAL-migalastat  146', '74-TRIAL- 208', 877),
+(878, '46-TRIAL- 270', '20-TRIAL-telotristat  66', '169-TRIAL- 78', 878),
+(879, '127-TRIAL- 238', '84-TRIAL-givosiran  159', '167-TRIAL- 278', 879),
+(880, '130-TRIAL- 21', '91-TRIAL-triheptanoin  190', '93-TRIAL- 244', 880),
+(881, '109-TRIAL- 207', '40-TRIAL-lumasiran  123', '222-TRIAL- 47', 881),
+(882, '250-TRIAL- 225', '62-TRIAL-fosdenopterin  282', '169-TRIAL- 140', 882),
+(883, '101-TRIAL- 155', '5-TRIAL-lonafarnib  226', '287-TRIAL- 63', 883),
+(884, '179-TRIAL- 166', '178-TRIAL-elivaldogene autotemcel  245', '209-TRIAL- 286', 884),
+(885, '6-TRIAL-A16AX22  20', '243-TRIAL-tiomolibdic acid  106', '242-TRIAL- 161', 885),
+(886, '183-TRIAL- 38', '217-TRIAL-sodium benzoate and sodium phenylacetate  295', '109-TRIAL- 99', 886),
+(887, '197-TRIAL-B01AA  195', '242-TRIAL-Vitamin K antagonists 252', '67-TRIAL- 140', 887),
+(888, '103-TRIAL- 55', '255-TRIAL-dicoumarol  252', '56-TRIAL- 45', 888),
+(889, '162-TRIAL-B01  297', '50-TRIAL-ANTITHROMBOTIC AGENTS 289', '265-TRIAL- 205', 889),
+(890, '227-TRIAL-B  247', '27-TRIAL-BLOOD AND BLOOD FORMING ORGANS 3', '76-TRIAL- 165', 890),
+(891, '75-TRIAL-B01A  146', '281-TRIAL-ANTITHROMBOTIC AGENTS 103', '15-TRIAL- 263', 891),
+(892, '260-TRIAL- 16', '181-TRIAL-phenindione  277', '133-TRIAL- 228', 892),
+(893, '284-TRIAL- 203', '244-TRIAL-warfarin  176', '74-TRIAL- 8', 893),
+(894, '35-TRIAL- 202', '135-TRIAL- 241', '286-TRIAL- 93', NULL),
+(895, '20-TRIAL- 114', '244-TRIAL-phenprocoumon  257', '12-TRIAL- 204', 895),
+(896, '296-TRIAL- 291', '6-TRIAL-acenocoumarol  26', '116-TRIAL- 283', 896),
+(897, '133-TRIAL- 11', '176-TRIAL-ethyl biscoumacetate  205', '265-TRIAL- 106', 897),
+(898, '198-TRIAL- 18', '219-TRIAL-clorindione  291', '24-TRIAL- 267', 898),
+(899, '250-TRIAL- 234', '95-TRIAL-diphenadione  75', '275-TRIAL- 194', 899),
+(900, '187-TRIAL- 65', '62-TRIAL-tioclomarol  139', '108-TRIAL- 60', 900),
+(1301, '28-TRIAL- 29', '130-TRIAL- 246', '187-TRIAL- 94', NULL),
+(1302, '14-TRIAL- 178', '168-TRIAL-tocainide  233', '120-TRIAL- 291', 1302),
+(1303, '23-TRIAL- 146', '278-TRIAL- 89', '98-TRIAL- 16', NULL),
+(1304, '100-TRIAL- 57', '132-TRIAL-aprindine  203', '262-TRIAL- 82', 1304),
+(1305, '196-TRIAL-C01BC  259', '141-TRIAL-Antiarrhythmics, class Ic 261', '25-TRIAL- 84', 1305),
+(1306, '15-TRIAL- 52', '124-TRIAL-propafenone  118', '93-TRIAL- 274', 1306),
+(1307, '69-TRIAL- 199', '297-TRIAL- 198', '134-TRIAL- 27', NULL),
+(1308, '125-TRIAL- 72', '288-TRIAL-flecainide  151', '57-TRIAL- 180', 1308),
+(1309, '291-TRIAL- 161', '188-TRIAL- 239', '260-TRIAL- 299', NULL),
+(1310, '70-TRIAL- 11', '33-TRIAL-lorcainide  126', '152-TRIAL- 146', 1310),
+(1311, '221-TRIAL- 80', '236-TRIAL-encainide  36', '45-TRIAL- 225', 1311),
+(1312, '123-TRIAL- 176', '142-TRIAL-ethacizine  299', '24-TRIAL- 29', 1312),
+(1313, '151-TRIAL-C01BD  28', '267-TRIAL-Antiarrhythmics, class III 298', '157-TRIAL- 241', 1313),
+(1314, '250-TRIAL- 52', '249-TRIAL-amiodarone  100', '291-TRIAL- 211', 1314),
+(1315, '214-TRIAL- 53', '110-TRIAL- 242', '53-TRIAL- 28', NULL),
+(1316, '64-TRIAL- 15', '213-TRIAL-bretylium tosilate  149', '224-TRIAL- 142', 1316),
+(1317, '154-TRIAL- 17', '40-TRIAL-bunaftine  12', '84-TRIAL- 149', 1317),
+(1318, '128-TRIAL- 63', '63-TRIAL-dofetilide  197', '187-TRIAL- 0', 1318),
+(1319, '186-TRIAL- 243', '238-TRIAL-ibutilide  118', '220-TRIAL- 12', 1319),
+(1320, '97-TRIAL- 5', '46-TRIAL-tedisamil  289', '170-TRIAL- 237', 1320),
+(1321, '235-TRIAL- 90', '197-TRIAL-dronedarone  92', '117-TRIAL- 103', 1321),
+(1322, '130-TRIAL-C01BG  265', '52-TRIAL-Other antiarrhythmics, class I and III 119', '97-TRIAL- 154', 1322),
+(1323, '128-TRIAL- 74', '83-TRIAL-moracizine  261', '13-TRIAL- 154', 1323),
+(1324, '24-TRIAL- 198', '50-TRIAL-cibenzoline  90', '248-TRIAL- 56', 1324),
+(1325, '124-TRIAL- 201', '218-TRIAL-vernakalant  5', '168-TRIAL- 40', 1325),
+(1326, '287-TRIAL-C01C  155', '28-TRIAL-CARDIAC STIMULANTS EXCL. CARDIAC GLYCOSIDES 55', '35-TRIAL- 285', 1326),
+(1327, '0-TRIAL-C01CA  129', '54-TRIAL-Adrenergic and dopaminergic agents 101', '75-TRIAL- 215', 1327),
+(1328, '37-TRIAL- 31', '61-TRIAL-etilefrine  10', '147-TRIAL- 81', 1328),
+(1329, '255-TRIAL- 174', '38-TRIAL- 288', '211-TRIAL- 21', NULL),
+(1330, '116-TRIAL- 15', '112-TRIAL-isoprenaline  197', '131-TRIAL- 143', 1330),
+(1331, '208-TRIAL- 174', '269-TRIAL- 52', '216-TRIAL- 64', NULL),
+(1332, '259-TRIAL- 186', '251-TRIAL-norepinephrine  287', '72-TRIAL- 45', 1332),
+(1333, '163-TRIAL- 276', '201-TRIAL-dopamine  213', '89-TRIAL- 132', 1333),
+(1334, '88-TRIAL- 12', '139-TRIAL-norfenefrine  290', '157-TRIAL- 18', 1334),
+(1335, '15-TRIAL- 217', '159-TRIAL-phenylephrine  272', '145-TRIAL- 249', 1335),
+(1336, '71-TRIAL- 268', '181-TRIAL-dobutamine  271', '6-TRIAL- 152', 1336),
+(1337, '286-TRIAL- 244', '140-TRIAL-oxedrine  231', '78-TRIAL- 279', 1337),
+(1338, '73-TRIAL- 159', '92-TRIAL- 98', '187-TRIAL- 221', NULL),
+(1339, '202-TRIAL- 120', '16-TRIAL-metaraminol  247', '122-TRIAL- 125', 1339),
+(1340, '102-TRIAL- 20', '99-TRIAL-methoxamine  34', '204-TRIAL- 69', 1340),
+(1341, '183-TRIAL- 68', '38-TRIAL-mephentermine  74', '56-TRIAL- 217', 1341),
+(1342, '200-TRIAL- 179', '232-TRIAL-dimetofrine  248', '147-TRIAL- 144', 1342),
+(1343, '209-TRIAL- 246', '56-TRIAL-prenalterol  70', '141-TRIAL- 39', 1343),
+(1344, '193-TRIAL- 296', '113-TRIAL-dopexamine  31', '21-TRIAL- 272', 1344),
+(1345, '196-TRIAL- 28', '188-TRIAL-gepefrine  39', '15-TRIAL- 199', 1345),
+(1346, '55-TRIAL- 184', '158-TRIAL-ibopamine  84', '125-TRIAL- 75', 1346),
+(1347, '189-TRIAL- 171', '94-TRIAL-midodrine  285', '44-TRIAL- 220', 1347),
+(1348, '75-TRIAL- 261', '124-TRIAL-octopamine  71', '66-TRIAL- 135', 1348),
+(1349, '59-TRIAL- 140', '43-TRIAL-fenoldopam  156', '154-TRIAL- 297', 1349),
+(1350, '139-TRIAL- 209', '257-TRIAL-cafedrine  102', '223-TRIAL- 237', 1350),
+(1351, '138-TRIAL- 16', '297-TRIAL-arbutamine  291', '2-TRIAL- 89', 1351),
+(1352, '187-TRIAL- 97', '220-TRIAL-theodrenaline  267', '149-TRIAL- 26', 1352),
+(1353, '123-TRIAL- 291', '248-TRIAL-epinephrine  235', '291-TRIAL- 144', 1353),
+(1354, '258-TRIAL- 112', '98-TRIAL-amezinium metilsulfate  272', '155-TRIAL- 271', 1354),
+(1355, '9-TRIAL-C01CA26  253', '148-TRIAL-ephedrine  45', '104-TRIAL- 112', 1355),
+(1356, '216-TRIAL- 55', '198-TRIAL-droxidopa  162', '57-TRIAL- 196', 1356),
+(1357, '218-TRIAL- 164', '104-TRIAL-combinations  118', '245-TRIAL- 213', 1357),
+(1358, '295-TRIAL- 54', '133-TRIAL-etilefrine, combinations  254', '18-TRIAL- 0', 1358),
+(1359, '229-TRIAL-C01CE  61', '232-TRIAL-Phosphodiesterase inhibitors 258', '46-TRIAL- 260', 1359),
+(1360, '143-TRIAL- 123', '117-TRIAL-amrinone  212', '106-TRIAL- 31', 1360),
+(1361, '139-TRIAL- 109', '130-TRIAL-milrinone  90', '37-TRIAL- 121', 1361),
+(1362, '75-TRIAL- 74', '16-TRIAL-enoximone  281', '257-TRIAL- 165', 1362),
+(1363, '243-TRIAL- 259', '250-TRIAL-bucladesine  221', '78-TRIAL- 256', 1363),
+(1364, '234-TRIAL-C01CX  174', '147-TRIAL-Other cardiac stimulants 95', '0-TRIAL- 261', 1364),
+(1365, '263-TRIAL- 155', '214-TRIAL-angiotensinamide  150', '68-TRIAL- 126', 1365),
+(1366, '17-TRIAL- 85', '132-TRIAL-xamoterol  270', '294-TRIAL- 212', 1366),
+(1367, '92-TRIAL- 284', '236-TRIAL-levosimendan  161', '102-TRIAL- 99', 1367),
+(1368, '217-TRIAL- 209', '52-TRIAL-angiotensin II  290', '238-TRIAL- 44', 1368),
+(1369, '166-TRIAL-C01D  270', '103-TRIAL-VASODILATORS USED IN CARDIAC DISEASES 155', '137-TRIAL- 22', 1369),
+(1370, '287-TRIAL-C01DA  277', '209-TRIAL-Organic nitrates 263', '273-TRIAL- 131', 1370),
+(1371, '272-TRIAL- 186', '91-TRIAL-glyceryl trinitrate  58', '292-TRIAL- 63', 1371),
+(1372, '62-TRIAL- 183', '15-TRIAL- 248', '235-TRIAL- 97', NULL),
+(1373, '25-TRIAL- 207', '84-TRIAL- 44', '222-TRIAL- 273', NULL),
+(1374, '294-TRIAL- 173', '4-TRIAL- 159', '29-TRIAL- 93', NULL),
+(1375, '147-TRIAL- 61', '128-TRIAL-methylpropylpropanediol dinitrate  59', '215-TRIAL- 116', 1375),
+(1376, '15-TRIAL- 266', '262-TRIAL-pentaerithrityl tetranitrate  292', '258-TRIAL- 298', 1376),
+(1377, '131-TRIAL- 279', '288-TRIAL-propatylnitrate  73', '146-TRIAL- 189', 1377),
+(1378, '180-TRIAL- 181', '0-TRIAL-isosorbide dinitrate  280', '187-TRIAL- 141', 1378),
+(1379, '261-TRIAL- 41', '198-TRIAL- 189', '73-TRIAL- 8', NULL),
+(1380, '209-TRIAL- 50', '8-TRIAL- 141', '267-TRIAL- 125', NULL),
+(1381, '150-TRIAL- 204', '236-TRIAL- 167', '54-TRIAL- 285', NULL),
+(1382, '285-TRIAL- 121', '128-TRIAL-trolnitrate  35', '115-TRIAL- 104', 1382),
+(1383, '244-TRIAL- 250', '155-TRIAL-eritrityl tetranitrate  119', '81-TRIAL- 119', 1383),
+(1384, '248-TRIAL- 56', '231-TRIAL-isosorbide mononitrate  41', '278-TRIAL- 73', 1384),
+(1385, '89-TRIAL- 297', '138-TRIAL-organic nitrates in combination  76', '174-TRIAL- 225', 1385),
+(1386, '265-TRIAL- 129', '250-TRIAL-tenitramine  236', '189-TRIAL- 98', 1386),
+(1387, '283-TRIAL- 149', '121-TRIAL-glyceryl trinitrate, combinations  239', '137-TRIAL- 234', 1387),
+(1388, '184-TRIAL- 15', '22-TRIAL-methylpropylpropanediol dinitrate, combinations  187', '193-TRIAL- 42', 1388),
+(1389, '222-TRIAL- 16', '222-TRIAL-pentaerithrityl tetranitrate, combinations  25', '279-TRIAL- 191', 1389),
+(1390, '171-TRIAL- 271', '204-TRIAL-propatylnitrate, combinations  293', '100-TRIAL- 162', 1390),
+(1391, '283-TRIAL- 190', '189-TRIAL-isosorbide dinitrate, combinations  217', '191-TRIAL- 118', 1391),
+(1392, '20-TRIAL- 103', '175-TRIAL-trolnitrate, combinations  67', '192-TRIAL- 32', 1392),
+(1393, '8-TRIAL-C01DA63  241', '298-TRIAL-eritrityl tetranitrate, combinations  158', '113-TRIAL- 93', 1393),
+(1394, '1-TRIAL-C01DA70  87', '216-TRIAL-organic nitrates in combination with psycholeptics 18', '218-TRIAL- 268', 1394),
+(1395, '136-TRIAL-C01DB  147', '223-TRIAL-Quinolone vasodilators 297', '173-TRIAL- 152', 1395),
+(1396, '115-TRIAL- 256', '228-TRIAL-flosequinan  15', '219-TRIAL- 243', 1396),
+(1397, '248-TRIAL-C01DX  110', '244-TRIAL-Other vasodilators used in cardiac diseases 210', '104-TRIAL- 40', 1397),
+(1398, '237-TRIAL- 112', '234-TRIAL-itramin tosilate  144', '217-TRIAL- 268', 1398),
+(1399, '35-TRIAL- 204', '232-TRIAL-prenylamine  216', '291-TRIAL- 297', 1399),
+(1400, '46-TRIAL- 253', '223-TRIAL-oxyfedrine  78', '133-TRIAL- 62', 1400),
+(4202, '20-TRIAL- 269', '149-TRIAL-dabrafenib  185', '203-TRIAL- 21', 4202),
+(4203, '144-TRIAL- 107', '224-TRIAL-encorafenib  151', '198-TRIAL- 7', 4203),
+(4204, '268-TRIAL-L01ED  279', '169-TRIAL-Anaplastic lymphoma kinase (ALK) inhibitors 133', '30-TRIAL- 51', 4204),
+(4205, '170-TRIAL- 12', '226-TRIAL-crizotinib  184', '271-TRIAL- 229', 4205),
+(4206, '35-TRIAL- 262', '125-TRIAL-ceritinib  247', '250-TRIAL- 234', 4206),
+(4207, '62-TRIAL- 154', '248-TRIAL-alectinib  58', '280-TRIAL- 152', 4207),
+(4208, '145-TRIAL- 299', '61-TRIAL-brigatinib  120', '282-TRIAL- 142', 4208),
+(4209, '82-TRIAL- 173', '120-TRIAL-lorlatinib  127', '186-TRIAL- 159', 4209),
+(4210, '294-TRIAL-L01EE  75', '149-TRIAL-Mitogen-activated protein kinase (MEK) inhibitors 76', '125-TRIAL- 175', 4210),
+(4211, '88-TRIAL- 246', '166-TRIAL-trametinib  177', '95-TRIAL- 155', 4211),
+(4212, '16-TRIAL- 207', '68-TRIAL-cobimetinib  225', '70-TRIAL- 287', 4212),
+(4213, '5-TRIAL-L01EE03  170', '187-TRIAL-binimetinib  245', '33-TRIAL- 63', 4213),
+(4214, '276-TRIAL- 115', '279-TRIAL-selumetinib  81', '54-TRIAL- 264', 4214),
+(4215, '135-TRIAL-L01EF  60', '213-TRIAL-Cyclin-dependent kinase (CDK) inhibitors 294', '1-TRIAL- 12', 4215),
+(4216, '212-TRIAL- 271', '68-TRIAL-palbociclib  132', '126-TRIAL- 102', 4216),
+(4217, '207-TRIAL- 205', '148-TRIAL-ribociclib  47', '214-TRIAL- 15', 4217),
+(4218, '164-TRIAL- 123', '247-TRIAL-abemaciclib  17', '193-TRIAL- 264', 4218),
+(4219, '166-TRIAL-L01EG  99', '40-TRIAL-Mammalian target of rapamycin (mTOR) kinase inhibitors 269', '74-TRIAL- 159', 4219),
+(4220, '282-TRIAL- 109', '185-TRIAL-temsirolimus  65', '163-TRIAL- 137', 4220),
+(4221, '267-TRIAL- 120', '75-TRIAL-everolimus  27', '189-TRIAL- 204', 4221),
+(4222, '27-TRIAL- 12', '83-TRIAL-ridaforolimus  197', '234-TRIAL- 114', 4222),
+(4223, '152-TRIAL- 183', '208-TRIAL-sirolimus  154', '30-TRIAL- 284', 4223),
+(4224, '143-TRIAL-L01EH  236', '218-TRIAL-Human epidermal growth factor receptor 2 (HER2) tyrosine kinase inhibitors 28', '4-TRIAL- 165', 4224),
+(4225, '185-TRIAL- 247', '272-TRIAL-lapatinib  256', '274-TRIAL- 64', 4225),
+(4226, '123-TRIAL- 56', '50-TRIAL-neratinib  16', '222-TRIAL- 180', 4226),
+(4227, '13-TRIAL- 72', '156-TRIAL-tucatinib  48', '267-TRIAL- 215', 4227),
+(4228, '18-TRIAL-L01EJ  135', '219-TRIAL-Janus-associated kinase (JAK) inhibitors 155', '183-TRIAL- 30', 4228),
+(4229, '39-TRIAL- 211', '172-TRIAL-ruxolitinib  280', '84-TRIAL- 9', 4229),
+(4230, '205-TRIAL- 182', '55-TRIAL-fedratinib  238', '276-TRIAL- 205', 4230),
+(4231, '196-TRIAL- 50', '211-TRIAL-pacritinib  258', '46-TRIAL- 200', 4231),
+(4232, '116-TRIAL-L01EK  233', '44-TRIAL-Vascular endothelial growth factor receptor (VEGFR) tyrosine kinase inhibitors 117', '67-TRIAL- 201', 4232),
+(4233, '70-TRIAL- 192', '27-TRIAL-axitinib  283', '290-TRIAL- 190', 4233),
+(4234, '41-TRIAL- 121', '148-TRIAL-cediranib  290', '2-TRIAL- 225', 4234),
+(4235, '277-TRIAL- 72', '283-TRIAL-tivozanib  61', '92-TRIAL- 238', 4235),
+(4236, '197-TRIAL-L01EL  65', '251-TRIAL-Bruton\'s tyrosine kinase (BTK) inhibitors 116', '145-TRIAL- 12', 4236),
+(4237, '115-TRIAL- 52', '170-TRIAL-ibrutinib  203', '296-TRIAL- 152', 4237),
+(4238, '250-TRIAL- 192', '260-TRIAL-acalabrutinib  138', '279-TRIAL- 69', 4238),
+(4239, '190-TRIAL- 76', '101-TRIAL-zanubrutinib  187', '136-TRIAL- 125', 4239),
+(4240, '175-TRIAL-L01EM  70', '16-TRIAL-Phosphatidylinositol-3-kinase (Pi3K) inhibitors 180', '81-TRIAL- 34', 4240),
+(4241, '129-TRIAL- 0', '97-TRIAL-idelalisib  252', '181-TRIAL- 180', 4241),
+(4242, '82-TRIAL- 73', '46-TRIAL-copanlisib  204', '52-TRIAL- 278', 4242),
+(4243, '231-TRIAL- 183', '134-TRIAL-alpelisib  28', '237-TRIAL- 254', 4243),
+(4244, '140-TRIAL- 214', '86-TRIAL-duvelisib  137', '57-TRIAL- 249', 4244),
+(4245, '32-TRIAL- 273', '84-TRIAL-parsaclisib  124', '133-TRIAL- 57', 4245),
+(4246, '45-TRIAL-L01EN  20', '197-TRIAL-Fibroblast growth factor receptor (FGFR) tyrosine kinase inhibitors 133', '286-TRIAL- 221', 4246),
+(4247, '212-TRIAL- 236', '82-TRIAL-erdafitinib  258', '86-TRIAL- 32', 4247),
+(4248, '118-TRIAL- 53', '89-TRIAL-pemigatinib  156', '183-TRIAL- 142', 4248),
+(4249, '94-TRIAL- 17', '199-TRIAL-infigratinib  110', '54-TRIAL- 61', 4249),
+(4250, '267-TRIAL- 83', '70-TRIAL-futibatinib  236', '176-TRIAL- 238', 4250),
+(4251, '276-TRIAL-L01EX  195', '289-TRIAL-Other protein kinase inhibitors 64', '284-TRIAL- 151', 4251),
+(4252, '129-TRIAL- 37', '12-TRIAL-sunitinib  34', '205-TRIAL- 2', 4252),
+(4253, '112-TRIAL- 69', '8-TRIAL-sorafenib  196', '16-TRIAL- 209', 4253),
+(4254, '164-TRIAL- 94', '286-TRIAL-pazopanib  221', '232-TRIAL- 124', 4254),
+(4255, '254-TRIAL- 100', '164-TRIAL-vandetanib  256', '137-TRIAL- 199', 4255),
+(4256, '21-TRIAL- 233', '98-TRIAL-regorafenib  286', '234-TRIAL- 101', 4256),
+(4257, '211-TRIAL- 196', '278-TRIAL-masitinib  235', '191-TRIAL- 164', 4257),
+(4258, '18-TRIAL- 202', '294-TRIAL-cabozantinib  121', '281-TRIAL- 253', 4258),
+(4259, '110-TRIAL- 120', '147-TRIAL-lenvatinib  127', '161-TRIAL- 244', 4259),
+(4260, '267-TRIAL- 196', '155-TRIAL-nintedanib  142', '12-TRIAL- 125', 4260),
+(4261, '21-TRIAL- 99', '105-TRIAL-midostaurin  140', '234-TRIAL- 287', 4261),
+(4262, '200-TRIAL- 192', '189-TRIAL-quizartinib  215', '136-TRIAL- 296', 4262),
+(4263, '43-TRIAL- 277', '223-TRIAL-larotrectinib  145', '134-TRIAL- 49', 4263),
+(4264, '86-TRIAL- 5', '143-TRIAL-gilteritinib  160', '238-TRIAL- 213', 4264),
+(4265, '264-TRIAL- 45', '51-TRIAL-entrectinib  275', '236-TRIAL- 40', 4265),
+(4266, '251-TRIAL- 205', '67-TRIAL-pexidartinib  18', '133-TRIAL- 164', 4266),
+(4267, '29-TRIAL- 252', '247-TRIAL-capmatinib  84', '262-TRIAL- 275', 4267),
+(4268, '96-TRIAL- 35', '35-TRIAL-avapritinib  288', '290-TRIAL- 8', 4268),
+(4269, '260-TRIAL- 94', '23-TRIAL-ripretinib  147', '65-TRIAL- 32', 4269),
+(4270, '82-TRIAL- 150', '2-TRIAL-tepotinib  263', '117-TRIAL- 85', 4270),
+(4271, '122-TRIAL- 140', '285-TRIAL-selpercatinib  169', '286-TRIAL- 190', 4271),
+(4272, '101-TRIAL- 149', '273-TRIAL-pralsetinib  270', '202-TRIAL- 222', 4272),
+(4273, '199-TRIAL- 294', '203-TRIAL-surufatinib  149', '216-TRIAL- 51', 4273),
+(4274, '128-TRIAL- 23', '258-TRIAL-umbralisib  14', '44-TRIAL- 41', 4274),
+(4275, '242-TRIAL-L01F  210', '59-TRIAL-MONOCLONAL ANTIBODIES AND ANTIBODY DRUG CONJUGATES 155', '239-TRIAL- 92', 4275),
+(4276, '89-TRIAL-L01FA  53', '147-TRIAL-CD20 (Clusters of Differentiation 20) inhibitors 263', '157-TRIAL- 44', 4276),
+(4277, '46-TRIAL- 229', '53-TRIAL-ofatumumab  14', '100-TRIAL- 94', 4277),
+(4278, '30-TRIAL- 234', '131-TRIAL-rituximab  103', '219-TRIAL- 102', 4278),
+(4279, '77-TRIAL- 213', '149-TRIAL-obinutuzumab  217', '82-TRIAL- 183', 4279),
+(4280, '189-TRIAL-L01FB  27', '277-TRIAL-CD22 (Clusters of Differentiation 22) inhibitors 229', '249-TRIAL- 207', 4280),
+(4281, '239-TRIAL- 3', '171-TRIAL-inotuzumab ozogamicin  152', '229-TRIAL- 154', 4281),
+(4282, '48-TRIAL- 187', '48-TRIAL-moxetumomab pasudotox 133', '25-TRIAL- 220', 4282),
+(4283, '226-TRIAL-L01FC  10', '132-TRIAL-CD38 (Clusters of Differentiation 38) inhibitors 143', '50-TRIAL- 214', 4283),
+(4284, '160-TRIAL- 33', '54-TRIAL-daratumumab  90', '232-TRIAL- 239', 4284),
+(4285, '76-TRIAL- 220', '217-TRIAL-isatuximab 86', '159-TRIAL- 257', 4285),
+(4286, '239-TRIAL-L01FD  104', '259-TRIAL-HER2 (Human Epidermal Growth Factor Receptor 2) inhibitors 16', '259-TRIAL- 90', 4286),
+(4287, '192-TRIAL- 63', '206-TRIAL-trastuzumab  274', '47-TRIAL- 249', 4287),
+(4288, '100-TRIAL- 198', '73-TRIAL-pertuzumab  136', '277-TRIAL- 194', 4288),
+(4289, '244-TRIAL- 291', '132-TRIAL-trastuzumab emtansine  227', '164-TRIAL- 94', 4289),
+(4290, '163-TRIAL- 92', '114-TRIAL-trastuzumab deruxtecan  164', '210-TRIAL- 206', 4290),
+(4291, '83-TRIAL- 262', '287-TRIAL-trastuzumab duocarmazine  138', '250-TRIAL- 203', 4291),
+(4292, '64-TRIAL- 153', '106-TRIAL-margetuximab  168', '183-TRIAL- 104', 4292),
+(4293, '67-TRIAL-L01FE  36', '219-TRIAL-EGFR (Epidermal Growth Factor Receptor) inhibitors 57', '11-TRIAL- 154', 4293),
+(4294, '76-TRIAL- 58', '262-TRIAL-cetuximab  146', '189-TRIAL- 35', 4294),
+(4295, '165-TRIAL- 205', '228-TRIAL-panitumumab  109', '98-TRIAL- 1', 4295),
+(4296, '130-TRIAL- 178', '125-TRIAL-necitumumab  176', '183-TRIAL- 290', 4296),
+(4297, '93-TRIAL- 184', '288-TRIAL-nivolumab  0', '21-TRIAL- 115', 4297),
+(4298, '103-TRIAL- 105', '224-TRIAL-pembrolizumab  276', '206-TRIAL- 144', 4298),
+(4299, '56-TRIAL-L01FF  150', '104-TRIAL-PD-1/PDL-1 (Programmed cell death protein 1/death ligand 1) inhibitors 228', '247-TRIAL- 39', 4299),
+(4300, '245-TRIAL- 290', '95-TRIAL-durvalumab  135', '252-TRIAL- 242', 4300),
+(4301, '223-TRIAL- 134', '166-TRIAL-avelumab  238', '37-TRIAL- 100', 4301),
+(4302, '156-TRIAL- 268', '59-TRIAL-atezolizumab  27', '149-TRIAL- 97', 4302),
+(4303, '165-TRIAL- 282', '89-TRIAL-cemiplimab  259', '127-TRIAL- 192', 4303),
+(4304, '109-TRIAL- 216', '62-TRIAL-dostarlimab  103', '240-TRIAL- 23', 4304),
+(4305, '40-TRIAL- 146', '258-TRIAL-prolgolimab  291', '170-TRIAL- 229', 4305),
+(4306, '127-TRIAL- 170', '150-TRIAL-tislelizumab  147', '254-TRIAL- 264', 4306),
+(4307, '284-TRIAL- 164', '38-TRIAL-retifanlimab  67', '20-TRIAL- 16', 4307),
+(4308, '88-TRIAL-L01FG  185', '140-TRIAL-VEGF/VEGFR (Vascular Endothelial Growth Factor) inhibitors 80', '170-TRIAL- 39', 4308),
+(4309, '184-TRIAL- 28', '92-TRIAL-bevacizumab  269', '271-TRIAL- 228', 4309),
+(4310, '269-TRIAL- 116', '103-TRIAL-ramucirumab  27', '181-TRIAL- 219', 4310),
+(4311, '185-TRIAL-L01FX  193', '16-TRIAL-Other monoclonal antibodies and antibody drug conjugates 161', '230-TRIAL- 140', 4311),
+(4312, '253-TRIAL- 137', '77-TRIAL-edrecolomab  97', '96-TRIAL- 39', 4312),
+(4313, '104-TRIAL- 284', '197-TRIAL-gemtuzumab ozogamicin  175', '264-TRIAL- 249', 4313),
+(4314, '46-TRIAL- 276', '225-TRIAL-catumaxomab  108', '38-TRIAL- 238', 4314),
+(4315, '230-TRIAL- 271', '111-TRIAL-ipilimumab  74', '135-TRIAL- 155', 4315),
+(4316, '13-TRIAL- 221', '212-TRIAL-brentuximab vedotin  204', '221-TRIAL- 8', 4316),
+(4317, '143-TRIAL- 61', '276-TRIAL-dinutuximab beta  148', '268-TRIAL- 95', 4317),
+(4318, '204-TRIAL- 266', '40-TRIAL-blinatumomab  113', '287-TRIAL- 192', 4318),
+(4319, '132-TRIAL- 265', '249-TRIAL-elotuzumab  256', '148-TRIAL- 4', 4319),
+(4320, '289-TRIAL- 68', '132-TRIAL-mogamulizumab  143', '54-TRIAL- 286', 4320),
+(4321, '57-TRIAL- 152', '280-TRIAL-olaratumab  126', '299-TRIAL- 103', 4321),
+(4322, '276-TRIAL- 227', '165-TRIAL-bermekimab  74', '20-TRIAL- 195', 4322),
+(4323, '158-TRIAL- 155', '0-TRIAL-tafasitamab  146', '179-TRIAL- 0', 4323),
+(4324, '192-TRIAL- 27', '149-TRIAL-enfortumab vedotin  168', '219-TRIAL- 59', 4324),
+(4325, '240-TRIAL- 8', '99-TRIAL-polatuzumab vedotin  242', '280-TRIAL- 156', 4325),
+(4326, '126-TRIAL- 200', '187-TRIAL-belantamab mafodotin  159', '256-TRIAL- 30', 4326),
+(4327, '211-TRIAL- 196', '222-TRIAL-oportuzumab monatox  25', '201-TRIAL- 95', 4327),
+(4328, '3-TRIAL-L01FX17  214', '222-TRIAL-sacituzumab govitecan  235', '297-TRIAL- 171', 4328),
+(4329, '37-TRIAL- 126', '130-TRIAL-amivantamab  53', '134-TRIAL- 30', 4329),
+(4330, '295-TRIAL- 54', '21-TRIAL-sabatolimab  288', '149-TRIAL- 121', 4330),
+(4331, '94-TRIAL- 286', '54-TRIAL-tremelimumab  219', '236-TRIAL- 97', 4331),
+(4332, '234-TRIAL- 240', '219-TRIAL-naxitamab  89', '167-TRIAL- 167', 4332),
+(4333, '150-TRIAL- 284', '261-TRIAL-loncastuximab tesirine  54', '284-TRIAL- 261', 4333),
+(4334, '243-TRIAL- 126', '191-TRIAL-tisotumab vedotin  285', '206-TRIAL- 77', 4334),
+(4335, '115-TRIAL-L01X  255', '123-TRIAL-OTHER ANTINEOPLASTIC AGENTS 133', '4-TRIAL- 1', 4335),
+(4336, '34-TRIAL-L01XA  136', '198-TRIAL-Platinum compounds 9', '140-TRIAL- 204', 4336),
+(4337, '280-TRIAL- 100', '266-TRIAL-cisplatin  269', '175-TRIAL- 84', 4337),
+(4338, '191-TRIAL- 40', '237-TRIAL-carboplatin  22', '88-TRIAL- 131', 4338),
+(4339, '77-TRIAL- 92', '185-TRIAL-oxaliplatin  82', '244-TRIAL- 191', 4339),
+(4340, '12-TRIAL- 284', '164-TRIAL-satraplatin  283', '81-TRIAL- 215', 4340),
+(4341, '28-TRIAL- 113', '40-TRIAL-polyplatillen  60', '33-TRIAL- 197', 4341),
+(4342, '82-TRIAL-L01XB  42', '120-TRIAL-Methylhydrazines 290', '84-TRIAL- 4', 4342),
+(4343, '44-TRIAL- 287', '73-TRIAL-procarbazine  125', '284-TRIAL- 199', 4343),
+(4344, '159-TRIAL-L01XD  240', '44-TRIAL-Sensitizers used in photodynamic/radiation therapy 151', '281-TRIAL- 72', 4344),
+(4345, '164-TRIAL- 234', '291-TRIAL-porfimer sodium  266', '70-TRIAL- 146', 4345),
+(4346, '154-TRIAL- 4', '298-TRIAL-methyl aminolevulinate  77', '169-TRIAL- 272', 4346),
+(4347, '282-TRIAL- 226', '288-TRIAL-aminolevulinic acid  142', '287-TRIAL- 33', 4347),
+(4348, '243-TRIAL- 242', '229-TRIAL-temoporfin  233', '3-TRIAL- 290', 4348),
+(4349, '209-TRIAL- 261', '105-TRIAL-efaproxiral  282', '277-TRIAL- 160', 4349),
+(4350, '85-TRIAL- 184', '244-TRIAL-padeliporfin  192', '77-TRIAL- 154', 4350),
+(4351, '60-TRIAL-L01XF  16', '161-TRIAL-Retinoids for cancer treatment 270', '140-TRIAL- 94', 4351),
+(4352, '146-TRIAL- 29', '242-TRIAL-tretinoin  133', '132-TRIAL- 203', 4352),
+(4353, '137-TRIAL- 47', '285-TRIAL-alitretinoin  83', '86-TRIAL- 253', 4353),
+(4354, '31-TRIAL- 62', '88-TRIAL-bexarotene  30', '43-TRIAL- 164', 4354),
+(4355, '109-TRIAL-L01XG  210', '258-TRIAL-Proteasome inhibitors 29', '239-TRIAL- 56', 4355),
+(4356, '84-TRIAL- 185', '11-TRIAL-bortezomib  125', '128-TRIAL- 63', 4356),
+(4357, '216-TRIAL- 278', '247-TRIAL-carfilzomib  259', '151-TRIAL- 24', 4357),
+(4358, '61-TRIAL- 50', '58-TRIAL-ixazomib  131', '204-TRIAL- 270', 4358),
+(4359, '11-TRIAL-L01XH  153', '86-TRIAL-Histone deacetylase (HDAC) inhibitors 225', '127-TRIAL- 216', 4359),
+(4360, '109-TRIAL- 35', '87-TRIAL-vorinostat  153', '96-TRIAL- 176', 4360),
+(4361, '201-TRIAL- 266', '285-TRIAL-romidepsin  42', '73-TRIAL- 274', 4361),
+(4362, '145-TRIAL- 99', '214-TRIAL-panobinostat  131', '168-TRIAL- 97', 4362),
+(4363, '63-TRIAL- 0', '86-TRIAL-belinostat  299', '299-TRIAL- 233', 4363),
+(4364, '113-TRIAL- 219', '213-TRIAL-entinostat  28', '260-TRIAL- 121', 4364),
+(4365, '28-TRIAL-L01XJ  173', '158-TRIAL-Hedgehog pathway inhibitors 50', '67-TRIAL- 9', 4365),
+(4366, '299-TRIAL- 252', '274-TRIAL-vismodegib  209', '4-TRIAL- 142', 4366),
+(4367, '280-TRIAL- 293', '277-TRIAL-sonidegib  115', '144-TRIAL- 63', 4367),
+(4368, '61-TRIAL- 284', '6-TRIAL-glasdegib  234', '260-TRIAL- 285', 4368),
+(4369, '67-TRIAL-L01XK  217', '280-TRIAL-Poly (ADP-ribose) polymerase (PARP) inhibitors 187', '179-TRIAL- 210', 4369),
+(4370, '16-TRIAL- 247', '18-TRIAL-olaparib  75', '136-TRIAL- 142', 4370),
+(4371, '17-TRIAL- 130', '203-TRIAL-niraparib  174', '299-TRIAL- 295', 4371),
+(4372, '85-TRIAL- 48', '40-TRIAL-rucaparib  48', '220-TRIAL- 270', 4372),
+(4373, '152-TRIAL- 240', '125-TRIAL-talazoparib  39', '22-TRIAL- 56', 4373),
+(4374, '103-TRIAL- 273', '135-TRIAL-veliparib  95', '256-TRIAL- 274', 4374),
+(4375, '274-TRIAL- 163', '292-TRIAL-pamiparib  30', '22-TRIAL- 241', 4375),
+(4376, '237-TRIAL-L01XL  211', '154-TRIAL-Antineoplastic cell and gene therapy 0', '111-TRIAL- 118', 4376),
+(4377, '112-TRIAL- 207', '55-TRIAL-sitimagene ceradenovec  193', '139-TRIAL- 33', 4377),
+(4378, '214-TRIAL- 250', '241-TRIAL-talimogene laherparepvec  73', '185-TRIAL- 187', 4378),
+(4379, '229-TRIAL- 4', '7-TRIAL-axicabtagene ciloleucel  282', '166-TRIAL- 95', 4379),
+(4380, '119-TRIAL- 83', '73-TRIAL-tisagenlecleucel  215', '222-TRIAL- 11', 4380),
+(4381, '191-TRIAL- 74', '10-TRIAL-ciltacabtagene autoleucel  204', '1-TRIAL- 35', 4381),
+(4382, '68-TRIAL- 15', '171-TRIAL-brexucabtagene autoleucel  117', '200-TRIAL- 21', 4382),
+(4383, '279-TRIAL- 14', '295-TRIAL-idecabtagene vicleucel  228', '180-TRIAL- 90', 4383),
+(4384, '249-TRIAL-L01XX  223', '227-TRIAL-Other antineoplastic agents 209', '131-TRIAL- 157', 4384),
+(4385, '256-TRIAL- 129', '291-TRIAL-amsacrine  195', '232-TRIAL- 30', 4385),
+(4386, '115-TRIAL- 165', '73-TRIAL-asparaginase  260', '291-TRIAL- 38', 4386),
+(4387, '95-TRIAL- 151', '186-TRIAL-altretamine  85', '6-TRIAL- 210', 4387),
+(4388, '290-TRIAL- 47', '67-TRIAL-hydroxycarbamide  114', '170-TRIAL- 274', 4388),
+(4389, '292-TRIAL- 299', '113-TRIAL-lonidamine  20', '122-TRIAL- 2', 4389),
+(4390, '173-TRIAL- 29', '225-TRIAL-pentostatin  189', '221-TRIAL- 93', 4390),
+(4391, '115-TRIAL- 1', '47-TRIAL-masoprocol  218', '141-TRIAL- 34', 4391),
+(4392, '136-TRIAL- 72', '182-TRIAL-estramustine  296', '113-TRIAL- 45', 4392),
+(4393, '0-TRIAL-L01XX16  284', '78-TRIAL-mitoguazone  195', '192-TRIAL- 296', 4393),
+(4394, '189-TRIAL- 8', '201-TRIAL-tiazofurine  228', '193-TRIAL- 126', 4394),
+(4395, '136-TRIAL- 113', '99-TRIAL-mitotane  195', '258-TRIAL- 183', 4395),
+(4396, '141-TRIAL- 74', '235-TRIAL-pegaspargase  86', '297-TRIAL- 254', 4396),
+(4397, '98-TRIAL- 212', '53-TRIAL-arsenic trioxide  239', '124-TRIAL- 150', 4397),
+(4398, '232-TRIAL- 63', '1-TRIAL-denileukin diftitox  124', '43-TRIAL- 195', 4398),
+(4399, '89-TRIAL- 218', '262-TRIAL-celecoxib  278', '291-TRIAL- 249', 4399),
+(4400, '256-TRIAL- 60', '0-TRIAL-anagrelide  141', '246-TRIAL- 298', 4400),
+(4401, '98-TRIAL- 3', '2-TRIAL-oblimersen  238', '179-TRIAL- 278', 4401),
+(4502, '174-TRIAL- 105', '97-TRIAL-ropeginterferon alfa-2b  65', '99-TRIAL- 163', 4502),
+(4503, '259-TRIAL- 263', '209-TRIAL-peginterferon alfacon-2  158', '286-TRIAL- 145', 4503),
+(4504, '128-TRIAL- 29', '71-TRIAL-peginterferon alfa-2b, combinations  136', '123-TRIAL- 289', 4504),
+(4505, '105-TRIAL- 46', '99-TRIAL-peginterferon alfa-2a, combinations  257', '248-TRIAL- 82', 4505),
+(4506, '265-TRIAL-L03AC  212', '21-TRIAL-Interleukins 238', '210-TRIAL- 264', 4506),
+(4507, '158-TRIAL- 265', '65-TRIAL-aldesleukin  228', '63-TRIAL- 206', 4507),
+(4508, '33-TRIAL- 137', '74-TRIAL-oprelvekin  288', '159-TRIAL- 41', 4508),
+(4509, '106-TRIAL-L03AX  52', '157-TRIAL-Other immunostimulants 160', '270-TRIAL- 220', 4509),
+(4510, '152-TRIAL- 212', '160-TRIAL-lentinan  54', '243-TRIAL- 138', 4510),
+(4511, '276-TRIAL- 52', '141-TRIAL- 28', '103-TRIAL- 216', NULL),
+(4512, '198-TRIAL- 98', '163-TRIAL-roquinimex  51', '97-TRIAL- 252', 4512),
+(4513, '241-TRIAL- 90', '116-TRIAL-BCG vaccine  267', '160-TRIAL- 41', 4513),
+(4514, '43-TRIAL- 44', '28-TRIAL-pegademase  183', '150-TRIAL- 127', 4514),
+(4515, '263-TRIAL- 78', '133-TRIAL-pidotimod  168', '111-TRIAL- 7', 4515),
+(4516, '141-TRIAL- 289', '268-TRIAL-poly I:C  297', '24-TRIAL- 80', 4516),
+(4517, '18-TRIAL- 179', '213-TRIAL-poly ICLC  208', '18-TRIAL- 238', 4517),
+(4518, '10-TRIAL- 190', '126-TRIAL-thymopentin  283', '170-TRIAL- 11', 4518),
+(4519, '159-TRIAL- 121', '214-TRIAL-immunocyanin  170', '131-TRIAL- 79', 4519),
+(4520, '38-TRIAL- 131', '238-TRIAL-tasonermin  165', '156-TRIAL- 13', 4520),
+(4521, '220-TRIAL- 283', '188-TRIAL-melanoma vaccine  12', '288-TRIAL- 49', 4521),
+(4522, '34-TRIAL- 99', '199-TRIAL-glatiramer acetate  25', '280-TRIAL- 151', 4522),
+(4523, '152-TRIAL- 98', '143-TRIAL-histamine dihydrochloride  274', '42-TRIAL- 139', 4523),
+(4524, '169-TRIAL- 37', '122-TRIAL-mifamurtide  163', '261-TRIAL- 180', 4524),
+(4525, '95-TRIAL- 66', '238-TRIAL-plerixafor  147', '100-TRIAL- 68', 4525),
+(4526, '47-TRIAL- 192', '177-TRIAL-sipuleucel-T  137', '106-TRIAL- 140', 4526),
+(4527, '212-TRIAL- 277', '59-TRIAL-cridanimod  106', '201-TRIAL- 240', 4527),
+(4528, '75-TRIAL- 255', '203-TRIAL-dasiprotimut-T  136', '210-TRIAL- 27', 4528),
+(4529, '78-TRIAL- 289', '206-TRIAL-elapegademase  190', '214-TRIAL- 137', 4529),
+(4530, '274-TRIAL-L04  190', '293-TRIAL-IMMUNOSUPPRESSANTS 118', '54-TRIAL- 24', 4530),
+(4531, '124-TRIAL-L04A  9', '3-TRIAL-IMMUNOSUPPRESSANTS 209', '197-TRIAL- 144', 4531),
+(4532, '261-TRIAL-L04AA  155', '125-TRIAL-Selective immunosuppressants 247', '26-TRIAL- 81', 4532),
+(4533, '12-TRIAL- 186', '262-TRIAL-muromonab-CD3  255', '158-TRIAL- 122', 4533),
+(4534, '57-TRIAL- 297', '113-TRIAL-antilymphocyte immunoglobulin (horse)  13', '229-TRIAL- 186', 4534),
+(4535, '110-TRIAL- 138', '113-TRIAL-antithymocyte immunoglobulin (rabbit)  275', '124-TRIAL- 189', 4535),
+(4536, '241-TRIAL- 217', '2-TRIAL-mycophenolic acid  75', '123-TRIAL- 88', 4536),
+(4537, '193-TRIAL- 294', '46-TRIAL- 213', '126-TRIAL- 256', NULL),
+(4538, '232-TRIAL- 195', '13-TRIAL-sirolimus  113', '189-TRIAL- 128', 4538),
+(4539, '14-TRIAL- 257', '269-TRIAL-leflunomide  257', '91-TRIAL- 75', 4539),
+(4540, '206-TRIAL- 280', '62-TRIAL-alefacept  34', '280-TRIAL- 200', 4540),
+(4541, '184-TRIAL- 221', '77-TRIAL-everolimus  291', '138-TRIAL- 250', 4541),
+(4542, '277-TRIAL- 247', '72-TRIAL-gusperimus  258', '4-TRIAL- 206', 4542),
+(4543, '223-TRIAL- 5', '277-TRIAL-efalizumab  240', '115-TRIAL- 47', 4543),
+(4544, '259-TRIAL- 21', '77-TRIAL-abetimus  78', '134-TRIAL- 171', 4544),
+(4545, '280-TRIAL- 22', '57-TRIAL-natalizumab  272', '202-TRIAL- 53', 4545),
+(4546, '237-TRIAL- 56', '98-TRIAL-abatacept  233', '56-TRIAL- 214', 4546),
+(4547, '177-TRIAL- 86', '3-TRIAL-eculizumab  129', '134-TRIAL- 224', 4547),
+(4548, '33-TRIAL- 169', '5-TRIAL-belimumab  220', '61-TRIAL- 269', 4548),
+(4549, '22-TRIAL- 138', '161-TRIAL-fingolimod  63', '134-TRIAL- 52', 4549),
+(4550, '276-TRIAL- 222', '17-TRIAL-belatacept  17', '253-TRIAL- 68', 4550),
+(4551, '175-TRIAL- 291', '226-TRIAL-tofacitinib  88', '249-TRIAL- 161', 4551),
+(4552, '95-TRIAL- 233', '78-TRIAL-teriflunomide  299', '178-TRIAL- 264', 4552),
+(4553, '211-TRIAL- 92', '115-TRIAL-apremilast  10', '235-TRIAL- 67', 4553),
+(4554, '124-TRIAL- 90', '199-TRIAL-vedolizumab  177', '39-TRIAL- 281', 4554),
+(4555, '181-TRIAL- 10', '255-TRIAL-alemtuzumab  23', '25-TRIAL- 201', 4555),
+(4556, '155-TRIAL- 177', '200-TRIAL-begelomab  45', '185-TRIAL- 200', 4556),
+(4557, '117-TRIAL- 157', '130-TRIAL-ocrelizumab  197', '78-TRIAL- 137', 4557),
+(4558, '178-TRIAL- 40', '92-TRIAL-baricitinib  250', '119-TRIAL- 246', 4558),
+(4559, '57-TRIAL- 37', '241-TRIAL-ozanimod  2', '273-TRIAL- 240', 4559),
+(4560, '221-TRIAL- 16', '162-TRIAL-emapalumab  50', '134-TRIAL- 73', 4560),
+(4561, '261-TRIAL- 35', '111-TRIAL-cladribine  290', '78-TRIAL- 73', 4561),
+(4562, '190-TRIAL- 255', '147-TRIAL-imlifidase  288', '49-TRIAL- 233', 4562),
+(4563, '224-TRIAL- 149', '155-TRIAL-siponimod  7', '64-TRIAL- 199', 4563),
+(4564, '69-TRIAL- 133', '228-TRIAL-ravulizumab  257', '257-TRIAL- 130', 4564),
+(4565, '100-TRIAL- 155', '155-TRIAL-upadacitinib  48', '298-TRIAL- 271', 4565),
+(4566, '114-TRIAL- 233', '8-TRIAL-filgotinib  27', '285-TRIAL- 129', 4566),
+(4567, '20-TRIAL- 36', '223-TRIAL-itacitinib  201', '69-TRIAL- 240', 4567),
+(4568, '60-TRIAL- 42', '8-TRIAL-inebilizumab  13', '125-TRIAL- 98', 4568),
+(4569, '140-TRIAL- 253', '241-TRIAL-belumosudil  202', '279-TRIAL- 153', 4569),
+(4570, '220-TRIAL- 285', '296-TRIAL-peficitinib  62', '276-TRIAL- 128', 4570),
+(4571, '253-TRIAL- 69', '231-TRIAL-ponesimod  283', '210-TRIAL- 69', 4571),
+(4572, '97-TRIAL- 298', '78-TRIAL-anifrolumab  158', '98-TRIAL- 219', 4572),
+(4573, '254-TRIAL- 76', '90-TRIAL-ofatumumab  95', '70-TRIAL- 110', 4573),
+(4574, '75-TRIAL- 144', '162-TRIAL-teprotumumab  45', '263-TRIAL- 26', 4574),
+(4575, '290-TRIAL- 52', '150-TRIAL-pegcetacoplan  240', '274-TRIAL- 17', 4575),
+(4576, '74-TRIAL- 85', '169-TRIAL-sutimlimab  71', '57-TRIAL- 30', 4576),
+(4577, '7-TRIAL-L04AA56  134', '118-TRIAL-deucravacitinib  238', '156-TRIAL- 232', 4577),
+(4578, '205-TRIAL- 205', '55-TRIAL-ublituximab  213', '156-TRIAL- 41', 4578),
+(4579, '291-TRIAL- 185', '198-TRIAL-efgartigimod alfa  94', '136-TRIAL- 256', 4579),
+(4580, '218-TRIAL- 180', '181-TRIAL-avacopan  274', '299-TRIAL- 191', 4580),
+(4581, '41-TRIAL-L04AB  60', '187-TRIAL-Tumor necrosis factor alpha (TNF-α) inhibitors 286', '236-TRIAL- 271', 4581),
+(4582, '104-TRIAL- 238', '200-TRIAL-etanercept  176', '42-TRIAL- 65', 4582),
+(4583, '231-TRIAL- 244', '30-TRIAL-infliximab  150', '230-TRIAL- 245', 4583),
+(4584, '226-TRIAL- 68', '198-TRIAL-afelimomab  80', '222-TRIAL- 259', 4584),
+(4585, '158-TRIAL- 116', '7-TRIAL-adalimumab  253', '121-TRIAL- 243', 4585),
+(4586, '290-TRIAL- 21', '230-TRIAL-certolizumab pegol  11', '212-TRIAL- 140', 4586),
+(4587, '153-TRIAL- 64', '215-TRIAL-golimumab  160', '84-TRIAL- 68', 4587),
+(4588, '247-TRIAL- 66', '226-TRIAL-opinercept  120', '166-TRIAL- 103', 4588),
+(4589, '58-TRIAL-L04AC  285', '220-TRIAL-Interleukin inhibitors 71', '263-TRIAL- 205', 4589),
+(4590, '243-TRIAL- 237', '222-TRIAL-daclizumab  138', '286-TRIAL- 168', 4590),
+(4591, '157-TRIAL- 15', '89-TRIAL-basiliximab  174', '103-TRIAL- 43', 4591),
+(4592, '228-TRIAL- 262', '265-TRIAL-anakinra  242', '139-TRIAL- 276', 4592),
+(4593, '151-TRIAL- 295', '30-TRIAL-rilonacept  142', '109-TRIAL- 210', 4593),
+(4594, '208-TRIAL- 235', '151-TRIAL-ustekinumab  197', '146-TRIAL- 186', 4594),
+(4595, '171-TRIAL- 234', '29-TRIAL-tocilizumab  284', '282-TRIAL- 15', 4595),
+(4596, '163-TRIAL- 63', '178-TRIAL-canakinumab  74', '54-TRIAL- 251', 4596),
+(4597, '287-TRIAL- 106', '105-TRIAL-briakinumab  9', '126-TRIAL- 62', 4597),
+(4598, '197-TRIAL- 221', '86-TRIAL-secukinumab  28', '43-TRIAL- 92', 4598),
+(4599, '261-TRIAL- 204', '190-TRIAL-siltuximab  107', '14-TRIAL- 22', 4599),
+(4600, '195-TRIAL- 259', '181-TRIAL-brodalumab  41', '83-TRIAL- 17', 4600),
+(4601, '122-TRIAL- 226', '266-TRIAL-ixekizumab  243', '250-TRIAL- 9', 4601),
+(5102, '32-TRIAL- 282', '98-TRIAL-codeine and acetylsalicylic acid  21', '227-TRIAL- 91', 5102),
+(5103, '210-TRIAL- 212', '101-TRIAL-codeine and ibuprofen  297', '162-TRIAL- 295', 5103),
+(5104, '268-TRIAL- 78', '225-TRIAL-codeine and other non-opioid analgesics  17', '231-TRIAL- 97', 5104),
+(5105, '53-TRIAL- 88', '261-TRIAL-tramadol and paracetamol  291', '273-TRIAL- 19', 5105),
+(5106, '232-TRIAL- 81', '189-TRIAL-tramadol and dexketoprofen  40', '265-TRIAL- 197', 5106),
+(5107, '214-TRIAL- 236', '180-TRIAL-tramadol and other non-opioid analgesics  216', '132-TRIAL- 95', 5107),
+(5108, '89-TRIAL- 127', '65-TRIAL-tramadol and celecoxib  290', '292-TRIAL- 136', 5108),
+(5109, '23-TRIAL- 244', '195-TRIAL-oxycodone and paracetamol  75', '33-TRIAL- 282', 5109),
+(5110, '130-TRIAL- 288', '138-TRIAL-oxycodone and acetylsalicylic acid  91', '208-TRIAL- 75', 5110),
+(5111, '186-TRIAL- 246', '187-TRIAL-oxycodone and ibuprofen  199', '10-TRIAL- 179', 5111),
+(5112, '252-TRIAL-N02AX  295', '202-TRIAL-Other opioids 161', '160-TRIAL- 135', 5112),
+(5113, '205-TRIAL- 256', '282-TRIAL-tilidine  205', '103-TRIAL- 118', 5113),
+(5114, '58-TRIAL- 199', '14-TRIAL- 189', '113-TRIAL- 224', NULL),
+(5115, '131-TRIAL- 229', '298-TRIAL-tramadol  21', '146-TRIAL- 220', 5115);
 INSERT INTO `atc_code` (`ATC_ID`, `Code`, `Name`, `Description`, `ParentID`) VALUES
-(5114, '276-TRIAL- 128', '253-TRIAL- 69', '231-TRIAL- 283', NULL),
-(5115, '210-TRIAL- 69', '97-TRIAL-tramadol  298', '78-TRIAL- 158', 5115),
-(5116, '98-TRIAL- 219', '254-TRIAL- 76', '90-TRIAL- 95', NULL),
-(5117, '70-TRIAL- 110', '75-TRIAL- 144', '162-TRIAL- 45', NULL),
-(5118, '263-TRIAL- 26', '290-TRIAL-dezocine  52', '150-TRIAL- 240', 5118),
-(5119, '274-TRIAL- 17', '74-TRIAL-meptazinol  85', '169-TRIAL- 71', 5119),
-(5120, '57-TRIAL- 30', '7-TRIAL- 134', '118-TRIAL- 238', NULL),
-(5121, '156-TRIAL- 232', '205-TRIAL-tapentadol  205', '55-TRIAL- 213', 5121),
-(5122, '156-TRIAL- 41', '291-TRIAL-oliceridine  185', '198-TRIAL- 94', 5122),
-(5123, '136-TRIAL- 256', '218-TRIAL-tilidine and naloxone  180', '181-TRIAL- 274', 5123),
-(5124, '299-TRIAL-N02B  191', '41-TRIAL-OTHER ANALGESICS AND ANTIPYRETICS 60', '187-TRIAL- 286', 5124),
-(5125, '236-TRIAL-N02BA  271', '104-TRIAL-Salicylic acid and derivatives 238', '200-TRIAL- 176', 5125),
-(5126, '42-TRIAL- 65', '231-TRIAL-acetylsalicylic acid  244', '30-TRIAL- 150', 5126),
-(5127, '230-TRIAL- 245', '226-TRIAL- 68', '198-TRIAL- 80', NULL),
-(5128, '222-TRIAL- 259', '158-TRIAL- 116', '7-TRIAL- 253', NULL),
-(5129, '121-TRIAL- 243', '290-TRIAL-aloxiprin  21', '230-TRIAL- 11', 5129),
-(5130, '212-TRIAL- 140', '153-TRIAL-choline salicylate  64', '215-TRIAL- 160', 5130),
-(5131, '84-TRIAL- 68', '247-TRIAL-sodium salicylate  66', '226-TRIAL- 120', 5131),
-(5132, '166-TRIAL- 103', '58-TRIAL-salicylamide  285', '220-TRIAL- 71', 5132),
-(5133, '263-TRIAL- 205', '243-TRIAL-salsalate  237', '222-TRIAL- 138', 5133),
-(5134, '286-TRIAL- 168', '157-TRIAL-ethenzamide  15', '89-TRIAL- 174', 5134),
-(5135, '103-TRIAL- 43', '228-TRIAL-morpholine salicylate  262', '265-TRIAL- 242', 5135),
-(5136, '139-TRIAL- 276', '151-TRIAL-dipyrocetyl  295', '30-TRIAL- 142', 5136),
-(5137, '109-TRIAL- 210', '208-TRIAL-benorilate  235', '151-TRIAL- 197', 5137),
-(5138, '146-TRIAL- 186', '171-TRIAL-diflunisal  234', '29-TRIAL- 284', 5138),
-(5139, '282-TRIAL- 15', '163-TRIAL-potassium salicylate  63', '178-TRIAL- 74', 5139),
-(5140, '54-TRIAL- 251', '287-TRIAL-guacetisal  106', '105-TRIAL- 9', 5140),
-(5141, '126-TRIAL- 62', '197-TRIAL-carbasalate calcium  221', '86-TRIAL- 28', 5141),
-(5142, '43-TRIAL- 92', '261-TRIAL-imidazole salicylate  204', '190-TRIAL- 107', 5142),
-(5143, '14-TRIAL- 22', '195-TRIAL-acetylsalicylic acid, combinations excl. psycholeptics  259', '181-TRIAL- 41', 5143),
-(5144, '83-TRIAL- 17', '122-TRIAL-salicylamide, combinations excl. psycholeptics  226', '266-TRIAL- 243', 5144),
-(5145, '250-TRIAL- 9', '122-TRIAL-ethenzamide, combinations excl. psycholeptics  44', '131-TRIAL- 1', 5145),
-(5146, '193-TRIAL- 12', '238-TRIAL-dipyrocetyl, combinations excl. psycholeptics  78', '242-TRIAL- 220', 5146),
-(5147, '168-TRIAL- 182', '57-TRIAL-carbasalate calcium combinations excl. psycholeptics  65', '136-TRIAL- 53', 5147),
-(5148, '46-TRIAL- 275', '46-TRIAL-acetylsalicylic acid, combinations with psycholeptics  54', '252-TRIAL- 3', 5148),
-(5149, '133-TRIAL- 101', '79-TRIAL-salicylamide, combinations with psycholeptics  172', '284-TRIAL- 226', 5149),
-(5150, '42-TRIAL- 290', '92-TRIAL-ethenzamide, combinations with psycholeptics  270', '161-TRIAL- 164', 5150),
-(5151, '117-TRIAL- 249', '169-TRIAL-dipyrocetyl, combinations with psycholeptics  40', '81-TRIAL- 115', 5151),
-(5152, '201-TRIAL-N02BB  157', '73-TRIAL-Pyrazolones 159', '97-TRIAL- 244', 5152),
-(5153, '109-TRIAL- 109', '81-TRIAL-phenazone  178', '207-TRIAL- 166', 5153),
-(5154, '113-TRIAL- 113', '279-TRIAL-metamizole sodium  50', '259-TRIAL- 12', 5154),
-(5155, '110-TRIAL- 261', '92-TRIAL- 160', '225-TRIAL- 142', NULL),
-(5156, '146-TRIAL- 120', '188-TRIAL- 112', '57-TRIAL- 141', NULL),
-(5157, '242-TRIAL- 261', '201-TRIAL-aminophenazone  39', '237-TRIAL- 242', 5157),
-(5158, '276-TRIAL- 290', '21-TRIAL-propyphenazone  19', '271-TRIAL- 20', 5158),
-(5159, '290-TRIAL- 119', '234-TRIAL-nifenazone  86', '16-TRIAL- 292', 5159),
-(5160, '172-TRIAL- 222', '232-TRIAL-phenazone, combinations excl. psycholeptics  218', '272-TRIAL- 116', 5160),
-(5161, '19-TRIAL- 73', '218-TRIAL-metamizole sodium, combinations excl. psycholeptics  8', '12-TRIAL- 40', 5161),
-(5162, '173-TRIAL- 98', '57-TRIAL-phenazone, combinations with psycholeptics  269', '273-TRIAL- 298', 5162),
-(5163, '125-TRIAL- 195', '220-TRIAL-aminophenazone, combinations excl. psycholeptics  267', '102-TRIAL- 269', 5163),
-(5164, '292-TRIAL- 227', '274-TRIAL-propyphenazone, combinations excl. psycholeptics  216', '55-TRIAL- 61', 5164),
-(5165, '283-TRIAL- 130', '197-TRIAL-metamizole sodium, combinations with psycholeptics  245', '144-TRIAL- 105', 5165),
-(5166, '254-TRIAL- 295', '221-TRIAL-aminophenazone, combinations with psycholeptics  80', '26-TRIAL- 47', 5166),
-(5167, '154-TRIAL- 163', '281-TRIAL-propyphenazone, combinations with psycholeptics  72', '174-TRIAL- 57', 5167),
-(5168, '218-TRIAL-N02BE  87', '29-TRIAL-Anilides 297', '81-TRIAL- 218', 5168),
-(5169, '119-TRIAL- 38', '92-TRIAL-paracetamol  76', '175-TRIAL- 280', 5169),
-(5170, '99-TRIAL- 152', '265-TRIAL- 266', '224-TRIAL- 182', NULL),
-(5171, '104-TRIAL- 10', '166-TRIAL- 240', '259-TRIAL- 209', NULL),
-(5172, '184-TRIAL- 213', '40-TRIAL-phenacetin  95', '68-TRIAL- 94', 5172),
-(5173, '182-TRIAL- 179', '108-TRIAL-bucetin  222', '3-TRIAL- 214', 5173),
-(5174, '197-TRIAL- 224', '89-TRIAL-propacetamol  242', '54-TRIAL- 146', 5174),
-(5175, '198-TRIAL- 149', '216-TRIAL-paracetamol, combinations excl. psycholeptics  211', '61-TRIAL- 203', 5175),
-(5176, '71-TRIAL- 24', '131-TRIAL-phenacetin, combinations excl. psycholeptics  169', '19-TRIAL- 36', 5176),
-(5177, '70-TRIAL- 242', '176-TRIAL-bucetin, combinations excl. psycholeptics  143', '161-TRIAL- 99', 5177),
-(5178, '239-TRIAL- 109', '52-TRIAL-paracetamol, combinations with psycholeptics  249', '83-TRIAL- 238', 5178),
-(5179, '197-TRIAL- 289', '158-TRIAL-phenacetin, combinations with psycholeptics  4', '71-TRIAL- 57', 5179),
-(5180, '235-TRIAL- 194', '146-TRIAL-bucetin, combinations with psycholeptics  174', '68-TRIAL- 236', 5180),
-(5181, '211-TRIAL-N02BF  106', '35-TRIAL-Gabapentinoids 188', '38-TRIAL- 202', 5181),
-(5182, '283-TRIAL- 211', '233-TRIAL-gabapentin  222', '128-TRIAL- 61', 5182),
-(5183, '262-TRIAL- 83', '154-TRIAL-pregabalin  260', '264-TRIAL- 285', 5183),
-(5184, '118-TRIAL- 28', '86-TRIAL-mirogabalin  183', '274-TRIAL- 23', 5184),
-(5185, '101-TRIAL-N02BG  232', '23-TRIAL-Other analgesics and antipyretics 79', '147-TRIAL- 159', 5185),
-(5186, '8-TRIAL-N02BG02  24', '235-TRIAL-rimazolium  5', '208-TRIAL- 178', 5186),
-(5187, '163-TRIAL- 177', '176-TRIAL-glafenine  128', '212-TRIAL- 60', 5187),
-(5188, '162-TRIAL- 150', '89-TRIAL-floctafenine  143', '25-TRIAL- 140', 5188),
-(5189, '210-TRIAL- 34', '163-TRIAL-viminol  43', '111-TRIAL- 138', 5189),
-(5190, '39-TRIAL- 16', '231-TRIAL-nefopam  73', '46-TRIAL- 243', 5190),
-(5191, '94-TRIAL- 288', '244-TRIAL-flupirtine  122', '298-TRIAL- 101', 5191),
-(5192, '122-TRIAL- 57', '12-TRIAL-ziconotide  146', '3-TRIAL- 128', 5192),
-(5193, '143-TRIAL- 2', '8-TRIAL-methoxyflurane  283', '213-TRIAL- 251', 5193),
-(5194, '16-TRIAL- 45', '295-TRIAL-cannabinoids  244', '0-TRIAL- 192', 5194),
-(5195, '202-TRIAL- 15', '170-TRIAL-tanezumab  96', '54-TRIAL- 93', 5195),
-(5196, '100-TRIAL-N02C  122', '173-TRIAL-ANTIMIGRAINE PREPARATIONS 61', '131-TRIAL- 275', 5196),
-(5197, '143-TRIAL-N02CA  122', '181-TRIAL-Ergot alkaloids 178', '149-TRIAL- 241', 5197),
-(5198, '292-TRIAL- 258', '111-TRIAL-dihydroergotamine  187', '264-TRIAL- 291', 5198),
-(5199, '235-TRIAL- 35', '214-TRIAL- 74', '67-TRIAL- 194', NULL),
-(5200, '82-TRIAL- 275', '57-TRIAL- 218', '270-TRIAL- 110', NULL),
-(5201, '241-TRIAL- 264', '252-TRIAL-ergotamine  42', '231-TRIAL- 26', 5201),
-(5202, '151-TRIAL- 78', '159-TRIAL- 265', '120-TRIAL- 20', NULL),
-(5203, '97-TRIAL- 279', '186-TRIAL- 207', '176-TRIAL- 91', NULL),
-(5204, '31-TRIAL- 295', '118-TRIAL- 267', '89-TRIAL- 8', NULL),
-(5205, '84-TRIAL- 262', '233-TRIAL- 79', '64-TRIAL- 139', NULL),
-(5206, '129-TRIAL- 51', '144-TRIAL-methysergide  263', '204-TRIAL- 52', 5206),
-(5207, '77-TRIAL- 115', '298-TRIAL-lisuride  125', '40-TRIAL- 156', 5207),
-(5208, '248-TRIAL- 252', '44-TRIAL-dihydroergotamine, combinations  154', '187-TRIAL- 270', 5208),
-(5209, '276-TRIAL- 122', '112-TRIAL-ergotamine, combinations excl. psycholeptics  6', '82-TRIAL- 135', 5209),
-(5210, '299-TRIAL- 30', '120-TRIAL-ergotamine, combinations with psycholeptics  295', '276-TRIAL- 20', 5210),
-(5211, '73-TRIAL-N02CB  151', '153-TRIAL-Corticosteroid derivatives 287', '292-TRIAL- 28', 5211),
-(5212, '62-TRIAL- 59', '149-TRIAL-flumedroxone  108', '193-TRIAL- 188', 5212),
-(5213, '236-TRIAL-N02CC  125', '109-TRIAL-Selective serotonin (5HT1) agonists 97', '38-TRIAL- 183', 5213),
-(5214, '145-TRIAL- 248', '165-TRIAL-sumatriptan  284', '17-TRIAL- 161', 5214),
-(5215, '179-TRIAL- 79', '189-TRIAL- 33', '290-TRIAL- 65', NULL),
-(5216, '145-TRIAL- 68', '166-TRIAL- 240', '239-TRIAL- 21', NULL),
-(5217, '56-TRIAL- 133', '235-TRIAL- 128', '278-TRIAL- 1', NULL),
-(5218, '172-TRIAL- 48', '299-TRIAL-naratriptan  94', '51-TRIAL- 240', 5218),
-(5219, '124-TRIAL- 27', '165-TRIAL-zolmitriptan  152', '170-TRIAL- 149', 5219),
-(5220, '56-TRIAL- 52', '90-TRIAL- 251', '22-TRIAL- 148', NULL),
-(5221, '155-TRIAL- 84', '234-TRIAL-rizatriptan  284', '215-TRIAL- 176', 5221),
-(5222, '235-TRIAL- 102', '188-TRIAL-almotriptan  212', '202-TRIAL- 114', 5222),
-(5223, '292-TRIAL- 238', '58-TRIAL-eletriptan  189', '95-TRIAL- 225', 5223),
-(5224, '258-TRIAL- 153', '205-TRIAL-frovatriptan  296', '207-TRIAL- 31', 5224),
-(5225, '132-TRIAL- 221', '242-TRIAL-lasmiditan  62', '22-TRIAL- 188', 5225),
-(5226, '152-TRIAL-N02CD  216', '121-TRIAL-Calcitonin gene-related peptide (CGRP) antagonists 92', '148-TRIAL- 55', 5226),
-(5227, '154-TRIAL- 145', '9-TRIAL-erenumab  281', '53-TRIAL- 71', 5227),
-(5228, '113-TRIAL- 195', '44-TRIAL-galcanezumab  48', '65-TRIAL- 106', 5228),
-(5229, '70-TRIAL- 272', '149-TRIAL-fremanezumab  235', '113-TRIAL- 252', 5229),
-(5230, '46-TRIAL- 213', '69-TRIAL-ubrogepant  136', '259-TRIAL- 100', 5230),
-(5231, '43-TRIAL- 240', '145-TRIAL-eptinezumab  16', '138-TRIAL- 230', 5231),
-(5232, '91-TRIAL- 154', '81-TRIAL-rimegepant  117', '116-TRIAL- 223', 5232),
-(5233, '122-TRIAL- 145', '18-TRIAL-clonidine  75', '185-TRIAL- 237', 5233),
-(5234, '287-TRIAL- 164', '247-TRIAL-atogepant  93', '250-TRIAL- 138', 5234),
-(5235, '277-TRIAL-N02CX  202', '216-TRIAL-Other antimigraine preparations 25', '211-TRIAL- 162', 5235),
-(5236, '227-TRIAL- 197', '218-TRIAL-pizotifen  76', '26-TRIAL- 237', 5236),
-(5237, '170-TRIAL- 68', '7-TRIAL-iprazochrome  284', '224-TRIAL- 139', 5237),
-(5238, '30-TRIAL- 227', '283-TRIAL-dimetotiazine  2', '174-TRIAL- 47', 5238),
-(5239, '259-TRIAL- 167', '9-TRIAL-oxetorone  106', '95-TRIAL- 243', 5239),
-(5240, '251-TRIAL-N03A 144', '151-TRIAL- ANTIEPILEPTICS 205', '299-TRIAL- 44', 5240),
-(5241, '134-TRIAL-N03AA 68', '169-TRIAL- Barbiturates and derivatives 142', '170-TRIAL- 277', 5240),
-(5242, '207-TRIAL- 7', '156-TRIAL-methylphenobarbital  111', '3-TRIAL- 35', 5242),
-(5243, '97-TRIAL- 79', '45-TRIAL-phenobarbital  138', '33-TRIAL- 73', 5243),
-(5244, '237-TRIAL- 295', '107-TRIAL- 176', '199-TRIAL- 81', NULL),
-(5245, '25-TRIAL- 42', '117-TRIAL-primidone  54', '22-TRIAL- 103', 5245),
-(5246, '200-TRIAL- 145', '57-TRIAL-barbexaclone  184', '179-TRIAL- 214', 5246),
-(5247, '255-TRIAL- 109', '16-TRIAL-metharbital  261', '80-TRIAL- 64', 5247),
-(5248, '65-TRIAL- 187', '18-TRIAL-ethotoin  116', '274-TRIAL- 204', 5248),
-(5249, '246-TRIAL-N03AB 60', '203-TRIAL- Hydantoin derivatives 294', '260-TRIAL- 154', 5240),
-(5250, '16-TRIAL- 244', '261-TRIAL-phenytoin  110', '180-TRIAL- 195', 5250),
-(5251, '99-TRIAL- 183', '143-TRIAL- 117', '176-TRIAL- 43', NULL),
-(5252, '19-TRIAL- 150', '186-TRIAL-mephenytoin  54', '137-TRIAL- 8', 5252),
-(5253, '38-TRIAL- 261', '175-TRIAL-amino(diphenylhydantoin) valeric acid  213', '230-TRIAL- 116', 5253),
-(5254, '153-TRIAL- 284', '277-TRIAL-fosphenytoin  294', '68-TRIAL- 109', 5254),
-(5255, '114-TRIAL- 107', '34-TRIAL-phenytoin, combinations  24', '172-TRIAL- 131', 5255),
-(5256, '143-TRIAL- 249', '156-TRIAL-mephenytoin, combinations  117', '140-TRIAL- 55', 5256),
-(5257, '35-TRIAL-N03AC  110', '54-TRIAL-Oxazolidine derivatives 178', '106-TRIAL- 207', 5257),
-(5258, '5-TRIAL-N03AC02  267', '7-TRIAL-trimethadione  172', '86-TRIAL- 77', 5258),
-(5259, '102-TRIAL- 158', '133-TRIAL-ethosuximide  207', '23-TRIAL- 171', 5259),
-(5260, '235-TRIAL-N03AD 63', '262-TRIAL- Succinimide derivatives 289', '51-TRIAL- 261', 5240),
-(5261, '204-TRIAL- 25', '11-TRIAL-ethadione  160', '28-TRIAL- 93', 5261),
-(5262, '250-TRIAL- 92', '123-TRIAL-phensuximide  47', '88-TRIAL- 281', 5262),
-(5263, '87-TRIAL- 212', '209-TRIAL-paramethadione  227', '238-TRIAL- 195', 5263),
-(5264, '257-TRIAL- 262', '101-TRIAL-mesuximide  170', '156-TRIAL- 80', 5264),
-(5265, '194-TRIAL- 87', '5-TRIAL-ethosuximide, combinations  237', '187-TRIAL- 35', 5265),
-(5266, '80-TRIAL-N03AE  262', '252-TRIAL-Benzodiazepine derivatives 72', '61-TRIAL- 25', 5266),
-(5267, '80-TRIAL- 79', '227-TRIAL-clonazepam  272', '234-TRIAL- 152', 5267),
-(5268, '224-TRIAL-N03AF  36', '62-TRIAL-Carboxamide derivatives 64', '225-TRIAL- 119', 5268),
-(5269, '195-TRIAL- 232', '182-TRIAL-carbamazepine  81', '119-TRIAL- 296', 5269),
-(5270, '180-TRIAL- 48', '245-TRIAL- 171', '54-TRIAL- 166', NULL),
-(5271, '269-TRIAL- 233', '193-TRIAL-oxcarbazepine  216', '249-TRIAL- 256', 5271),
-(5272, '171-TRIAL- 200', '99-TRIAL-rufinamide  95', '5-TRIAL- 210', 5272),
-(5273, '251-TRIAL- 16', '8-TRIAL-eslicarbazepine  42', '190-TRIAL- 141', 5273),
-(5274, '149-TRIAL-N03AG 116', '55-TRIAL- Fatty acid derivatives 146', '223-TRIAL- 33', 5240),
-(5275, '180-TRIAL- 297', '186-TRIAL-valproic acid  30', '140-TRIAL- 49', 5275),
-(5276, '226-TRIAL- 247', '217-TRIAL- 215', '210-TRIAL- 46', NULL),
-(5277, '177-TRIAL- 225', '221-TRIAL- 264', '73-TRIAL- 241', NULL),
-(5278, '141-TRIAL- 62', '191-TRIAL-valpromide  67', '114-TRIAL- 288', 5278),
-(5279, '259-TRIAL- 202', '97-TRIAL-aminobutyric acid  166', '36-TRIAL- 200', 5279),
-(5280, '50-TRIAL- 279', '265-TRIAL- 79', '174-TRIAL- 187', NULL),
-(5281, '160-TRIAL- 214', '133-TRIAL-vigabatrin  264', '265-TRIAL- 265', 5281),
-(5282, '107-TRIAL- 53', '31-TRIAL-progabide  260', '65-TRIAL- 221', 5282),
-(5283, '150-TRIAL- 2', '10-TRIAL-tiagabine  294', '256-TRIAL- 96', 5283),
-(5284, '59-TRIAL-N03AX  121', '121-TRIAL-Other antiepileptics 19', '68-TRIAL- 184', 5284),
-(5285, '105-TRIAL- 160', '161-TRIAL-sultiame  67', '21-TRIAL- 67', 5285),
-(5286, '28-TRIAL- 87', '192-TRIAL-phenacemide  58', '190-TRIAL- 192', 5286),
-(5287, '280-TRIAL- 215', '111-TRIAL-lamotrigine  176', '179-TRIAL- 3', 5287),
-(5288, '57-TRIAL- 201', '271-TRIAL-felbamate  140', '210-TRIAL- 107', 5288),
-(5289, '89-TRIAL- 297', '95-TRIAL-topiramate  146', '253-TRIAL- 16', 5289),
-(5290, '220-TRIAL- 135', '171-TRIAL-pheneturide  285', '32-TRIAL- 268', 5290),
-(5291, '252-TRIAL- 1', '19-TRIAL-levetiracetam  205', '169-TRIAL- 206', 5291),
-(5292, '119-TRIAL- 132', '51-TRIAL- 113', '171-TRIAL- 132', NULL),
-(5293, '38-TRIAL- 235', '255-TRIAL-zonisamide  86', '207-TRIAL- 136', 5293),
-(5294, '87-TRIAL- 284', '115-TRIAL-stiripentol  225', '242-TRIAL- 258', 5294),
-(5295, '130-TRIAL- 233', '291-TRIAL-lacosamide  18', '124-TRIAL- 171', 5295),
-(5296, '273-TRIAL- 215', '27-TRIAL- 138', '276-TRIAL- 221', NULL),
-(5297, '269-TRIAL- 180', '142-TRIAL-carisbamate  7', '268-TRIAL- 223', 5297),
-(5298, '187-TRIAL- 273', '35-TRIAL-retigabine  133', '153-TRIAL- 184', 5298),
-(5299, '54-TRIAL- 191', '279-TRIAL-perampanel  274', '133-TRIAL- 136', 5299),
-(5300, '123-TRIAL- 110', '153-TRIAL-brivaracetam  259', '178-TRIAL- 210', 5300),
-(5301, '195-TRIAL- 142', '262-TRIAL- 127', '141-TRIAL- 280', NULL),
-(7302, '39-TRIAL- 218', '188-TRIAL-indium (111In) satumomab pendetide  47', '41-TRIAL- 297', 7302),
-(7303, '205-TRIAL- 279', '230-TRIAL-indium (111In) antiovariumcarcinoma antibody  136', '13-TRIAL- 214', 7303),
-(7304, '170-TRIAL- 239', '133-TRIAL-indium (111In) capromab pendetide  15', '34-TRIAL- 205', 7304),
-(7305, '255-TRIAL-V09IX  147', '295-TRIAL-Other diagnostic radiopharmaceuticals for tumour detection 130', '293-TRIAL- 195', 7305),
-(7306, '73-TRIAL- 295', '184-TRIAL-iobenguane (123I)  183', '85-TRIAL- 160', 7306),
-(7307, '22-TRIAL- 260', '71-TRIAL-iobenguane (131I)  96', '179-TRIAL- 0', 7307),
-(7308, '52-TRIAL- 123', '113-TRIAL-iodine (125I) CC49-monoclonal antibody  189', '71-TRIAL- 236', 7308),
-(7309, '158-TRIAL- 280', '263-TRIAL-fludeoxyglucose (18F)  286', '37-TRIAL- 103', 7309),
-(7310, '152-TRIAL- 194', '162-TRIAL-fluorodopa (18F)  28', '173-TRIAL- 9', 7310),
-(7311, '186-TRIAL- 4', '10-TRIAL-sodium fluoride (18F)  66', '55-TRIAL- 62', 7311),
-(7312, '229-TRIAL- 269', '89-TRIAL-fluorocholine(18F)  208', '126-TRIAL- 149', 7312),
-(7313, '182-TRIAL- 260', '198-TRIAL-fluoroethylcholine (18F)  277', '169-TRIAL- 47', 7313),
-(7314, '41-TRIAL- 297', '205-TRIAL-gallium (68Ga) edotreotide  167', '100-TRIAL- 163', 7314),
-(7315, '124-TRIAL- 285', '117-TRIAL-fluoroethyl-L-tyrosine (18F)  17', '186-TRIAL- 277', 7315),
-(7316, '18-TRIAL- 16', '144-TRIAL-fluoroestradiol (18F)  44', '106-TRIAL- 131', 7316),
-(7317, '141-TRIAL- 223', '289-TRIAL-fluciclovine (18F)  188', '15-TRIAL- 122', 7317),
-(7318, '162-TRIAL- 57', '21-TRIAL-methionine (11C)  56', '187-TRIAL- 131', 7318),
-(7319, '88-TRIAL- 141', '6-TRIAL-gallium (68Ga) gozetotide  235', '159-TRIAL- 227', 7319),
-(7320, '94-TRIAL- 294', '87-TRIAL-copper (64Cu) dotatate  281', '163-TRIAL- 191', 7320),
-(7321, '166-TRIAL- 253', '205-TRIAL-piflufolastat (18F)  150', '28-TRIAL- 25', 7321),
-(7322, '89-TRIAL- 292', '16-TRIAL-PSMA-1007 (18F)  228', '31-TRIAL- 184', 7322),
-(7323, '221-TRIAL-V09X  295', '92-TRIAL-OTHER DIAGNOSTIC RADIOPHARMACEUTICALS 40', '260-TRIAL- 214', 7323),
-(7324, '95-TRIAL-V09XA  244', '11-TRIAL-Iodine (131I) compounds 171', '154-TRIAL- 41', 7324),
-(7325, '298-TRIAL- 204', '193-TRIAL-iodine (131I) norcholesterol  190', '9-TRIAL- 191', 7325),
-(7326, '15-TRIAL- 40', '27-TRIAL-iodocholesterol (131I)  152', '279-TRIAL- 100', 7326),
-(7327, '293-TRIAL- 142', '9-TRIAL-iodine (131I) human albumin  197', '270-TRIAL- 43', 7327),
-(7328, '185-TRIAL-V09XX  282', '58-TRIAL-Various diagnostic radiopharmaceuticals 101', '52-TRIAL- 189', 7328),
-(7329, '144-TRIAL- 27', '134-TRIAL-cobalt (57Co) cyanocobalamine  236', '108-TRIAL- 285', 7329),
-(7330, '231-TRIAL- 152', '116-TRIAL-cobalt (58Co) cyanocobalamine  283', '248-TRIAL- 88', 7330),
-(7331, '39-TRIAL- 100', '113-TRIAL-selenium (75Se) norcholesterol  259', '268-TRIAL- 229', 7331),
-(7332, '56-TRIAL- 113', '56-TRIAL-ferric (59Fe) citrate  99', '1-TRIAL- 199', 7332),
-(7333, '266-TRIAL-V10A  263', '24-TRIAL-ANTIINFLAMMATORY AGENTS 165', '102-TRIAL- 129', 7333),
-(7334, '158-TRIAL-V10AA  140', '296-TRIAL-Yttrium (90Y) compounds 19', '255-TRIAL- 16', 7334),
-(7335, '174-TRIAL- 219', '95-TRIAL-yttrium (90Y) citrate colloid  72', '253-TRIAL- 270', 7335),
-(7336, '249-TRIAL-V10 183', '252-TRIAL- THERAPEUTIC RADIOPHARMACEUTICALS 238', '288-TRIAL- 189', 7336),
-(7337, '165-TRIAL- 78', '20-TRIAL-yttrium (90Y) ferrihydroxide colloid  262', '228-TRIAL- 88', 7337),
-(7338, '84-TRIAL- 58', '149-TRIAL-yttrium (90Y) silicate colloid  16', '252-TRIAL- 38', 7338),
-(7339, '93-TRIAL-V10AX  23', '149-TRIAL-Other antiinflammatory therapeutic radiopharmaceuticals 2', '48-TRIAL- 283', 7339),
-(7340, '112-TRIAL- 284', '138-TRIAL-phosphorous (32P) chromicphosphate colloid  117', '295-TRIAL- 48', 7340),
-(7341, '56-TRIAL- 114', '18-TRIAL-samarium (153Sm) hydroxyapatite colloid  60', '52-TRIAL- 86', 7341),
-(7342, '122-TRIAL- 105', '211-TRIAL-dysprosium (165Dy) colloid  290', '259-TRIAL- 7', 7342),
-(7343, '149-TRIAL- 149', '203-TRIAL-erbium (169Er) citrate colloid  209', '106-TRIAL- 98', 7343),
-(7344, '180-TRIAL- 65', '68-TRIAL-rhenium (186Re) sulfide colloid  136', '18-TRIAL- 123', 7344),
-(7345, '113-TRIAL- 41', '91-TRIAL-gold (198Au) colloidal  63', '18-TRIAL- 79', 7345),
-(7346, '131-TRIAL-V10BX  36', '185-TRIAL-Various pain palliation radiopharmaceuticals 192', '184-TRIAL- 162', 7346),
-(7347, '135-TRIAL-V10B 241', '249-TRIAL- PAIN PALLIATION (BONE SEEKING AGENTS) 196', '136-TRIAL- 85', 7336),
-(7348, '96-TRIAL- 35', '219-TRIAL-strontium (89Sr) chloride  35', '50-TRIAL- 61', 7348),
-(7349, '69-TRIAL- 233', '186-TRIAL-samarium (153Sm) lexidronam  1', '154-TRIAL- 106', 7349),
-(7350, '78-TRIAL- 258', '46-TRIAL-rhenium (186Re) etidronic acid  215', '253-TRIAL- 234', 7350),
-(7351, '65-TRIAL-V10XA  149', '27-TRIAL-Iodine (131I) compounds 165', '212-TRIAL- 78', 7351),
-(7352, '11-TRIAL-V10X 254', '198-TRIAL- OTHER THERAPEUTIC RADIOPHARMACEUTICALS 149', '58-TRIAL- 153', 7336),
-(7353, '155-TRIAL- 119', '193-TRIAL-sodium iodide (131I)  286', '71-TRIAL- 216', 7353),
-(7354, '73-TRIAL- 161', '150-TRIAL-iobenguane (131I)  149', '152-TRIAL- 123', 7354),
-(7355, '175-TRIAL- 119', '291-TRIAL-iodine (131I) omburtamab  240', '183-TRIAL- 159', 7355),
-(7356, '261-TRIAL- 136', '220-TRIAL-tositumomab/iodine (131I) tositumomab  124', '155-TRIAL- 271', 7356),
-(7357, '121-TRIAL-V10XX  214', '98-TRIAL-Various therapeutic radiopharmaceuticals 292', '192-TRIAL- 104', 7357),
-(7358, '157-TRIAL- 277', '125-TRIAL-sodium phosphate (32P)  112', '280-TRIAL- 197', 7358),
-(7359, '192-TRIAL- 277', '139-TRIAL-ibritumomab tiuxetan (90Y)  2', '138-TRIAL- 2', 7359),
-(7360, '31-TRIAL- 134', '116-TRIAL-radium (223Ra) dichloride  245', '177-TRIAL- 236', 7360),
-(7361, '5-TRIAL-V10XX04  259', '13-TRIAL-lutetium (177Lu) oxodotreotide  298', '289-TRIAL- 110', 7361),
-(7362, '242-TRIAL- 197', '241-TRIAL-lutetium (177Lu) vipivotide tetraxetan  75', '119-TRIAL- 259', 7362),
-(7363, '269-TRIAL-V20  216', '41-TRIAL-SURGICAL DRESSINGS 44', '280-TRIAL- 253', 7363);
+(5116, '77-TRIAL- 54', '4-TRIAL- 21', '110-TRIAL- 105', NULL),
+(5117, '216-TRIAL- 137', '239-TRIAL- 50', '288-TRIAL- 103', NULL),
+(5118, '149-TRIAL- 11', '194-TRIAL-dezocine  231', '253-TRIAL- 275', 5118),
+(5119, '139-TRIAL- 13', '71-TRIAL-meptazinol  169', '13-TRIAL- 215', 5119),
+(5120, '163-TRIAL- 266', '163-TRIAL- 212', '195-TRIAL- 11', NULL),
+(5121, '53-TRIAL- 242', '259-TRIAL-tapentadol  180', '99-TRIAL- 295', 5121),
+(5122, '167-TRIAL- 110', '71-TRIAL-oliceridine  155', '294-TRIAL- 249', 5122),
+(5123, '125-TRIAL- 201', '256-TRIAL-tilidine and naloxone  10', '105-TRIAL- 292', 5123),
+(5124, '1-TRIAL-N02B  290', '230-TRIAL-OTHER ANALGESICS AND ANTIPYRETICS 227', '170-TRIAL- 19', 5124),
+(5125, '198-TRIAL-N02BA  252', '205-TRIAL-Salicylic acid and derivatives 209', '254-TRIAL- 20', 5125),
+(5126, '16-TRIAL- 131', '296-TRIAL-acetylsalicylic acid  75', '63-TRIAL- 112', 5126),
+(5127, '81-TRIAL- 116', '103-TRIAL- 147', '64-TRIAL- 226', NULL),
+(5128, '69-TRIAL- 161', '240-TRIAL- 261', '26-TRIAL- 213', NULL),
+(5129, '273-TRIAL- 230', '147-TRIAL-aloxiprin  81', '46-TRIAL- 145', 5129),
+(5130, '265-TRIAL- 77', '5-TRIAL-choline salicylate  218', '51-TRIAL- 108', 5130),
+(5131, '271-TRIAL- 142', '259-TRIAL-sodium salicylate  281', '106-TRIAL- 82', 5131),
+(5132, '289-TRIAL- 214', '112-TRIAL-salicylamide  268', '261-TRIAL- 107', 5132),
+(5133, '78-TRIAL- 189', '272-TRIAL-salsalate  290', '73-TRIAL- 50', 5133),
+(5134, '210-TRIAL- 299', '123-TRIAL-ethenzamide  219', '199-TRIAL- 217', 5134),
+(5135, '102-TRIAL- 245', '2-TRIAL-morpholine salicylate  262', '64-TRIAL- 175', 5135),
+(5136, '269-TRIAL- 288', '194-TRIAL-dipyrocetyl  60', '190-TRIAL- 48', 5136),
+(5137, '7-TRIAL-N02BA10  11', '285-TRIAL-benorilate  231', '27-TRIAL- 230', 5137),
+(5138, '291-TRIAL- 6', '225-TRIAL-diflunisal  263', '294-TRIAL- 15', 5138),
+(5139, '144-TRIAL- 172', '259-TRIAL-potassium salicylate  202', '49-TRIAL- 114', 5139),
+(5140, '285-TRIAL- 177', '222-TRIAL-guacetisal  277', '162-TRIAL- 154', 5140),
+(5141, '37-TRIAL- 37', '110-TRIAL-carbasalate calcium  16', '116-TRIAL- 96', 5141),
+(5142, '182-TRIAL- 45', '55-TRIAL-imidazole salicylate  290', '223-TRIAL- 175', 5142),
+(5143, '7-TRIAL-N02BA51  253', '207-TRIAL-acetylsalicylic acid, combinations excl. psycholeptics  218', '14-TRIAL- 122', 5143),
+(5144, '217-TRIAL- 224', '118-TRIAL-salicylamide, combinations excl. psycholeptics  227', '264-TRIAL- 78', 5144),
+(5145, '234-TRIAL- 83', '48-TRIAL-ethenzamide, combinations excl. psycholeptics  179', '247-TRIAL- 87', 5145),
+(5146, '133-TRIAL- 86', '43-TRIAL-dipyrocetyl, combinations excl. psycholeptics  299', '115-TRIAL- 233', 5146),
+(5147, '104-TRIAL- 96', '75-TRIAL-carbasalate calcium combinations excl. psycholeptics  107', '99-TRIAL- 199', 5147),
+(5148, '158-TRIAL- 133', '247-TRIAL-acetylsalicylic acid, combinations with psycholeptics  14', '299-TRIAL- 37', 5148),
+(5149, '243-TRIAL- 117', '71-TRIAL-salicylamide, combinations with psycholeptics  178', '234-TRIAL- 147', 5149),
+(5150, '182-TRIAL- 112', '259-TRIAL-ethenzamide, combinations with psycholeptics  182', '25-TRIAL- 247', 5150),
+(5151, '88-TRIAL- 253', '202-TRIAL-dipyrocetyl, combinations with psycholeptics  50', '199-TRIAL- 105', 5151),
+(5152, '108-TRIAL-N02BB  86', '106-TRIAL-Pyrazolones 146', '144-TRIAL- 31', 5152),
+(5153, '282-TRIAL- 298', '167-TRIAL-phenazone  38', '183-TRIAL- 290', 5153),
+(5154, '21-TRIAL- 219', '47-TRIAL-metamizole sodium  52', '141-TRIAL- 181', 5154),
+(5155, '149-TRIAL- 32', '9-TRIAL- 40', '95-TRIAL- 111', NULL),
+(5156, '269-TRIAL- 114', '41-TRIAL- 86', '263-TRIAL- 297', NULL),
+(5157, '248-TRIAL- 83', '1-TRIAL-aminophenazone  232', '183-TRIAL- 60', 5157),
+(5158, '107-TRIAL- 132', '9-TRIAL-propyphenazone  163', '46-TRIAL- 89', 5158),
+(5159, '31-TRIAL- 293', '70-TRIAL-nifenazone  241', '79-TRIAL- 43', 5159),
+(5160, '35-TRIAL- 272', '190-TRIAL-phenazone, combinations excl. psycholeptics  247', '245-TRIAL- 293', 5160),
+(5161, '282-TRIAL- 155', '249-TRIAL-metamizole sodium, combinations excl. psycholeptics  256', '10-TRIAL- 197', 5161),
+(5162, '42-TRIAL- 264', '230-TRIAL-phenazone, combinations with psycholeptics  273', '162-TRIAL- 67', 5162),
+(5163, '2-TRIAL-N02BB53  84', '142-TRIAL-aminophenazone, combinations excl. psycholeptics  19', '246-TRIAL- 186', 5163),
+(5164, '279-TRIAL- 99', '120-TRIAL-propyphenazone, combinations excl. psycholeptics  99', '173-TRIAL- 207', 5164),
+(5165, '161-TRIAL- 190', '76-TRIAL-metamizole sodium, combinations with psycholeptics  268', '101-TRIAL- 54', 5165),
+(5166, '122-TRIAL- 91', '280-TRIAL-aminophenazone, combinations with psycholeptics  212', '128-TRIAL- 216', 5166),
+(5167, '80-TRIAL- 128', '140-TRIAL-propyphenazone, combinations with psycholeptics  218', '209-TRIAL- 167', 5167),
+(5168, '106-TRIAL-N02BE  126', '79-TRIAL-Anilides 233', '6-TRIAL- 91', 5168),
+(5169, '24-TRIAL- 76', '102-TRIAL-paracetamol  120', '289-TRIAL- 117', 5169),
+(5170, '100-TRIAL- 72', '108-TRIAL- 209', '10-TRIAL- 61', NULL),
+(5171, '270-TRIAL- 182', '179-TRIAL- 280', '118-TRIAL- 99', NULL),
+(5172, '17-TRIAL- 119', '79-TRIAL-phenacetin  186', '121-TRIAL- 144', 5172),
+(5173, '218-TRIAL- 237', '39-TRIAL-bucetin  53', '143-TRIAL- 51', 5173),
+(5174, '287-TRIAL- 273', '96-TRIAL-propacetamol  287', '134-TRIAL- 239', 5174),
+(5175, '218-TRIAL- 253', '149-TRIAL-paracetamol, combinations excl. psycholeptics  188', '61-TRIAL- 32', 5175),
+(5176, '267-TRIAL- 13', '298-TRIAL-phenacetin, combinations excl. psycholeptics  28', '125-TRIAL- 26', 5176),
+(5177, '215-TRIAL- 12', '115-TRIAL-bucetin, combinations excl. psycholeptics  124', '109-TRIAL- 179', 5177),
+(5178, '93-TRIAL- 122', '176-TRIAL-paracetamol, combinations with psycholeptics  175', '19-TRIAL- 34', 5178),
+(5179, '196-TRIAL- 82', '44-TRIAL-phenacetin, combinations with psycholeptics  109', '248-TRIAL- 292', 5179),
+(5180, '21-TRIAL- 224', '40-TRIAL-bucetin, combinations with psycholeptics  81', '129-TRIAL- 297', 5180),
+(5181, '290-TRIAL-N02BF  271', '100-TRIAL-Gabapentinoids 131', '292-TRIAL- 82', 5181),
+(5182, '104-TRIAL- 121', '251-TRIAL-gabapentin  200', '207-TRIAL- 236', 5182),
+(5183, '292-TRIAL- 179', '95-TRIAL-pregabalin  287', '204-TRIAL- 217', 5183),
+(5184, '291-TRIAL- 26', '57-TRIAL-mirogabalin  2', '275-TRIAL- 70', 5184),
+(5185, '191-TRIAL-N02BG  80', '189-TRIAL-Other analgesics and antipyretics 17', '26-TRIAL- 239', 5185),
+(5186, '216-TRIAL- 260', '262-TRIAL-rimazolium  22', '213-TRIAL- 193', 5186),
+(5187, '76-TRIAL- 106', '96-TRIAL-glafenine  50', '39-TRIAL- 157', 5187),
+(5188, '97-TRIAL- 31', '287-TRIAL-floctafenine  290', '72-TRIAL- 299', 5188),
+(5189, '145-TRIAL- 283', '218-TRIAL-viminol  164', '183-TRIAL- 255', 5189),
+(5190, '10-TRIAL- 153', '233-TRIAL-nefopam  153', '119-TRIAL- 27', 5190),
+(5191, '260-TRIAL- 133', '122-TRIAL-flupirtine  136', '102-TRIAL- 165', 5191),
+(5192, '61-TRIAL- 84', '51-TRIAL-ziconotide  190', '285-TRIAL- 252', 5192),
+(5193, '14-TRIAL- 61', '113-TRIAL-methoxyflurane  224', '70-TRIAL- 184', 5193),
+(5194, '37-TRIAL- 107', '275-TRIAL-cannabinoids  278', '86-TRIAL- 218', 5194),
+(5195, '84-TRIAL- 145', '218-TRIAL-tanezumab  109', '11-TRIAL- 197', 5195),
+(5196, '114-TRIAL-N02C  145', '107-TRIAL-ANTIMIGRAINE PREPARATIONS 29', '294-TRIAL- 267', 5196),
+(5197, '32-TRIAL-N02CA  25', '158-TRIAL-Ergot alkaloids 199', '292-TRIAL- 92', 5197),
+(5198, '158-TRIAL- 24', '144-TRIAL-dihydroergotamine  139', '263-TRIAL- 107', 5198),
+(5199, '58-TRIAL- 29', '107-TRIAL- 55', '62-TRIAL- 184', NULL),
+(5200, '129-TRIAL- 36', '75-TRIAL- 16', '39-TRIAL- 47', NULL),
+(5201, '152-TRIAL- 179', '64-TRIAL-ergotamine  196', '106-TRIAL- 133', 5201),
+(5202, '253-TRIAL- 57', '103-TRIAL- 12', '298-TRIAL- 71', NULL),
+(5203, '291-TRIAL- 267', '173-TRIAL- 122', '122-TRIAL- 166', NULL),
+(5204, '14-TRIAL- 113', '150-TRIAL- 162', '269-TRIAL- 38', NULL),
+(5205, '171-TRIAL- 202', '140-TRIAL- 7', '284-TRIAL- 205', NULL),
+(5206, '113-TRIAL- 34', '216-TRIAL-methysergide  50', '39-TRIAL- 251', 5206),
+(5207, '77-TRIAL- 12', '52-TRIAL-lisuride  99', '91-TRIAL- 252', 5207),
+(5208, '134-TRIAL- 207', '48-TRIAL-dihydroergotamine, combinations  139', '20-TRIAL- 89', 5208),
+(5209, '71-TRIAL- 0', '16-TRIAL-ergotamine, combinations excl. psycholeptics  246', '19-TRIAL- 213', 5209),
+(5210, '14-TRIAL- 281', '293-TRIAL-ergotamine, combinations with psycholeptics  149', '27-TRIAL- 91', 5210),
+(5211, '120-TRIAL-N02CB  82', '219-TRIAL-Corticosteroid derivatives 127', '223-TRIAL- 144', 5211),
+(5212, '268-TRIAL- 152', '117-TRIAL-flumedroxone  166', '217-TRIAL- 113', 5212),
+(5213, '137-TRIAL-N02CC  183', '34-TRIAL-Selective serotonin (5HT1) agonists 224', '276-TRIAL- 92', 5213),
+(5214, '32-TRIAL- 30', '207-TRIAL-sumatriptan  216', '171-TRIAL- 53', 5214),
+(5215, '183-TRIAL- 119', '265-TRIAL- 28', '280-TRIAL- 123', NULL),
+(5216, '222-TRIAL- 91', '166-TRIAL- 184', '138-TRIAL- 42', NULL),
+(5217, '286-TRIAL- 40', '167-TRIAL- 147', '200-TRIAL- 159', NULL),
+(5218, '240-TRIAL- 38', '240-TRIAL-naratriptan  131', '153-TRIAL- 277', 5218),
+(5219, '66-TRIAL- 281', '240-TRIAL-zolmitriptan  104', '210-TRIAL- 270', 5219),
+(5220, '172-TRIAL- 155', '144-TRIAL- 177', '255-TRIAL- 281', NULL),
+(5221, '117-TRIAL- 6', '73-TRIAL-rizatriptan  216', '286-TRIAL- 84', 5221),
+(5222, '154-TRIAL- 82', '116-TRIAL-almotriptan  270', '100-TRIAL- 97', 5222),
+(5223, '117-TRIAL- 23', '23-TRIAL-eletriptan  239', '96-TRIAL- 198', 5223),
+(5224, '137-TRIAL- 231', '55-TRIAL-frovatriptan  24', '214-TRIAL- 228', 5224),
+(5225, '221-TRIAL- 298', '262-TRIAL-lasmiditan  211', '74-TRIAL- 17', 5225),
+(5226, '48-TRIAL-N02CD  139', '43-TRIAL-Calcitonin gene-related peptide (CGRP) antagonists 125', '283-TRIAL- 217', 5226),
+(5227, '89-TRIAL- 12', '155-TRIAL-erenumab  144', '50-TRIAL- 246', 5227),
+(5228, '123-TRIAL- 130', '161-TRIAL-galcanezumab  190', '296-TRIAL- 207', 5228),
+(5229, '230-TRIAL- 174', '248-TRIAL-fremanezumab  54', '254-TRIAL- 140', 5229),
+(5230, '92-TRIAL- 278', '171-TRIAL-ubrogepant  256', '271-TRIAL- 190', 5230),
+(5231, '295-TRIAL- 69', '280-TRIAL-eptinezumab  48', '198-TRIAL- 28', 5231),
+(5232, '241-TRIAL- 251', '58-TRIAL-rimegepant  70', '233-TRIAL- 15', 5232),
+(5233, '187-TRIAL- 196', '107-TRIAL-clonidine  285', '278-TRIAL- 88', 5233),
+(5234, '265-TRIAL- 255', '124-TRIAL-atogepant  62', '199-TRIAL- 225', 5234),
+(5235, '255-TRIAL-N02CX  78', '151-TRIAL-Other antimigraine preparations 117', '261-TRIAL- 112', 5235),
+(5236, '181-TRIAL- 136', '73-TRIAL-pizotifen  163', '291-TRIAL- 21', 5236),
+(5237, '214-TRIAL- 106', '23-TRIAL-iprazochrome  249', '93-TRIAL- 293', 5237),
+(5238, '180-TRIAL- 4', '187-TRIAL-dimetotiazine  32', '81-TRIAL- 175', 5238),
+(5239, '87-TRIAL- 145', '4-TRIAL-oxetorone  286', '229-TRIAL- 246', 5239),
+(5240, '62-TRIAL-N03A 129', '294-TRIAL- ANTIEPILEPTICS 52', '203-TRIAL- 101', 5240),
+(5241, '46-TRIAL-N03AA 186', '297-TRIAL- Barbiturates and derivatives 128', '52-TRIAL- 193', 5240),
+(5242, '20-TRIAL- 221', '184-TRIAL-methylphenobarbital  205', '257-TRIAL- 16', 5242),
+(5243, '3-TRIAL-N03AA02  108', '291-TRIAL-phenobarbital  214', '170-TRIAL- 46', 5243),
+(5244, '190-TRIAL- 88', '124-TRIAL- 289', '121-TRIAL- 29', NULL),
+(5245, '182-TRIAL- 194', '25-TRIAL-primidone  57', '188-TRIAL- 243', 5245),
+(5246, '128-TRIAL- 111', '278-TRIAL-barbexaclone  210', '275-TRIAL- 159', 5246),
+(5247, '18-TRIAL- 218', '48-TRIAL-metharbital  105', '99-TRIAL- 16', 5247),
+(5248, '227-TRIAL- 100', '7-TRIAL-ethotoin  149', '3-TRIAL- 2', 5248),
+(5249, '89-TRIAL-N03AB 146', '131-TRIAL- Hydantoin derivatives 46', '30-TRIAL- 112', 5240),
+(5250, '298-TRIAL- 236', '289-TRIAL-phenytoin  122', '296-TRIAL- 78', 5250),
+(5251, '96-TRIAL- 167', '146-TRIAL- 83', '205-TRIAL- 36', NULL),
+(5252, '23-TRIAL- 92', '105-TRIAL-mephenytoin  98', '55-TRIAL- 220', 5252),
+(5253, '140-TRIAL- 47', '232-TRIAL-amino(diphenylhydantoin) valeric acid  252', '137-TRIAL- 111', 5253),
+(5254, '184-TRIAL- 183', '55-TRIAL-fosphenytoin  225', '227-TRIAL- 288', 5254),
+(5255, '196-TRIAL- 207', '118-TRIAL-phenytoin, combinations  214', '45-TRIAL- 298', 5255),
+(5256, '202-TRIAL- 295', '87-TRIAL-mephenytoin, combinations  69', '244-TRIAL- 144', 5256),
+(5257, '136-TRIAL-N03AC  128', '137-TRIAL-Oxazolidine derivatives 264', '92-TRIAL- 256', 5257),
+(5258, '293-TRIAL- 39', '154-TRIAL-trimethadione  122', '130-TRIAL- 0', 5258),
+(5259, '170-TRIAL- 22', '174-TRIAL-ethosuximide  199', '273-TRIAL- 253', 5259),
+(5260, '149-TRIAL-N03AD 88', '255-TRIAL- Succinimide derivatives 296', '132-TRIAL- 132', 5240),
+(5261, '211-TRIAL- 34', '60-TRIAL-ethadione  193', '11-TRIAL- 291', 5261),
+(5262, '247-TRIAL- 15', '142-TRIAL-phensuximide  267', '32-TRIAL- 254', 5262),
+(5263, '36-TRIAL- 250', '18-TRIAL-paramethadione  289', '13-TRIAL- 213', 5263),
+(5264, '259-TRIAL- 14', '60-TRIAL-mesuximide  78', '117-TRIAL- 211', 5264),
+(5265, '109-TRIAL- 187', '188-TRIAL-ethosuximide, combinations  27', '17-TRIAL- 137', 5265),
+(5266, '265-TRIAL-N03AE  145', '273-TRIAL-Benzodiazepine derivatives 194', '70-TRIAL- 191', 5266),
+(5267, '162-TRIAL- 147', '115-TRIAL-clonazepam  236', '87-TRIAL- 283', 5267),
+(5268, '45-TRIAL-N03AF  115', '268-TRIAL-Carboxamide derivatives 103', '217-TRIAL- 255', 5268),
+(5269, '117-TRIAL- 141', '148-TRIAL-carbamazepine  231', '110-TRIAL- 3', 5269),
+(5270, '88-TRIAL- 209', '129-TRIAL- 132', '57-TRIAL- 160', NULL),
+(5271, '240-TRIAL- 184', '141-TRIAL-oxcarbazepine  70', '114-TRIAL- 58', 5271),
+(5272, '152-TRIAL- 187', '112-TRIAL-rufinamide  275', '148-TRIAL- 173', 5272),
+(5273, '64-TRIAL- 90', '96-TRIAL-eslicarbazepine  206', '168-TRIAL- 103', 5273),
+(5274, '188-TRIAL-N03AG 81', '31-TRIAL- Fatty acid derivatives 76', '244-TRIAL- 206', 5240),
+(5275, '225-TRIAL- 57', '41-TRIAL-valproic acid  169', '89-TRIAL- 174', 5275),
+(5276, '20-TRIAL- 19', '60-TRIAL- 259', '24-TRIAL- 242', NULL),
+(5277, '43-TRIAL- 255', '82-TRIAL- 246', '211-TRIAL- 121', NULL),
+(5278, '210-TRIAL- 17', '228-TRIAL-valpromide  46', '261-TRIAL- 296', 5278),
+(5279, '128-TRIAL- 203', '125-TRIAL-aminobutyric acid  34', '146-TRIAL- 203', 5279),
+(5280, '117-TRIAL- 57', '99-TRIAL- 232', '158-TRIAL- 94', NULL),
+(5281, '39-TRIAL- 183', '129-TRIAL-vigabatrin  210', '87-TRIAL- 48', 5281),
+(5282, '177-TRIAL- 58', '98-TRIAL-progabide  59', '119-TRIAL- 282', 5282),
+(5283, '53-TRIAL- 223', '272-TRIAL-tiagabine  282', '63-TRIAL- 197', 5283),
+(5284, '200-TRIAL-N03AX  25', '149-TRIAL-Other antiepileptics 289', '197-TRIAL- 139', 5284),
+(5285, '278-TRIAL- 227', '117-TRIAL-sultiame  184', '231-TRIAL- 48', 5285),
+(5286, '227-TRIAL- 277', '261-TRIAL-phenacemide  10', '87-TRIAL- 75', 5286),
+(5287, '215-TRIAL- 105', '169-TRIAL-lamotrigine  6', '214-TRIAL- 231', 5287),
+(5288, '12-TRIAL- 11', '145-TRIAL-felbamate  255', '76-TRIAL- 273', 5288),
+(5289, '278-TRIAL- 134', '96-TRIAL-topiramate  240', '110-TRIAL- 146', 5289),
+(5290, '40-TRIAL- 175', '144-TRIAL-pheneturide  94', '85-TRIAL- 56', 5290),
+(5291, '265-TRIAL- 297', '10-TRIAL-levetiracetam  2', '130-TRIAL- 186', 5291),
+(5292, '288-TRIAL- 98', '11-TRIAL- 45', '209-TRIAL- 261', NULL),
+(5293, '283-TRIAL- 180', '225-TRIAL-zonisamide  124', '140-TRIAL- 220', 5293),
+(5294, '96-TRIAL- 17', '212-TRIAL-stiripentol  264', '114-TRIAL- 298', 5294),
+(5295, '72-TRIAL- 258', '93-TRIAL-lacosamide  183', '83-TRIAL- 174', 5295),
+(5296, '17-TRIAL- 21', '94-TRIAL- 100', '166-TRIAL- 40', NULL),
+(5297, '83-TRIAL- 29', '174-TRIAL-carisbamate  8', '56-TRIAL- 20', 5297),
+(5298, '298-TRIAL- 223', '30-TRIAL-retigabine  196', '246-TRIAL- 54', 5298),
+(5299, '197-TRIAL- 58', '181-TRIAL-perampanel  35', '33-TRIAL- 13', 5299),
+(5300, '110-TRIAL- 94', '233-TRIAL-brivaracetam  10', '102-TRIAL- 258', 5300),
+(5301, '267-TRIAL- 13', '257-TRIAL- 94', '117-TRIAL- 175', NULL),
+(7302, '48-TRIAL- 146', '176-TRIAL-indium (111In) satumomab pendetide  98', '21-TRIAL- 285', 7302),
+(7303, '236-TRIAL- 292', '43-TRIAL-indium (111In) antiovariumcarcinoma antibody  294', '140-TRIAL- 206', 7303),
+(7304, '242-TRIAL- 158', '256-TRIAL-indium (111In) capromab pendetide  252', '19-TRIAL- 243', 7304),
+(7305, '109-TRIAL-V09IX  154', '295-TRIAL-Other diagnostic radiopharmaceuticals for tumour detection 105', '288-TRIAL- 45', 7305),
+(7306, '195-TRIAL- 295', '76-TRIAL-iobenguane (123I)  282', '166-TRIAL- 76', 7306),
+(7307, '291-TRIAL- 153', '161-TRIAL-iobenguane (131I)  133', '221-TRIAL- 19', 7307),
+(7308, '175-TRIAL- 129', '2-TRIAL-iodine (125I) CC49-monoclonal antibody  197', '217-TRIAL- 240', 7308),
+(7309, '129-TRIAL- 242', '172-TRIAL-fludeoxyglucose (18F)  144', '57-TRIAL- 86', 7309),
+(7310, '195-TRIAL- 106', '211-TRIAL-fluorodopa (18F)  145', '146-TRIAL- 135', 7310),
+(7311, '184-TRIAL- 23', '243-TRIAL-sodium fluoride (18F)  178', '280-TRIAL- 149', 7311),
+(7312, '275-TRIAL- 289', '186-TRIAL-fluorocholine(18F)  105', '24-TRIAL- 294', 7312),
+(7313, '258-TRIAL- 297', '194-TRIAL-fluoroethylcholine (18F)  104', '29-TRIAL- 121', 7313),
+(7314, '6-TRIAL-V09IX09  157', '88-TRIAL-gallium (68Ga) edotreotide  254', '2-TRIAL- 291', 7314),
+(7315, '40-TRIAL- 122', '99-TRIAL-fluoroethyl-L-tyrosine (18F)  194', '24-TRIAL- 97', 7315),
+(7316, '95-TRIAL- 96', '91-TRIAL-fluoroestradiol (18F)  60', '99-TRIAL- 252', 7316),
+(7317, '200-TRIAL- 237', '192-TRIAL-fluciclovine (18F)  235', '127-TRIAL- 194', 7317),
+(7318, '79-TRIAL- 248', '182-TRIAL-methionine (11C)  70', '255-TRIAL- 101', 7318),
+(7319, '172-TRIAL- 221', '70-TRIAL-gallium (68Ga) gozetotide  162', '264-TRIAL- 54', 7319),
+(7320, '252-TRIAL- 126', '9-TRIAL-copper (64Cu) dotatate  98', '195-TRIAL- 176', 7320),
+(7321, '9-TRIAL-V09IX16  156', '62-TRIAL-piflufolastat (18F)  48', '156-TRIAL- 212', 7321),
+(7322, '189-TRIAL- 129', '2-TRIAL-PSMA-1007 (18F)  184', '229-TRIAL- 229', 7322),
+(7323, '159-TRIAL-V09X  80', '212-TRIAL-OTHER DIAGNOSTIC RADIOPHARMACEUTICALS 107', '185-TRIAL- 24', 7323),
+(7324, '158-TRIAL-V09XA  185', '99-TRIAL-Iodine (131I) compounds 16', '237-TRIAL- 291', 7324),
+(7325, '234-TRIAL- 270', '30-TRIAL-iodine (131I) norcholesterol  86', '17-TRIAL- 60', 7325),
+(7326, '21-TRIAL- 7', '253-TRIAL-iodocholesterol (131I)  216', '123-TRIAL- 290', 7326),
+(7327, '100-TRIAL- 132', '42-TRIAL-iodine (131I) human albumin  11', '9-TRIAL- 107', 7327),
+(7328, '21-TRIAL-V09XX  160', '69-TRIAL-Various diagnostic radiopharmaceuticals 219', '73-TRIAL- 41', 7328),
+(7329, '184-TRIAL- 29', '187-TRIAL-cobalt (57Co) cyanocobalamine  223', '123-TRIAL- 25', 7329),
+(7330, '238-TRIAL- 239', '168-TRIAL-cobalt (58Co) cyanocobalamine  247', '127-TRIAL- 82', 7330),
+(7331, '91-TRIAL- 178', '176-TRIAL-selenium (75Se) norcholesterol  136', '172-TRIAL- 255', 7331),
+(7332, '74-TRIAL- 230', '61-TRIAL-ferric (59Fe) citrate  238', '126-TRIAL- 151', 7332),
+(7333, '173-TRIAL-V10A  11', '289-TRIAL-ANTIINFLAMMATORY AGENTS 60', '125-TRIAL- 103', 7333),
+(7334, '119-TRIAL-V10AA  176', '294-TRIAL-Yttrium (90Y) compounds 167', '45-TRIAL- 228', 7334),
+(7335, '135-TRIAL- 202', '243-TRIAL-yttrium (90Y) citrate colloid  194', '168-TRIAL- 7', 7335),
+(7336, '61-TRIAL-V10 63', '235-TRIAL- THERAPEUTIC RADIOPHARMACEUTICALS 126', '235-TRIAL- 99', 7336),
+(7337, '243-TRIAL- 164', '58-TRIAL-yttrium (90Y) ferrihydroxide colloid  49', '218-TRIAL- 151', 7337),
+(7338, '213-TRIAL- 168', '143-TRIAL-yttrium (90Y) silicate colloid  210', '206-TRIAL- 64', 7338),
+(7339, '107-TRIAL-V10AX  20', '205-TRIAL-Other antiinflammatory therapeutic radiopharmaceuticals 260', '55-TRIAL- 276', 7339),
+(7340, '194-TRIAL- 220', '3-TRIAL-phosphorous (32P) chromicphosphate colloid  298', '22-TRIAL- 33', 7340),
+(7341, '194-TRIAL- 64', '62-TRIAL-samarium (153Sm) hydroxyapatite colloid  120', '238-TRIAL- 111', 7341),
+(7342, '143-TRIAL- 59', '173-TRIAL-dysprosium (165Dy) colloid  118', '49-TRIAL- 71', 7342),
+(7343, '195-TRIAL- 219', '6-TRIAL-erbium (169Er) citrate colloid  263', '258-TRIAL- 106', 7343),
+(7344, '66-TRIAL- 152', '4-TRIAL-rhenium (186Re) sulfide colloid  291', '229-TRIAL- 2', 7344),
+(7345, '272-TRIAL- 135', '240-TRIAL-gold (198Au) colloidal  89', '144-TRIAL- 97', 7345),
+(7346, '84-TRIAL-V10BX  56', '268-TRIAL-Various pain palliation radiopharmaceuticals 204', '219-TRIAL- 54', 7346),
+(7347, '191-TRIAL-V10B 101', '144-TRIAL- PAIN PALLIATION (BONE SEEKING AGENTS) 169', '294-TRIAL- 143', 7336),
+(7348, '229-TRIAL- 123', '165-TRIAL-strontium (89Sr) chloride  195', '83-TRIAL- 71', 7348),
+(7349, '22-TRIAL- 77', '281-TRIAL-samarium (153Sm) lexidronam  109', '51-TRIAL- 270', 7349),
+(7350, '221-TRIAL- 134', '40-TRIAL-rhenium (186Re) etidronic acid  244', '16-TRIAL- 270', 7350),
+(7351, '212-TRIAL-V10XA  179', '240-TRIAL-Iodine (131I) compounds 154', '208-TRIAL- 269', 7351),
+(7352, '203-TRIAL-V10X 68', '38-TRIAL- OTHER THERAPEUTIC RADIOPHARMACEUTICALS 0', '154-TRIAL- 172', 7336),
+(7353, '102-TRIAL- 42', '175-TRIAL-sodium iodide (131I)  246', '71-TRIAL- 189', 7353),
+(7354, '158-TRIAL- 274', '68-TRIAL-iobenguane (131I)  25', '85-TRIAL- 95', 7354),
+(7355, '228-TRIAL- 43', '282-TRIAL-iodine (131I) omburtamab  243', '155-TRIAL- 283', 7355),
+(7356, '206-TRIAL- 137', '182-TRIAL-tositumomab/iodine (131I) tositumomab  160', '72-TRIAL- 276', 7356),
+(7357, '194-TRIAL-V10XX  246', '8-TRIAL-Various therapeutic radiopharmaceuticals 279', '95-TRIAL- 44', 7357),
+(7358, '60-TRIAL- 101', '154-TRIAL-sodium phosphate (32P)  271', '178-TRIAL- 80', 7358),
+(7359, '241-TRIAL- 87', '112-TRIAL-ibritumomab tiuxetan (90Y)  152', '55-TRIAL- 160', 7359),
+(7360, '296-TRIAL- 277', '260-TRIAL-radium (223Ra) dichloride  92', '184-TRIAL- 109', 7360),
+(7361, '101-TRIAL- 80', '13-TRIAL-lutetium (177Lu) oxodotreotide  71', '299-TRIAL- 220', 7361),
+(7362, '262-TRIAL- 29', '196-TRIAL-lutetium (177Lu) vipivotide tetraxetan  106', '80-TRIAL- 171', 7362),
+(7363, '95-TRIAL-V20  133', '120-TRIAL-SURGICAL DRESSINGS 248', '169-TRIAL- 234', 7363);
+
+--
+-- Triggers `atc_code`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_ATC_Code` AFTER DELETE ON `atc_code` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ATC_Code';						SET @pk_d = CONCAT('<ATC_ID>',OLD.`ATC_ID`,'</ATC_ID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_ATC_Code` AFTER INSERT ON `atc_code` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'ATC_Code'; 						SET @pk_d = CONCAT('<ATC_ID>',NEW.`ATC_ID`,'</ATC_ID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_ATC_Code` AFTER UPDATE ON `atc_code` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ATC_Code';						SET @pk_d_old = CONCAT('<ATC_ID>',OLD.`ATC_ID`,'</ATC_ID>');						SET @pk_d = CONCAT('<ATC_ID>',NEW.`ATC_ID`,'</ATC_ID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -962,6 +1017,22 @@ CREATE TABLE `audittrail` (
   `NewValue` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `audittrail`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_AuditTrail` AFTER DELETE ON `audittrail` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'AuditTrail';						SET @pk_d = CONCAT('<AuditTrailId>',OLD.`AuditTrailId`,'</AuditTrailId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_AuditTrail` AFTER INSERT ON `audittrail` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'AuditTrail'; 						SET @pk_d = CONCAT('<AuditTrailId>',NEW.`AuditTrailId`,'</AuditTrailId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_AuditTrail` AFTER UPDATE ON `audittrail` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'AuditTrail';						SET @pk_d_old = CONCAT('<AuditTrailId>',OLD.`AuditTrailId`,'</AuditTrailId>');						SET @pk_d = CONCAT('<AuditTrailId>',NEW.`AuditTrailId`,'</AuditTrailId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -978,6 +1049,41 @@ CREATE TABLE `batchlottracking` (
   `DonationId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `batchlottracking`
+--
+
+INSERT INTO `batchlottracking` (`BatchLotId`, `DrugId`, `BatchNumber`, `ProductionDate`, `ExpiryDate`, `Quantity`, `DonationId`) VALUES
+(1, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(2, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(3, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(4, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(5, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(6, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(7, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(8, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(9, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(10, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(11, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(12, 1003, '1234', '2024-03-19', '2024-12-31', 45, NULL),
+(13, 1007, '1197', '2025-06-12', '2025-06-12', 222, 23);
+
+--
+-- Triggers `batchlottracking`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_BatchLotTracking` AFTER DELETE ON `batchlottracking` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'BatchLotTracking';						SET @pk_d = CONCAT('<BatchLotId>',OLD.`BatchLotId`,'</BatchLotId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_BatchLotTracking` AFTER INSERT ON `batchlottracking` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'BatchLotTracking'; 						SET @pk_d = CONCAT('<BatchLotId>',NEW.`BatchLotId`,'</BatchLotId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_BatchLotTracking` AFTER UPDATE ON `batchlottracking` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'BatchLotTracking';						SET @pk_d_old = CONCAT('<BatchLotId>',OLD.`BatchLotId`,'</BatchLotId>');						SET @pk_d = CONCAT('<BatchLotId>',NEW.`BatchLotId`,'</BatchLotId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -990,6 +1096,22 @@ CREATE TABLE `batchserialnumber` (
   `SerialNumber` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `batchserialnumber`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_BatchSerialNumber` AFTER DELETE ON `batchserialnumber` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'BatchSerialNumber';						SET @pk_d = CONCAT('<BatchSerialNumberId>',OLD.`BatchSerialNumberId`,'</BatchSerialNumberId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_BatchSerialNumber` AFTER INSERT ON `batchserialnumber` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'BatchSerialNumber'; 						SET @pk_d = CONCAT('<BatchSerialNumberId>',NEW.`BatchSerialNumberId`,'</BatchSerialNumberId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_BatchSerialNumber` AFTER UPDATE ON `batchserialnumber` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'BatchSerialNumber';						SET @pk_d_old = CONCAT('<BatchSerialNumberId>',OLD.`BatchSerialNumberId`,'</BatchSerialNumberId>');						SET @pk_d = CONCAT('<BatchSerialNumberId>',NEW.`BatchSerialNumberId`,'</BatchSerialNumberId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -1000,6 +1122,22 @@ CREATE TABLE `brands` (
   `BrandId` int(11) NOT NULL,
   `BrandName` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `brands`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Brands` AFTER DELETE ON `brands` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Brands';						SET @pk_d = CONCAT('<BrandId>',OLD.`BrandId`,'</BrandId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Brands` AFTER INSERT ON `brands` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Brands'; 						SET @pk_d = CONCAT('<BrandId>',NEW.`BrandId`,'</BrandId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Brands` AFTER UPDATE ON `brands` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Brands';						SET @pk_d_old = CONCAT('<BrandId>',OLD.`BrandId`,'</BrandId>');						SET @pk_d = CONCAT('<BrandId>',NEW.`BrandId`,'</BrandId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -1050,6 +1188,22 @@ CREATE TABLE `cities` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `cities`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Cities` AFTER DELETE ON `cities` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Cities';						SET @pk_d = CONCAT('<CityId>',OLD.`CityId`,'</CityId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Cities` AFTER INSERT ON `cities` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Cities'; 						SET @pk_d = CONCAT('<CityId>',NEW.`CityId`,'</CityId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Cities` AFTER UPDATE ON `cities` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Cities';						SET @pk_d_old = CONCAT('<CityId>',OLD.`CityId`,'</CityId>');						SET @pk_d = CONCAT('<CityId>',NEW.`CityId`,'</CityId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -1065,6 +1219,22 @@ CREATE TABLE `containertype` (
   `CreatedBy` int(11) DEFAULT NULL,
   `UpdatedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `containertype`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_ContainerType` AFTER DELETE ON `containertype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ContainerType';						SET @pk_d = CONCAT('<ContainerTypeId>',OLD.`ContainerTypeId`,'</ContainerTypeId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_ContainerType` AFTER INSERT ON `containertype` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'ContainerType'; 						SET @pk_d = CONCAT('<ContainerTypeId>',NEW.`ContainerTypeId`,'</ContainerTypeId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_ContainerType` AFTER UPDATE ON `containertype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ContainerType';						SET @pk_d_old = CONCAT('<ContainerTypeId>',OLD.`ContainerTypeId`,'</ContainerTypeId>');						SET @pk_d = CONCAT('<ContainerTypeId>',NEW.`ContainerTypeId`,'</ContainerTypeId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -1956,6 +2126,22 @@ INSERT INTO `countries` (`CountryId`, `Name`, `NameAr`, `Enabled`, `CreatedDate`
 (865, '194-TRIAL-UK 282', '167-TRIAL- 227', 1, '2024-04-16 05:04:15', NULL, NULL, NULL),
 (866, '105-TRIAL-Germany 46', '286-TRIAL- 89', 1, '2024-04-16 05:04:15', NULL, NULL, NULL);
 
+--
+-- Triggers `countries`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Countries` AFTER DELETE ON `countries` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Countries';						SET @pk_d = CONCAT('<CountryId>',OLD.`CountryId`,'</CountryId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Countries` AFTER INSERT ON `countries` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Countries'; 						SET @pk_d = CONCAT('<CountryId>',NEW.`CountryId`,'</CountryId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Countries` AFTER UPDATE ON `countries` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Countries';						SET @pk_d_old = CONCAT('<CountryId>',OLD.`CountryId`,'</CountryId>');						SET @pk_d = CONCAT('<CountryId>',NEW.`CountryId`,'</CountryId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -1966,6 +2152,22 @@ CREATE TABLE `countrygovernoratemapping` (
   `CountryId` int(11) NOT NULL,
   `GovernorateId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `countrygovernoratemapping`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_CountryGovernorateMapping` AFTER DELETE ON `countrygovernoratemapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'CountryGovernorateMapping';						SET @pk_d = CONCAT('<CountryId>',OLD.`CountryId`,'</CountryId>','<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_CountryGovernorateMapping` AFTER INSERT ON `countrygovernoratemapping` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'CountryGovernorateMapping'; 						SET @pk_d = CONCAT('<CountryId>',NEW.`CountryId`,'</CountryId>','<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_CountryGovernorateMapping` AFTER UPDATE ON `countrygovernoratemapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'CountryGovernorateMapping';						SET @pk_d_old = CONCAT('<CountryId>',OLD.`CountryId`,'</CountryId>','<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>');						SET @pk_d = CONCAT('<CountryId>',NEW.`CountryId`,'</CountryId>','<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -1991,6 +2193,22 @@ CREATE TABLE `diseasecategory` (
 INSERT INTO `diseasecategory` (`DiseaseCategoryId`, `CategoryName`, `CategoryNameAr`, `IsEnabled`, `CreatedDate`, `UpdatedDate`, `CreatedBy`, `UpdatedBy`) VALUES
 (2, 'Cardiovascular Diseases', 'أمراض القلب والأوعية الدموية', 1, '2024-04-13 15:59:26', NULL, 1, NULL);
 
+--
+-- Triggers `diseasecategory`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DiseaseCategory` AFTER DELETE ON `diseasecategory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DiseaseCategory';						SET @pk_d = CONCAT('<DiseaseCategoryId>',OLD.`DiseaseCategoryId`,'</DiseaseCategoryId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DiseaseCategory` AFTER INSERT ON `diseasecategory` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DiseaseCategory'; 						SET @pk_d = CONCAT('<DiseaseCategoryId>',NEW.`DiseaseCategoryId`,'</DiseaseCategoryId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DiseaseCategory` AFTER UPDATE ON `diseasecategory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DiseaseCategory';						SET @pk_d_old = CONCAT('<DiseaseCategoryId>',OLD.`DiseaseCategoryId`,'</DiseaseCategoryId>');						SET @pk_d = CONCAT('<DiseaseCategoryId>',NEW.`DiseaseCategoryId`,'</DiseaseCategoryId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2002,6 +2220,22 @@ CREATE TABLE `diseasecategoryatc` (
   `DiseaseCategoryId` int(11) NOT NULL,
   `ATC_CodeId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `diseasecategoryatc`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DiseaseCategoryATC` AFTER DELETE ON `diseasecategoryatc` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DiseaseCategoryATC';						SET @pk_d = CONCAT('<MappingId>',OLD.`MappingId`,'</MappingId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DiseaseCategoryATC` AFTER INSERT ON `diseasecategoryatc` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DiseaseCategoryATC'; 						SET @pk_d = CONCAT('<MappingId>',NEW.`MappingId`,'</MappingId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DiseaseCategoryATC` AFTER UPDATE ON `diseasecategoryatc` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DiseaseCategoryATC';						SET @pk_d_old = CONCAT('<MappingId>',OLD.`MappingId`,'</MappingId>');						SET @pk_d = CONCAT('<MappingId>',NEW.`MappingId`,'</MappingId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2026,6 +2260,22 @@ INSERT INTO `dispensingconditions` (`Id`, `dispensingCondition`) VALUES
 (5, 'Dispensed for the prescription duration'),
 (6, 'OTC drugs');
 
+--
+-- Triggers `dispensingconditions`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DispensingConditions` AFTER DELETE ON `dispensingconditions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DispensingConditions';						SET @pk_d = CONCAT('<Id>',OLD.`Id`,'</Id>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DispensingConditions` AFTER INSERT ON `dispensingconditions` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DispensingConditions'; 						SET @pk_d = CONCAT('<Id>',NEW.`Id`,'</Id>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DispensingConditions` AFTER UPDATE ON `dispensingconditions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DispensingConditions';						SET @pk_d_old = CONCAT('<Id>',OLD.`Id`,'</Id>');						SET @pk_d = CONCAT('<Id>',NEW.`Id`,'</Id>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2036,6 +2286,22 @@ CREATE TABLE `districtcitymapping` (
   `DistrictId` int(11) NOT NULL,
   `CityId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `districtcitymapping`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DistrictCityMapping` AFTER DELETE ON `districtcitymapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DistrictCityMapping';						SET @pk_d = CONCAT('<DistrictId>',OLD.`DistrictId`,'</DistrictId>','<CityId>',OLD.`CityId`,'</CityId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DistrictCityMapping` AFTER INSERT ON `districtcitymapping` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DistrictCityMapping'; 						SET @pk_d = CONCAT('<DistrictId>',NEW.`DistrictId`,'</DistrictId>','<CityId>',NEW.`CityId`,'</CityId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DistrictCityMapping` AFTER UPDATE ON `districtcitymapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DistrictCityMapping';						SET @pk_d_old = CONCAT('<DistrictId>',OLD.`DistrictId`,'</DistrictId>','<CityId>',OLD.`CityId`,'</CityId>');						SET @pk_d = CONCAT('<DistrictId>',NEW.`DistrictId`,'</DistrictId>','<CityId>',NEW.`CityId`,'</CityId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2055,6 +2321,22 @@ CREATE TABLE `districts` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `districts`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Districts` AFTER DELETE ON `districts` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Districts';						SET @pk_d = CONCAT('<DistrictId>',OLD.`DistrictId`,'</DistrictId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Districts` AFTER INSERT ON `districts` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Districts'; 						SET @pk_d = CONCAT('<DistrictId>',NEW.`DistrictId`,'</DistrictId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Districts` AFTER UPDATE ON `districts` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Districts';						SET @pk_d_old = CONCAT('<DistrictId>',OLD.`DistrictId`,'</DistrictId>');						SET @pk_d = CONCAT('<DistrictId>',NEW.`DistrictId`,'</DistrictId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2068,6 +2350,22 @@ CREATE TABLE `doctors` (
   `IsAssistant` tinyint(1) DEFAULT NULL,
   `DoctorParentId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `doctors`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Doctors` AFTER DELETE ON `doctors` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Doctors';						SET @pk_d = CONCAT('<DoctorId>',OLD.`DoctorId`,'</DoctorId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Doctors` AFTER INSERT ON `doctors` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Doctors'; 						SET @pk_d = CONCAT('<DoctorId>',NEW.`DoctorId`,'</DoctorId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Doctors` AFTER UPDATE ON `doctors` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Doctors';						SET @pk_d_old = CONCAT('<DoctorId>',OLD.`DoctorId`,'</DoctorId>');						SET @pk_d = CONCAT('<DoctorId>',NEW.`DoctorId`,'</DoctorId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2098,6 +2396,22 @@ INSERT INTO `donation` (`DonationId`, `DonorId`, `RecipientId`, `DonationDate`, 
 (22, 1, 2, NULL, 100, NULL, NULL, 'Lab Name', 'Country Name', NULL),
 (23, 2, 2, NULL, 222, NULL, NULL, 'Sgzgsgg', 'Ggssg', NULL);
 
+--
+-- Triggers `donation`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Donation` AFTER DELETE ON `donation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Donation';						SET @pk_d = CONCAT('<DonationId>',OLD.`DonationId`,'</DonationId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Donation` AFTER INSERT ON `donation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Donation'; 						SET @pk_d = CONCAT('<DonationId>',NEW.`DonationId`,'</DonationId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Donation` AFTER UPDATE ON `donation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Donation';						SET @pk_d_old = CONCAT('<DonationId>',OLD.`DonationId`,'</DonationId>');						SET @pk_d = CONCAT('<DonationId>',NEW.`DonationId`,'</DonationId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2126,6 +2440,22 @@ INSERT INTO `donor` (`DonorId`, `DonorName`, `DonorType`, `Address`, `PhoneNumbe
 (2, 'Jane fisher', 'Individual', '456 Main Street', '123-456-7890', 'jane@example.com', 'Canada', 1, '2024-03-19', '2024-03-19'),
 (3, 'Tonai', 'Organization', 'Zgharté', '03117117', 'tonai@example.com', 'lebanon', 1, '2024-03-20', '2024-03-20');
 
+--
+-- Triggers `donor`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Donor` AFTER DELETE ON `donor` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Donor';						SET @pk_d = CONCAT('<DonorId>',OLD.`DonorId`,'</DonorId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Donor` AFTER INSERT ON `donor` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Donor'; 						SET @pk_d = CONCAT('<DonorId>',NEW.`DonorId`,'</DonorId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Donor` AFTER UPDATE ON `donor` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Donor';						SET @pk_d_old = CONCAT('<DonorId>',OLD.`DonorId`,'</DonorId>');						SET @pk_d = CONCAT('<DonorId>',NEW.`DonorId`,'</DonorId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2142,6 +2472,29 @@ CREATE TABLE `dosage` (
   `DenominatorUnit` varchar(50) DEFAULT NULL,
   `DrugID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `dosage`
+--
+
+INSERT INTO `dosage` (`DosageId`, `Numerator`, `Denominator`, `CreatedDate`, `UpdatedDate`, `NumeratorUnit`, `DenominatorUnit`, `DrugID`) VALUES
+(2, 500, 1, '2024-04-30 07:18:26', NULL, 'mg', 'mg', 1003);
+
+--
+-- Triggers `dosage`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Dosage` AFTER DELETE ON `dosage` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Dosage';						SET @pk_d = CONCAT('<DosageId>',OLD.`DosageId`,'</DosageId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Dosage` AFTER INSERT ON `dosage` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Dosage'; 						SET @pk_d = CONCAT('<DosageId>',NEW.`DosageId`,'</DosageId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Dosage` AFTER UPDATE ON `dosage` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Dosage';						SET @pk_d_old = CONCAT('<DosageId>',OLD.`DosageId`,'</DosageId>');						SET @pk_d = CONCAT('<DosageId>',NEW.`DosageId`,'</DosageId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2213,40 +2566,56 @@ INSERT INTO `dosageform` (`DosageFormId`, `Child`, `Parent`, `CreatedDate`, `Upd
 (49, 'Metered dose spray', NULL, '2024-04-16 08:28:32', NULL),
 (50, 'Ointment', NULL, '2024-04-16 08:28:32', NULL),
 (51, 'Patch', NULL, '2024-04-16 08:28:32', NULL),
-(52, '41-TRIAL-Pessary 167', '34-TRIAL- 100', '2024-04-16 08:28:32', NULL),
-(53, '269-TRIAL-Powder 124', '78-TRIAL- 258', '2024-04-16 08:28:32', NULL),
-(54, '262-TRIAL-Powder, effervescent 164', '5-TRIAL- 245', '2024-04-16 08:28:32', NULL),
-(55, '181-TRIAL-Powder, for solution 27', '61-TRIAL- 191', '2024-04-16 08:28:32', NULL),
-(56, '295-TRIAL-Powder, for suspension 242', '27-TRIAL- 36', '2024-04-16 08:28:32', NULL),
-(57, '291-TRIAL-Powder, inhalation 204', '2-TRIAL- 153', '2024-04-16 08:28:32', NULL),
-(58, '292-TRIAL-Rotacaps 82', '21-TRIAL- 116', '2024-04-16 08:28:32', NULL),
-(59, '218-TRIAL-Pulvule 95', '47-TRIAL- 126', '2024-04-16 08:28:32', NULL),
-(60, '71-TRIAL-Respule 138', '69-TRIAL- 112', '2024-04-16 08:28:32', NULL),
-(61, '167-TRIAL-Ring 199', '235-TRIAL- 294', '2024-04-16 08:28:32', NULL),
-(62, '203-TRIAL-Shampoo 111', '122-TRIAL- 33', '2024-04-16 08:28:32', NULL),
-(63, '273-TRIAL-Solution 164', '141-TRIAL- 211', '2024-04-16 08:28:32', NULL),
-(64, '53-TRIAL-Solution, film forming 268', '47-TRIAL- 44', '2024-04-16 08:28:32', NULL),
-(65, '262-TRIAL-Solution, inhalation 57', '237-TRIAL- 259', '2024-04-16 08:28:32', NULL),
-(66, '23-TRIAL-Spray 141', '229-TRIAL- 178', '2024-04-16 08:28:32', NULL),
-(67, '16-TRIAL-Suspension, inhalation 35', '290-TRIAL- 42', '2024-04-16 08:28:32', NULL),
-(68, '288-TRIAL-Syrup 106', '40-TRIAL- 242', '2024-04-16 08:28:32', NULL),
-(69, '64-TRIAL-Tablet 148', '146-TRIAL- 105', '2024-04-16 08:28:32', NULL),
-(70, '290-TRIAL-Suppository 129', '70-TRIAL- 50', '2024-04-16 08:28:32', NULL),
-(71, '6-TRIAL-Tablet, chewable 201', '93-TRIAL- 248', '2024-04-16 08:28:32', NULL),
-(72, '129-TRIAL-Tablet, coated 23', '84-TRIAL- 154', '2024-04-16 08:28:32', NULL),
-(73, '156-TRIAL-Tablet, controlled release / extended release / modified release / prolonged release / slow release / sustained release 140', '166-TRIAL- 176', '2024-04-16 08:28:32', NULL),
-(74, '131-TRIAL-Tablet, repetab 208', '144-TRIAL- 39', '2024-04-16 08:28:32', NULL),
-(75, '26-TRIAL-Tablet, dispersible 223', '137-TRIAL- 238', '2024-04-16 08:28:32', NULL),
-(76, '218-TRIAL-Tablet, effervescent 282', '129-TRIAL- 41', '2024-04-16 08:28:32', NULL),
-(77, '33-TRIAL-Tablet, delayed release / enteric coated / gastro-resistant 215', '139-TRIAL- 258', '2024-04-16 08:28:32', NULL),
-(78, '204-TRIAL-Tablet, film coated 30', '177-TRIAL- 206', '2024-04-16 08:28:32', NULL),
-(79, '173-TRIAL-Tablet, microgranules 186', '221-TRIAL- 245', '2024-04-16 08:28:32', NULL),
-(80, '224-TRIAL-Tablet, lyophilised / freeze-dried 172', '270-TRIAL- 129', '2024-04-16 08:28:32', NULL),
-(81, '77-TRIAL-Tablet, sugar coated 273', '297-TRIAL- 12', '2024-04-16 08:28:32', NULL),
-(82, '286-TRIAL-Tablet, orally disintegrating / mouth dissolving / orodispersible 90', '161-TRIAL- 36', '2024-04-16 08:28:32', NULL),
-(83, '155-TRIAL-Vaginal delivery system 167', '255-TRIAL- 274', '2024-04-16 08:28:32', NULL),
-(84, '131-TRIAL-Volatile liquid 52', '50-TRIAL- 250', '2024-04-16 08:28:32', NULL),
-(85, '141-TRIAL-Water, for injection / for irrigation 124', '166-TRIAL- 130', '2024-04-16 08:28:32', NULL);
+(52, '88-TRIAL-Pessary 212', '80-TRIAL- 199', '2024-04-16 08:28:32', NULL),
+(53, '97-TRIAL-Powder 106', '35-TRIAL- 12', '2024-04-16 08:28:32', NULL),
+(54, '188-TRIAL-Powder, effervescent 96', '50-TRIAL- 239', '2024-04-16 08:28:32', NULL),
+(55, '299-TRIAL-Powder, for solution 102', '231-TRIAL- 115', '2024-04-16 08:28:32', NULL),
+(56, '27-TRIAL-Powder, for suspension 159', '257-TRIAL- 107', '2024-04-16 08:28:32', NULL),
+(57, '200-TRIAL-Powder, inhalation 142', '20-TRIAL- 271', '2024-04-16 08:28:32', NULL),
+(58, '84-TRIAL-Rotacaps 271', '113-TRIAL- 199', '2024-04-16 08:28:32', NULL),
+(59, '288-TRIAL-Pulvule 128', '192-TRIAL- 83', '2024-04-16 08:28:32', NULL),
+(60, '235-TRIAL-Respule 66', '3-TRIAL- 39', '2024-04-16 08:28:32', NULL),
+(61, '168-TRIAL-Ring 60', '261-TRIAL- 224', '2024-04-16 08:28:32', NULL),
+(62, '87-TRIAL-Shampoo 200', '10-TRIAL- 294', '2024-04-16 08:28:32', NULL),
+(63, '139-TRIAL-Solution 247', '184-TRIAL- 48', '2024-04-16 08:28:32', NULL),
+(64, '90-TRIAL-Solution, film forming 266', '227-TRIAL- 229', '2024-04-16 08:28:32', NULL),
+(65, '8-TRIAL-Solution, inhalation 102', '93-TRIAL- 40', '2024-04-16 08:28:32', NULL),
+(66, '72-TRIAL-Spray 284', '134-TRIAL- 110', '2024-04-16 08:28:32', NULL),
+(67, '29-TRIAL-Suspension, inhalation 213', '98-TRIAL- 254', '2024-04-16 08:28:32', NULL),
+(68, '140-TRIAL-Syrup 43', '102-TRIAL- 50', '2024-04-16 08:28:32', NULL),
+(69, '287-TRIAL-Tablet 265', '107-TRIAL- 224', '2024-04-16 08:28:32', NULL),
+(70, '69-TRIAL-Suppository 276', '201-TRIAL- 211', '2024-04-16 08:28:32', NULL),
+(71, '183-TRIAL-Tablet, chewable 31', '237-TRIAL- 55', '2024-04-16 08:28:32', NULL),
+(72, '67-TRIAL-Tablet, coated 291', '125-TRIAL- 166', '2024-04-16 08:28:32', NULL),
+(73, '178-TRIAL-Tablet, controlled release / extended release / modified release / prolonged release / slow release / sustained release 122', '8-TRIAL- 265', '2024-04-16 08:28:32', NULL),
+(74, '252-TRIAL-Tablet, repetab 17', '156-TRIAL- 94', '2024-04-16 08:28:32', NULL),
+(75, '74-TRIAL-Tablet, dispersible 200', '155-TRIAL- 131', '2024-04-16 08:28:32', NULL),
+(76, '11-TRIAL-Tablet, effervescent 183', '50-TRIAL- 175', '2024-04-16 08:28:32', NULL),
+(77, '112-TRIAL-Tablet, delayed release / enteric coated / gastro-resistant 294', '148-TRIAL- 52', '2024-04-16 08:28:32', NULL),
+(78, '136-TRIAL-Tablet, film coated 88', '126-TRIAL- 233', '2024-04-16 08:28:32', NULL),
+(79, '148-TRIAL-Tablet, microgranules 96', '185-TRIAL- 296', '2024-04-16 08:28:32', NULL),
+(80, '6-TRIAL-Tablet, lyophilised / freeze-dried 115', '212-TRIAL- 226', '2024-04-16 08:28:32', NULL),
+(81, '276-TRIAL-Tablet, sugar coated 102', '184-TRIAL- 214', '2024-04-16 08:28:32', NULL),
+(82, '211-TRIAL-Tablet, orally disintegrating / mouth dissolving / orodispersible 187', '89-TRIAL- 152', '2024-04-16 08:28:32', NULL),
+(83, '25-TRIAL-Vaginal delivery system 209', '95-TRIAL- 147', '2024-04-16 08:28:32', NULL),
+(84, '104-TRIAL-Volatile liquid 165', '162-TRIAL- 24', '2024-04-16 08:28:32', NULL),
+(85, '176-TRIAL-Water, for injection / for irrigation 142', '281-TRIAL- 168', '2024-04-16 08:28:32', NULL);
+
+--
+-- Triggers `dosageform`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DosageForm` AFTER DELETE ON `dosageform` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DosageForm';						SET @pk_d = CONCAT('<DosageFormId>',OLD.`DosageFormId`,'</DosageFormId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DosageForm` AFTER INSERT ON `dosageform` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DosageForm'; 						SET @pk_d = CONCAT('<DosageFormId>',NEW.`DosageFormId`,'</DosageFormId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DosageForm` AFTER UPDATE ON `dosageform` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DosageForm';						SET @pk_d_old = CONCAT('<DosageFormId>',OLD.`DosageFormId`,'</DosageFormId>');						SET @pk_d = CONCAT('<DosageFormId>',NEW.`DosageFormId`,'</DosageFormId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2259,6 +2628,29 @@ CREATE TABLE `dosageformmapping` (
   `DosageId` int(11) NOT NULL,
   `DosageFormId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `dosageformmapping`
+--
+
+INSERT INTO `dosageformmapping` (`DosageFormMappingId`, `DosageId`, `DosageFormId`) VALUES
+(1, 2, 1);
+
+--
+-- Triggers `dosageformmapping`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DosageFormMapping` AFTER DELETE ON `dosageformmapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DosageFormMapping';						SET @pk_d = CONCAT('<DosageFormMappingId>',OLD.`DosageFormMappingId`,'</DosageFormMappingId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DosageFormMapping` AFTER INSERT ON `dosageformmapping` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DosageFormMapping'; 						SET @pk_d = CONCAT('<DosageFormMappingId>',NEW.`DosageFormMappingId`,'</DosageFormMappingId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DosageFormMapping` AFTER UPDATE ON `dosageformmapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DosageFormMapping';						SET @pk_d_old = CONCAT('<DosageFormMappingId>',OLD.`DosageFormMappingId`,'</DosageFormMappingId>');						SET @pk_d = CONCAT('<DosageFormMappingId>',NEW.`DosageFormMappingId`,'</DosageFormMappingId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2313,6 +2705,34 @@ CREATE TABLE `drug` (
   `CurrencyForeign` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `drug`
+--
+
+INSERT INTO `drug` (`DrugID`, `DrugName`, `ManufacturerID`, `RegistrationNumber`, `GTIN`, `Notes`, `Description`, `IngredientAndStrength`, `Indication`, `Posology`, `MethodOfAdministration`, `Contraindications`, `PrecautionForUse`, `EffectOnFGN`, `SideEffect`, `Toxicity`, `StorageCondition`, `ShelfLife`, `IngredientLabel`, `Price`, `ImagesPath`, `ImageDefault`, `InteractionIngredientName`, `IsDouanes`, `RegistrationDate`, `PublicPrice`, `SubsidyLabel`, `SubsidyPercentage`, `HospPricing`, `Substitutable`, `CreatedBy`, `CreatedDate`, `UpdatedBy`, `UpdatedDate`, `OtherIngredients`, `ATCRelatedIngredient`, `ReviewDate`, `MoPHCode`, `CargoShippingTerms`, `ProductType`, `NotMarketed`, `DFSequence`, `PriceForeign`, `CurrencyForeign`) VALUES
+(1003, 'Panadol', 1, '123-456', '12345678999943', 'Sample notes', 'Sample description 22', 'Ingredient and strength details', 'Indication details', 'Posology details', 'Method of administration details', 'Contraindications details', 'Precaution for use details', 'Effect on FGN details', 'Side effect details', 'Toxicity details', 'Storage condition details', 'Shelf life details', 'Ingredient label details', '15.990000', 'Path to images', 1, 'Interaction ingredient name', 0, '2022-01-01', '12.990000', 'Subsidy label', '0.100000', 1, 1, '{D4D05329-BF55-4969-86D4-B3F43EE85EB6}', NULL, '{EB73273C-E126-4AEB-87B5-3C0BAFAAFC2B}', NULL, 'Other ingredients details', 'ATC related ingredient details', '2023-01-01', '123456', 'CIF', 'Product type details', 0, 'DF sequence details', '85.990000', '{4F4C77B2-994C-4348-9D28-1EB12E31AFFF}'),
+(1007, 'Zoloft', 1, '123-456-789', '2342342342342', 'zoloft note test', 'desc1', 'erosasf', 'dfsfasf', 'ewrwfsdf', 'sdfdfasf', 'sdfsdfs', 'sdfdfsd', 'sdfsdf', 'strinsdfsdfg', 'sdfSDF', 'SDFDFGDFG', 'TYRTY', 'DFSDF', '8.000000', 'string', 1, 'DFGDFG', 1, '2024-03-20', '11.000000', 'DFGDG', '0.000000', 1, 1, '{680286EA-359E-4D38-89B6-731A3B8B75D9}', '2024-03-20', '{B60669CB-0633-46E8-BBFA-FE67212BAE45}', '2024-03-20', 'SDFSDF', 'SDFSDF', '2024-03-20', 'DFGDFG', 'SDFSF', 'SDFSDF', 1, 'DFGDFG', '8.000000', '{FEFBE499-9467-4B2A-997C-5629144E83CA}'),
+(1008, 'Advil', 1, '111', '11111111111111', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-03-20', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-03-20', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-02-29', 'string', 'string', '2024-03-20', 'string', 'string', 'string', 1, 'string', '55.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
+(1009, 'Nexium', 1, '111', '11111111111111', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '234234.000000', 'string', 1, 'string', 1, '2024-03-20', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-03-20', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-02-29', 'string', 'string', '2024-03-20', 'string', 'string', 'string', 1, 'string', '2342340.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
+(1016, 'EFFERALGAN', 1, '27717', 'string', 'string', 'string', 'Paracetamol', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-04-22', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', 'string', 'string', '2024-04-22', '196', 'string', 'B', 1, '1', '0.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
+(1017, 'ADOL', 1, '7884598', 'string', 'string', 'string', 'Paracetamol', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-04-22', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', 'string', 'string', '2024-04-22', '3436', 'string', 'B', 1, '12', '0.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}');
+
+--
+-- Triggers `drug`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Drug` AFTER DELETE ON `drug` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Drug';						SET @pk_d = CONCAT('<DrugID>',OLD.`DrugID`,'</DrugID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Drug` AFTER INSERT ON `drug` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Drug'; 						SET @pk_d = CONCAT('<DrugID>',NEW.`DrugID`,'</DrugID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Drug` AFTER UPDATE ON `drug` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Drug';						SET @pk_d_old = CONCAT('<DrugID>',OLD.`DrugID`,'</DrugID>');						SET @pk_d = CONCAT('<DrugID>',NEW.`DrugID`,'</DrugID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2323,6 +2743,22 @@ CREATE TABLE `drugbrands` (
   `DrugId` int(11) NOT NULL,
   `BrandId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `drugbrands`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_drugBrands` AFTER DELETE ON `drugbrands` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'drugBrands';						SET @pk_d = CONCAT('<DrugId>',OLD.`DrugId`,'</DrugId>','<BrandId>',OLD.`BrandId`,'</BrandId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_drugBrands` AFTER INSERT ON `drugbrands` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'drugBrands'; 						SET @pk_d = CONCAT('<DrugId>',NEW.`DrugId`,'</DrugId>','<BrandId>',NEW.`BrandId`,'</BrandId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_drugBrands` AFTER UPDATE ON `drugbrands` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'drugBrands';						SET @pk_d_old = CONCAT('<DrugId>',OLD.`DrugId`,'</DrugId>','<BrandId>',OLD.`BrandId`,'</BrandId>');						SET @pk_d = CONCAT('<DrugId>',NEW.`DrugId`,'</DrugId>','<BrandId>',NEW.`BrandId`,'</BrandId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2335,6 +2771,22 @@ CREATE TABLE `drugdispensingconditions` (
   `DispensingConditionsID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `drugdispensingconditions`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugDispensingConditions` AFTER DELETE ON `drugdispensingconditions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugDispensingConditions';						SET @pk_d = CONCAT('<DrugID>',OLD.`DrugID`,'</DrugID>','<DispensingConditionsID>',OLD.`DispensingConditionsID`,'</DispensingConditionsID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugDispensingConditions` AFTER INSERT ON `drugdispensingconditions` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugDispensingConditions'; 						SET @pk_d = CONCAT('<DrugID>',NEW.`DrugID`,'</DrugID>','<DispensingConditionsID>',NEW.`DispensingConditionsID`,'</DispensingConditionsID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugDispensingConditions` AFTER UPDATE ON `drugdispensingconditions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugDispensingConditions';						SET @pk_d_old = CONCAT('<DrugID>',OLD.`DrugID`,'</DrugID>','<DispensingConditionsID>',OLD.`DispensingConditionsID`,'</DispensingConditionsID>');						SET @pk_d = CONCAT('<DrugID>',NEW.`DrugID`,'</DrugID>','<DispensingConditionsID>',NEW.`DispensingConditionsID`,'</DispensingConditionsID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2346,6 +2798,22 @@ CREATE TABLE `drugform` (
   `DrugId` int(11) NOT NULL,
   `FormId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `drugform`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugForm` AFTER DELETE ON `drugform` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugForm';						SET @pk_d = CONCAT('<DrugFormId>',OLD.`DrugFormId`,'</DrugFormId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugForm` AFTER INSERT ON `drugform` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugForm'; 						SET @pk_d = CONCAT('<DrugFormId>',NEW.`DrugFormId`,'</DrugFormId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugForm` AFTER UPDATE ON `drugform` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugForm';						SET @pk_d_old = CONCAT('<DrugFormId>',OLD.`DrugFormId`,'</DrugFormId>');						SET @pk_d = CONCAT('<DrugFormId>',NEW.`DrugFormId`,'</DrugFormId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2366,6 +2834,22 @@ CREATE TABLE `drugimage` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `drugimage`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugImage` AFTER DELETE ON `drugimage` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugImage';						SET @pk_d = CONCAT('<ImageId>',OLD.`ImageId`,'</ImageId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugImage` AFTER INSERT ON `drugimage` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugImage'; 						SET @pk_d = CONCAT('<ImageId>',NEW.`ImageId`,'</ImageId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugImage` AFTER UPDATE ON `drugimage` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugImage';						SET @pk_d_old = CONCAT('<ImageId>',OLD.`ImageId`,'</ImageId>');						SET @pk_d = CONCAT('<ImageId>',NEW.`ImageId`,'</ImageId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2378,6 +2862,22 @@ CREATE TABLE `druginteraction` (
   `Interaction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `druginteraction`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugInteraction` AFTER DELETE ON `druginteraction` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugInteraction';						SET @pk_d = CONCAT('<DrugInteractionID>',OLD.`DrugInteractionID`,'</DrugInteractionID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugInteraction` AFTER INSERT ON `druginteraction` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugInteraction'; 						SET @pk_d = CONCAT('<DrugInteractionID>',NEW.`DrugInteractionID`,'</DrugInteractionID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugInteraction` AFTER UPDATE ON `druginteraction` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugInteraction';						SET @pk_d_old = CONCAT('<DrugInteractionID>',OLD.`DrugInteractionID`,'</DrugInteractionID>');						SET @pk_d = CONCAT('<DrugInteractionID>',NEW.`DrugInteractionID`,'</DrugInteractionID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2389,6 +2889,22 @@ CREATE TABLE `druginteractions` (
   `DrugID` int(11) DEFAULT NULL,
   `Interaction` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `druginteractions`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugInteractions` AFTER DELETE ON `druginteractions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugInteractions';						SET @pk_d = CONCAT('<DrugInteractionID>',OLD.`DrugInteractionID`,'</DrugInteractionID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugInteractions` AFTER INSERT ON `druginteractions` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugInteractions'; 						SET @pk_d = CONCAT('<DrugInteractionID>',NEW.`DrugInteractionID`,'</DrugInteractionID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugInteractions` AFTER UPDATE ON `druginteractions` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugInteractions';						SET @pk_d_old = CONCAT('<DrugInteractionID>',OLD.`DrugInteractionID`,'</DrugInteractionID>');						SET @pk_d = CONCAT('<DrugInteractionID>',NEW.`DrugInteractionID`,'</DrugInteractionID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2412,6 +2928,22 @@ CREATE TABLE `druglabel` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `druglabel`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugLabel` AFTER DELETE ON `druglabel` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugLabel';						SET @pk_d = CONCAT('<LabelId>',OLD.`LabelId`,'</LabelId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugLabel` AFTER INSERT ON `druglabel` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugLabel'; 						SET @pk_d = CONCAT('<LabelId>',NEW.`LabelId`,'</LabelId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugLabel` AFTER UPDATE ON `druglabel` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugLabel';						SET @pk_d_old = CONCAT('<LabelId>',OLD.`LabelId`,'</LabelId>');						SET @pk_d = CONCAT('<LabelId>',NEW.`LabelId`,'</LabelId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2430,6 +2962,29 @@ CREATE TABLE `drugpresentation` (
   `UpdatedDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `drugpresentation`
+--
+
+INSERT INTO `drugpresentation` (`PresentationId`, `DrugId`, `Amount`, `UnitId`, `TypeId`, `PackageType`, `PackageAmount`, `CreatedDate`, `UpdatedDate`) VALUES
+(1, 1003, '12.000', 1, 24, 'tablet', '2.000', '2024-04-30 07:58:17', NULL);
+
+--
+-- Triggers `drugpresentation`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugPresentation` AFTER DELETE ON `drugpresentation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugPresentation';						SET @pk_d = CONCAT('<PresentationId>',OLD.`PresentationId`,'</PresentationId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugPresentation` AFTER INSERT ON `drugpresentation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugPresentation'; 						SET @pk_d = CONCAT('<PresentationId>',NEW.`PresentationId`,'</PresentationId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugPresentation` AFTER UPDATE ON `drugpresentation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugPresentation';						SET @pk_d_old = CONCAT('<PresentationId>',OLD.`PresentationId`,'</PresentationId>');						SET @pk_d = CONCAT('<PresentationId>',NEW.`PresentationId`,'</PresentationId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2443,6 +2998,29 @@ CREATE TABLE `drugroute` (
   `CreatedDate` datetime NOT NULL DEFAULT '1753-01-01 00:00:00',
   `UpdatedDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `drugroute`
+--
+
+INSERT INTO `drugroute` (`DrugRouteId`, `DrugId`, `RouteId`, `CreatedDate`, `UpdatedDate`) VALUES
+(3, 1003, 1, '2024-04-30 07:33:24', NULL);
+
+--
+-- Triggers `drugroute`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugRoute` AFTER DELETE ON `drugroute` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugRoute';						SET @pk_d = CONCAT('<DrugRouteId>',OLD.`DrugRouteId`,'</DrugRouteId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugRoute` AFTER INSERT ON `drugroute` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugRoute'; 						SET @pk_d = CONCAT('<DrugRouteId>',NEW.`DrugRouteId`,'</DrugRouteId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugRoute` AFTER UPDATE ON `drugroute` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugRoute';						SET @pk_d_old = CONCAT('<DrugRouteId>',OLD.`DrugRouteId`,'</DrugRouteId>');						SET @pk_d = CONCAT('<DrugRouteId>',NEW.`DrugRouteId`,'</DrugRouteId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2458,6 +3036,29 @@ CREATE TABLE `drugstratum` (
   `UpdatedDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `drugstratum`
+--
+
+INSERT INTO `drugstratum` (`DrugStratumId`, `DrugId`, `StratumTypeId`, `CreatedDate`, `UpdatedDate`) VALUES
+(1, 1003, 1, '2024-04-30 09:11:41', NULL);
+
+--
+-- Triggers `drugstratum`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugStratum` AFTER DELETE ON `drugstratum` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugStratum';						SET @pk_d = CONCAT('<DrugStratumId>',OLD.`DrugStratumId`,'</DrugStratumId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugStratum` AFTER INSERT ON `drugstratum` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugStratum'; 						SET @pk_d = CONCAT('<DrugStratumId>',NEW.`DrugStratumId`,'</DrugStratumId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugStratum` AFTER UPDATE ON `drugstratum` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugStratum';						SET @pk_d_old = CONCAT('<DrugStratumId>',OLD.`DrugStratumId`,'</DrugStratumId>');						SET @pk_d = CONCAT('<DrugStratumId>',NEW.`DrugStratumId`,'</DrugStratumId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2472,6 +3073,22 @@ CREATE TABLE `drugtreatment` (
   `UpdatedDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `drugtreatment`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_DrugTreatment` AFTER DELETE ON `drugtreatment` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugTreatment';						SET @pk_d = CONCAT('<DrugTreatmentId>',OLD.`DrugTreatmentId`,'</DrugTreatmentId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_DrugTreatment` AFTER INSERT ON `drugtreatment` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'DrugTreatment'; 						SET @pk_d = CONCAT('<DrugTreatmentId>',NEW.`DrugTreatmentId`,'</DrugTreatmentId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_DrugTreatment` AFTER UPDATE ON `drugtreatment` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'DrugTreatment';						SET @pk_d_old = CONCAT('<DrugTreatmentId>',OLD.`DrugTreatmentId`,'</DrugTreatmentId>');						SET @pk_d = CONCAT('<DrugTreatmentId>',NEW.`DrugTreatmentId`,'</DrugTreatmentId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2483,6 +3100,31 @@ CREATE TABLE `drug_atc_mapping` (
   `DrugID` int(11) DEFAULT NULL,
   `ATC_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `drug_atc_mapping`
+--
+
+INSERT INTO `drug_atc_mapping` (`MappingID`, `DrugID`, `ATC_ID`) VALUES
+(7, 1016, 5169),
+(8, 1003, 5169),
+(9, 1017, 5169);
+
+--
+-- Triggers `drug_atc_mapping`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Drug_ATC_Mapping` AFTER DELETE ON `drug_atc_mapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Drug_ATC_Mapping';						SET @pk_d = CONCAT('<MappingID>',OLD.`MappingID`,'</MappingID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Drug_ATC_Mapping` AFTER INSERT ON `drug_atc_mapping` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Drug_ATC_Mapping'; 						SET @pk_d = CONCAT('<MappingID>',NEW.`MappingID`,'</MappingID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Drug_ATC_Mapping` AFTER UPDATE ON `drug_atc_mapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Drug_ATC_Mapping';						SET @pk_d_old = CONCAT('<MappingID>',OLD.`MappingID`,'</MappingID>');						SET @pk_d = CONCAT('<MappingID>',NEW.`MappingID`,'</MappingID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2501,6 +3143,22 @@ CREATE TABLE `form` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `form`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Form` AFTER DELETE ON `form` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Form';						SET @pk_d = CONCAT('<FormId>',OLD.`FormId`,'</FormId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Form` AFTER INSERT ON `form` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Form'; 						SET @pk_d = CONCAT('<FormId>',NEW.`FormId`,'</FormId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Form` AFTER UPDATE ON `form` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Form';						SET @pk_d_old = CONCAT('<FormId>',OLD.`FormId`,'</FormId>');						SET @pk_d = CONCAT('<FormId>',NEW.`FormId`,'</FormId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2517,6 +3175,22 @@ CREATE TABLE `formparent` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `formparent`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_FormParent` AFTER DELETE ON `formparent` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'FormParent';						SET @pk_d = CONCAT('<FormParentId>',OLD.`FormParentId`,'</FormParentId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_FormParent` AFTER INSERT ON `formparent` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'FormParent'; 						SET @pk_d = CONCAT('<FormParentId>',NEW.`FormParentId`,'</FormParentId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_FormParent` AFTER UPDATE ON `formparent` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'FormParent';						SET @pk_d_old = CONCAT('<FormParentId>',OLD.`FormParentId`,'</FormParentId>');						SET @pk_d = CONCAT('<FormParentId>',NEW.`FormParentId`,'</FormParentId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2527,6 +3201,22 @@ CREATE TABLE `governoratedistrictmapping` (
   `GovernorateId` int(11) NOT NULL,
   `DistrictId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `governoratedistrictmapping`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_GovernorateDistrictMapping` AFTER DELETE ON `governoratedistrictmapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'GovernorateDistrictMapping';						SET @pk_d = CONCAT('<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>','<DistrictId>',OLD.`DistrictId`,'</DistrictId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_GovernorateDistrictMapping` AFTER INSERT ON `governoratedistrictmapping` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'GovernorateDistrictMapping'; 						SET @pk_d = CONCAT('<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>','<DistrictId>',NEW.`DistrictId`,'</DistrictId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_GovernorateDistrictMapping` AFTER UPDATE ON `governoratedistrictmapping` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'GovernorateDistrictMapping';						SET @pk_d_old = CONCAT('<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>','<DistrictId>',OLD.`DistrictId`,'</DistrictId>');						SET @pk_d = CONCAT('<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>','<DistrictId>',NEW.`DistrictId`,'</DistrictId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2544,6 +3234,36 @@ CREATE TABLE `governorates` (
   `UpdatedDate` datetime DEFAULT NULL,
   `CreatedBy` char(38) DEFAULT NULL,
   `UpdatedBy` char(38) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `governorates`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Governorates` AFTER DELETE ON `governorates` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Governorates';						SET @pk_d = CONCAT('<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Governorates` AFTER INSERT ON `governorates` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Governorates'; 						SET @pk_d = CONCAT('<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Governorates` AFTER UPDATE ON `governorates` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Governorates';						SET @pk_d_old = CONCAT('<GovernorateId>',OLD.`GovernorateId`,'</GovernorateId>');						SET @pk_d = CONCAT('<GovernorateId>',NEW.`GovernorateId`,'</GovernorateId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history_store`
+--
+
+CREATE TABLE `history_store` (
+  `timemark` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `table_name` tinytext NOT NULL,
+  `pk_date_src` text NOT NULL,
+  `pk_date_dest` text NOT NULL,
+  `record_state` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -2566,6 +3286,22 @@ CREATE TABLE `hospital` (
 INSERT INTO `hospital` (`hospitalName`, `categoryType`, `isPrivate`, `ID`) VALUES
 ('Hospital 1', 'first', 0, 1),
 ('Hospital 2', 'second', 1, 2);
+
+--
+-- Triggers `hospital`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Hospital` AFTER DELETE ON `hospital` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Hospital';						SET @pk_d = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Hospital` AFTER INSERT ON `hospital` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Hospital'; 						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Hospital` AFTER UPDATE ON `hospital` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Hospital';						SET @pk_d_old = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2599,6 +3335,22 @@ CREATE TABLE `importation` (
   `Source` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `importation`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Importation` AFTER DELETE ON `importation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Importation';						SET @pk_d = CONCAT('<ImportationID>',OLD.`ImportationID`,'</ImportationID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Importation` AFTER INSERT ON `importation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Importation'; 						SET @pk_d = CONCAT('<ImportationID>',NEW.`ImportationID`,'</ImportationID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Importation` AFTER UPDATE ON `importation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Importation';						SET @pk_d_old = CONCAT('<ImportationID>',OLD.`ImportationID`,'</ImportationID>');						SET @pk_d = CONCAT('<ImportationID>',NEW.`ImportationID`,'</ImportationID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2612,6 +3364,22 @@ CREATE TABLE `inventory` (
   `Location` varchar(255) DEFAULT NULL,
   `ExpirationDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `inventory`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Inventory` AFTER DELETE ON `inventory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Inventory';						SET @pk_d = CONCAT('<InventoryID>',OLD.`InventoryID`,'</InventoryID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Inventory` AFTER INSERT ON `inventory` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Inventory'; 						SET @pk_d = CONCAT('<InventoryID>',NEW.`InventoryID`,'</InventoryID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Inventory` AFTER UPDATE ON `inventory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Inventory';						SET @pk_d_old = CONCAT('<InventoryID>',OLD.`InventoryID`,'</InventoryID>');						SET @pk_d = CONCAT('<InventoryID>',NEW.`InventoryID`,'</InventoryID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2634,6 +3402,22 @@ CREATE TABLE `operation` (
 INSERT INTO `operation` (`ID`, `Name`, `Code`, `System`, `Description`) VALUES
 (1, 'Operation 1', NULL, NULL, NULL),
 (2, 'Operation 2', NULL, NULL, NULL);
+
+--
+-- Triggers `operation`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_operation` AFTER DELETE ON `operation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'operation';						SET @pk_d = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_operation` AFTER INSERT ON `operation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'operation'; 						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_operation` AFTER UPDATE ON `operation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'operation';						SET @pk_d_old = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2677,6 +3461,22 @@ CREATE TABLE `patients` (
   `IsActive` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `patients`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Patients` AFTER DELETE ON `patients` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Patients';						SET @pk_d = CONCAT('<PatientId>',OLD.`PatientId`,'</PatientId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Patients` AFTER INSERT ON `patients` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Patients'; 						SET @pk_d = CONCAT('<PatientId>',NEW.`PatientId`,'</PatientId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Patients` AFTER UPDATE ON `patients` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Patients';						SET @pk_d_old = CONCAT('<PatientId>',OLD.`PatientId`,'</PatientId>');						SET @pk_d = CONCAT('<PatientId>',NEW.`PatientId`,'</PatientId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2691,6 +3491,22 @@ CREATE TABLE `pharmacy` (
   `IsClerk` tinyint(1) DEFAULT NULL,
   `PharmacyParentId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `pharmacy`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Pharmacy` AFTER DELETE ON `pharmacy` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Pharmacy';						SET @pk_d = CONCAT('<PharmacyId>',OLD.`PharmacyId`,'</PharmacyId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Pharmacy` AFTER INSERT ON `pharmacy` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Pharmacy'; 						SET @pk_d = CONCAT('<PharmacyId>',NEW.`PharmacyId`,'</PharmacyId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Pharmacy` AFTER UPDATE ON `pharmacy` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Pharmacy';						SET @pk_d_old = CONCAT('<PharmacyId>',OLD.`PharmacyId`,'</PharmacyId>');						SET @pk_d = CONCAT('<PharmacyId>',NEW.`PharmacyId`,'</PharmacyId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2708,6 +3524,22 @@ CREATE TABLE `prescription` (
   `PrescriptionDate` date DEFAULT NULL,
   `IsDigital` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `prescription`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Prescription` AFTER DELETE ON `prescription` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Prescription';						SET @pk_d = CONCAT('<PrescriptionId>',OLD.`PrescriptionId`,'</PrescriptionId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Prescription` AFTER INSERT ON `prescription` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Prescription'; 						SET @pk_d = CONCAT('<PrescriptionId>',NEW.`PrescriptionId`,'</PrescriptionId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Prescription` AFTER UPDATE ON `prescription` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Prescription';						SET @pk_d_old = CONCAT('<PrescriptionId>',OLD.`PrescriptionId`,'</PrescriptionId>');						SET @pk_d = CONCAT('<PrescriptionId>',NEW.`PrescriptionId`,'</PrescriptionId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2775,6 +3607,22 @@ INSERT INTO `presentationtype` (`PresentationTypeId`, `Name`, `CreatedDate`, `Up
 (65, 'Vial', '2024-04-17 14:54:53', NULL, NULL, NULL, NULL),
 (66, 'New ', '2024-04-17 14:54:53', NULL, NULL, NULL, NULL);
 
+--
+-- Triggers `presentationtype`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_PresentationType` AFTER DELETE ON `presentationtype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PresentationType';						SET @pk_d = CONCAT('<PresentationTypeId>',OLD.`PresentationTypeId`,'</PresentationTypeId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_PresentationType` AFTER INSERT ON `presentationtype` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'PresentationType'; 						SET @pk_d = CONCAT('<PresentationTypeId>',NEW.`PresentationTypeId`,'</PresentationTypeId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_PresentationType` AFTER UPDATE ON `presentationtype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PresentationType';						SET @pk_d_old = CONCAT('<PresentationTypeId>',OLD.`PresentationTypeId`,'</PresentationTypeId>');						SET @pk_d = CONCAT('<PresentationTypeId>',NEW.`PresentationTypeId`,'</PresentationTypeId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2804,6 +3652,22 @@ INSERT INTO `presentationunit` (`PresentationUnitId`, `Name`, `CreatedDate`, `Up
 (6, 'dose', '2024-04-17 14:01:40', NULL, NULL, NULL, NULL),
 (7, 'New', '2024-04-17 14:01:40', NULL, NULL, NULL, NULL);
 
+--
+-- Triggers `presentationunit`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_PresentationUnit` AFTER DELETE ON `presentationunit` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PresentationUnit';						SET @pk_d = CONCAT('<PresentationUnitId>',OLD.`PresentationUnitId`,'</PresentationUnitId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_PresentationUnit` AFTER INSERT ON `presentationunit` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'PresentationUnit'; 						SET @pk_d = CONCAT('<PresentationUnitId>',NEW.`PresentationUnitId`,'</PresentationUnitId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_PresentationUnit` AFTER UPDATE ON `presentationunit` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PresentationUnit';						SET @pk_d_old = CONCAT('<PresentationUnitId>',OLD.`PresentationUnitId`,'</PresentationUnitId>');						SET @pk_d = CONCAT('<PresentationUnitId>',NEW.`PresentationUnitId`,'</PresentationUnitId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2816,6 +3680,22 @@ CREATE TABLE `pricehistory` (
   `Price` decimal(18,6) DEFAULT NULL,
   `EffectiveDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `pricehistory`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_PriceHistory` AFTER DELETE ON `pricehistory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PriceHistory';						SET @pk_d = CONCAT('<PriceHistoryId>',OLD.`PriceHistoryId`,'</PriceHistoryId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_PriceHistory` AFTER INSERT ON `pricehistory` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'PriceHistory'; 						SET @pk_d = CONCAT('<PriceHistoryId>',NEW.`PriceHistoryId`,'</PriceHistoryId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_PriceHistory` AFTER UPDATE ON `pricehistory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'PriceHistory';						SET @pk_d_old = CONCAT('<PriceHistoryId>',OLD.`PriceHistoryId`,'</PriceHistoryId>');						SET @pk_d = CONCAT('<PriceHistoryId>',NEW.`PriceHistoryId`,'</PriceHistoryId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2846,6 +3726,22 @@ INSERT INTO `recipient` (`RecipientId`, `RecipientName`, `RecipientType`, `Addre
 (2, 'Red Cross', 'Organisation', 'BadaroStreet', 'Beirut', 'Lebanon', 'Ziad', '54785136', 1, '2024-03-21', '2024-03-21'),
 (3, 'MOPH', 'Ministry', 'Jnah', 'Beirut', 'Lebanon', 'Colette', '01-830300', 1, '2024-03-21', '2024-03-21');
 
+--
+-- Triggers `recipient`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Recipient` AFTER DELETE ON `recipient` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Recipient';						SET @pk_d = CONCAT('<RecipientId>',OLD.`RecipientId`,'</RecipientId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Recipient` AFTER INSERT ON `recipient` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Recipient'; 						SET @pk_d = CONCAT('<RecipientId>',NEW.`RecipientId`,'</RecipientId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Recipient` AFTER UPDATE ON `recipient` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Recipient';						SET @pk_d_old = CONCAT('<RecipientId>',OLD.`RecipientId`,'</RecipientId>');						SET @pk_d = CONCAT('<RecipientId>',NEW.`RecipientId`,'</RecipientId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2856,6 +3752,22 @@ CREATE TABLE `roles` (
   `RoleId` int(11) NOT NULL,
   `RoleName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `roles`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Roles` AFTER DELETE ON `roles` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Roles';						SET @pk_d = CONCAT('<RoleId>',OLD.`RoleId`,'</RoleId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Roles` AFTER INSERT ON `roles` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Roles'; 						SET @pk_d = CONCAT('<RoleId>',NEW.`RoleId`,'</RoleId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Roles` AFTER UPDATE ON `roles` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Roles';						SET @pk_d_old = CONCAT('<RoleId>',OLD.`RoleId`,'</RoleId>');						SET @pk_d = CONCAT('<RoleId>',NEW.`RoleId`,'</RoleId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2884,6 +3796,22 @@ CREATE TABLE `route` (
 INSERT INTO `route` (`RouteId`, `Code`, `Name`, `NameAr`, `Definition`, `IsChild`, `ParentId`, `CreatedDate`, `UpdatedDate`, `CreatedBy`, `UpdatedBy`) VALUES
 (1, '1', 'Oral', 'فموي', NULL, 0, NULL, '2024-04-30 07:32:45', NULL, NULL, NULL);
 
+--
+-- Triggers `route`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Route` AFTER DELETE ON `route` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Route';						SET @pk_d = CONCAT('<RouteId>',OLD.`RouteId`,'</RouteId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Route` AFTER INSERT ON `route` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Route'; 						SET @pk_d = CONCAT('<RouteId>',NEW.`RouteId`,'</RouteId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Route` AFTER UPDATE ON `route` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Route';						SET @pk_d_old = CONCAT('<RouteId>',OLD.`RouteId`,'</RouteId>');						SET @pk_d = CONCAT('<RouteId>',NEW.`RouteId`,'</RouteId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2898,6 +3826,22 @@ CREATE TABLE `shippinginformation` (
   `ShippingDate` date DEFAULT NULL,
   `DeliveryStatus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `shippinginformation`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_ShippingInformation` AFTER DELETE ON `shippinginformation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ShippingInformation';						SET @pk_d = CONCAT('<ShippingId>',OLD.`ShippingId`,'</ShippingId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_ShippingInformation` AFTER INSERT ON `shippinginformation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'ShippingInformation'; 						SET @pk_d = CONCAT('<ShippingId>',NEW.`ShippingId`,'</ShippingId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_ShippingInformation` AFTER UPDATE ON `shippinginformation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'ShippingInformation';						SET @pk_d_old = CONCAT('<ShippingId>',OLD.`ShippingId`,'</ShippingId>');						SET @pk_d = CONCAT('<ShippingId>',NEW.`ShippingId`,'</ShippingId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2921,6 +3865,22 @@ CREATE TABLE `stratumtype` (
 
 INSERT INTO `stratumtype` (`StratumTypeId`, `Code`, `Description`, `CreatedDate`, `UpdatedDate`, `CreatedBy`, `UpdatedBy`) VALUES
 (1, 'A', '25%', '2024-04-30 09:11:14', NULL, NULL, NULL);
+
+--
+-- Triggers `stratumtype`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_StratumType` AFTER DELETE ON `stratumtype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'StratumType';						SET @pk_d = CONCAT('<StratumTypeId>',OLD.`StratumTypeId`,'</StratumTypeId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_StratumType` AFTER INSERT ON `stratumtype` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'StratumType'; 						SET @pk_d = CONCAT('<StratumTypeId>',NEW.`StratumTypeId`,'</StratumTypeId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_StratumType` AFTER UPDATE ON `stratumtype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'StratumType';						SET @pk_d_old = CONCAT('<StratumTypeId>',OLD.`StratumTypeId`,'</StratumTypeId>');						SET @pk_d = CONCAT('<StratumTypeId>',NEW.`StratumTypeId`,'</StratumTypeId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -2976,6 +3936,22 @@ INSERT INTO `strengthunit` (`id`, `value`) VALUES
 (36, 'U.CEIP/ml'),
 (37, 'units LD50');
 
+--
+-- Triggers `strengthunit`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_StrengthUnit` AFTER DELETE ON `strengthunit` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'StrengthUnit';						SET @pk_d = CONCAT('<id>',OLD.`id`,'</id>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_StrengthUnit` AFTER INSERT ON `strengthunit` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'StrengthUnit'; 						SET @pk_d = CONCAT('<id>',NEW.`id`,'</id>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_StrengthUnit` AFTER UPDATE ON `strengthunit` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'StrengthUnit';						SET @pk_d_old = CONCAT('<id>',OLD.`id`,'</id>');						SET @pk_d = CONCAT('<id>',NEW.`id`,'</id>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -2987,6 +3963,37 @@ CREATE TABLE `substitute` (
   `Drug` int(11) DEFAULT NULL,
   `Substitute` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `substitute`
+--
+
+INSERT INTO `substitute` (`SubstituteId`, `Drug`, `Substitute`) VALUES
+(1, 1003, 1007),
+(2, 1003, 1016),
+(3, 1016, 1003),
+(6, 1017, 1016),
+(7, 1016, 1017),
+(8, 1017, 1003),
+(9, 1003, 1017),
+(10, 1017, 1017),
+(11, 1017, 1017);
+
+--
+-- Triggers `substitute`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Substitute` AFTER DELETE ON `substitute` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Substitute';						SET @pk_d = CONCAT('<SubstituteId>',OLD.`SubstituteId`,'</SubstituteId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Substitute` AFTER INSERT ON `substitute` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Substitute'; 						SET @pk_d = CONCAT('<SubstituteId>',NEW.`SubstituteId`,'</SubstituteId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Substitute` AFTER UPDATE ON `substitute` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Substitute';						SET @pk_d_old = CONCAT('<SubstituteId>',OLD.`SubstituteId`,'</SubstituteId>');						SET @pk_d = CONCAT('<SubstituteId>',NEW.`SubstituteId`,'</SubstituteId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -3002,6 +4009,22 @@ CREATE TABLE `transactionhistory` (
   `Quantity` int(11) DEFAULT NULL,
   `TransactionDescription` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `transactionhistory`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_TransactionHistory` AFTER DELETE ON `transactionhistory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'TransactionHistory';						SET @pk_d = CONCAT('<TransactionId>',OLD.`TransactionId`,'</TransactionId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_TransactionHistory` AFTER INSERT ON `transactionhistory` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'TransactionHistory'; 						SET @pk_d = CONCAT('<TransactionId>',NEW.`TransactionId`,'</TransactionId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_TransactionHistory` AFTER UPDATE ON `transactionhistory` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'TransactionHistory';						SET @pk_d_old = CONCAT('<TransactionId>',OLD.`TransactionId`,'</TransactionId>');						SET @pk_d = CONCAT('<TransactionId>',NEW.`TransactionId`,'</TransactionId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -3021,6 +4044,22 @@ CREATE TABLE `treatmenttype` (
   `UpdatedBy` char(38) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `treatmenttype`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_TreatmentType` AFTER DELETE ON `treatmenttype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'TreatmentType';						SET @pk_d = CONCAT('<TreatmentTypeId>',OLD.`TreatmentTypeId`,'</TreatmentTypeId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_TreatmentType` AFTER INSERT ON `treatmenttype` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'TreatmentType'; 						SET @pk_d = CONCAT('<TreatmentTypeId>',NEW.`TreatmentTypeId`,'</TreatmentTypeId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_TreatmentType` AFTER UPDATE ON `treatmenttype` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'TreatmentType';						SET @pk_d_old = CONCAT('<TreatmentTypeId>',OLD.`TreatmentTypeId`,'</TreatmentTypeId>');						SET @pk_d = CONCAT('<TreatmentTypeId>',NEW.`TreatmentTypeId`,'</TreatmentTypeId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -3039,6 +4078,22 @@ CREATE TABLE `useraccounts` (
   `RoleId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Triggers `useraccounts`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_UserAccounts` AFTER DELETE ON `useraccounts` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'UserAccounts';						SET @pk_d = CONCAT('<UserId>',OLD.`UserId`,'</UserId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_UserAccounts` AFTER INSERT ON `useraccounts` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'UserAccounts'; 						SET @pk_d = CONCAT('<UserId>',NEW.`UserId`,'</UserId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_UserAccounts` AFTER UPDATE ON `useraccounts` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'UserAccounts';						SET @pk_d_old = CONCAT('<UserId>',OLD.`UserId`,'</UserId>');						SET @pk_d = CONCAT('<UserId>',NEW.`UserId`,'</UserId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -3052,6 +4107,22 @@ CREATE TABLE `warehouse` (
   `Capacity` int(11) DEFAULT NULL,
   `CurrentInventoryLevel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Triggers `warehouse`
+--
+DELIMITER $$
+CREATE TRIGGER `a_d_Warehouse` AFTER DELETE ON `warehouse` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Warehouse';						SET @pk_d = CONCAT('<WarehouseId>',OLD.`WarehouseId`,'</WarehouseId>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_i_Warehouse` AFTER INSERT ON `warehouse` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'Warehouse'; 						SET @pk_d = CONCAT('<WarehouseId>',NEW.`WarehouseId`,'</WarehouseId>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `a_u_Warehouse` AFTER UPDATE ON `warehouse` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'Warehouse';						SET @pk_d_old = CONCAT('<WarehouseId>',OLD.`WarehouseId`,'</WarehouseId>');						SET @pk_d = CONCAT('<WarehouseId>',NEW.`WarehouseId`,'</WarehouseId>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -3339,6 +4410,12 @@ ALTER TABLE `governorates`
   ADD KEY `FK__Governora__Count__76619304` (`CountryId`);
 
 --
+-- Indexes for table `history_store`
+--
+ALTER TABLE `history_store`
+  ADD PRIMARY KEY (`table_name`(85),`pk_date_dest`(85));
+
+--
 -- Indexes for table `hospital`
 --
 ALTER TABLE `hospital`
@@ -3498,7 +4575,7 @@ ALTER TABLE `warehouse`
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `AgentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `AgentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `alertsnotifications`
@@ -3522,7 +4599,7 @@ ALTER TABLE `audittrail`
 -- AUTO_INCREMENT for table `batchlottracking`
 --
 ALTER TABLE `batchlottracking`
-  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `batchserialnumber`
@@ -3600,7 +4677,7 @@ ALTER TABLE `donor`
 -- AUTO_INCREMENT for table `dosage`
 --
 ALTER TABLE `dosage`
-  MODIFY `DosageId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DosageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `dosageform`
@@ -3612,13 +4689,13 @@ ALTER TABLE `dosageform`
 -- AUTO_INCREMENT for table `dosageformmapping`
 --
 ALTER TABLE `dosageformmapping`
-  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `drug`
 --
 ALTER TABLE `drug`
-  MODIFY `DrugID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DrugID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1018;
 
 --
 -- AUTO_INCREMENT for table `drugform`
@@ -3654,19 +4731,19 @@ ALTER TABLE `druglabel`
 -- AUTO_INCREMENT for table `drugpresentation`
 --
 ALTER TABLE `drugpresentation`
-  MODIFY `PresentationId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PresentationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `drugroute`
 --
 ALTER TABLE `drugroute`
-  MODIFY `DrugRouteId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DrugRouteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `drugstratum`
 --
 ALTER TABLE `drugstratum`
-  MODIFY `DrugStratumId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DrugStratumId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `drugtreatment`
@@ -3678,7 +4755,7 @@ ALTER TABLE `drugtreatment`
 -- AUTO_INCREMENT for table `drug_atc_mapping`
 --
 ALTER TABLE `drug_atc_mapping`
-  MODIFY `MappingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MappingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `form`
@@ -3786,7 +4863,7 @@ ALTER TABLE `strengthunit`
 -- AUTO_INCREMENT for table `substitute`
 --
 ALTER TABLE `substitute`
-  MODIFY `SubstituteId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SubstituteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `transactionhistory`
