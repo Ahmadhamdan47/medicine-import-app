@@ -35,7 +35,7 @@ const Donor = sequelize.define('Donor', {
         type: DataTypes.DATE
     }
 }, {
-    tableName: 'Donor',
+    tableName: 'donor',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

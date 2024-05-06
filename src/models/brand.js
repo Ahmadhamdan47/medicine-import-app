@@ -12,7 +12,7 @@ const Brand = sequelize.define('Brand', {
         allowNull: false
     }
 }, {
-    tableName: 'Brands',
+    tableName: 'brands',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

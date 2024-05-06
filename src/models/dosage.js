@@ -39,7 +39,7 @@ const Dosage = sequelize.define('Dosage', {
         }
     }
 }, {
-    tableName: 'Dosage',
+    tableName: 'dosage',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

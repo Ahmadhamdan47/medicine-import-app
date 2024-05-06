@@ -40,7 +40,7 @@ const Patient = sequelize.define('Patient', {
         allowNull: true
     }
 }, {
-    tableName: 'Patients',
+    tableName: 'patients',
     timestamps: false
 });
 

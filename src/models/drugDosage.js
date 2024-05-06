@@ -26,7 +26,7 @@ const DrugDosage = sequelize.define('DrugDosage', {
         }
     }
 }, {
-    tableName: 'DrugDosage',
+    tableName: 'drugdosage',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

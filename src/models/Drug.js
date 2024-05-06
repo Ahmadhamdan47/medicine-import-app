@@ -138,7 +138,7 @@ const NewDrug = sequelize.define('Drug', {
         type: DataTypes.UUID
     }
 }, {
-    tableName: 'Drug',
+    tableName: 'drug',
     timestamps: false
 });
 

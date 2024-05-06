@@ -44,7 +44,7 @@ const DrugImage = sequelize.define('DrugImage', {
         type: DataTypes.UUID
     }
 }, {
-    tableName: 'DrugImage',
+    tableName: 'drugimage',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

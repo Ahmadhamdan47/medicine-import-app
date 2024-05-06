@@ -22,7 +22,7 @@ const Drug_ATC_Mapping = sequelize.define('Drug_ATC_Mapping', {
         }
     }
 }, {
-    tableName: 'Drug_ATC_Mapping',
+    tableName: 'drug_atc_mapping',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

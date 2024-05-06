@@ -42,7 +42,7 @@ const Form = sequelize.define('Form', {
         allowNull: true
     }
 }, {
-    tableName: 'Form',
+    tableName: 'form',
     timestamps: false
 });
 

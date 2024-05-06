@@ -25,7 +25,7 @@ const PriceHistory = sequelize.define('PriceHistory', {
         allowNull: true
     }
 }, {
-    tableName: 'PriceHistory',
+    tableName: 'pricehistory',
     timestamps: false
 });
 

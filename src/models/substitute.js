@@ -25,7 +25,7 @@ const Substitute = sequelize.define('Substitute', {
         }
     }
 }, {
-    tableName: 'Substitute',
+    tableName: 'substitute',
     timestamps: false
 });
 

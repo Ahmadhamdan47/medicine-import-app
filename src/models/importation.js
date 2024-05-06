@@ -29,7 +29,7 @@ const Importation = sequelize.define('Importation', {
         allowNull: true
     }
 }, {
-    tableName: 'Importation',
+    tableName: 'importation',
     timestamps: false
 });
 

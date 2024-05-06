@@ -33,7 +33,7 @@ const FormParent = sequelize.define('FormParent', {
         allowNull: true
     }
 }, {
-    tableName: 'FormParent',
+    tableName: 'formparent',
     timestamps: false
 });
 

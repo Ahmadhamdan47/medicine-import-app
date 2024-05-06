@@ -26,7 +26,7 @@ const OperationShare = sequelize.define('OperationShare', {
 }, {
   sequelize,
   modelName: 'OperationShare',
-  tableName: 'OperationShare',
+  tableName: 'operationshare',
 });
 
 module.exports = OperationShare;

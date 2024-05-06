@@ -47,7 +47,7 @@ const RFI = sequelize.define('RFI', {
         allowNull: true,
     },
 }, {
-    tableName: 'RFI',
+    tableName: 'rfi',
     timestamps: false,
 });
 

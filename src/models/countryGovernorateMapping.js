@@ -19,7 +19,7 @@ const CountryGovernorateMapping = sequelize.define('CountryGovernorateMapping', 
         }
     }
 }, {
-    tableName: 'CountryGovernorateMapping',
+    tableName: 'countrygovernoratemapping',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

@@ -19,7 +19,7 @@ const GovernorateDistrictMapping = sequelize.define('GovernorateDistrictMapping'
         }
     }
 }, {
-    tableName: 'GovernorateDistrictMapping',
+    tableName: 'governoratedistrictmapping',
     timestamps: false
 });
 

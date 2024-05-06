@@ -34,7 +34,7 @@ const DrugTreatment = sequelize.define('DrugTreatment', {
         type: DataTypes.DATE
     }
 }, {
-    tableName: 'DrugTreatment',
+    tableName: 'drugtreatment',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

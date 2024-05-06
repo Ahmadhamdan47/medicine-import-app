@@ -32,7 +32,7 @@ const AgentStock = sequelize.define('AgentStock', {
     }
 }, {
     // Specify the table name for the model
-    tableName: 'AgentStocks',
+    tableName: 'agentStocks',
 });
 
 // Export the AgentStock model

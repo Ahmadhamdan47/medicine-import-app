@@ -35,7 +35,7 @@ const Order = sequelize.define('Order', {
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     }
 }, {
-    tableName: 'Orders',
+    tableName: 'orders',
     timestamps: true,
 });
 

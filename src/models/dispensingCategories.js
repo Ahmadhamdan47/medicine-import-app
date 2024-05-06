@@ -12,7 +12,7 @@ const DispensingConditions = sequelize.define('DispensingConditions', {
         allowNull: false
     }
 }, {
-    tableName: 'DispensingConditions',
+    tableName: 'dispensingconditions',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

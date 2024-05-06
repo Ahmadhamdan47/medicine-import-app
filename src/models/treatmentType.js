@@ -41,7 +41,7 @@ const TreatmentType = sequelize.define('TreatmentType', {
         allowNull: true
     }
 }, {
-    tableName: 'TreatmentType',
+    tableName: 'treatmenttype',
     timestamps: false
 });
 

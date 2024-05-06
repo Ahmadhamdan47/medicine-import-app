@@ -19,7 +19,7 @@ const DrugDispensingConditions = sequelize.define('DrugDispensingConditions', {
         }
     }
 }, {
-    tableName: 'DrugDispensingConditions',
+    tableName: 'drugdispensingconditions',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

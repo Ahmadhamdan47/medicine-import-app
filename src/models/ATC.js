@@ -28,7 +28,7 @@ const ATC_Code = sequelize.define('ATC_Code', {
         }
     }
 }, {
-    tableName: 'ATC_Code',
+    tableName: 'atc_code',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

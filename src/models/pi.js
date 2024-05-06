@@ -34,7 +34,7 @@ const PI = sequelize.define('PI', {
         allowNull: true,
     }
 }, {
-    tableName: 'PI',
+    tableName: 'pi',
 });
 
 module.exports = PI;

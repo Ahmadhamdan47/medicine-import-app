@@ -35,7 +35,7 @@ const PresentationType = sequelize.define('PresentationType', {
 }, 
 },
 {
-    tableName: 'PresentationType',
+    tableName: 'presentationtype',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

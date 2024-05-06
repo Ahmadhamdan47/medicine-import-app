@@ -45,7 +45,7 @@ const District = sequelize.define('District', {
         allowNull: true
     }
 }, {
-    tableName: 'Districts',
+    tableName: 'districts',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 

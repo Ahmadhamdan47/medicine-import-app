@@ -19,7 +19,7 @@ const DistrictCityMapping = sequelize.define('DistrictCityMapping', {
         }
     }
 }, {
-    tableName: 'DistrictCityMapping',
+    tableName: 'districtcitymapping',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
 
