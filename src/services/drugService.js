@@ -20,6 +20,7 @@ const PresentationType = require('../models/presentationType');
 const DrugPresentation = require('../models/drugPresentation');
 const StratumType = require('../models/stratumType');
 const DrugStratum = require('../models/drugStratum');
+const Fuse = require('fuse.js');
 const searchDrugByATCName = async (query) => {
   try {
     const drugs = await Drug.findAll({
@@ -179,57 +180,18 @@ const getAllDrugs = async () => {
 
 const smartSearch = async (query) => {
   try {
-    console.log("Query:", query); // Log the query
+    const drugs = await Drug.findAll();
 
-    const drugs = await Drug.findAll({
-      where: {
-        [Op.or]: [
-          { DrugName: { [Op.like]: `%${query}%` } },
-          { ATCRelatedIngredient: { [Op.like]: `%${query}%` } },
-        ],
-      },
-    });
+    const options = {
+      keys: ['DrugName', 'ATCRelatedIngredient'],
+      includeScore: true,
+      threshold: 0.3  // Adjust this value to change the sensitivity of the search
+    };
 
-    console.log("Drugs found:", drugs); // Log the drugs found
+    const fuse = new Fuse(drugs, options);
+    const results = fuse.search(query);
 
-    const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
-      const priceInLBP = drug.Price * 90000;
-      const unitPrice = drug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
-      return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
-    }));
-
-    if (drugs.some(drug => drug.DrugName === query)) {
-      const drugId = drugs.find(drug => drug.DrugName === query).DrugID;
-
-      try {
-        const substitutes = await Substitute.findAll({
-          where: { DrugID: drugId },
-          include: Drug
-        });
-
-        console.log("Substitutes found:", substitutes); // Log the substitutes found
-
-        const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
-          const dosage = await getDosageByDrugName(substitute.DrugName);
-          const route = await getRouteByDrugName(substitute.DrugName);
-          const presentation = await getPresentationByDrugName(substitute.DrugName);
-          const priceInLBP = substitute.Price * 90000;
-          const unitPrice = substitute.Price / presentation.Amount;
-          const unitPriceInLBP = unitPrice * 90000;
-          return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
-        }));
-
-        drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
-      } catch (error) {
-        console.error("No substitutes found for drug:", error);
-      }
-    }
-
-    return drugsWithDosageAndRoute;
+    return results.map(result => result.item);
   } catch (error) {
     console.error("Error in smartSearch:", error);
     throw new Error('Error occurred in smartSearch: ' + error.message);
