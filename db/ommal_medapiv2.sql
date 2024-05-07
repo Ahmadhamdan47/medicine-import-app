@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2024 at 02:01 AM
+-- Generation Time: May 07, 2024 at 04:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -2652,7 +2652,25 @@ CREATE TABLE `dosageformmapping` (
 --
 
 INSERT INTO `dosageformmapping` (`DosageFormMappingId`, `DosageId`, `DosageFormId`) VALUES
-(1, 2, 1);
+(1, 2, 1),
+(2, 3, 80),
+(3, 4, 80),
+(4, 5, 80),
+(5, 6, 80),
+(6, 7, 80),
+(7, 8, 80),
+(8, 9, 80),
+(9, 10, 80),
+(10, 11, 80),
+(11, 12, 80),
+(12, 13, 80),
+(13, 14, 80),
+(14, 15, 80),
+(15, 16, 80),
+(16, 17, 80),
+(17, 18, 80),
+(18, 19, 80),
+(19, 20, 80);
 
 --
 -- Triggers `dosageformmapping`
@@ -2734,24 +2752,24 @@ INSERT INTO `drug` (`DrugID`, `DrugName`, `ManufacturerID`, `RegistrationNumber`
 (1009, 'Nexium', 1, '111', '11111111111111', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '234234.000000', 'string', 1, 'string', 1, '2024-03-20', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-03-20', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-02-29', 'string', 'string', '2024-03-20', 'string', 'string', 'string', 1, 'string', '2342340.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
 (1016, 'EFFERALGAN', 1, '27717', 'string', 'string', 'string', 'Paracetamol', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-04-22', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', 'string', 'string', '2024-04-22', '196', 'string', 'B', 1, '1', '0.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
 (1017, 'ADOL', 1, '7884598', 'string', 'string', 'string', 'Paracetamol', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-04-22', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', 'string', 'string', '2024-04-22', '3436', 'string', 'B', 1, '12', '0.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
-(1018, 'Albuterol Inhaler', 1, 'DRX-123456', '0001234567890', NULL, 'Relief of bronchospasm in patients with reversible obstructive airway disease', 'Albuterol Sulfate 90 mcg per actuation', 'Bronchial asthma, COPD', '2 puffs every 4-6 hours as needed, not to exceed 12 puffs in 24 hours', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1020, 'Amoxicillin Capsule', 1, 'DRX-654321', '0009876543210', NULL, 'Treatment of a variety of bacterial infections', 'Amoxicillin 500mg capsule', 'Bacterial infections of the respiratory tract, skin, and urinary tract', 'Adults: 500mg every 8 hours for 7-10 days', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1021, 'Aspirin Tablet', 1, 'DRX-987654', '0001122334456', NULL, 'Pain relief and fever reduction', 'Aspirin 325mg tablet', 'Pain, fever, and inflammation', 'Adults: 325mg to 650mg every 4-6 hours as needed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1022, 'Cetirizine Tablet', 1, 'DRX-234567', '0007890123456', NULL, 'Relief of allergy symptoms', 'Cetirizine Hydrochloride 10mg tablet', 'Allergic rhinitis, hay fever', 'Adults: 10mg once daily', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1023, 'Cialis Tablet', 1, 'DRX-543210', '0003456789012', NULL, 'Treatment of erectile dysfunction', 'Tadalafil 20mg tablet', 'Erectile dysfunction', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1024, 'Claritin D Tablet', 1, 'DRX-876543', '0005678901234', NULL, 'Relief of allergy symptoms with decongestant', 'Loratadine 10mg, Pseudoephedrine 120mg tablet', 'Allergic rhinitis, hay fever', 'Adults: 1 tablet twice daily, not to exceed 4 per day', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1025, 'Fluoxetine Capsule', 1, 'DRX-109876', '0002345678901', NULL, 'Treatment of depression and obsessive-compulsive disorder', 'Fluoxetine 20mg capsule', 'Depression, OCD', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1026, 'Ibuprofen Tablet', 1, 'DRX-432109', '0008901234567', NULL, 'Pain relief and fever reduction', 'Ibuprofen 400mg tablet', 'Pain, fever, and inflammation', 'Adults: 400mg to 800mg every 4-6 hours as needed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1027, 'Lisinopril Tablet', 1, 'DRX-765432', '0006789012345', NULL, 'Treatment of high blood pressure', 'Lisinopril 20mg tablet', 'Hypertension', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1028, 'Metformin Tablet', 1, 'DRX-098765', '0004567890123', NULL, 'Treatment of type 2 diabetes mellitus', 'Metformin 500mg tablet', 'Type 2 diabetes mellitus', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1029, 'Omeprazole Capsule', 1, 'DRX-321098', '0009876543211', NULL, 'Treatment of peptic ulcers and gastroesophageal reflux disease (GERD)', 'Omeprazole 20mg capsule', 'Peptic ulcers, GERD', 'Adults: 20mg once daily', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1030, 'Prednisolone Tablet', 1, 'DRX-543219', '0007890123457', NULL, 'Treatment of a variety of inflammatory conditions', 'Prednisolone 5mg tablet', 'Autoimmune diseases, allergies, asthma', 'Adults: Dosage varies depending on the condition', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1031, 'Simvastatin Tablet', 1, 'DRX-876540', '0005678901235', NULL, 'Treatment of high cholesterol and to reduce the risk of heart disease', 'Simvastatin 20mg tablet', 'High cholesterol, heart disease prevention', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1032, 'Salbutamol Inhaler', 1, 'DRX-109875', '0002345678902', NULL, 'Relief of bronchospasm in patients with asthma or COPD', 'Salbutamol 100 mcg per actuation', 'Asthma, COPD', 'Adults and children: As needed for shortness of breath', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1033, 'Thyroxine Tablet', 1, 'DRX-210987', '0008901234568', NULL, 'Replacement therapy for low thyroid hormone levels', 'Levothyroxine sodium (Thyroxine) various mg tablets', 'Hypothyroidism', 'Adults: Dosage varies depending on individual needs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1034, 'Tramadol Capsule', 1, 'DRX-432108', '0006789012346', NULL, 'Treatment of moderate to severe pain', 'Tramadol hydrochloride 50mg capsule', 'Pain management', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1035, 'Zoloft Capsule', 1, 'DRX-543217', '0004567890124', NULL, 'Treatment of depression and anxiety disorders', 'Sertraline hydrochloride (Zoloft) various mg capsules', 'Depression, anxiety', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1036, 'Azithromycin Tablet', 1, 'DRX-765431', '0002345678903', NULL, 'Treatment of a variety of bacterial infections', 'Azithromycin 250mg tablet', 'Bacterial infections of the respiratory tract, skin, and others', 'Adults: Dosage varies depending on the infection', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1018, 'Albuterol Inhaler', 1, 'DRX-123456', '0001234567890', NULL, 'Relief of bronchospasm in patients with reversible obstructive airway disease', 'Albuterol Sulfate 90 mcg per actuation', 'Bronchial asthma, COPD', '2 puffs every 4-6 hours as needed, not to exceed 12 puffs in 24 hours', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1020, 'Amoxicillin Capsule', 1, 'DRX-654321', '0009876543210', NULL, 'Treatment of a variety of bacterial infections', 'Amoxicillin 500mg capsule', 'Bacterial infections of the respiratory tract, skin, and urinary tract', 'Adults: 500mg every 8 hours for 7-10 days', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1021, 'Aspirin Tablet', 1, 'DRX-987654', '0001122334456', NULL, 'Pain relief and fever reduction', 'Aspirin 325mg tablet', 'Pain, fever, and inflammation', 'Adults: 325mg to 650mg every 4-6 hours as needed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imglondon-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1022, 'Cetirizine Tablet', 1, 'DRX-234567', '0007890123456', NULL, 'Relief of allergy symptoms', 'Cetirizine Hydrochloride 10mg tablet', 'Allergic rhinitis, hay fever', 'Adults: 10mg once daily', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1023, 'Cialis Tablet', 1, 'DRX-543210', '0003456789012', NULL, 'Treatment of erectile dysfunction', 'Tadalafil 20mg tablet', 'Erectile dysfunction', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1024, 'Claritin D Tablet', 1, 'DRX-876543', '0005678901234', NULL, 'Relief of allergy symptoms with decongestant', 'Loratadine 10mg, Pseudoephedrine 120mg tablet', 'Allergic rhinitis, hay fever', 'Adults: 1 tablet twice daily, not to exceed 4 per day', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imglondon-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1025, 'Fluoxetine Capsule', 1, 'DRX-109876', '0002345678901', NULL, 'Treatment of depression and obsessive-compulsive disorder', 'Fluoxetine 20mg capsule', 'Depression, OCD', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1026, 'Ibuprofen Tablet', 1, 'DRX-432109', '0008901234567', NULL, 'Pain relief and fever reduction', 'Ibuprofen 400mg tablet', 'Pain, fever, and inflammation', 'Adults: 400mg to 800mg every 4-6 hours as needed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1027, 'Lisinopril Tablet', 1, 'DRX-765432', '0006789012345', NULL, 'Treatment of high blood pressure', 'Lisinopril 20mg tablet', 'Hypertension', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imglondon-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1028, 'Metformin Tablet', 1, 'DRX-098765', '0004567890123', NULL, 'Treatment of type 2 diabetes mellitus', 'Metformin 500mg tablet', 'Type 2 diabetes mellitus', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1029, 'Omeprazole Capsule', 1, 'DRX-321098', '0009876543211', NULL, 'Treatment of peptic ulcers and gastroesophageal reflux disease (GERD)', 'Omeprazole 20mg capsule', 'Peptic ulcers, GERD', 'Adults: 20mg once daily', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1030, 'Prednisolone Tablet', 1, 'DRX-543219', '0007890123457', NULL, 'Treatment of a variety of inflammatory conditions', 'Prednisolone 5mg tablet', 'Autoimmune diseases, allergies, asthma', 'Adults: Dosage varies depending on the condition', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imglondon-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1031, 'Simvastatin Tablet', 1, 'DRX-876540', '0005678901235', NULL, 'Treatment of high cholesterol and to reduce the risk of heart disease', 'Simvastatin 20mg tablet', 'High cholesterol, heart disease prevention', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1032, 'Salbutamol Inhaler', 1, 'DRX-109875', '0002345678902', NULL, 'Relief of bronchospasm in patients with asthma or COPD', 'Salbutamol 100 mcg per actuation', 'Asthma, COPD', 'Adults and children: As needed for shortness of breath', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1033, 'Thyroxine Tablet', 1, 'DRX-210987', '0008901234568', NULL, 'Replacement therapy for low thyroid hormone levels', 'Levothyroxine sodium (Thyroxine) various mg tablets', 'Hypothyroidism', 'Adults: Dosage varies depending on individual needs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imglondon-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1034, 'Tramadol Capsule', 1, 'DRX-432108', '0006789012346', NULL, 'Treatment of moderate to severe pain', 'Tramadol hydrochloride 50mg capsule', 'Pain management', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'img\\47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1035, 'Zoloft Capsule', 1, 'DRX-543217', '0004567890124', NULL, 'Treatment of depression and anxiety disorders', 'Sertraline hydrochloride (Zoloft) various mg capsules', 'Depression, anxiety', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'imgimages.jpeg', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1036, 'Azithromycin Tablet', 1, 'DRX-765431', '0002345678903', NULL, 'Treatment of a variety of bacterial infections', 'Azithromycin 250mg tablet', 'Bacterial infections of the respiratory tract, skin, and others', 'Adults: Dosage varies depending on the infection', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Triggers `drug`
@@ -3401,24 +3419,42 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>7</DosageId>', '<DosageId>7</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>8</DosageId>', '<DosageId>8</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>9</DosageId>', '<DosageId>9</DosageId>', 1),
-('2024-05-06 23:59:32', 'Drug', '<DrugID>1018</DrugID>', '<DrugID>1018</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1020</DrugID>', '<DrugID>1020</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1021</DrugID>', '<DrugID>1021</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1022</DrugID>', '<DrugID>1022</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1023</DrugID>', '<DrugID>1023</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1024</DrugID>', '<DrugID>1024</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1025</DrugID>', '<DrugID>1025</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1026</DrugID>', '<DrugID>1026</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1027</DrugID>', '<DrugID>1027</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1028</DrugID>', '<DrugID>1028</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1029</DrugID>', '<DrugID>1029</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1030</DrugID>', '<DrugID>1030</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1031</DrugID>', '<DrugID>1031</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1032</DrugID>', '<DrugID>1032</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1033</DrugID>', '<DrugID>1033</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1034</DrugID>', '<DrugID>1034</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1035</DrugID>', '<DrugID>1035</DrugID>', 1),
-('2024-05-07 00:00:15', 'Drug', '<DrugID>1036</DrugID>', '<DrugID>1036</DrugID>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>10</DosageFormMappingId>', '<DosageFormMappingId>10</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>11</DosageFormMappingId>', '<DosageFormMappingId>11</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>12</DosageFormMappingId>', '<DosageFormMappingId>12</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>13</DosageFormMappingId>', '<DosageFormMappingId>13</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>14</DosageFormMappingId>', '<DosageFormMappingId>14</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>15</DosageFormMappingId>', '<DosageFormMappingId>15</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>16</DosageFormMappingId>', '<DosageFormMappingId>16</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>17</DosageFormMappingId>', '<DosageFormMappingId>17</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>18</DosageFormMappingId>', '<DosageFormMappingId>18</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>19</DosageFormMappingId>', '<DosageFormMappingId>19</DosageFormMappingId>', 1),
+('2024-05-07 14:05:57', 'DosageFormMapping', '<DosageFormMappingId>2</DosageFormMappingId>', '<DosageFormMappingId>2</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>3</DosageFormMappingId>', '<DosageFormMappingId>3</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>4</DosageFormMappingId>', '<DosageFormMappingId>4</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>5</DosageFormMappingId>', '<DosageFormMappingId>5</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>6</DosageFormMappingId>', '<DosageFormMappingId>6</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>7</DosageFormMappingId>', '<DosageFormMappingId>7</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>8</DosageFormMappingId>', '<DosageFormMappingId>8</DosageFormMappingId>', 1),
+('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>9</DosageFormMappingId>', '<DosageFormMappingId>9</DosageFormMappingId>', 1),
+('2024-05-07 14:13:16', 'Drug', '<DrugID>1018</DrugID>', '<DrugID>1018</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1020</DrugID>', '<DrugID>1020</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1021</DrugID>', '<DrugID>1021</DrugID>', 1),
+('2024-05-07 14:13:16', 'Drug', '<DrugID>1022</DrugID>', '<DrugID>1022</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1023</DrugID>', '<DrugID>1023</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1024</DrugID>', '<DrugID>1024</DrugID>', 1),
+('2024-05-07 14:13:16', 'Drug', '<DrugID>1025</DrugID>', '<DrugID>1025</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1026</DrugID>', '<DrugID>1026</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1027</DrugID>', '<DrugID>1027</DrugID>', 1),
+('2024-05-07 14:13:16', 'Drug', '<DrugID>1028</DrugID>', '<DrugID>1028</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1029</DrugID>', '<DrugID>1029</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1030</DrugID>', '<DrugID>1030</DrugID>', 1),
+('2024-05-07 14:13:16', 'Drug', '<DrugID>1031</DrugID>', '<DrugID>1031</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1032</DrugID>', '<DrugID>1032</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1033</DrugID>', '<DrugID>1033</DrugID>', 1),
+('2024-05-07 14:12:02', 'Drug', '<DrugID>1034</DrugID>', '<DrugID>1034</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1035</DrugID>', '<DrugID>1035</DrugID>', 1),
+('2024-05-07 14:21:53', 'Drug', '<DrugID>1036</DrugID>', '<DrugID>1036</DrugID>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>10</PresentationId>', '<PresentationId>10</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>11</PresentationId>', '<PresentationId>11</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>12</PresentationId>', '<PresentationId>12</PresentationId>', 1),
@@ -3493,7 +3529,22 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>27</MappingID>', '<MappingID>27</MappingID>', 1),
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>28</MappingID>', '<MappingID>28</MappingID>', 1),
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>29</MappingID>', '<MappingID>29</MappingID>', 1),
-('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>30</MappingID>', '<MappingID>30</MappingID>', 1);
+('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>30</MappingID>', '<MappingID>30</MappingID>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>12</SubstituteId>', '<SubstituteId>12</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>13</SubstituteId>', '<SubstituteId>13</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>14</SubstituteId>', '<SubstituteId>14</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>15</SubstituteId>', '<SubstituteId>15</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>16</SubstituteId>', '<SubstituteId>16</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>17</SubstituteId>', '<SubstituteId>17</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>18</SubstituteId>', '<SubstituteId>18</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>19</SubstituteId>', '<SubstituteId>19</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>20</SubstituteId>', '<SubstituteId>20</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>21</SubstituteId>', '<SubstituteId>21</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>22</SubstituteId>', '<SubstituteId>22</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>23</SubstituteId>', '<SubstituteId>23</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>24</SubstituteId>', '<SubstituteId>24</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>25</SubstituteId>', '<SubstituteId>25</SubstituteId>', 1),
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>26</SubstituteId>', '<SubstituteId>26</SubstituteId>', 1);
 
 -- --------------------------------------------------------
 
@@ -4206,7 +4257,22 @@ INSERT INTO `substitute` (`SubstituteId`, `Drug`, `Substitute`) VALUES
 (8, 1017, 1003),
 (9, 1003, 1017),
 (10, 1017, 1017),
-(11, 1017, 1017);
+(11, 1017, 1017),
+(12, 1018, 1020),
+(13, 1020, 1018),
+(14, 1018, 1021),
+(15, 1021, 1018),
+(16, 1018, 1022),
+(17, 1022, 1018),
+(18, 1018, 1023),
+(19, 1023, 1018),
+(20, 1018, 1024),
+(21, 1024, 1018),
+(22, 1025, 1018),
+(23, 1018, 1025),
+(24, 1018, 1026),
+(25, 1027, 1028),
+(26, 1028, 1027);
 
 --
 -- Triggers `substitute`
@@ -4918,7 +4984,7 @@ ALTER TABLE `dosageform`
 -- AUTO_INCREMENT for table `dosageformmapping`
 --
 ALTER TABLE `dosageformmapping`
-  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `drug`
@@ -5092,7 +5158,7 @@ ALTER TABLE `strengthunit`
 -- AUTO_INCREMENT for table `substitute`
 --
 ALTER TABLE `substitute`
-  MODIFY `SubstituteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `SubstituteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `transactionhistory`
