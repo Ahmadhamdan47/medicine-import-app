@@ -3,7 +3,7 @@ const Donation = require("../models/donation");
 const Donor = require("../models/donor");
 const Recipient = require("../models/recipient");
 const Drug = require("../models/drug");
-const BatchLotTracking = require("../models/batchlot");
+const BatchLotTracking = require("../models/BatchLot");
 
 /**
  * Asynchronously creates a new donation in the database based on the provided donation data.
