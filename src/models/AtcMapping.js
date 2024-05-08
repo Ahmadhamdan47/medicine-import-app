@@ -10,14 +10,14 @@ const Drug_ATC_Mapping = sequelize.define('drug_atc_mapping', {
     DrugID: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'Drug',
+            model: 'drug',
             key: 'DrugID'
         }
     },
     ATC_ID: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'ATC_Code',
+            model: 'atc',
             key: 'ATC_ID'
         }
     }
