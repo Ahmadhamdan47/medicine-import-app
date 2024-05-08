@@ -59,7 +59,7 @@ const sequelize = require("../../config/databasePharmacy");
 const BatchLotTracking = require('./BatchLot');
 
 const Donation = sequelize.define(
-  "Donation",
+  "donation",
   {
     DonationId: {
       type: DataTypes.INTEGER,

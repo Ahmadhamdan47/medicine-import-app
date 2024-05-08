@@ -85,12 +85,14 @@ const getDrugById = async (DrugID) => {
     const dosage = await getDosageByDrugId(DrugID);
     const route = await getRouteByDrugId(DrugID);
     const presentation = await getPresentationByDrugId(DrugID);
+    const ATC = await ATCService.getATCByDrugID(DrugID);
     const priceInLBP = drug.Price * 90000;
     const unitPrice = drug.Price / presentation.Amount;
     const unitPriceInLBP = unitPrice * 90000;
+    const stratum = await getStratumByDrugId(DrugID);
     const imagesPath = drug.imagesPath;
 
-    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath};
+    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath,ATC,stratum};
     return allDrugData;
   } catch (error) {
     throw new Error("Error in drugService: " + error.message);
@@ -432,12 +434,12 @@ const getStratumByDrugId = async (DrugID) => {
     }
 
     // Get the stratumTypeId from the drugStratum
-    const { stratumTypeId } = drugStratum;
+    const { StratumTypeId } = drugStratum;
 
     // Get the stratumCode from the StratumType table
     const stratumType = await StratumType.findOne({
       where: {
-        id: stratumTypeId,
+        stratumTypeId: StratumTypeId,
       },
     });
 

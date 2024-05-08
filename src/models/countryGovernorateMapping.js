@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const CountryGovernorateMapping = sequelize.define('CountryGovernorateMapping', {
+const CountryGovernorateMapping = sequelize.define('countrygovernorateMapping', {
     CountryId: {
         type: DataTypes.INTEGER,
         primaryKey: true,

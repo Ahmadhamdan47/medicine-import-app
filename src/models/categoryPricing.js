@@ -3,7 +3,7 @@ const sequelize = require('../../config/databasePharmacy');
 const Operation = require('./operation');
 
 
-const CategoryPricing = sequelize.define('CategoryPricing', {
+const CategoryPricing = sequelize.define('categorypricing', {
   OperationId: {
     type: DataTypes.INTEGER,
     primaryKey: true,

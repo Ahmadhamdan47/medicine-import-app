@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const StratumType = sequelize.define('StratumType', {
+const StratumType = sequelize.define('stratumType', {
     StratumTypeId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

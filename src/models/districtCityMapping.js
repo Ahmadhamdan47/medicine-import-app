@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const DistrictCityMapping = sequelize.define('DistrictCityMapping', {
+const DistrictCityMapping = sequelize.define('districtcitymapping', {
     DistrictId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
