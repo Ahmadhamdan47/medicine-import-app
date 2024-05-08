@@ -56,7 +56,6 @@
 
 const { DataTypes } = require("sequelize");
 const sequelize = require("../../config/databasePharmacy");
-const BatchLotTracking = require('./batchlot');
 
 const Donation = sequelize.define(
   "donation",
