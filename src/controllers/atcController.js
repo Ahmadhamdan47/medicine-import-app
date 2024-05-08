@@ -4,7 +4,7 @@ const ATCService = require('../services/atcService');
 
 const getATCByDrugID = async (req, res) => {
     try {
-        const atcCode = await ATCService.getATCByDrugID(req.params.drugID);
+        const atcCode = await ATCService.getATCByDrugID(req.params.DrugID);
         res.json(atcCode);
     } catch (error) {
         res.status(500).json({ message: error.message });
