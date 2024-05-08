@@ -88,10 +88,9 @@ const getDrugById = async (DrugID) => {
     const priceInLBP = drug.Price * 90000;
     const unitPrice = drug.Price / presentation.Amount;
     const unitPriceInLBP = unitPrice * 90000;
-    const Stratum= await getStratumByDrugId(DrugID);
     const imagesPath = drug.imagesPath;
 
-    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,Stratum,imagesPath};
+    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath};
     return allDrugData;
   } catch (error) {
     throw new Error("Error in drugService: " + error.message);
