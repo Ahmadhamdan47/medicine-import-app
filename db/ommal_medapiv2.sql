@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 06:18 AM
+-- Generation Time: May 08, 2024 at 08:34 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -1165,10 +1165,11 @@ CREATE TABLE `categorypricing` (
 --
 
 INSERT INTO `categorypricing` (`OperationId`, `CategoryType`, `isPrivate`, `FirstProcedurePrice`, `FirstSurgeon`, `FirstAnesthist`, `FirstConsultant`, `SecondProcedurePrice`, `SecondSurgeon`, `SecondAnesthist`, `SecondConsultant`, `TotalAmount`) VALUES
-(1, 'first', 0, 100, 200, 300, 400, 500, 600, 700, 800, 900),
+(1, 'First', 0, 100, 200, 300, 400, 500, 600, 700, 800, 900),
 (2, 'second', 1, 110, 210, 310, 410, 510, 610, 710, 810, 910),
-(1, 'first', 0, 100, 200, 300, 400, 500, 600, 700, 800, 900),
-(2, 'second', 1, 110, 210, 310, 410, 510, 610, 710, 810, 910);
+(1, 'First', 0, 100, 200, 300, 400, 500, 600, 700, 800, 900),
+(2, 'second', 1, 110, 210, 310, 410, 510, 610, 710, 810, 910),
+(1, 'First', 1, 200, 250, 400, 100, 299, 300, 400, 400, 2500);
 
 -- --------------------------------------------------------
 
@@ -3544,7 +3545,9 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>23</SubstituteId>', '<SubstituteId>23</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>24</SubstituteId>', '<SubstituteId>24</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>25</SubstituteId>', '<SubstituteId>25</SubstituteId>', 1),
-('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>26</SubstituteId>', '<SubstituteId>26</SubstituteId>', 1);
+('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>26</SubstituteId>', '<SubstituteId>26</SubstituteId>', 1),
+('2024-05-08 04:28:33', 'operation', '<ID>1</ID>', '<ID>1</ID>', 2),
+('2024-05-08 05:22:47', 'operation', '<ID>2</ID>', '<ID>2</ID>', 2);
 
 -- --------------------------------------------------------
 
@@ -3680,8 +3683,8 @@ CREATE TABLE `operation` (
 --
 
 INSERT INTO `operation` (`ID`, `Name`, `Code`, `System`, `Description`) VALUES
-(1, 'Operation 1', NULL, NULL, NULL),
-(2, 'Operation 2', NULL, NULL, NULL);
+(1, 'Operation 1', '4102', 'CardioVascular', NULL),
+(2, 'Operation 2', '3340', 'Digestive', NULL);
 
 --
 -- Triggers `operation`

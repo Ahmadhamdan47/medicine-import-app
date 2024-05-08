@@ -132,4 +132,8 @@ router.get('/operation/hospital/:hospitalName', hospitalizationController.search
  *               $ref: '#/components/schemas/Operation'
  */
 router.get('/operation/:operationId', hospitalizationController.getOperationById);
+router.get('/operations/:id/pricing/private', hospitalizationController.getCategoryPricingByOperationIdPrivate);
+router.get('/operations/:id/pricing/public', hospitalizationController.getCategoryPricingByOperationIdPublic);
+router.get('/private/:id', hospitalizationController.getOperationShareByOperationIdPrivate);
+router.get('/public/:id', hospitalizationController.getOperationShareByOperationIdPublic);
 module.exports = router;
