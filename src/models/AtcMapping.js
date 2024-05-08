@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const drug = require('./drug');
 
 const Drug_ATC_Mapping = sequelize.define('drug_atc_mapping', {
     MappingID: {
@@ -10,7 +11,7 @@ const Drug_ATC_Mapping = sequelize.define('drug_atc_mapping', {
     DrugID: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'drug',
+            model: drug,
             key: 'DrugID'
         }
     },
