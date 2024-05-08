@@ -188,7 +188,7 @@ const smartSearch = async (query) => {
     const drugs = await Drug.findAll();
 
     const options = {
-      keys: ['DrugName', 'ATCRelatedIngredient'],
+      keys: ['DrugName', 'ATCRelatedIngredient','GTIN'],
       includeScore: true,
       threshold: 0.3,  // Adjust this value to change the sensitivity of the search
       isCaseSensitive: false
@@ -196,6 +196,12 @@ const smartSearch = async (query) => {
 
     const fuse = new Fuse(drugs, options);
     const results = fuse.search(query);
+
+    let drugId;
+    if (results.some(result => result.item.DrugName === query || result.item.GTIN === query)) {
+      const drug = results.find(result => result.item.DrugName === query || result.item.GTIN === query);
+      drugId = drug.item.DrugID;
+    }
 
     const drugsWithDosageAndRoute = await Promise.all(results.map(async (result) => {
       const drug = result.item;
@@ -209,9 +215,7 @@ const smartSearch = async (query) => {
       return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath };
     }));
 
-    if (results.some(result => result.item.DrugName === query)) {
-      const drugId = results.find(result => result.item.DrugName === query).item.DrugID;
-
+    if (drugId) {
       try {
         const substitutes = await Substitute.findAll({
           where: { DrugID: drugId },
