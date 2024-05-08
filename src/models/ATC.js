@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
 
-const ATC_Code = sequelize.define('ATC_Code', {
+const ATC_Code = sequelize.define('atc_code', {
     ATC_ID: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

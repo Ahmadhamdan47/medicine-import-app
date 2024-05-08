@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const DiseaseCategoryATC = sequelize.define('DiseaseCategoryATC', {
+const DiseaseCategoryATC = sequelize.define('diseasecategoryatc', {
     MappingId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

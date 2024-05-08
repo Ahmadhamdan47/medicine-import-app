@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const District = sequelize.define('District', {
+const District = sequelize.define('district', {
     DistrictId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -48,5 +48,4 @@ const District = sequelize.define('District', {
     tableName: 'districts',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
 });
-
-module.exports = District;@
+module.exports = District;

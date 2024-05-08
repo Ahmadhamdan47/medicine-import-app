@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const AuditTrail = sequelize.define('AuditTrail', {
+const AuditTrail = sequelize.define('audittrail', {
     AuditTrailId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

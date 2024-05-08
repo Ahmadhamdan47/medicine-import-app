@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const Agent = sequelize.define('Agent', {
+const Agent = sequelize.define('agent', {
     AgentID: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

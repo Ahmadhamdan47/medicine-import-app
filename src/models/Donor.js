@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const Donor = sequelize.define('Donor', {
+const Donor = sequelize.define('donor', {
     DonorId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

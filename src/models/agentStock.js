@@ -8,7 +8,7 @@ const sequelize = require('../../config/database');
 const RFD = require('./rfd');
 
 // Define a new model named 'AgentStock' using the sequelize.define method
-const AgentStock = sequelize.define('AgentStock', {
+const AgentStock = sequelize.define('agentStocks', {
     // Define an 'id' field of type INTEGER, which is the primary key and auto-increments
     id: {
         type: DataTypes.INTEGER,

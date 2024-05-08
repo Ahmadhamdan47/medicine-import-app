@@ -3,7 +3,7 @@ const sequelize = require('../../config/databasePharmacy');
 const Drug = require('./drug');
 const StratumType = require('./stratumType');
 
-const DrugStratum = sequelize.define('DrugStratum', {
+const DrugStratum = sequelize.define('drugstratum', {
     DrugStratumId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

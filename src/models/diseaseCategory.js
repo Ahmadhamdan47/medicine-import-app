@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-const DiseaseCategory = sequelize.define('DiseaseCategory', {
+const DiseaseCategory = sequelize.define('diseasecategory', {
     DiseaseCategoryId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
