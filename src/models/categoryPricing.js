@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Operation = require('./operation');
-const { PrimaryKey } = require('sequelize-typescript');
+
 
 const CategoryPricing = sequelize.define('CategoryPricing', {
   OperationId: {
