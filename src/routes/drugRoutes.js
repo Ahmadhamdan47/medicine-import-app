@@ -4,7 +4,7 @@ const router = express.Router();
 const drugController = require("../controllers/drugController");
 /**
  * @swagger
- * /drugs/search/ATCName/{query}:
+ * /drugs/search/atc/{query}:
  *   get:
  *     summary: Search drugs by ATC name
  *     description: Retrieve drugs and their details matching the specified ATC name.
@@ -114,7 +114,7 @@ router.get("/search/DrugName/:query", drugController.searchDrugByName);
 
 /**
  * @swagger
- * /drugs/{DrugID}:
+ * /drugs/Id/{DrugID}:
  *   get:
  *     summary: Get drug by ID
  *     description: Retrieve a drug and its details by its ID.
@@ -365,7 +365,7 @@ router.get("/all", drugController.getAllDrugs);
 
 /**
  * @swagger
- * /drugs/search/smart/{query}:
+ * /drugs/smartSearch/{query}:
  *   get:
  *     summary: Smart search for drugs
  *     description: Retrieve drugs and their details matching the specified query in either the drug name or ATC name.
