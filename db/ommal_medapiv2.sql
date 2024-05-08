@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 08:34 AM
+-- Generation Time: May 08, 2024 at 02:18 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -2439,7 +2439,8 @@ CREATE TABLE `donor` (
 INSERT INTO `donor` (`DonorId`, `DonorName`, `DonorType`, `Address`, `PhoneNumber`, `Email`, `DonorCountry`, `IsActive`, `CreatedDate`, `UpdatedDate`) VALUES
 (1, 'John Doe', 'Individual', '123 Main Street', '123-456-7890', 'john@example.com', 'USA', 1, '2024-03-19', '2024-03-19'),
 (2, 'Jane fisher', 'Individual', '456 Main Street', '123-456-7890', 'jane@example.com', 'Canada', 1, '2024-03-19', '2024-03-19'),
-(3, 'Tonai', 'Organization', 'Zgharté', '03117117', 'tonai@example.com', 'lebanon', 1, '2024-03-20', '2024-03-20');
+(3, 'Tonai', 'Organization', 'Zgharté', '03117117', 'tonai@example.com', 'lebanon', 1, '2024-03-20', '2024-03-20'),
+(4, 'Nizar Akleh', 'Company', NULL, NULL, NULL, 'France', 1, NULL, NULL);
 
 --
 -- Triggers `donor`
@@ -3402,6 +3403,7 @@ CREATE TABLE `history_store` (
 
 INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
 ('2024-05-06 23:15:30', 'Agent', '<AgentID>1</AgentID>', '<AgentID>1</AgentID>', 2),
+('2024-05-08 12:04:05', 'Donor', '<DonorId>4</DonorId>', '<DonorId>4</DonorId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>10</DosageId>', '<DosageId>10</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>11</DosageId>', '<DosageId>11</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>12</DosageId>', '<DosageId>12</DosageId>', 1),
@@ -4969,7 +4971,7 @@ ALTER TABLE `donation`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `DonorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `DonorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `dosage`
