@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const CategoryPricing = require('./categoryPricing');
+const OperationShare = require('./operationShare');
 
 const Operation = sequelize.define('Operation', {
   ID: {
@@ -21,8 +23,14 @@ const Operation = sequelize.define('Operation', {
   },
 }, {
   sequelize,
-  modelName: 'Operation',
-  tableName: 'operation',
+tableName: 'operation',
+  
 });
 
+Operation.hasMany(CategoryPricing, {
+  foreignKey: 'OperationId'
+});
+Operation.hasMany(OperationShare, {
+  foreignKey: 'OperationId'
+});
 module.exports = Operation;

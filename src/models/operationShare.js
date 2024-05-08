@@ -5,6 +5,7 @@ const Operation = require('./operation');
 const OperationShare = sequelize.define('OperationShare', {
   OperationId: {
     type: DataTypes.INTEGER,
+    primaryKey: true,
     references: {
       model: Operation,
       key: 'ID',
@@ -25,7 +26,6 @@ const OperationShare = sequelize.define('OperationShare', {
   },
 }, {
   sequelize,
-  modelName: 'OperationShare',
   tableName: 'operationshare',
 });
 

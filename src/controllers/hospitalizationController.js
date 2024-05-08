@@ -1,9 +1,9 @@
 const hospitalizationService = require('../services/hospitalizationService');
 
 const searchOperationsBySystemPrivate = async (req, res) => {
-  const system = req.params.system;
+  const System = req.params.system;
   try {
-    const operations = await hospitalizationService.searchOperationsBySystemPrivate(system);
+    const operations = await hospitalizationService.searchOperationsBySystemPrivate(System);
     res.status(200).json(operations);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -11,9 +11,9 @@ const searchOperationsBySystemPrivate = async (req, res) => {
 };
 
 const searchOperationsBySystemPublic = async (req, res) => {
-  const system = req.params.system;
+  const System = req.params.system;
   try {
-    const operations = await hospitalizationService.searchOperationsBySystemPublic(system);
+    const operations = await hospitalizationService.searchOperationsBySystemPublic(System);
     res.status(200).json(operations);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -57,7 +57,36 @@ const getOperationById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const getCategoryPricingByOperationIdPrivate = async (req, res) => {
+  const operationId = req.params.id;
+  const operation = await hospitalizationService.getCategoryPricingByOperationIdPrivate(operationId);
+  res.json(operation);
+};
 
+const getCategoryPricingByOperationIdPublic = async (req, res) => {
+  const operationId = req.params.id;
+  const operation = await hospitalizationService.getCategoryPricingByOperationIdPublic(operationId);
+  res.json(operation);
+};
+const getOperationShareByOperationIdPrivate = async (req, res, next) => {
+  try {
+    const operationId = req.params.id;
+    const operation = await hospitalizationService.getOperationShareByOperationIdPrivate(operationId);
+    res.json(operation);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getOperationShareByOperationIdPublic = async (req, res, next) => {
+  try {
+    const operationId = req.params.id;
+    const operation = await hospitalizationService.getOperationShareByOperationIdPublic(operationId);
+    res.json(operation);
+  } catch (error) {
+    next(error);
+  }
+};
 module.exports = {
   searchOperationsBySystemPrivate,
   searchOperationsBySystemPublic,
@@ -65,4 +94,8 @@ module.exports = {
   searchOperationPublic,
   searchOperationByHospitalName,
   getOperationById,
+  getCategoryPricingByOperationIdPrivate,
+  getCategoryPricingByOperationIdPublic,
+  getOperationShareByOperationIdPrivate,
+  getOperationShareByOperationIdPublic,
 };

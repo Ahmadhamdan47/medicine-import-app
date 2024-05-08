@@ -1,10 +1,12 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Operation = require('./operation');
+const { PrimaryKey } = require('sequelize-typescript');
 
 const CategoryPricing = sequelize.define('CategoryPricing', {
   OperationId: {
     type: DataTypes.INTEGER,
+    primaryKey: true,
     references: {
       model: Operation,
       key: 'ID',
@@ -48,8 +50,8 @@ const CategoryPricing = sequelize.define('CategoryPricing', {
   },
 }, {
   sequelize,
-  modelName: 'CategoryPricing',
   tableName: 'categorypricing',
 });
+
 
 module.exports = CategoryPricing;
