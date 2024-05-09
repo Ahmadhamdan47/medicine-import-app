@@ -3,7 +3,7 @@ const sequelize = require('../../config/databasePharmacy');
 const Operation = require('./operation');
 const Hospital = require('./hospital');
 
-const HospitalOperationMapping = sequelize.define('HospitalOperationMapping', {
+const HospitalOperationMapping = sequelize.define('hospitaloperationmapping', {
   OperationId: {
     type: DataTypes.INTEGER,
     references: {
@@ -20,8 +20,8 @@ const HospitalOperationMapping = sequelize.define('HospitalOperationMapping', {
   },
 }, {
   sequelize,
-  modelName: 'HospitalOperationMapping',
 tableName: 'hospitaloperationmapping',
+id:false,
 });
 
 module.exports = HospitalOperationMapping;
