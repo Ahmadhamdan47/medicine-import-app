@@ -31,101 +31,78 @@ const searchOperationsBySystemPublic = async (System) => {
   }
 
   return operations;
-};const searchOperationPrivate = async (query) => {
-  const operations= await Operation.findAll({
+};
+const searchOperationPrivate = async (query) => {
+  console.log(query);
+  const operations = await Operation.findAll({
     where: {
       [Op.or]: [
         { Code: query },
         { Name: query }
       ]
     },
-    attributes: ['Name', 'Description', 'Code'],
-    include: [
-      {
-        model: categoryPricing,
-        where: { isPrivate: true },
-        attributes: ['CategoryType', 'TotalAmount'],      
-    },
-      {
-        model: OperationShare,
-        where: { isPrivate: true },
-        attributes: ['Category1', 'Category2', 'Category3'],
-      },
-    ],
+    attributes: ['ID', 'Name', 'Description', 'Code'],
   });
-  operations.forEach(operation => {
-    operation.OperationShares.forEach(share => {
-      share.dataValues.shareAmount = share.Category1 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category2 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category3 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-    });
-  });
+
+  for (let operation of operations) {
+    operation.dataValues.categoryPricing = await getCategoryPricingByOperationIdPrivate(operation.ID);
+    operation.dataValues.operationShare = await getOperationShareByOperationIdPrivate(operation.ID);
+  }
+
   return operations;
 };
 
 const searchOperationPublic = async (query) => {
-  const operations= await Operation.findAll({
+  const operations = await Operation.findAll({
     where: {
       [Op.or]: [
         { Code: query },
         { Name: query }
       ]
     },
-    attributes: ['Name', 'Description', 'Code'],
-    include: [
-      {
-        model: categoryPricing,
-        where: { isPrivate: false },
-        attributes: ['CategoryType', 'TotalAmount'],      },
-      {
-        model: OperationShare,
-        where: { isPrivate: false },
-        attributes: ['Category1', 'Category2', 'Category3'],
-      },
-    ],
+    attributes: ['ID', 'Name', 'Description', 'Code'],
   });
-  operations.forEach(operation => {
-    operation.OperationShares.forEach(share => {
-      share.dataValues.shareAmount = share.Category1 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category2 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category3 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-    });
-  });
+
+  for (let operation of operations) {
+    operation.dataValues.categoryPricing = await getCategoryPricingByOperationIdPublic(operation.ID);
+    operation.dataValues.operationShare = await getOperationShareByOperationIdPublic(operation.ID);
+  }
+
   return operations;
 };
-
 const searchOperationByHospitalName = async (hospitalName) => {
   const hospital = await Hospital.findOne({ where: { hospitalName } });
   if (!hospital) {
     throw new Error(`Hospital with name ${hospitalName} not found`);
   }
-
+ const hospitalId = hospital.ID;
+ console.log(hospitalId);
   const operations = await Operation.findAll({
     include: [
       {
-        model: categoryPricing,
-        attributes: ['CategoryType', 'TotalAmount'],
-        group: ['OperationId']
-      },
-      {
-        model: OperationShare,
-        attributes: ['Category1', 'Category2', 'Category3'],
-      },
-      {
         model: HospitalOperationMapping,
-        where: { HospitalId: hospital.ID },
-        attributes: [],
+        required:true,
+        where: { hospitalId },
+// This line disables the inclusion of the join table's attributes
       },
     ],
   });
 
-  operations.forEach(operation => {
-    operation.OperationShares.forEach(share => {
-      share.dataValues.shareAmount = share.Category1 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category2 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-      share.dataValues.shareAmount = share.Category3 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
+  for (let operation of operations) {
+    if (hospital.isPrivate) {
+      operation.dataValues.categoryPricing = await getCategoryPricingByOperationIdPrivate(operation.ID);
+      operation.dataValues.operationShare = await getOperationShareByOperationIdPrivate(operation.ID);
+    } else {
+      operation.dataValues.categoryPricing = await getCategoryPricingByOperationIdPublic(operation.ID);
+      operation.dataValues.operationShare = await getOperationShareByOperationIdPublic(operation.ID);
+    }
+
+    operation.dataValues.operationShare.forEach(share => {
+      share.dataValues.shareAmount = share.Category1 * operation.dataValues.categoryPricing.TotalAmount / 100;
+      share.dataValues.shareAmount = share.Category2 * operation.dataValues.categoryPricing.TotalAmount / 100;
+      share.dataValues.shareAmount = share.Category3 * operation.dataValues.categoryPricing.TotalAmount / 100;
     });
-  });
+  }
 
   return operations;
 };
@@ -135,11 +112,23 @@ const getOperationById = async (operationId) => {
     attributes: ['Name', 'Description', 'Code'],
     include: [
       {
-        model: categoryPricing,
-        attributes: { exclude: ['ID'] }
+        model: CategoryPricing,
+        where: { isPrivate: true },
+        attributes: ['CategoryType', 'TotalAmount'],
+      },
+      {
+        model: CategoryPricing,
+        where: { isPrivate: false },
+        attributes: ['CategoryType', 'TotalAmount'],
       },
       {
         model: OperationShare,
+        where: { isPrivate: true },
+        attributes: ['Category1', 'Category2', 'Category3'],
+      },
+      {
+        model: OperationShare,
+        where: { isPrivate: false },
         attributes: ['Category1', 'Category2', 'Category3'],
       },
     ],
@@ -149,11 +138,6 @@ const getOperationById = async (operationId) => {
     throw new Error(`Operation with ID ${operationId} not found`);
   }
 
-  operation.OperationShares.forEach(share => {
-    share.dataValues.shareAmount = share.Category1 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-    share.dataValues.shareAmount = share.Category2 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-    share.dataValues.shareAmount = share.Category3 * operation.OperationPricings[0].dataValues.TotalAmount / 100;
-  });
 
   return operation;
 };
@@ -186,7 +170,7 @@ const getCategoryPricingByOperationIdPublic = async (operationId) => {
     where: { id: operationId },
     include: [
       {
-        model: categoryPricing,
+        model: CategoryPricing, // Use the model name directly
         where: { isPrivate: false },
         attributes: ['CategoryType', 'TotalAmount'],
       },
@@ -196,6 +180,7 @@ const getCategoryPricingByOperationIdPublic = async (operationId) => {
   if (!operation) {
     throw new Error(`Operation with ID ${operationId} not found`);
   }
+
   const categoryPricing = await CategoryPricing.findAll({
     where: { OperationId: operation.ID, isPrivate: true }, // Use operation.id instead of operation.operationId
     attributes: ['CategoryType', 'TotalAmount'],

@@ -67,7 +67,7 @@ router.get('/operations/public/:system', hospitalizationController.searchOperati
  *               items:
  *                 $ref: '#/components/schemas/Operation'
  */
-router.get('/operation/private/:query', hospitalizationController.searchOperationPrivate);
+router.get('/operation/Searchprivate/:query', hospitalizationController.searchOperationPrivate);
 /**
  * @swagger
  * /operation/public/{query}:
@@ -89,7 +89,7 @@ router.get('/operation/private/:query', hospitalizationController.searchOperatio
  *               items:
  *                 $ref: '#/components/schemas/Operation'
  */
-router.get('/operation/public/:query', hospitalizationController.searchOperationPublic);
+router.get('/operation/Searchpublic/:query', hospitalizationController.searchOperationPublic);
 /**
  * @swagger
  * /operation/hospital/{hospitalName}:

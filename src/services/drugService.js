@@ -85,14 +85,13 @@ const getDrugById = async (DrugID) => {
     const dosage = await getDosageByDrugId(DrugID);
     const route = await getRouteByDrugId(DrugID);
     const presentation = await getPresentationByDrugId(DrugID);
-    const ATC = await ATCService.getATCByDrugID(DrugID);
     const priceInLBP = drug.Price * 90000;
     const unitPrice = drug.Price / presentation.Amount;
     const unitPriceInLBP = unitPrice * 90000;
     const stratum = await getStratumByDrugId(DrugID);
     const imagesPath = drug.imagesPath;
 
-    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath,ATC,stratum};
+    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath,stratum};
     return allDrugData;
   } catch (error) {
     throw new Error("Error in drugService: " + error.message);
@@ -221,20 +220,23 @@ const smartSearch = async (query) => {
           where: { DrugID: drugId },
           include: Drug
         });
-
-        console.log("Substitutes found:", substitutes); // Log the substitutes found
-
-        const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
-          const dosage = await getDosageByDrugName(substitute.DrugName);
-          const route = await getRouteByDrugName(substitute.DrugName);
-          const presentation = await getPresentationByDrugName(substitute.DrugName);
-          const priceInLBP = substitute.Price * 90000;
-          const unitPrice = substitute.Price / presentation.Amount;
-          const unitPriceInLBP = unitPrice * 90000;
-          return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
-        }));
-
-        drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
+    
+        if (substitutes.length > 0) {
+          console.log("Substitutes found:", substitutes); // Log the substitutes found
+    
+          const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
+            const dosage = await getDosageByDrugName(substitute.DrugName);
+            const route = await getRouteByDrugName(substitute.DrugName);
+            const presentation = await getPresentationByDrugName(substitute.DrugName);
+            const priceInLBP = substitute.Price * 90000;
+            const unitPrice = substitute.Price / presentation.Amount;
+            const unitPriceInLBP = unitPrice * 90000;
+    
+            return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice };
+          }));
+    
+          drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
+        }
       } catch (error) {
         console.error("No substitutes found for drug:", error);
       }
