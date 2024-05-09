@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 02:18 PM
+-- Generation Time: May 09, 2024 at 11:54 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -1169,7 +1169,8 @@ INSERT INTO `categorypricing` (`OperationId`, `CategoryType`, `isPrivate`, `Firs
 (2, 'second', 1, 110, 210, 310, 410, 510, 610, 710, 810, 910),
 (1, 'First', 0, 100, 200, 300, 400, 500, 600, 700, 800, 900),
 (2, 'second', 1, 110, 210, 310, 410, 510, 610, 710, 810, 910),
-(1, 'First', 1, 200, 250, 400, 100, 299, 300, 400, 400, 2500);
+(1, 'First', 1, 200, 250, 400, 100, 299, 300, 400, 400, 2500),
+(2, 'A', 0, 200, 400, 300, 200, 500, 600, 800, 900, 6000);
 
 -- --------------------------------------------------------
 
@@ -2498,7 +2499,8 @@ INSERT INTO `dosage` (`DosageId`, `Numerator`, `Denominator`, `CreatedDate`, `Up
 (17, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1033),
 (18, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1034),
 (19, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1035),
-(20, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1036);
+(20, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1036),
+(21, 500, 1, '1753-01-01 00:00:00', NULL, 'mg', 'mg', 1007);
 
 --
 -- Triggers `dosage`
@@ -2672,7 +2674,8 @@ INSERT INTO `dosageformmapping` (`DosageFormMappingId`, `DosageId`, `DosageFormI
 (16, 17, 80),
 (17, 18, 80),
 (18, 19, 80),
-(19, 20, 80);
+(19, 20, 80),
+(20, 21, 80);
 
 --
 -- Triggers `dosageformmapping`
@@ -2749,7 +2752,7 @@ CREATE TABLE `drug` (
 
 INSERT INTO `drug` (`DrugID`, `DrugName`, `ManufacturerID`, `RegistrationNumber`, `GTIN`, `Notes`, `Description`, `IngredientAndStrength`, `Indication`, `Posology`, `MethodOfAdministration`, `Contraindications`, `PrecautionForUse`, `EffectOnFGN`, `SideEffect`, `Toxicity`, `StorageCondition`, `ShelfLife`, `IngredientLabel`, `Price`, `ImagesPath`, `ImageDefault`, `InteractionIngredientName`, `IsDouanes`, `RegistrationDate`, `PublicPrice`, `SubsidyLabel`, `SubsidyPercentage`, `HospPricing`, `Substitutable`, `CreatedBy`, `CreatedDate`, `UpdatedBy`, `UpdatedDate`, `OtherIngredients`, `ATCRelatedIngredient`, `ReviewDate`, `MoPHCode`, `CargoShippingTerms`, `ProductType`, `NotMarketed`, `DFSequence`, `PriceForeign`, `CurrencyForeign`) VALUES
 (1003, 'Panadol', 1, '123-456', '12345678999943', 'Sample notes', 'Sample description 22', 'Ingredient and strength details', 'Indication details', 'Posology details', 'Method of administration details', 'Contraindications details', 'Precaution for use details', 'Effect on FGN details', 'Side effect details', 'Toxicity details', 'Storage condition details', 'Shelf life details', 'Ingredient label details', '15.990000', 'Path to images', 1, 'Interaction ingredient name', 0, '2022-01-01', '12.990000', 'Subsidy label', '0.100000', 1, 1, '{D4D05329-BF55-4969-86D4-B3F43EE85EB6}', NULL, '{EB73273C-E126-4AEB-87B5-3C0BAFAAFC2B}', NULL, 'Other ingredients details', 'ATC related ingredient details', '2023-01-01', '123456', 'CIF', 'Product type details', 0, 'DF sequence details', '85.990000', '{4F4C77B2-994C-4348-9D28-1EB12E31AFFF}'),
-(1007, 'Zoloft', 1, '123-456-789', '2342342342342', 'zoloft note test', 'desc1', 'erosasf', 'dfsfasf', 'ewrwfsdf', 'sdfdfasf', 'sdfsdfs', 'sdfdfsd', 'sdfsdf', 'strinsdfsdfg', 'sdfSDF', 'SDFDFGDFG', 'TYRTY', 'DFSDF', '8.000000', 'string', 1, 'DFGDFG', 1, '2024-03-20', '11.000000', 'DFGDG', '0.000000', 1, 1, '{680286EA-359E-4D38-89B6-731A3B8B75D9}', '2024-03-20', '{B60669CB-0633-46E8-BBFA-FE67212BAE45}', '2024-03-20', 'SDFSDF', 'SDFSDF', '2024-03-20', 'DFGDFG', 'SDFSF', 'SDFSDF', 1, 'DFGDFG', '8.000000', '{FEFBE499-9467-4B2A-997C-5629144E83CA}'),
+(1007, 'Zoloft', 1, '123-456-789', '7908236800124', 'zoloft note test', 'desc1', 'erosasf', 'dfsfasf', 'ewrwfsdf', 'sdfdfasf', 'sdfsdfs', 'sdfdfsd', 'sdfsdf', 'strinsdfsdfg', 'sdfSDF', 'SDFDFGDFG', 'TYRTY', 'DFSDF', '8.000000', 'img\\Zoloft.jpeg', 1, 'DFGDFG', 1, '2024-03-20', '11.000000', 'DFGDG', '0.000000', 1, 1, '{680286EA-359E-4D38-89B6-731A3B8B75D9}', '2024-03-20', '{B60669CB-0633-46E8-BBFA-FE67212BAE45}', '2024-03-20', 'SDFSDF', 'SDFSDF', '2024-03-20', 'DFGDFG', 'SDFSF', 'SDFSDF', 1, 'DFGDFG', '8.000000', '{FEFBE499-9467-4B2A-997C-5629144E83CA}'),
 (1008, 'Advil', 1, '111', '11111111111111', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-03-20', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-03-20', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-02-29', 'string', 'string', '2024-03-20', 'string', 'string', 'string', 1, 'string', '55.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
 (1009, 'Nexium', 1, '111', '11111111111111', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '234234.000000', 'string', 1, 'string', 1, '2024-03-20', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-03-20', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-02-29', 'string', 'string', '2024-03-20', 'string', 'string', 'string', 1, 'string', '2342340.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
 (1016, 'EFFERALGAN', 1, '27717', 'string', 'string', 'string', 'Paracetamol', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', 'string', '0.000000', 'string', 1, 'string', 1, '2024-04-22', '0.000000', 'string', '0.000000', 1, 1, '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}', '2024-04-22', 'string', 'string', '2024-04-22', '196', 'string', 'B', 1, '1', '0.000000', '{3FA85F64-5717-4562-B3FC-2C963F66AFA6}'),
@@ -3041,7 +3044,8 @@ INSERT INTO `drugpresentation` (`PresentationId`, `DrugId`, `Amount`, `UnitId`, 
 (16, 1033, '34.000', 5, 34, 'Carton Box', '34.000', '1753-01-01 00:00:00', NULL),
 (17, 1034, '34.000', 5, 34, 'Carton Box', '34.000', '1753-01-01 00:00:00', NULL),
 (18, 1035, '34.000', 5, 34, 'Carton Box', '34.000', '1753-01-01 00:00:00', NULL),
-(19, 1036, '34.000', 5, 34, 'Carton Box', '34.000', '1753-01-01 00:00:00', NULL);
+(19, 1036, '34.000', 5, 34, 'Carton Box', '34.000', '1753-01-01 00:00:00', NULL),
+(20, 1007, '34.000', 6, 53, NULL, '34.000', '1753-01-01 00:00:00', NULL);
 
 --
 -- Triggers `drugpresentation`
@@ -3096,7 +3100,8 @@ INSERT INTO `drugroute` (`DrugRouteId`, `DrugId`, `RouteId`, `CreatedDate`, `Upd
 (37, 1033, 1, '1753-01-01 00:00:00', NULL),
 (38, 1034, 1, '1753-01-01 00:00:00', NULL),
 (39, 1035, 1, '1753-01-01 00:00:00', NULL),
-(40, 1036, 1, '1753-01-01 00:00:00', NULL);
+(40, 1036, 1, '1753-01-01 00:00:00', NULL),
+(41, 1007, 1, '1753-01-01 00:00:00', NULL);
 
 --
 -- Triggers `drugroute`
@@ -3151,7 +3156,8 @@ INSERT INTO `drugstratum` (`DrugStratumId`, `DrugId`, `StratumTypeId`, `CreatedD
 (16, 1033, 1, '1753-01-01 00:00:00', NULL),
 (17, 1034, 1, '1753-01-01 00:00:00', NULL),
 (18, 1035, 1, '1753-01-01 00:00:00', NULL),
-(19, 1036, 1, '1753-01-01 00:00:00', NULL);
+(19, 1036, 1, '1753-01-01 00:00:00', NULL),
+(20, 1007, 1, '1753-01-01 00:00:00', NULL);
 
 --
 -- Triggers `drugstratum`
@@ -3239,7 +3245,8 @@ INSERT INTO `drug_atc_mapping` (`MappingID`, `DrugID`, `ATC_ID`) VALUES
 (27, 1033, 602),
 (28, 1034, 602),
 (29, 1035, 602),
-(30, 1036, 602);
+(30, 1036, 602),
+(31, 1007, 601);
 
 --
 -- Triggers `drug_atc_mapping`
@@ -3415,6 +3422,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>18</DosageId>', '<DosageId>18</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>19</DosageId>', '<DosageId>19</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>20</DosageId>', '<DosageId>20</DosageId>', 1),
+('2024-05-09 08:28:58', 'Dosage', '<DosageId>21</DosageId>', '<DosageId>21</DosageId>', 1),
 ('2024-05-06 23:45:32', 'Dosage', '<DosageId>3</DosageId>', '<DosageId>3</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>4</DosageId>', '<DosageId>4</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>5</DosageId>', '<DosageId>5</DosageId>', 1),
@@ -3432,6 +3440,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>17</DosageFormMappingId>', '<DosageFormMappingId>17</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>18</DosageFormMappingId>', '<DosageFormMappingId>18</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>19</DosageFormMappingId>', '<DosageFormMappingId>19</DosageFormMappingId>', 1),
+('2024-05-09 08:30:36', 'DosageFormMapping', '<DosageFormMappingId>20</DosageFormMappingId>', '<DosageFormMappingId>20</DosageFormMappingId>', 1),
 ('2024-05-07 14:05:57', 'DosageFormMapping', '<DosageFormMappingId>2</DosageFormMappingId>', '<DosageFormMappingId>2</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>3</DosageFormMappingId>', '<DosageFormMappingId>3</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>4</DosageFormMappingId>', '<DosageFormMappingId>4</DosageFormMappingId>', 1),
@@ -3440,6 +3449,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>7</DosageFormMappingId>', '<DosageFormMappingId>7</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>8</DosageFormMappingId>', '<DosageFormMappingId>8</DosageFormMappingId>', 1),
 ('2024-05-07 14:07:55', 'DosageFormMapping', '<DosageFormMappingId>9</DosageFormMappingId>', '<DosageFormMappingId>9</DosageFormMappingId>', 1),
+('2024-05-09 08:27:36', 'Drug', '<DrugID>1007</DrugID>', '<DrugID>1007</DrugID>', 2),
 ('2024-05-08 04:07:20', 'Drug', '<DrugID>1018</DrugID>', '<DrugID>1018</DrugID>', 1),
 ('2024-05-07 14:21:53', 'Drug', '<DrugID>1020</DrugID>', '<DrugID>1020</DrugID>', 1),
 ('2024-05-07 14:21:53', 'Drug', '<DrugID>1021</DrugID>', '<DrugID>1021</DrugID>', 1),
@@ -3468,6 +3478,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>17</PresentationId>', '<PresentationId>17</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>18</PresentationId>', '<PresentationId>18</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>19</PresentationId>', '<PresentationId>19</PresentationId>', 1),
+('2024-05-09 08:31:40', 'DrugPresentation', '<PresentationId>20</PresentationId>', '<PresentationId>20</PresentationId>', 1),
 ('2024-05-06 23:55:29', 'DrugPresentation', '<PresentationId>2</PresentationId>', '<PresentationId>2</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>3</PresentationId>', '<PresentationId>3</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>4</PresentationId>', '<PresentationId>4</PresentationId>', 1),
@@ -3493,6 +3504,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:52:37', 'DrugRoute', '<DrugRouteId>38</DrugRouteId>', '<DrugRouteId>38</DrugRouteId>', 1),
 ('2024-05-06 23:52:37', 'DrugRoute', '<DrugRouteId>39</DrugRouteId>', '<DrugRouteId>39</DrugRouteId>', 1),
 ('2024-05-06 23:52:37', 'DrugRoute', '<DrugRouteId>40</DrugRouteId>', '<DrugRouteId>40</DrugRouteId>', 1),
+('2024-05-09 08:32:02', 'DrugRoute', '<DrugRouteId>41</DrugRouteId>', '<DrugRouteId>41</DrugRouteId>', 1),
 ('2024-05-06 23:51:11', 'DrugRoute', '<DrugRouteId>4</DrugRouteId>', '<DrugRouteId>4</DrugRouteId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>10</DrugStratumId>', '<DrugStratumId>10</DrugStratumId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>11</DrugStratumId>', '<DrugStratumId>11</DrugStratumId>', 1),
@@ -3504,6 +3516,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>17</DrugStratumId>', '<DrugStratumId>17</DrugStratumId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>18</DrugStratumId>', '<DrugStratumId>18</DrugStratumId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>19</DrugStratumId>', '<DrugStratumId>19</DrugStratumId>', 1),
+('2024-05-09 08:32:30', 'DrugStratum', '<DrugStratumId>20</DrugStratumId>', '<DrugStratumId>20</DrugStratumId>', 1),
 ('2024-05-06 23:57:12', 'DrugStratum', '<DrugStratumId>2</DrugStratumId>', '<DrugStratumId>2</DrugStratumId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>3</DrugStratumId>', '<DrugStratumId>3</DrugStratumId>', 1),
 ('2024-05-06 23:57:53', 'DrugStratum', '<DrugStratumId>4</DrugStratumId>', '<DrugStratumId>4</DrugStratumId>', 1),
@@ -3533,6 +3546,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>28</MappingID>', '<MappingID>28</MappingID>', 1),
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>29</MappingID>', '<MappingID>29</MappingID>', 1),
 ('2024-05-06 23:42:53', 'Drug_ATC_Mapping', '<MappingID>30</MappingID>', '<MappingID>30</MappingID>', 1),
+('2024-05-09 08:28:17', 'Drug_ATC_Mapping', '<MappingID>31</MappingID>', '<MappingID>31</MappingID>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>12</SubstituteId>', '<SubstituteId>12</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>13</SubstituteId>', '<SubstituteId>13</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>14</SubstituteId>', '<SubstituteId>14</SubstituteId>', 1),
@@ -3548,7 +3562,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>24</SubstituteId>', '<SubstituteId>24</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>25</SubstituteId>', '<SubstituteId>25</SubstituteId>', 1),
 ('2024-05-07 14:04:16', 'Substitute', '<SubstituteId>26</SubstituteId>', '<SubstituteId>26</SubstituteId>', 1),
-('2024-05-08 04:28:33', 'operation', '<ID>1</ID>', '<ID>1</ID>', 2),
+('2024-05-09 08:41:15', 'operation', '<ID>1</ID>', '<ID>1</ID>', 2),
 ('2024-05-08 05:22:47', 'operation', '<ID>2</ID>', '<ID>2</ID>', 2);
 
 -- --------------------------------------------------------
@@ -3604,7 +3618,12 @@ CREATE TABLE `hospitaloperationmapping` (
 --
 
 INSERT INTO `hospitaloperationmapping` (`OperationId`, `HospitalId`) VALUES
-(1, 1);
+(1, 1),
+(2, 1),
+(1, 2),
+(2, 1),
+(1, 2),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -3726,7 +3745,9 @@ INSERT INTO `operationshare` (`OperationId`, `Category1`, `Category2`, `Category
 (1, '0.10', '0.20', '0.30', 0),
 (2, '0.40', '0.50', '0.60', 1),
 (1, '0.10', '0.20', '0.30', 0),
-(2, '0.40', '0.50', '0.60', 1);
+(2, '0.40', '0.50', '0.60', 1),
+(2, '0.50', '0.60', '0.20', 0),
+(1, '0.50', '0.60', '0.20', 1);
 
 -- --------------------------------------------------------
 
@@ -4977,7 +4998,7 @@ ALTER TABLE `donor`
 -- AUTO_INCREMENT for table `dosage`
 --
 ALTER TABLE `dosage`
-  MODIFY `DosageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `DosageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `dosageform`
@@ -4989,7 +5010,7 @@ ALTER TABLE `dosageform`
 -- AUTO_INCREMENT for table `dosageformmapping`
 --
 ALTER TABLE `dosageformmapping`
-  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `DosageFormMappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `drug`
@@ -5031,19 +5052,19 @@ ALTER TABLE `druglabel`
 -- AUTO_INCREMENT for table `drugpresentation`
 --
 ALTER TABLE `drugpresentation`
-  MODIFY `PresentationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `PresentationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `drugroute`
 --
 ALTER TABLE `drugroute`
-  MODIFY `DrugRouteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `DrugRouteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `drugstratum`
 --
 ALTER TABLE `drugstratum`
-  MODIFY `DrugStratumId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `DrugStratumId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `drugtreatment`
@@ -5055,7 +5076,7 @@ ALTER TABLE `drugtreatment`
 -- AUTO_INCREMENT for table `drug_atc_mapping`
 --
 ALTER TABLE `drug_atc_mapping`
-  MODIFY `MappingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `MappingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `form`
