@@ -182,6 +182,14 @@ const getStratumByDrugId = async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 };
+const checkMate = async (req, res) => {
+  try {
+    const result = await DrugService.checkMate(req.body);
+    res.json({ message: result });
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -200,4 +208,5 @@ module.exports = {
   getPresentationByDrugId,
   getPresentationByDrugName,
   getStratumByDrugId,
+  checkMate
 };

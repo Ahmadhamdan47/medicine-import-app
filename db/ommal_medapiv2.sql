@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 11:54 AM
+-- Generation Time: May 09, 2024 at 03:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -1066,7 +1066,8 @@ INSERT INTO `batchlottracking` (`BatchLotId`, `DrugId`, `BatchNumber`, `Producti
 (10, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
 (11, NULL, '1234', '2024-03-19', '2024-12-31', 45, NULL),
 (12, 1003, '1234', '2024-03-19', '2024-12-31', 45, NULL),
-(13, 1007, '1197', '2025-06-12', '2025-06-12', 222, 23);
+(13, 1007, '1197', '2025-06-12', '2025-06-12', 222, 23),
+(14, 1018, '5015450', '2024-05-13', '2024-05-31', 24, NULL);
 
 --
 -- Triggers `batchlottracking`
@@ -1095,6 +1096,13 @@ CREATE TABLE `batchserialnumber` (
   `BatchId` int(11) DEFAULT NULL,
   `SerialNumber` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `batchserialnumber`
+--
+
+INSERT INTO `batchserialnumber` (`BatchSerialNumberId`, `BatchId`, `SerialNumber`) VALUES
+(1, 14, '303301302');
 
 --
 -- Triggers `batchserialnumber`
@@ -3410,6 +3418,8 @@ CREATE TABLE `history_store` (
 
 INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
 ('2024-05-06 23:15:30', 'Agent', '<AgentID>1</AgentID>', '<AgentID>1</AgentID>', 2),
+('2024-05-09 13:17:25', 'BatchLotTracking', '<BatchLotId>14</BatchLotId>', '<BatchLotId>14</BatchLotId>', 1),
+('2024-05-09 13:17:52', 'BatchSerialNumber', '<BatchSerialNumberId>1</BatchSerialNumberId>', '<BatchSerialNumberId>1</BatchSerialNumberId>', 1),
 ('2024-05-08 12:04:05', 'Donor', '<DonorId>4</DonorId>', '<DonorId>4</DonorId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>10</DosageId>', '<DosageId>10</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>11</DosageId>', '<DosageId>11</DosageId>', 1),
@@ -4920,13 +4930,13 @@ ALTER TABLE `audittrail`
 -- AUTO_INCREMENT for table `batchlottracking`
 --
 ALTER TABLE `batchlottracking`
-  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `batchserialnumber`
 --
 ALTER TABLE `batchserialnumber`
-  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `brands`
