@@ -21,6 +21,8 @@ const DrugPresentation = require('../models/drugPresentation');
 const StratumType = require('../models/stratumType');
 const DrugStratum = require('../models/drugStratum');
 const Fuse = require('fuse.js');
+const BatchLotTracking = require('../models/BatchLot');
+const BatchSerialNumber= require('../models/batchserialnumber');
 const searchDrugByATCName = async (query) => {
   try {
     const drugs = await Drug.findAll({
@@ -457,12 +459,13 @@ const getStratumByDrugId = async (DrugID) => {
   }
 };
 
-const checkMate = async (GTIN, SerialNumber, BatchNumber, ExpiryDate) => {
-  
+const checkMate = async (GTIN,BatchNumber,SerialNumber,ExpiryDate) => {
+  console.log(GTIN.GTIN);
+  console.log(GTIN.BatchNumber);
   try {
     // Check if the GTIN exists in the Drug table
     const drug = await Drug.findOne({
-      where: { GTIN: GTIN }
+      where: { GTIN: GTIN.GTIN }
     });
 
     if (!drug) {
@@ -473,7 +476,7 @@ const checkMate = async (GTIN, SerialNumber, BatchNumber, ExpiryDate) => {
     const batchLot = await BatchLotTracking.findOne({
       where: { 
         DrugId: drug.DrugID,
-        BatchNumber: BatchNumber
+        BatchNumber: GTIN.BatchNumber
       }
     });
 
@@ -484,8 +487,8 @@ const checkMate = async (GTIN, SerialNumber, BatchNumber, ExpiryDate) => {
     // Check if the SerialNumber exists for this batch in the BatchSerialNumber table
     const batchSerialNumber = await BatchSerialNumber.findOne({
       where: { 
-        BatchLotId: batchLot.BatchLotId,
-        SerialNumber: SerialNumber
+        BatchId: batchLot.BatchLotId,
+        SerialNumber: GTIN.SerialNumber
       }
     });
 
