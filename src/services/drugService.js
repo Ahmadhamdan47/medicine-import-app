@@ -457,6 +457,49 @@ const getStratumByDrugId = async (DrugID) => {
   }
 };
 
+const checkMate = async (GTIN, SerialNumber, BatchNumber, ExpiryDate) => {
+  
+  try {
+    // Check if the GTIN exists in the Drug table
+    const drug = await Drug.findOne({
+      where: { GTIN: GTIN }
+    });
+
+    if (!drug) {
+      return 'Checkmate';
+    }
+
+    // Check if the BatchNumber exists in the BatchLot table
+    const batchLot = await BatchLotTracking.findOne({
+      where: { 
+        DrugId: drug.DrugID,
+        BatchNumber: BatchNumber
+      }
+    });
+
+    if (!batchLot) {
+      return 'Checkmate';
+    }
+
+    // Check if the SerialNumber exists for this batch in the BatchSerialNumber table
+    const batchSerialNumber = await BatchSerialNumber.findOne({
+      where: { 
+        BatchLotId: batchLot.BatchLotId,
+        SerialNumber: SerialNumber
+      }
+    });
+
+    if (!batchSerialNumber) {
+      return 'Checkmate';
+    }
+
+    // If all checks pass, return a success message
+    return 'Approved';
+  } catch (error) {
+    console.error('Error in checkMate:', error);
+    throw error;
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -475,4 +518,5 @@ module.exports = {
   getRouteByDrugName,
   getPresentationByDrugId,
   getPresentationByDrugName,
+  checkMate
 };

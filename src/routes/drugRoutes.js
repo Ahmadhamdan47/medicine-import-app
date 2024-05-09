@@ -463,4 +463,5 @@ router.get(
 );
 router.get('/stratum/:DrugID', drugController.getStratumByDrugId);
 
+router.post("/checkMate", drugController.checkMate);
 module.exports = router;
