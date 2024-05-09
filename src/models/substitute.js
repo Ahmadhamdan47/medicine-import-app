@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Drug = require('./drug');
 
-const Substitute = sequelize.define('Substitute', {
+const Substitute = sequelize.define('substitute', {
     SubstituteId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
