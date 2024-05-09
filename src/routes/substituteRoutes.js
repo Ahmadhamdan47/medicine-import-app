@@ -131,4 +131,6 @@ router.put('/:id', substituteController.updateSubstitute);
  */
 router.delete('/:id', substituteController.deleteSubstitute);
 
+router.get('/drug/:DrugID', substituteController.getSubstitutesByDrugID);
+
 module.exports = router;

@@ -69,7 +69,20 @@ const deleteSubstitute = async (id) => {
         throw new Error('Error in substituteService: ' + error.message);
     }
 };
-
+// src/services/substituteService.js
+const getSubstitutesByDrugID = async (DrugID) => {
+  try {
+    const substitutes = await Substitute.findAll({
+      where: {
+        Drug: DrugID,
+      },
+    });
+    return substitutes;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error in substituteService: ' + error.message);
+  }
+};
 module.exports = {
     // ...other exports...
     addSubstitute,
@@ -77,4 +90,5 @@ module.exports = {
     getAllSubstitutes,
     updateSubstitute,
     deleteSubstitute,
+    getSubstitutesByDrugID
 };

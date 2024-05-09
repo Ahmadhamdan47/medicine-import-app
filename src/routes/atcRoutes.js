@@ -232,7 +232,7 @@ const ATCController = require("../controllers/atcController");
  *         description: Internal Server Error. Failed to retrieve ATC codes.
  */
 
-router.get("/atc/:drugID", ATCController.getATCByDrugID);
+router.get("/atc/:DrugID", ATCController.getATCByDrugID);
 router.get("/all", ATCController.getAllATC);
 router.post("/add", ATCController.addATC);
 router.put("/:atcId", ATCController.editATC);
