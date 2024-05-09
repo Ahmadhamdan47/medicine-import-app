@@ -1,30 +1,40 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../config/databasePharmacy');
-const drug = require('./drug');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require ('../../config/databasePharmacy');
 
-const Drug_ATC_Mapping = sequelize.define('drug_atc_mapping', {
-    MappingID: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+class Drug_ATC_Mapping extends Model {}
+
+Drug_ATC_Mapping.init({
+  MappingID: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+  DrugID: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'drug', // name of Target model
+      key: 'DrugID', // key in Target model that we're referencing
     },
-    DrugID: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: drug,
-            key: 'DrugID'
-        }
+    onUpdate: 'NO ACTION',
+    onDelete: 'NO ACTION',
+  },
+  ATC_ID: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'atc_code', // name of Target model
+      key: 'ATC_ID', // key in Target model that we're referencing
     },
-    ATC_ID: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'atc',
-            key: 'ATC_ID'
-        }
-    }
+    onUpdate: 'NO ACTION',
+    onDelete: 'NO ACTION',
+  }
 }, {
-    tableName: 'drug_atc_mapping',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+  sequelize,
+  modelName: 'Drug_ATC_Mapping',
+  tableName: 'drug_atc_mapping',
+  timestamps: false,
 });
 
 module.exports = Drug_ATC_Mapping;

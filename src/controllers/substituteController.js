@@ -49,11 +49,20 @@ const deleteSubstitute = async (req, res) => {
         res.status(500).json({ error: error.toString() });
     }
 };
-
+// src/controllers/substituteController.js
+const getSubstitutesByDrugID = async (req, res) => {
+    try {
+      const substitutes = await substituteService.getSubstitutesByDrugID(req.params.DrugID);
+      res.json(substitutes);
+    } catch (error) {
+      res.status(500).json({ error: error.toString() });
+    }
+  };
 module.exports = {
     addSubstitute,
     getSubstituteById,
     getAllSubstitutes,
     updateSubstitute,
     deleteSubstitute,
+    getSubstitutesByDrugID
 };

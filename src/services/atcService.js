@@ -25,6 +25,7 @@ const getATCByDrugID = async (DrugID) => {
     throw new Error("Error in getATCByDrugID service: " + error.message);
   }
 };
+
 const addATC = async (atcData) => {
   try {
     const atcCode = await ATC_Code.create(atcData);

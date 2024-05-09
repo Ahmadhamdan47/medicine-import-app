@@ -10,6 +10,8 @@ const getATCByDrugID = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
 const addATC = async (req, res) => {
     try {
         const atcCode = await ATCService.addATC(req.body);
