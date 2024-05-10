@@ -1,0 +1,123 @@
+/* .geo-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.geo-form div {
+  margin-bottom: 15px;
+}
+
+.geo-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.geo-form input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.geo-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.geo-form button[type="submit"] {
+  background-color: #008cba;
+  margin-top: 20px;
+}
+
+.geo-form button[type="button"] {
+  background-color: #ff9800;
+  margin-top: 5px;
+}
+
+.geo-form button[type="button"]:hover,
+.geo-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.geo-form button[type="button"]:last-of-type {
+  float: left;
+}
+
+.geo-form .city-wrapper {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .geo-form input[type="text"] {
+    width: calc(100% - 22px);
+  }
+}
+*/
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.geo-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.geo-form label {
+  font-weight: bold;
+}
+
+.geo-form input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.geo-form button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.geo-form button:hover {
+  background-color: #45a049;
+}
+
+/* Add any additional styling as needed */

@@ -1,0 +1,14 @@
+export { default as KsaFlag } from './ksa.png';
+export { default as UaeFlag } from './uae.png';
+export { default as OmanFlag } from './oman.png';
+export { default as ItalyFlag } from './italy.png';
+export { default as QatarFlag } from './qatar.png';
+export { default as SpainFlag } from './spain.png';
+export { default as FranceFlag } from './france.png';
+export { default as JordanFlag } from './jordan.png';
+export { default as KuwaitFlag } from './kuwait.png';
+export { default as BahrainFlag } from './bahrain.png';
+export { default as BelgiumFlag } from './belgium.png';
+export { default as EnglandFlag } from './england.png';
+export { default as PortugalFlag } from './portugal.png';
+export { default as SwitzerlandFlag } from './switzerland.png';

@@ -1,0 +1,198 @@
+/* styles.css */
+
+.css-d4sob-MuiPaper-root {
+  background-color: transparent;
+}
+
+.MuiPaper-root
+  MuiPaper-elevation
+  .MuiPaper-rounded
+  .MuiPaper-elevation3
+  .makeStyles-stepperPaper-1
+  .css-d4sob-MuiPaper-root {
+  background-color: red;
+}
+
+.css-vuzb25 {
+  background-color: transparent;
+  box-shadow: unset;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 180px;
+    cursor: pointer;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 75px;
+    cursor: pointer;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 120px;
+    cursor: pointer;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 150px;
+    cursor: pointer;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 100px;
+    cursor: pointer;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1440px and up) */
+@media only screen and (min-width: 1440px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 270px;
+    cursor: pointer;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1980px and up) */
+@media only screen and (min-width: 1980px) {
+  .dateInput::-webkit-calendar-picker-indicator {
+    padding-left: 700px;
+    cursor: pointer;
+  }
+}
+
+@keyframes slideRightLeft {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px); /* Adjust the distance of the slide */
+  }
+}
+
+.animate-slide-right-left {
+  animation: slideRightLeft 1s infinite; /* Adjust the duration of the animation */
+}
+
+.custom-button {
+  text-transform: none;
+  font-size: 21px;
+  font-family: BebasNeue-Regular;
+  color: rgb(37, 159, 131);
+  background-color: red; /* Replace with your desired color */
+}
+
+.main-body-page {
+  overflow: hid;
+}
+#price {
+  margin: 0;
+}
+#dosageValueN {
+  margin: 0;
+}
+#dosageValueD {
+  margin: 0;
+}
+/* CustomStepper.css */
+.MuiStepIcon-root.Mui-active circle,
+.MuiStepIcon-root.Mui-completed path {
+  fill: #00a651 !important; /* Set your color here */
+}
+
+.dark .MuiStepIcon-root.Mui-active circle,
+.dark .MuiStepIcon-root.Mui-completed path {
+  fill: #00a651 !important; /* Set your dark mode color here (e.g., red) */
+}
+
+/* CustomStepper.css */
+.MuiStepIcon-root circle,
+.MuiStepIcon-root path {
+  fill: #ccc !important; /* Set your inactive color here */
+}
+
+.dark .MuiStepIcon-root circle,
+.dark .MuiStepIcon-root path {
+  fill: #555 !important; /* Set your dark mode inactive color here */
+}
+
+.css-3su884-MuiPaper-root {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root {
+  padding: 0 !important;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  padding: 0 !important;
+}
+
+.css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root {
+  /* border: solid red 2px; */
+}
+
+.css-ittuaa-MuiInputAdornment-root {
+  /* margin-left: -10px!important; */
+  margin-right: 10px !important;
+}
+
+#currencyForeign {
+  border: solid red 1px;
+}
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  right: 10px !important;
+}
+/* .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select{
+  border: solid blue 1px;
+width: 20px;
+padding-right: 20px!important;
+} */
+
+/* Global Styles or Component Styles */
+/* Hide scrollbar for Chrome, Safari, and Edge */
+/* ::-webkit-scrollbar {
+  width: 1px;
+border-radius: ;
+  height: 1px;
+} */
+
+/* Hide scrollbar for Firefox */
+/* scrollbar-width: none; */
+.grid-cols-1 {
+  justify-items: center;
+}
+
+.grid {
+  justify-items: stretch;
+}
+
+/* Add this CSS in your stylesheet */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+/* Optionally, you can add styles to indicate that it's a number input */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: none;
+  margin: 5px;
+}

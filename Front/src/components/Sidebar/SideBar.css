@@ -1,0 +1,228 @@
+#SideBar {
+  position: absolute;
+  width: 220px;
+  transition: width 0.3s ease; /* Add a transition for a smoother effect */
+}
+
+#SideBar .pro-sidebar {
+  height: 100vh;
+}
+
+#SideBar .closemenu {
+  color: #00a651;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#SideBar .pro-sidebar {
+  width: 100%;
+  min-width: 100%;
+}
+
+/* On Hover */
+#SideBar:hover .pro-sidebar.collapsed {
+  width: 180px;
+}
+
+/* On Hover */
+#SideBar:hover .logo-img {
+  padding: 15px;
+  padding-bottom: 0;
+  width: 100px;
+}
+
+/* On Hover */
+/* .logo-img:hover {
+  width: 100px;
+} */
+
+#SideBar .pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+}
+
+#SideBar .pro-sidebar-inner {
+  background-color: white;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.336);
+  border-radius: 0px; /* Adjust the border-radius value as needed */
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout {
+  overflow-y: hidden;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+  font-size: 20px;
+  padding: 0 20px;
+  color: #000;
+  font-weight: bold;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout ul {
+  padding: 0 5px;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+  color: #9ca5bf;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item:hover {
+  color: #00a651;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+#SideBar
+  .pro-sidebar-inner
+  .pro-sidebar-layout
+  ul
+  .pro-inner-item
+  .pro-icon-wrapper
+  .pro-item-content {
+  color: #000;
+}
+
+#SideBar .logo {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    overflow: hidden;
+  }
+}
+
+/* ************************************************************************************************************ */
+
+/* SideBar Right */
+
+#SideBarRight {
+  position: absolute;
+  width: 220px;
+  right: 0;
+}
+
+#SideBarRight .pro-sidebar {
+  height: 100vh;
+}
+
+#SideBarRight .closemenu {
+  color: #00a651;
+  position: absolute;
+  /* right: 0; */
+  z-index: 9999;
+  line-height: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 22px;
+  top: 55px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#SideBarRight .pro-sidebar {
+  width: 100%;
+  min-width: 100%;
+}
+
+#SideBarRight .pro-sidebar.collapsed {
+  width: 80px;
+  min-width: 80px;
+  right: -140px;
+}
+
+#SideBarRight .pro-sidebar-inner {
+  background-color: white;
+  /* border:solid #00a651 1px; */
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.336);
+  border-radius: 60px; /* Adjust the border-radius value as needed */
+}
+
+#SideBarRight .pro-sidebar-inner .pro-sidebar-layout {
+  overflow-y: hidden;
+}
+
+#SideBarRight .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+  font-size: 20px;
+  padding: 0 20px;
+  color: #000;
+  font-weight: bold;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout ul {
+  padding: 0 5px;
+}
+
+#SideBar .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+  color: #9ca5bf;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+#SideBarRight .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item:hover {
+  color: #00a651;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+#SideBarRight
+  .pro-sidebar-inner
+  .pro-sidebar-layout
+  ul
+  .pro-inner-item
+  .pro-icon-wrapper
+  .pro-item-content {
+  color: #000;
+}
+
+#SideBarRight .logo {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 720px) {
+  html {
+    overflow: hidden;
+  }
+}
+
+/* Styles for the expanded logo */
+.expanded-logo {
+  transform: scale(1.2); /* Adjust the scale factor as needed */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+#SideBar.fixed-sidebar {
+  /* Add styles for the fixed state */
+  width: 220px; /* Adjust width as needed */
+  transition: width 0.3s ease; /* Add transition for a smoother effect */
+}
+
+#SideBar.fixed-sidebar .pro-sidebar.collapsed {
+  width: 80px; /* Adjust width for the collapsed state */
+  min-width: 80px;
+}
+
+/* Add this style to hide scrollbar track */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0; /* Adjust the width of the scrollbar if needed */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #00a651; /* Adjust the color of the scrollbar thumb */
+  border-radius: 6px; /* Adjust the border radius of the scrollbar thumb */
+  width: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  width: 0;
+  background-color: transparent; /* Set the scrollbar track background to transparent */
+}
