@@ -1,0 +1,25 @@
+.MuiPaper-root
+  .MuiPaper-elevation
+  .MuiPaper-rounded
+  .MuiPaper-elevation3
+  .stepper-paper
+  .css-vuzb25 {
+  box-shadow: none;
+}
+
+.vl {
+  border-left: 1px solid #00a65159;
+  height: 70px;
+}
+
+.ol {
+  border-bottom: 1px solid #00a65159;
+  width: 50px;
+}
+
+/* @media only screen and (max-width: 366px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr; 
+  }
+} */
+/* Add this in your CSS file */

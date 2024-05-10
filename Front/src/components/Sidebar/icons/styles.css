@@ -1,0 +1,13 @@
+/* Default styles */
+.SVGComponent circle {
+  fill: #00F; /* Default fill color */
+}
+
+/* Hover state styles */
+.SVGComponent:hover circle {
+  fill: #F00; /* Hover state fill color */
+}
+
+.SVGComponent:active circle {
+  fill: #F00; /* Hover state fill color */
+}

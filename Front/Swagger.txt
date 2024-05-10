@@ -1,0 +1,1026 @@
+
+
+    openapi: "3.0.0",
+    info: {
+      title: "MedLeb API",
+      version: "1.0.0",
+      description: "API documentation for Medicine Import App",
+    },
+
+    security:{
+      
+    },
+
+
+    servers: [
+      {
+       
+        url: "http://localhost:3000",
+        description: "Local Development Server",
+      },
+    ],
+
+    tags: [
+      { name: "Drug", description: "Operations related to drugs" },
+      { name: "Donation", description: "Operations related to donations" },
+      {
+        name: "Importation",
+        description: "Operations related to importations",
+      },
+      {
+        name: "ATC",
+        description: "Operations related to ATCs",
+      },
+    ],
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @swagger
+ * /agentStock/{id}/stock:
+ *   put:
+ *     summary: Update agent stock
+ *     description: Update the stock of an agent by agent ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the agent whose stock needs to be updated.
+ *         schema:
+ *           type: string
+ *       - in: body
+ *         name: stock
+ *         required: true
+ *         description: The new stock value for the agent.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             stock:
+ *               type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. Agent stock updated successfully.
+ *       '404':
+ *         description: Not Found. Agent not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to update agent stock.
+ */
+router.put("/:id/stock"
+
+
+
+
+/**
+ * @swagger
+ * /atc/{drugID}:
+ *   get:
+ *     summary: Get ATC code by drug ID
+ *     description: Retrieve ATC code associated with a drug ID.
+ *     tags: [ATC]
+ *     parameters:
+ *       - in: path
+ *         name: drugID
+ *         required: true
+ *         description: The ID of the drug to retrieve the ATC code for.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. ATC code retrieved successfully.
+ *       '404':
+ *         description: Not Found. No ATC mapping found for the specified drug ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve ATC code.
+ */
+router.get("/atc/:drugID"
+
+/**
+ * @swagger
+ * /atc/all:
+ *   get:
+ *     summary: Get all ATC codes
+ *     description: Retrieve all ATC Codes.
+ *     tags: [ATC]
+ *     responses:
+ *       '200':
+ *         description: OK. All ATC codes retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve ATC codes.
+ */
+router.get("/all"
+
+/**
+ * @swagger
+ * /atc/add:
+ *   post:
+ *     summary: Add ATC codes
+ *     description: Add/Post New ATC Code.
+ *     tags: [ATC]
+ *     parameters:
+ *       - in: body
+ *         name: ATC_Code
+ *         description: The ATC code object to add.
+ *         required: true
+ *         schema:
+ *           type: object
+ *           properties:
+ *             Code:
+ *               type: string
+ *             Name:
+ *               type: string
+ *             Description:
+ *               type: string
+ *             ParentID:
+ *               type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. All ATC code Added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to Add ATC code.
+ */
+router.post("/add"
+
+/**
+ * @swagger
+ * /atc/{id}:
+ *   delete:
+ *     summary: Delete ATC code
+ *     description: Delete an ATC code by ID.
+ *     tags: [ATC]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID of the ATC code to delete.
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. ATC code deleted successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to delete ATC code.
+ */
+router.delete("/atc/:id",
+
+
+
+
+
+/**
+ * @swagger
+ * /donation/add:
+ *   post:
+ *     summary: Add a new donation
+ *     description: Add a new donation to the system.
+ *     tags: [Donation]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DonorId:
+ *                 type: integer
+ *               RecipientId:
+ *                 type: integer
+ *               DonationDate:
+ *                 type: string
+ *                 format: date-time
+ *               Quantity:
+ *                 type: integer
+ *               DonationPurpose:
+ *                 type: string
+ *               CreatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               UpdatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               Laboratory:
+ *                 type: string
+ *               LaboratoryCountry:
+ *                 type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Donation added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add donation.
+ */
+router.post("/add"
+
+/**
+ * @swagger
+ * /donation/all:
+ *   get:
+ *     summary: Get all donation
+ *     description: Retrieve all donation from the system.
+ *     tags: [Donation]
+ *     responses:
+ *       '200':
+ *         description: OK. List of all donation retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve donation.
+ */
+router.get("/all"
+/**
+    * @swagger
+    * /donation/{id}:
+    *   get:
+    *     summary: Get donation by ID
+    *     description: Retrieve a donation by its ID.
+    *     tags: [Donation]
+    *     parameters:
+    *       - in: path
+    *         name: id
+    *         required: true
+    *         description: The ID of the donation to retrieve.
+    *         schema:
+    *           type: integer
+    *     responses:
+    *       '200':
+    *         description: OK. Donation retrieved successfully.
+    *       '404':
+    *         description: Not Found. Donation not found for the specified ID.
+    *       '500':
+    *         description: Internal Server Error. Failed to retrieve donation.
+    */
+router.get("/:id",
+
+
+
+
+
+
+/**
+ * @swagger
+ * /donor/add:
+ *   post:
+ *     summary: Add a new donor
+ *     description: Add a new donor to the system.
+ *     tags: [Donation]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DonorName:
+ *                 type: string
+ *               DonorType:
+ *                 type: string
+ *                 enum: [Organization, Individual]
+ *               Address:
+ *                 type: string
+ *               PhoneNumber:
+ *                 type: string
+ *               Email:
+ *                 type: string
+ *                 format: email
+ *               DonorCountry:
+ *                 type: string
+ *               IsActive:
+ *                 type: boolean
+ *               CreatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               UpdatedDate:
+ *                 type: string
+ *                 format: date-time
+ *     responses:
+ *       '200':
+ *         description: OK. Donor added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add donor.
+ */
+router.post("/add"
+
+/**
+ * @swagger
+ * /donor/all:
+ *   get:
+ *     summary: Get all donors
+ *     description: Retrieve all donors from the system.
+ *     tags: [Donation]
+ *     responses:
+ *       '200':
+ *         description: OK. List of all donors retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve donors.
+ */
+router.get("/all", 
+
+
+
+
+
+
+
+
+
+/**
+ * @swagger
+ * /drugs/search/atc/{query}:
+ *   get:
+ *     summary: Search drugs by ATC name
+ *     description: Retrieve drugs matching the specified ATC name.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The ATC name to search for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the ATC name retrieved successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified ATC name.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/search/atc/:query",
+
+
+
+
+
+/**
+ * @swagger
+ * /drugs/search/brand/{query}:
+ *   get:
+ *     summary: Search drugs by brand name
+ *     description: Retrieve drugs matching the specified brand name.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The brand name to search for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the brand name retrieved successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified brand name.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/search/DrugName/:query"
+
+
+
+/**
+ * @swagger
+ * /drugs/DrugID/{DrugID}:
+ *   get:
+ *     summary: Get drug by DrugID
+ *     description: Retrieve a drug by its DrugID.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: DrugID
+ *         required: true
+ *         description: The DrugID of the drug to retrieve.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drug retrieved successfully.
+ *       '404':
+ *         description: Not Found. Drug not found for the specified DrugID.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drug.
+ */
+router.get("/Id/:DrugID"
+
+
+
+
+/**
+ * @swagger
+ * /drugs/filter/{query}:
+ *   get:
+ *     summary: Filter drugs
+ *     description: Filter drugs based on the specified criteria.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The filter criteria.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs filtered successfully.
+ *       '404':
+ *         description: Not Found. No drugs found for the specified criteria.
+ *       '500':
+ *         description: Internal Server Error. Failed to filter drugs.
+ */
+router.get("/filter/:query",
+
+
+
+
+
+/**
+ * @swagger
+ * /drugs/add:
+ *   post:
+ *     summary: Add a new drug
+ *     description: Add a new drug to the database.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DrugName:
+ *                 type: string
+ *               ManufacturerID:
+ *                 type: integer
+ *               RegistrationNumber:
+ *                 type: string
+ *               GTIN:
+ *                 type: string
+ *               Notes:
+ *                 type: string
+ *               Description:
+ *                 type: string
+ *               IngredientAndStrength:
+ *                 type: string
+ *               Indication:
+ *                 type: string
+ *               Posology:
+ *                 type: string
+ *               MethodOfAdministration:
+ *                 type: string
+ *               Contraindications:
+ *                 type: string
+ *               PrecautionForUse:
+ *                 type: string
+ *               EffectOnFGN:
+ *                 type: string
+ *               SideEffect:
+ *                 type: string
+ *               Toxicity:
+ *                 type: string
+ *               StorageCondition:
+ *                 type: string
+ *               ShelfLife:
+ *                 type: string
+ *               IngredientLabel:
+ *                 type: string
+ *               Price:
+ *                 type: number
+ *               ImagesPath:
+ *                 type: string
+ *               ImageDefault:
+ *                 type: boolean
+ *               InteractionIngredientName:
+ *                 type: string
+ *               IsDouanes:
+ *                 type: boolean
+ *               RegistrationDate:
+ *                 type: string
+ *                 format: date
+ *               PublicPrice:
+ *                 type: number
+ *               SubsidyLabel:
+ *                 type: string
+ *               SubsidyPercentage:
+ *                 type: number
+ *               HospPricing:
+ *                 type: boolean
+ *               Substitutable:
+ *                 type: boolean
+ *               CreatedBy:
+ *                 type: string
+ *                 format: uuid
+ *               CreatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               UpdatedBy:
+ *                 type: string
+ *                 format: uuid
+ *               UpdatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               OtherIngredients:
+ *                 type: string
+ *               ATCRelatedIngredient:
+ *                 type: string
+ *               ReviewDate:
+ *                 type: string
+ *                 format: date
+ *               MoPHCode:
+ *                 type: string
+ *               CargoShippingTerms:
+ *                 type: string
+ *               ProductType:
+ *                 type: string
+ *               NotMarketed:
+ *                 type: boolean
+ *               DFSequence:
+ *                 type: string
+ *               PriceForeign:
+ *                 type: number
+ *               CurrencyForeign:
+ *                 type: string
+ *                 format: uuid
+ *     responses:
+ *       '200':
+ *         description: OK. Drug added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add drug.
+ */
+router.post("/add"
+
+
+
+
+
+/**
+ * @swagger
+ * /drugs/addPharmacy:
+ *   post:
+ *     summary: Add a new patient to pharmacy
+ *     description: Add a new patient to the pharmacy database.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               FirstName:
+ *                 type: string
+ *               LastName:
+ *                 type: string
+ *               DateOfBirth:
+ *                 type: string
+ *                 format: date
+ *               Gender:
+ *                 type: string
+ *               PhoneNumber:
+ *                 type: string
+ *               Email:
+ *                 type: string
+ *               Address:
+ *                 type: string
+ *               IsActive:
+ *                 type: boolean
+ *     responses:
+ *       '200':
+ *         description: OK. Patient added to pharmacy successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add patient to pharmacy.
+ */
+router.post("/addPharmacy"
+
+
+
+
+
+/**
+ * @swagger
+ * /drugs/all:
+ *   get:
+ *     summary: Get all drugs
+ *     description: Retrieve all drugs available in the system.
+ *     tags: [Drug]
+ *     response:
+ *       '200':
+ *         description: OK. Drugs retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/all"
+
+
+
+/**
+ * @swagger
+ * /drugs/smartSearch/{query}:
+ *   get:
+ *     summary: Smart search for drugs
+ *     description: Retrieve drugs matching the specified search term using the smart search algorithm.
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: query
+ *         required: true
+ *         description: The search term to use for the smart search.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs matching the search term retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/smartSearch/:query",
+
+
+
+
+/**
+ * @swagger
+ * /pi/submit/{id}:
+ *   put:
+ *     summary: Submit PI
+ *     description: Submit PI by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the PI to submit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. PI submitted successfully.
+ *       '404':
+ *         description: Not Found. PI not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to submit PI.
+ */
+router.put("/submit/:id", 
+
+
+
+/**
+ * @swagger
+ * /recipient/add:
+ *   post:
+ *     summary: Add a new recipient
+ *     description: Add a new recipient to the system.
+ *     tags: [Donation]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               RecipientName:
+ *                 type: string
+ *               RecipientType:
+ *                 type: string
+ *               Address:
+ *                 type: string
+ *               City:
+ *                 type: string
+ *               Country:
+ *                 type: string
+ *               ContactPerson:
+ *                 type: string
+ *               ContactNumber:
+ *                 type: string
+ *               IsActive:
+ *                 type: boolean
+ *               CreatedDate:
+ *                 type: string
+ *                 format: date-time
+ *               UpdatedDate:
+ *                 type: string
+ *                 format: date-time
+ *     responses:
+ *       '200':
+ *         description: OK. Recipient added successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to add recipient.
+ */
+router.post("/add"
+
+
+
+
+/**
+ * @swagger
+ * /recipient/all:
+ *   get:
+ *     summary: Get all recipients
+ *     description: Retrieve all recipients from the system.
+ *     tags: [Donation]
+ *     responses:
+ *       '200':
+ *         description: OK. List of all recipients retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve recipients.
+ */
+router.get("/all",
+
+
+
+
+/**
+ * @swagger
+ * /rfd/{id}/receive:
+ *   put:
+ *     summary: Receive RFD
+ *     description: Receive RFD by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the RFD to receive.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. RFD received successfully.
+ *       '404':
+ *         description: Not Found. RFD not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to receive RFD.
+ */
+router.put("/:id/receive"
+
+
+
+
+/**
+ * @swagger
+ * /rfi/edit/{id}:
+ *   put:
+ *     summary: Edit RFI
+ *     description: Edit an RFI by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the RFI to edit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. RFI edited successfully.
+ *       '404':
+ *         description: Not Found. RFI not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to edit RFI.
+ */
+router.put("/edit/:id"
+
+
+
+/**
+ * @swagger
+ * /rfi/approve/{id}:
+ *   put:
+ *     summary: Approve RFI Quantity
+ *     description: Approve the quantity of an RFI by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the RFI to approve quantity for.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. RFI quantity approved successfully.
+ *       '404':
+ *         description: Not Found. RFI not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to approve RFI quantity.
+ */
+router.put("/approve/:id"
+
+
+
+/**
+ * @swagger
+ * /shipment/submit/{id}:
+ *   put:
+ *     summary: Submit Shipment
+ *     description: Submit a shipment by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the shipment to submit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Shipment submitted successfully.
+ *       '404':
+ *         description: Not Found. Shipment not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to submit shipment.
+ */
+router.put('/submit/:id'
+
+
+
+/**
+ * @swagger
+ * /submittedOrders/submit:
+ *   post:
+ *     summary: Submit Order
+ *     description: Submit an order.
+ *     tags: [Importation]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               DrugID:
+ *                 type: string
+ *               quantity:
+ *                 type: integer
+ *               RFI:
+ *                 type: boolean
+ *               Result:
+ *                 type: boolean
+ *               PI:
+ *                 type: boolean
+ *               swift:
+ *                 type: boolean
+ *               invoice:
+ *                 type: boolean
+ *               rfd:
+ *                 type: boolean
+ *               stock:
+ *                 type: boolean
+ *     responses:
+ *       '200':
+ *         description: OK. Order submitted successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to submit order.
+ */
+router.post("/submit"
+
+
+
+
+/**
+ * @swagger
+ * /submittedOrders:
+ *   get:
+ *     summary: Get All Orders
+ *     description: Retrieve all orders.
+ *     tags: [Importation]
+ *     responses:
+ *       '200':
+ *         description: OK. Orders retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve orders.
+ */
+router.get("/"
+
+
+
+/**
+ * @swagger
+ * /submittedOrders/{orderId}:
+ *   get:
+ *     summary: Get Order by ID
+ *     description: Retrieve a specific order by its ID.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: orderId
+ *         required: true
+ *         description: ID of the order to retrieve.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. Order retrieved successfully.
+ *       '404':
+ *         description: Not Found. Order not found.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve order.
+ */
+router.get("/:orderId"
+
+
+
+/**
+ * @swagger
+ * /submittedOrders/{orderId}:
+ *   put:
+ *     summary: Update Order
+ *     description: Update an existing order.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: orderId
+ *         required: true
+ *         description: ID of the order to update.
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               brandName:
+ *                 type: string
+ *               quantityRequested:
+ *                 type: integer
+ *               RFI:
+ *                 type: boolean
+ *               Result:
+ *                 type: boolean
+ *               PI:
+ *                 type: boolean
+ *               swift:
+ *                 type: boolean
+ *               invoice:
+ *                 type: boolean
+ *               rfd:
+ *                 type: boolean
+ *               stock:
+ *                 type: boolean
+ *     responses:
+ *       '200':
+ *         description: OK. Order updated successfully.
+ *       '404':
+ *         description: Not Found. Order not found.
+ *       '500':
+ *         description: Internal Server Error. Failed to update order.
+ */
+router.put("/:orderId"
+
+
+
+/**
+ * @swagger
+ * /submittedOrders/{orderId}:
+ *   delete:
+ *     summary: Delete Order
+ *     description: Delete an existing order.
+ *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: orderId
+ *         required: true
+ *         description: ID of the order to delete.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. Order deleted successfully.
+ *       '404':
+ *         description: Not Found. Order not found.
+ *       '500':
+ *         description: Internal Server Error. Failed to delete order.
+ */
+router.delete("/:orderId"
+
+
+
+/**
+ * @swagger
+ * /swift/submit/{id}:
+ *   put:
+ *     summary: Submit Swift
+ *     description: Submit a Swift by its ID.
+  *     tags: [Importation]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the Swift to submit.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Swift submitted successfully.
+ *       '404':
+ *         description: Not Found. Swift not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to submit Swift.
+ */
+router.put('/submit/:id'
