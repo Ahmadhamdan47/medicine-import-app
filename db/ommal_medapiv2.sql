@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 03:49 PM
+-- Generation Time: May 12, 2024 at 06:49 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -3704,34 +3704,28 @@ DELIMITER ;
 CREATE TABLE `operation` (
   `ID` int(11) NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
+  `NameAR` varchar(255) DEFAULT NULL,
   `Code` varchar(255) DEFAULT NULL,
-  `System` varchar(255) DEFAULT NULL,
-  `Description` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `systemChar` char(1) DEFAULT NULL,
+  `Anesthetic` enum('L','G') DEFAULT NULL,
+  `Description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `operation`
 --
 
-INSERT INTO `operation` (`ID`, `Name`, `Code`, `System`, `Description`) VALUES
-(1, 'Operation 1', '4102', 'CardioVascular', NULL),
-(2, 'Operation 2', '3340', 'Digestive', NULL);
-
---
--- Triggers `operation`
---
-DELIMITER $$
-CREATE TRIGGER `a_d_operation` AFTER DELETE ON `operation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'operation';						SET @pk_d = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @rec_state = 3;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE  `table_name` = @tbl_name AND `pk_date_src` = @pk_d;						IF @rs = 1 THEN 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs > 1 THEN 						UPDATE `history_store` SET `timemark` = @time_mark, `record_state` = 3, `pk_date_src` = `pk_date_dest` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d; 						END IF; 						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d, @rec_state ); 						END IF; END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `a_i_operation` AFTER INSERT ON `operation` FOR EACH ROW BEGIN 						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'cvb'; 						SET @tbl_name = 'operation'; 						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>'); 						SET @rec_state = 1;						UPDATE `history_store` SET `pk_date_dest` = `pk_date_src` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d AND (`record_state` = 2 OR `record_state` = 1); 						DELETE FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_dest` = @pk_d; 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`,`record_state` ) 						VALUES (@time_mark, @tbl_name, @pk_d, @pk_d, @rec_state); 						END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `a_u_operation` AFTER UPDATE ON `operation` FOR EACH ROW BEGIN						SET @time_mark = DATE_ADD(NOW(), INTERVAL 0 SECOND); 						SET @tbl_name = 'operation';						SET @pk_d_old = CONCAT('<ID>',OLD.`ID`,'</ID>');						SET @pk_d = CONCAT('<ID>',NEW.`ID`,'</ID>');						SET @rec_state = 2;						SET @rs = 0;						SELECT `record_state` INTO @rs FROM `history_store` WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						IF @rs = 0 THEN 						INSERT INTO `history_store`( `timemark`, `table_name`, `pk_date_src`,`pk_date_dest`, `record_state` ) VALUES (@time_mark, @tbl_name, @pk_d,@pk_d_old, @rec_state );						ELSE 						UPDATE `history_store` SET `timemark` = @time_mark, `pk_date_src` = @pk_d WHERE `table_name` = @tbl_name AND `pk_date_src` = @pk_d_old;						END IF; END
-$$
-DELIMITER ;
+INSERT INTO `operation` (`ID`, `Name`, `NameAR`, `Code`, `systemChar`, `Anesthetic`, `Description`) VALUES
+(1, 'Tympanostomy (requiring insertion of ventilating tube)\r\n', 'فتحة طموح الطبل (تتطلب إدخال أنبوب التهوية)', 'A9433G\r\n', 'A', 'G', ''),
+(2, 'Tympanoplasty with antrotomy or mastoidectomy (including canalplasty, atticotomy, middle ear surgery, and/or tympanic membrane repair): with or without ossicular chain reconstruction, any method\r\n', NULL, 'A9635G\r\n', 'A', 'G', NULL),
+(3, 'Insertion of permanent pacemaker any method\r\n', NULL, 'C3245G', 'C', 'G', NULL),
+(4, 'Implantation of automatic implantable cardioverter-defibrillator pads with or without sensing electrodes\r\n', '', 'C3400G', 'C', 'G', NULL),
+(5, 'Transcatheter placement of an intravascular stent, (non coronary vessel), percutaneous or open: initial vessel\r\n', NULL, 'C7205G', 'C', 'L', NULL),
+(6, 'Tonsillectomy with or without adenoidectomy\r\n', NULL, 'D2820G\r\n', 'D', 'G', NULL),
+(7, 'Thyroidectomy, total or complete', NULL, 'E0240G', 'E', 'G', NULL),
+(8, 'Laparoscopy, surgical: with removal of adnexal structures (partial or total oophorectomy and/or salpingectomy)\r\n', NULL, 'F6307G1', 'F', 'G', NULL),
+(9, 'One stage distal hypospadias repair (with or without chordee or circumcision): with simple meatal advancement (eg, Magpi, V-flap)\r\n', NULL, 'G4322G', 'G', 'G', NULL),
+(10, 'Excision of pilonidal cyst or sinus\r\n', '', 'I1770G', 'I', 'G', NULL);
 
 -- --------------------------------------------------------
 
@@ -3758,6 +3752,37 @@ INSERT INTO `operationshare` (`OperationId`, `Category1`, `Category2`, `Category
 (2, '0.40', '0.50', '0.60', 1),
 (2, '0.50', '0.60', '0.20', 0),
 (1, '0.50', '0.60', '0.20', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `operationsystems`
+--
+
+CREATE TABLE `operationsystems` (
+  `systemChar` char(1) NOT NULL,
+  `systemName` varchar(255) DEFAULT NULL,
+  `NameAR` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `operationsystems`
+--
+
+INSERT INTO `operationsystems` (`systemChar`, `systemName`, `NameAR`) VALUES
+('A', 'Auditory', 'الجهاز السمعي'),
+('C', 'Cardiac', 'القلب'),
+('D', 'Digestive', 'الجهاز الهضمي'),
+('E', 'Endoctrine', 'جهاز الغدد المصاء'),
+('F', 'Reproductive (Gynocology)', 'الجهاز الإنجابي'),
+('G', 'Urinary (Male Genitalia)', 'الجهاز البولي(الأعضاء التانسلية الذكرية)'),
+('I', '(skin, wounds and breast)', 'الجهاز الجلدي (البشرة والجروح والثدييات)'),
+('M', 'Skeletal', 'الجهاز الهيكلي'),
+('N', 'Nervous', 'الجهاز العصبي'),
+('O', 'Ocular', 'الجهاز البصري'),
+('R', 'Respiratory', 'الجهاز التنفسي'),
+('U', 'Urinary', 'الجهاز البولي'),
+('X', 'Cardiovascular', 'الجهاز القلبي الوعائي');
 
 -- --------------------------------------------------------
 
@@ -4777,13 +4802,20 @@ ALTER TABLE `inventory`
 -- Indexes for table `operation`
 --
 ALTER TABLE `operation`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `systemChar` (`systemChar`);
 
 --
 -- Indexes for table `operationshare`
 --
 ALTER TABLE `operationshare`
   ADD KEY `FK__Operation__Opera__4EDDB18F` (`OperationId`);
+
+--
+-- Indexes for table `operationsystems`
+--
+ALTER TABLE `operationsystems`
+  ADD PRIMARY KEY (`systemChar`);
 
 --
 -- Indexes for table `patients`
@@ -5125,6 +5157,12 @@ ALTER TABLE `inventory`
   MODIFY `InventoryID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `operation`
+--
+ALTER TABLE `operation`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
@@ -5444,6 +5482,12 @@ ALTER TABLE `importation`
 --
 ALTER TABLE `inventory`
   ADD CONSTRAINT `FK_Inventory_Drug_Info` FOREIGN KEY (`DrugID`) REFERENCES `drug` (`DrugID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `operation`
+--
+ALTER TABLE `operation`
+  ADD CONSTRAINT `operation_ibfk_1` FOREIGN KEY (`systemChar`) REFERENCES `operationsystems` (`systemChar`);
 
 --
 -- Constraints for table `operationshare`
