@@ -26,7 +26,7 @@ var PharmacyDrug = require("../models/pharmacyDrug");
 
 var drug_atc_mapping = require("../models/atcMapping");
 
-var ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_Code
+var ATC_Code = require("../models/atc"); // Assuming you have a model for ATC_Code
 
 
 var ATCService = require("./atcService");

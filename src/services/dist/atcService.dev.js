@@ -2,7 +2,7 @@
 
 var drug_atc_mapping = require("../models/atcMapping");
 
-var ATC_Code = require("../models/ATC");
+var ATC_Code = require("../models/atc");
 
 var getATCByDrugID = function getATCByDrugID(DrugID) {
   var mapping, atcCode;

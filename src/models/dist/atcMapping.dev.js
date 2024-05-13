@@ -22,7 +22,7 @@ var sequelize = require('../../config/databasePharmacy');
 
 var Drug = require('./drug');
 
-var ATC_Code = require('./ATC');
+var ATC_Code = require('./atc');
 
 var drug_atc_mapping =
 /*#__PURE__*/
