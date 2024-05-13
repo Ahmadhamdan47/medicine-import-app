@@ -2,7 +2,6 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Operation = require('./operation');
 
-
 const CategoryPricing = sequelize.define('categorypricing', {
   OperationId: {
     type: DataTypes.INTEGER,
@@ -11,18 +10,6 @@ const CategoryPricing = sequelize.define('categorypricing', {
       model: Operation,
       key: 'ID',
     }
-  },
-  CategoryType: {
-    type: DataTypes.ENUM,
-    values: ['first', 'second', 'third'],
-    allowNull: false,
-  },
-  isPrivate: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-  },
-  FirstProcedurePrice: {
-    type: DataTypes.INTEGER,
   },
   FirstSurgeon: {
     type: DataTypes.INTEGER,
@@ -33,7 +20,22 @@ const CategoryPricing = sequelize.define('categorypricing', {
   FirstConsultant: {
     type: DataTypes.INTEGER,
   },
-  SecondProcedurePrice: {
+  FirstHospital1: {
+    type: DataTypes.INTEGER,
+  },
+  FirstHospital2: {
+    type: DataTypes.INTEGER,
+  },
+  FirstHospital3: {
+    type: DataTypes.INTEGER,
+  },
+  FirstCategory1: {
+    type: DataTypes.INTEGER,
+  },
+  FirstCategory2: {
+    type: DataTypes.INTEGER,
+  },
+  FirstCategory3: {
     type: DataTypes.INTEGER,
   },
   SecondSurgeon: {
@@ -45,13 +47,27 @@ const CategoryPricing = sequelize.define('categorypricing', {
   SecondConsultant: {
     type: DataTypes.INTEGER,
   },
-  TotalAmount: {
+  SecondHospital1: {
     type: DataTypes.INTEGER,
   },
+  SecondHospital2: {
+    type: DataTypes.INTEGER,
+  },
+  SecondHospital3: {
+    type: DataTypes.INTEGER,
+  },
+  SecondCategory1: {
+    type: DataTypes.INTEGER,
+  },
+  SecondCategory2: {
+    type: DataTypes.INTEGER,
+  },
+  SecondCategory3: {
+    type: DataTypes.INTEGER,
+  }
 }, {
   sequelize,
   tableName: 'categorypricing',
 });
-
 
 module.exports = CategoryPricing;

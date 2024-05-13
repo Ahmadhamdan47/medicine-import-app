@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
-
 const NewDrug = sequelize.define('drug', {
     DrugID: {
         type: DataTypes.INTEGER,
@@ -10,6 +9,12 @@ const NewDrug = sequelize.define('drug', {
     },
     DrugName: {
         type: DataTypes.STRING(255)
+    },
+    DrugNameAR: {
+        type: DataTypes.STRING(255)
+    },
+    isOTC:{
+        type: DataTypes.BOOLEAN
     },
     ManufacturerID: {
         type: DataTypes.INTEGER
@@ -141,5 +146,4 @@ const NewDrug = sequelize.define('drug', {
     tableName: 'drug',
     timestamps: false
 });
-
 module.exports = NewDrug;

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-
+const HospitalOperationMapping = require('./hospitalOperationMapping');
 const Hospital = sequelize.define('hospital', {
   ID: {
     type: DataTypes.INTEGER,
@@ -22,7 +22,6 @@ const Hospital = sequelize.define('hospital', {
   },
 }, {
   sequelize,
-  modelName: 'Hospital',
   tableName: 'hospital',
 });
 

@@ -143,4 +143,5 @@ const NewDrug = sequelize.define('drug', {
     
 });
 
+
 module.exports = NewDrug;
