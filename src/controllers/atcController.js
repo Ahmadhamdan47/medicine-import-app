@@ -1,4 +1,4 @@
-// src/controllers/ATCController.js
+// src/controllers/atcController.js
 
 const ATCService = require('../services/atcService');
 
