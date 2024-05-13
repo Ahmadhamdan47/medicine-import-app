@@ -1,9 +1,9 @@
-const Drug_ATC_Mapping = require("../models/atcMapping");
+const drug_atc_mapping = require("../models/atcMapping");
 const ATC_Code = require("../models/ATC");
 
 const getATCByDrugID = async (DrugID) => {
   try {
-    const mapping = await Drug_ATC_Mapping.findOne({
+    const mapping = await drug_atc_mapping.findOne({
       where: { DrugID: DrugID },
     });
 

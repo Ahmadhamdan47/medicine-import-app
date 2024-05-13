@@ -1,6 +1,6 @@
 "use strict";
 
-var Drug_ATC_Mapping = require("../models/atcMapping");
+var drug_atc_mapping = require("../models/atcMapping");
 
 var ATC_Code = require("../models/ATC");
 
@@ -12,7 +12,7 @@ var getATCByDrugID = function getATCByDrugID(DrugID) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return regeneratorRuntime.awrap(Drug_ATC_Mapping.findOne({
+          return regeneratorRuntime.awrap(drug_atc_mapping.findOne({
             where: {
               DrugID: DrugID
             }

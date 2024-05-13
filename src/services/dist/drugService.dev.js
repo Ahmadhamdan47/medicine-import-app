@@ -24,7 +24,7 @@ var Drug = require("../models/pharmacyDrug");
 
 var PharmacyDrug = require("../models/pharmacyDrug");
 
-var Drug_ATC_Mapping = require("../models/atcMapping");
+var drug_atc_mapping = require("../models/atcMapping");
 
 var ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_Code
 
@@ -99,7 +99,7 @@ var getDrugByDiseaseCategory = function getDrugByDiseaseCategory(categoryName) {
           atcId = diseaseCategoryAtc.ATC_CodeId;
           console.log(atcId);
           _context2.next = 12;
-          return regeneratorRuntime.awrap(Drug_ATC_Mapping.findAll({
+          return regeneratorRuntime.awrap(drug_atc_mapping.findAll({
             where: {
               ATC_ID: _defineProperty({}, Op.eq, atcId)
             }
@@ -802,7 +802,7 @@ var getDrugByATCLevel = function getDrugByATCLevel(query) {
           }); // Fetch all drugs that have the corresponding ATC_IDs
 
           _context15.next = 8;
-          return regeneratorRuntime.awrap(Drug_ATC_Mapping.findAll({
+          return regeneratorRuntime.awrap(drug_atc_mapping.findAll({
             where: {
               ATC_ID: _defineProperty({}, Op["in"], atcIds)
             },

@@ -24,21 +24,21 @@ var Drug = require('./drug');
 
 var ATC_Code = require('./ATC');
 
-var Drug_ATC_Mapping =
+var drug_atc_mapping =
 /*#__PURE__*/
 function (_Model) {
-  _inherits(Drug_ATC_Mapping, _Model);
+  _inherits(drug_atc_mapping, _Model);
 
-  function Drug_ATC_Mapping() {
-    _classCallCheck(this, Drug_ATC_Mapping);
+  function drug_atc_mapping() {
+    _classCallCheck(this, drug_atc_mapping);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Drug_ATC_Mapping).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(drug_atc_mapping).apply(this, arguments));
   }
 
-  return Drug_ATC_Mapping;
+  return drug_atc_mapping;
 }(Model);
 
-Drug_ATC_Mapping.init({
+drug_atc_mapping.init({
   MappingID: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -71,14 +71,14 @@ Drug_ATC_Mapping.init({
   }
 }, {
   sequelize: sequelize,
-  modelName: 'Drug_ATC_Mapping',
+  modelName: 'drug_atc_mapping',
   tableName: 'drug_atc_mapping',
   timestamps: false
 });
-Drug_ATC_Mapping.belongsTo(Drug, {
+drug_atc_mapping.belongsTo(Drug, {
   foreignKey: 'DrugID'
 });
-Drug_ATC_Mapping.belongsTo(ATC_Code, {
+drug_atc_mapping.belongsTo(ATC_Code, {
   foreignKey: 'ATC_ID'
 });
-module.exports = Drug_ATC_Mapping;
+module.exports = drug_atc_mapping;

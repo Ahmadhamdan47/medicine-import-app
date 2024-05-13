@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 const { Op } = require("sequelize");
 const Drug = require("../models/pharmacyDrug");
 const PharmacyDrug = require("../models/pharmacyDrug");
-const Drug_ATC_Mapping = require("../models/atcMapping");
+const drug_atc_mapping = require("../models/atcMapping");
 const ATC_Code = require("../models/ATC"); // Assuming you have a model for ATC_Code
 const ATCService = require("./atcService");
 const { v4: uuidv4 } = require("uuid");
@@ -37,7 +37,7 @@ console.log(diseaseCategoryId);
   console.log(atcId);
 
  
- const drugIds = await Drug_ATC_Mapping.findAll({
+ const drugIds = await drug_atc_mapping.findAll({
   where: {
     ATC_ID: {
       [Op.eq]: atcId
@@ -347,7 +347,7 @@ const getDrugByATCLevel = async (query) => {
     const atcIds = atcCodes.map(atcCode => atcCode.ATC_ID);
 
     // Fetch all drugs that have the corresponding ATC_IDs
-    const drugs = await Drug_ATC_Mapping.findAll({
+    const drugs = await drug_atc_mapping.findAll({
       where: {
         ATC_ID: {
           [Op.in]: atcIds
