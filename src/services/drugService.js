@@ -26,6 +26,7 @@ const BatchSerialNumber= require('../models/batchserialnumber');
 const DiseaseCategory = require('../models/diseaseCategory');
 const DiseaseCategoryATC = require('../models/diseaseCategoryAtc');
 
+
 const getDrugByDiseaseCategory = async (categoryName) => {
 
   const diseaseCategory = await DiseaseCategory.findOne({ where: { CategoryName: categoryName } });
@@ -44,17 +45,43 @@ console.log(diseaseCategoryId);
     }
   },
 });
-const drugs = await Promise.all(drugIds.map(async (drugId) => {
-  const drug = await Drug.findOne({
-    where: {
-      DrugID: drugId.DrugID
-    },
-    attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed'],
-  });
-  return drug;
+
+const drugs = await Drug.findAll({
+  where: {
+    DrugID: {
+      [Op.in]: drugIds.map(drug => drug.DrugID)
+    }
+  },
+  attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed'],
+});
+
+const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
+  const dosage = await getDosageByDrugName(drug.DrugName);
+  const route = await getRouteByDrugName(drug.DrugName);
+  const presentation = await getPresentationByDrugName(drug.DrugName);
+  const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
+  const ManufacturerName = Manufacturer.AgentName;
+  const CountryName = Manufacturer.Country;
+  const priceInLBP = drug.Price * 90000;
+  const unitPrice = drug.Price / presentation.Amount;
+  const unitPriceInLBP = unitPrice * 90000;
+
+  return {
+    ...drug.dataValues,
+    dosage,
+    route,
+    presentation,
+    ManufacturerName,
+    CountryName,
+    priceInLBP,
+    unitPrice,
+    unitPriceInLBP
+  };
 }));
-return drugs;
-};
+
+return drugsWithDosageAndRoute;
+};  
+
 
 
 const searchDrugByATCName = async (atcName) => {
@@ -646,9 +673,57 @@ const getOTCDrugs = async () => {
     throw new Error('Error occurred in getOTCDrugs: ' + error.message);
   }
 };
+const getDrugSubstitutes = async (drugName) => {
+  try {
+    // Find the drug by its name
+    const drug = await Drug.findOne({
+      where: { DrugName: drugName },
+    });
 
+    if (!drug) {
+      throw new Error(`Drug with name ${drugName} not found`);
+    }
 
+    // Get the substitutes of the drug
+    const substitutes = await substituteService.getSubstitutesByDrugID(drug.DrugID);
 
+    // Fetch the data of the substitutes like in the smartSearch
+    const substitutesWithDetails = await Promise.all(substitutes.map(async (substitute) => {
+      const substituteDrug = await Drug.findOne({
+        where: { DrugID: substitute.Substitute },
+        attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed'],
+      });
+
+      // Fetch additional details for the substitute drug
+      const dosage = await getDosageByDrugName(substituteDrug.DrugName);
+      const route = await getRouteByDrugName(substituteDrug.DrugName);
+      const presentation = await getPresentationByDrugName(substituteDrug.DrugName);
+      const Manufacturer = await Agent.findOne({ where: { AgentID: substituteDrug.ManufacturerID } });
+      const ManufacturerName = Manufacturer.AgentName;
+      const CountryName = Manufacturer.Country;
+      const priceInLBP = substituteDrug.Price * 90000;
+      const unitPrice = substituteDrug.Price / presentation.Amount;
+      const unitPriceInLBP = unitPrice * 90000;
+
+      return {
+        ...substituteDrug.dataValues,
+        dosage,
+        route,
+        presentation,
+        ManufacturerName,
+        CountryName,
+        priceInLBP,
+        unitPrice,
+        unitPriceInLBP
+      };
+    }));
+
+    return substitutesWithDetails;
+  } catch (error) {
+    console.error("Error in getDrugSubstitutes:", error);
+    throw new Error('Error occurred in getDrugSubstitutes: ' + error.message);
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -668,5 +743,7 @@ module.exports = {
   getPresentationByDrugName,
   checkMate,
   getOTCDrugs,
-  getDrugByDiseaseCategory
+  getDrugByDiseaseCategory,
+  getDrugSubstitutes
+  
 };

@@ -206,7 +206,15 @@ const getDrugByDiseaseCategoryController = async (req, res) => {
   const drugs = await DrugService.getDrugByDiseaseCategory(categoryName);
   res.json(drugs);
 };
-
+const getDrugSubstitutesController = async (req, res, next) => {
+  try {
+    const { drugName } = req.params;
+    const substitutes = await DrugService.getDrugSubstitutes(drugName);
+    res.json(substitutes);
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -228,5 +236,6 @@ module.exports = {
   getStratumByDrugId,
   checkMate,
   getOTCDrugs,
-  getDrugByDiseaseCategoryController
+  getDrugByDiseaseCategoryController,
+  getDrugSubstitutesController,
 };

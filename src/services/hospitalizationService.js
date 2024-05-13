@@ -319,7 +319,14 @@ const getAllHospitals = async () => {
   if (!hospitals) {
     throw new Error('No hospitals found');
   }
-  return hospitals;
+
+  const privateHospitals = hospitals.filter(hospital => hospital.isPrivate);
+  const publicHospitals = hospitals.filter(hospital => !hospital.isPrivate);
+
+  return {
+    privateHospitals,
+    publicHospitals
+  };
 };
 
 const getAllOperations = async () => {
