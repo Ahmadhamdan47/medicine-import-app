@@ -2,11 +2,14 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
 const OperationSystems = sequelize.define('operationsystems', {
-  operationChar: {
+  systemChar: {
     type: DataTypes.CHAR,
     primaryKey: true,
   },
   systemName: {
+    type: DataTypes.STRING,
+  },
+  NameAR: {
     type: DataTypes.STRING,
   },
 }, {

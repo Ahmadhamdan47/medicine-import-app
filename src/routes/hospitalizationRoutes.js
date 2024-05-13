@@ -46,28 +46,7 @@ router.get('/operations/private/:system', hospitalizationController.searchOperat
  *                 $ref: '#/components/schemas/Operation'
  */
 router.get('/operations/public/:system', hospitalizationController.searchOperationsBySystemPublic);
-/**
- * @swagger
- * /operation/private/{query}:
- *   get:
- *     summary: Retrieve a list of private operations by query
- *     parameters:
- *       - in: path
- *         name: query
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: A list of private operations
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Operation'
- */
-router.get('/operation/Searchprivate/:query', hospitalizationController.searchOperationPrivate);
+
 /**
  * @swagger
  * /operation/public/{query}:
@@ -89,7 +68,30 @@ router.get('/operation/Searchprivate/:query', hospitalizationController.searchOp
  *               items:
  *                 $ref: '#/components/schemas/Operation'
  */
-router.get('/operation/Searchpublic/:query', hospitalizationController.searchOperationPublic);
+router.get('/operations/Searchpublic/:query', hospitalizationController.searchOperationPublic);
+/**
+ * @swagger
+ * /operation/private/{query}:
+ *  get:
+ *   summary: Retrieve a list of private operations by query
+ *  parameters:
+ *   - in: path
+ *    name: query
+ *   required: true
+ *  schema:
+ *  type: string
+ * responses:
+ * 200:
+ * description: A list of private operations
+ * content:
+ * application/json:
+ * schema:
+ * type: array
+ * items:
+ * $ref: '#/components/schemas/Operation'
+ * 
+ */
+router.get('/operations/Searchprivate/:query', hospitalizationController.searchOperationPrivate);
 /**
  * @swagger
  * /operation/hospital/{hospitalName}:
@@ -111,7 +113,7 @@ router.get('/operation/Searchpublic/:query', hospitalizationController.searchOpe
  *               items:
  *                 $ref: '#/components/schemas/Operation'
  */
-router.get('/operation/hospital/:hospitalName', hospitalizationController.searchOperationByHospitalName);
+router.get('/operations/hospital/:hospitalName', hospitalizationController.searchOperationByHospitalName);
 /**
  * @swagger
  * /operation/{operationId}:
@@ -131,9 +133,57 @@ router.get('/operation/hospital/:hospitalName', hospitalizationController.search
  *             schema:
  *               $ref: '#/components/schemas/Operation'
  */
-router.get('/operation/:operationId', hospitalizationController.getOperationById);
-router.get('/operations/:id/pricing/private', hospitalizationController.getCategoryPricingByOperationIdPrivate);
-router.get('/operations/:id/pricing/public', hospitalizationController.getCategoryPricingByOperationIdPublic);
-router.get('/private/:id', hospitalizationController.getOperationShareByOperationIdPrivate);
-router.get('/public/:id', hospitalizationController.getOperationShareByOperationIdPublic);
+router.get('/operations/:operationId', hospitalizationController.getOperationById);
+/**
+ * @swagger
+ * /hospitals:
+ *   get:
+ *     summary: Retrieve a list of hospitals
+ *     responses:
+ *       200:
+ *         description: A list of hospitals
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Hospital'
+ */
+router.get('/hospitals', hospitalizationController.getAllHospitals);
+/**
+ * @swagger
+ * /operations:
+ *   get:
+ *     summary: Retrieve a list of operations
+ *     responses:
+ *       200:
+ *         description: A list of operations
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Operation'
+ */
+router.get('/operations', hospitalizationController.getAllOperations);
+/**
+ * @swagger
+ * /systems:
+ *   get:
+ *     summary: Retrieve a list of operation systems
+ *     responses:
+ *       200:
+ *         description: A list of operation systems
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: string
+ */
+router.get('/systems', hospitalizationController.getAllOperationSystems);
+router.get('/operations/pricing/private/:operationId', hospitalizationController.getCategoryPricingByOperationIdPrivate);
+router.get('/operations/pricing/public/:operationId', hospitalizationController.getCategoryPricingByOperationIdPublic);
+router.get('/private', hospitalizationController.getOperationSharePrivate);
+router.get('/public', hospitalizationController.getOperationSharePublic);
 module.exports = router;

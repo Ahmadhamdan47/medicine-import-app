@@ -1,9 +1,9 @@
 const hospitalizationService = require('../services/hospitalizationService');
 
 const searchOperationsBySystemPrivate = async (req, res) => {
-  const System = req.params.system;
+  const systemNameOrNameAR = req.params.system;
   try {
-    const operations = await hospitalizationService.searchOperationsBySystemPrivate(System);
+    const operations = await hospitalizationService.searchOperationsBySystemPrivate(systemNameOrNameAR);
     res.status(200).json(operations);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -11,9 +11,9 @@ const searchOperationsBySystemPrivate = async (req, res) => {
 };
 
 const searchOperationsBySystemPublic = async (req, res) => {
-  const System = req.params.system;
+  const systemNameOrNameAR = req.params.system;
   try {
-    const operations = await hospitalizationService.searchOperationsBySystemPublic(System);
+    const operations = await hospitalizationService.searchOperationsBySystemPublic(systemNameOrNameAR);
     res.status(200).json(operations);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -58,33 +58,57 @@ const getOperationById = async (req, res) => {
   }
 };
 const getCategoryPricingByOperationIdPrivate = async (req, res) => {
-  const operationId = req.params.id;
+  const operationId = req.params.operationId;
   const operation = await hospitalizationService.getCategoryPricingByOperationIdPrivate(operationId);
   res.json(operation);
 };
 
 const getCategoryPricingByOperationIdPublic = async (req, res) => {
-  const operationId = req.params.id;
+  const operationId = req.params.operationId;
   const operation = await hospitalizationService.getCategoryPricingByOperationIdPublic(operationId);
   res.json(operation);
 };
-const getOperationShareByOperationIdPrivate = async (req, res, next) => {
+const getOperationSharePrivate = async (req, res, next) => {
   try {
-    const operationId = req.params.id;
-    const operation = await hospitalizationService.getOperationShareByOperationIdPrivate(operationId);
-    res.json(operation);
+    const operationShares = await hospitalizationService.getOperationSharePrivate();
+    res.json(operationShares);
   } catch (error) {
     next(error);
   }
 };
 
-const getOperationShareByOperationIdPublic = async (req, res, next) => {
+const getOperationSharePublic = async (req, res, next) => {
   try {
-    const operationId = req.params.id;
-    const operation = await hospitalizationService.getOperationShareByOperationIdPublic(operationId);
-    res.json(operation);
+    const operationShares = await hospitalizationService.getOperationSharePublic();
+    res.json(operationShares);
   } catch (error) {
     next(error);
+  }
+};
+const getAllHospitals = async (req, res) => {
+  try {
+    const hospitals = await hospitalizationService.getAllHospitals();
+    res.status(200).json(hospitals);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getAllOperations = async (req, res) => {
+  try {
+    const operations = await hospitalizationService.getAllOperations();
+    res.status(200).json(operations);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getAllOperationSystems = async (req, res) => {
+  try {
+    const operationSystems = await hospitalizationService.getAllOperationSystems();
+    res.status(200).json(operationSystems);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 module.exports = {
@@ -96,6 +120,9 @@ module.exports = {
   getOperationById,
   getCategoryPricingByOperationIdPrivate,
   getCategoryPricingByOperationIdPublic,
-  getOperationShareByOperationIdPrivate,
-  getOperationShareByOperationIdPublic,
+  getOperationSharePrivate,
+  getOperationSharePublic,
+  getAllHospitals,
+  getAllOperations,
+  getAllOperationSystems,
 };

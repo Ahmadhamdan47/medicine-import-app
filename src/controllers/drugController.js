@@ -92,10 +92,10 @@ const smartSearch = async (req, res) => {
 };
 
 const getDrugByATCLevel = async (req, res) => {
-  const atcCode = req.params.atcCode;
+  const query = req.params.query;
 
   try {
-    const drugs = await DrugService.getDrugByATCLevel(atcCode);
+    const drugs = await DrugService.getDrugByATCLevel(query);
     res.json(drugs);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
@@ -190,6 +190,24 @@ const checkMate = async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 };
+const getOTCDrugs = async (req, res) => {
+  try {
+    const otcDrugs = await DrugService.getOTCDrugs();
+    res.json(otcDrugs);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+// drugController.js
+
+
+const getDrugByDiseaseCategoryController = async (req, res) => {
+  const { categoryName } = req.params;
+  const drugs = await DrugService.getDrugByDiseaseCategory(categoryName);
+  res.json(drugs);
+};
+
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -208,5 +226,7 @@ module.exports = {
   getPresentationByDrugId,
   getPresentationByDrugName,
   getStratumByDrugId,
-  checkMate
+  checkMate,
+  getOTCDrugs,
+  getDrugByDiseaseCategoryController
 };

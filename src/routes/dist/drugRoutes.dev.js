@@ -1,7 +1,10 @@
-const express = require("express");
-const router = express.Router();
+"use strict";
 
-const drugController = require("../controllers/drugController");
+var express = require("express");
+
+var router = express.Router();
+
+var drugController = require("../controllers/drugController");
 /**
  * @swagger
  * /drugs/search/atc/{query}:
@@ -55,8 +58,9 @@ const drugController = require("../controllers/drugController");
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/search/atc/:query", drugController.searchDrugByATCName);
 
+
+router.get("/search/atc/:query", drugController.searchDrugByATCName);
 /**
  * @swagger
  * /drugs/search/DrugName/{query}:
@@ -110,8 +114,8 @@ router.get("/search/atc/:query", drugController.searchDrugByATCName);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/search/DrugName/:query", drugController.searchDrugByName);
 
+router.get("/search/DrugName/:query", drugController.searchDrugByName);
 /**
  * @swagger
  * /drugs/Id/{DrugID}:
@@ -169,7 +173,6 @@ router.get("/search/DrugName/:query", drugController.searchDrugByName);
  */
 
 router.get("/Id/:DrugID", drugController.getDrugById);
-
 /**
  * @swagger
  * /drugs/filter/{query}:
@@ -192,8 +195,8 @@ router.get("/Id/:DrugID", drugController.getDrugById);
  *       '500':
  *         description: Internal Server Error. Failed to filter drugs.
  */
-router.get("/filter/:query", drugController.filterDrugs);
 
+router.get("/filter/:query", drugController.filterDrugs);
 /**
  * @swagger
  * /drugs/add:
@@ -307,8 +310,8 @@ router.get("/filter/:query", drugController.filterDrugs);
  *       '500':
  *         description: Internal Server Error. Failed to add drug.
  */
-router.post("/add", drugController.addDrug);
 
+router.post("/add", drugController.addDrug);
 /**
  * @swagger
  * /drugs/addPharmacy:
@@ -346,8 +349,8 @@ router.post("/add", drugController.addDrug);
  *       '500':
  *         description: Internal Server Error. Failed to add patient to pharmacy.
  */
-router.post("/addPharmacy", drugController.addPharmacyDrug);
 
+router.post("/addPharmacy", drugController.addPharmacyDrug);
 /**
  * @swagger
  * /drugs/all:
@@ -361,8 +364,8 @@ router.post("/addPharmacy", drugController.addPharmacyDrug);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/all", drugController.getAllDrugs);
 
+router.get("/all", drugController.getAllDrugs);
 /**
  * @swagger
  * /drugs/smartSearch/{query}:
@@ -416,6 +419,7 @@ router.get("/all", drugController.getAllDrugs);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drugs.
  */
+
 router.get("/smartSearch/:query", drugController.smartSearch);
 /**
  * @swagger
@@ -470,8 +474,8 @@ router.get("/smartSearch/:query", drugController.smartSearch);
  * '500': 
  * description: Internal Server Error. Failed to retrieve drugs.
  */
-router.get("/atc/:query", drugController.getDrugByATCLevel);
 
+router.get("/atc/:query", drugController.getDrugByATCLevel);
 /**
  * @swagger
  * /drugs/addDrugATC:
@@ -500,19 +504,14 @@ router.get("/atc/:query", drugController.getDrugByATCLevel);
  *       '500':
  *         description: Internal Server Error. Failed to map drug to ATC.
  */
-router.post("/addDrugATC", drugController.addDrugATC);
 
+router.post("/addDrugATC", drugController.addDrugATC);
 router.get("/dosage/id/:drugId", drugController.getDosageByDrugId);
 router.get("/dosage/name/:drugName", drugController.getDosageByDrugName);
-
 router.get("/route/id/:drugId", drugController.getRouteByDrugId);
 router.get("/route/name/:drugName", drugController.getRouteByDrugName);
-
 router.get("/presentation/id/:drugId", drugController.getPresentationByDrugId);
-router.get(
-  "/presentation/name/:drugName",
-  drugController.getPresentationByDrugName
-);
+router.get("/presentation/name/:drugName", drugController.getPresentationByDrugName);
 router.get('/stratum/:DrugID', drugController.getStratumByDrugId);
 /**
  * @swagger
@@ -536,6 +535,7 @@ router.get('/stratum/:DrugID', drugController.getStratumByDrugId);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drug interactions.
  */
+
 router.post("/checkMate", drugController.checkMate);
 /**
  * @swagger
@@ -556,8 +556,8 @@ router.post("/checkMate", drugController.checkMate);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve drug interactions.
  */
-router.get('/otc', drugController.getOTCDrugs);
 
+router.get('/otc', drugController.getOTCDrugs);
 /**
  * @swagger
  * /drugs/disease/{categoryName}:
@@ -582,5 +582,4 @@ router.get('/otc', drugController.getOTCDrugs);
  */
 
 router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryController);
-
 module.exports = router;
