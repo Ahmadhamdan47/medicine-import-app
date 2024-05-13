@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require ('../../config/databasePharmacy');
 const Drug = require('./drug');
 const ATC_Code = require('./ATC');
-class Drug_ATC_Mapping extends Model {}
+class drug_atc_mapping extends Model {}
 
-Drug_ATC_Mapping.init({
+drug_atc_mapping.init({
   MappingID: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -37,6 +37,6 @@ Drug_ATC_Mapping.init({
   tableName: 'drug_atc_mapping',
   timestamps: false,
 });
-Drug_ATC_Mapping.belongsTo(Drug, { foreignKey: 'DrugID' });
-Drug_ATC_Mapping.belongsTo(ATC_Code, { foreignKey: 'ATC_ID' });
-module.exports = Drug_ATC_Mapping;
+drug_atc_mapping.belongsTo(Drug, { foreignKey: 'DrugID' });
+drug_atc_mapping.belongsTo(ATC_Code, { foreignKey: 'ATC_ID' });
+module.exports = drug_atc_mapping;
