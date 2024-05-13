@@ -582,5 +582,28 @@ router.get('/otc', drugController.getOTCDrugs);
  */
 
 router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryController);
+/**
+ * @swagger
+ * /drugs/substitutes/{drugName}:
+ *  get:
+ *  summary: Get drug substitutes
+ * description: Retrieve substitutes for the specified drug name.
+ * tags: [Drug]
+ * parameters:
+ * - in: path
+ * name: drugName
+ * required: true
+ * description: The name of the drug to retrieve substitutes for.
+ * schema:
+ * type: string
+ * responses:
+ * '200':
+ * description: OK. Substitutes retrieved successfully.
+ * '404':
+ * description: Not Found. No substitutes found for the specified drug name.
+ * '500':
+ * description: Internal Server Error. Failed to retrieve substitutes.
+ */
+router.get('/substitutes/:drugName', drugController.getDrugSubstitutesController);
 
 module.exports = router;
