@@ -33,7 +33,7 @@ Drug_ATC_Mapping.init({
   }
 }, {
   sequelize,
-  modelName: 'Drug_ATC_Mapping',
+  modelName: 'drug_atc_mapping',
   tableName: 'drug_atc_mapping',
   timestamps: false,
 });
