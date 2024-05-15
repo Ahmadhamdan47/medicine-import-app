@@ -215,6 +215,11 @@ const getDrugSubstitutesController = async (req, res, next) => {
     next(error);
   }
 };
+const checkDrugNameInAPI = async (req, res) => {
+  const drugName = req.params.drugName;
+  const result = await DrugService.checkDrugNameInAPI(drugName);
+  res.json({ exists: result });
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -238,4 +243,6 @@ module.exports = {
   getOTCDrugs,
   getDrugByDiseaseCategoryController,
   getDrugSubstitutesController,
+  checkDrugNameInAPI,
+
 };
