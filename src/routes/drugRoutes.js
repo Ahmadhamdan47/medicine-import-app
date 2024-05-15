@@ -605,5 +605,7 @@ router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryCont
  * description: Internal Server Error. Failed to retrieve substitutes.
  */
 router.get('/substitutes/:drugName', drugController.getDrugSubstitutesController);
+router.get('/checkDrugNameInAPI/:drugName', drugController.checkDrugNameInAPI);
+
 
 module.exports = router;

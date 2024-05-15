@@ -724,6 +724,15 @@ const getDrugSubstitutes = async (drugName) => {
     throw new Error('Error occurred in getDrugSubstitutes: ' + error.message);
   }
 };
+const checkDrugNameInAPI = async (drugName) => {
+  try {
+    const response = await axios.get(`https://data.instamed.fr/api/drugs?page=1&_per_page=30&name=${drugName}`);
+    return response.data['hydra:totalItems'] > 0;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -744,6 +753,7 @@ module.exports = {
   checkMate,
   getOTCDrugs,
   getDrugByDiseaseCategory,
-  getDrugSubstitutes
+  getDrugSubstitutes,
+  checkDrugNameInAPI
   
 };
