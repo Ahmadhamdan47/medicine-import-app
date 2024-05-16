@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 10:37 AM
+-- Generation Time: May 16, 2024 at 06:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7565,20 +7565,6 @@ CREATE TABLE `batchlottracking` (
 --
 
 INSERT INTO `batchlottracking` (`BatchLotId`, `DonationId`, `DrugId`, `Form`, `Presentation`, `GTIN`, `BatchNumber`, `ExpiryDate`, `Quantity`, `Laboratory`, `LaboratoryCountry`) VALUES
-(1, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(2, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(3, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(4, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(5, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(6, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(7, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(8, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(9, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(10, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(11, NULL, NULL, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(12, NULL, 1003, '', '', 0, '1234', '2024-12-31', 45, '', ''),
-(13, 23, 1007, '', '', 0, '1197', '2025-06-12', 222, '', ''),
-(14, NULL, 1018, '', '', 0, '5015450', '2024-05-31', 24, '', ''),
 (16, 20, 1003, 'Form', 'Presentation', 2147483647, '3024', '2023-01-01', 100, 'Pharma', 'Lebanon');
 
 --
@@ -8969,11 +8955,7 @@ CREATE TABLE `donation` (
 --
 
 INSERT INTO `donation` (`DonationId`, `DonorId`, `RecipientId`, `DonationDate`, `DonationPurpose`, `UpdatedDate`) VALUES
-(20, 1, 1, NULL, NULL, NULL),
-(21, 1, 2, NULL, NULL, NULL),
-(22, 1, 2, NULL, NULL, NULL),
-(23, 2, 2, NULL, NULL, NULL),
-(24, 3, 1, NULL, NULL, NULL);
+(20, 1, 1, NULL, NULL, NULL);
 
 --
 -- Triggers `donation`
@@ -17375,14 +17357,27 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-13 01:22:29', 'ATC_Code', '<ATC_ID>99</ATC_ID>', '<ATC_ID>99</ATC_ID>', 1),
 ('2024-05-13 01:22:29', 'ATC_Code', '<ATC_ID>9</ATC_ID>', '<ATC_ID>9</ATC_ID>', 1),
 ('2024-05-06 23:15:30', 'Agent', '<AgentID>1</AgentID>', '<AgentID>1</AgentID>', 2),
-('2024-05-09 13:17:25', 'BatchLotTracking', '<BatchLotId>14</BatchLotId>', '<BatchLotId>14</BatchLotId>', 1),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>10</BatchLotId>', '<BatchLotId>10</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>11</BatchLotId>', '<BatchLotId>11</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>12</BatchLotId>', '<BatchLotId>12</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>13</BatchLotId>', '<BatchLotId>13</BatchLotId>', 3),
 ('2024-05-16 08:34:04', 'BatchLotTracking', '<BatchLotId>16</BatchLotId>', '<BatchLotId>16</BatchLotId>', 1),
+('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>1</BatchLotId>', '<BatchLotId>1</BatchLotId>', 3),
+('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>2</BatchLotId>', '<BatchLotId>2</BatchLotId>', 3),
+('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>3</BatchLotId>', '<BatchLotId>3</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>4</BatchLotId>', '<BatchLotId>4</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>5</BatchLotId>', '<BatchLotId>5</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>6</BatchLotId>', '<BatchLotId>6</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>7</BatchLotId>', '<BatchLotId>7</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>8</BatchLotId>', '<BatchLotId>8</BatchLotId>', 3),
+('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>9</BatchLotId>', '<BatchLotId>9</BatchLotId>', 3),
 ('2024-05-09 13:17:52', 'BatchSerialNumber', '<BatchSerialNumberId>1</BatchSerialNumberId>', '<BatchSerialNumberId>1</BatchSerialNumberId>', 1),
 ('2024-05-16 08:34:05', 'BatchSerialNumber', '<BatchSerialNumberId>2</BatchSerialNumberId>', '<BatchSerialNumberId>2</BatchSerialNumberId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>10</DiseaseCategoryId>', '<DiseaseCategoryId>10</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>11</DiseaseCategoryId>', '<DiseaseCategoryId>11</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>12</DiseaseCategoryId>', '<DiseaseCategoryId>12</DiseaseCategoryId>', 1),
-('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>13</DiseaseCategoryId>', '<DiseaseCategoryId>13</DiseaseCategoryId>', 1),
+('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>13</DiseaseCategoryId>', '<DiseaseCategoryId>13</DiseaseCategoryId>', 1);
+INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>14</DiseaseCategoryId>', '<DiseaseCategoryId>14</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>3</DiseaseCategoryId>', '<DiseaseCategoryId>3</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>4</DiseaseCategoryId>', '<DiseaseCategoryId>4</DiseaseCategoryId>', 1),
@@ -17392,8 +17387,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>8</DiseaseCategoryId>', '<DiseaseCategoryId>8</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>9</DiseaseCategoryId>', '<DiseaseCategoryId>9</DiseaseCategoryId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>47</MappingId>', '<MappingId>47</MappingId>', 1),
-('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>48</MappingId>', '<MappingId>48</MappingId>', 1);
-INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
+('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>48</MappingId>', '<MappingId>48</MappingId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>49</MappingId>', '<MappingId>49</MappingId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>50</MappingId>', '<MappingId>50</MappingId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>51</MappingId>', '<MappingId>51</MappingId>', 1),
@@ -17414,7 +17408,9 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>66</MappingId>', '<MappingId>66</MappingId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>67</MappingId>', '<MappingId>67</MappingId>', 1),
 ('2024-05-13 01:41:19', 'DiseaseCategoryATC', '<MappingId>68</MappingId>', '<MappingId>68</MappingId>', 1),
-('2024-05-16 08:35:55', 'Donation', '<DonationId>24</DonationId>', '<DonationId>24</DonationId>', 1),
+('2024-05-16 16:00:39', 'Donation', '<DonationId>21</DonationId>', '<DonationId>21</DonationId>', 3),
+('2024-05-16 16:00:39', 'Donation', '<DonationId>22</DonationId>', '<DonationId>22</DonationId>', 3),
+('2024-05-16 16:00:39', 'Donation', '<DonationId>23</DonationId>', '<DonationId>23</DonationId>', 3),
 ('2024-05-08 12:04:05', 'Donor', '<DonorId>4</DonorId>', '<DonorId>4</DonorId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>10</DosageId>', '<DosageId>10</DosageId>', 1),
 ('2024-05-06 23:48:13', 'Dosage', '<DosageId>11</DosageId>', '<DosageId>11</DosageId>', 1),

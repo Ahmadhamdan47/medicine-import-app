@@ -82,9 +82,6 @@ const Donation = sequelize.define(
     DonationDate: {
       type: DataTypes.DATE,
     },
-    Quantity: {
-      type: DataTypes.INTEGER,
-    },
     DonationPurpose: {
       type: DataTypes.STRING(255),
     },
@@ -94,13 +91,7 @@ const Donation = sequelize.define(
     // },
     UpdatedDate: {
       type: DataTypes.DATE,
-    },
-    Laboratory: {
-      type: DataTypes.STRING(255),
-    },
-    LaboratoryCountry: {
-      type: DataTypes.STRING(255),
-    },
+    }
   },
   {
     tableName: "donation",
