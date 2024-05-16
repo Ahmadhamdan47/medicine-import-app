@@ -25,6 +25,7 @@ const BatchLotTracking = require('../models/BatchLot');
 const BatchSerialNumber= require('../models/batchserialnumber');
 const DiseaseCategory = require('../models/diseaseCategory');
 const DiseaseCategoryATC = require('../models/diseaseCategoryAtc');
+const axios = require('axios');
 
 
 const getDrugByDiseaseCategory = async (categoryName) => {
