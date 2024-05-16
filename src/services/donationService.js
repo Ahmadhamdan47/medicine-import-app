@@ -5,6 +5,7 @@ const Recipient = require("../models/recipient");
 const Drug = require("../models/drug");
 const BatchLotTracking = require("../models/BatchLot");
 const BatchSerialNumber = require("../models/batchserialnumber");
+drugService = require("./drugService");
 
 /**
  * Asynchronously creates a new donation in the database based on the provided donation data.
@@ -57,8 +58,8 @@ const createBatchLot = async (batchLotData) => {
     SerialNumber,
   } = batchLotData;
 
-  const drug = searchDrugByName(DrugName);
-  
+  const drug = drugService.searchDrugByName(DrugName);
+
   if (!drug) {
     throw new Error('Drug not found');
   }
