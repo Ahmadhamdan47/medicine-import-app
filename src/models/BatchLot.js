@@ -8,6 +8,13 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         autoIncrement: true,
         primaryKey: true
     },
+    DonationId:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Donation',
+            key: 'DonationId'
+        }
+    },
     DrugId: {
         type: DataTypes.INTEGER,
         references: {
@@ -23,13 +30,7 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    DonationId:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Donation',
-            key: 'DonationId'
-        }
-    },
+
     GTIN:{
         type: DataTypes.STRING(100),
         allowNull: false
