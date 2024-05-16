@@ -5,6 +5,7 @@ const Recipient = require("../models/recipient");
 const Drug = require("../models/drug");
 const BatchLotTracking = require("../models/BatchLot");
 const BatchSerialNumber = require("../models/batchserialnumber");
+const { getDrugById } = require("./drugService");
 drugService = require("./drugService");
 
 /**
@@ -118,9 +119,11 @@ const getAllDonations = async () => {
       }
 
       for (let batchLot of batchLots) {
-        const drug = await Drug.findOne({
-          where: { DrugID: batchLot.DrugId }
-        });
+        const drug = await drugService.getDrugById(batchLot.DrugId)
+        console.log("Drug:", drug);
+      
+
+
 
         const batchSerialNumber = await BatchSerialNumber.findOne({
           where: { BatchId: batchLot.BatchLotId }
