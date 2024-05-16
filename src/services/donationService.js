@@ -57,13 +57,8 @@ const createBatchLot = async (batchLotData) => {
     SerialNumber,
   } = batchLotData;
 
-  const drug = await Drug.findOne({
-    where: {
-      DrugName: DrugName
-      
-    }
-  });
-
+  const drug = searchDrugByName(DrugName);
+  
   if (!drug) {
     throw new Error('Drug not found');
   }
