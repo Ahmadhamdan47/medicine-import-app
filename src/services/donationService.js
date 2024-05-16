@@ -60,14 +60,15 @@ const createBatchLot = async (batchLotData) => {
   const drug = await Drug.findOne({
     where: {
       DrugName: DrugName
+      
     }
   });
-
-  console.log("Drug:", DrugID);
 
   if (!drug) {
     throw new Error('Drug not found');
   }
+
+  console.log("Drug:", drug.DrugID);
 
   const batchLot = await BatchLotTracking.create({
     DonationId: DonationId,
