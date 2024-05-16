@@ -4,6 +4,7 @@ const Donor = require("../models/donor");
 const Recipient = require("../models/recipient");
 const Drug = require("../models/drug");
 const BatchLotTracking = require("../models/BatchLot");
+const BatchSerialNumber = require("../models/batchserialnumber");
 
 /**
  * Asynchronously creates a new donation in the database based on the provided donation data.
@@ -11,27 +12,14 @@ const BatchLotTracking = require("../models/BatchLot");
  * @returns {Promise} A promise that resolves to the newly created donation.
  */
 const createDonation = async (donationData) => {
-  // Log the received donation data
   console.log("Donation Data:", donationData);
 
   const {
     DonorId,
     RecipientId,
-    DrugName,
-    GTIN,
-    LOT,
-    Serial,
-    ProductionDate,
-    ExpiryDate,
-    Quantity,
-    Presentation,
-    Form,
     donationPurpose,
-    Laboratory,
-    LaboratoryCountry,
   } = donationData;
 
-  // Fetch the donor data
   const donor = await Donor.findOne({
     where: {
       DonorId:DonorId
@@ -42,7 +30,33 @@ const createDonation = async (donationData) => {
     throw new Error('Donor not found');
   }
 
-  // Fetch the drug data
+  const donation = await Donation.create({
+    DonorId: donor.DonorId ||DonorId,
+    RecipientId: RecipientId,
+    DonationPurpose: donationPurpose,
+    donationDate: new Date(),
+  });
+
+  return donation;
+};
+const createBatchLot = async (batchLotData) => {
+  console.log("Batch Lot Data:", batchLotData);
+
+  const {
+    DonationId,
+    DrugName,
+    GTIN,
+    LOT,
+    ProductionDate,
+    ExpiryDate,
+    Quantity,
+    Presentation,
+    Form,
+    Laboratory,
+    LaboratoryCountry,
+    SerialNumber,
+  } = batchLotData;
+
   const drug = await Drug.findOne({
     where: {
       DrugName: DrugName
@@ -53,33 +67,31 @@ const createDonation = async (donationData) => {
     throw new Error('Drug not found');
   }
 
-  // Create a new donation with the fetched data
-  const donation = await Donation.create({
-    DonorId: donor.DonorId ||DonorId,
-    RecipientId: RecipientId,
-    Quantity: Quantity,
-    Presentation: Presentation,
-    Form: Form,
-    DonationPurpose: donationPurpose,
-    Laboratory: Laboratory,
-    LaboratoryCountry: LaboratoryCountry,
-    donationDate: new Date(),
-  });
-
-  // Add a row in the BatchLotTracking table
-  await BatchLotTracking.create({
-    donationId: donation.DonationId,
+  const batchLot = await BatchLotTracking.create({
+    DonationId: DonationId,
     DrugId: drug.DrugID,
+    Form: Form,
+    Presentation: Presentation,
+    GTIN: GTIN,
     BatchNumber: LOT,
     ProductionDate: ProductionDate,
     ExpiryDate: ExpiryDate,
     Quantity: Quantity,
-    Serial: Serial,
+    Laboratory: Laboratory,
+    LaboratoryCountry: LaboratoryCountry,
+  });
+  const batchSerialNumber = await BatchSerialNumber.create({
+    BatchId: batchLot.BatchLotId,
+    SerialNumber: SerialNumber,
   });
 
-  return donation;
-};
 
+ return{
+  batchLot,
+  batchSerialNumber
+ 
+ };
+};
 const getAllDonations = async () => {
   try {
     const donations = await Donation.findAll();
@@ -180,7 +192,8 @@ const editDonation = async (DonationId, donationData) => {
 };
 
 module.exports = {
-  createDonation, 
+  createDonation,
+  createBatchLot, 
   getAllDonations,
   getDonationById,
   editDonation

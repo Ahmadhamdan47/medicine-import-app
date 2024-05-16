@@ -8,13 +8,6 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         autoIncrement: true,
         primaryKey: true
     },
-    donationId:{
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Donation',
-            key: 'DonationId'
-        }
-    },
     DrugId: {
         type: DataTypes.INTEGER,
         references: {
@@ -22,12 +15,28 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
             key: 'DrugID'
         }
     },
-    BatchNumber: {
-        type: DataTypes.STRING(50),
+    Form:{
+        type: DataTypes.STRING(255),
         allowNull: false
     },
-    ProductionDate: {
-        type: DataTypes.DATE,
+    Presentation:{
+        type: DataTypes.STRING(255),
+        allowNull: false
+    },
+    DonationId:{
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Donation',
+            key: 'DonationId'
+        }
+    },
+    GTIN:{
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+
+    BatchNumber: {
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     ExpiryDate: {
@@ -37,7 +46,16 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
     Quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    Laboratory: {
+        type: DataTypes.STRING(255),
+        allowNull: false
+    },
+    LaboratoryCountry: {
+        type: DataTypes.STRING(255),
+        allowNull: false
+    },
+
 }, {
     tableName: 'batchlottracking',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
