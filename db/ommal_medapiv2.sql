@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 06:05 PM
+-- Generation Time: May 16, 2024 at 06:11 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7600,7 +7600,6 @@ CREATE TABLE `batchserialnumber` (
 --
 
 INSERT INTO `batchserialnumber` (`BatchSerialNumberId`, `BatchId`, `SerialNumber`) VALUES
-(1, 14, '303301302'),
 (2, 16, '306302301');
 
 --
@@ -17371,14 +17370,13 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>7</BatchLotId>', '<BatchLotId>7</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>8</BatchLotId>', '<BatchLotId>8</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>9</BatchLotId>', '<BatchLotId>9</BatchLotId>', 3),
-('2024-05-09 13:17:52', 'BatchSerialNumber', '<BatchSerialNumberId>1</BatchSerialNumberId>', '<BatchSerialNumberId>1</BatchSerialNumberId>', 1),
 ('2024-05-16 08:34:05', 'BatchSerialNumber', '<BatchSerialNumberId>2</BatchSerialNumberId>', '<BatchSerialNumberId>2</BatchSerialNumberId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>10</DiseaseCategoryId>', '<DiseaseCategoryId>10</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>11</DiseaseCategoryId>', '<DiseaseCategoryId>11</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>12</DiseaseCategoryId>', '<DiseaseCategoryId>12</DiseaseCategoryId>', 1),
-('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>13</DiseaseCategoryId>', '<DiseaseCategoryId>13</DiseaseCategoryId>', 1);
+('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>13</DiseaseCategoryId>', '<DiseaseCategoryId>13</DiseaseCategoryId>', 1),
+('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>14</DiseaseCategoryId>', '<DiseaseCategoryId>14</DiseaseCategoryId>', 1);
 INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
-('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>14</DiseaseCategoryId>', '<DiseaseCategoryId>14</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>3</DiseaseCategoryId>', '<DiseaseCategoryId>3</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>4</DiseaseCategoryId>', '<DiseaseCategoryId>4</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>5</DiseaseCategoryId>', '<DiseaseCategoryId>5</DiseaseCategoryId>', 1),
