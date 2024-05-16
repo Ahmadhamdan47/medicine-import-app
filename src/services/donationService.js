@@ -63,6 +63,8 @@ const createBatchLot = async (batchLotData) => {
     }
   });
 
+  console.log("Drug:", DrugID);
+
   if (!drug) {
     throw new Error('Drug not found');
   }
