@@ -95,67 +95,56 @@ const getAllDonations = async () => {
   try {
     const donations = await Donation.findAll();
 
-
     // Fetch the DrugName, DonorName, RecipientName and BatchSerialNumber for each donation
     for (let donation of donations) {
       const batchLots = await BatchLotTracking.findAll({
         where: { DonationId: donation.DonationId }
       });
 
-
       const donor = await Donor.findOne({
         where: { DonorId: donation.DonorId }
       });
-
 
       const recipient = await Recipient.findOne({
         where: { RecipientId: donation.RecipientId }
       });
 
-
       if (donor) {
         donation.dataValues.DonorName = donor.DonorName;
       }
 
-
       if (recipient) {
         donation.dataValues.RecipientName = recipient.RecipientName;
       }
-
 
       for (let batchLot of batchLots) {
         const drug = await Drug.findOne({
           where: { DrugID: batchLot.DrugId }
         });
 
-
         const batchSerialNumber = await BatchSerialNumber.findOne({
           where: { BatchId: batchLot.BatchLotId }
         });
 
-
         if (drug) {
           batchLot.dataValues.DrugName = drug.DrugName;
         }
-
 
         if (batchSerialNumber) {
           batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
         }
       }
 
-
-      donation.dataValues.BatchLotTrackings = batchLots;
+      donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
     }
 
-
-    return donations;
+    return donations.map(donation => donation.dataValues);
   } catch (error) {
-    console.error('Error getting all donations:', error);
-    throw error;
+    console.error(error);
   }
 };
 
+  
 
 const getDonationById = async (id) => {
   try {
