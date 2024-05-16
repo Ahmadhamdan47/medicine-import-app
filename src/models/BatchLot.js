@@ -32,7 +32,7 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
     },
 
     GTIN:{
-        type: DataTypes.INTEGER(100),
+        type: DataTypes.INTEGER(255),
         allowNull: false
     },
 
