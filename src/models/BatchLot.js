@@ -15,12 +15,8 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
             key: 'DonationId'
         }
     },
-    DrugId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Drug',
-            key: 'DrugID'
-        }
+    DrugName:{
+        type: DataTypes.STRING(255),
     },
     Form:{
         type: DataTypes.STRING(255),

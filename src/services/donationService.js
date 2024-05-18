@@ -59,17 +59,9 @@ const createBatchLot = async (batchLotData) => {
     SerialNumber,
   } = batchLotData;
 
-  const drug = drugService.searchDrugByName(DrugName);
-
-  if (!drug) {
-    throw new Error('Drug not found');
-  }
-
-  console.log("Drug:", drug.DrugID);
-
   const batchLot = await BatchLotTracking.create({
     DonationId: DonationId,
-    DrugId: drug.DrugID,
+    DrugName: DrugName, // Use DrugName directly
     Form: Form,
     Presentation: Presentation,
     GTIN: GTIN,
@@ -80,17 +72,16 @@ const createBatchLot = async (batchLotData) => {
     Laboratory: Laboratory,
     LaboratoryCountry: LaboratoryCountry,
   });
+
   const batchSerialNumber = await BatchSerialNumber.create({
     BatchId: batchLot.BatchLotId,
     SerialNumber: SerialNumber,
   });
 
-
- return{
-  batchLot,
-  batchSerialNumber
- 
- };
+  return {
+    batchLot,
+    batchSerialNumber
+  };
 };
 const getAllDonations = async () => {
   try {
@@ -119,18 +110,13 @@ const getAllDonations = async () => {
       }
 
       for (let batchLot of batchLots) {
-        const drug = await drugService.getDrugById(batchLot.DrugId)
-        console.log("Drug:", drug);
-      
-
-
-
         const batchSerialNumber = await BatchSerialNumber.findOne({
           where: { BatchId: batchLot.BatchLotId }
         });
 
-        if (drug) {
-          batchLot.dataValues.DrugName = drug.DrugName;
+        // Directly access the DrugName from the batchLot object
+        if (batchLot.DrugName) {
+          batchLot.dataValues.DrugName = batchLot.DrugName;
         }
 
         if (batchSerialNumber) {
@@ -146,9 +132,6 @@ const getAllDonations = async () => {
     console.error(error);
   }
 };
-
-  
-
 const getDonationById = async (id) => {
   try {
     const donation = await Donation.findOne({
@@ -173,12 +156,9 @@ const getDonationById = async (id) => {
 
     // Fetch the DrugName for each BatchLotTracking record
     for (let batchLot of batchLots) {
-      const drug = await Drug.findOne({
-        where: { DrugID: batchLot.DrugId }
-      });
-
-      if (drug) {
-        batchLot.dataValues.DrugName = drug.DrugName;
+      // Directly access the DrugName from the batchLot object
+      if (batchLot.DrugName) {
+        batchLot.dataValues.DrugName = batchLot.DrugName;
       }
     }
 
@@ -190,8 +170,6 @@ const getDonationById = async (id) => {
     throw error;
   }
 };
-
-
 const editDonation = async (DonationId, donationData) => {
   try {
 
