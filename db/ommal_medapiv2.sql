@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 06:11 PM
+-- Generation Time: May 18, 2024 at 02:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7549,7 +7549,7 @@ DELIMITER ;
 CREATE TABLE `batchlottracking` (
   `BatchLotId` int(11) NOT NULL,
   `DonationId` int(11) DEFAULT NULL,
-  `DrugId` int(11) DEFAULT NULL,
+  `DrugName` varchar(255) NOT NULL,
   `Form` varchar(255) NOT NULL,
   `Presentation` varchar(255) NOT NULL,
   `GTIN` int(100) NOT NULL,
@@ -7564,8 +7564,8 @@ CREATE TABLE `batchlottracking` (
 -- Dumping data for table `batchlottracking`
 --
 
-INSERT INTO `batchlottracking` (`BatchLotId`, `DonationId`, `DrugId`, `Form`, `Presentation`, `GTIN`, `BatchNumber`, `ExpiryDate`, `Quantity`, `Laboratory`, `LaboratoryCountry`) VALUES
-(16, 20, 1003, 'Form', 'Presentation', 2147483647, '3024', '2023-01-01', 100, 'Pharma', 'Lebanon');
+INSERT INTO `batchlottracking` (`BatchLotId`, `DonationId`, `DrugName`, `Form`, `Presentation`, `GTIN`, `BatchNumber`, `ExpiryDate`, `Quantity`, `Laboratory`, `LaboratoryCountry`) VALUES
+(17, 20, 'Panadol 500 mg', '30', '25', 303414, '20450', '2024-05-08', 40, 'moph', 'leB');
 
 --
 -- Triggers `batchlottracking`
@@ -7600,7 +7600,7 @@ CREATE TABLE `batchserialnumber` (
 --
 
 INSERT INTO `batchserialnumber` (`BatchSerialNumberId`, `BatchId`, `SerialNumber`) VALUES
-(2, 16, '306302301');
+(3, 17, '301049489');
 
 --
 -- Triggers `batchserialnumber`
@@ -17360,7 +17360,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>11</BatchLotId>', '<BatchLotId>11</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>12</BatchLotId>', '<BatchLotId>12</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>13</BatchLotId>', '<BatchLotId>13</BatchLotId>', 3),
-('2024-05-16 08:34:04', 'BatchLotTracking', '<BatchLotId>16</BatchLotId>', '<BatchLotId>16</BatchLotId>', 1),
+('2024-05-18 12:05:18', 'BatchLotTracking', '<BatchLotId>17</BatchLotId>', '<BatchLotId>17</BatchLotId>', 1),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>1</BatchLotId>', '<BatchLotId>1</BatchLotId>', 3),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>2</BatchLotId>', '<BatchLotId>2</BatchLotId>', 3),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>3</BatchLotId>', '<BatchLotId>3</BatchLotId>', 3),
@@ -17370,7 +17370,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>7</BatchLotId>', '<BatchLotId>7</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>8</BatchLotId>', '<BatchLotId>8</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>9</BatchLotId>', '<BatchLotId>9</BatchLotId>', 3),
-('2024-05-16 08:34:05', 'BatchSerialNumber', '<BatchSerialNumberId>2</BatchSerialNumberId>', '<BatchSerialNumberId>2</BatchSerialNumberId>', 1),
+('2024-05-18 12:05:54', 'BatchSerialNumber', '<BatchSerialNumberId>3</BatchSerialNumberId>', '<BatchSerialNumberId>3</BatchSerialNumberId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>10</DiseaseCategoryId>', '<DiseaseCategoryId>10</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>11</DiseaseCategoryId>', '<DiseaseCategoryId>11</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>12</DiseaseCategoryId>', '<DiseaseCategoryId>12</DiseaseCategoryId>', 1),
@@ -18634,8 +18634,7 @@ ALTER TABLE `audittrail`
 --
 ALTER TABLE `batchlottracking`
   ADD PRIMARY KEY (`BatchLotId`),
-  ADD KEY `FK_Donation_BatchLot` (`DonationId`),
-  ADD KEY `FK_Drug_BatchLot` (`DrugId`);
+  ADD KEY `FK_Donation_BatchLot` (`DonationId`);
 
 --
 -- Indexes for table `batchserialnumber`
@@ -19075,13 +19074,13 @@ ALTER TABLE `audittrail`
 -- AUTO_INCREMENT for table `batchlottracking`
 --
 ALTER TABLE `batchlottracking`
-  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `batchserialnumber`
 --
 ALTER TABLE `batchserialnumber`
-  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -19403,8 +19402,7 @@ ALTER TABLE `audittrail`
 -- Constraints for table `batchlottracking`
 --
 ALTER TABLE `batchlottracking`
-  ADD CONSTRAINT `FK_Donation_BatchLot` FOREIGN KEY (`DonationId`) REFERENCES `donation` (`DonationId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_Drug_BatchLot` FOREIGN KEY (`DrugId`) REFERENCES `drug` (`DrugID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_Donation_BatchLot` FOREIGN KEY (`DonationId`) REFERENCES `donation` (`DonationId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `batchserialnumber`
