@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2024 at 02:10 PM
+-- Generation Time: May 18, 2024 at 02:44 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7552,7 +7552,7 @@ CREATE TABLE `batchlottracking` (
   `DrugName` varchar(255) NOT NULL,
   `Form` varchar(255) NOT NULL,
   `Presentation` varchar(255) NOT NULL,
-  `GTIN` int(100) NOT NULL,
+  `GTIN` bigint(100) NOT NULL,
   `BatchNumber` varchar(50) NOT NULL,
   `ExpiryDate` date NOT NULL,
   `Quantity` int(11) NOT NULL,
