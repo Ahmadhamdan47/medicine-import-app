@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-const Role = require('./Role');
+const Role = require('./roles');
 
 const UserAccounts = sequelize.define('UserAccounts', {
     UserId: {
