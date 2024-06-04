@@ -191,5 +191,5 @@ router.post("/add", agentController.addAgent);
 router.put("/:agentId", agentController.editAgent);
 router.delete("/:agentId", agentController.deleteAgent);
 router.get("/all", agentController.getAllAgents);
-
+router.post("/register", agentController.registerAgent);
 module.exports = router;
