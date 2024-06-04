@@ -1,0 +1,102 @@
+/* SignIn.css */
+
+/* Import a modern, slick font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.signin-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff; /* white background */
+}
+
+.signin-container {
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.logo {
+  margin-bottom: 30px;
+}
+
+.logo img {
+  max-width: 200px; /* Adjust the size as needed */
+  height: auto;
+}
+
+.signin-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background-color: #4caf50; /* green button */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: red;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.create-account {
+  color: #4caf50; /* green color */
+  text-decoration: none; /* remove default underline */
+  cursor: pointer;
+}
+
+.create-account:hover {
+  text-decoration: underline; /* underline on hover */
+}
