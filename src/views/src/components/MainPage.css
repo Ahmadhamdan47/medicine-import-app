@@ -1,0 +1,62 @@
+.main-page {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px; /* Increased width to accommodate larger icons */
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+  }
+  
+  .sidebar .logo {
+    width: 140px; /* Increased size of the logo */
+    margin-bottom: 40px;
+  }
+  
+  .sidebar .icon-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar .icon-group .icon {
+    width: 100px; /* Increased size of the icons */
+    margin: 40px 0; /* Increased margin to provide more space between icons */
+    cursor: pointer;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .right {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .steps {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .steps button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .steps button:hover {
+    background-color: #45a049;
+  }

@@ -589,49 +589,60 @@ const getStratumByDrugId = async (DrugID) => {
   }
 };
 
-const checkMate = async (GTIN,BatchNumber,SerialNumber,ExpiryDate) => {
-  console.log(GTIN.GTIN);
-  console.log(GTIN.BatchNumber);
+// drugService.js
+const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
   try {
+    // Log the input parameters for debugging
+    console.log('Input Parameters:', { GTIN, BatchNumber, SerialNumber, ExpiryDate });
+
+    // Ensure GTIN is a string
+    if (typeof GTIN !== 'string') {
+      throw new Error('GTIN must be a string');
+    }
+
     // Check if the GTIN exists in the Drug table
     const drug = await Drug.findOne({
-      where: { GTIN: GTIN.GTIN }
+      where: { GTIN: GTIN }
     });
 
     if (!drug) {
-      return 'Checkmate';
+      return 'Checkmate, drug doesnt exist';
     }
 
-    // Check if the BatchNumber exists in the BatchLot table
+    // Check if the DrugName exists in the BatchLot table
     const batchLot = await BatchLotTracking.findOne({
       where: { 
-        DrugId: drug.DrugID,
-        BatchNumber: GTIN.BatchNumber
+        DrugName: drug.DrugName,
+        BatchNumber: BatchNumber
       }
     });
 
     if (!batchLot) {
-      return 'Checkmate';
+      return 'Checkmate, batch doesnt exist';
     }
 
     // Check if the SerialNumber exists for this batch in the BatchSerialNumber table
     const batchSerialNumber = await BatchSerialNumber.findOne({
       where: { 
         BatchId: batchLot.BatchLotId,
-        SerialNumber: GTIN.SerialNumber
+        SerialNumber: SerialNumber
       }
     });
 
     if (!batchSerialNumber) {
-      return 'Checkmate';
+      return 'Checkmate, serial number doesnt exist';
     }
 
     // If all checks pass, return a success message
-    return 'Approved';
+    return 'This drug is valid';
   } catch (error) {
     console.error('Error in checkMate:', error);
     throw error;
   }
+};
+
+module.exports = {
+  checkMate
 };
 
 

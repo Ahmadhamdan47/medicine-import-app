@@ -28,7 +28,14 @@ const SignIn: React.FC = () => {
       const data = await response.json();
       console.log('Login successful', data);
       localStorage.setItem('token', data.token); // Store the token
-      navigate('/dashboard'); // Redirect to another page, e.g., /dashboard
+
+      if (username === 'testuser') {
+        navigate('/adminMainPage');
+      } else if (username === 'Nizar') {
+        navigate('/agentMainPage');
+      } else {
+        navigate('/dashboard'); // Default redirection if username doesn't match
+      }
     } catch (error: any) {
       setError(error.message);
     }
@@ -72,6 +79,6 @@ const SignIn: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default SignIn;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2024 at 11:37 PM
+-- Generation Time: Jun 05, 2024 at 07:30 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7585,7 +7585,7 @@ CREATE TABLE `batchlottracking` (
 --
 
 INSERT INTO `batchlottracking` (`BatchLotId`, `DonationId`, `DrugName`, `Form`, `Presentation`, `GTIN`, `BatchNumber`, `ExpiryDate`, `Quantity`, `Laboratory`, `LaboratoryCountry`) VALUES
-(17, 20, 'Panadol 500 mg', '30', '25', 303414, '20450', '2024-05-08', 40, 'moph', 'leB');
+(17, 20, 'Panadol', '30', '25', 303414, '20450', '2024-05-08', 40, 'moph', 'leB');
 
 --
 -- Triggers `batchlottracking`
@@ -17400,7 +17400,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>11</BatchLotId>', '<BatchLotId>11</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>12</BatchLotId>', '<BatchLotId>12</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>13</BatchLotId>', '<BatchLotId>13</BatchLotId>', 3),
-('2024-05-18 12:05:18', 'BatchLotTracking', '<BatchLotId>17</BatchLotId>', '<BatchLotId>17</BatchLotId>', 1),
+('2024-06-05 05:04:09', 'BatchLotTracking', '<BatchLotId>17</BatchLotId>', '<BatchLotId>17</BatchLotId>', 1),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>1</BatchLotId>', '<BatchLotId>1</BatchLotId>', 3),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>2</BatchLotId>', '<BatchLotId>2</BatchLotId>', 3);
 INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_dest`, `record_state`) VALUES
