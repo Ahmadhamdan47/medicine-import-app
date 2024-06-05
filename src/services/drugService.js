@@ -281,6 +281,8 @@ const getAllDrugs = async () => {
 
 
 
+const { SequelizeEagerLoadingError } = require('sequelize');
+
 const smartSearch = async (query) => {
   try {
     console.log("Query:", query); // Log the query
@@ -307,9 +309,26 @@ const smartSearch = async (query) => {
 
     const drugsWithDosageAndRoute = await Promise.all(results.map(async (result) => {
       const drug = result.item;
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
+      let dosage, route, presentation;
+      try {
+        dosage = await getDosageByDrugName(drug.DrugName);
+      } catch (error) {
+        console.error(`No dosage found for drug ${drug.DrugName}`);
+        dosage = null; // or a default value
+      }
+      try {
+        route = await getRouteByDrugName(drug.DrugName);
+      } catch (error) {
+        console.error(`No route found for drug ${drug.DrugName}`);
+        route = null; // or a default value
+      }
+      try {
+        presentation = await getPresentationByDrugName(drug.DrugName);
+      } catch (error) {
+        console.error(`No presentation found for drug ${drug.DrugName}`);
+        presentation = null; // or a default value
+      }
+      
       const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
       const ManufacturerName = Manufacturer.AgentName;
       const CountryName = Manufacturer.Country;
@@ -326,32 +345,50 @@ const smartSearch = async (query) => {
           where: { DrugID: drugId },
           include: Drug,
           attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','GTIN','DrugID','isOTC','RegistrationNumber','Substitutable'],
-
-          
         });
     
         if (substitutes.length > 0) {
           console.log("Substitutes found:", substitutes); // Log the substitutes found
     
           const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
-            const dosage = await getDosageByDrugName(drug.DrugName);
-            const route = await getRouteByDrugName(drug.DrugName);
-            const presentation = await getPresentationByDrugName(drug.DrugName);
-            const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
+            let dosage, route, presentation;
+            try {
+              dosage = await getDosageByDrugName(substitute.DrugName);
+            } catch (error) {
+              console.error(`No dosage found for substitute ${substitute.DrugName}`);
+              dosage = null; // or a default value
+            }
+            try {
+              route = await getRouteByDrugName(substitute.DrugName);
+            } catch (error) {
+              console.error(`No route found for substitute ${substitute.DrugName}`);
+              route = null; // or a default value
+            }
+            try {
+              presentation = await getPresentationByDrugName(substitute.DrugName);
+            } catch (error) {
+              console.error(`No presentation found for substitute ${substitute.DrugName}`);
+              presentation = null; // or a default value
+            }
+            const Manufacturer = await Agent.findOne({ where: { AgentID: substitute.ManufacturerID } });
             const ManufacturerName = Manufacturer.AgentName;
             const CountryName = Manufacturer.Country;
-            const priceInLBP = drug.Price * 90000;
-            const unitPrice = drug.Price / presentation.Amount;
+            const priceInLBP = substitute.Price * 90000;
+            const unitPrice = substitute.Price / presentation.Amount;
             const unitPriceInLBP = unitPrice * 90000;
             
-            return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
+            return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
           }));
     
           drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
         }
       } catch (error) {
-        console.error("No substitutes found for drug:", error);
-      }
+  if (error.name === 'SequelizeEagerLoadingError') {
+    console.error("No association found between drug and substitute:", error);
+  } else {
+    console.error("No substitutes found for drug:", error);
+  }
+}
     }
 
     return drugsWithDosageAndRoute;
