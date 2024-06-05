@@ -28,6 +28,7 @@ const DiseaseCategoryATC = require('../models/diseaseCategoryAtc');
 const axios = require('axios');
 
 
+
 const getDrugByDiseaseCategory = async (categoryName) => {
 
   const diseaseCategory = await DiseaseCategory.findOne({ where: { CategoryName: categoryName } });
@@ -601,18 +602,12 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     }
 
     // Check if the GTIN exists in the Drug table
-    const drug = await Drug.findOne({
-      where: { GTIN: GTIN }
-    });
-
-    if (!drug) {
-      return 'Checkmate, drug doesnt exist';
-    }
+    
 
     // Check if the DrugName exists in the BatchLot table
     const batchLot = await BatchLotTracking.findOne({
       where: { 
-        DrugName: drug.DrugName,
+        GTIN: GTIN,
         BatchNumber: BatchNumber
       }
     });
