@@ -1,0 +1,206 @@
+.steps {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .steps button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .steps button:hover {
+    background-color: #45a049;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px; /* Adjust the margin to lower the form */
+  }
+  
+  .form-section .progress-bar {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .form-section .progress-bar.small {
+    width: 25%;
+  }
+  
+  .form-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-section .input-group {
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  
+  .form-section .flex-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-section .approval {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .form-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-section .oval-input {
+    width: 100%;
+    padding: 15px; /* Increased padding for larger inputs */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 1rem; /* Increased font size for larger inputs */
+  }
+  
+  .form-section .oval-input.large {
+    padding: 20px; /* Further increased padding for larger inputs */
+    font-size: 1.2rem; /* Further increased font size for larger inputs */
+  }
+  
+  .form-section .attach-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .form-section .submit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .form-section .submit-button img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .form-section .add-serials-button {
+    background: none;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .form-section .add-serials-button:hover {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .form-section .status, .form-section .quantity {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .form-section .status {
+    border-right: 1px solid #ccc;
+  }
+  
+  .form-section .input-group .flex-group {
+    gap: 10px;
+  }
+  
+  .form-section textarea.oval-input {
+    height: 150px; /* Increased height for textarea */
+    resize: none;
+  }
+  
+  .flex-group select.oval-input, 
+  .flex-group input.oval-input {
+    width: 100%;
+  }
+  
+  .flex-group .oval-input {
+    width: 45%;
+  }
+  
+  .form-section .status-section {
+    margin-top: 20px;
+  }
+  
+  .form-section .status-section span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .form-group .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .status-label, .quantity-label {
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .input-group-item {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .input-group-item:last-child {
+    margin-right: 0;
+  }
+  
+  /* Oval container style */
+  .oval-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 30px;
+    width: 80%;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Large input group for bigger fields */
+  .large-input-group {
+    flex: 1;
+    margin-right: 10px;
+    
+  }
+  
+  .large-input-group:last-child {
+    margin-right: 0;
+  }
+  
