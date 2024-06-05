@@ -18,14 +18,25 @@ import StepFour from './steps/stepFour';
 import Inspection from './Inspection';
 
 const MainPage: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState<number| string | null>(1);
+  const navigate = useNavigate();
+  const [currentStep, setCurrentStep] = useState<number | string | null>(1);
+  const [drugData, setDrugData] = useState<{ drugName: string; quantityRequested: string } | null>(null);
 
-  const handleNextStep = () => {
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/'); // Redirect to login if no token is found
+    }
+  }, [navigate]);
+
+  const handleNextStep = (data?: { drugName: string; quantityRequested: string }) => {
+    if (data) {
+      setDrugData(data);
+    }
     if (typeof currentStep === 'number') {
       setCurrentStep(currentStep + 1);
     }
   };
-
 
   const renderStep = () => {
     switch (currentStep) {
@@ -34,16 +45,16 @@ const MainPage: React.FC = () => {
       case 2:
         return <StepTwo onNext={handleNextStep} />;
       case 3:
-        return <StepThree onNext={handleNextStep} />;
+        return <StepThree onNext={handleNextStep} drugData={drugData} />;
       case 4:
         return <StepFour onNext={handleNextStep} />;
- case 'inspection':
+      case 'inspection':
         return <Inspection />;
-
       default:
         return <div>Welcome to the Dashboard</div>;
     }
   };
+
   return (
     <div className="main-page">
       <div className="sidebar">
@@ -69,9 +80,5 @@ const MainPage: React.FC = () => {
     </div>
   );
 };
-
-
-
-
 
 export default MainPage;
