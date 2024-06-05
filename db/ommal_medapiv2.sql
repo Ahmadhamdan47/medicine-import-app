@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 11:05 AM
+-- Generation Time: Jun 05, 2024 at 12:01 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -7589,7 +7589,8 @@ INSERT INTO `batchlottracking` (`BatchLotId`, `DonationId`, `DrugName`, `Form`, 
 (19, NULL, 'Humex', 'a', 'a', 333, '333', '2024-06-21', 50, 'a', 'a'),
 (20, NULL, 'Humex', 'a', 'a', 333, '333', '2024-06-21', 50, 'a', 'a'),
 (21, NULL, 'Pyravlex', 'aa', 'aa', 3333, '43', '2024-06-15', 43, 'aa', 'aa'),
-(22, NULL, 'Xanax', '13', '13', 505, '2750', '2024-06-20', 50, '13', 'Lebanon');
+(22, NULL, 'Xanax', '13', '13', 505, '2750', '2024-06-20', 50, '13', 'Lebanon'),
+(23, NULL, 'Xanax', '123', '123', 123, '123', '2024-06-05', 500, '123', '1321');
 
 --
 -- Triggers `batchlottracking`
@@ -7628,7 +7629,8 @@ INSERT INTO `batchserialnumber` (`BatchSerialNumberId`, `BatchId`, `SerialNumber
 (4, 19, '3333'),
 (5, 20, '3333'),
 (6, 21, '3333'),
-(7, 22, '1313');
+(7, 22, '1313'),
+(8, 23, '123');
 
 --
 -- Triggers `batchserialnumber`
@@ -9366,13 +9368,7 @@ INSERT INTO `drug` (`DrugID`, `DrugName`, `DrugNameAr`, `isOTC`, `ManufacturerID
 (1033, 'Thyroxine Tablet', 'الثيروكسين', 1, 1, 'DRX-210987', '0008901234568', NULL, 'Replacement therapy for low thyroid hormone levels', 'Levothyroxine sodium (Thyroxine) various mg tablets', 'Hypothyroidism', 'Adults: Dosage varies depending on individual needs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'london-uk-october-th-packet-ibuprofen-painkillers-closeup-blister-pack-tablets-bell-s-healthcare-london-uk-162660294.webp', 0, NULL, NULL, NULL, NULL, NULL, '5.000000', NULL, 1, NULL, NULL, NULL, NULL, NULL, 'Levothyroxine', NULL, '4214', NULL, 'Brand', 0, NULL, NULL, NULL),
 (1034, 'Tramadol Capsule', 'الترامادول', 1, 1, 'DRX-432108', '0006789012346', NULL, 'Treatment of moderate to severe pain', 'Tramadol hydrochloride 50mg capsule', 'Pain management', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', '47b0d3102550727.5f39872bc803f.jpg', NULL, NULL, NULL, NULL, NULL, NULL, '25.000000', NULL, 1, NULL, NULL, NULL, NULL, NULL, 'Tramadol', NULL, '4215', NULL, 'Brand', 0, NULL, NULL, NULL),
 (1035, 'Zoloft Capsule', 'الزولوفت', 0, 1, 'DRX-543217', '0004567890124', NULL, 'Treatment of depression and anxiety disorders', 'Sertraline hydrochloride (Zoloft) various mg capsules', 'Depression, anxiety', 'Adults: As directed by a physician', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'images.jpeg', 0, NULL, NULL, NULL, NULL, NULL, '10.000000', NULL, 0, NULL, NULL, NULL, NULL, NULL, 'Sertraline', NULL, '4216', NULL, 'Generic', 1, NULL, NULL, NULL),
-(1036, 'Azithromycin Tablet', 'الأزيثرومايسين', 1, 1, 'DRX-765431', '0002345678903', NULL, 'Treatment of a variety of bacterial infections', 'Azithromycin 250mg tablet', 'Bacterial infections of the respiratory tract, skin, and others', 'Adults: Dosage varies depending on the infection', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'images.jpeg', 0, NULL, NULL, NULL, NULL, NULL, '15.000000', NULL, 1, NULL, NULL, NULL, NULL, NULL, 'Azithromycin', NULL, '4217', NULL, 'Brand', 0, NULL, NULL, NULL),
-(1037, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1038, 'Paradontax', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1039, 'Paradontax', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1040, 'Humex', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1041, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(1042, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1036, 'Azithromycin Tablet', 'الأزيثرومايسين', 1, 1, 'DRX-765431', '0002345678903', NULL, 'Treatment of a variety of bacterial infections', 'Azithromycin 250mg tablet', 'Bacterial infections of the respiratory tract, skin, and others', 'Adults: Dosage varies depending on the infection', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '24.000000', 'images.jpeg', 0, NULL, NULL, NULL, NULL, NULL, '15.000000', NULL, 1, NULL, NULL, NULL, NULL, NULL, 'Azithromycin', NULL, '4217', NULL, 'Brand', 0, NULL, NULL, NULL);
 
 --
 -- Triggers `drug`
@@ -17421,6 +17417,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-06-05 08:37:06', 'BatchLotTracking', '<BatchLotId>20</BatchLotId>', '<BatchLotId>20</BatchLotId>', 1),
 ('2024-06-05 08:46:51', 'BatchLotTracking', '<BatchLotId>21</BatchLotId>', '<BatchLotId>21</BatchLotId>', 1),
 ('2024-06-05 09:00:54', 'BatchLotTracking', '<BatchLotId>22</BatchLotId>', '<BatchLotId>22</BatchLotId>', 1),
+('2024-06-05 10:00:46', 'BatchLotTracking', '<BatchLotId>23</BatchLotId>', '<BatchLotId>23</BatchLotId>', 1),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>2</BatchLotId>', '<BatchLotId>2</BatchLotId>', 3),
 ('2024-05-16 16:00:04', 'BatchLotTracking', '<BatchLotId>3</BatchLotId>', '<BatchLotId>3</BatchLotId>', 3),
 ('2024-05-16 15:59:32', 'BatchLotTracking', '<BatchLotId>4</BatchLotId>', '<BatchLotId>4</BatchLotId>', 3),
@@ -17434,6 +17431,7 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-06-05 08:37:06', 'BatchSerialNumber', '<BatchSerialNumberId>5</BatchSerialNumberId>', '<BatchSerialNumberId>5</BatchSerialNumberId>', 1),
 ('2024-06-05 08:46:51', 'BatchSerialNumber', '<BatchSerialNumberId>6</BatchSerialNumberId>', '<BatchSerialNumberId>6</BatchSerialNumberId>', 1),
 ('2024-06-05 09:00:54', 'BatchSerialNumber', '<BatchSerialNumberId>7</BatchSerialNumberId>', '<BatchSerialNumberId>7</BatchSerialNumberId>', 1),
+('2024-06-05 10:00:46', 'BatchSerialNumber', '<BatchSerialNumberId>8</BatchSerialNumberId>', '<BatchSerialNumberId>8</BatchSerialNumberId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>10</DiseaseCategoryId>', '<DiseaseCategoryId>10</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>11</DiseaseCategoryId>', '<DiseaseCategoryId>11</DiseaseCategoryId>', 1),
 ('2024-05-13 01:33:23', 'DiseaseCategory', '<DiseaseCategoryId>12</DiseaseCategoryId>', '<DiseaseCategoryId>12</DiseaseCategoryId>', 1),
@@ -17540,12 +17538,6 @@ INSERT INTO `history_store` (`timemark`, `table_name`, `pk_date_src`, `pk_date_d
 ('2024-05-20 21:32:39', 'Drug', '<DrugID>1034</DrugID>', '<DrugID>1034</DrugID>', 1),
 ('2024-05-20 21:32:39', 'Drug', '<DrugID>1035</DrugID>', '<DrugID>1035</DrugID>', 1),
 ('2024-05-20 21:32:39', 'Drug', '<DrugID>1036</DrugID>', '<DrugID>1036</DrugID>', 1),
-('2024-06-05 08:03:03', 'Drug', '<DrugID>1037</DrugID>', '<DrugID>1037</DrugID>', 1),
-('2024-06-05 08:06:02', 'Drug', '<DrugID>1038</DrugID>', '<DrugID>1038</DrugID>', 1),
-('2024-06-05 08:19:47', 'Drug', '<DrugID>1039</DrugID>', '<DrugID>1039</DrugID>', 1),
-('2024-06-05 08:27:30', 'Drug', '<DrugID>1040</DrugID>', '<DrugID>1040</DrugID>', 1),
-('2024-06-05 08:46:10', 'Drug', '<DrugID>1041</DrugID>', '<DrugID>1041</DrugID>', 1),
-('2024-06-05 08:59:24', 'Drug', '<DrugID>1042</DrugID>', '<DrugID>1042</DrugID>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>10</PresentationId>', '<PresentationId>10</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>11</PresentationId>', '<PresentationId>11</PresentationId>', 1),
 ('2024-05-06 23:56:20', 'DrugPresentation', '<PresentationId>12</PresentationId>', '<PresentationId>12</PresentationId>', 1),
@@ -19187,13 +19179,13 @@ ALTER TABLE `audittrail`
 -- AUTO_INCREMENT for table `batchlottracking`
 --
 ALTER TABLE `batchlottracking`
-  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `BatchLotId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `batchserialnumber`
 --
 ALTER TABLE `batchserialnumber`
-  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `BatchSerialNumberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -19283,7 +19275,7 @@ ALTER TABLE `dosageformmapping`
 -- AUTO_INCREMENT for table `drug`
 --
 ALTER TABLE `drug`
-  MODIFY `DrugID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1043;
+  MODIFY `DrugID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1044;
 
 --
 -- AUTO_INCREMENT for table `drugform`

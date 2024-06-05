@@ -16,28 +16,10 @@ const StepOne: React.FC<StepOneProps> = ({ onNext }) => {
   const [notes, setNotes] = useState('');
   const [result, setResult] = useState('');
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('/drugs/addPharmacy', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ drugName, quantityRequested, offerType, selectInput, notes }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add drug. Please check your inputs.');
-      }
-
-      const data = await response.json();
-      setResult('Drug added successfully!');
-      onNext({ drugName, quantityRequested });
-    } catch (error: any) {
-      setResult(error.message);
-    }
-  };
+const handleSubmit = (event: React.FormEvent) => {
+  event.preventDefault();
+  onNext({ drugName, quantityRequested });
+};
 
   return (
     <div className="form-section">
