@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-
-import './MainPage.css'; // Create this CSS file for styling
-import homeIcon from '../assets/Home.svg'; // Replace with your actual icon paths
-import searchIcon from '../assets/Search.svg'; // Replace with your actual icon paths
+import './MainPage.css'; 
+import homeIcon from '../assets/Home.svg'; 
+import searchIcon from '../assets/Search.svg'; 
 import networkIcon from '../assets/Dashboard.svg';
 import addIcon from '../assets/Add.svg';
 import uploadIcon from '../assets/Import.svg';
@@ -21,6 +19,7 @@ const MainPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState<number | string | null>(1);
   const [drugData, setDrugData] = useState<{ drugName: string; quantityRequested: string } | null>(null);
+  const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -51,31 +50,66 @@ const MainPage: React.FC = () => {
       case 'inspection':
         return <Inspection />;
       default:
-        return <div>Welcome to the Dashboard</div>;
+        return <div>Welcome to MedLeb Pharmacy Service</div>;
     }
   };
 
   return (
-    <div className="main-page">
-      <div className="sidebar">
-        <img src={logoIcon} alt="Logo" className="logo" />
-        <div className="icon-group">
-          <img src={homeIcon} alt="Home" className="icon" onClick={() => setCurrentStep(null)} />
-          <img src={searchIcon} alt="Search" className="icon" />
-          <img src={networkIcon} alt="Network" className="icon" />
+    <div className={`main-page ${collapsed ? 'collapsed' : ''}`}>
+      <div className={`sidebar ${collapsed ? 'collapsed' : ''}`} 
+           onMouseEnter={() => setCollapsed(false)} 
+           onMouseLeave={() => setCollapsed(true)}>
+        <div className="header">
+          <img src={logoIcon} alt="MedLeb Logo" className="logo" />
         </div>
         <div className="icon-group">
-          <img src={addIcon} alt="Add" className="icon" />
-          <img src={uploadIcon} alt="Upload" className="icon" onClick={() => setCurrentStep(1)} />
-          <img src={heartIcon} alt="Heart" className="icon" onClick={() => setCurrentStep('inspection')} />
-          <img src={listIcon} alt="List" className="icon" />
+          <a href="#" className="icon">
+            <img src={homeIcon} alt="Home" />
+            <span>Home</span>
+          </a>
+          <a href="#" className="icon">
+            <img src={searchIcon} alt="Search" />
+            <span>Search</span>
+          </a>
+          <a href="#" className="icon">
+            <img src={networkIcon} alt="Dashboard" />
+            <span>Dashboard</span>
+          </a>
+        </div>
+        <div className="divider"></div>
+        <div className="icon-group drug-group">
+          <a href="#" className="icon" onClick={() => setCurrentStep(1)}>
+            <img src={addIcon} alt="Add" />
+            <span>Add</span>
+          </a>
+          <a href="#" className="icon" onClick={() => setCurrentStep(1)}>
+            <img src={uploadIcon} alt="Upload" />
+            <span>Import</span>
+          </a>
+          <a href="#" className="icon" onClick={() => setCurrentStep('inspection')}>
+            <img src={heartIcon} alt="Inspect" />
+            <span>Inspect</span>
+          </a>
+          <a href="#" className="icon">
+            <img src={listIcon} alt="Track Records" />
+            <span>Track Records</span>
+          </a>
         </div>
       </div>
       <div className="content">
-        {renderStep()}
-      </div>
-      <div className="sidebar right">
-        {/* Right sidebar content goes here if needed */}
+        <div className="top-bar">
+          <div className="search-bar">
+            <input type="text" placeholder="Search..." />
+          </div>
+          <div className="profile-section">
+            <img src={networkIcon} alt="User" className="icon" />
+            <img src={listIcon} alt="Settings" className="icon" />
+          </div>
+        </div>
+        <div className="main-content">
+          <h1>Home Page</h1>
+          {renderStep()}
+        </div>
       </div>
     </div>
   );
