@@ -1,5 +1,7 @@
 const drug_atc_mapping = require("../models/atcmapping");
 const ATC_Code = require("../models/atc");
+const Drug = require("../models/drug");
+
 
 const getATCByDrugID = async (DrugID) => {
   try {
@@ -23,6 +25,40 @@ const getATCByDrugID = async (DrugID) => {
   } catch (error) {
     console.error(error);
     throw new Error("Error in getATCByDrugID service: " + error.message);
+  }
+};
+
+  
+const addATCMapping = async (Code, DrugName) => {
+  try {
+    // Find the ATC_ID from the ATC_Code table
+    const atc = await ATC_Code.findOne({
+      where: { Code: Code },
+    });
+
+    if (!atc) {
+      throw new Error(`No ATC code found for code: ${Code}`);
+    }
+
+    // Find the DrugID from the Drug table
+    const drug = await Drug.findOne({
+      where: { DrugName: DrugName },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found for name: ${DrugName}`);
+    }
+
+    // Add the ATC_ID and DrugID to the drug_atc_mapping table
+    const mapping = await drug_atc_mapping.create({
+      ATC_ID: atc.ATC_ID,
+      DrugID: drug.DrugID,
+    });
+
+    return mapping;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error in addATCMapping service: " + error.message);
   }
 };
 
@@ -74,5 +110,6 @@ module.exports = {
   addATC,
   editATC,
   deleteATC,
-  getAllATC
+  getAllATC,
+  addATCMapping,
 };

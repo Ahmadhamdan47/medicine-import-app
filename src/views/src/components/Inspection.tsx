@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Inspection.css';
+import './inspection.css';
 import SubmitButton from '../assets/SubmitButton.svg';
 
 const Inspection: React.FC = () => {

@@ -58,15 +58,28 @@ const drugs = await Drug.findAll({
 });
 
 const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-  const dosage = await getDosageByDrugName(drug.DrugName);
-  const route = await getRouteByDrugName(drug.DrugName);
-  const presentation = await getPresentationByDrugName(drug.DrugName);
+  let dosage, route, presentation;
+  try {
+    dosage = await getDosageByDrugName(drug.DrugName);
+  } catch (error) {
+    dosage = null; // Set to null if not found or error occurs
+  }
+  try {
+    route = await getRouteByDrugName(drug.DrugName);
+  } catch (error) {
+    route = null; // Set to null if not found or error occurs
+  }
+  try {
+    presentation = await getPresentationByDrugName(drug.DrugName);
+  } catch (error) {
+    presentation = null; // Set to null if not found or error occurs
+  }
   const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-  const ManufacturerName = Manufacturer.AgentName;
-  const CountryName = Manufacturer.Country;
+  const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+  const CountryName = Manufacturer ? Manufacturer.Country : null;
   const priceInLBP = drug.Price * 90000;
-  const unitPrice = drug.Price / presentation.Amount;
-  const unitPriceInLBP = unitPrice * 90000;
+  const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+  const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
 
   return {
     ...drug.dataValues,
@@ -99,15 +112,28 @@ const searchDrugByATCName = async (atcName) => {
     });
 
     const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
+      let dosage, route, presentation;
+      try {
+        dosage = await getDosageByDrugName(drug.DrugName);
+      } catch (error) {
+        dosage = null; // Set to null if not found or error occurs
+      }
+      try {
+        route = await getRouteByDrugName(drug.DrugName);
+      } catch (error) {
+        route = null; // Set to null if not found or error occurs
+      }
+      try {
+        presentation = await getPresentationByDrugName(drug.DrugName);
+      } catch (error) {
+        presentation = null; // Set to null if not found or error occurs
+      }
       const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-      const ManufacturerName = Manufacturer.AgentName;
-      const CountryName = Manufacturer.Country;
+      const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+      const CountryName = Manufacturer ? Manufacturer.Country : null;
       const priceInLBP = drug.Price * 90000;
-      const unitPrice = drug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
+      const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
 
       return {
         ...drug.dataValues,
@@ -133,22 +159,33 @@ const searchDrugByName = async (query) => {
     const drugs = await Drug.findAll({
       where: {
         DrugName: { [Op.like]: `%${query}%` },
-        
       },
       attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','GTIN','DrugID','isOTC','RegistrationNumber','Substitutable'],
-
     });
 
     const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
+      let dosage, route, presentation;
+      try {
+        dosage = await getDosageByDrugName(drug.DrugName);
+      } catch (error) {
+        dosage = null; // Set to null if not found or error occurs
+      }
+      try {
+        route = await getRouteByDrugName(drug.DrugName);
+      } catch (error) {
+        route = null; // Set to null if not found or error occurs
+      }
+      try {
+        presentation = await getPresentationByDrugName(drug.DrugName);
+      } catch (error) {
+        presentation = null; // Set to null if not found or error occurs
+      }
       const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-      const ManufacturerName = Manufacturer.AgentName;
-      const CountryName = Manufacturer.Country;
+      const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+      const CountryName = Manufacturer ? Manufacturer.Country : null;
       const priceInLBP = drug.Price * 90000;
-      const unitPrice = drug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
+      const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
 
       return {
         ...drug.dataValues,
@@ -175,27 +212,70 @@ const getDrugById = async (DrugID) => {
       where: {
         DrugID: DrugID,
       },
-      attributes: ["DrugName","DrugNameAr","isOTC", "ATCRelatedIngredient", "ProductType","SubsidyPercentage","MoPHCode","Price","imagesPath",'ManufacturerID','RegistrationNumber','NotMarketed','ImagesPath'],
-
+      attributes: ["DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "imagesPath", 'ManufacturerID', 'RegistrationNumber', 'NotMarketed', 'ImagesPath'],
     });
-    const dosage = await getDosageByDrugId(DrugID);
-    const route = await getRouteByDrugId(DrugID);
-    const presentation = await getPresentationByDrugId(DrugID);
-    const ATC = await ATCService.getATCByDrugID(DrugID);
+    if (!drug) {
+      throw new Error('Drug not found');
+    }
+
+    let dosage, route, presentation, ATC, Manufacturer, stratum;
+    try {
+      dosage = await getDosageByDrugId(DrugID);
+    } catch (error) {
+      dosage = null;
+    }
+    try {
+      route = await getRouteByDrugId(DrugID);
+    } catch (error) {
+      route = null;
+    }
+    try {
+      presentation = await getPresentationByDrugId(DrugID);
+    } catch (error) {
+      presentation = null;
+    }
+    try {
+      ATC = await ATCService.getATCByDrugID(DrugID);
+    } catch (error) {
+      ATC = null;
+    }
+    try {
+      Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
+    } catch (error) {
+      Manufacturer = null;
+    }
+    try {
+      stratum = await getStratumByDrugId(DrugID);
+    } catch (error) {
+      stratum = null;
+    }
+
     const priceInLBP = drug.Price * 90000;
-    const unitPrice = drug.Price / presentation.Amount;
-    const unitPriceInLBP = unitPrice * 90000;
-    const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-    const ManufacturerName = Manufacturer.AgentName;
-    const AgentName = Manufacturer.AgentName;
-    const CountryName = Manufacturer.Country;
-    const stratum = await getStratumByDrugId(DrugID);
+    const unitPrice = presentation && presentation.Amount ? drug.Price / presentation.Amount : null;
+    const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+    const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+    const CountryName = Manufacturer ? Manufacturer.Country : null;
     const imagesPath = drug.imagesPath;
 
-    const allDrugData = { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice,imagesPath,stratum,ATC,ManufacturerName,CountryName,AgentName};
+    const allDrugData = {
+      ...drug.get({ plain: true }),
+      dosage,
+      route,
+      presentation,
+      ATC,
+      stratum,
+      priceInLBP,
+      unitPrice,
+      unitPriceInLBP,
+      imagesPath,
+      ManufacturerName,
+      CountryName,
+      AgentName: ManufacturerName // Assuming AgentName is the same as ManufacturerName
+    };
+
     return allDrugData;
   } catch (error) {
-    throw new Error("Error in drugService: " + error.message);
+    throw new Error("Error in getDrugById: " + error.message);
   }
 };
 // src/services/drugService.js
@@ -306,19 +386,32 @@ const smartSearch = async (query) => {
     }
 
     const drugsWithDosageAndRoute = await Promise.all(results.map(async (result) => {
-      const drug = result.item;
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
-      const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-      const ManufacturerName = Manufacturer.AgentName;
-      const CountryName = Manufacturer.Country;
-      const priceInLBP = drug.Price * 90000;
-      const unitPrice = drug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
-      
-      return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
-    }));
+  const drug = result.item;
+  let dosage, route, presentation;
+  try {
+    dosage = await getDosageByDrugName(drug.DrugName);
+  } catch (error) {
+    dosage = null; // Set to null if not found
+  }
+  try {
+    route = await getRouteByDrugName(drug.DrugName);
+  } catch (error) {
+    route = null; // Set to null if not found
+  }
+  try {
+    presentation = await getPresentationByDrugName(drug.DrugName);
+  } catch (error) {
+    presentation = null; // Set to null if not found
+  }
+  const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
+  const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+  const CountryName = Manufacturer ? Manufacturer.Country : null;
+  const priceInLBP = drug.Price * 90000;
+  const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+  const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+  
+  return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
+}));
 
     if (drugId) {
       try {
@@ -330,25 +423,38 @@ const smartSearch = async (query) => {
           
         });
     
-        if (substitutes.length > 0) {
-          console.log("Substitutes found:", substitutes); // Log the substitutes found
+    if (substitutes.length > 0) {
+  console.log("Substitutes found:", substitutes); // Log the substitutes found
+
+  const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
+    let dosage, route, presentation;
+    try {
+      dosage = await getDosageByDrugName(substitute.DrugName);
+    } catch (error) {
+      dosage = null; // Set to null if not found
+    }
+    try {
+      route = await getRouteByDrugName(substitute.DrugName);
+    } catch (error) {
+      route = null; // Set to null if not found
+    }
+    try {
+      presentation = await getPresentationByDrugName(substitute.DrugName);
+    } catch (error) {
+      presentation = null; // Set to null if not found
+    }
+    const Manufacturer = await Agent.findOne({ where: { AgentID: substitute.ManufacturerID } });
+    const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+    const CountryName = Manufacturer ? Manufacturer.Country : null;
+    const priceInLBP = substitute.Price * 90000;
+    const unitPrice = presentation ? substitute.Price / presentation.Amount : null;
+    const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
     
-          const substitutesWithDosageAndRoute = await Promise.all(substitutes.map(async (substitute) => {
-            const dosage = await getDosageByDrugName(drug.DrugName);
-            const route = await getRouteByDrugName(drug.DrugName);
-            const presentation = await getPresentationByDrugName(drug.DrugName);
-            const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-            const ManufacturerName = Manufacturer.AgentName;
-            const CountryName = Manufacturer.Country;
-            const priceInLBP = drug.Price * 90000;
-            const unitPrice = drug.Price / presentation.Amount;
-            const unitPriceInLBP = unitPrice * 90000;
-            
-            return { ...drug.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
-          }));
-    
-          drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
-        }
+    return { ...substitute.get({ plain: true }), dosage, route, presentation, priceInLBP, unitPriceInLBP, unitPrice, ManufacturerName, CountryName};
+  }));
+
+  drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
+}
       } catch (error) {
         console.error("No substitutes found for drug:", error);
       }
@@ -613,7 +719,11 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     });
 
     if (!batchLot) {
-      return 'Checkmate, batch doesnt exist';
+      return {
+        isValid: false,
+        messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
+        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
+      };
     }
 
     // Check if the SerialNumber exists for this batch in the BatchSerialNumber table
@@ -625,11 +735,19 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     });
 
     if (!batchSerialNumber) {
-      return 'Checkmate, serial number doesnt exist';
+      return {
+        isValid: false,
+        messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
+        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
+      };
     }
 
     // If all checks pass, return a success message
-    return 'This drug is valid';
+    return {
+      isValid: true,
+      messageEN: 'This drug is imported legally by the importation process of the MoPH.',
+      messageAR: 'هذا الدّواء مستورد قانونياً وفق آليات استيراد الدّواء المعتمدة من قبل وزارة الصحة العامة.'
+    };
   } catch (error) {
     console.error('Error in checkMate:', error);
     throw error;
@@ -651,15 +769,28 @@ const getOTCDrugs = async () => {
     });
 
     const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-      const dosage = await getDosageByDrugName(drug.DrugName);
-      const route = await getRouteByDrugName(drug.DrugName);
-      const presentation = await getPresentationByDrugName(drug.DrugName);
+      let dosage, route, presentation;
+      try {
+        dosage = await getDosageByDrugName(drug.DrugName);
+      } catch (error) {
+        dosage = null; // Set to null if not found or error occurs
+      }
+      try {
+        route = await getRouteByDrugName(drug.DrugName);
+      } catch (error) {
+        route = null; // Set to null if not found or error occurs
+      }
+      try {
+        presentation = await getPresentationByDrugName(drug.DrugName);
+      } catch (error) {
+        presentation = null; // Set to null if not found or error occurs
+      }
       const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-      const ManufacturerName = Manufacturer.AgentName;
-      const CountryName = Manufacturer.Country;
+      const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+      const CountryName = Manufacturer ? Manufacturer.Country : null;
       const priceInLBP = drug.Price * 90000;
-      const unitPrice = drug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
+      const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
 
       return {
         ...drug.dataValues,
@@ -682,7 +813,6 @@ const getOTCDrugs = async () => {
 };
 const getDrugSubstitutes = async (drugName) => {
   try {
-    // Find the drug by its name
     const drug = await Drug.findOne({
       where: { DrugName: drugName },
     });
@@ -691,26 +821,46 @@ const getDrugSubstitutes = async (drugName) => {
       throw new Error(`Drug with name ${drugName} not found`);
     }
 
-    // Get the substitutes of the drug
     const substitutes = await substituteService.getSubstitutesByDrugID(drug.DrugID);
 
-    // Fetch the data of the substitutes like in the smartSearch
     const substitutesWithDetails = await Promise.all(substitutes.map(async (substitute) => {
       const substituteDrug = await Drug.findOne({
         where: { DrugID: substitute.Substitute },
         attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed'],
       });
 
-      // Fetch additional details for the substitute drug
-      const dosage = await getDosageByDrugName(substituteDrug.DrugName);
-      const route = await getRouteByDrugName(substituteDrug.DrugName);
-      const presentation = await getPresentationByDrugName(substituteDrug.DrugName);
-      const Manufacturer = await Agent.findOne({ where: { AgentID: substituteDrug.ManufacturerID } });
-      const ManufacturerName = Manufacturer.AgentName;
-      const CountryName = Manufacturer.Country;
+      let dosage, route, presentation, Manufacturer, ManufacturerName, CountryName, unitPrice, unitPriceInLBP;
+      try {
+        dosage = await getDosageByDrugName(substituteDrug.DrugName);
+      } catch (error) {
+        dosage = null;
+      }
+      try {
+        route = await getRouteByDrugName(substituteDrug.DrugName);
+      } catch (error) {
+        route = null;
+      }
+      try {
+        presentation = await getPresentationByDrugName(substituteDrug.DrugName);
+      } catch (error) {
+        presentation = null;
+      }
+      try {
+        Manufacturer = await Agent.findOne({ where: { AgentID: substituteDrug.ManufacturerID } });
+        ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
+        CountryName = Manufacturer ? Manufacturer.Country : null;
+      } catch (error) {
+        ManufacturerName = null;
+        CountryName = null;
+      }
       const priceInLBP = substituteDrug.Price * 90000;
-      const unitPrice = substituteDrug.Price / presentation.Amount;
-      const unitPriceInLBP = unitPrice * 90000;
+      try {
+        unitPrice = presentation && presentation.Amount ? substituteDrug.Price / presentation.Amount : null;
+        unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+      } catch (error) {
+        unitPrice = null;
+        unitPriceInLBP = null;
+      }
 
       return {
         ...substituteDrug.dataValues,
