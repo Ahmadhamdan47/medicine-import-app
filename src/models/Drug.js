@@ -16,6 +16,13 @@ const NewDrug = sequelize.define('drug', {
     isOTC:{
         type: DataTypes.BOOLEAN
     },
+    Form:{
+        type: DataTypes.STRING(255)
+    },
+    Presentation:{
+        type: DataTypes.STRING(255)
+    
+    },
     ManufacturerID: {
         type: DataTypes.INTEGER
     },

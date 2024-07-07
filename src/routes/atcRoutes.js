@@ -238,4 +238,6 @@ router.post("/add", ATCController.addATC);
 router.put("/:atcId", ATCController.editATC);
 router.delete("/:atcId", ATCController.deleteATC);
 
+router.post("/addMapping", ATCController.addATCMapping);
+
 module.exports = router;
