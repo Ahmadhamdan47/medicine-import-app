@@ -10,6 +10,37 @@ const NewDrug = sequelize.define('drug', {
     DrugName: {
         type: DataTypes.STRING(255)
     },
+    DrugNameAR: {
+        type: DataTypes.STRING(255)
+    },
+    isOTC:{
+        type: DataTypes.BOOLEAN
+    },
+    Form:{
+        type: DataTypes.STRING(255)
+    },
+    Presentation:{
+        type: DataTypes.STRING(255)
+    
+    },
+    Dosage : {
+        type: DataTypes.STRING(255)
+    },
+    Amount: {
+        type: DataTypes.INTEGER
+    },
+    Route: {
+        type: DataTypes.STRING(255)
+    },
+    Agent: {
+        type: DataTypes.STRING(255)
+    },
+    Manufacturer: {
+        type: DataTypes.STRING(255)
+    },
+    Country : {
+        type: DataTypes.STRING(255)
+    },
     ManufacturerID: {
         type: DataTypes.INTEGER
     },
@@ -135,8 +166,7 @@ const NewDrug = sequelize.define('drug', {
     },
     CurrencyForeign: {
         type: DataTypes.UUID
-    }
-    
+    },
 }, {
     tableName: 'drug',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
