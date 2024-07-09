@@ -57,7 +57,7 @@ const drugs = await Drug.findAll({
   attributes: [
     'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
     'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-    'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country'
+    'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
   ],
 });
 
@@ -100,7 +100,7 @@ const searchDrugByATCName = async (atcName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country'
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode'
       ],
     });
   
@@ -144,7 +144,7 @@ const searchDrugByName = async (query) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country'
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
       ],
     });
   
@@ -339,7 +339,7 @@ const smartSearch = async (query) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
       ],
     });
     
@@ -411,7 +411,7 @@ const smartSearch = async (query) => {
             attributes: [
               'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
               'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route'
+              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
             ],
           });
 
@@ -488,7 +488,7 @@ const getDrugByATCLevel = async (query) => {
       },
       include: [{
         model: Drug,
-        attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','GTIN','DrugID','isOTC','RegistrationNumber','Substitutable'],
+        attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','GTIN','DrugID','isOTC','RegistrationNumber','Substitutable','MoPHCode'],
       }]
     });
 
@@ -763,37 +763,29 @@ const getOTCDrugs = async () => {
       where: {
         isOTC: true
       },
-      attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed'],
+      attributes: [
+        'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
+        'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
+      ],
     });
 
-    const drugsWithDosageAndRoute = await Promise.all(drugs.map(async (drug) => {
-      let dosage, route, presentation;
-      try {
-        dosage = await getDosageByDrugName(drug.DrugName);
-      } catch (error) {
-        dosage = null; // Set to null if not found or error occurs
-      }
-      try {
-        route = await getRouteByDrugName(drug.DrugName);
-      } catch (error) {
-        route = null; // Set to null if not found or error occurs
-      }
-      try {
-        presentation = await getPresentationByDrugName(drug.DrugName);
-      } catch (error) {
-        presentation = null; // Set to null if not found or error occurs
-      }
-      const Manufacturer = await Agent.findOne({ where: { AgentID: drug.ManufacturerID } });
-      const ManufacturerName = Manufacturer ? Manufacturer.AgentName : null;
-      const CountryName = Manufacturer ? Manufacturer.Country : null;
+    const drugsWithDosageAndRoute = drugs.map(drug => {
+      const dosage = drug.Dosage;
+      const route = drug.Route; // Assuming 'Form' corresponds to 'route'
+      const form = drug.Form;
+      const presentation = drug.Presentation;
+      const ManufacturerName = drug.Manufacturer;
+      const CountryName = drug.Country;
       const priceInLBP = drug.Price * 90000;
-      const unitPrice = presentation ? drug.Price / presentation.Amount : null;
+      const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
-
+  
       return {
         ...drug.dataValues,
         dosage,
         route,
+        form,
         presentation,
         ManufacturerName,
         CountryName,
@@ -801,7 +793,7 @@ const getOTCDrugs = async () => {
         unitPrice,
         unitPriceInLBP
       };
-    }));
+    });
 
     return drugsWithDosageAndRoute;
   } catch (error) {
@@ -816,7 +808,7 @@ const getDrugSubstitutes = async (drugName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
       ],
     });
 
@@ -836,7 +828,7 @@ const getDrugSubstitutes = async (drugName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
       ],
     });
 
