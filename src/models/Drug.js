@@ -1,5 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const Dosage = require('./dosage');
+const { Route } = require('react-router-dom');
+const Agent = require('./agent');
 
 const NewDrug = sequelize.define('drug', {
     DrugID: {
@@ -15,6 +18,31 @@ const NewDrug = sequelize.define('drug', {
     },
     isOTC:{
         type: DataTypes.BOOLEAN
+    },
+    Form:{
+        type: DataTypes.STRING(255)
+    },
+    Presentation:{
+        type: DataTypes.STRING(255)
+    
+    },
+    Dosage : {
+        type: DataTypes.STRING(255)
+    },
+    Amount: {
+        type: DataTypes.INTEGER
+    },
+    Route: {
+        type: DataTypes.STRING(255)
+    },
+    Agent: {
+        type: DataTypes.STRING(255)
+    },
+    Manufacturer: {
+        type: DataTypes.STRING(255)
+    },
+    Country : {
+        type: DataTypes.STRING(255)
     },
     ManufacturerID: {
         type: DataTypes.INTEGER

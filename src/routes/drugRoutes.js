@@ -606,6 +606,7 @@ router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryCont
  */
 router.get('/substitutes/:drugName', drugController.getDrugSubstitutesController);
 router.get('/checkDrugNameInAPI/:drugName', drugController.checkDrugNameInAPI);
-
+router.delete('/delete/:DrugID', drugController.deleteDrug);
+router.put('/update/:DrugID', drugController.updateDrug);
 
 module.exports = router;

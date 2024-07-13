@@ -111,6 +111,16 @@ const getAllOperationSystems = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const addOperation = async (req, res) => {
+  const operationData = req.body.operationData;
+  const categoryPricingData = req.body.categoryPricingData;
+  try {
+      const result = await hospitalizationService.addOperation(operationData, categoryPricingData);
+      res.status(201).json(result);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+};
 module.exports = {
   searchOperationsBySystemPrivate,
   searchOperationsBySystemPublic,
@@ -125,4 +135,5 @@ module.exports = {
   getAllHospitals,
   getAllOperations,
   getAllOperationSystems,
+  addOperation
 };

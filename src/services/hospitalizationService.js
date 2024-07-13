@@ -344,6 +344,52 @@ const getAllOperationSystems = async () => {
   }
   return operationSystems;
 };
+const addOperation= async (operationData, categoryPricingData) => {
+  try {
+      // Step 1: Add a new operation
+      const newOperation = await Operation.create({
+          Code: operationData.Code,
+          Name: operationData.Name,
+          systemChar: operationData.systemChar,
+          Anesthetic: operationData.Anesthetic,
+          Los: operationData.LOS
+      });
+
+      // Retrieve the ID of the newly added operation
+      const operationId = newOperation.ID;
+
+      // Step 2: Add entries to the categoryPricing table
+      const categoryPricingEntry = await CategoryPricing.create({
+          OperationId: operationId,
+          FirstSurgeon: categoryPricingData.FirstSurgeon,
+          FirstAnesthist: categoryPricingData.FirstAnesthist,
+          FirstConsultant: categoryPricingData.FirstConsultant,
+          FirstHospital1: categoryPricingData.FirstHospital1,
+          FirstHospital2: categoryPricingData.FirstHospital2,
+          FirstHospital3: categoryPricingData.FirstHospital3,
+          FirstCategory1: categoryPricingData.FirstCategory1,
+          FirstCategory2: categoryPricingData.FirstCategory2,
+          FirstCategory3: categoryPricingData.FirstCategory3,
+          SecondSurgeon: categoryPricingData.SecondSurgeon,
+          SecondAnesthist: categoryPricingData.SecondAnesthist,
+          SecondConsultant: categoryPricingData.SecondConsultant,
+          SecondHospital1: categoryPricingData.SecondHospital1,
+          SecondHospital2: categoryPricingData.SecondHospital2,
+          SecondHospital3: categoryPricingData.SecondHospital3,
+          SecondCategory1: categoryPricingData.SecondCategory1,
+          SecondCategory2: categoryPricingData.SecondCategory2,
+          SecondCategory3: categoryPricingData.SecondCategory3
+      });
+
+      return {
+          operation: newOperation,
+          categoryPricing: categoryPricingEntry
+      };
+  } catch (error) {
+      console.error("Error creating hospitalization service:", error);
+      throw new Error("Failed to create hospitalization service");
+  }
+};
 module.exports = {
   searchOperationsBySystemPrivate,
   searchOperationsBySystemPublic,
@@ -358,4 +404,5 @@ module.exports = {
   getAllHospitals,
   getAllOperations,
   getAllOperationSystems,
+  addOperation
 };

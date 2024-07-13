@@ -1,0 +1,58 @@
+.inspection-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .inspection-form {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .inspection-form .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .inspection-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .inspection-form .oval-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  .inspection-form .oval-input.large {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .inspection-form .submit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .inspection-form .submit-button img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
