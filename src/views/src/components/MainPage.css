@@ -153,8 +153,60 @@
   background-color: #f1f1f1;
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
-  background-color: #ffffff;
+.small-button {
+  width: 100px;
+  height: 45px;
+  padding: 0;
+  margin: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: #f1f1f1;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pagination span {
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+input[type="text"], input[type="checkbox"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  width: auto;
 }
