@@ -20,7 +20,7 @@ const logger = winston.createLogger({
 });
 
 try {
-    const sequelize = new Sequelize("ommal_medapiv2", "root", "", {
+    const sequelize = new Sequelize("ommal_medapiv2","ommal_ahmad", "fISfGr^8q!_gUPMY", {
         host: 'localhost',
         dialect: 'mysql',
         logging: (query) => {
