@@ -135,3 +135,26 @@
   height: 40px;
   cursor: pointer;
 }
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.dropdown button {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background-color: #f1f1f1;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+}

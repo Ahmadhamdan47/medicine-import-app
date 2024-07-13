@@ -351,6 +351,7 @@ const addOperation= async (operationData, categoryPricingData) => {
           Code: operationData.Code,
           Name: operationData.Name,
           systemChar: operationData.systemChar,
+          Anesthetic: operationData.Anesthetic,
           Los: operationData.LOS
       });
 

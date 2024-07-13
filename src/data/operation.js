@@ -27,6 +27,7 @@ const processFile = () => {
         Code: row.Code,
         Name: row.Name,
         systemChar: row.SystemChar,
+        Anesthetic: row.Anesthetic,
         LOS: parseInt(row.LOS, 10),
       };
 
