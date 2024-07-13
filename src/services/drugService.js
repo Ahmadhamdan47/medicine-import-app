@@ -882,6 +882,42 @@ const checkDrugNameInAPI = async (drugName) => {
     return false;
   }
 };
+
+const deleteDrug = async (DrugID) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugID: DrugID },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found with ID: ${DrugID}`);
+    }
+
+    await drug.destroy();
+    return drug;
+  } catch (error) {
+    console.error("Error in deleteDrug:", error);
+    throw new Error('Error occurred in deleteDrug: ' + error.message);
+  }
+};
+
+const updateDrug = async (DrugID, updatedData) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugID: DrugID },
+    });
+
+    if (!drug) {
+      throw new Error(`No drug found with ID: ${DrugID}`);
+    }
+
+    await drug.update(updatedData);
+    return drug;
+  } catch (error) {
+    console.error("Error in updateDrug:", error);
+    throw new Error('Error occurred in updateDrug: ' + error.message);
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -903,6 +939,8 @@ module.exports = {
   getOTCDrugs,
   getDrugByDiseaseCategory,
   getDrugSubstitutes,
-  checkDrugNameInAPI
+  checkDrugNameInAPI,
+  deleteDrug,
+  updateDrug
   
 };
