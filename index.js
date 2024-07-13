@@ -5,6 +5,8 @@ const swaggerConfig = require("./config/swagger");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("./config/logger");
+const path = require("path");
+
 const drugRouter = require("./src/routes/drugRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
 const rfiRoutes = require("./src/routes/rfiRoutes");
@@ -26,37 +28,22 @@ const brandRoutes = require("./src/routes/brandRoutes");
 const agentRoutes = require("./src/routes/agentRoutes");
 const containerTypeRoutes = require("./src/routes/containerTypeRoutes");
 const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes");
-const HospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
+const hospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
 const userRoutes = require('./src/routes/userRoutes');
-const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
-
-
-// // Swagger definition
+// Swagger definition
 const swaggerSpec = swaggerJSDoc(swaggerConfig);
 
 // Serve Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-// Serve Swagger UI static files
 app.use("/swagger-ui", express.static("node_modules/swagger-ui-dist"));
-
-// Serve Swagger specification as JSON
 app.get("/swagger.json", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.send(swaggerSpec);
 });
-
-// Swagger definition
-// const swaggerSpec = swaggerJSDoc(swaggerConfig);
-
-// Serve Swagger UI
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-// Serve Swagger UI static files
-app.use("/api-docs", express.static("node_modules/swagger-ui-dist"));
 
 // Middleware for logging incoming requests
 app.use((req, res, next) => {
@@ -67,7 +54,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(cors());
 
-// Use your router
+// Use your routers
 app.use("/drugs", drugRouter);
 app.use("/submittedOrders", submittedOrderRoutes);
 app.use("/rfi", rfiRoutes);
@@ -89,25 +76,31 @@ app.use("/brand", brandRoutes);
 app.use("/agent", agentRoutes);
 app.use("/containerType", containerTypeRoutes);
 app.use("/dispensingCategory", dispensingCategoryRoutes);
-app.use("/hospitalization", HospitalizationRoutes);
-app.use('/users',userRoutes);
+app.use("/hospitalization", hospitalizationRoutes);
+app.use('/users', userRoutes);
 app.use('/img', express.static('img'));
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'src/views/build')));
+
+// Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/views/build', 'index.html'));
+});
+
 // Sample route
 app.get("/", (req, res) => {
-  logger.info(
-    `[${new Date().toISOString()}] [GET] / - Hello, Medicine Import App!`
-  );
+  logger.info(`[${new Date().toISOString()}] [GET] / - Hello, Medicine Import App!`);
   res.send("Hello, Medicine Import App!");
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
-  logger.error(
-    `[${new Date().toISOString()}] An error occurred: ${err.message}`
-  );
+  logger.error(`[${new Date().toISOString()}] An error occurred: ${err.message}`);
   res.status(500).send("Something went wrong!");
 });
 
+// Start the server
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });

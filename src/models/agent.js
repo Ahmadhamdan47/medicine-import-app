@@ -43,6 +43,9 @@ const Agent = sequelize.define('agent', {
     IsActive: {
         type: DataTypes.BOOLEAN
     },
+    esignature: {
+        type: DataTypes.STRING
+    },
     CreatedBy: {
         type: DataTypes.UUID
     },

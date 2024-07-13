@@ -186,4 +186,6 @@ router.get('/operations/pricing/private/:operationId', hospitalizationController
 router.get('/operations/pricing/public/:operationId', hospitalizationController.getCategoryPricingByOperationIdPublic);
 router.get('/private', hospitalizationController.getOperationSharePrivate);
 router.get('/public', hospitalizationController.getOperationSharePublic);
+router.post('/operations', hospitalizationController.addOperation);
+
 module.exports = router;

@@ -108,7 +108,7 @@ function handleSequelizeError(error) {
 }
 
 try {
-  const sequelize = new Sequelize("ommal_medapiv2", "ommal_ahmad", "fISfGr^8q!_gUPMY", {
+  const sequelize = new Sequelize("ommal_medapiv2",  "ommal_ahmad", "fISfGr^8q!_gUPMY", {
     host: 'localhost',
     dialect: 'mysql',
     logging: (query) => {

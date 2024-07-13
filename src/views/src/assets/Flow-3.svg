@@ -1,0 +1,15 @@
+<svg width="392" height="32" viewBox="0 0 392 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="1" width="30" height="30" rx="11" fill="#259F83" stroke="#259F83" stroke-width="1.5"/>
+<line x1="31.5" y1="15.5" x2="60.5" y2="15.5" stroke="#259F83" stroke-linecap="square"/>
+<rect x="61" y="1" width="30" height="30" rx="11" fill="#259F83" stroke="#259F83" stroke-width="1.5"/>
+<line x1="91.5" y1="15.5" x2="120.5" y2="15.5" stroke="#259F83" stroke-linecap="square"/>
+<rect x="121" y="1" width="30" height="30" rx="11" fill="#259F83" stroke="#259F83" stroke-width="1.5"/>
+<rect x="241" y="1" width="30" height="30" rx="11" stroke="#259F83" stroke-width="1.5"/>
+<line x1="271.5" y1="15.5" x2="300.5" y2="15.5" stroke="#44566C" stroke-linecap="square"/>
+<rect x="301" y="1" width="30" height="30" rx="11" stroke="#44566C" stroke-width="1.5"/>
+<line x1="331.5" y1="15.5" x2="360.5" y2="15.5" stroke="#44566C" stroke-linecap="square"/>
+<line x1="151.5" y1="15.5" x2="180.5" y2="15.5" stroke="#259F83" stroke-linecap="square"/>
+<rect x="181" y="1" width="30" height="30" rx="11" fill="#259F83" stroke="#259F83" stroke-width="1.5"/>
+<line x1="211.5" y1="15.5" x2="240.5" y2="15.5" stroke="#259F83" stroke-linecap="square"/>
+<rect x="361" y="1" width="30" height="30" rx="11" stroke="#44566C" stroke-width="1.5"/>
+</svg>

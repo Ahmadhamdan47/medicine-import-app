@@ -79,9 +79,10 @@ const Donation = sequelize.define(
         key: "RecipientId",
       },
     },
-    DonationDate: {
-      type: DataTypes.DATE,
-    },
+ DonationDate: {
+  type: DataTypes.DATE,
+  defaultValue: DataTypes.NOW,
+},
     DonationPurpose: {
       type: DataTypes.STRING(255),
     },

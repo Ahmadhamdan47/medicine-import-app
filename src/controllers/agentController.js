@@ -38,4 +38,14 @@ const getAllAgents = async (req, res) => {
   }
 };
 
-module.exports = { addAgent, editAgent, deleteAgent, getAllAgents };
+const registerAgent = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    await agentService.registerAgent(username, password, req.body);
+    res.status(201).send("Agent registered");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+module.exports = { addAgent, editAgent, deleteAgent, getAllAgents, registerAgent};

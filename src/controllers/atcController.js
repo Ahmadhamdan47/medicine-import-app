@@ -11,6 +11,14 @@ const getATCByDrugID = async (req, res) => {
     }
 };
 
+const addATCMapping = async (req, res) => {
+    try {
+        const mapping = await ATCService.addATCMapping(req.body.Code, req.body.DrugName);
+        res.json(mapping);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 
 const addATC = async (req, res) => {
     try {
@@ -56,5 +64,6 @@ module.exports = {
     addATC,
     editATC,
     deleteATC,
-    getAllATC
+    getAllATC,
+    addATCMapping,
 };
