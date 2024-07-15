@@ -23,6 +23,9 @@ const NewDrug = sequelize.define('drug', {
         type: DataTypes.STRING(255)
     
     },
+    Stratum: {
+        type: DataTypes.STRING(255)
+    },
     Dosage : {
         type: DataTypes.STRING(255)
     },
