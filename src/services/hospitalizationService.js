@@ -338,7 +338,9 @@ const getAllOperations = async () => {
 };
 
 const getAllOperationSystems = async () => {
-  const operationSystems = await OperationSystems.findAll();
+  const operationSystems = await OperationSystems.findAll({
+    order: [['systemName', 'ASC']] // Corrected to the actual column name
+  });
   if (!operationSystems) {
     throw new Error('No operation systems found');
   }

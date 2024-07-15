@@ -144,7 +144,7 @@ const searchDrugByName = async (query) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'GTIN', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode',
       ],
     });
   
@@ -186,7 +186,7 @@ const getDrugById = async (DrugID) => {
       },
       attributes: [
         "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "imagesPath", 
-        "ManufacturerID", "RegistrationNumber", "NotMarketed", "ImagesPath", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route"
+        "ManufacturerID", "RegistrationNumber", "NotMarketed", "ImagesPath", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route","Stratum"
       ],
     });
     if (!drug) {
@@ -200,6 +200,7 @@ const getDrugById = async (DrugID) => {
     const ManufacturerName = drug.Manufacturer;
     const CountryName = drug.Country;
     const priceInLBP = drug.Price * 90000;
+    const stratum = drug.Stratum;
 
     const amount = drug.dataValues.Amount; // Directly use the integer value of Amount
     const price = drug.Price;
@@ -212,17 +213,13 @@ const getDrugById = async (DrugID) => {
       unitPriceInLBP = unitPrice * 90000;
     }
 
-    let ATC, stratum;
+    let ATC;
     try {
       ATC = await ATCService.getATCByDrugID(DrugID);
     } catch (error) {
       ATC = null;
     }
-    try {
-      stratum = await getStratumByDrugId(DrugID);
-    } catch (error) {
-      stratum = null;
-    }
+
 
     const imagesPath = drug.ImagesPath;
 
