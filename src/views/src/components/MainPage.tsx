@@ -58,17 +58,38 @@ const MainPage: React.FC = () => {
         setShowDropdown(!showDropdown);
     };
 
+    const fetchATC = async (drugID: string) => {
+        try {
+            const response = await axios.get(`/atc/atc/${drugID}`);
+            return response.data.Code || 'N/A';
+        } catch (error) {
+            console.error(`Error fetching ATC for DrugID ${drugID}:`, error);
+            return 'N/A';
+        }
+    };
+
     const fetchDrugs = async () => {
         try {
             const response = await axios.get('/drugs/all');
-            const formattedData = response.data.map((drug: any) => ({
+            const drugs = response.data;
+            const drugsWithATC = await Promise.all(drugs.map(async (drug: any) => {
+                const atcCode = await fetchATC(drug.DrugID);
+                return {
+                    ...drug,
+                    ATC: atcCode,
+                };
+            }));
+
+            const formattedData = drugsWithATC.map((drug: any) => ({
                 DrugID: drug.DrugID || 'N/A',
                 DrugName: drug.DrugName || 'N/A',
                 DrugNameAR: drug.DrugNameAR || 'N/A',
+                ATC: drug.ATC || 'N/A',
                 isOTC: drug.isOTC || false,
                 Form: drug.Form || 'N/A',
                 Presentation: drug.Presentation || 'N/A',
                 Dosage: drug.Dosage || 'N/A',
+                Stratum: drug.Stratum || 'N/A',
                 Amount: drug.Amount || 'N/A',
                 Route: drug.Route || 'N/A',
                 Agent: drug.Agent || 'N/A',
@@ -76,10 +97,8 @@ const MainPage: React.FC = () => {
                 Country: drug.Country || 'N/A',
                 ManufacturerID: drug.ManufacturerID || 'N/A',
                 RegistrationNumber: drug.RegistrationNumber || 'N/A',
-                GTIN: drug.GTIN || 'N/A',
                 Notes: drug.Notes || 'N/A',
                 Description: drug.Description || 'N/A',
-                IngredientAndStrength: drug.IngredientAndStrength || 'N/A',
                 Indication: drug.Indication || 'N/A',
                 Posology: drug.Posology || 'N/A',
                 MethodOfAdministration: drug.MethodOfAdministration || 'N/A',
@@ -117,6 +136,7 @@ const MainPage: React.FC = () => {
                 PriceForeign: drug.PriceForeign || 'N/A',
                 CurrencyForeign: drug.CurrencyForeign || 'N/A'
             }));
+
             setAllData(formattedData);
             setTableData(formattedData.slice(0, drugsPerPage));
         } catch (error) {
@@ -175,6 +195,7 @@ const MainPage: React.FC = () => {
             Form: '',
             Presentation: '',
             Dosage: '',
+            Stratum: '',
             Amount: '',
             Route: '',
             Agent: '',
@@ -182,10 +203,8 @@ const MainPage: React.FC = () => {
             Country: '',
             ManufacturerID: '',
             RegistrationNumber: '',
-            GTIN: '',
             Notes: '',
             Description: '',
-            IngredientAndStrength: '',
             Indication: '',
             Posology: '',
             MethodOfAdministration: '',
@@ -289,10 +308,12 @@ const MainPage: React.FC = () => {
             { accessorKey: 'DrugID', header: 'DrugID' },
             { accessorKey: 'DrugName', header: 'DrugName' },
             { accessorKey: 'DrugNameAR', header: 'DrugNameAR' },
+            { accessorKey: 'ATC', header: 'ATC' },
             { accessorKey: 'isOTC', header: 'isOTC' },
             { accessorKey: 'Form', header: 'Form' },
             { accessorKey: 'Presentation', header: 'Presentation' },
             { accessorKey: 'Dosage', header: 'Dosage' },
+            { accessorKey: 'Stratum', header: 'Stratum' },
             { accessorKey: 'Amount', header: 'Amount' },
             { accessorKey: 'Route', header: 'Route' },
             { accessorKey: 'Agent', header: 'Agent' },
@@ -300,10 +321,8 @@ const MainPage: React.FC = () => {
             { accessorKey: 'Country', header: 'Country' },
             { accessorKey: 'ManufacturerID', header: 'ManufacturerID' },
             { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber' },
-            { accessorKey: 'GTIN', header: 'GTIN' },
             { accessorKey: 'Notes', header: 'Notes' },
             { accessorKey: 'Description', header: 'Description' },
-            { accessorKey: 'IngredientAndStrength', header: 'IngredientAndStrength' },
             { accessorKey: 'Indication', header: 'Indication' },
             { accessorKey: 'Posology', header: 'Posology' },
             { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration' },
