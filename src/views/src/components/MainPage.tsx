@@ -45,10 +45,8 @@ const MainPage: React.FC = () => {
     }, [navigate]);
 
     useEffect(() => {
-        if (showDrugsTable) {
-            fetchDrugs();
-        }
-    }, [showDrugsTable]);
+        fetchDrugs(); // Fetch drugs when the component mounts
+    }, []);
 
     useEffect(() => {
         handleSearch();
@@ -138,7 +136,6 @@ const MainPage: React.FC = () => {
             }));
 
             setAllData(formattedData);
-            setTableData(formattedData.slice(0, drugsPerPage));
         } catch (error) {
             console.error("Error fetching drugs:", error);
         }
@@ -361,8 +358,8 @@ const MainPage: React.FC = () => {
             { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign' },
             { accessorKey: 'actions', header: 'Actions', Cell: ({ cell, row }) => (
                 <div>
-<button className="small-button" onClick={() => handleEdit(row.index)}>Edit</button>
-<button className="small-button" onClick={() => deleteDrug(row.original.DrugID)}>Delete</button>
+                    <button className="small-button" onClick={() => handleEdit(row.index)}>Edit</button>
+                    <button className="small-button" onClick={() => deleteDrug(row.original.DrugID)}>Delete</button>
                 </div>
             ) }, // Custom cell renderer for actions
         ],
@@ -397,7 +394,7 @@ const MainPage: React.FC = () => {
                     </a>
                     {showDropdown && (
                         <div className="dropdown">
-                            <button onClick={() => { setShowDrugsTable(true); setShowImportPage(false); }} style={{ color: 'black' }}>Drugs</button>
+                            <button onClick={() => { setShowDrugsTable(true); setShowImportPage(false); setTableData(allData.slice(0, drugsPerPage)); }} style={{ color: 'black' }}>Drugs</button>
                         </div>
                     )}
                 </div>
