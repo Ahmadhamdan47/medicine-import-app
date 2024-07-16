@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {
+  MantineReactTable,
+  useMantineReactTable,
+  type MRT_ColumnDef,
+} from 'mantine-react-table';
 import './MainPage.css';
 import homeIcon from '../assets/Home.svg';
 import searchIcon from '../assets/Search.svg';
@@ -28,8 +33,9 @@ const MainPage: React.FC = () => {
     const [editIndex, setEditIndex] = useState<number | null>(null);
     const [showDrugsTable, setShowDrugsTable] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const drugsPerPage = 100;
+    const drugsPerPage = 5601;
     const [searchQuery, setSearchQuery] = useState("");
+    const [showImportPage, setShowImportPage] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -128,25 +134,6 @@ const MainPage: React.FC = () => {
             setTableData(filteredData.slice(0, drugsPerPage));
         } else {
             setTableData(allData.slice(0, drugsPerPage));
-        }
-    };
-
-    const handleNextPage = () => {
-        const nextPage = currentPage + 1;
-        const totalPages = Math.ceil(allData.length / drugsPerPage);
-        if (nextPage <= totalPages) {
-            setCurrentPage(nextPage);
-            const startIndex = (nextPage - 1) * drugsPerPage;
-            setTableData(allData.slice(startIndex, startIndex + drugsPerPage));
-        }
-    };
-
-    const handlePreviousPage = () => {
-        const prevPage = currentPage - 1;
-        if (prevPage > 0) {
-            setCurrentPage(prevPage);
-            const startIndex = (prevPage - 1) * drugsPerPage;
-            setTableData(allData.slice(startIndex, startIndex + drugsPerPage));
         }
     };
 
@@ -297,6 +284,77 @@ const MainPage: React.FC = () => {
         }
     };
 
+    const columns = useMemo<MRT_ColumnDef<any>[]>(
+        () => [
+            { accessorKey: 'DrugID', header: 'DrugID' },
+            { accessorKey: 'DrugName', header: 'DrugName' },
+            { accessorKey: 'DrugNameAR', header: 'DrugNameAR' },
+            { accessorKey: 'isOTC', header: 'isOTC' },
+            { accessorKey: 'Form', header: 'Form' },
+            { accessorKey: 'Presentation', header: 'Presentation' },
+            { accessorKey: 'Dosage', header: 'Dosage' },
+            { accessorKey: 'Amount', header: 'Amount' },
+            { accessorKey: 'Route', header: 'Route' },
+            { accessorKey: 'Agent', header: 'Agent' },
+            { accessorKey: 'Manufacturer', header: 'Manufacturer' },
+            { accessorKey: 'Country', header: 'Country' },
+            { accessorKey: 'ManufacturerID', header: 'ManufacturerID' },
+            { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber' },
+            { accessorKey: 'GTIN', header: 'GTIN' },
+            { accessorKey: 'Notes', header: 'Notes' },
+            { accessorKey: 'Description', header: 'Description' },
+            { accessorKey: 'IngredientAndStrength', header: 'IngredientAndStrength' },
+            { accessorKey: 'Indication', header: 'Indication' },
+            { accessorKey: 'Posology', header: 'Posology' },
+            { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration' },
+            { accessorKey: 'Contraindications', header: 'Contraindications' },
+            { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse' },
+            { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN' },
+            { accessorKey: 'SideEffect', header: 'SideEffect' },
+            { accessorKey: 'Toxicity', header: 'Toxicity' },
+            { accessorKey: 'StorageCondition', header: 'StorageCondition' },
+            { accessorKey: 'ShelfLife', header: 'ShelfLife' },
+            { accessorKey: 'IngredientLabel', header: 'IngredientLabel' },
+            { accessorKey: 'Price', header: 'Price' },
+            { accessorKey: 'ImagesPath', header: 'ImagesPath' },
+            { accessorKey: 'ImageDefault', header: 'ImageDefault' },
+            { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName' },
+            { accessorKey: 'IsDouanes', header: 'IsDouanes' },
+            { accessorKey: 'RegistrationDate', header: 'RegistrationDate' },
+            { accessorKey: 'PublicPrice', header: 'PublicPrice' },
+            { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel' },
+            { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage' },
+            { accessorKey: 'HospPricing', header: 'HospPricing' },
+            { accessorKey: 'Substitutable', header: 'Substitutable' },
+            { accessorKey: 'CreatedBy', header: 'CreatedBy' },
+            { accessorKey: 'CreatedDate', header: 'CreatedDate' },
+            { accessorKey: 'UpdatedBy', header: 'UpdatedBy' },
+            { accessorKey: 'UpdatedDate', header: 'UpdatedDate' },
+            { accessorKey: 'OtherIngredients', header: 'OtherIngredients' },
+            { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient' },
+            { accessorKey: 'ReviewDate', header: 'ReviewDate' },
+            { accessorKey: 'MoPHCode', header: 'MoPHCode' },
+            { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms' },
+            { accessorKey: 'ProductType', header: 'ProductType' },
+            { accessorKey: 'NotMarketed', header: 'NotMarketed' },
+            { accessorKey: 'DFSequence', header: 'DFSequence' },
+            { accessorKey: 'PriceForeign', header: 'PriceForeign' },
+            { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign' },
+            { accessorKey: 'actions', header: 'Actions', Cell: ({ cell, row }) => (
+                <div>
+<button className="small-button" onClick={() => handleEdit(row.index)}>Edit</button>
+<button className="small-button" onClick={() => deleteDrug(row.original.DrugID)}>Delete</button>
+                </div>
+            ) }, // Custom cell renderer for actions
+        ],
+        []
+    );
+
+    const table = useMantineReactTable({
+      columns,
+      data: tableData,
+    });
+
     return (
         <div className={`main-page ${collapsed ? 'collapsed' : ''}`}>
             <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}
@@ -320,7 +378,7 @@ const MainPage: React.FC = () => {
                     </a>
                     {showDropdown && (
                         <div className="dropdown">
-                            <button onClick={() => setShowDrugsTable(true)} style={{ color: 'black' }}>Drugs</button>
+                            <button onClick={() => { setShowDrugsTable(true); setShowImportPage(false); }} style={{ color: 'black' }}>Drugs</button>
                         </div>
                     )}
                 </div>
@@ -330,7 +388,7 @@ const MainPage: React.FC = () => {
                         <img src={addIcon} alt="Add" />
                         <span>Add</span>
                     </a>
-                    <a href="#" className="icon" onClick={() => setCurrentStep(1)}>
+                    <a href="#" className="icon" onClick={() => setShowImportPage(true)}>
                         <img src={uploadIcon} alt="Upload" />
                         <span>Import</span>
                     </a>
@@ -360,222 +418,14 @@ const MainPage: React.FC = () => {
                     </div>
                 </div>
                 <div className="main-content">
-                    <h1>Home Page</h1>
                     {showDrugsTable ? (
-                        <div>
-                            <button className="small-button" onClick={handleAddDrug}>Add Drug</button>
-                            <div className="table-container">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>DrugID</th>
-                                            <th>DrugName</th>
-                                            <th>DrugNameAR</th>
-                                            <th>isOTC</th>
-                                            <th>Form</th>
-                                            <th>Presentation</th>
-                                            <th>Dosage</th>
-                                            <th>Amount</th>
-                                            <th>Route</th>
-                                            <th>Agent</th>
-                                            <th>Manufacturer</th>
-                                            <th>Country</th>
-                                            <th>ManufacturerID</th>
-                                            <th>RegistrationNumber</th>
-                                            <th>GTIN</th>
-                                            <th>Notes</th>
-                                            <th>Description</th>
-                                            <th>IngredientAndStrength</th>
-                                            <th>Indication</th>
-                                            <th>Posology</th>
-                                            <th>MethodOfAdministration</th>
-                                            <th>Contraindications</th>
-                                            <th>PrecautionForUse</th>
-                                            <th>EffectOnFGN</th>
-                                            <th>SideEffect</th>
-                                            <th>Toxicity</th>
-                                            <th>StorageCondition</th>
-                                            <th>ShelfLife</th>
-                                            <th>IngredientLabel</th>
-                                            <th>Price</th>
-                                            <th>ImagesPath</th>
-                                            <th>ImageDefault</th>
-                                            <th>InteractionIngredientName</th>
-                                            <th>IsDouanes</th>
-                                            <th>RegistrationDate</th>
-                                            <th>PublicPrice</th>
-                                            <th>SubsidyLabel</th>
-                                            <th>SubsidyPercentage</th>
-                                            <th>HospPricing</th>
-                                            <th>Substitutable</th>
-                                            <th>CreatedBy</th>
-                                            <th>CreatedDate</th>
-                                            <th>UpdatedBy</th>
-                                            <th>UpdatedDate</th>
-                                            <th>OtherIngredients</th>
-                                            <th>ATCRelatedIngredient</th>
-                                            <th>ReviewDate</th>
-                                            <th>MoPHCode</th>
-                                            <th>CargoShippingTerms</th>
-                                            <th>ProductType</th>
-                                            <th>NotMarketed</th>
-                                            <th>DFSequence</th>
-                                            <th>PriceForeign</th>
-                                            <th>CurrencyForeign</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {tableData.map((drug, index) => (
-                                            <tr key={drug.DrugID}>
-                                                {editIndex === index ? (
-                                                    <>
-                                                        <td><input type="text" name="DrugID" value={drug.DrugID} onChange={(e) => handleEditChange(e, index)} disabled /></td>
-                                                        <td><input type="text" name="DrugName" value={drug.DrugName} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="DrugNameAR" value={drug.DrugNameAR} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="isOTC" checked={drug.isOTC} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Form" value={drug.Form} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Presentation" value={drug.Presentation} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Dosage" value={drug.Dosage} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Amount" value={drug.Amount} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Route" value={drug.Route} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Agent" value={drug.Agent} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Manufacturer" value={drug.Manufacturer} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Country" value={drug.Country} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ManufacturerID" value={drug.ManufacturerID} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="RegistrationNumber" value={drug.RegistrationNumber} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="GTIN" value={drug.GTIN} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Notes" value={drug.Notes} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Description" value={drug.Description} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="IngredientAndStrength" value={drug.IngredientAndStrength} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Indication" value={drug.Indication} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Posology" value={drug.Posology} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="MethodOfAdministration" value={drug.MethodOfAdministration} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Contraindications" value={drug.Contraindications} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="PrecautionForUse" value={drug.PrecautionForUse} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="EffectOnFGN" value={drug.EffectOnFGN} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="SideEffect" value={drug.SideEffect} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Toxicity" value={drug.Toxicity} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="StorageCondition" value={drug.StorageCondition} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ShelfLife" value={drug.ShelfLife} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="IngredientLabel" value={drug.IngredientLabel} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="Price" value={drug.Price} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ImagesPath" value={drug.ImagesPath} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="ImageDefault" checked={drug.ImageDefault} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="InteractionIngredientName" value={drug.InteractionIngredientName} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="IsDouanes" checked={drug.IsDouanes} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="RegistrationDate" value={drug.RegistrationDate} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="PublicPrice" value={drug.PublicPrice} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="SubsidyLabel" value={drug.SubsidyLabel} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="SubsidyPercentage" value={drug.SubsidyPercentage} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="HospPricing" checked={drug.HospPricing} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="Substitutable" checked={drug.Substitutable} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="CreatedBy" value={drug.CreatedBy} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="CreatedDate" value={drug.CreatedDate} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="UpdatedBy" value={drug.UpdatedBy} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="UpdatedDate" value={drug.UpdatedDate} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="OtherIngredients" value={drug.OtherIngredients} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ATCRelatedIngredient" value={drug.ATCRelatedIngredient} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ReviewDate" value={drug.ReviewDate} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="MoPHCode" value={drug.MoPHCode} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="CargoShippingTerms" value={drug.CargoShippingTerms} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="ProductType" value={drug.ProductType} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="checkbox" name="NotMarketed" checked={drug.NotMarketed} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="DFSequence" value={drug.DFSequence} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="PriceForeign" value={drug.PriceForeign} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td><input type="text" name="CurrencyForeign" value={drug.CurrencyForeign} onChange={(e) => handleEditChange(e, index)} /></td>
-                                                        <td>
-                                                            <button className="small-button" onClick={handleSaveDrug}>Save</button>
-                                                            <button className="small-button" onClick={handleCancelEdit}>Cancel</button>
-                                                        </td>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <td>{drug.DrugID}</td>
-                                                        <td>{drug.DrugName}</td>
-                                                        <td>{drug.DrugNameAR}</td>
-                                                        <td>{drug.isOTC ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.Form}</td>
-                                                        <td>{drug.Presentation}</td>
-                                                        <td>{drug.Dosage}</td>
-                                                        <td>{drug.Amount}</td>
-                                                        <td>{drug.Route}</td>
-                                                        <td>{drug.Agent}</td>
-                                                        <td>{drug.Manufacturer}</td>
-                                                        <td>{drug.Country}</td>
-                                                        <td>{drug.ManufacturerID}</td>
-                                                        <td>{drug.RegistrationNumber}</td>
-                                                        <td>{drug.GTIN}</td>
-                                                        <td>{drug.Notes}</td>
-                                                        <td>{drug.Description}</td>
-                                                        <td>{drug.IngredientAndStrength}</td>
-                                                        <td>{drug.Indication}</td>
-                                                        <td>{drug.Posology}</td>
-                                                        <td>{drug.MethodOfAdministration}</td>
-                                                        <td>{drug.Contraindications}</td>
-                                                        <td>{drug.PrecautionForUse}</td>
-                                                        <td>{drug.EffectOnFGN}</td>
-                                                        <td>{drug.SideEffect}</td>
-                                                        <td>{drug.Toxicity}</td>
-                                                        <td>{drug.StorageCondition}</td>
-                                                        <td>{drug.ShelfLife}</td>
-                                                        <td>{drug.IngredientLabel}</td>
-                                                        <td>{drug.Price}</td>
-                                                        <td>{drug.ImagesPath}</td>
-                                                        <td>{drug.ImageDefault ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.InteractionIngredientName}</td>
-                                                        <td>{drug.IsDouanes ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.RegistrationDate}</td>
-                                                        <td>{drug.PublicPrice}</td>
-                                                        <td>{drug.SubsidyLabel}</td>
-                                                        <td>{drug.SubsidyPercentage}</td>
-                                                        <td>{drug.HospPricing ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.Substitutable ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.CreatedBy}</td>
-                                                        <td>{drug.CreatedDate}</td>
-                                                        <td>{drug.UpdatedBy}</td>
-                                                        <td>{drug.UpdatedDate}</td>
-                                                        <td>{drug.OtherIngredients}</td>
-                                                        <td>{drug.ATCRelatedIngredient}</td>
-                                                        <td>{drug.ReviewDate}</td>
-                                                        <td>{drug.MoPHCode}</td>
-                                                        <td>{drug.CargoShippingTerms}</td>
-                                                        <td>{drug.ProductType}</td>
-                                                        <td>{drug.NotMarketed ? 'Yes' : 'No'}</td>
-                                                        <td>{drug.DFSequence}</td>
-                                                        <td>{drug.PriceForeign}</td>
-                                                        <td>{drug.CurrencyForeign}</td>
-                                                        <td>
-                                                            <button className="small-button" onClick={() => handleEdit(index)}>Edit</button>
-                                                            <button className="small-button" onClick={() => deleteDrug(drug.DrugID)}>Delete</button>
-                                                        </td>
-                                                    </>
-                                                )}
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="pagination">
-                                <button
-                                    className="small-button"
-                                    onClick={handlePreviousPage}
-                                    disabled={currentPage === 1}
-                                >
-                                    Previous
-                                </button>
-                                <span>Page {currentPage}</span>
-                                <button
-                                    className="small-button"
-                                    onClick={handleNextPage}
-                                    disabled={currentPage === Math.ceil(allData.length / drugsPerPage)}
-                                >
-                                    Next
-                                </button>
-                            </div>
+                        <div className="table-container">
+                            <MantineReactTable table={table} />
                         </div>
-                    ) : (
+                    ) : showImportPage ? (
                         renderStep()
+                    ) : (
+                        <h1>Welcome to MedLeb Pharmacy Service</h1>
                     )}
                 </div>
             </div>
