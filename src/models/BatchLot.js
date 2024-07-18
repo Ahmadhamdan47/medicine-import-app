@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Donation = require('./donation');
+const { all } = require('axios');
 
 const BatchLotTracking = sequelize.define('batchlottracking', {
     BatchLotId: {
@@ -50,6 +51,7 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
     },
     LaboratoryCountry: {
         type: DataTypes.STRING(255),
+        allowNull: true
          
     },
 
