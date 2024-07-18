@@ -11,6 +11,7 @@ const Inspection: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
     try {
       const response = await fetch('/drugs/checkMate', {
         method: 'POST',
@@ -21,11 +22,12 @@ const Inspection: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Inspection failed. Please check your inputs.');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Inspection failed. Please check your inputs.');
       }
 
       const data = await response.json();
-      setResult(data.message); // Assuming the response returns a message property
+      setResult(data.message.messageEN || 'Inspection successful.');
     } catch (error: any) {
       setResult(error.message);
     }

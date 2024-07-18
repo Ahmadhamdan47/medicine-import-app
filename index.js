@@ -30,7 +30,7 @@ const containerTypeRoutes = require("./src/routes/containerTypeRoutes");
 const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes");
 const hospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
 const userRoutes = require('./src/routes/userRoutes');
-
+const batchLotRoutes = require('./src/routes/batchLotRoutes');
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -78,6 +78,7 @@ app.use("/containerType", containerTypeRoutes);
 app.use("/dispensingCategory", dispensingCategoryRoutes);
 app.use("/hospitalization", hospitalizationRoutes);
 app.use('/users', userRoutes);
+app.use('/batchLots', batchLotRoutes);
 app.use('/img', express.static('img'));
 
 // Serve static files from the React app
