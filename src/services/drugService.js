@@ -694,18 +694,12 @@ const getStratumByDrugId = async (DrugID) => {
 // drugService.js
 const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
   try {
-    // Log the input parameters for debugging
     console.log('Input Parameters:', { GTIN, BatchNumber, SerialNumber, ExpiryDate });
 
-    // Ensure GTIN is a string
     if (typeof GTIN !== 'string') {
       throw new Error('GTIN must be a string');
     }
 
-    // Check if the GTIN exists in the Drug table
-    
-
-    // Check if the DrugName exists in the BatchLot table
     const batchLot = await BatchLotTracking.findOne({
       where: { 
         GTIN: GTIN,
@@ -721,7 +715,6 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       };
     }
 
-    // Check if the SerialNumber exists for this batch in the BatchSerialNumber table
     const batchSerialNumber = await BatchSerialNumber.findOne({
       where: { 
         BatchId: batchLot.BatchLotId,
@@ -737,7 +730,6 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       };
     }
 
-    // If all checks pass, return a success message
     return {
       isValid: true,
       messageEN: 'This drug is imported legally by the importation process of the MoPH.',
@@ -749,9 +741,8 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
   }
 };
 
-module.exports = {
-  checkMate
-};
+
+
 
 
 const getOTCDrugs = async () => {

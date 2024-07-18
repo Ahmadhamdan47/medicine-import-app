@@ -1,0 +1,58 @@
+.add-batch-lot-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .add-batch-lot-form {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .add-batch-lot-form .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .add-batch-lot-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .add-batch-lot-form .oval-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  .add-batch-lot-form .oval-input.large {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .add-batch-lot-form .submit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .add-batch-lot-form .submit-button img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
