@@ -19,7 +19,7 @@ BatchSerialNumber.init({
     }
   },
   SerialNumber: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.STRING(20),
     allowNull: true,
   },
 }, {
