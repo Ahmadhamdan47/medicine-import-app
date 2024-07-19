@@ -700,12 +700,18 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       throw new Error('GTIN must be a string');
     }
 
+    if (SerialNumber.length > 20) {
+      throw new Error('SerialNumber cannot exceed 20 characters.');
+    }
+
     const batchLot = await BatchLotTracking.findOne({
       where: { 
         GTIN: GTIN,
         BatchNumber: BatchNumber
       }
     });
+
+    console.log('Batch lot found:', batchLot);
 
     if (!batchLot) {
       return {
@@ -721,6 +727,8 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
         SerialNumber: SerialNumber
       }
     });
+
+    console.log('Batch serial number found:', batchSerialNumber);
 
     if (!batchSerialNumber) {
       return {

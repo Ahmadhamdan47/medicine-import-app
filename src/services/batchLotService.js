@@ -14,6 +14,10 @@ const addBatchLot = async (batchLotData, serialNumber) => {
     throw new Error("Missing required fields: batchLotData and serialNumber must be provided.");
   }
 
+  if (serialNumber.length > 20) {
+    throw new Error("SerialNumber cannot exceed 20 characters.");
+  }
+
   let transaction;
   try {
     console.log("Starting transaction for adding a new batch lot...");
