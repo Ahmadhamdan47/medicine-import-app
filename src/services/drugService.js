@@ -714,6 +714,7 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     console.log('Batch lot found:', batchLot);
 
     if (!batchLot) {
+      console.log('No batch lot found for GTIN:', GTIN, 'BatchNumber:', BatchNumber);
       return {
         isValid: false,
         messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
@@ -728,15 +729,18 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       }
     });
 
-    console.log('Batch serial number found:', batchSerialNumber);
+    console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', SerialNumber);
 
     if (!batchSerialNumber) {
+      console.log('No batch serial number found for BatchId:', batchLot.BatchLotId, 'SerialNumber:', SerialNumber);
       return {
         isValid: false,
         messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
         messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
       };
     }
+
+    console.log('Batch serial number found:', batchSerialNumber);
 
     return {
       isValid: true,
