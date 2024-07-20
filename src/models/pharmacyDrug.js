@@ -19,6 +19,9 @@ const NewDrug = sequelize.define('drug', {
     Form:{
         type: DataTypes.STRING(255)
     },
+    IsScored:{
+        type: DataTypes.BOOLEAN
+    },
     Presentation:{
         type: DataTypes.STRING(255)
     
@@ -35,6 +38,13 @@ const NewDrug = sequelize.define('drug', {
     Route: {
         type: DataTypes.STRING(255)
     },
+    IsParentaral:{
+        type: DataTypes.BOOLEAN
+    },
+    RouteParent:{
+        type: DataTypes.STRING(255)
+    },
+
     Agent: {
         type: DataTypes.STRING(255)
     },
@@ -44,22 +54,13 @@ const NewDrug = sequelize.define('drug', {
     Country : {
         type: DataTypes.STRING(255)
     },
-    ManufacturerID: {
-        type: DataTypes.INTEGER
-    },
     RegistrationNumber: {
-        type: DataTypes.STRING(255)
-    },
-    GTIN: {
         type: DataTypes.STRING(255)
     },
     Notes: {
         type: DataTypes.TEXT
     },
     Description: {
-        type: DataTypes.STRING(500)
-    },
-    IngredientAndStrength: {
         type: DataTypes.STRING(500)
     },
     Indication: {
@@ -169,7 +170,7 @@ const NewDrug = sequelize.define('drug', {
     },
     CurrencyForeign: {
         type: DataTypes.UUID
-    },
+    }
 }, {
     tableName: 'drug',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table

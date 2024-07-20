@@ -15,28 +15,41 @@ const DrugPresentation = sequelize.define('DrugPresentation', {
             key: 'DrugId'
         }
     },
-    Amount: {
+    UnitQuantity1: {
         type: DataTypes.DECIMAL(18, 3)
     },
-    UnitId: {
+    UnitType1: {
         type: DataTypes.INTEGER,
-        references: {
-            model: 'PresentationUnit',
-            key: 'PresentationUnitId'
-        }
+        
     },
-    TypeId: {
+    UnitQuantity2: {
+        type: DataTypes.DECIMAL(18, 3)
+      
+    },
+    UnitType2:{
         type: DataTypes.INTEGER,
-        references: {
-            model: 'PresentationType',
-            key: 'PresentationTypeId'
-        }
+
     },
-    PackageType: {
+    PackageQuantity1: {
+        type: DataTypes.DECIMAL(18, 3)
+    },
+    PackageType1: {
         type: DataTypes.STRING(255)
     },
-    PackageAmount: {
+    PackageQuantity2: {
         type: DataTypes.DECIMAL(18, 3)
+    },
+    PackageType2: {
+        type: DataTypes.STRING(255)
+    }, 
+    PackageQuantity3: {
+        type: DataTypes.DECIMAL(18, 3)
+    },
+    PackageType3: {
+        type: DataTypes.STRING(255)
+    },
+    Description:{
+        type:DataTypes.TEXT(255)
     },
     CreatedDate: {
         type: DataTypes.DATE,
