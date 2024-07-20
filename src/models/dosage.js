@@ -8,13 +8,47 @@ const Dosage = sequelize.define('Dosage', {
         autoIncrement: true,
         primaryKey: true
     },
-    Numerator: {
+    Numerator1: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    Denominator: {
+    Numerator1Unit: {
+        type: DataTypes.STRING(50)
+    },
+    Denominator1: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    Denominator1Unit: {
+        type: DataTypes.STRING(50)
+    },
+    Numerator2: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Numerator2Unit: {
+        type: DataTypes.STRING(50)
+    },
+    Denominator2: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Denominator2Unit: {
+        type: DataTypes.STRING(50)
+    },
+    Numerator3: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Numerator3Unit: {
+        type: DataTypes.STRING(50)
+    },
+    Denominator3: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    Denominator3Unit: {
+        type: DataTypes.STRING(50)
     },
     CreatedDate: {
         type: DataTypes.DATE,
@@ -24,12 +58,7 @@ const Dosage = sequelize.define('Dosage', {
     UpdatedDate: {
         type: DataTypes.DATE
     },
-    NumeratorUnit: {
-        type: DataTypes.STRING(50)
-    },
-    DenominatorUnit: {
-        type: DataTypes.STRING(50)
-    },
+  
     DrugId: {
         type: DataTypes.INTEGER,
         allowNull: false,
