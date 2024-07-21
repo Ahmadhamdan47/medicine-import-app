@@ -39,6 +39,7 @@ const MainPage: React.FC = () => {
   const [showImportPage, setShowImportPage] = useState(false);
   const [showAddBatchLot, setShowAddBatchLot] = useState(false);
   const [showInspection, setShowInspection] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -46,14 +47,6 @@ const MainPage: React.FC = () => {
       navigate('/'); // Redirect to login if no token is found
     }
   }, [navigate]);
-
-  useEffect(() => {
-    fetchDrugs(); // Fetch drugs when the component mounts
-  }, []);
-
-  useEffect(() => {
-    handleSearch();
-  }, [searchQuery, allData, currentPage]);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -69,79 +62,102 @@ const MainPage: React.FC = () => {
     }
   };
 
+  const fetchPresentation = async (drugID: number) => {
+    try {
+      const response = await axios.get(`/drugs/presentation/id/${drugID}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching presentation for DrugID ${drugID}:`, error);
+      return null;
+    }
+  };
+
+  const fetchDosage = async (drugID: number) => {
+    try {
+      const response = await axios.get(`/drugs/dosage/id/${drugID}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching dosage for DrugID ${drugID}:`, error);
+      return null;
+    }
+  };
+
   const fetchDrugs = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get('/drugs/all');
       const drugs = response.data;
-      const drugsWithATC = await Promise.all(drugs.map(async (drug: any) => {
+
+      const drugsWithDetails = await Promise.all(drugs.map(async (drug: any) => {
         const atcCode = await fetchATC(drug.DrugID);
+        const presentation = await fetchPresentation(drug.DrugID);
+        const dosage = await fetchDosage(drug.DrugID);
+
         return {
           ...drug,
           ATC: atcCode,
+          PresentationDetails: presentation,
+          DosageDetails: dosage,
         };
       }));
 
-      const formattedData = drugsWithATC.map((drug: any) => ({
+      const formattedData = drugsWithDetails.map((drug: any) => ({
         DrugID: drug.DrugID || 'N/A',
         DrugName: drug.DrugName || 'N/A',
         DrugNameAR: drug.DrugNameAR || 'N/A',
+        ProductType: drug.ProductType || 'N/A',
         ATC: drug.ATC || 'N/A',
+        ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
+        OtherIngredients: drug.OtherIngredients || 'N/A',
+        Dosage: drug.Dosage || 'N/A',
+        DosageNumerator1: drug.DosageDetails?.Numerator1 || 'N/A',
+        DosageNumerator1Unit: drug.DosageDetails?.Numerator1Unit || 'N/A',
+        DosageDenominator1: drug.DosageDetails?.Denominator1 || 'N/A',
+        DosageDenominator1Unit: drug.DosageDetails?.Denominator1Unit || 'N/A',
+        DosageNumerator2: drug.DosageDetails?.Numerator2 || 'N/A',
+        DosageNumerator2Unit: drug.DosageDetails?.Numerator2Unit || 'N/A',
+        DosageDenominator2: drug.DosageDetails?.Denominator2 || 'N/A',
+        DosageDenominator2Unit: drug.DosageDetails?.Denominator2Unit || 'N/A',
+        DosageNumerator3: drug.DosageDetails?.Numerator3 || 'N/A',
+        DosageNumerator3Unit: drug.DosageDetails?.Numerator3Unit || 'N/A',
+        DosageDenominator3: drug.DosageDetails?.Denominator3 || 'N/A',
+        DosageDenominator3Unit: drug.DosageDetails?.Denominator3Unit || 'N/A',
         isOTC: drug.isOTC || false,
         Form: drug.Form || 'N/A',
         Presentation: drug.Presentation || 'N/A',
-        Dosage: drug.Dosage || 'N/A',
+        PresentationUnitQuantity1: drug.PresentationDetails?.UnitQuantity1 || 'N/A',
+        PresentationUnitType1: drug.PresentationDetails?.UnitType1 || 'N/A',
+        PresentationUnitQuantity2: drug.PresentationDetails?.UnitQuantity2 || 'N/A',
+        PresentationUnitType2: drug.PresentationDetails?.UnitType2 || 'N/A',
+        PresentationPackageQuantity1: drug.PresentationDetails?.PackageQuantity1 || 'N/A',
+        PresentationPackageType1: drug.PresentationDetails?.PackageType1 || 'N/A',
+        PresentationPackageQuantity2: drug.PresentationDetails?.PackageQuantity2 || 'N/A',
+        PresentationPackageType2: drug.PresentationDetails?.PackageType2 || 'N/A',
+        PresentationPackageQuantity3: drug.PresentationDetails?.PackageQuantity3 || 'N/A',
+        PresentationPackageType3: drug.PresentationDetails?.PackageType3 || 'N/A',
+        PresentationDescription: drug.PresentationDetails?.Description || 'N/A',
+        Route: drug.Route || 'N/A',
         Stratum: drug.Stratum || 'N/A',
         Amount: drug.Amount || 'N/A',
-        Route: drug.Route || 'N/A',
         Agent: drug.Agent || 'N/A',
         Manufacturer: drug.Manufacturer || 'N/A',
         Country: drug.Country || 'N/A',
-        ManufacturerID: drug.ManufacturerID || 'N/A',
-        RegistrationNumber: drug.RegistrationNumber || 'N/A',
-        Notes: drug.Notes || 'N/A',
-        Description: drug.Description || 'N/A',
-        Indication: drug.Indication || 'N/A',
-        Posology: drug.Posology || 'N/A',
-        MethodOfAdministration: drug.MethodOfAdministration || 'N/A',
-        Contraindications: drug.Contraindications || 'N/A',
-        PrecautionForUse: drug.PrecautionForUse || 'N/A',
-        EffectOnFGN: drug.EffectOnFGN || 'N/A',
-        SideEffect: drug.SideEffect || 'N/A',
-        Toxicity: drug.Toxicity || 'N/A',
-        StorageCondition: drug.StorageCondition || 'N/A',
-        ShelfLife: drug.ShelfLife || 'N/A',
-        IngredientLabel: drug.IngredientLabel || 'N/A',
         Price: drug.Price || 'N/A',
-        ImagesPath: drug.ImagesPath || 'N/A',
-        ImageDefault: drug.ImageDefault || false,
-        InteractionIngredientName: drug.InteractionIngredientName || 'N/A',
-        IsDouanes: drug.IsDouanes || false,
-        RegistrationDate: drug.RegistrationDate || 'N/A',
-        PublicPrice: drug.PublicPrice || 'N/A',
-        SubsidyLabel: drug.SubsidyLabel || 'N/A',
-        SubsidyPercentage: drug.SubsidyPercentage || 'N/A',
-        HospPricing: drug.HospPricing || false,
-        Substitutable: drug.Substitutable || false,
-        CreatedBy: drug.CreatedBy || 'N/A',
-        CreatedDate: drug.CreatedDate || 'N/A',
-        UpdatedBy: drug.UpdatedBy || 'N/A',
-        UpdatedDate: drug.UpdatedDate || 'N/A',
-        OtherIngredients: drug.OtherIngredients || 'N/A',
-        ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
-        ReviewDate: drug.ReviewDate || 'N/A',
-        MoPHCode: drug.MoPHCode || 'N/A',
-        CargoShippingTerms: drug.CargoShippingTerms || 'N/A',
-        ProductType: drug.ProductType || 'N/A',
-        NotMarketed: drug.NotMarketed || false,
-        DFSequence: drug.DFSequence || 'N/A',
-        PriceForeign: drug.PriceForeign || 'N/A',
-        CurrencyForeign: drug.CurrencyForeign || 'N/A'
       }));
 
       setAllData(formattedData);
+      setTableData(formattedData.slice(0, drugsPerPage));
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching drugs:", error);
+      setIsLoading(false);
     }
+  };
+
+  const handleFetchDrugs = () => {
+    setShowDrugsTable(true);
+    setShowImportPage(false);
+    fetchDrugs();
   };
 
   const handleSearch = () => {
@@ -307,68 +323,91 @@ const MainPage: React.FC = () => {
 
   const columns = useMemo<MRT_ColumnDef<any>[]>(
     () => [
-      { accessorKey: 'DrugID', header: 'DrugID' },
-      { accessorKey: 'DrugName', header: 'DrugName' },
-      { accessorKey: 'DrugNameAR', header: 'DrugNameAR' },
-      { accessorKey: 'ATC', header: 'ATC' },
-      { accessorKey: 'isOTC', header: 'isOTC' },
-      { accessorKey: 'Form', header: 'Form' },
-      { accessorKey: 'Presentation', header: 'Presentation' },
-      { accessorKey: 'Dosage', header: 'Dosage' },
-      { accessorKey: 'Stratum', header: 'Stratum' },
-      { accessorKey: 'Amount', header: 'Amount' },
-      { accessorKey: 'Route', header: 'Route' },
-      { accessorKey: 'Agent', header: 'Agent' },
-      { accessorKey: 'Manufacturer', header: 'Manufacturer' },
-      { accessorKey: 'Country', header: 'Country' },
-      { accessorKey: 'ManufacturerID', header: 'ManufacturerID' },
-      { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber' },
-      { accessorKey: 'Notes', header: 'Notes' },
-      { accessorKey: 'Description', header: 'Description' },
-      { accessorKey: 'Indication', header: 'Indication' },
-      { accessorKey: 'Posology', header: 'Posology' },
-      { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration' },
-      { accessorKey: 'Contraindications', header: 'Contraindications' },
-      { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse' },
-      { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN' },
-      { accessorKey: 'SideEffect', header: 'SideEffect' },
-      { accessorKey: 'Toxicity', header: 'Toxicity' },
-      { accessorKey: 'StorageCondition', header: 'StorageCondition' },
-      { accessorKey: 'ShelfLife', header: 'ShelfLife' },
-      { accessorKey: 'IngredientLabel', header: 'IngredientLabel' },
-      { accessorKey: 'Price', header: 'Price' },
-      { accessorKey: 'ImagesPath', header: 'ImagesPath' },
-      { accessorKey: 'ImageDefault', header: 'ImageDefault' },
-      { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName' },
-      { accessorKey: 'IsDouanes', header: 'IsDouanes' },
-      { accessorKey: 'RegistrationDate', header: 'RegistrationDate' },
-      { accessorKey: 'PublicPrice', header: 'PublicPrice' },
-      { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel' },
-      { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage' },
-      { accessorKey: 'HospPricing', header: 'HospPricing' },
-      { accessorKey: 'Substitutable', header: 'Substitutable' },
-      { accessorKey: 'CreatedBy', header: 'CreatedBy' },
-      { accessorKey: 'CreatedDate', header: 'CreatedDate' },
-      { accessorKey: 'UpdatedBy', header: 'UpdatedBy' },
-      { accessorKey: 'UpdatedDate', header: 'UpdatedDate' },
-      { accessorKey: 'OtherIngredients', header: 'OtherIngredients' },
-      { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient' },
-      { accessorKey: 'ReviewDate', header: 'ReviewDate' },
-      { accessorKey: 'MoPHCode', header: 'MoPHCode' },
-      { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms' },
-      { accessorKey: 'ProductType', header: 'ProductType' },
-      { accessorKey: 'NotMarketed', header: 'NotMarketed' },
-      { accessorKey: 'DFSequence', header: 'DFSequence' },
-      { accessorKey: 'PriceForeign', header: 'PriceForeign' },
-      { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign' },
+      { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
+      { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
+      { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
+      { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
+      { accessorKey: 'ATC', header: 'ATC', size: 80 },
+      { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient', size: 150 },
+      { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
+      { accessorKey: 'Dosage', header: 'Dosage', size: 100 },
+      { accessorKey: 'DosageNumerator1', header: 'Dosage Numerator 1', size: 120 },
+      { accessorKey: 'DosageNumerator1Unit', header: 'Dosage Numerator 1 Unit', size: 150 },
+      { accessorKey: 'DosageDenominator1', header: 'Dosage Denominator 1', size: 150 },
+      { accessorKey: 'DosageDenominator1Unit', header: 'Dosage Denominator 1 Unit', size: 150 },
+      { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
+      { accessorKey: 'DosageNumerator2Unit', header: 'Dosage Numerator 2 Unit', size: 150 },
+      { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
+      { accessorKey: 'DosageDenominator2Unit', header: 'Dosage Denominator 2 Unit', size: 150 },
+      { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
+      { accessorKey: 'DosageNumerator3Unit', header: 'Dosage Numerator 3 Unit', size: 150 },
+      { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
+      { accessorKey: 'DosageDenominator3Unit', header: 'Dosage Denominator 3 Unit', size: 150 },
+      { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
+      { accessorKey: 'Form', header: 'Form', size: 100 },
+      { accessorKey: 'Presentation', header: 'Presentation', size: 120 },
+      { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
+      { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
+      { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
+      { accessorKey: 'PresentationUnitType2', header: 'Presentation Unit Type 2', size: 150 },
+      { accessorKey: 'PresentationPackageQuantity1', header: 'Presentation Package Quantity 1', size: 180 },
+      { accessorKey: 'PresentationPackageType1', header: 'Presentation Package Type 1', size: 150 },
+      { accessorKey: 'PresentationPackageQuantity2', header: 'Presentation Package Quantity 2', size: 180 },
+      { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
+      { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
+      { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
+      { accessorKey: 'PresentationDescription', header: 'Presentation Description', size: 180 },
+      { accessorKey: 'Route', header: 'Route', size: 100 },
+      { accessorKey: 'Stratum', header: 'Stratum', size: 100 },
+      { accessorKey: 'Amount', header: 'Amount', size: 80 },
+      { accessorKey: 'Agent', header: 'Agent', size: 100 },
+      { accessorKey: 'Manufacturer', header: 'Manufacturer', size: 120 },
+      { accessorKey: 'Country', header: 'Country', size: 80 },
+      { accessorKey: 'ManufacturerID', header: 'ManufacturerID', size: 120 },
+      { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
+      { accessorKey: 'Notes', header: 'Notes', size: 100 },
+      { accessorKey: 'Description', header: 'Description', size: 120 },
+      { accessorKey: 'Indication', header: 'Indication', size: 100 },
+      { accessorKey: 'Posology', header: 'Posology', size: 100 },
+      { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration', size: 180 },
+      { accessorKey: 'Contraindications', header: 'Contraindications', size: 150 },
+      { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse', size: 150 },
+      { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN', size: 120 },
+      { accessorKey: 'SideEffect', header: 'SideEffect', size: 100 },
+      { accessorKey: 'Toxicity', header: 'Toxicity', size: 80 },
+      { accessorKey: 'StorageCondition', header: 'StorageCondition', size: 150 },
+      { accessorKey: 'ShelfLife', header: 'ShelfLife', size: 100 },
+      { accessorKey: 'IngredientLabel', header: 'IngredientLabel', size: 150 },
+      { accessorKey: 'Price', header: 'Price', size: 80 },
+      { accessorKey: 'ImagesPath', header: 'ImagesPath', size: 100 },
+      { accessorKey: 'ImageDefault', header: 'ImageDefault', size: 100 },
+      { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName', size: 180 },
+      { accessorKey: 'IsDouanes', header: 'IsDouanes', size: 100 },
+      { accessorKey: 'RegistrationDate', header: 'RegistrationDate', size: 150 },
+      { accessorKey: 'PublicPrice', header: 'PublicPrice', size: 100 },
+      { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel', size: 100 },
+      { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage', size: 150 },
+      { accessorKey: 'HospPricing', header: 'HospPricing', size: 100 },
+      { accessorKey: 'Substitutable', header: 'Substitutable', size: 120 },
+      { accessorKey: 'CreatedBy', header: 'CreatedBy', size: 100 },
+      { accessorKey: 'CreatedDate', header: 'CreatedDate', size: 150 },
+      { accessorKey: 'UpdatedBy', header: 'UpdatedBy', size: 100 },
+      { accessorKey: 'UpdatedDate', header: 'UpdatedDate', size: 150 },
+      { accessorKey: 'ReviewDate', header: 'ReviewDate', size: 100 },
+      { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
+      { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
+      { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
+      { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
+      { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
+      { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
       {
-        accessorKey: 'actions', header: 'Actions', Cell: ({ cell, row }) => (
+        accessorKey: 'actions', header: 'Actions', size: 100, Cell: ({ cell, row }) => (
           <div>
             <button className="small-button" onClick={() => handleEdit(row.index)}>Edit</button>
             <button className="small-button" onClick={() => deleteDrug(row.original.DrugID)}>Delete</button>
           </div>
         )
-      }, // Custom cell renderer for actions
+      },
     ],
     []
   );
@@ -376,6 +415,79 @@ const MainPage: React.FC = () => {
   const table = useMantineReactTable({
     columns,
     data: tableData,
+    enableColumnResizing: true,
+    enableStickyHeader: true,
+    state: {
+      isLoading,
+    },
+    initialState: {
+      columnVisibility: {
+        DrugID: false,
+        DrugNameAR: false,
+        isOTC: false,
+        PresentationUnitQuantity1: false,
+        PresentationUnitType1: false,
+        PresentationUnitQuantity2: false,
+        PresentationUnitType2: false,
+        PresentationPackageQuantity1: false,
+        PresentationPackageType1: false,
+        PresentationPackageQuantity2: false,
+        PresentationPackageType2: false,
+        PresentationPackageQuantity3: false,
+        PresentationPackageType3: false,
+        PresentationDescription: false,
+        DosageNumerator1: false,
+        DosageNumerator1Unit: false,
+        DosageDenominator1: false,
+        DosageDenominator1Unit: false,
+        DosageNumerator2: false,
+        DosageNumerator2Unit: false,
+        DosageDenominator2: false,
+        DosageDenominator2Unit: false,
+        DosageNumerator3: false,
+        DosageNumerator3Unit: false,
+        DosageDenominator3: false,
+        DosageDenominator3Unit: false,
+        Amount: false,
+        ManufacturerID: false,
+        RegistrationNumber: false,
+        Notes: false,
+        Description: false,
+        Indication: false,
+        Posology: false,
+        MethodOfAdministration: false,
+        Contraindications: false,
+        PrecautionForUse: false,
+        EffectOnFGN: false,
+        SideEffect: false,
+        Toxicity: false,
+        StorageCondition: false,
+        ShelfLife: false,
+        IngredientLabel: false,
+        ImagesPath: false,
+        ImageDefault: false,
+        InteractionIngredientName: false,
+        IsDouanes: false,
+        RegistrationDate: false,
+        PublicPrice: false,
+        SubsidyLabel: false,
+        SubsidyPercentage: false,
+        HospPricing: false,
+        Substitutable: false,
+        CreatedBy: false,
+        CreatedDate: false,
+        UpdatedBy: false,
+        UpdatedDate: false,
+        ReviewDate: false,
+        MoPHCode: false,
+        CargoShippingTerms: false,
+        NotMarketed: false,
+        DFSequence: false,
+        PriceForeign: false,
+        CurrencyForeign: false,
+        Price: false,
+      }
+    }
   });
 
   return (
@@ -401,7 +513,7 @@ const MainPage: React.FC = () => {
           </a>
           {showDropdown && (
             <div className="dropdown">
-              <button onClick={() => { setShowDrugsTable(true); setShowImportPage(false); setTableData(allData.slice(0, drugsPerPage)); }} style={{ color: 'black' }}>Drugs</button>
+              <button onClick={handleFetchDrugs} style={{ color: 'black' }}>Drugs</button>
             </div>
           )}
         </div>
@@ -463,6 +575,5 @@ const MainPage: React.FC = () => {
     </div>
   );
 };
-
 
 export default MainPage;
