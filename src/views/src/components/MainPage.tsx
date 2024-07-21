@@ -6,6 +6,7 @@ import {
   useMantineReactTable,
   type MRT_ColumnDef,
 } from 'mantine-react-table';
+import { Menu } from '@mantine/core';
 import './MainPage.css';
 import homeIcon from '../assets/Home.svg';
 import searchIcon from '../assets/Search.svg';
@@ -83,16 +84,16 @@ const MainPage: React.FC = () => {
   };
 
   const fetchDrugs = async () => {
+    setIsLoading(true); // Start loading
     try {
-      setIsLoading(true);
       const response = await axios.get('/drugs/all');
       const drugs = response.data;
-
+  
       const drugsWithDetails = await Promise.all(drugs.map(async (drug: any) => {
         const atcCode = await fetchATC(drug.DrugID);
         const presentation = await fetchPresentation(drug.DrugID);
         const dosage = await fetchDosage(drug.DrugID);
-
+  
         return {
           ...drug,
           ATC: atcCode,
@@ -147,10 +148,10 @@ const MainPage: React.FC = () => {
 
       setAllData(formattedData);
       setTableData(formattedData.slice(0, drugsPerPage));
-      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching drugs:", error);
-      setIsLoading(false);
+    } finally {
+      setIsLoading(false); // End loading
     }
   };
 
@@ -173,124 +174,33 @@ const MainPage: React.FC = () => {
     }
   };
 
-  const addDrug = async (drug: any) => {
+  const handleSaveRow = async ({ row, values, exitEditingMode }: { row: any, values: any, exitEditingMode: () => void }) => {
     try {
-      await axios.post('/drugs/add', drug);
-      fetchDrugs();
-    } catch (error) {
-      console.error("Error adding drug:", error);
-    }
-  };
-
-  const updateDrug = async (drug: any) => {
-    try {
-      await axios.put(`/drugs/update/${drug.DrugID}`, drug);
-      fetchDrugs();
-      setEditingDrug(null);
-      setEditIndex(null);
+      const updatedDrug = { ...row.original, ...values };
+      await axios.put(`/drugs/update/${updatedDrug.DrugID}`, updatedDrug);
+      
+      // Update the table data locally
+      setTableData(prevData => prevData.map(drug => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)));
+      setAllData(prevData => prevData.map(drug => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)));
+      
+      exitEditingMode(); // Required to exit editing mode and close the editor
     } catch (error) {
       console.error("Error updating drug:", error);
     }
   };
 
-  const deleteDrug = async (drugID: number) => {
+  const handleDeleteRow = async (row: any) => {
     try {
-      await axios.delete(`/drugs/delete/${drugID}`);
-      fetchDrugs();
+      if (window.confirm('Are you sure you want to delete this drug?')) {
+        await axios.delete(`/drugs/delete/${row.original.DrugID}`);
+        
+        // Update the table data locally
+        setTableData(prevData => prevData.filter(drug => drug.DrugID !== row.original.DrugID));
+        setAllData(prevData => prevData.filter(drug => drug.DrugID !== row.original.DrugID));
+      }
     } catch (error) {
       console.error("Error deleting drug:", error);
     }
-  };
-
-  const handleAddDrug = () => {
-    setEditingDrug({
-      DrugID: '',
-      DrugName: '',
-      DrugNameAR: '',
-      isOTC: false,
-      Form: '',
-      Presentation: '',
-      Dosage: '',
-      Stratum: '',
-      Amount: '',
-      Route: '',
-      Agent: '',
-      Manufacturer: '',
-      Country: '',
-      ManufacturerID: '',
-      RegistrationNumber: '',
-      Notes: '',
-      Description: '',
-      Indication: '',
-      Posology: '',
-      MethodOfAdministration: '',
-      Contraindications: '',
-      PrecautionForUse: '',
-      EffectOnFGN: '',
-      SideEffect: '',
-      Toxicity: '',
-      StorageCondition: '',
-      ShelfLife: '',
-      IngredientLabel: '',
-      Price: '',
-      ImagesPath: '',
-      ImageDefault: false,
-      InteractionIngredientName: '',
-      IsDouanes: false,
-      RegistrationDate: '',
-      PublicPrice: '',
-      SubsidyLabel: '',
-      SubsidyPercentage: '',
-      HospPricing: false,
-      Substitutable: false,
-      CreatedBy: '',
-      CreatedDate: '',
-      UpdatedBy: '',
-      UpdatedDate: '',
-      OtherIngredients: '',
-      ATCRelatedIngredient: '',
-      ReviewDate: '',
-      MoPHCode: '',
-      CargoShippingTerms: '',
-      ProductType: '',
-      NotMarketed: false,
-      DFSequence: '',
-      PriceForeign: '',
-      CurrencyForeign: ''
-    });
-    setEditIndex(null);
-  };
-
-  const handleSaveDrug = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (editingDrug.DrugID) {
-      updateDrug(editingDrug);
-    } else {
-      addDrug(editingDrug);
-    }
-  };
-
-  const handleEditChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const { name, value, type, checked } = event.target;
-    const newTableData = [...tableData];
-    newTableData[index] = {
-      ...newTableData[index],
-      [name]: type === 'checkbox' ? checked : value,
-    };
-    setTableData(newTableData);
-    if (editIndex === index) {
-      setEditingDrug(newTableData[index]);
-    }
-  };
-
-  const handleEdit = (index: number) => {
-    setEditIndex(index);
-    setEditingDrug({ ...tableData[index] });
-  };
-
-  const handleCancelEdit = () => {
-    setEditIndex(null);
-    setEditingDrug(null);
   };
 
   const handleNextStep = (data?: { drugName: string; quantityRequested: string }) => {
@@ -400,14 +310,6 @@ const MainPage: React.FC = () => {
       { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
       { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
       { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
-      {
-        accessorKey: 'actions', header: 'Actions', size: 100, Cell: ({ cell, row }) => (
-          <div>
-            <button className="small-button" onClick={() => handleEdit(row.index)}>Edit</button>
-            <button className="small-button" onClick={() => deleteDrug(row.original.DrugID)}>Delete</button>
-          </div>
-        )
-      },
     ],
     []
   );
@@ -416,11 +318,13 @@ const MainPage: React.FC = () => {
     columns,
     data: tableData,
     enableColumnResizing: true,
-    enableStickyHeader: true,
+    enableEditing: true,
+    enableStickyHeader:true,
     state: {
       isLoading,
     },
     initialState: {
+      density:'xs',
       columnVisibility: {
         DrugID: false,
         DrugNameAR: false,
@@ -485,9 +389,18 @@ const MainPage: React.FC = () => {
         DFSequence: false,
         PriceForeign: false,
         CurrencyForeign: false,
-        Price: false,
       }
-    }
+    },
+    onEditingRowSave: handleSaveRow,
+    renderRowActionMenuItems: ({ row }) => [
+      <Menu.Item
+        key="delete"
+        onClick={() => handleDeleteRow(row)}
+        style={{ color: 'red' }}
+      >
+        Delete
+      </Menu.Item>,
+    ],
   });
 
   return (

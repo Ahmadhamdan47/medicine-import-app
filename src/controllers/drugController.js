@@ -230,7 +230,6 @@ const deleteDrug = async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 };
-
 const updateDrug = async (req, res) => {
   const { DrugID } = req.params;
   const drugData = req.body;
@@ -241,7 +240,24 @@ const updateDrug = async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 };
-
+const deleteDosagesByDrugId = async (req, res) => {
+  const { DrugID } = req.params;
+  try {
+    await DrugService.deleteDosagesByDrugId(DrugID);
+    res.json({ message: 'Dosages deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+const deletePresentationsByDrugId = async (req, res) => {
+  const { DrugID } = req.params;
+  try {
+    await DrugService.deletePresentationsByDrugId(DrugID);
+    res.json({ message: 'Presentations deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -266,5 +282,7 @@ module.exports = {
   getDrugSubstitutesController,
   checkDrugNameInAPI,
   deleteDrug,
-  updateDrug
+  updateDrug,
+  deleteDosagesByDrugId,
+  deletePresentationsByDrugId
 };
