@@ -520,39 +520,23 @@ const addDrugATC = async (DrugID, ATC_ID) => {
 };
 const getDosageByDrugId = async (DrugID) => {
   try {
+    // Find the latest dosage by DrugID
     const dosage = await Dosage.findOne({
-      where: { DrugID: DrugID },
-      attributes:['DosageId','Numerator','NumeratorUnit']
+      where: { DrugId: DrugID },
+      attributes: ['DosageId', 'Numerator1', 'Numerator1Unit', 'Denominator1', 'Denominator1Unit', 'Numerator2', 'Numerator2Unit', 'Denominator2', 'Denominator2Unit', 'Numerator3', 'Numerator3Unit', 'Denominator3', 'Denominator3Unit'],
+      order: [['CreatedDate', 'DESC']] // Order by CreatedDate to get the newest
     });
 
     if (!dosage) {
       throw new Error(`No dosage found for drug ID: ${DrugID}`);
     }
 
-    const dosageFormMapping = await DosageFormMapping.findOne({
-      where: { DosageID: dosage.DosageId },
-    });
-
-    if (!dosageFormMapping) {
-      throw new Error(`No dosage form mapping found for dosage ID: ${dosage.DosageId}`);
-    }
-
-    const dosageForm = await DosageForm.findOne({
-      where: { DosageFormID: dosageFormMapping.DosageFormId },
-      attributes: ['Child'],
-    });
-
-    if (!dosageForm) {
-      throw new Error(`No dosage form found for ID: ${dosageFormMapping.DosageFormId}`);
-    }
-
-    return { dosage, dosageForm };
+    return dosage;
   } catch (error) {
     console.error("Error in getDosageByDrugId:", error);
     throw new Error('Error occurred in getDosageByDrugId: ' + error.message);
   }
 };
-
 const getDosageByDrugName = async (DrugName) => {
   try {
     const drug = await Drug.findOne({
@@ -615,25 +599,18 @@ const getRouteByDrugName = async (DrugName) => {
 
 const getPresentationByDrugId = async (DrugID) => {
   try {
+    // Find the latest drug presentation by DrugID
     const drugPresentation = await DrugPresentation.findOne({
       where: { DrugId: DrugID },
-      attributes :['Amount','PackageType','TypeId']
+      attributes: ['PresentationId', 'UnitQuantity1', 'UnitType1', 'UnitQuantity2', 'UnitType2', 'PackageQuantity1', 'PackageType1', 'PackageQuantity2', 'PackageType2', 'PackageQuantity3', 'PackageType3', 'Description'],
+      order: [['CreatedDate', 'DESC']] // Order by CreatedDate to get the newest
     });
 
     if (!drugPresentation) {
       throw new Error(`No presentation found for drug ID: ${DrugID}`);
     }
 
-    const presentationType = await PresentationType.findOne({
-      where: { PresentationTypeId: drugPresentation.TypeId },
-      attributes: ['Name'],
-    });
-
-    if (!presentationType) {
-      throw new Error(`No presentation type found for ID: ${drugPresentation.TypeId}`);
-    }
-
-    return { ...drugPresentation.get({ plain: true }), presentationType };
+    return drugPresentation;
   } catch (error) {
     console.error("Error in getPresentationByDrugId:", error);
     throw new Error('Error occurred in getPresentationByDrugId: ' + error.message);
