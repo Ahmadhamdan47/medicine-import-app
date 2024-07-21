@@ -139,7 +139,7 @@ const MainPage: React.FC = () => {
         PresentationDescription: drug.PresentationDetails?.Description || 'N/A',
         Route: drug.Route || 'N/A',
         Stratum: drug.Stratum || 'N/A',
-        Amount: drug.Amount || 'N/A',
+        Amount: drug.Amount || 0,
         Agent: drug.Agent || 'N/A',
         Manufacturer: drug.Manufacturer || 'N/A',
         Country: drug.Country || 'N/A',
