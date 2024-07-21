@@ -862,8 +862,15 @@ const checkDrugNameInAPI = async (drugName) => {
 
 const deleteDrug = async (DrugID) => {
   try {
+    // Delete dosages by DrugID
+    await deleteDosagesByDrugId(DrugID);
+
+    // Delete presentations by DrugID
+    await deletePresentationsByDrugId(DrugID);
+
+    // Delete the drug itself
     const drug = await Drug.findOne({
-      where: { DrugID: DrugID },
+      where: { DrugID: DrugID }
     });
 
     if (!drug) {
@@ -877,6 +884,7 @@ const deleteDrug = async (DrugID) => {
     throw new Error('Error occurred in deleteDrug: ' + error.message);
   }
 };
+
 
 const updateDrug = async (DrugID, updatedData) => {
   try {
@@ -893,6 +901,28 @@ const updateDrug = async (DrugID, updatedData) => {
   } catch (error) {
     console.error("Error in updateDrug:", error);
     throw new Error('Error occurred in updateDrug: ' + error.message);
+  }
+};
+const deleteDosagesByDrugId = async (DrugID, transaction) => {
+  try {
+    await Dosage.destroy({
+      where: { DrugId: DrugID },
+      transaction,
+    });
+  } catch (error) {
+    console.error("Error in deleteDosagesByDrugId:", error);
+    throw new Error('Error occurred in deleteDosagesByDrugId: ' + error.message);
+  }
+};
+const deletePresentationsByDrugId = async (DrugID, transaction) => {
+  try {
+    await DrugPresentation.destroy({
+      where: { DrugId: DrugID },
+      transaction,
+    });
+  } catch (error) {
+    console.error("Error in deletePresentationsByDrugId:", error);
+    throw new Error('Error occurred in deletePresentationsByDrugId: ' + error.message);
   }
 };
 module.exports = {
@@ -918,6 +948,8 @@ module.exports = {
   getDrugSubstitutes,
   checkDrugNameInAPI,
   deleteDrug,
-  updateDrug
+  updateDrug,
+  deleteDosagesByDrugId,
+  deletePresentationsByDrugId
   
 };
