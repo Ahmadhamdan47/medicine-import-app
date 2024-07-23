@@ -26,7 +26,9 @@ class UserService {
     const token = jwt.sign({ id: user.UserId, roleId: user.RoleId }, 'secret', {
       expiresIn: '1h',
     });
-    return { token };
+
+    const role = await Roles.findByPk(user.RoleId); // Fetch the role name
+    return { token, role: role.RoleName }; // Return token and role name
   }
   static async donorSignup(donorData, username, password) {
     const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
