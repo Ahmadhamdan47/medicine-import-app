@@ -20,6 +20,16 @@ class UserController {
       res.status(401).send(error.message);
     }
   }
+  static async donorSignup(req, res) {
+    try {
+      const { donorData, username, password, roleId } = req.body;
+      await UserService.donorSignup(donorData, username, password, roleId);
+      res.status(201).json({ message: 'Donor user registered successfully' });
+    } catch (error) {
+      console.error('Error registering donor user:', error);
+      res.status(500).json({ error: 'An error occurred while registering the donor user' });
+    }
+  }
 }
 
 module.exports = UserController;

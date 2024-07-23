@@ -3,11 +3,13 @@ const jwt = require('jsonwebtoken');
 const UserAccounts = require('../models/userAccounts');
 const Roles = require('../models/roles');
 const Agent = require('../models/agent');
+const Donor = require('../models/donor');
 
 class UserService {
-  static async register(username, password, roleId) {
+  static async register(username, password, roleId, donorId) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await UserAccounts.create({ Username: username, PasswordHash: hashedPassword, RoleId: roleId });
+    await UserAccounts.create({ Username: username, PasswordHash: hashedPassword, RoleId: roleId, DonorId: donorId 
+    });
 
   }
   
@@ -26,6 +28,31 @@ class UserService {
     });
     return { token };
   }
+  static async donorSignup(donorData, username, password) {
+    const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
+    
+    // Fetch the RoleId for Donor
+    const donorRole = await Roles.findOne({ where: { RoleName: 'Donor' } });
+    if (!donorRole) {
+      throw new Error('Role not found');
+    }
+
+    const donor = await Donor.create({
+      DonorName,
+      DonorType,
+      Address,
+      PhoneNumber,
+      Email,
+      DonorCountry,
+      IsActive,
+      CreatedDate: new Date(),
+      UpdatedDate: new Date()
+    });
+
+    await this.register(username, password, donorRole.RoleId, donor.DonorId);
+  }
 }
+
+
 
 module.exports = UserService;
