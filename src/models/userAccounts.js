@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Role = require('./roles');
+const Donor = require('./donor');
 
 const UserAccounts = sequelize.define('UserAccounts', {
     UserId: {
@@ -36,6 +37,14 @@ const UserAccounts = sequelize.define('UserAccounts', {
     PatientId: {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+    DonorId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: Donor,
+            key: 'DonorId'
+        }
     },
     RoleId: {
         type: DataTypes.INTEGER,
