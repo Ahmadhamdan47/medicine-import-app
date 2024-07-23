@@ -28,6 +28,7 @@ class UserService {
     });
 
     const role = await Roles.findByPk(user.RoleId); // Fetch the role name
+    console.log('Role:', role.RoleName);
     return { token, role: role.RoleName }; // Return token and role name
   }
   static async donorSignup(donorData, username, password) {
