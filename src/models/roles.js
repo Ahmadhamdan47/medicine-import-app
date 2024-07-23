@@ -4,7 +4,8 @@ const sequelize = require('../../config/databasePharmacy');
 const Role = sequelize.define('Role', {
     RoleId: {
         type: DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     RoleName: {
         type: DataTypes.STRING(255),
