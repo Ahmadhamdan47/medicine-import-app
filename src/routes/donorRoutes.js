@@ -63,5 +63,6 @@ router.get("/all", donorController.getAllDonors);
 
 router.put("/:donorId", donorController.editDonor);
 router.delete("/:donorId", donorController.deleteDonor);
+router.get('/byUsername/:username', donorController.getDonorByUsername);
 
 module.exports = router;
