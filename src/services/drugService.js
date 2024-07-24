@@ -681,6 +681,9 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       throw new Error('SerialNumber cannot exceed 20 characters.');
     }
 
+    // Log the query parameters to debug
+    console.log('Querying BatchLotTracking with:', { GTIN, BatchNumber });
+
     const batchLot = await BatchLotTracking.findOne({
       where: { 
         GTIN: GTIN,
@@ -698,6 +701,9 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
         messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
       };
     }
+
+    // Log the query parameters to debug
+    console.log('Querying BatchSerialNumber with:', { BatchId: batchLot.BatchLotId, SerialNumber });
 
     const batchSerialNumber = await BatchSerialNumber.findOne({
       where: { 
