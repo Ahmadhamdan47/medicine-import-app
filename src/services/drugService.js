@@ -684,16 +684,11 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     }
 
     // Query for the batch lot using GTIN and BatchNumber
-    const batchLotQuery = `
-      SELECT *
-      FROM batchlottracking
-      WHERE GTIN = :GTIN AND BatchNumber = :BatchNumber
-      LIMIT 1
-    `;
-
-    const [batchLot] = await sequelize.query(batchLotQuery, {
-      replacements: { GTIN, BatchNumber },
-      type: sequelize.QueryTypes.SELECT
+    const batchLot = await BatchLotTracking.findOne({
+      where: {
+        GTIN: GTIN,
+        BatchNumber: BatchNumber,
+      }
     });
 
     console.log('Batch lot found:', batchLot);
@@ -708,16 +703,11 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     }
 
     // Query for the batch serial number using BatchId and SerialNumber
-    const batchSerialNumberQuery = `
-      SELECT BatchSerialNumberId, BatchId, SerialNumber
-      FROM batchserialnumber
-      WHERE BatchId = :BatchId AND SerialNumber = :SerialNumber
-      LIMIT 1
-    `;
-
-    const [batchSerialNumber] = await sequelize.query(batchSerialNumberQuery, {
-      replacements: { BatchId: batchLot.BatchLotId, SerialNumber },
-      type: sequelize.QueryTypes.SELECT
+    const batchSerialNumber = await BatchSerialNumber.findOne({
+      where: {
+        BatchId: batchLot.BatchLotId,
+        SerialNumber: SerialNumber,
+      }
     });
 
     console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', SerialNumber);
@@ -743,6 +733,7 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
     throw error;
   }
 };
+
 
 
 
