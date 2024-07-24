@@ -199,11 +199,49 @@ const editDonation = async (DonationId, donationData) => {
 const getDonationsByDonor = async (donorId) => {
   try {
       const donations = await Donation.findAll({ where: { DonorId: donorId } });
-      return donations;
-  } catch (error) {
+      for (let donation of donations) {
+        const batchLots = await BatchLotTracking.findAll({
+          where: { DonationId: donation.DonationId }
+        });
+  
+        const donor = await Donor.findOne({
+          where: { DonorId: donation.DonorId }
+        });
+  
+        const recipient = await Recipient.findOne({
+          where: { RecipientId: donation.RecipientId }
+        });
+  
+        if (donor) {
+          donation.dataValues.DonorName = donor.DonorName;
+        }
+  
+        if (recipient) {
+          donation.dataValues.RecipientName = recipient.RecipientName;
+        }
+  
+        for (let batchLot of batchLots) {
+          const batchSerialNumber = await BatchSerialNumber.findOne({
+            where: { BatchId: batchLot.BatchLotId }
+          });
+  
+          // Directly access the DrugName from the batchLot object
+          if (batchLot.DrugName) {
+            batchLot.dataValues.DrugName = batchLot.DrugName;
+          }
+  
+          if (batchSerialNumber) {
+            batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
+          }
+        }
+  
+        donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
+      }
+  
+      return donations.map(donation => donation.dataValues);
+    } catch (error) {
       console.error(error);
-      throw new Error('Error in donationService: ' + error.message);
-  }
+    }
 };
 
 module.exports = {
