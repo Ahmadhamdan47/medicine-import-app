@@ -702,18 +702,21 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       };
     }
 
+    // Ensure the SerialNumber is correctly formatted
+    const formattedSerialNumber = SerialNumber.trim();
+
     // Query for the batch serial number using BatchId and SerialNumber
     const batchSerialNumber = await BatchSerialNumber.findOne({
       where: {
         BatchId: batchLot.BatchLotId,
-        SerialNumber: SerialNumber,
+        SerialNumber: formattedSerialNumber,
       }
     });
 
-    console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', SerialNumber);
+    console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', formattedSerialNumber);
 
     if (!batchSerialNumber) {
-      console.log('No batch serial number found for BatchId:', batchLot.BatchLotId, 'SerialNumber:', SerialNumber);
+      console.log('No batch serial number found for BatchId:', batchLot.BatchLotId, 'SerialNumber:', formattedSerialNumber);
       return {
         isValid: false,
         messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
