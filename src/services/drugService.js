@@ -1,5 +1,7 @@
 // src/services/drugService.js
 const Sequelize = require("sequelize");
+const { sequelize } = require('../../config/databasePharmacy'); // Adjust the path to your sequelize configuration
+
 const { Op } = require("sequelize");
 const Drug = require("../models/pharmacyDrug");
 const PharmacyDrug = require("../models/pharmacyDrug");
