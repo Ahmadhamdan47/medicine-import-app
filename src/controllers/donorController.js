@@ -37,5 +37,13 @@ const deleteDonor = async (req, res) => {
         res.status(500).json({ error: error.toString() });
     }
 };
-
+const getDonorByUsername = async (req, res) => {
+    try {
+        const { username } = req.params;
+        const donor = await donorService.getDonorByUsername(username);
+        res.status(200).json(donor);
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
 module.exports = { addDonor, getAllDonors, editDonor, deleteDonor };

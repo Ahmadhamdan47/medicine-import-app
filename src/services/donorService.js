@@ -43,4 +43,17 @@ const deleteDonor = async (donorId) => {
     }
 };
 
-module.exports = { addDonor, getAllDonors, editDonor, deleteDonor };
+const getDonorByUsername = async (username) => {
+    try {
+        const donor = await Donor.findOne({ where: { DonorName: username } });
+        if (!donor) {
+            throw new Error('Donor not found');
+        }
+        return donor;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error in donorService: ' + error.message);
+    }
+};
+
+module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername };
