@@ -46,4 +46,4 @@ const getDonorByUsername = async (req, res) => {
         res.status(404).json({ error: error.message });
     }
 };
-module.exports = { addDonor, getAllDonors, editDonor, deleteDonor };
+module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername };
