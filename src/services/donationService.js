@@ -196,11 +196,21 @@ const editDonation = async (DonationId, donationData) => {
     throw error;
   }
 };
+const getDonationsByDonor = async (donorId) => {
+  try {
+      const donations = await Donation.findAll({ where: { DonorId: donorId } });
+      return donations;
+  } catch (error) {
+      console.error(error);
+      throw new Error('Error in donationService: ' + error.message);
+  }
+};
 
 module.exports = {
   createDonation,
   createBatchLot, 
   getAllDonations,
   getDonationById,
-  editDonation
+  editDonation,
+  getDonationsByDonor,
 };
