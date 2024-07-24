@@ -46,7 +46,17 @@ const createBatchLot = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.toString() });
   }
-}
-module.exports = { addDonation, getAllDonations, getDonationById, editDonation, createBatchLot};
+};
+const getDonationsByDonor = async (req, res) => {
+  try {
+      const { donorId } = req.params;
+      const donations = await donationService.getDonationsByDonor(donorId);
+      res.status(200).json(donations);
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { addDonation, getAllDonations, getDonationById, editDonation, createBatchLot,getDonationsByDonor};
 
 
