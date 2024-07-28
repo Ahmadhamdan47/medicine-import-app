@@ -329,7 +329,19 @@ const getAllDrugs = async () => {
 };
 
 
-
+const getAllDrugsPaginated = async (page = 1, limit = 100) => {
+  try {
+    const offset = (page - 1) * limit;
+    const { rows, count } = await Drug.findAndCountAll({
+      offset,
+      limit,
+    });
+    return { drugs: rows, totalPages: Math.ceil(count / limit) };
+  } catch (error) {
+    console.error("Error fetching paginated drugs:", error);
+    throw new Error("Failed to fetch paginated drugs");
+  }
+};
 const smartSearch = async (query) => {
   try {
     console.log("Query:", query); // Log the query
@@ -957,6 +969,7 @@ module.exports = {
   deleteDrug,
   updateDrug,
   deleteDosagesByDrugId,
-  deletePresentationsByDrugId
+  deletePresentationsByDrugId,
+  getAllDrugsPaginated  
   
 };

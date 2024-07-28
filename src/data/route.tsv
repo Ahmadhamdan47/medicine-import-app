@@ -1,0 +1,5579 @@
+Code	Parent	Route CLEAN	Parenteral
+28	Parentaral	IM-Intramuscular	Parentaral
+30	Parentaral	IM-Intramuscular	Parentaral
+31	Parentaral	SC-Subcutanous	Parentaral
+32	Parentaral	IM-Intramuscular	Parentaral
+33	Parentaral	IM-Intramuscular	Parentaral
+34	Parentaral	IM-Intramuscular	Parentaral
+49	O-Oral	O-Oral	
+52	O-Oral	O-Oral	
+53	O-Oral	O-Oral	
+54	O-Oral	O-Oral	
+55	O-Oral	O-Oral	
+57	Parentaral	IM-Intramuscular	Parentaral
+59	O-Oral	O-Oral	
+92	O-Oral	O-Oral	
+96	R-Rectal	R-Rectal	
+103	O-Oral	O-Oral	
+117	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+133	O-Oral	O-Oral	
+138	O-Oral	O-Oral	
+141	O-Oral	O-Oral	
+164	T-Topical	T-Topical	
+168	Ot-Otic	Ot-Otic	
+169	O-Oral	O-Oral	
+196	O-Oral	O-Oral	
+197	O-Oral	O-Oral	
+253	O-Oral	O-Oral	
+259	T-Topical	T-Topical	
+272	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+274	Irrigation	Irrigation	
+275	Irrigation	Irrigation	
+276	Irrigation	Irrigation	
+285	Parentaral	Inf-Infusion	Parentaral
+291	Parentaral	Inf-Infusion	Parentaral
+292	Parentaral	Inf-Infusion	Parentaral
+319	O-Oral	O-Oral	
+321	O-Oral	O-Oral	
+322	O-Oral	O-Oral	
+363	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+369	Oph-Ophtalmic	Oph-Ophtalmic	
+411	O-Oral	O-Oral	
+412	O-Oral	O-Oral	
+416	Parentaral	IM/Intraarticular/intralesional/intrarectal	Parentaral
+417	Parentaral	IM/Intraarticular/intralesional/intrarectal	Parentaral
+437	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+439	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+441	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+442	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+449	Parentaral	Inf-IArte-Infusion- Intraarterial	Parentaral
+465	O-Oral	O-Oral	
+480	O-Oral	O-Oral	
+481	O-Oral	O-Oral	
+482	O-Oral	O-Oral	
+484	O-Oral	O-Oral	
+490	O-Oral	O-Oral	
+491	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+508	TS-Topical,scalp	TS-Topical,scalp	
+509	Parentaral	SC-Subcutanous	Parentaral
+511	O-Oral	O-Oral	
+513	Parentaral	Inf-Infusion	Parentaral
+515	Parentaral	Inf-Infusion	Parentaral
+516	Parentaral	Inf-Infusion	Parentaral
+518	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+519	Res-Respiratory	Res-Respiratory	
+521	Parentaral	SC-Subcutanous	Parentaral
+522	Parentaral	SC-Subcutanous	Parentaral
+528	O-Oral	O-Oral	
+529	O-Oral	O-Oral	
+530	O-Oral	O-Oral	
+531	O-Oral	O-Oral	
+542	Parentaral	IM-Intramuscular	Parentaral
+544	O-Oral	O-Oral	
+545	O-Oral	O-Oral	
+550	O-Oral	O-Oral	
+554	Parentaral	IArt-Intraarticular	Parentaral
+557	IO-Intraoral	IO-Intraoral	
+570	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+571	T-Topical	T-Topical	
+572	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+573	O-Oral	O-Oral	
+579	Oph-Ophtalmic	Oph-Ophtalmic	
+585	T-Topical	T-Topical	
+603	Res-Respiratory	Res-Respiratory	
+611	T-Topical	T-Topical	
+612	T-Topical	T-Topical	
+618	O-Oral	O-Oral	
+622	O-Oral	O-Oral	
+624	N-Nasal	N-Nasal	
+637	Res-Respiratory	Res-Respiratory	
+638	Res-Respiratory	Res-Respiratory	
+639	Res-Respiratory	Res-Respiratory	
+688	Parentaral	Inf-Infusion	Parentaral
+730	O-Oral	O-Oral	
+731	O-Oral	O-Oral	
+733	O-Oral	O-Oral	
+753	O-Oral	O-Oral	
+754	O-Oral	O-Oral	
+755	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+759	T-Topical	T-Topical	
+760	O-Oral	O-Oral	
+761	O-Oral	O-Oral	
+765	TD-Transdermal	TD-Transdermal	
+767	O-Oral	O-Oral	
+771	T-Topical	T-Topical	
+772	T-Topical	T-Topical	
+786	O-Oral	O-Oral	
+790	O-Oral	O-Oral	
+792	O-Oral	O-Oral	
+793	O-Oral	O-Oral	
+794	O-Oral	O-Oral	
+796	O-Oral	O-Oral	
+797	O-Oral	O-Oral	
+798	O-Oral	O-Oral	
+803	O-Oral	O-Oral	
+804	O-Oral	O-Oral	
+806	O-Oral	O-Oral	
+808	O-Oral	O-Oral	
+845	Parentaral	Inf-Infusion	Parentaral
+850	Parentaral	SC-Subcutanous	Parentaral
+856	O-Oral	O-Oral	
+867	O-Oral	O-Oral	
+868	O-Oral	O-Oral	
+869	O-Oral	O-Oral	
+870	O-Oral	O-Oral	
+885	O-Oral	O-Oral	
+889	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+890	O-Oral	O-Oral	
+893	O-Oral	O-Oral	
+897	O-Oral	O-Oral	
+899	O-Oral	O-Oral	
+955	Parentaral	Inf-Infusion	Parentaral
+956	Parentaral	Inf-Infusion	Parentaral
+957	O-Oral	O-Oral	
+958	Parentaral	Inf-Infusion	Parentaral
+966	IV-Intravenous	IV-Intravenous	
+968	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+969	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+973	O-Oral	O-Oral	
+974	O-Oral	O-Oral	
+975	O-Oral	O-Oral	
+978	O-Oral	O-Oral	
+983	O-Oral	O-Oral	
+988	O-Oral	O-Oral	
+993	O-Oral	O-Oral	
+998	O-Oral	O-Oral	
+1001	O-Oral	O-Oral	
+1002	O-Oral	O-Oral	
+1007	O-Oral	O-Oral	
+1008	O-Oral	O-Oral	
+1009	R-Rectal	R-Rectal	
+1025	O-Oral	O-Oral	
+1026	O-Oral	O-Oral	
+1028	Parentaral	SC-Subcutanous	Parentaral
+1037	Parentaral	SC-Subcutanous	Parentaral
+1038	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+1039	Parentaral	SC-Subcutanous	Parentaral
+1057	O-Oral	O-Oral	
+1058	O-Oral	O-Oral	
+1062	O-Oral	O-Oral	
+1068	IV-Intravenous	IV-Intravenous	
+1069	IV-Intravenous	IV-Intravenous	
+1083	O-Oral	O-Oral	
+1084	O-Oral	O-Oral	
+1086	O-Oral	O-Oral	
+1087	T-Topical	T-Topical	
+1088	T-Topical	T-Topical	
+1089	T-Topical	T-Topical	
+1095	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+1096	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+1097	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+1099	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+1104	O-Oral	O-Oral	
+1105	O-Oral	O-Oral	
+1106	O-Oral	O-Oral	
+1121	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+1122	O-Oral	O-Oral	
+1123	O-Oral	O-Oral	
+1124	O-Oral	O-Oral	
+1129	O-Oral	O-Oral	
+1130	O-Oral	O-Oral	
+1131	O-Oral	O-Oral	
+1132	O-Oral	O-Oral	
+1134	O-Oral	O-Oral	
+1137	O-Oral	O-Oral	
+1139	O-Oral	O-Oral	
+1141	O-Oral	O-Oral	
+1151	TD-Transdermal	TD-Transdermal	
+1157	O-Oral	O-Oral	
+1161	O-R-Oral-Rectal	O-R-Oral-Rectal	
+1162	O-R-Oral-Rectal	O-R-Oral-Rectal	
+1163	T-Topical	T-Topical	
+1164	T-Topical	T-Topical	
+1167	O-Oral	O-Oral	
+1169	T-Topical	T-Topical	
+1177	O-Oral	O-Oral	
+1179	Res-Respiratory	Res-Respiratory	
+1191	Parentaral	Inf-Infusion	Parentaral
+1192	Parentaral	Inf-Infusion	Parentaral
+1193	Parentaral	Inf-Infusion	Parentaral
+1194	N-Nasal	N-Nasal	
+1204	O-Oral	O-Oral	
+1205	O-Oral	O-Oral	
+1210	O-Oral	O-Oral	
+1211	O-Oral	O-Oral	
+1239	O-Oral	O-Oral	
+1240	O-Oral	O-Oral	
+1241	O-Oral	O-Oral	
+1248	O-Oral	O-Oral	
+1253	Parentaral	IM-Intramuscular	Parentaral
+1255	Parentaral	IM-Intramuscular	Parentaral
+1256	O-Oral	O-Oral	
+1260	R-Rectal	R-Rectal	
+1263	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+1271	O-Oral	O-Oral	
+1274	O-Oral	O-Oral	
+1277	O-Oral	O-Oral	
+1278	O-Oral	O-Oral	
+1290	Parentaral	Inf-Infusion	Parentaral
+1292	Oph-Ophtalmic	Oph-Ophtalmic	
+1301	O-Oral	O-Oral	
+1302	O-Oral	O-Oral	
+1309	O-Oral	O-Oral	
+1310	O-Oral	O-Oral	
+1311	O-Oral	O-Oral	
+1312	O-Oral	O-Oral	
+1337	O-Oral	O-Oral	
+1338	Parentaral	IM-Intramuscular	Parentaral
+1340	O-Oral	O-Oral	
+1341	O-Oral	O-Oral	
+1342	O-Oral	O-Oral	
+1343	O-Oral	O-Oral	
+1350	O-Oral	O-Oral	
+1351	O-Oral	O-Oral	
+1352	O-Oral	O-Oral	
+1356	O-Oral	O-Oral	
+1362	O-Oral	O-Oral	
+1363	O-Oral	O-Oral	
+1369	O-Oral	O-Oral	
+1372	T-Topical	T-Topical	
+1373	T-Topical	T-Topical	
+1381	O-Oral	O-Oral	
+1382	O-Oral	O-Oral	
+1383	O-Oral	O-Oral	
+1384	Res-Respiratory	Res-Respiratory	
+1385	O-Oral	O-Oral	
+1386	O-Oral	O-Oral	
+1394	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+1395	O-Oral	O-Oral	
+1402	Parentaral	IM-Intramuscular	Parentaral
+1403	T-Topical	T-Topical	
+1415	O-Oral	O-Oral	
+1416	O-Oral	O-Oral	
+1433	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+1434	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+1440	T-Topical	T-Topical	
+1453	O-Oral	O-Oral	
+1454	O-Oral	O-Oral	
+1455	R-Rectal	R-Rectal	
+1459	V-Vaginal	V-Vaginal	
+1460	V-Vaginal	V-Vaginal	
+1475	O-Oral	O-Oral	
+1478	O-Oral	O-Oral	
+1479	O-Oral	O-Oral	
+1490	O-Oral	O-Oral	
+1491	O-Oral	O-Oral	
+1492	Parentaral	Inf-Infusion	Parentaral
+1493	Parentaral	Inf-Infusion	Parentaral
+1494	O-Oral	O-Oral	
+1497	O-Oral	O-Oral	
+1498	O-Oral	O-Oral	
+1499	T-Topical	T-Topical	
+1503	O-Oral	O-Oral	
+1510	O-Oral	O-Oral	
+1511	O-Oral	O-Oral	
+1523	O-Oral	O-Oral	
+1525	O-Oral	O-Oral	
+1527	T-Topical	T-Topical	
+1531	O-Oral	O-Oral	
+1542	T-Topical	T-Topical	
+1543	O-Oral	O-Oral	
+1544	O-Oral	O-Oral	
+1548	T-Topical	T-Topical	
+1551	O-Oral	O-Oral	
+1552	O-Oral	O-Oral	
+1553	O-Oral	O-Oral	
+1554	O-Oral	O-Oral	
+1555	Parentaral	Inf-Infusion	Parentaral
+1556	O-Oral	O-Oral	
+1557	O-Oral	O-Oral	
+1559	O-Oral	O-Oral	
+1564	O-Oral	O-Oral	
+1570	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+1571	Parentaral	IM-Intramuscular	Parentaral
+1575	O-Oral	O-Oral	
+1579	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+1580	O-Oral	O-Oral	
+1581	O-Oral	O-Oral	
+1589	O-Oral	O-Oral	
+1591	O-Oral	O-Oral	
+1595	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+1602	O-Oral	O-Oral	
+1606	O-Oral	O-Oral	
+1610	O-Oral	O-Oral	
+1617	Parentaral	IM-Intramuscular	Parentaral
+1618	Parentaral	IM-Intramuscular	Parentaral
+1629	O-Oral	O-Oral	
+1630	IV-Intravenous	IV-Intravenous	
+1636	T-Topical	T-Topical	
+1641	O-Oral	O-Oral	
+1642	O-Oral	O-Oral	
+1643	O-Oral	O-Oral	
+1644	O-Oral	O-Oral	
+1646	Parentaral	SC-Subcutanous	Parentaral
+1651	O-Oral	O-Oral	
+1652	O-Oral	O-Oral	
+1658	O-Oral	O-Oral	
+1659	O-Oral	O-Oral	
+1660	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+1662	O-Oral	O-Oral	
+1664	O-Oral	O-Oral	
+1665	O-Oral	O-Oral	
+1668	O-Oral	O-Oral	
+1671	O-Oral	O-Oral	
+1679	O-Oral	O-Oral	
+1681	O-Oral	O-Oral	
+1682	O-Oral	O-Oral	
+1685	O-Oral	O-Oral	
+1686	O-Oral	O-Oral	
+1689	O-Oral	O-Oral	
+1705	Parentaral	IM-Intramuscular	Parentaral
+1709	O-Oral	O-Oral	
+1710	O-Oral	O-Oral	
+1711	O-Oral	O-Oral	
+1712	O-Oral	O-Oral	
+1713	O-Oral	O-Oral	
+1720	O-Oral	O-Oral	
+1721	O-Oral	O-Oral	
+1722	O-Oral	O-Oral	
+1725	T-Topical	T-Topical	
+1726	O-Oral	O-Oral	
+1727	O-Oral	O-Oral	
+1728	O-Oral	O-Oral	
+1731	Parentaral	Inf-Infusion	Parentaral
+1732	Parentaral	Inf-Infusion	Parentaral
+1735	O-Oral	O-Oral	
+1736	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+1746	O-Oral	O-Oral	
+1747	O-Oral	O-Oral	
+1752	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+1757	Parentaral	SC-Subcutanous	Parentaral
+1758	Parentaral	SC-Subcutanous	Parentaral
+1759	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+1765	O-Oral	O-Oral	
+1766	O-Oral	O-Oral	
+1770	R-Rectal	R-Rectal	
+1772	R-Rectal	R-Rectal	
+1779	Parentaral	Inf-Infusion	Parentaral
+1780	Parentaral	Inf-Infusion	Parentaral
+1781	N-Nasal	N-Nasal	
+1800	O-Oral	O-Oral	
+1801	O-Oral	O-Oral	
+1808	O-Oral	O-Oral	
+1809	O-Oral	O-Oral	
+1811	O-Oral	O-Oral	
+1812	R-Rectal	R-Rectal	
+1819	O-Oral	O-Oral	
+1820	O-Oral	O-Oral	
+1822	O-Oral	O-Oral	
+1823	O-Oral	O-Oral	
+1832	T-Topical	T-Topical	
+1835	O-Oral	O-Oral	
+1837	O-Oral	O-Oral	
+1839	O-Oral	O-Oral	
+1840	O-Oral	O-Oral	
+1842	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+1846	O-Oral	O-Oral	
+1847	O-Oral	O-Oral	
+1848	O-Oral	O-Oral	
+1849	O-Oral	O-Oral	
+1850	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+1852	O-Oral	O-Oral	
+1853	O-Oral	O-Oral	
+1854	O-Oral	O-Oral	
+1855	O-Oral	O-Oral	
+1857	O-Oral	O-Oral	
+1858	O-Oral	O-Oral	
+1859	O-Oral	O-Oral	
+1860	O-Oral	O-Oral	
+1861	O-Oral	O-Oral	
+1862	O-Oral	O-Oral	
+1864	O-Oral	O-Oral	
+1865	O-Oral	O-Oral	
+1867	O-Oral	O-Oral	
+1869	O-Oral	O-Oral	
+1870	O-Oral	O-Oral	
+1872	O-Oral	O-Oral	
+1877	O-Oral	O-Oral	
+1878	Res-Respiratory	Res-Respiratory	
+1879	Res-Respiratory	Res-Respiratory	
+2010	O-Oral	O-Oral	
+2012	O-Oral	O-Oral	
+2014	Parentaral	SC-Subcutanous	Parentaral
+2015	Parentaral	SC-Subcutanous	Parentaral
+2016	Parentaral	SC-Subcutanous	Parentaral
+2017	Parentaral	SC-Subcutanous	Parentaral
+2018	Parentaral	SC-Subcutanous	Parentaral
+2019	Parentaral	SC-Subcutanous	Parentaral
+2023	Parentaral	SC-Subcutanous	Parentaral
+2025	Parentaral	SC-Subcutanous	Parentaral
+2028	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+2029	Parentaral	SC-Subcutanous	Parentaral
+2036	O-Oral	O-Oral	
+2038	O-Oral	O-Oral	
+2041	O-Oral	O-Oral	
+2043	O-Oral	O-Oral	
+2045	O-Oral	O-Oral	
+2085	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2096	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+2097	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+2124	Parentaral	SC-Subcutanous	Parentaral
+2127	Parentaral	Inf-Infusion	Parentaral
+2137	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2139	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2140	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2156	O-Oral	O-Oral	
+2157	O-Oral	O-Oral	
+2177	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+2179	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+2198	O-Oral	O-Oral	
+2199	O-Oral	O-Oral	
+2217	IV-Intravenous	IV-Intravenous	
+2219	Parentaral	Inf-Infusion	Parentaral
+2220	Parentaral	Inf-Infusion	Parentaral
+2222	O-Oral	O-Oral	
+2224	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2226	Res-Respiratory	Res-Respiratory	
+2227	Res-Respiratory	Res-Respiratory	
+2241	O-Oral	O-Oral	
+2248	O-Oral	O-Oral	
+2249	O-Oral	O-Oral	
+2250	Parentaral	Inf-Infusion	Parentaral
+2251	O-Oral	O-Oral	
+2263	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2265	O-Oral	O-Oral	
+2266	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2267	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2268	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2271	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2272	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2273	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2277	Ot-Otic	Ot-Otic	
+2279	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2280	Parentaral	P-Parenteral	Parentaral
+2281	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+2282	Parentaral	Inf-Infusion	Parentaral
+2283	Parentaral	Inf-Infusion	Parentaral
+2284	Parentaral	Inf-Infusion	Parentaral
+2285	Parentaral	Inf-Infusion	Parentaral
+2287	Parentaral	Inf-Infusion	Parentaral
+2288	O-Oral	O-Oral	
+2289	O-Oral	O-Oral	
+2293	Parentaral	Inf-Infusion	Parentaral
+2295	O-Oral	O-Oral	
+2308	O-Oral	O-Oral	
+2322	O-Oral	O-Oral	
+2326	O-Oral	O-Oral	
+2332	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2334	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2344	O-Oral	O-Oral	
+2345	O-Oral	O-Oral	
+2349	O-Oral	O-Oral	
+2350	O-Oral	O-Oral	
+2361	O-Oral	O-Oral	
+2365	O-Oral	O-Oral	
+2366	O-Oral	O-Oral	
+2370	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+2381	O-Oral	O-Oral	
+2382	Ot-Otic	Ot-Otic	
+2417	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2418	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2419	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2420	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2421	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2423	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2426	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+2427	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2429	Parentaral	IM-Intramuscular	Parentaral
+2451	Oph-Ophtalmic	Oph-Ophtalmic	
+2462	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+2465	O-Oral	O-Oral	
+2469	Parentaral	Inf-Infusion	Parentaral
+2473	Parentaral	Inf-Infusion	Parentaral
+2476	O-Oral	O-Oral	
+2479	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2480	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2481	O-Oral	O-Oral	
+2491	Irrigation	Irrigation	
+2492	Irrigation	Irrigation	
+2497	Parentaral	Inf-IV-IVes-Infusion-Intravenous-Intravesical	Parentaral
+2498	Parentaral	Inf-IV-IVes-Infusion-Intravenous-Intravesical	Parentaral
+2503	O-Oral	O-Oral	
+2504	Parentaral	Inf-Infusion	Parentaral
+2511	Parentaral	Inf-Infusion	Parentaral
+2512	O-Oral	O-Oral	
+2520	Oph-Ophtalmic	Oph-Ophtalmic	
+2521	O-Oral	O-Oral	
+2543	O-Oral	O-Oral	
+2548	O-Oral	O-Oral	
+2555	O-Oral	O-Oral	
+2557	O-Oral	O-Oral	
+2566	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2570	Parentaral	IM-Intramuscular	Parentaral
+2573	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2576	OG-Oral gingival	OG-Oral gingival	
+2579	V-Vaginal	V-Vaginal	
+2581	R-Rectal	R-Rectal	
+2593	O-Oral	O-Oral	
+2595	Parentaral	Inf-Infusion	Parentaral
+2596	Parentaral	Inf-Infusion	Parentaral
+2610	Parentaral	Inf-Infusion	Parentaral
+2611	Parentaral	Inf-Infusion	Parentaral
+2612	T-Topical	T-Topical	
+2626	Parentaral	Inf-IV-SC-Infusion-Intravenous-Subcutanous	Parentaral
+2630	O-Oral	O-Oral	
+2634	OG-Oral gingival	OG-Oral gingival	
+2638	R-Rectal	R-Rectal	
+2639	R-Rectal	R-Rectal	
+2640	Parentaral	Inf-Infusion	Parentaral
+2645	O-Oral	O-Oral	
+2647	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2650	O-Oral	O-Oral	
+2652	O-Oral	O-Oral	
+2661	Parentaral	Inf-Infusion	Parentaral
+2662	Parentaral	Inf-Infusion	Parentaral
+2669	O-Oral	O-Oral	
+2688	O-Oral	O-Oral	
+2695	O-Oral	O-Oral	
+2700	Parentaral	IM-Intramuscular	Parentaral
+2705	T-Topical	T-Topical	
+2708	O-Oral	O-Oral	
+2714	O-Oral	O-Oral	
+2719	O-Oral	O-Oral	
+2731	O-Oral	O-Oral	
+2735	Parentaral	P-Parenteral	Parentaral
+2736	Parentaral	P-Parenteral	Parentaral
+2739	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2747	T-Topical	T-Topical	
+2748	T-Topical	T-Topical	
+2753	T-Topical	T-Topical	
+2755	TS-Topical,scalp	TS-Topical,scalp	
+2767	T-Topical	T-Topical	
+2768	O-Oral	O-Oral	
+2771	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2793	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+2800	T-Topical	T-Topical	
+2801	T-Topical	T-Topical	
+2802	T-Topical	T-Topical	
+2803	Parentaral	Inf-Infusion	Parentaral
+2805	O-Oral	O-Oral	
+2806	Parentaral	SC-Subcutanous	Parentaral
+2810	Parentaral	IM-Intramuscular	Parentaral
+2811	Parentaral	IM-Intramuscular	Parentaral
+2813	O-Oral	O-Oral	
+2815	O-Oral	O-Oral	
+2827	Parentaral	P-Parenteral	Parentaral
+2855	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+2869	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2871	Parentaral	Inf-Infusion	Parentaral
+2886	T-Topical	T-Topical	
+2904	O-Oral	O-Oral	
+2905	O-Oral	O-Oral	
+2909	O-Oral	O-Oral	
+2910	O-Oral	O-Oral	
+2924	O-Oral	O-Oral	
+2936	V-Vaginal	V-Vaginal	
+2937	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2938	O-Oral	O-Oral	
+2941	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2942	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+2968	O-Oral	O-Oral	
+2969	O-Oral	O-Oral	
+2974	O-Oral	O-Oral	
+2975	O-Oral	O-Oral	
+2976	Parentaral	Inf-Infusion	Parentaral
+2977	O-Oral	O-Oral	
+2978	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+2979	O-Oral	O-Oral	
+2980	O-Oral	O-Oral	
+2985	O-Oral	O-Oral	
+2986	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+2987	O-Oral	O-Oral	
+3027	O-Oral	O-Oral	
+3028	O-Oral	O-Oral	
+3038	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+3045	O-Oral	O-Oral	
+3046	O-Oral	O-Oral	
+3047	O-Oral	O-Oral	
+3054	Oph-Ophtalmic	Oph-Ophtalmic	
+3055	O-Oral	O-Oral	
+3058	O-Oral	O-Oral	
+3059	O-Oral	O-Oral	
+3069	O-Oral	O-Oral	
+3070	O-Oral	O-Oral	
+3074	Oph-Ophtalmic	Oph-Ophtalmic	
+3077	O-Oral	O-Oral	
+3079	O-Oral	O-Oral	
+3086	O-Oral	O-Oral	
+3094	O-Oral	O-Oral	
+3110	O-Oral	O-Oral	
+3115	O-Oral	O-Oral	
+3116	R-Rectal	R-Rectal	
+3119	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+3121	O-Oral	O-Oral	
+3156	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+3161	O-Oral	O-Oral	
+3168	O-Oral	O-Oral	
+3172	O-Oral	O-Oral	
+3180	O-Oral	O-Oral	
+3188	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+3195	O-Oral	O-Oral	
+3196	O-Oral	O-Oral	
+3203	Parentaral	Inf-IV-IPt-Infusion-Intravenous-Intramuscular-Intraperitoneal	Parentaral
+3206	O-Oral	O-Oral	
+3247	Oph-Ophtalmic	Oph-Ophtalmic	
+3263	Parentaral	IM-Intramuscular	Parentaral
+3265	O-Oral	O-Oral	
+3267	Parentaral	Inf-Infusion	Parentaral
+3268	V-Vaginal	V-Vaginal	
+3272	Parentaral	Inf-Infusion	Parentaral
+3273	Parentaral	Inf-Infusion	Parentaral
+3274	Parentaral	Inf-Infusion	Parentaral
+3279	IV-Intravenous	IV-Intravenous	
+3280	IV-Intravenous	IV-Intravenous	
+3281	IV-Intravenous	IV-Intravenous	
+3340	O-Oral	O-Oral	
+3345	O-Oral	O-Oral	
+3351	Parentaral	Inf-Infusion	Parentaral
+3353	Parentaral	Inf-Infusion	Parentaral
+3354	Parentaral	IM-Intramuscular	Parentaral
+3356	Parentaral and Non-parentaral	O-IV-IM-Oral-Intravenous-Intramuscular	Parentaral and Non-parentaral
+3358	Parentaral	Inf-IV-SC-ITh-Infusion-Intravenous-Subcutanous-Intrathecal	Parentaral
+3367	O-Oral	O-Oral	
+3371	R-Rectal	R-Rectal	
+3376	Parentaral	Inf-Infusion	Parentaral
+3382	Oph-Ophtalmic	Oph-Ophtalmic	
+3385	O-Oral	O-Oral	
+3388	O-Oral	O-Oral	
+3392	O-Oral	O-Oral	
+3393	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+3400	Parentaral	SC-Subcutanous	Parentaral
+3401	Parentaral	SC-Subcutanous	Parentaral
+3404	Parentaral	Inf-Infusion	Parentaral
+3411	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+3412	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+3413	Parentaral	Inf-Infusion	Parentaral
+3414	T-Topical	T-Topical	
+3415	T-Topical	T-Topical	
+3426	Parentaral	SC-Subcutanous	Parentaral
+3427	O-Oral	O-Oral	
+3434	R-Rectal	R-Rectal	
+3435	O-Oral	O-Oral	
+3436	R-Rectal	R-Rectal	
+3444	T-Topical	T-Topical	
+3447	Parentaral	SC-Subcutanous	Parentaral
+3464	O-Oral	O-Oral	
+3472	IO-Intraoral	IO-Intraoral	
+3483	O-Oral	O-Oral	
+3486	O-Oral	O-Oral	
+3487	Parentaral	Inf-Infusion	Parentaral
+3488	Parentaral	Inf-Infusion	Parentaral
+3489	Parentaral	Inf-Infusion	Parentaral
+3490	N-Nasal	N-Nasal	
+3491	O-Oral	O-Oral	
+3495	O-Oral	O-Oral	
+3504	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+3512	O-Oral	O-Oral	
+3525	Oph-Ophtalmic	Oph-Ophtalmic	
+3526	T-Topical	T-Topical	
+3528	IV-Intravenous	IV-Intravenous	
+3530	O-Oral	O-Oral	
+3531	O-Oral	O-Oral	
+3532	Parentaral	Inf-Infusion	Parentaral
+3539	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+3546	Parentaral	Inf-Infusion	Parentaral
+3559	T-Topical	T-Topical	
+3560	O-Oral	O-Oral	
+3561	O-Oral	O-Oral	
+3563	O-Oral	O-Oral	
+3564	O-Oral	O-Oral	
+3570	O-Oral	O-Oral	
+3571	O-Oral	O-Oral	
+3572	O-Oral	O-Oral	
+3576	Parentaral	Inf-Infusion	Parentaral
+3577	Parentaral	Inf-Infusion	Parentaral
+3578	Parentaral	Inf-Infusion	Parentaral
+3579	O-Oral	O-Oral	
+3588	O-Oral	O-Oral	
+3590	O-Oral	O-Oral	
+3591	O-Oral	O-Oral	
+3592	O-Oral	O-Oral	
+3593	O-Oral	O-Oral	
+3594	O-Oral	O-Oral	
+3595	O-Oral	O-Oral	
+3596	O-Oral	O-Oral	
+3597	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+3598	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+3599	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+3600	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+3601	O-Oral	O-Oral	
+3603	O-Oral	O-Oral	
+3604	Parentaral	Inf-Infusion	Parentaral
+3605	T-Topical	T-Topical	
+3607			
+3610	V-Vaginal	V-Vaginal	
+3611	T-Topical	T-Topical	
+3621	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+3626	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+3631	O-Oral	O-Oral	
+3632	O-Oral	O-Oral	
+3633	O-Oral	O-Oral	
+3634	O-Oral	O-Oral	
+3635	O-Oral	O-Oral	
+3651	O-Oral	O-Oral	
+3658	O-Oral	O-Oral	
+3660	O-Oral	O-Oral	
+3677	O-Oral	O-Oral	
+3678	O-Oral	O-Oral	
+3679	O-Oral	O-Oral	
+3682	O-Oral	O-Oral	
+3683	T-Topical	T-Topical	
+3684	O-Oral	O-Oral	
+3685	O-Oral	O-Oral	
+3686	O-Oral	O-Oral	
+3692	O-Oral	O-Oral	
+3694	T-Topical	T-Topical	
+3695	T-Topical	T-Topical	
+3698	T-Topical	T-Topical	
+3711	V-Vaginal	V-Vaginal	
+3712	O-Oral	O-Oral	
+3714	O-Oral	O-Oral	
+3715	O-Oral	O-Oral	
+3717	O-Oral	O-Oral	
+3733	IOc-Intraocular	IOc-Intraocular	
+3740	O-Oral	O-Oral	
+3747	O-Oral	O-Oral	
+3748	O-Oral	O-Oral	
+3749	O-Oral	O-Oral	
+3754	O-Oral	O-Oral	
+3755	O-Oral	O-Oral	
+3757	O-Oral	O-Oral	
+3758	O-Oral	O-Oral	
+3774	R-Rectal	R-Rectal	
+3775	R-Rectal	R-Rectal	
+3777	O-Oral	O-Oral	
+3780	Ot-Otic	Ot-Otic	
+3781	O-Oral	O-Oral	
+3790	SL-Sublingual	SL-Sublingual	
+3791	SL-Sublingual	SL-Sublingual	
+3792	SL-Sublingual	SL-Sublingual	
+3793	SL-Sublingual	SL-Sublingual	
+3794	Parentaral	SC-Subcutanous	Parentaral
+3795	Parentaral	SC-Subcutanous	Parentaral
+3819	O-Oral	O-Oral	
+3820	O-Oral	O-Oral	
+3829	O-Oral	O-Oral	
+3830	O-Oral	O-Oral	
+3831	O-Oral	O-Oral	
+3832	O-Oral	O-Oral	
+3838	O-Oral	O-Oral	
+3847	O-Oral	O-Oral	
+3851	O-Oral	O-Oral	
+3853	O-Oral	O-Oral	
+3854	O-Oral	O-Oral	
+3863	IO-Intraoral	IO-Intraoral	
+3881	O-Oral	O-Oral	
+3882	O-Oral	O-Oral	
+3885	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+3887	O-Oral	O-Oral	
+3888	O-Oral	O-Oral	
+3889	O-Oral	O-Oral	
+3890	O-Oral	O-Oral	
+3891	O-Oral	O-Oral	
+3894	O-Oral	O-Oral	
+3895	O-Oral	O-Oral	
+3898	O-Oral	O-Oral	
+3899	O-Oral	O-Oral	
+3900	O-Oral	O-Oral	
+3902	T-Topical	T-Topical	
+3903	T-Topical	T-Topical	
+3904	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+3905	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+3906	O-Oral	O-Oral	
+3907	O-Oral	O-Oral	
+3909	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+3915	O-Oral	O-Oral	
+3919	O-Oral	O-Oral	
+3920	O-Oral	O-Oral	
+3922	Parentaral	Inf-Infusion	Parentaral
+3928	Parentaral	IM-Intramuscular	Parentaral
+3938	O-Oral	O-Oral	
+3939	Parentaral	Inf-Infusion	Parentaral
+3940	Parentaral	Inf-Infusion	Parentaral
+3943	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+3944	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+3949	O-Oral	O-Oral	
+3951	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+3952	Parentaral	Inf-Infusion	Parentaral
+3956	O-Oral	O-Oral	
+3959	O-Oral	O-Oral	
+3960	O-Oral	O-Oral	
+3961	Oph-Ophtalmic	Oph-Ophtalmic	
+3962	Oph-Ophtalmic	Oph-Ophtalmic	
+3963	Oph-Ophtalmic	Oph-Ophtalmic	
+3969	O-Oral	O-Oral	
+3970	O-Oral	O-Oral	
+3974	O-Oral	O-Oral	
+3976	O-Oral	O-Oral	
+3977	O-Oral	O-Oral	
+3978	O-Oral	O-Oral	
+3979	Parentaral	SC-Subcutanous	Parentaral
+3980	O-Oral	O-Oral	
+3981	O-Oral	O-Oral	
+3984	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+3986	O-Oral	O-Oral	
+3987	O-Oral	O-Oral	
+3990	O-Oral	O-Oral	
+3992	T-Topical	T-Topical	
+3993	O-Oral	O-Oral	
+3994	O-Oral	O-Oral	
+3996	O-Oral	O-Oral	
+3999	Parentaral	Inf-Infusion	Parentaral
+4015	O-Oral	O-Oral	
+4016	O-Oral	O-Oral	
+4017	O-Oral	O-Oral	
+4018	O-Oral	O-Oral	
+4019	O-Oral	O-Oral	
+4020	Parentaral	ITh-Intrathecal	Parentaral
+4021	Parentaral	Injectable route (except IV route)	Parentaral
+4022	Parentaral	Injectable route (except IV route)	Parentaral
+4025	Parentaral	SC-Subcutanous	Parentaral
+4028	Parentaral	Inf-Infusion	Parentaral
+4029	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+4041	O-Oral	O-Oral	
+4043	Parentaral	Inf-Infusion	Parentaral
+4048	Parentaral	Inf-Infusion	Parentaral
+4057	Parentaral	Inf-IV-IPt-Infusion-Intravenous-Intramuscular-Intraperitoneal	Parentaral
+4058	Parentaral	Inf-Infusion	Parentaral
+4061	ITrac-Intratracheal	ITrac-Intratracheal	
+4067	T-Topical	T-Topical	
+4070	O-Oral	O-Oral	
+4071	O-Oral	O-Oral	
+4075	O-Oral	O-Oral	
+4078	O-Oral	O-Oral	
+4079	O-Oral	O-Oral	
+4082	O-Oral	O-Oral	
+4083	Parentaral	Inf-Infusion	Parentaral
+4086	O-Oral	O-Oral	
+4092	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+4093	Parentaral	SC-Subcutanous	Parentaral
+4094	O-Oral	O-Oral	
+4095	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+4097	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+4098	Oph-Ophtalmic	Oph-Ophtalmic	
+4100	Oph-Ophtalmic	Oph-Ophtalmic	
+4103	Parentaral	Inf-Infusion	Parentaral
+4104	Parentaral	Inf-Infusion	Parentaral
+4105	HD-Haemodialysis	HD-Haemodialysis	
+4106	HD-Haemodialysis	HD-Haemodialysis	
+4107	HD-Haemodialysis	HD-Haemodialysis	
+4108	HD-Haemodialysis	HD-Haemodialysis	
+4109	HD-Haemodialysis	HD-Haemodialysis	
+4110	Parentaral	Inf-Infusion	Parentaral
+4111	Parentaral	Inf-Infusion	Parentaral
+4112	Parentaral	Inf-Infusion	Parentaral
+4113	Parentaral	Inf-Infusion	Parentaral
+4114	Parentaral	Inf-Infusion	Parentaral
+4115	Parentaral	Inf-Infusion	Parentaral
+4117	Parentaral	Inf-Infusion	Parentaral
+4119	Parentaral	Inf-Infusion	Parentaral
+4122	Parentaral	Inf-Infusion	Parentaral
+4124	Parentaral	Inf-Infusion	Parentaral
+4126	Parentaral	Inf-Infusion	Parentaral
+4128	Parentaral	Inf-Infusion	Parentaral
+4130	Parentaral	Inf-Infusion	Parentaral
+4133	Parentaral	Inf-Infusion	Parentaral
+4134	Parentaral	Inf-Infusion	Parentaral
+4136	Parentaral	Inf-Infusion	Parentaral
+4138	Parentaral	Inf-Infusion	Parentaral
+4142	Parentaral	Inf-Infusion	Parentaral
+4144	Parentaral	Inf-Infusion	Parentaral
+4147	Parentaral	Inf-Infusion	Parentaral
+4149	Parentaral	Inf-Infusion	Parentaral
+4151	Parentaral	Inf-Infusion	Parentaral
+4153	Parentaral	Inf-Infusion	Parentaral
+4155	Parentaral	Inf-Infusion	Parentaral
+4157	Parentaral	Inf-Infusion	Parentaral
+4159	Parentaral	Inf-Infusion	Parentaral
+4163	Parentaral	Inf-Infusion	Parentaral
+4165	Parentaral	Inf-Infusion	Parentaral
+4166	Parentaral	Inf-Infusion	Parentaral
+4167	Parentaral	Inf-Infusion	Parentaral
+4169	Parentaral	Inf-Infusion	Parentaral
+4174	Parentaral	Inf-Infusion	Parentaral
+4175	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+4176	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+4177	Parentaral	Inf-Infusion	Parentaral
+4179	Parentaral	Inf-Infusion	Parentaral
+4181	Parentaral	Inf-Infusion	Parentaral
+4182	Parentaral	Inf-Infusion	Parentaral
+4184	Parentaral	Inf-Infusion	Parentaral
+4187	Parentaral	Inf-Infusion	Parentaral
+4189	Parentaral	Inf-Infusion	Parentaral
+4191	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+4192	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+4196	Parentaral	Inf-Infusion	Parentaral
+4197	Parentaral	Inf-Infusion	Parentaral
+4198	Parentaral	Inf-Infusion	Parentaral
+4199	Parentaral	Inf-Infusion	Parentaral
+4200	Parentaral	Inf-Infusion	Parentaral
+4201	Parentaral	Inf-Infusion	Parentaral
+4202	Parentaral	Inf-Infusion	Parentaral
+4203	Parentaral	Inf-Infusion	Parentaral
+4204	Parentaral	Inf-Infusion	Parentaral
+4205	Parentaral	Inf-Infusion	Parentaral
+4206	Parentaral	Inf-Infusion	Parentaral
+4207	Parentaral	Inf-Infusion	Parentaral
+4208	Parentaral	Inf-Infusion	Parentaral
+4209	Parentaral	Inf-Infusion	Parentaral
+4211	Parentaral	Inf-Infusion	Parentaral
+4212	Parentaral	Inf-Infusion	Parentaral
+4214	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+4215	Parentaral	Inf-Infusion	Parentaral
+4217	Parentaral	Inf-Infusion	Parentaral
+4219	Parentaral	Inf-Infusion	Parentaral
+4221	Parentaral	Inf-Infusion	Parentaral
+4223	Parentaral	Inf-Infusion	Parentaral
+4224	Parentaral	Inf-Infusion	Parentaral
+4225	Parentaral	Inf-Infusion	Parentaral
+4227	Irrigation	Irrigation	
+4229	Irrigation	Irrigation	
+4231	Irrigation	Irrigation	
+4235	Irrigation	Irrigation	
+4236	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+4237	Irrigation	Irrigation	
+4238	Irrigation	Irrigation	
+4239	O-Oral	O-Oral	
+4240	R-Rectal	R-Rectal	
+4241	O-Oral	O-Oral	
+4242	O-Oral	O-Oral	
+4243	O-Oral	O-Oral	
+4245	Ot-Otic	Ot-Otic	
+4246	O-Oral	O-Oral	
+4249	O-Oral	O-Oral	
+4250	O-Oral	O-Oral	
+4251	O-Oral	O-Oral	
+4252	O-Oral	O-Oral	
+4253	O-Oral	O-Oral	
+4254	O-Oral	O-Oral	
+4258	O-Oral	O-Oral	
+4259	O-Oral	O-Oral	
+4260	O-Oral	O-Oral	
+4261	O-Oral	O-Oral	
+4262	O-Oral	O-Oral	
+4263	O-Oral	O-Oral	
+4264	O-Oral	O-Oral	
+4265	O-Oral	O-Oral	
+4266	O-Oral	O-Oral	
+4267	O-Oral	O-Oral	
+4268	O-Oral	O-Oral	
+4269	O-Oral	O-Oral	
+4270	O-Oral	O-Oral	
+4271	O-Oral	O-Oral	
+4272	O-Oral	O-Oral	
+4275	O-Oral	O-Oral	
+4276	O-Oral	O-Oral	
+4277	O-Oral	O-Oral	
+4278	O-Oral	O-Oral	
+4284	O-Oral	O-Oral	
+4285	O-Oral	O-Oral	
+4286	O-Oral	O-Oral	
+4287	T-Topical	T-Topical	
+4288	O-Oral	O-Oral	
+4289	O-Oral	O-Oral	
+4290	O-Oral	O-Oral	
+4291	O-Oral	O-Oral	
+4292	O-Oral	O-Oral	
+4293	O-Oral	O-Oral	
+4294	O-Oral	O-Oral	
+4295	O-Oral	O-Oral	
+4296	O-Oral	O-Oral	
+4297	Ot-Otic	Ot-Otic	
+4300	O-Oral	O-Oral	
+4301	O-Oral	O-Oral	
+4302	O-Oral	O-Oral	
+4303	O-Oral	O-Oral	
+4304	O-Oral	O-Oral	
+4305	O-Oral	O-Oral	
+4306	R-Rectal	R-Rectal	
+4309	O-Oral	O-Oral	
+4310	O-Oral	O-Oral	
+4311	O-Oral	O-Oral	
+4312	O-Oral	O-Oral	
+4313	T-Topical	T-Topical	
+4314	O-Oral	O-Oral	
+4315	V-Vaginal	V-Vaginal	
+4316	V-Vaginal	V-Vaginal	
+4317	V-Vaginal	V-Vaginal	
+4318	T-Topical	T-Topical	
+4319	V-Vaginal	V-Vaginal	
+4320	O-Oral	O-Oral	
+4321	O-Oral	O-Oral	
+4322	O-Oral	O-Oral	
+4324	O-Oral	O-Oral	
+4325	O-Oral	O-Oral	
+4326	O-Oral	O-Oral	
+4327	O-Oral	O-Oral	
+4331	O-Oral	O-Oral	
+4332	O-Oral	O-Oral	
+4333	O-Oral	O-Oral	
+4336	O-Oral	O-Oral	
+4337	O-Oral	O-Oral	
+4338	O-Oral	O-Oral	
+4339	O-Oral	O-Oral	
+4340	O-Oral	O-Oral	
+4341	O-Oral	O-Oral	
+4345	O-Oral	O-Oral	
+4350	R-Rectal	R-Rectal	
+4351	R-Rectal	R-Rectal	
+4354	O-Oral	O-Oral	
+4355	O-Oral	O-Oral	
+4357	O-Oral	O-Oral	
+4361	O-Oral	O-Oral	
+4362	T-Topical	T-Topical	
+4364	O-Oral	O-Oral	
+4367	T-Topical	T-Topical	
+4368	T-Topical	T-Topical	
+4369	T-Topical	T-Topical	
+4370	O-Oral	O-Oral	
+4371	O-Oral	O-Oral	
+4372	O-Oral	O-Oral	
+4373	O-Oral	O-Oral	
+4374	O-Oral	O-Oral	
+4376	O-Oral	O-Oral	
+4377	T-Topical	T-Topical	
+4378	O-Oral	O-Oral	
+4379	O-Oral	O-Oral	
+4380	O-Oral	O-Oral	
+4387	O-Oral	O-Oral	
+4388	O-Oral	O-Oral	
+4389	O-Oral	O-Oral	
+4390	O-Oral	O-Oral	
+4392	O-Oral	O-Oral	
+4393	O-Oral	O-Oral	
+4395	O-Oral	O-Oral	
+4396	O-Oral	O-Oral	
+4397	T-Topical	T-Topical	
+4398	O-Oral	O-Oral	
+4399	O-Oral	O-Oral	
+4400	T-Topical	T-Topical	
+4401	O-Oral	O-Oral	
+4402	O-Oral	O-Oral	
+4404	O-Oral	O-Oral	
+4405	O-Oral	O-Oral	
+4406	O-Oral	O-Oral	
+4411	T-Topical	T-Topical	
+4413	O-Oral	O-Oral	
+4414	T-Topical	T-Topical	
+4415	O-Oral	O-Oral	
+4416	O-Oral	O-Oral	
+4417	T-Topical	T-Topical	
+4418	O-Oral	O-Oral	
+4419	O-Oral	O-Oral	
+4420	O-Oral	O-Oral	
+4421	O-Oral	O-Oral	
+4422	O-Oral	O-Oral	
+4423	O-Oral	O-Oral	
+4424	O-Oral	O-Oral	
+4425	O-Oral	O-Oral	
+4427	O-Oral	O-Oral	
+4428	O-Oral	O-Oral	
+4429	O-Oral	O-Oral	
+4431	T-Topical	T-Topical	
+4433	O-Oral	O-Oral	
+4434	O-Oral	O-Oral	
+4435	O-Oral	O-Oral	
+4436	O-Oral	O-Oral	
+4438	O-Oral	O-Oral	
+4439	T-Topical	T-Topical	
+4440	O-Oral	O-Oral	
+4442	O-Oral	O-Oral	
+4446	O-Oral	O-Oral	
+4447	O-Oral	O-Oral	
+4448	O-Oral	O-Oral	
+4450	O-Oral	O-Oral	
+4451	Ot-Otic	Ot-Otic	
+4452	O-Oral	O-Oral	
+4453	O-Oral	O-Oral	
+4454	T-Topical	T-Topical	
+4455	O-Oral	O-Oral	
+4456	O-Oral	O-Oral	
+4457	O-Oral	O-Oral	
+4458	O-Oral	O-Oral	
+4459	O-Oral	O-Oral	
+4460	O-Oral	O-Oral	
+4461	O-Oral	O-Oral	
+4462	O-Oral	O-Oral	
+4463	O-Oral	O-Oral	
+4464	O-Oral	O-Oral	
+4466	O-Oral	O-Oral	
+4467	T-Topical	T-Topical	
+4468	O-Oral	O-Oral	
+4469	O-Oral	O-Oral	
+4481	T-Topical	T-Topical	
+4488	T-Topical	T-Topical	
+4490	T-Topical	T-Topical	
+4492	T-Topical	T-Topical	
+4494	T-Topical	T-Topical	
+4495	O-Oral	O-Oral	
+4497	O-Oral	O-Oral	
+4499	T-Topical	T-Topical	
+4501	O-Oral	O-Oral	
+4502	O-Oral	O-Oral	
+4503	O-Oral	O-Oral	
+4504	O-Oral	O-Oral	
+4505	T-Topical	T-Topical	
+4507	O-Oral	O-Oral	
+4508	O-Oral	O-Oral	
+4509	O-Oral	O-Oral	
+4513	Ot-Otic	Ot-Otic	
+4516	O-Oral	O-Oral	
+4517	O-Oral	O-Oral	
+4518	O-Oral	O-Oral	
+4519	O-Oral	O-Oral	
+4523	T-Topical	T-Topical	
+4524	Oph-Ophtalmic	Oph-Ophtalmic	
+4525	O-Oral	O-Oral	
+4532	T-Topical	T-Topical	
+4535	O-Oral	O-Oral	
+4536	O-Oral	O-Oral	
+4537	O-Oral	O-Oral	
+4540	O-Oral	O-Oral	
+4541	O-Oral	O-Oral	
+4543	O-Oral	O-Oral	
+4545	R-Rectal	R-Rectal	
+4547	T-Topical	T-Topical	
+4548	R-Rectal	R-Rectal	
+4549	R-Rectal	R-Rectal	
+4551	R-Rectal	R-Rectal	
+4552	O-Oral	O-Oral	
+4554	O-Oral	O-Oral	
+4559	T-Topical	T-Topical	
+4560	O-Oral	O-Oral	
+4561	O-Oral	O-Oral	
+4562	O-Oral	O-Oral	
+4563	O-Oral	O-Oral	
+4564	O-Oral	O-Oral	
+4565	O-Oral	O-Oral	
+4566	O-Oral	O-Oral	
+4567	T-Topical	T-Topical	
+4568	T-Topical	T-Topical	
+4569	O-Oral	O-Oral	
+4572	R-Rectal	R-Rectal	
+4573	O-Oral	O-Oral	
+4574	O-Oral	O-Oral	
+4575	O-Oral	O-Oral	
+4576	O-Oral	O-Oral	
+4577	O-Oral	O-Oral	
+4578	O-Oral	O-Oral	
+4579	O-Oral	O-Oral	
+4580	O-Oral	O-Oral	
+4581	O-Oral	O-Oral	
+4582	O-Oral	O-Oral	
+4583	R-Rectal	R-Rectal	
+4584	O-Oral	O-Oral	
+4585	O-Oral	O-Oral	
+4586	O-Oral	O-Oral	
+4587	O-Oral	O-Oral	
+4588	O-Oral	O-Oral	
+4589	O-Oral	O-Oral	
+4590	T-Topical	T-Topical	
+4591	T-Topical	T-Topical	
+4592	T-Topical	T-Topical	
+4593	R-Rectal	R-Rectal	
+4594	T-Topical	T-Topical	
+4595	O-Oral	O-Oral	
+4596	O-Oral	O-Oral	
+4597	O-Oral	O-Oral	
+4598	T-Topical	T-Topical	
+4599	T-Topical	T-Topical	
+4600	T-Topical	T-Topical	
+4602	O-Oral	O-Oral	
+4603	R-Rectal	R-Rectal	
+4604	O-Oral	O-Oral	
+4605	O-Oral	O-Oral	
+4607	N-Nasal	N-Nasal	
+4608	O-Oral	O-Oral	
+4610	T-Topical	T-Topical	
+4611	O-Oral	O-Oral	
+4612	Oph-Ot-Ophtalmic and Otic	Oph-Ot-Ophtalmic and Otic	
+4613	T-Topical	T-Topical	
+4614	O-Oral	O-Oral	
+4615	O-Oral	O-Oral	
+4616	O-Oral	O-Oral	
+4617	O-Oral	O-Oral	
+4618	T-Topical	T-Topical	
+4619	O-Oral	O-Oral	
+4620	O-Oral	O-Oral	
+4621	T-Topical	T-Topical	
+4622	O-Oral	O-Oral	
+4623	O-Oral	O-Oral	
+4624	R-Rectal	R-Rectal	
+4626	O-Oral	O-Oral	
+4628	O-Oral	O-Oral	
+4629	R-Rectal	R-Rectal	
+4630	R-Rectal	R-Rectal	
+4631	Oph-Ot-Ophtalmic and Otic	Oph-Ot-Ophtalmic and Otic	
+4632	T-Topical	T-Topical	
+4633	O-Oral	O-Oral	
+4634	T-Topical	T-Topical	
+4635	Oph-Ophtalmic	Oph-Ophtalmic	
+4636	O-Oral	O-Oral	
+4637	O-Oral	O-Oral	
+4638	O-Oral	O-Oral	
+4639	O-Oral	O-Oral	
+4640	O-Oral	O-Oral	
+4641	T-Topical	T-Topical	
+4642	O-Oral	O-Oral	
+4643	O-Oral	O-Oral	
+4644	O-Oral	O-Oral	
+4645	O-Oral	O-Oral	
+4646	T-Topical	T-Topical	
+4648	O-Oral	O-Oral	
+4649	O-Oral	O-Oral	
+4650	O-Oral	O-Oral	
+4651	O-Oral	O-Oral	
+4652	O-Oral	O-Oral	
+4653	O-Oral	O-Oral	
+4658	O-Oral	O-Oral	
+4660	O-Oral	O-Oral	
+4661	T-Topical	T-Topical	
+4662	O-Oral	O-Oral	
+4664	O-Oral	O-Oral	
+4666	O-Oral	O-Oral	
+4667	O-Oral	O-Oral	
+4668	O-Oral	O-Oral	
+4673	O-Oral	O-Oral	
+4674	O-Oral	O-Oral	
+4675	O-Oral	O-Oral	
+4676	O-Oral	O-Oral	
+4677	O-Oral	O-Oral	
+4680	O-Oral	O-Oral	
+4682	O-Oral	O-Oral	
+4684	T-Topical	T-Topical	
+4688	T-Topical	T-Topical	
+4693	O-Oral	O-Oral	
+4694	O-Oral	O-Oral	
+4695	O-Oral	O-Oral	
+4696	O-Oral	O-Oral	
+4697	O-Oral	O-Oral	
+4698	O-Oral	O-Oral	
+4699	O-Oral	O-Oral	
+4700	O-Oral	O-Oral	
+4701	O-Oral	O-Oral	
+4702	O-Oral	O-Oral	
+4703	O-Oral	O-Oral	
+4704	Parentaral	IM-Intramuscular	Parentaral
+4710	O-Oral	O-Oral	
+4714	T-Topical	T-Topical	
+4715	O-Oral	O-Oral	
+4718	O-Oral	O-Oral	
+4719	O-Oral	O-Oral	
+4720	O-Oral	O-Oral	
+4721	O-Oral	O-Oral	
+4722	O-Oral	O-Oral	
+4725	O-Oral	O-Oral	
+4728	O-Oral	O-Oral	
+4729	O-Oral	O-Oral	
+4730	O-Oral	O-Oral	
+4731	O-Oral	O-Oral	
+4735	O-Oral	O-Oral	
+4736	O-Oral	O-Oral	
+4737	O-Oral	O-Oral	
+4738	O-Oral	O-Oral	
+4745	O-Oral	O-Oral	
+4747	Parentaral	Inf-Infusion	Parentaral
+4748	Parentaral	Inf-Infusion	Parentaral
+4749	Parentaral	Inf-Infusion	Parentaral
+4750	Parentaral	Inf-Infusion	Parentaral
+4751	Parentaral	Inf-Infusion	Parentaral
+4752	Parentaral	Inf-Infusion	Parentaral
+4753	Parentaral	Inf-Infusion	Parentaral
+4754	Parentaral	Inf-Infusion	Parentaral
+4755	Parentaral	Inf-Infusion	Parentaral
+4756	Parentaral	Inf-Infusion	Parentaral
+4764	Parentaral	Inf-Infusion	Parentaral
+4765	Parentaral	Inf-Infusion	Parentaral
+4766	Parentaral	Inf-Infusion	Parentaral
+4767	Parentaral	Inf-Infusion	Parentaral
+4769	Parentaral	Inf-Infusion	Parentaral
+4770	Parentaral	Inf-Infusion	Parentaral
+4772	Parentaral	Inf-Infusion	Parentaral
+4773	Parentaral	Inf-Infusion	Parentaral
+4774	Parentaral	Inf-Infusion	Parentaral
+4775	Parentaral	Inf-Infusion	Parentaral
+4776	Parentaral	Inf-Infusion	Parentaral
+4777	Parentaral	Inf-Infusion	Parentaral
+4778	Parentaral	Inf-Infusion	Parentaral
+4779	Parentaral	Inf-Infusion	Parentaral
+4780	Parentaral	Inf-Infusion	Parentaral
+4781	Parentaral	Inf-Infusion	Parentaral
+4782	Parentaral	Inf-Infusion	Parentaral
+4783	Parentaral	Inf-Infusion	Parentaral
+4784	Parentaral	Inf-Infusion	Parentaral
+4785	Parentaral	Inf-Infusion	Parentaral
+4786	Parentaral	Inf-Infusion	Parentaral
+4787	Parentaral	Inf-Infusion	Parentaral
+4788	Parentaral	Inf-Infusion	Parentaral
+4789	Parentaral	Inf-Infusion	Parentaral
+4790	Parentaral	Inf-Infusion	Parentaral
+4792	Parentaral	Inf-Infusion	Parentaral
+4793	Parentaral	Inf-Infusion	Parentaral
+4794	Parentaral	Inf-Infusion	Parentaral
+4795	Parentaral	Inf-Infusion	Parentaral
+4796	Parentaral	Inf-Infusion	Parentaral
+4800	HD-Haemodialysis	HD-Haemodialysis	
+4801	Parentaral	Inf-Infusion	Parentaral
+4802	HD-Haemodialysis	HD-Haemodialysis	
+4803	HD-Haemodialysis	HD-Haemodialysis	
+4804	HD-Haemodialysis	HD-Haemodialysis	
+4805	HD-Haemodialysis	HD-Haemodialysis	
+4806	HD-Haemodialysis	HD-Haemodialysis	
+4808	Parentaral	Inf-Infusion	Parentaral
+4809	Parentaral	Inf-Infusion	Parentaral
+4810	Parentaral	Inf-Infusion	Parentaral
+4811	OG-Oral gingival	OG-Oral gingival	
+4830	O-Oral	O-Oral	
+4831	O-Oral	O-Oral	
+4857	Parentaral	Inf-Infusion	Parentaral
+4858	HD-Haemodialysis	HD-Haemodialysis	
+4859	HD-Haemodialysis	HD-Haemodialysis	
+4860	HD-Haemodialysis	HD-Haemodialysis	
+4864	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+4874	O-Oral	O-Oral	
+4875	O-Oral	O-Oral	
+4898	T-Topical	T-Topical	
+4903	T-Topical	T-Topical	
+4904	T-Topical	T-Topical	
+5021	O-Oral	O-Oral	
+5027	T-Topical	T-Topical	
+5036	O-Oral	O-Oral	
+5037	O-Oral	O-Oral	
+5039	O-Oral	O-Oral	
+5040	O-Oral	O-Oral	
+5041	O-Oral	O-Oral	
+5042	O-Oral	O-Oral	
+5043	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+5044	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+5045	Ot-Otic	Ot-Otic	
+5046	O-Oral	O-Oral	
+5047	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+5048	Parentaral	Inf-IV-Epid-Infusion-Intravenous-Epidural	Parentaral
+5049	Parentaral	Inf-Infusion	Parentaral
+5056	O-Oral	O-Oral	
+5057	Parentaral	SC-Subcutanous	Parentaral
+5060	Parentaral	SC-Subcutanous	Parentaral
+5061	Parentaral	SC-Subcutanous	Parentaral
+5065	O-Oral	O-Oral	
+5066	Parentaral	Inf-Infusion	Parentaral
+5071	V-Vaginal	V-Vaginal	
+5074	O-Oral	O-Oral	
+5075	O-Oral	O-Oral	
+5076	O-Oral	O-Oral	
+5077	O-Oral	O-Oral	
+5078	O-Oral	O-Oral	
+5079	O-Oral	O-Oral	
+5080	O-Oral	O-Oral	
+5081	O-Oral	O-Oral	
+5082	O-Oral	O-Oral	
+5083	O-Oral	O-Oral	
+5084	O-Oral	O-Oral	
+5085	O-Oral	O-Oral	
+5086	O-Oral	O-Oral	
+5087	O-Oral	O-Oral	
+5088	O-Oral	O-Oral	
+5089	O-Oral	O-Oral	
+5090	O-Oral	O-Oral	
+5091	Parentaral	Inf-Infusion	Parentaral
+5092	Parentaral	Inf-Infusion	Parentaral
+5094	O-Oral	O-Oral	
+5095	T-Topical	T-Topical	
+5096	O-Oral	O-Oral	
+5097	O-Oral	O-Oral	
+5098	O-Oral	O-Oral	
+5099	O-Oral	O-Oral	
+5103	Oph-Ophtalmic	Oph-Ophtalmic	
+5113	O-Oral	O-Oral	
+5114	O-Oral	O-Oral	
+5115	O-Oral	O-Oral	
+5116	O-Oral	O-Oral	
+5117	O-Oral	O-Oral	
+5120	O-Oral	O-Oral	
+5121	Res-Respiratory	Res-Respiratory	
+5122	O-Oral	O-Oral	
+5123	O-Oral	O-Oral	
+5124	O-Oral	O-Oral	
+5125	O-Oral	O-Oral	
+5126	O-Oral	O-Oral	
+5134	O-Oral	O-Oral	
+5135	V-Vaginal	V-Vaginal	
+5136	O-Oral	O-Oral	
+5137	O-Oral	O-Oral	
+5143	O-Oral	O-Oral	
+5144	O-Oral	O-Oral	
+5146	O-Oral	O-Oral	
+5150	Parentaral	Inf-Infusion	Parentaral
+5152	Parentaral	Inf-Infusion	Parentaral
+5153	Parentaral	Inf-Infusion	Parentaral
+5155	O-Oral	O-Oral	
+5157	O-Oral	O-Oral	
+5158	O-Oral	O-Oral	
+5159	O-Oral	O-Oral	
+5161	O-Oral	O-Oral	
+5163	O-Oral	O-Oral	
+5164	O-Oral	O-Oral	
+5171	O-Oral	O-Oral	
+5172	O-Oral	O-Oral	
+5173	O-Oral	O-Oral	
+5174	O-Oral	O-Oral	
+5175	O-Oral	O-Oral	
+5177	O-Oral	O-Oral	
+5179	O-Oral	O-Oral	
+5180	O-Oral	O-Oral	
+5181	O-Oral	O-Oral	
+5182	O-Oral	O-Oral	
+5184	O-Oral	O-Oral	
+5185	Parentaral	SC-Subcutanous	Parentaral
+5186	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5187	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5188	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5189	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5190	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5191	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+5192	O-Oral	O-Oral	
+5193	Parentaral	Inf-Infusion	Parentaral
+5194	Parentaral	SC-Subcutanous	Parentaral
+5195	O-Oral	O-Oral	
+5198	Parentaral	Inf-Infusion	Parentaral
+5199	IV-Intravenous	IV-Intravenous	
+5201	Parentaral	IM-Intramuscular	Parentaral
+5202	Parentaral	IM-Intramuscular	Parentaral
+5205	TS-Topical,scalp	TS-Topical,scalp	
+5206	O-Oral	O-Oral	
+5207	O-Oral	O-Oral	
+5208	IUt - Intrauterin	IUt - Intrauterin	
+5209	IVit-Intravitreal	IVit-Intravitreal	
+5210	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5211	T-Topical	T-Topical	
+5213	Parentaral	Inf-Infusion	Parentaral
+5216	O-Oral	O-Oral	
+5220	O-Oral	O-Oral	
+5222	Parentaral	Inf-Infusion	Parentaral
+5223	O-Oral	O-Oral	
+5224	O-Oral	O-Oral	
+5225	O-Oral	O-Oral	
+5226	O-Oral	O-Oral	
+5229	O-Oral	O-Oral	
+5233	O-Oral	O-Oral	
+5234	N-Nasal	N-Nasal	
+5235	T-Topical	T-Topical	
+5236	O-Oral	O-Oral	
+5237	Res-Respiratory	Res-Respiratory	
+5238	Res-Respiratory	Res-Respiratory	
+5239	T-Topical	T-Topical	
+5240	Oph-Ophtalmic	Oph-Ophtalmic	
+5241	O-Oral	O-Oral	
+5243	O-Oral	O-Oral	
+5244	O-Oral	O-Oral	
+5245	O-Oral	O-Oral	
+5248	O-Oral	O-Oral	
+5250	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5252	O-Oral	O-Oral	
+5253	O-Oral	O-Oral	
+5258	O-Oral	O-Oral	
+5262	Parentaral	SC-Subcutanous	Parentaral
+5263	Parentaral	SC-Subcutanous	Parentaral
+5264	Parentaral	SC-Subcutanous	Parentaral
+5266	O-Oral	O-Oral	
+5267	O-Oral	O-Oral	
+5268	O-Oral	O-Oral	
+5269	O-Oral	O-Oral	
+5270	O-Oral	O-Oral	
+5271	O-Oral	O-Oral	
+5274	O-Oral	O-Oral	
+5275	O-Oral	O-Oral	
+5276	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+5277	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+5278	O-Oral	O-Oral	
+5282	O-Oral	O-Oral	
+5283	O-Oral	O-Oral	
+5284	O-Oral	O-Oral	
+5285	O-Oral	O-Oral	
+5286	O-Oral	O-Oral	
+5289	O-Oral	O-Oral	
+5291	O-Oral	O-Oral	
+5292	O-Oral	O-Oral	
+5293	O-Oral	O-Oral	
+5295	O-Oral	O-Oral	
+5298	T-Topical	T-Topical	
+5302	O-Oral	O-Oral	
+5303	T-Topical	T-Topical	
+5306	O-Oral	O-Oral	
+5309	Parentaral	Inf-Infusion	Parentaral
+5310	Parentaral	Inf-Infusion	Parentaral
+5311	Parentaral	Inf-Infusion	Parentaral
+5312	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5313	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5314	O-Oral	O-Oral	
+5315	O-Oral	O-Oral	
+5316	O-Oral	O-Oral	
+5317	O-Oral	O-Oral	
+5319	O-Oral	O-Oral	
+5325	O-Oral	O-Oral	
+5326	Parentaral	Inf-Infusion	Parentaral
+5327	Parentaral	Inf-IV-SC-ITh-Infusion-Intravenous-Subcutanous-Intrathecal	Parentaral
+5329	O-Oral	O-Oral	
+5330	O-Oral	O-Oral	
+5331	O-Oral	O-Oral	
+5332	V-Vaginal	V-Vaginal	
+5334	Parentaral	SC-Subcutanous	Parentaral
+5335	O-Oral	O-Oral	
+5336	O-Oral	O-Oral	
+5341	O-Oral	O-Oral	
+5342	O-Oral	O-Oral	
+5343	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+5344	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+5345	O-Oral	O-Oral	
+5346	OG-Oral gingival	OG-Oral gingival	
+5356	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5357	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5358	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5359	Res-Respiratory	Res-Respiratory	
+5360	Res-Respiratory	Res-Respiratory	
+5361	Res-Respiratory	Res-Respiratory	
+5363	Oph-Ophtalmic	Oph-Ophtalmic	
+5364	O-Oral	O-Oral	
+5365	O-Oral	O-Oral	
+5366	Parentaral and Non-parentaral	Inf-O-Infusion-Oral	Parentaral and Non-parentaral
+5376	O-Oral	O-Oral	
+5381	O-Oral	O-Oral	
+5382	O-Oral	O-Oral	
+5383	O-Oral	O-Oral	
+5384	O-Oral	O-Oral	
+5385	O-Oral	O-Oral	
+5386	O-Oral	O-Oral	
+5387	O-Oral	O-Oral	
+5390	O-Oral	O-Oral	
+5394	Parentaral	IM-Intramuscular	Parentaral
+5396	O-Oral	O-Oral	
+5397	O-Oral	O-Oral	
+5399	O-Oral	O-Oral	
+5400	O-Oral	O-Oral	
+5401	O-Oral	O-Oral	
+5404	O-Oral	O-Oral	
+5405	O-Oral	O-Oral	
+5416	O-Oral	O-Oral	
+5417	O-Oral	O-Oral	
+5418	O-Oral	O-Oral	
+5419	O-Oral	O-Oral	
+5420	O-Oral	O-Oral	
+5422	O-Oral	O-Oral	
+5427	O-Oral	O-Oral	
+5429	O-Oral	O-Oral	
+5432	O-Oral	O-Oral	
+5434	Parentaral	Inf-Infusion	Parentaral
+5436	O-Oral	O-Oral	
+5438	O-Oral	O-Oral	
+5439	O-Oral	O-Oral	
+5440	O-Oral	O-Oral	
+5449	O-Oral	O-Oral	
+5462	O-Oral	O-Oral	
+5464	O-Oral	O-Oral	
+5468	O-Oral	O-Oral	
+5475	O-Oral	O-Oral	
+5476	O-Oral	O-Oral	
+5478	O-Oral	O-Oral	
+5481	Res-Respiratory	Res-Respiratory	
+5482	O-Oral	O-Oral	
+5483	O-Oral	O-Oral	
+5484	O-Oral	O-Oral	
+5485	O-Oral	O-Oral	
+5486	O-Oral	O-Oral	
+5487	O-Oral	O-Oral	
+5489	Parentaral	Inf-Infusion	Parentaral
+5490	O-Oral	O-Oral	
+5492	O-Oral	O-Oral	
+5493	O-Oral	O-Oral	
+5497	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+5498	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+5499	T-Topical	T-Topical	
+5500	T-Topical	T-Topical	
+5502	Parentaral	Inf-Infusion	Parentaral
+5504	T-Topical	T-Topical	
+5506	O-Oral	O-Oral	
+5507	O-Oral	O-Oral	
+5513	Parentaral	Inf-Infusion	Parentaral
+5516	O-Oral	O-Oral	
+5518	O-Oral	O-Oral	
+5519	O-Oral	O-Oral	
+5520	O-Oral	O-Oral	
+5521	TD-Transdermal	TD-Transdermal	
+5522	O-Oral	O-Oral	
+5523	O-Oral	O-Oral	
+5524	O-Oral	O-Oral	
+5537	O-Oral	O-Oral	
+5538	O-Oral	O-Oral	
+5539	IV-Intravenous	IV-Intravenous	
+5540	IV-Intravenous	IV-Intravenous	
+5541	IV-Intravenous	IV-Intravenous	
+5542	O-Oral	O-Oral	
+5543	O-Oral	O-Oral	
+5545	O-Oral	O-Oral	
+5546	O-Oral	O-Oral	
+5547	O-Oral	O-Oral	
+5548	O-Oral	O-Oral	
+5549	O-Oral	O-Oral	
+5554	Parentaral	Inf-Infusion	Parentaral
+5555	Parentaral	Inf-Infusion	Parentaral
+5561	O-Oral	O-Oral	
+5562	O-Oral	O-Oral	
+5565	O-Oral	O-Oral	
+5567	Parentaral	Inf-Infusion	Parentaral
+5569	T-Topical	T-Topical	
+5573	Parentaral	Inf-Infusion	Parentaral
+5574	Parentaral	Inf-Infusion	Parentaral
+5576	O-Oral	O-Oral	
+5577	O-Oral	O-Oral	
+5580	O-Oral	O-Oral	
+5583	O-Oral	O-Oral	
+5585	O-Oral	O-Oral	
+5586	O-Oral	O-Oral	
+5587	O-Oral	O-Oral	
+5588	O-Oral	O-Oral	
+5589	O-Oral	O-Oral	
+5590	O-Oral	O-Oral	
+5593	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+5595	Parentaral	SC-Subcutanous	Parentaral
+5596	O-Oral	O-Oral	
+5598	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+5599	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+5610	Parentaral	SC-Subcutanous	Parentaral
+5611	Parentaral	IM-Intramuscular	Parentaral
+5612	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+5613	Parentaral	SC-Subcutanous	Parentaral
+5614	O-Oral	O-Oral	
+5615	O-Oral	O-Oral	
+5616	O-Oral	O-Oral	
+5617	O-Oral	O-Oral	
+5623	O-Oral	O-Oral	
+5624	N-Nasal	N-Nasal	
+5625			
+5626	Parentaral	Inf-Infusion	Parentaral
+5630			
+5633	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5639	O-Oral	O-Oral	
+5644	IV-Intravenous	IV-Intravenous	
+5647	O-Oral	O-Oral	
+5648	O-Oral	O-Oral	
+5658	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+5659	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+5661	TD-Transdermal	TD-Transdermal	
+5662	TD-Transdermal	TD-Transdermal	
+5666	O-Oral	O-Oral	
+5667	O-Oral	O-Oral	
+5669	O-Oral	O-Oral	
+5670	O-Oral	O-Oral	
+5671	Res-Respiratory	Res-Respiratory	
+5672	O-Oral	O-Oral	
+5673	Parentaral	IM-Intramuscular	Parentaral
+5679	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5680	Parentaral	Inf-Infusion	Parentaral
+5681	Parentaral	Inf-Infusion	Parentaral
+5683	O-Oral	O-Oral	
+5688	O-Oral	O-Oral	
+5689	O-Oral	O-Oral	
+5690	O-Oral	O-Oral	
+5691	O-Oral	O-Oral	
+5693	O-Oral	O-Oral	
+5694	Parentaral	Inf-Infusion	Parentaral
+5695	O-Oral	O-Oral	
+5696	O-Oral	O-Oral	
+5697	O-Oral	O-Oral	
+5704	O-Oral	O-Oral	
+5707	Parentaral	Inf-Infusion	Parentaral
+5709	Parentaral	Inf-IV-IPt-Infusion-Intravenous-Intramuscular-Intraperitoneal	Parentaral
+5710	TD-Transdermal	TD-Transdermal	
+5711	TD-Transdermal	TD-Transdermal	
+5712	O-Oral	O-Oral	
+5716	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+5717	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+5719	O-Oral	O-Oral	
+5724	OG-Oral gingival	OG-Oral gingival	
+5725	Ot-Otic	Ot-Otic	
+5729	O-Oral	O-Oral	
+5730	O-Oral	O-Oral	
+5733	Parentaral	IM-Intramuscular	Parentaral
+5734	O-Oral	O-Oral	
+5735	O-Oral	O-Oral	
+5739	O-Oral	O-Oral	
+5742	Parentaral	SC-Subcutanous	Parentaral
+5754	O-Oral	O-Oral	
+5758	Parentaral	SC-Subcutanous	Parentaral
+5759	O-Oral	O-Oral	
+5761	O-Oral	O-Oral	
+5763	O-Oral	O-Oral	
+5764	O-Oral	O-Oral	
+5766	O-Oral	O-Oral	
+5768	Parentaral	Inf-Infusion	Parentaral
+5769	Parentaral	Inf-Infusion	Parentaral
+5770	O-Oral	O-Oral	
+5771	O-Oral	O-Oral	
+5774	O-Oral	O-Oral	
+5775	O-Oral	O-Oral	
+5776	O-Oral	O-Oral	
+5779	Parentaral	Inf-Infusion	Parentaral
+5781	OG-Res-Oral gingival-Respiratory	OG-Res-Oral gingival-Respiratory	
+5782	O-Oral	O-Oral	
+5783	T-Topical	T-Topical	
+5784	O-Oral	O-Oral	
+5785	O-Oral	O-Oral	
+5787	O-Oral	O-Oral	
+5788	Parentaral	Inf-Infusion	Parentaral
+5789	Parentaral	Inf-Infusion	Parentaral
+5790	Parentaral	Inf-Infusion	Parentaral
+5791	O-Oral	O-Oral	
+5792	O-Oral	O-Oral	
+5795	O-Oral	O-Oral	
+5797	O-Oral	O-Oral	
+5798	Parentaral	Inf-Infusion	Parentaral
+5801	O-Oral	O-Oral	
+5802	O-Oral	O-Oral	
+5806	O-Oral	O-Oral	
+5807	O-Oral	O-Oral	
+5808	O-Oral	O-Oral	
+5810	O-Oral	O-Oral	
+5811	O-Oral	O-Oral	
+5812	O-Oral	O-Oral	
+5823	O-Oral	O-Oral	
+5825	O-Oral	O-Oral	
+5826	O-Oral	O-Oral	
+5827	O-Oral	O-Oral	
+5828	O-Oral	O-Oral	
+5831	Parentaral	Inf-Infusion	Parentaral
+5833	Parentaral	Inf-Infusion	Parentaral
+5837	Parentaral	Inf-Infusion	Parentaral
+5838	Parentaral	Inf-Infusion	Parentaral
+5842	Parentaral	SC-Subcutanous	Parentaral
+5843	Parentaral	SC-Subcutanous	Parentaral
+5844	Parentaral	SC-Subcutanous	Parentaral
+5846	Parentaral	SC-Subcutanous	Parentaral
+5847	O-Oral	O-Oral	
+5848	Parentaral	IM-Intramuscular	Parentaral
+5849	Parentaral	IM-Intramuscular	Parentaral
+5856	O-Oral	O-Oral	
+5859	O-Oral	O-Oral	
+5860	SL-Sublingual	SL-Sublingual	
+5861	SL-Sublingual	SL-Sublingual	
+5863	O-Oral	O-Oral	
+5866	Parentaral	Inf-Infusion	Parentaral
+5867	Parentaral	Inf-Infusion	Parentaral
+5877	O-Oral	O-Oral	
+5878	O-Oral	O-Oral	
+5879	O-Oral	O-Oral	
+5880	O-Oral	O-Oral	
+5881	O-Oral	O-Oral	
+5882	O-Oral	O-Oral	
+5883	O-Oral	O-Oral	
+5886	Oph-Ophtalmic	Oph-Ophtalmic	
+5888	Parentaral	Inf-Infusion	Parentaral
+5889	O-Oral	O-Oral	
+5891	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5894	Parentaral	Inf-Infusion	Parentaral
+5896	O-Oral	O-Oral	
+5897	O-Oral	O-Oral	
+5900	Parentaral	Inf-Infusion	Parentaral
+5901	Parentaral	Inf-Infusion	Parentaral
+5902	Parentaral	Inf-Infusion	Parentaral
+5904	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+5905	Parentaral	Inf-Infusion	Parentaral
+5906	Parentaral	Inf-Infusion	Parentaral
+5907	Parentaral	Inf-Infusion	Parentaral
+5910	O-Oral	O-Oral	
+5911	O-Oral	O-Oral	
+5912	O-Oral	O-Oral	
+5913	O-Oral	O-Oral	
+5914	O-Oral	O-Oral	
+5915	N-Nasal	N-Nasal	
+5916	O-Oral	O-Oral	
+5924	Res-Respiratory	Res-Respiratory	
+5925	Res-Respiratory	Res-Respiratory	
+5927	O-Oral	O-Oral	
+5929	O-Oral	O-Oral	
+5930	O-Oral	O-Oral	
+5931	Parentaral	Inf-Infusion	Parentaral
+5938	Parentaral	Inf-Infusion	Parentaral
+5942	O-Oral	O-Oral	
+5944	O-Oral	O-Oral	
+5948	O-Oral	O-Oral	
+5949	Res-Respiratory	Res-Respiratory	
+5950	O-Oral	O-Oral	
+5951	O-Oral	O-Oral	
+5954	T-Topical	T-Topical	
+5956	Parentaral	Inf-Infusion	Parentaral
+5957	O-Oral	O-Oral	
+5958	O-Oral	O-Oral	
+5959	O-Oral	O-Oral	
+5962	Parentaral	Inf-IV-Epid-Infusion-Intravenous-Epidural	Parentaral
+5963	Parentaral	Inf-IV-Epid-Infusion-Intravenous-Epidural	Parentaral
+5966	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+5967	O-Oral	O-Oral	
+5968	O-Oral	O-Oral	
+5969	O-Oral	O-Oral	
+5970	O-Oral	O-Oral	
+5971	O-Oral	O-Oral	
+5974	O-Oral	O-Oral	
+5976	O-Oral	O-Oral	
+5979	O-Oral	O-Oral	
+5980	N-Nasal	N-Nasal	
+5981	O-Oral	O-Oral	
+5982	O-Oral	O-Oral	
+5983	O-Oral	O-Oral	
+5984	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+5986	T-Topical	T-Topical	
+5987	O-Oral	O-Oral	
+5988	O-Oral	O-Oral	
+5989	O-Oral	O-Oral	
+5990	IV-Intravenous	IV-Intravenous	
+5992	IV-Intravenous	IV-Intravenous	
+5996	O-Oral	O-Oral	
+5998	O-Oral	O-Oral	
+5999	O-Oral	O-Oral	
+6001	O-Oral	O-Oral	
+6002	Parentaral	IM-Intramuscular	Parentaral
+6003	O-Oral	O-Oral	
+6007	O-Oral	O-Oral	
+6008	O-Oral	O-Oral	
+6012	O-Oral	O-Oral	
+6013	O-Oral	O-Oral	
+6014	T-Topical	T-Topical	
+6017	O-Oral	O-Oral	
+6018	O-Oral	O-Oral	
+6024	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6025	O-Oral	O-Oral	
+6026	O-Oral	O-Oral	
+6027	T-Topical	T-Topical	
+6028	O-Oral	O-Oral	
+6029	O-Oral	O-Oral	
+6030	O-Oral	O-Oral	
+6031	O-Oral	O-Oral	
+6047	O-Oral	O-Oral	
+6048	Res-Respiratory	Res-Respiratory	
+6054	O-Oral	O-Oral	
+6055	O-Oral	O-Oral	
+6056	O-Oral	O-Oral	
+6057	O-Oral	O-Oral	
+6058	O-Oral	O-Oral	
+6059	O-Oral	O-Oral	
+6060	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+6064	O-Oral	O-Oral	
+6065	O-Oral	O-Oral	
+6066	O-Oral	O-Oral	
+6072	O-Oral	O-Oral	
+6073	Res-Respiratory	Res-Respiratory	
+6077	O-Oral	O-Oral	
+6078	O-Oral	O-Oral	
+6080	Res-Respiratory	Res-Respiratory	
+6088	O-Oral	O-Oral	
+6089	O-Oral	O-Oral	
+6092	O-Oral	O-Oral	
+6093	O-Oral	O-Oral	
+6094	O-Oral	O-Oral	
+6095	O-Oral	O-Oral	
+6096	TS-Topical,scalp	TS-Topical,scalp	
+6097	Res-Respiratory	Res-Respiratory	
+6099	O-Oral	O-Oral	
+6100	O-Oral	O-Oral	
+6101	O-Oral	O-Oral	
+6103	O-Oral	O-Oral	
+6104	O-Oral	O-Oral	
+6105	O-Oral	O-Oral	
+6109	Parentaral	Inf-Infusion	Parentaral
+6110	Parentaral	Inf-Infusion	Parentaral
+6113	O-Oral	O-Oral	
+6118	T-Topical	T-Topical	
+6119	T-Topical	T-Topical	
+6120	Res-Respiratory	Res-Respiratory	
+6121	O-Oral	O-Oral	
+6122	O-Oral	O-Oral	
+6123	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6124	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6125	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6126	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6127	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6130	O-Oral	O-Oral	
+6131	O-Oral	O-Oral	
+6132	O-Oral	O-Oral	
+6133	O-Oral	O-Oral	
+6138	Parentaral	Inf-Infusion	Parentaral
+6143	O-Oral	O-Oral	
+6144	TS-Topical,scalp	TS-Topical,scalp	
+6149	O-Oral	O-Oral	
+6150	O-Oral	O-Oral	
+6151	O-Oral	O-Oral	
+6152	O-Oral	O-Oral	
+6157	Res-Respiratory	Res-Respiratory	
+6158	Res-Respiratory	Res-Respiratory	
+6161	Parentaral	Inf-Infusion	Parentaral
+6162	Parentaral	Inf-Infusion	Parentaral
+6163	O-Oral	O-Oral	
+6164	O-Oral	O-Oral	
+6169	V-Vaginal	V-Vaginal	
+6180	Parentaral	Inf-Infusion	Parentaral
+6181	O-Oral	O-Oral	
+6182	O-Oral	O-Oral	
+6187	Oph-Ophtalmic	Oph-Ophtalmic	
+6188	O-Oral	O-Oral	
+6192	O-Oral	O-Oral	
+6193	O-Oral	O-Oral	
+6197	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+6201	Parentaral	Inf-Infusion	Parentaral
+6204	O-Oral	O-Oral	
+6206	Parentaral	P-Parenteral	Parentaral
+6207	O-Oral	O-Oral	
+6211	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6212	O-Oral	O-Oral	
+6213	O-Oral	O-Oral	
+6215	Parentaral	Inf-Infusion	Parentaral
+6216	Parentaral	Inf-Infusion	Parentaral
+6217	Res-Respiratory	Res-Respiratory	
+6218	O-Oral	O-Oral	
+6219	O-Oral	O-Oral	
+6220	O-Oral	O-Oral	
+6222	O-Oral	O-Oral	
+6223	O-Oral	O-Oral	
+6224	O-Oral	O-Oral	
+6225	O-Oral	O-Oral	
+6231	Parentaral	SC-Subcutanous	Parentaral
+6232	Parentaral	SC-Subcutanous	Parentaral
+6233	O-Oral	O-Oral	
+6236	O-Oral	O-Oral	
+6237	O-Oral	O-Oral	
+6238	O-Oral	O-Oral	
+6239	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6240	T-Topical	T-Topical	
+6241	O-Oral	O-Oral	
+6242	O-Oral	O-Oral	
+6243	O-Oral	O-Oral	
+6248	O-Oral	O-Oral	
+6249	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6251	O-Oral	O-Oral	
+6252	O-Oral	O-Oral	
+6253	R-Rectal	R-Rectal	
+6254	Parentaral	Inf-Infusion	Parentaral
+6255	O-Oral	O-Oral	
+6258	O-Oral	O-Oral	
+6260	O-Oral	O-Oral	
+6262	O-Oral	O-Oral	
+6264	O-Oral	O-Oral	
+6265	O-Oral	O-Oral	
+6267	O-Oral	O-Oral	
+6269	O-Oral	O-Oral	
+6270	O-Oral	O-Oral	
+6271	O-Oral	O-Oral	
+6272	O-Oral	O-Oral	
+6283	IV-Intravenous	IV-Intravenous	
+6284	O-Oral	O-Oral	
+6285	O-Oral	O-Oral	
+6286	O-Oral	O-Oral	
+6288	Parentaral	Inf-Infusion	Parentaral
+6290	O-Oral	O-Oral	
+6293	O-Oral	O-Oral	
+6294	O-Oral	O-Oral	
+6295	O-Oral	O-Oral	
+6299	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+6300	Parentaral	IM-Intramuscular	Parentaral
+6301	O-Oral	O-Oral	
+6302	O-Oral	O-Oral	
+6303	O-Oral	O-Oral	
+6304	Parentaral	Inf-Infusion	Parentaral
+6305	Parentaral	Inf-Infusion	Parentaral
+6306	O-Oral	O-Oral	
+6307	O-Oral	O-Oral	
+6308	O-Oral	O-Oral	
+6309	O-Oral	O-Oral	
+6310	O-Oral	O-Oral	
+6311	O-Oral	O-Oral	
+6312	O-Oral	O-Oral	
+6313	O-Oral	O-Oral	
+6314	O-Oral	O-Oral	
+6318	Parentaral	SC-Subcutanous	Parentaral
+6319	Parentaral	SC-Subcutanous	Parentaral
+6320	O-Oral	O-Oral	
+6322	Parentaral	Inf-Infusion	Parentaral
+6323	Parentaral	Inf-Infusion	Parentaral
+6324	O-Oral	O-Oral	
+6325	Parentaral	Inf-Infusion	Parentaral
+6326	Parentaral	Inf-Infusion	Parentaral
+6327	O-Oral	O-Oral	
+6335	Parentaral	SC-Subcutanous	Parentaral
+6336	T-Topical	T-Topical	
+6337	T-Topical	T-Topical	
+6338	O-Oral	O-Oral	
+6339	O-Oral	O-Oral	
+6340	O-Oral	O-Oral	
+6342	O-Oral	O-Oral	
+6343	O-Oral	O-Oral	
+6344	O-Oral	O-Oral	
+6345	O-Oral	O-Oral	
+6347	O-Oral	O-Oral	
+6351	O-Oral	O-Oral	
+6352	O-Oral	O-Oral	
+6353	O-Oral	O-Oral	
+6354	O-Oral	O-Oral	
+6355	O-Oral	O-Oral	
+6356	O-Oral	O-Oral	
+6358	O-Oral	O-Oral	
+6359	O-Oral	O-Oral	
+6360	Oph-Ophtalmic	Oph-Ophtalmic	
+6361	Parentaral	Inf-Infusion	Parentaral
+6362	Parentaral	Inf-Infusion	Parentaral
+6364	Irrigation	Irrigation	
+6367	T-Topical	T-Topical	
+6368	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6370	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6372	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6374	O-Oral	O-Oral	
+6375	O-Oral	O-Oral	
+6380	IV-Intravenous	IV-Intravenous	
+6383	Parentaral	Inf-Infusion	Parentaral
+6384	Parentaral	Inf-Infusion	Parentaral
+6385	T-Topical	T-Topical	
+6387	O-Oral	O-Oral	
+6388	O-Oral	O-Oral	
+6389	O-Oral	O-Oral	
+6390	T-Topical	T-Topical	
+6393	O-Oral	O-Oral	
+6394	R-Rectal	R-Rectal	
+6395	R-Rectal	R-Rectal	
+6396	R-Rectal	R-Rectal	
+6398	O-Oral	O-Oral	
+6400	T-Topical	T-Topical	
+6401	O-Oral	O-Oral	
+6402	TS-Topical,scalp	TS-Topical,scalp	
+6404	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+6405	Parentaral	Inf-Infusion	Parentaral
+6406	Parentaral	Inf-Infusion	Parentaral
+6407	O-Oral	O-Oral	
+6408	O-Oral	O-Oral	
+6409	O-Oral	O-Oral	
+6410	O-Oral	O-Oral	
+6411	Parentaral	Inf-Infusion	Parentaral
+6412	Parentaral	Inf-Infusion	Parentaral
+6413	Parentaral	Inf-Infusion	Parentaral
+6420	O-Oral	O-Oral	
+6421	O-Oral	O-Oral	
+6422	O-Oral	O-Oral	
+6425	Parentaral	Injectable route (except IV route)	Parentaral
+6426	Parentaral	Inf-IV-IVes-Infusion-Intravenous-Intravesical	Parentaral
+6434	O-Oral	O-Oral	
+6437	O-Oral	O-Oral	
+6438	O-Oral	O-Oral	
+6439	O-Oral	O-Oral	
+6441	O-Oral	O-Oral	
+6442	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6443	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+6445	O-Oral	O-Oral	
+6446	O-Oral	O-Oral	
+6451	Parentaral	IM-Intramuscular	Parentaral
+6453	T-Topical	T-Topical	
+6455	Parentaral	Inf-Infusion	Parentaral
+6456	Parentaral	Inf-Infusion	Parentaral
+6457	O-Oral	O-Oral	
+6459	O-Oral	O-Oral	
+6460	Parentaral	Inf-Infusion	Parentaral
+6461	O-Oral	O-Oral	
+6462	O-Oral	O-Oral	
+6463	Parentaral	Inf-Infusion	Parentaral
+6464	Parentaral	Inf-Infusion	Parentaral
+6465	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6466	O-Oral	O-Oral	
+6467	O-Oral	O-Oral	
+6468	Parentaral	SC-Subcutanous	Parentaral
+6469	Parentaral	Inf-Infusion	Parentaral
+6470	Parentaral	SC-Subcutanous	Parentaral
+6471	O-Oral	O-Oral	
+6473	O-Oral	O-Oral	
+6474	Res-Respiratory	Res-Respiratory	
+6475	Parentaral	Inf-Infusion	Parentaral
+6477	O-Oral	O-Oral	
+6478	O-Oral	O-Oral	
+6480	O-Oral	O-Oral	
+6481	O-Oral	O-Oral	
+6483	T-Topical	T-Topical	
+6484	O-Oral	O-Oral	
+6486	O-Oral	O-Oral	
+6487	O-Oral	O-Oral	
+6488	O-Oral	O-Oral	
+6489	O-Oral	O-Oral	
+6494	O-Oral	O-Oral	
+6497	Parentaral	Inf-Infusion	Parentaral
+6505	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6512	O-Oral	O-Oral	
+6513	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6516	O-Oral	O-Oral	
+6517	O-Oral	O-Oral	
+6523	O-Oral	O-Oral	
+6526	O-Oral	O-Oral	
+6527	O-Oral	O-Oral	
+6528	O-Oral	O-Oral	
+6529	O-Oral	O-Oral	
+6530	O-Oral	O-Oral	
+6531	Parentaral	Inf-Infusion	Parentaral
+6532	Parentaral	Inf-Infusion	Parentaral
+6533	Parentaral	Inf-Infusion	Parentaral
+6534	Parentaral	Inf-Infusion	Parentaral
+6535	Parentaral	Inf-Infusion	Parentaral
+6536	Parentaral	Inf-Infusion	Parentaral
+6538	O-Oral	O-Oral	
+6539	Parentaral	Inf-Infusion	Parentaral
+6542	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6544	O-Oral	O-Oral	
+6546	O-Oral	O-Oral	
+6549	O-Oral	O-Oral	
+6553	O-Oral	O-Oral	
+6557	O-Oral	O-Oral	
+6561	O-Oral	O-Oral	
+6562	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+6568	Parentaral	Inf-Infusion	Parentaral
+6569	O-Oral	O-Oral	
+6570	O-Oral	O-Oral	
+6571	O-Oral	O-Oral	
+6572	O-Oral	O-Oral	
+6573	O-Oral	O-Oral	
+6574	O-Oral	O-Oral	
+6575	O-Oral	O-Oral	
+6576	O-Oral	O-Oral	
+6577	O-Oral	O-Oral	
+6578	O-Oral	O-Oral	
+6581	O-Oral	O-Oral	
+6583	IV-Intravenous	IV-Intravenous	
+6584	Parentaral	IM-Intramuscular	Parentaral
+6586	R-Rectal	R-Rectal	
+6587	Parentaral	IM-Intramuscular	Parentaral
+6588	O-Oral	O-Oral	
+6589	O-Oral	O-Oral	
+6590	O-Oral	O-Oral	
+6591	O-Oral	O-Oral	
+6592	R-Rectal	R-Rectal	
+6593	O-Oral	O-Oral	
+6594	O-Oral	O-Oral	
+6595	O-Oral	O-Oral	
+6596	O-Oral	O-Oral	
+6597	O-Oral	O-Oral	
+6598	O-Oral	O-Oral	
+6599	TD-Transdermal	TD-Transdermal	
+6600	O-Oral	O-Oral	
+6602	O-Oral	O-Oral	
+6603	O-Oral	O-Oral	
+6604	O-Oral	O-Oral	
+6605	O-Oral	O-Oral	
+6606	O-Oral	O-Oral	
+6607	O-Oral	O-Oral	
+6608	O-Oral	O-Oral	
+6615	O-Oral	O-Oral	
+6616	O-Oral	O-Oral	
+6618	Parentaral	Inf-IV-IVes-Infusion-Intravenous-Intravesical	Parentaral
+6620	O-Oral	O-Oral	
+6621	O-Oral	O-Oral	
+6622	O-Oral	O-Oral	
+6623	O-Oral	O-Oral	
+6624	Parentaral	SC-Subcutanous	Parentaral
+6625	Parentaral	SC-Subcutanous	Parentaral
+6626	Parentaral	SC-Subcutanous	Parentaral
+6631	Parentaral	Inf-Infusion	Parentaral
+6632	Parentaral	Inf-Infusion	Parentaral
+6634	O-Oral	O-Oral	
+6635	O-Oral	O-Oral	
+6636	Parentaral	Inf-Infusion	Parentaral
+6637	Parentaral	Inf-Infusion	Parentaral
+6638	O-Oral	O-Oral	
+6645	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+6649	O-Oral	O-Oral	
+6650	Parentaral	Inf-Infusion	Parentaral
+6651	Parentaral	Inf-Infusion	Parentaral
+6652	Parentaral	Inf-Infusion	Parentaral
+6653	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6654	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6655	Parentaral	Inf-Infusion	Parentaral
+6656	Parentaral	Inf-Infusion	Parentaral
+6657	O-Oral	O-Oral	
+6658	O-Oral	O-Oral	
+6661	Parentaral	Inf-Infusion	Parentaral
+6663	O-Oral	O-Oral	
+6664	O-Oral	O-Oral	
+6668	O-Oral	O-Oral	
+6669	O-Oral	O-Oral	
+6674	Oph-Ophtalmic	Oph-Ophtalmic	
+6675	O-Oral	O-Oral	
+6676	O-Oral	O-Oral	
+6677	O-Oral	O-Oral	
+6678	O-Oral	O-Oral	
+6679	O-Oral	O-Oral	
+6680	O-Oral	O-Oral	
+6681	O-Oral	O-Oral	
+6682	O-Oral	O-Oral	
+6687	O-Oral	O-Oral	
+6689	O-Oral	O-Oral	
+6691	O-Oral	O-Oral	
+6692	Oph-Ophtalmic	Oph-Ophtalmic	
+6694	Oph-Ophtalmic	Oph-Ophtalmic	
+6695	Parentaral	Inf-Infusion	Parentaral
+6696	T-Topical	T-Topical	
+6697	T-Topical	T-Topical	
+6700	O-Oral	O-Oral	
+6702	O-Oral	O-Oral	
+6703	O-Oral	O-Oral	
+6704	O-Oral	O-Oral	
+6705	O-Oral	O-Oral	
+6712	R-Rectal	R-Rectal	
+6713	O-Oral	O-Oral	
+6714	O-Oral	O-Oral	
+6715	O-Oral	O-Oral	
+6719	O-Oral	O-Oral	
+6721	O-Oral	O-Oral	
+6722	O-Oral	O-Oral	
+6723	Parentaral	IM-Intramuscular	Parentaral
+6724	O-Oral	O-Oral	
+6726	N-Nasal	N-Nasal	
+6727	O-Oral	O-Oral	
+6728	O-Oral	O-Oral	
+6729	O-Oral	O-Oral	
+6730			
+6738	T-Topical	T-Topical	
+6739	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+6740	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6745	O-Oral	O-Oral	
+6746	O-Oral	O-Oral	
+6752	Oph-Ophtalmic	Oph-Ophtalmic	
+6753	Oph-Ot-Ophtalmic and Otic	Oph-Ot-Ophtalmic and Otic	
+6754	Ot-Otic	Ot-Otic	
+6755	O-Oral	O-Oral	
+6756	O-Oral	O-Oral	
+6757	O-Oral	O-Oral	
+6758	O-Oral	O-Oral	
+6762	O-Oral	O-Oral	
+6763	N-Nasal	N-Nasal	
+6764	O-Oral	O-Oral	
+6765	O-Oral	O-Oral	
+6766	O-Oral	O-Oral	
+6767	O-Oral	O-Oral	
+6768	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+6769	Parentaral	SC-Subcutanous	Parentaral
+6772	O-Oral	O-Oral	
+6773	O-Oral	O-Oral	
+6775	O-Oral	O-Oral	
+6776	Parentaral	Inf-Infusion	Parentaral
+6779	Parentaral	Inf-Infusion	Parentaral
+6781	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+6782	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6784	IV-Intravenous	IV-Intravenous	
+6785	Parentaral	IM-Intramuscular	Parentaral
+6786	Parentaral	IM-Intramuscular	Parentaral
+6787	IV-Intravenous	IV-Intravenous	
+6791	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+6797	Parentaral	IM-Intramuscular	Parentaral
+6798	Parentaral	IM-Intramuscular	Parentaral
+6799	Parentaral	IM-Intramuscular	Parentaral
+6800	Parentaral	IM-Intramuscular	Parentaral
+6805	O-Oral	O-Oral	
+6806	O-Oral	O-Oral	
+6812	Parentaral	Inf-Infusion	Parentaral
+6814	O-Oral	O-Oral	
+6817	O-Oral	O-Oral	
+6818	O-Oral	O-Oral	
+6822	O-Oral	O-Oral	
+6823	O-Oral	O-Oral	
+6824	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6825	N-Nasal	N-Nasal	
+6830	Parentaral	Inf-Infusion	Parentaral
+6831	Parentaral	Inf-Infusion	Parentaral
+6832	Parentaral	Inf-Infusion	Parentaral
+6833	Parentaral	Inf-Infusion	Parentaral
+6834	N-Nasal	N-Nasal	
+6835	O-Oral	O-Oral	
+6836	O-Oral	O-Oral	
+6837	O-Oral	O-Oral	
+6838	O-Oral	O-Oral	
+6839	O-Oral	O-Oral	
+6840	O-Oral	O-Oral	
+6841	O-Oral	O-Oral	
+6844	O-Oral	O-Oral	
+6845	O-Oral	O-Oral	
+6846	O-Oral	O-Oral	
+6847	O-Oral	O-Oral	
+6848	O-Oral	O-Oral	
+6849	O-Oral	O-Oral	
+6850	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+6853	O-Oral	O-Oral	
+6854	O-Oral	O-Oral	
+6855	O-Oral	O-Oral	
+6858	O-Oral	O-Oral	
+6860	Parentaral	SC-Subcutanous	Parentaral
+6861	Parentaral	SC-Subcutanous	Parentaral
+6862	Parentaral	Inf-Infusion	Parentaral
+6863	Parentaral	IM-Intramuscular	Parentaral
+6865	Parentaral	IM-Intramuscular	Parentaral
+6867	O-Oral	O-Oral	
+6868	O-Oral	O-Oral	
+6869	O-Oral	O-Oral	
+6872	T-Topical	T-Topical	
+6879	O-Oral	O-Oral	
+6880	O-Oral	O-Oral	
+6881	O-Oral	O-Oral	
+6883	O-Oral	O-Oral	
+6884	O-Oral	O-Oral	
+6885	O-Oral	O-Oral	
+6886	O-Oral	O-Oral	
+6887	O-Oral	O-Oral	
+6890	O-Oral	O-Oral	
+6891	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6892	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+6893	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6894	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6895	O-Oral	O-Oral	
+6903	Parentaral	Inf-Infusion	Parentaral
+6904	IV-Intravenous	IV-Intravenous	
+6905	T-Topical	T-Topical	
+6906	Parentaral	Inf-Infusion	Parentaral
+6907	Parentaral	Inf-Infusion	Parentaral
+6909	Parentaral	Inf-Infusion	Parentaral
+6912	Parentaral	IM-Intramuscular	Parentaral
+6914	O-Oral	O-Oral	
+6915	O-Oral	O-Oral	
+6917	O-Oral	O-Oral	
+6918	O-Oral	O-Oral	
+6919	O-Oral	O-Oral	
+6922	O-Oral	O-Oral	
+6924	O-Oral	O-Oral	
+6925	O-Oral	O-Oral	
+6926	O-Oral	O-Oral	
+6927	O-Oral	O-Oral	
+6930	O-Oral	O-Oral	
+6934	O-Oral	O-Oral	
+6935	O-Oral	O-Oral	
+6938	O-Oral	O-Oral	
+6939	Parentaral	Inf-Infusion	Parentaral
+6940	O-Oral	O-Oral	
+6941	O-Oral	O-Oral	
+6942	O-Oral	O-Oral	
+6943	O-Oral	O-Oral	
+6946	N-Nasal	N-Nasal	
+6947	O-Oral	O-Oral	
+6951	O-Oral	O-Oral	
+6953	O-Oral	O-Oral	
+6955	O-Oral	O-Oral	
+6958	Parentaral	Inf-Infusion	Parentaral
+6962	O-Oral	O-Oral	
+6963	O-Oral	O-Oral	
+6965	Parentaral	Inf-Infusion	Parentaral
+6966	Parentaral	Inf-Infusion	Parentaral
+6968	T-Topical	T-Topical	
+6969	O-Oral	O-Oral	
+6970	Parentaral	Inf-Infusion	Parentaral
+6971	Parentaral	Inf-Infusion	Parentaral
+6975	N-Nasal	N-Nasal	
+6976	O-Oral	O-Oral	
+6977	O-Oral	O-Oral	
+6978	T-Topical	T-Topical	
+6979	T-Topical	T-Topical	
+6980	Parentaral	Inf-IV-IPt-Infusion-Intravenous-Intramuscular-Intraperitoneal	Parentaral
+6982	Parentaral	Inf-Infusion	Parentaral
+6983	Parentaral	Inf-Infusion	Parentaral
+6984	Parentaral	Inf-Infusion	Parentaral
+6985	Parentaral	Inf-Infusion	Parentaral
+6986	O-Oral	O-Oral	
+6988	O-Oral	O-Oral	
+6991	O-Oral	O-Oral	
+6992	O-Oral	O-Oral	
+6993	IVit-Intravitreal	IVit-Intravitreal	
+6995	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+6997	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+6999	O-Oral	O-Oral	
+7000	Parentaral	Injectable route (except IV route)	Parentaral
+7001	O-Oral	O-Oral	
+7003	O-Oral	O-Oral	
+7004	O-Oral	O-Oral	
+7010	O-Oral	O-Oral	
+7011	O-Oral	O-Oral	
+7012	O-Oral	O-Oral	
+7014	O-Oral	O-Oral	
+7015	O-Oral	O-Oral	
+7017	O-Oral	O-Oral	
+7018	O-Oral	O-Oral	
+7020	Parentaral	Inf-Infusion	Parentaral
+7021	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7023	IV-Intravenous	IV-Intravenous	
+7025	O-Oral	O-Oral	
+7026	IO-Intraoral	IO-Intraoral	
+7027	O-Oral	O-Oral	
+7028	O-Oral	O-Oral	
+7029	O-Oral	O-Oral	
+7032	Parentaral	SC-Subcutanous	Parentaral
+7035	O-Oral	O-Oral	
+7036	O-Oral	O-Oral	
+7037	O-Oral	O-Oral	
+7038	O-Oral	O-Oral	
+7041	O-Oral	O-Oral	
+7042	O-Oral	O-Oral	
+7043	O-Oral	O-Oral	
+7044	O-Oral	O-Oral	
+7045	O-Oral	O-Oral	
+7046	O-Oral	O-Oral	
+7047	O-Oral	O-Oral	
+7048	O-Oral	O-Oral	
+7049	O-Oral	O-Oral	
+7050	Parentaral	Inf-Infusion	Parentaral
+7051	Parentaral	Inf-Infusion	Parentaral
+7052	Parentaral	Inf-Infusion	Parentaral
+7053	Parentaral	Inf-Infusion	Parentaral
+7054	Parentaral	Inf-Infusion	Parentaral
+7057	Oph-Ophtalmic	Oph-Ophtalmic	
+7058	O-Oral	O-Oral	
+7059	O-Oral	O-Oral	
+7060	O-Oral	O-Oral	
+7061	O-Oral	O-Oral	
+7063	O-Oral	O-Oral	
+7064	O-Oral	O-Oral	
+7065	O-Oral	O-Oral	
+7068	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+7069	Parentaral	IM-Intramuscular	Parentaral
+7073	Parentaral	Inf-Infusion	Parentaral
+7074	Parentaral	Inf-Infusion	Parentaral
+7075	Parentaral	Inf-Infusion	Parentaral
+7076	Parentaral	Inf-Infusion	Parentaral
+7077	Parentaral	IM-IntAr-Intramuscular-IntraArticular	Parentaral
+7078	O-Oral	O-Oral	
+7082	O-Oral	O-Oral	
+7087	O-Oral	O-Oral	
+7088	O-Oral	O-Oral	
+7091	O-Oral	O-Oral	
+7092	Parentaral	Inf-Infusion	Parentaral
+7093	Parentaral	Inf-Infusion	Parentaral
+7094	T-Topical	T-Topical	
+7095	T-Topical	T-Topical	
+7097	Parentaral	Inf-Infusion	Parentaral
+7098	Parentaral	Inf-Infusion	Parentaral
+7099	Parentaral	Inf-Infusion	Parentaral
+7101	Parentaral	IM-Intramuscular	Parentaral
+7115	O-Oral	O-Oral	
+7116	O-Oral	O-Oral	
+7117	O-Oral	O-Oral	
+7118	O-Oral	O-Oral	
+7119	O-Oral	O-Oral	
+7120	O-Oral	O-Oral	
+7121	O-Oral	O-Oral	
+7122	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+7123	Parentaral	Inf-Infusion	Parentaral
+7125	Parentaral	Inf-Infusion	Parentaral
+7126	Parentaral	Inf-Infusion	Parentaral
+7127	Parentaral	Inf-Infusion	Parentaral
+7129	Parentaral	Inf-Infusion	Parentaral
+7130	Parentaral	Inf-Infusion	Parentaral
+7131	Parentaral	Inf-Infusion	Parentaral
+7132	Parentaral	Inf-Infusion	Parentaral
+7136	O-Oral	O-Oral	
+7137	O-Oral	O-Oral	
+7142	Res-Respiratory	Res-Respiratory	
+7145	O-Oral	O-Oral	
+7146	O-Oral	O-Oral	
+7147	Parentaral	SC-Subcutanous	Parentaral
+7148	Parentaral	SC-Subcutanous	Parentaral
+7149	Parentaral	SC-Subcutanous	Parentaral
+7150	Parentaral	IM-Intramuscular	Parentaral
+7152	O-Oral	O-Oral	
+7153	Oph-Ophtalmic	Oph-Ophtalmic	
+7155	O-Oral	O-Oral	
+7156	T-Topical	T-Topical	
+7158	O-Oral	O-Oral	
+7159	O-Oral	O-Oral	
+7160	O-Oral	O-Oral	
+7163	O-Oral	O-Oral	
+7167	O-Oral	O-Oral	
+7168	O-Oral	O-Oral	
+7169	O-Oral	O-Oral	
+7170	O-Oral	O-Oral	
+7171	O-Oral	O-Oral	
+7172	O-Oral	O-Oral	
+7173	O-Oral	O-Oral	
+7174	O-Oral	O-Oral	
+7176	O-Oral	O-Oral	
+7177	O-Oral	O-Oral	
+7178	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+7179	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+7180	O-Oral	O-Oral	
+7183	V-Vaginal	V-Vaginal	
+7184	O-Oral	O-Oral	
+7185	Irrigation	Irrigation	
+7187	Parentaral	P-Parenteral	Parentaral
+7188	O-Oral	O-Oral	
+7190	Parentaral	SC-Subcutanous	Parentaral
+7193	Parentaral	Inf-Infusion	Parentaral
+7194	O-Oral	O-Oral	
+7195	O-Oral	O-Oral	
+7196	O-Oral	O-Oral	
+7197	IV-Intravenous	IV-Intravenous	
+7198	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7199	O-Oral	O-Oral	
+7204	O-Oral	O-Oral	
+7205	O-Oral	O-Oral	
+7211	Parentaral	Inf-Infusion	Parentaral
+7212	Parentaral	Inf-Infusion	Parentaral
+7214	O-Oral	O-Oral	
+7216	Parentaral	Inf-Infusion	Parentaral
+7220	T-Topical	T-Topical	
+7221	O-Oral	O-Oral	
+7222	O-Oral	O-Oral	
+7223	O-Oral	O-Oral	
+7224	O-Oral	O-Oral	
+7225	O-Oral	O-Oral	
+7226	O-Oral	O-Oral	
+7227	O-Oral	O-Oral	
+7228	O-Oral	O-Oral	
+7232	O-Oral	O-Oral	
+7233	O-Oral	O-Oral	
+7234	O-R-Oral-Rectal	O-R-Oral-Rectal	
+7235	O-Oral	O-Oral	
+7237	Parentaral	Inf-Infusion	Parentaral
+7238	Parentaral	Inf-Infusion	Parentaral
+7239	Parentaral	SC-Subcutanous	Parentaral
+7242	O-Oral	O-Oral	
+7243	O-Oral	O-Oral	
+7244	O-Oral	O-Oral	
+7246	O-Oral	O-Oral	
+7249	Parentaral	Inf-Infusion	Parentaral
+7250	Parentaral	Inf-Infusion	Parentaral
+7251	O-Oral	O-Oral	
+7252	O-Oral	O-Oral	
+7253	R-V-Rectal-Vaginal	R-V-Rectal-Vaginal	
+7257	O-Oral	O-Oral	
+7258	O-Oral	O-Oral	
+7261	O-Oral	O-Oral	
+7262	O-Oral	O-Oral	
+7263	T-Topical	T-Topical	
+7264	T-Topical	T-Topical	
+7265	O-Oral	O-Oral	
+7266	Parentaral	Inf-Infusion	Parentaral
+7267	Parentaral	SC-Subcutanous	Parentaral
+7268	O-Oral	O-Oral	
+7269	O-Oral	O-Oral	
+7270	O-Oral	O-Oral	
+7273	O-Oral	O-Oral	
+7274	O-Oral	O-Oral	
+7276	IVes-Intravesical	IVes-Intravesical	
+7280	Parentaral	Inf-Infusion	Parentaral
+7281	Parentaral	Inf-Infusion	Parentaral
+7282	O-Oral	O-Oral	
+7283	Parentaral	IM-Intramuscular	Parentaral
+7284	O-Oral	O-Oral	
+7285	O-Oral	O-Oral	
+7286	O-Oral	O-Oral	
+7287	O-Oral	O-Oral	
+7289	O-Oral	O-Oral	
+7290	O-Oral	O-Oral	
+7291	O-Oral	O-Oral	
+7292	O-Oral	O-Oral	
+7294	O-Oral	O-Oral	
+7296	O-Oral	O-Oral	
+7303	O-Oral	O-Oral	
+7304	O-Oral	O-Oral	
+7305	O-Oral	O-Oral	
+7306	O-Oral	O-Oral	
+7307	O-Oral	O-Oral	
+7308	O-Oral	O-Oral	
+7309	O-Oral	O-Oral	
+7310	O-Oral	O-Oral	
+7311	O-Oral	O-Oral	
+7314	O-Oral	O-Oral	
+7315	O-Oral	O-Oral	
+7316	O-Oral	O-Oral	
+7317	O-Oral	O-Oral	
+7318	Parentaral	Inf-Infusion	Parentaral
+7319	V-Vaginal	V-Vaginal	
+7320	O-Oral	O-Oral	
+7321	T-Topical	T-Topical	
+7322	O-Oral	O-Oral	
+7323	Parentaral	SC-Subcutanous	Parentaral
+7327	O-Oral	O-Oral	
+7328	O-Oral	O-Oral	
+7329	Parentaral	Inf-Infusion	Parentaral
+7330	O-Oral	O-Oral	
+7331	O-Oral	O-Oral	
+7332	T-Topical	T-Topical	
+7333	O-Oral	O-Oral	
+7337	O-Oral	O-Oral	
+7338	O-Oral	O-Oral	
+7339	O-Oral	O-Oral	
+7340	O-Oral	O-Oral	
+7341	O-Oral	O-Oral	
+7342	O-Oral	O-Oral	
+7343	O-Oral	O-Oral	
+7344	O-Oral	O-Oral	
+7345	O-Oral	O-Oral	
+7346	O-Oral	O-Oral	
+7347	O-Oral	O-Oral	
+7348	O-Oral	O-Oral	
+7349	O-Oral	O-Oral	
+7350	O-Oral	O-Oral	
+7352	O-Oral	O-Oral	
+7353	O-Oral	O-Oral	
+7354	O-Oral	O-Oral	
+7355	O-Oral	O-Oral	
+7356	O-Oral	O-Oral	
+7357	O-Oral	O-Oral	
+7358	O-Oral	O-Oral	
+7359	O-Oral	O-Oral	
+7360	O-Oral	O-Oral	
+7361	O-Oral	O-Oral	
+7362	O-Oral	O-Oral	
+7363	O-Oral	O-Oral	
+7365	Parentaral	Inf-Infusion	Parentaral
+7366	Parentaral	Inf-Infusion	Parentaral
+7367	Parentaral	Inf-Infusion	Parentaral
+7368	Parentaral	Inf-Infusion	Parentaral
+7369	Parentaral	Inf-Infusion	Parentaral
+7371	O-Oral	O-Oral	
+7372	O-Oral	O-Oral	
+7373	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7374	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7375	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7376	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7377	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7378	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7379	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7381	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7383	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7384	O-Oral	O-Oral	
+7385	O-Oral	O-Oral	
+7386	O-Oral	O-Oral	
+7387	O-Oral	O-Oral	
+7388	O-Oral	O-Oral	
+7389	O-Oral	O-Oral	
+7390	O-Oral	O-Oral	
+7393	O-Oral	O-Oral	
+7394	O-Oral	O-Oral	
+7395	O-Oral	O-Oral	
+7396	O-Oral	O-Oral	
+7397	O-Oral	O-Oral	
+7400	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7401	Parentaral	Inf-Infusion	Parentaral
+7402	Parentaral	Inf-Infusion	Parentaral
+7404	O-Oral	O-Oral	
+7405	Parentaral	Inf-Infusion	Parentaral
+7406	IV-Intravenous	IV-Intravenous	
+7408	O-Oral	O-Oral	
+7409	O-Oral	O-Oral	
+7410	O-Oral	O-Oral	
+7411	O-Oral	O-Oral	
+7412	O-Oral	O-Oral	
+7413	O-Oral	O-Oral	
+7414	O-Oral	O-Oral	
+7415	O-Res-Oral-Respiratory	O-Res-Oral-Respiratory	
+7417	O-Oral	O-Oral	
+7419	Parentaral	Inf-Infusion	Parentaral
+7420	IVit-Intravitreal	IVit-Intravitreal	
+7421	O-Oral	O-Oral	
+7422	O-Oral	O-Oral	
+7423	O-Oral	O-Oral	
+7427	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+7428	O-Oral	O-Oral	
+7429	O-Oral	O-Oral	
+7430	O-Oral	O-Oral	
+7431	O-Oral	O-Oral	
+7432	O-Oral	O-Oral	
+7434	O-Oral	O-Oral	
+7435	O-Oral	O-Oral	
+7436	O-Oral	O-Oral	
+7437	O-Oral	O-Oral	
+7440	O-Oral	O-Oral	
+7443	Parentaral	Inf-Infusion	Parentaral
+7444	Parentaral	Inf-Infusion	Parentaral
+7445	Res-Respiratory	Res-Respiratory	
+7446	Res-Respiratory	Res-Respiratory	
+7447	Res-Respiratory	Res-Respiratory	
+7452	Parentaral	Inf-Infusion	Parentaral
+7455	O-Oral	O-Oral	
+7465	O-Oral	O-Oral	
+7469	O-Oral	O-Oral	
+7470	O-Oral	O-Oral	
+7471	O-Oral	O-Oral	
+7472	O-Oral	O-Oral	
+7479	O-Oral	O-Oral	
+7481	O-Oral	O-Oral	
+7482	O-Oral	O-Oral	
+7483	Parentaral	Inf-Infusion	Parentaral
+7484	Parentaral	Inf-Infusion	Parentaral
+7485	O-Oral	O-Oral	
+7486	O-Oral	O-Oral	
+7487	O-Oral	O-Oral	
+7488	O-Oral	O-Oral	
+7490	O-Oral	O-Oral	
+7491	O-Oral	O-Oral	
+7492	O-Oral	O-Oral	
+7493	O-Oral	O-Oral	
+7494	T-Topical	T-Topical	
+7495	O-Oral	O-Oral	
+7496	O-Oral	O-Oral	
+7497	O-Oral	O-Oral	
+7498	O-Oral	O-Oral	
+7500	IO-Intraoral	IO-Intraoral	
+7502	ITrac-Intratracheal	ITrac-Intratracheal	
+7506	O-Oral	O-Oral	
+7507	O-Oral	O-Oral	
+7508	O-Oral	O-Oral	
+7509	O-Oral	O-Oral	
+7510	O-Oral	O-Oral	
+7511	O-Oral	O-Oral	
+7512	O-Oral	O-Oral	
+7513	O-Oral	O-Oral	
+7514	O-Oral	O-Oral	
+7515	O-Oral	O-Oral	
+7516	O-Oral	O-Oral	
+7517	O-Oral	O-Oral	
+7518	O-Oral	O-Oral	
+7521	Parentaral	SC-Subcutanous	Parentaral
+7525	O-Oral	O-Oral	
+7526	O-Oral	O-Oral	
+7527	Oph-Ophtalmic	Oph-Ophtalmic	
+7530	O-Oral	O-Oral	
+7531	T-Topical	T-Topical	
+7532	T-Topical	T-Topical	
+7533	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7534	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+7535	O-Oral	O-Oral	
+7536	O-Oral	O-Oral	
+7539	T-Topical	T-Topical	
+7543	T-Topical	T-Topical	
+7544	O-Oral	O-Oral	
+7547	O-Oral	O-Oral	
+7548	O-Oral	O-Oral	
+7551	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+7552	O-Oral	O-Oral	
+7554	Parentaral	Inf-Infusion	Parentaral
+7555	Oph-Ophtalmic	Oph-Ophtalmic	
+7558	T-Topical	T-Topical	
+7559	O-Oral	O-Oral	
+7560	T-Topical	T-Topical	
+7562	O-Oral	O-Oral	
+7569	O-Oral	O-Oral	
+7570	O-Oral	O-Oral	
+7571	O-Oral	O-Oral	
+7573	O-Oral	O-Oral	
+7576	O-Oral	O-Oral	
+7579	Parentaral	Inf-Infusion	Parentaral
+7582	O-Oral	O-Oral	
+7583	O-Oral	O-Oral	
+7585	O-Oral	O-Oral	
+7586	Parentaral	Inf-Infusion	Parentaral
+7587	Parentaral	Inf-Infusion	Parentaral
+7589	O-Oral	O-Oral	
+7591	O-Oral	O-Oral	
+7594	Parentaral	IM-Intramuscular	Parentaral
+7595	O-Oral	O-Oral	
+7596	O-Oral	O-Oral	
+7597	Parentaral	IM-Intramuscular	Parentaral
+7598	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+7600	O-Oral	O-Oral	
+7602	O-Oral	O-Oral	
+7603	O-Oral	O-Oral	
+7604	O-Oral	O-Oral	
+7605	O-Oral	O-Oral	
+7606	O-Oral	O-Oral	
+7609	O-Oral	O-Oral	
+7610	O-Oral	O-Oral	
+7611	O-Oral	O-Oral	
+7612	T-Topical	T-Topical	
+7613	O-Oral	O-Oral	
+7614	Parentaral	Inf-Infusion	Parentaral
+7615	Parentaral	Inf-Infusion	Parentaral
+7617	IV-Intravenous	IV-Intravenous	
+7618	IV-Intravenous	IV-Intravenous	
+7622	O-Oral	O-Oral	
+7624	Parentaral	IM-Intramuscular	Parentaral
+7626	O-Oral	O-Oral	
+7628	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7629	Parentaral	Inf-Infusion	Parentaral
+7630	T-Topical	T-Topical	
+7631	O-Oral	O-Oral	
+7632	O-Oral	O-Oral	
+7633	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7635	O-Oral	O-Oral	
+7637	O-Oral	O-Oral	
+7638	Parentaral	Inf-Infusion	Parentaral
+7639	O-Oral	O-Oral	
+7640	O-Oral	O-Oral	
+7641	O-Oral	O-Oral	
+7642	O-Oral	O-Oral	
+7643	Parentaral	Inf-Infusion	Parentaral
+7644	O-Oral	O-Oral	
+7645	IO-Intraoral	IO-Intraoral	
+7646	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+7647	O-Oral	O-Oral	
+7648	O-Oral	O-Oral	
+7650	O-Oral	O-Oral	
+7651	O-Oral	O-Oral	
+7653	Parentaral	SC-Subcutanous	Parentaral
+7654	Parentaral	SC-Subcutanous	Parentaral
+7655	Parentaral	SC-Subcutanous	Parentaral
+7658	O-Oral	O-Oral	
+7659	Parentaral	IM-Intramuscular	Parentaral
+7660	T-Topical	T-Topical	
+7661	T-Topical	T-Topical	
+7662	Oph-Ophtalmic	Oph-Ophtalmic	
+7663	O-Oral	O-Oral	
+7664	O-Oral	O-Oral	
+7665	O-Oral	O-Oral	
+7666	O-Oral	O-Oral	
+7668	O-Oral	O-Oral	
+7669	O-Oral	O-Oral	
+7670	Parentaral	Inf-Infusion	Parentaral
+7671	Parentaral	Inf-Infusion	Parentaral
+7674	O-Oral	O-Oral	
+7675	O-Oral	O-Oral	
+7676	O-Oral	O-Oral	
+7677	O-Oral	O-Oral	
+7678	IV-Intravenous	IV-Intravenous	
+7679	IV-Intravenous	IV-Intravenous	
+7680	O-Oral	O-Oral	
+7681	V-Vaginal	V-Vaginal	
+7685	OG-Oral gingival	OG-Oral gingival	
+7687	T-Topical	T-Topical	
+7688	O-Oral	O-Oral	
+7689	O-Oral	O-Oral	
+7694	O-Oral	O-Oral	
+7697	T-Topical	T-Topical	
+7698	O-Oral	O-Oral	
+7703	R-Rectal	R-Rectal	
+7706	O-Oral	O-Oral	
+7707	Parentaral	Inf-Infusion	Parentaral
+7708	O-Oral	O-Oral	
+7709	O-Oral	O-Oral	
+7710	O-Oral	O-Oral	
+7711	O-Oral	O-Oral	
+7712	O-Oral	O-Oral	
+7713	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+7715	Parentaral	Inf-Infusion	Parentaral
+7716	Parentaral	Inf-Infusion	Parentaral
+7717	Parentaral	Inf-Infusion	Parentaral
+7718	T-Topical	T-Topical	
+7724	O-Oral	O-Oral	
+7726	Parentaral	Inf-Infusion	Parentaral
+7727	O-Oral	O-Oral	
+7728	O-Oral	O-Oral	
+7729	T-Topical	T-Topical	
+7730	O-Oral	O-Oral	
+7731	O-Oral	O-Oral	
+7732	O-Oral	O-Oral	
+7733	O-Oral	O-Oral	
+7734	O-Oral	O-Oral	
+7735	Parentaral	Inf-Infusion	Parentaral
+7738	O-Oral	O-Oral	
+7742	T-Topical	T-Topical	
+7743	T-Topical	T-Topical	
+7744	O-Oral	O-Oral	
+7745	OG-Oral gingival	OG-Oral gingival	
+7746	O-Oral	O-Oral	
+7748	Parentaral	IM-Intramuscular	Parentaral
+7750	Parentaral	Inf-Infusion	Parentaral
+7752	O-Oral	O-Oral	
+7753	Parentaral	Inf-Infusion	Parentaral
+7754	Parentaral	Inf-Infusion	Parentaral
+7755	O-Oral	O-Oral	
+7760	O-Oral	O-Oral	
+7761	V-Vaginal	V-Vaginal	
+7762	O-Oral	O-Oral	
+7763	O-Oral	O-Oral	
+7764	O-Oral	O-Oral	
+7765	O-Oral	O-Oral	
+7766	O-Oral	O-Oral	
+7767	O-Oral	O-Oral	
+7768	O-Oral	O-Oral	
+7769	O-Oral	O-Oral	
+7770	O-Oral	O-Oral	
+7771	O-Oral	O-Oral	
+7772	O-Oral	O-Oral	
+7773	O-Oral	O-Oral	
+7774	O-Oral	O-Oral	
+7775	O-Oral	O-Oral	
+7776	O-Oral	O-Oral	
+7777	O-Oral	O-Oral	
+7778	O-Oral	O-Oral	
+7779	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7781	O-Oral	O-Oral	
+7787	Parentaral	Inf-IV-IM-SC-Infusion-Intravenous-Intramuscular-Subcutanous	Parentaral
+7788	O-Oral	O-Oral	
+7789	O-Oral	O-Oral	
+7790	O-Oral	O-Oral	
+7791	O-Oral	O-Oral	
+7792	O-Oral	O-Oral	
+7793	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7798	O-Oral	O-Oral	
+7806	N-Nasal	N-Nasal	
+7809	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+7811	O-Oral	O-Oral	
+7812	O-Oral	O-Oral	
+7817	O-Oral	O-Oral	
+7818	Parentaral	IM-Intramuscular	Parentaral
+7819	Parentaral	IM-Intramuscular	Parentaral
+7820	O-Oral	O-Oral	
+7824	Parentaral	Inf-Infusion	Parentaral
+7825	T-Topical	T-Topical	
+7826	O-Oral	O-Oral	
+7827	O-Oral	O-Oral	
+7832	O-Oral	O-Oral	
+7836	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7837	O-Oral	O-Oral	
+7838	O-Oral	O-Oral	
+7839	Oph-Ophtalmic	Oph-Ophtalmic	
+7840	O-Oral	O-Oral	
+7841	O-Oral	O-Oral	
+7842	O-Oral	O-Oral	
+7843	O-Oral	O-Oral	
+7844	O-Oral	O-Oral	
+7846	R-Rectal	R-Rectal	
+7847	O-Oral	O-Oral	
+7849	O-Oral	O-Oral	
+7850	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+7851	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+7852	O-Oral	O-Oral	
+7853	O-Oral	O-Oral	
+7855	O-Oral	O-Oral	
+7856	O-Oral	O-Oral	
+7857	O-Oral	O-Oral	
+7858	O-Oral	O-Oral	
+7861	O-Oral	O-Oral	
+7862	O-Oral	O-Oral	
+7864	O-Oral	O-Oral	
+7865	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7866	Parentaral	Inf-Infusion	Parentaral
+7867	Parentaral	Inf-Infusion	Parentaral
+7868	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+7869	T-Topical	T-Topical	
+7870	O-Oral	O-Oral	
+7871	O-Oral	O-Oral	
+7872	O-Oral	O-Oral	
+7875	T-Topical	T-Topical	
+7877	N-Nasal	N-Nasal	
+7878	O-Oral	O-Oral	
+7879	O-Oral	O-Oral	
+7882	O-Oral	O-Oral	
+7884	O-Oral	O-Oral	
+7889	O-Oral	O-Oral	
+7890	O-Oral	O-Oral	
+7891	O-Oral	O-Oral	
+7892	O-Oral	O-Oral	
+7893	O-Oral	O-Oral	
+7894	O-Oral	O-Oral	
+7895	O-Oral	O-Oral	
+7896	O-Oral	O-Oral	
+7897	T-Topical	T-Topical	
+7898	Parentaral	Inf-Infusion	Parentaral
+7907	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+7908	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+7909	O-Oral	O-Oral	
+7910	O-Oral	O-Oral	
+7911	O-Oral	O-Oral	
+7913	O-Oral	O-Oral	
+7918	O-Oral	O-Oral	
+7919	O-Oral	O-Oral	
+7920	O-Oral	O-Oral	
+7921	O-Oral	O-Oral	
+7922	O-Oral	O-Oral	
+7923	Parentaral	IM-Intramuscular	Parentaral
+7926	O-Oral	O-Oral	
+7928	O-Oral	O-Oral	
+7929	O-Oral	O-Oral	
+7930	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+7932	Oph-Ophtalmic	Oph-Ophtalmic	
+7933	Oph-Ophtalmic	Oph-Ophtalmic	
+7934	O-Oral	O-Oral	
+7935	O-Oral	O-Oral	
+7936	O-Oral	O-Oral	
+7938	Parentaral	Inf-Infusion	Parentaral
+7940	R-Rectal	R-Rectal	
+7941	O-Oral	O-Oral	
+7942	O-Oral	O-Oral	
+7943	O-Oral	O-Oral	
+7947	O-Oral	O-Oral	
+7949	O-Oral	O-Oral	
+7950	O-Oral	O-Oral	
+7951	O-Oral	O-Oral	
+7952	O-Oral	O-Oral	
+7956	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+7957	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+7959	Oph-Ophtalmic	Oph-Ophtalmic	
+7960	O-Oral	O-Oral	
+7961	Parentaral	SC-Subcutanous	Parentaral
+7964	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+7965	Parentaral	Inf-SC-Infusion-Subcutanous	Parentaral
+7966	Parentaral	SC-Subcutanous	Parentaral
+7967	O-Oral	O-Oral	
+7968	O-Oral	O-Oral	
+7969	T-Topical	T-Topical	
+7970	Parentaral	Inf-Infusion	Parentaral
+7972	O-Oral	O-Oral	
+7973	O-Oral	O-Oral	
+7974	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+7976	Res-Respiratory	Res-Respiratory	
+7978	Parentaral	Inf-Infusion	Parentaral
+7980	IV-Intravenous	IV-Intravenous	
+7982	O-Oral	O-Oral	
+7985	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+7986	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+7987	Oph-Ophtalmic	Oph-Ophtalmic	
+7989	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+7990	Parentaral	Inf-Infusion	Parentaral
+7991	O-Oral	O-Oral	
+7992	O-Oral	O-Oral	
+7993	O-Oral	O-Oral	
+7994	O-Oral	O-Oral	
+7995	O-Oral	O-Oral	
+7996	O-Oral	O-Oral	
+7997	O-Oral	O-Oral	
+7998	O-Oral	O-Oral	
+7999	O-Oral	O-Oral	
+8000	O-Oral	O-Oral	
+8001	O-Oral	O-Oral	
+8002	O-Oral	O-Oral	
+8003	O-Oral	O-Oral	
+8004	O-Oral	O-Oral	
+8005	O-Oral	O-Oral	
+8006	O-Oral	O-Oral	
+8010	O-Oral	O-Oral	
+8011	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+8013	O-Oral	O-Oral	
+8014	T-Topical	T-Topical	
+8015	Parentaral	Inf-Infusion	Parentaral
+8016	O-Oral	O-Oral	
+8017	T-Topical	T-Topical	
+8018	TD-Transdermal	TD-Transdermal	
+8024	O-Oral	O-Oral	
+8025	O-Oral	O-Oral	
+8026	O-Oral	O-Oral	
+8030	T-Topical	T-Topical	
+8031	O-Oral	O-Oral	
+8032	O-Oral	O-Oral	
+8033	O-Oral	O-Oral	
+8034	O-Oral	O-Oral	
+8035	O-Oral	O-Oral	
+8036	O-Oral	O-Oral	
+8048	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8049	O-Oral	O-Oral	
+8050	O-Oral	O-Oral	
+8052	T-Topical	T-Topical	
+8053	Parentaral	Inf-Infusion	Parentaral
+8059	Ot-Otic	Ot-Otic	
+8060	O-Oral	O-Oral	
+8062	Parentaral	SC-Subcutanous	Parentaral
+8063	Parentaral	SC-Subcutanous	Parentaral
+8064	Parentaral	SC-Subcutanous	Parentaral
+8065	Parentaral	SC-Subcutanous	Parentaral
+8066	Parentaral	SC-Subcutanous	Parentaral
+8067	O-Oral	O-Oral	
+8068	T-Topical	T-Topical	
+8069	R-Rectal	R-Rectal	
+8070	O-Oral	O-Oral	
+8075	Parentaral	Inf-Infusion	Parentaral
+8076	Parentaral	Inf-Infusion	Parentaral
+8081	T-Topical	T-Topical	
+8082	Parentaral	Inf-Infusion	Parentaral
+8083	Parentaral	SC-Subcutanous	Parentaral
+8084	Parentaral	SC-Subcutanous	Parentaral
+8085	Parentaral	SC-Subcutanous	Parentaral
+8087	Parentaral	SC-Subcutanous	Parentaral
+8088	Parentaral	SC-Subcutanous	Parentaral
+8089	Parentaral	SC-Subcutanous	Parentaral
+8090	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+8092	Parentaral	Inf-Infusion	Parentaral
+8093	Parentaral	SC-Subcutanous	Parentaral
+8094	O-Oral	O-Oral	
+8095	O-Oral	O-Oral	
+8096	O-Oral	O-Oral	
+8098	O-Oral	O-Oral	
+8099	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+8100	IV-Intravenous	IV-Intravenous	
+8101	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8102	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8103	O-Oral	O-Oral	
+8104	O-Oral	O-Oral	
+8105	O-Oral	O-Oral	
+8106	O-Oral	O-Oral	
+8107	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+8111	Parentaral	SC-Subcutanous	Parentaral
+8112	Parentaral	SC-Subcutanous	Parentaral
+8113	Parentaral	SC-Subcutanous	Parentaral
+8118	O-Oral	O-Oral	
+8119	O-Oral	O-Oral	
+8120	O-Oral	O-Oral	
+8121	O-Oral	O-Oral	
+8125	O-Oral	O-Oral	
+8127	O-Oral	O-Oral	
+8128	O-Oral	O-Oral	
+8130	O-Oral	O-Oral	
+8131	O-Oral	O-Oral	
+8132	O-Oral	O-Oral	
+8133	O-Oral	O-Oral	
+8138	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8141	O-Oral	O-Oral	
+8142	Parentaral	Inf-Infusion	Parentaral
+8143	Parentaral	Inf-Infusion	Parentaral
+8144	O-Oral	O-Oral	
+8145	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8147	Res-Respiratory	Res-Respiratory	
+8148	Res-Respiratory	Res-Respiratory	
+8149	Res-Respiratory	Res-Respiratory	
+8155	IV-Intravenous	IV-Intravenous	
+8156	T-Topical	T-Topical	
+8157	O-Oral	O-Oral	
+8158	O-Oral	O-Oral	
+8159	O-Oral	O-Oral	
+8165	O-Oral	O-Oral	
+8169	O-Oral	O-Oral	
+8173	O-Oral	O-Oral	
+8174	O-Oral	O-Oral	
+8175	O-Oral	O-Oral	
+8176	IV-Intravenous	IV-Intravenous	
+8177	O-Oral	O-Oral	
+8181	Parentaral	Inf-Infusion	Parentaral
+8183	O-Oral	O-Oral	
+8186	Parentaral	Inf-Infusion	Parentaral
+8187	Parentaral	Inf-Infusion	Parentaral
+8188	IV-Intravenous	IV-Intravenous	
+8189	IV-Intravenous	IV-Intravenous	
+8191	T-Topical	T-Topical	
+8192	T-Topical	T-Topical	
+8193	T-Topical	T-Topical	
+8194	O-Oral	O-Oral	
+8195	O-Oral	O-Oral	
+8196	O-Oral	O-Oral	
+8201	Parentaral	Inf-Infusion	Parentaral
+8202	Parentaral	SC-Subcutanous	Parentaral
+8203	O-Oral	O-Oral	
+8204	O-Oral	O-Oral	
+8210	O-Oral	O-Oral	
+8214	O-Oral	O-Oral	
+8215	O-Oral	O-Oral	
+8216	O-Oral	O-Oral	
+8217	O-Oral	O-Oral	
+8222	O-Oral	O-Oral	
+8223	O-Oral	O-Oral	
+8224	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8225	T-Topical	T-Topical	
+8226	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+8227	O-Oral	O-Oral	
+8230	Parentaral	Inf-Infusion	Parentaral
+8231	O-Oral	O-Oral	
+8232	O-Oral	O-Oral	
+8233	O-Oral	O-Oral	
+8234	O-Oral	O-Oral	
+8235	O-Oral	O-Oral	
+8236	Parentaral	IM-Intramuscular	Parentaral
+8237	O-Oral	O-Oral	
+8239	Parentaral	Inf-Infusion	Parentaral
+8240	O-Oral	O-Oral	
+8241	O-Oral	O-Oral	
+8242	O-Oral	O-Oral	
+8243	O-Oral	O-Oral	
+8244	O-Oral	O-Oral	
+8245	O-Oral	O-Oral	
+8246	O-Oral	O-Oral	
+8249	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8250	T-Topical	T-Topical	
+8251	T-Topical	T-Topical	
+8252	Parentaral	P-Parenteral	Parentaral
+8253	O-Oral	O-Oral	
+8254	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8255	O-Oral	O-Oral	
+8256	O-Oral	O-Oral	
+8260	O-Oral	O-Oral	
+8261	O-Oral	O-Oral	
+8262	O-Oral	O-Oral	
+8263	O-Oral	O-Oral	
+8264	O-Oral	O-Oral	
+8269	O-Oral	O-Oral	
+8270	O-Oral	O-Oral	
+8272	Parentaral	IM-Intramuscular	Parentaral
+8273	T-Topical	T-Topical	
+8274	TS-Topical,scalp	TS-Topical,scalp	
+8275	TS-Topical,scalp	TS-Topical,scalp	
+8278	O-Oral	O-Oral	
+8279	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8281	Parentaral	Inf-Infusion	Parentaral
+8284	O-Oral	O-Oral	
+8285	Parentaral	IM-Intramuscular	Parentaral
+8286	IV-Intravenous	IV-Intravenous	
+8287	O-Oral	O-Oral	
+8288	O-Oral	O-Oral	
+8289	Parentaral	Inf-Infusion	Parentaral
+8290	O-Oral	O-Oral	
+8292	O-Oral	O-Oral	
+8299	O-Oral	O-Oral	
+8300	O-Oral	O-Oral	
+8301	O-Oral	O-Oral	
+8302	O-Oral	O-Oral	
+8304	O-Oral	O-Oral	
+8306	O-Oral	O-Oral	
+8307	O-Oral	O-Oral	
+8308	O-Oral	O-Oral	
+8309	O-Oral	O-Oral	
+8312	O-Oral	O-Oral	
+8313	O-Oral	O-Oral	
+8314	T-Topical	T-Topical	
+8315	IV-Intravenous	IV-Intravenous	
+8316	O-Oral	O-Oral	
+8317	O-Oral	O-Oral	
+8318	O-Oral	O-Oral	
+8319	O-Oral	O-Oral	
+8320	O-Oral	O-Oral	
+8321	O-Oral	O-Oral	
+8322	O-Oral	O-Oral	
+8323	Oph-Ophtalmic	Oph-Ophtalmic	
+8324	OG-Oral gingival	OG-Oral gingival	
+8325	TD-Transdermal	TD-Transdermal	
+8326	TD-Transdermal	TD-Transdermal	
+8329	O-Oral	O-Oral	
+8331	Parentaral	Inf-Infusion	Parentaral
+8332	Parentaral	Inf-Infusion	Parentaral
+8333	O-Oral	O-Oral	
+8338	O-Oral	O-Oral	
+8339	O-Oral	O-Oral	
+8340	O-Oral	O-Oral	
+8341	O-Oral	O-Oral	
+8342	O-Oral	O-Oral	
+8343	O-Oral	O-Oral	
+8345	O-Oral	O-Oral	
+8346	O-Oral	O-Oral	
+8347	O-Oral	O-Oral	
+8348	O-Oral	O-Oral	
+8349	O-Oral	O-Oral	
+8350	O-Oral	O-Oral	
+8351	O-Oral	O-Oral	
+8352	O-Oral	O-Oral	
+8353	O-Oral	O-Oral	
+8354	O-Oral	O-Oral	
+8357	O-Oral	O-Oral	
+8360	V-Vaginal	V-Vaginal	
+8362	N-Nasal	N-Nasal	
+8363	Oph-Ophtalmic	Oph-Ophtalmic	
+8364	O-Oral	O-Oral	
+8365	T-Topical	T-Topical	
+8366	O-Oral	O-Oral	
+8368	Parentaral	Inf-Infusion	Parentaral
+8372	Parentaral	Inf-Infusion	Parentaral
+8373	O-Oral	O-Oral	
+8374	Res-Respiratory	Res-Respiratory	
+8377	O-Oral	O-Oral	
+8378	O-Oral	O-Oral	
+8379	O-Oral	O-Oral	
+8380	T-Topical	T-Topical	
+8381	T-Topical	T-Topical	
+8382	O-Oral	O-Oral	
+8383	O-Oral	O-Oral	
+8384	O-Oral	O-Oral	
+8385	O-Oral	O-Oral	
+8386	O-Oral	O-Oral	
+8387	O-Oral	O-Oral	
+8388	O-Oral	O-Oral	
+8389	O-Oral	O-Oral	
+8390	O-Oral	O-Oral	
+8394	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+8395	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+8396	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+8397	O-Oral	O-Oral	
+8398	Parentaral	Inf-Infusion	Parentaral
+8399	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8402	Parentaral	Inf-Infusion	Parentaral
+8403	O-Oral	O-Oral	
+8404	O-Oral	O-Oral	
+8405	O-Oral	O-Oral	
+8406	O-Oral	O-Oral	
+8407	O-Oral	O-Oral	
+8408	O-Oral	O-Oral	
+8409	Parentaral	Inf-Infusion	Parentaral
+8410	O-Oral	O-Oral	
+8411	T-Topical	T-Topical	
+8412	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8413	Parentaral	SC-Subcutanous	Parentaral
+8414	Parentaral	SC-Subcutanous	Parentaral
+8418	T-Topical	T-Topical	
+8419	O-Oral	O-Oral	
+8420	O-Oral	O-Oral	
+8421	Parentaral	Inf-Infusion	Parentaral
+8422	O-Oral	O-Oral	
+8423	O-Oral	O-Oral	
+8424	O-Oral	O-Oral	
+8425	IV-Intravenous	IV-Intravenous	
+8428	Parentaral	Inf-Infusion	Parentaral
+8433	O-Oral	O-Oral	
+8435	Res-Respiratory	Res-Respiratory	
+8436	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8437	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8438	O-Oral	O-Oral	
+8441	Parentaral	SC-Subcutanous	Parentaral
+8443	N-Nasal	N-Nasal	
+8444	O-Oral	O-Oral	
+8445	O-Oral	O-Oral	
+8446	Parentaral	SC-Subcutanous	Parentaral
+8447	O-Oral	O-Oral	
+8448	O-Oral	O-Oral	
+8449	O-Oral	O-Oral	
+8451	TS-Topical,scalp	TS-Topical,scalp	
+8452	Parentaral	IM-Intramuscular	Parentaral
+8453	Parentaral	IM-Intramuscular	Parentaral
+8454	Parentaral	IM-Intramuscular	Parentaral
+8455	Parentaral	SC-Subcutanous	Parentaral
+8456	ITrac-Intratracheal	ITrac-Intratracheal	
+8457	ITrac-Intratracheal	ITrac-Intratracheal	
+8458	Parentaral	Inf-Infusion	Parentaral
+8459	O-Oral	O-Oral	
+8460	Parentaral	SC-Subcutanous	Parentaral
+8461	T-Topical	T-Topical	
+8462	O-Oral	O-Oral	
+8463	O-Oral	O-Oral	
+8464	O-Oral	O-Oral	
+8466	O-Oral	O-Oral	
+8467	O-Oral	O-Oral	
+8468	O-Oral	O-Oral	
+8469	O-Oral	O-Oral	
+8470	O-Oral	O-Oral	
+8471	O-Oral	O-Oral	
+8472	O-Oral	O-Oral	
+8473	O-Oral	O-Oral	
+8474	O-Oral	O-Oral	
+8475	O-Oral	O-Oral	
+8477	O-Oral	O-Oral	
+8478	Parentaral	Inf-Infusion	Parentaral
+8479	O-Oral	O-Oral	
+8480	O-Oral	O-Oral	
+8481	O-Oral	O-Oral	
+8482	O-Oral	O-Oral	
+8483	O-Oral	O-Oral	
+8484	O-Oral	O-Oral	
+8485	O-Oral	O-Oral	
+8486	O-Oral	O-Oral	
+8487	Parentaral	Inf-Infusion	Parentaral
+8488	Parentaral	Inf-Infusion	Parentaral
+8489	O-Oral	O-Oral	
+8491	TD-Transdermal	TD-Transdermal	
+8492	Parentaral	Inf-Infusion	Parentaral
+8493	Parentaral	Inf-Infusion	Parentaral
+8496	Parentaral	SC-Subcutanous	Parentaral
+8497	Parentaral	SC-Subcutanous	Parentaral
+8498	Parentaral	Inf-Infusion	Parentaral
+8499	Parentaral	Inf-Infusion	Parentaral
+8502	Oph-Ophtalmic	Oph-Ophtalmic	
+8503	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8504	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8506	O-Oral	O-Oral	
+8507	O-Oral	O-Oral	
+8508	O-Oral	O-Oral	
+8509	O-Oral	O-Oral	
+8510	O-Oral	O-Oral	
+8512	O-Oral	O-Oral	
+8513	O-Oral	O-Oral	
+8514	O-Oral	O-Oral	
+8515	O-Oral	O-Oral	
+8516	O-Oral	O-Oral	
+8517	O-Oral	O-Oral	
+8518	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8519	Parentaral	Inf-Infusion	Parentaral
+8520	O-Oral	O-Oral	
+8521	O-Oral	O-Oral	
+8522	O-Oral	O-Oral	
+8524	O-Oral	O-Oral	
+8525	O-Oral	O-Oral	
+8526	O-Oral	O-Oral	
+8527	Parentaral	Inf-Infusion	Parentaral
+8528	Ot-Otic	Ot-Otic	
+8529	Parentaral	Inf-Infusion	Parentaral
+8530	O-Oral	O-Oral	
+8531	O-Oral	O-Oral	
+8532	O-Oral	O-Oral	
+8534	O-Oral	O-Oral	
+8535	O-Oral	O-Oral	
+8541	Parentaral	SC-Subcutanous	Parentaral
+8542	Parentaral	SC-Subcutanous	Parentaral
+8543	Res-Respiratory	Res-Respiratory	
+8544	O-Oral	O-Oral	
+8546	O-Oral	O-Oral	
+8547	O-Oral	O-Oral	
+8548	O-Oral	O-Oral	
+8551	O-Oral	O-Oral	
+8553	O-Oral	O-Oral	
+8556	O-Oral	O-Oral	
+8558	IV-Intravenous	IV-Intravenous	
+8559	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8560	T-Topical	T-Topical	
+8561	O-Oral	O-Oral	
+8562	O-Oral	O-Oral	
+8563	T-Topical	T-Topical	
+8565	Parentaral	IM/Intraarticular/intralesional/intradermal/intrabursal/periarticular/soft tissue injection	Parentaral
+8566	Parentaral	Inf-Infusion	Parentaral
+8569	O-Oral	O-Oral	
+8570	O-Oral	O-Oral	
+8571	O-Oral	O-Oral	
+8572	O-Oral	O-Oral	
+8573	O-Oral	O-Oral	
+8575	O-Oral	O-Oral	
+8577	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8578	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+8579	O-Oral	O-Oral	
+8580	O-Oral	O-Oral	
+8581	O-Oral	O-Oral	
+8582	O-Oral	O-Oral	
+8584	O-Oral	O-Oral	
+8585	O-Oral	O-Oral	
+8586	O-Oral	O-Oral	
+8587	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+8588	O-Oral	O-Oral	
+8589	O-Oral	O-Oral	
+8590	Parentaral	Inf-Infusion	Parentaral
+8593	O-Oral	O-Oral	
+8594	T-Topical	T-Topical	
+8596	R-Rectal	R-Rectal	
+8597	R-Rectal	R-Rectal	
+8603	O-Oral	O-Oral	
+8605	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+8606	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+8607	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+8608	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8609	IV-Intravenous	IV-Intravenous	
+8610	Parentaral	IM-Intramuscular	Parentaral
+8613	O-Oral	O-Oral	
+8616	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+8617	O-Oral	O-Oral	
+8620	O-Oral	O-Oral	
+8621	O-Oral	O-Oral	
+8622	O-Oral	O-Oral	
+8628	O-Oral	O-Oral	
+8633	O-Oral	O-Oral	
+8634	O-Oral	O-Oral	
+8635	O-Oral	O-Oral	
+8637	O-Oral	O-Oral	
+8638	O-Oral	O-Oral	
+8639	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8640	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8641	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8643	O-Oral	O-Oral	
+8644	O-Oral	O-Oral	
+8649	O-Oral	O-Oral	
+8650	O-Oral	O-Oral	
+8651	O-Oral	O-Oral	
+8652	T-Topical	T-Topical	
+8653	O-Oral	O-Oral	
+8654	O-Oral	O-Oral	
+8655	O-Oral	O-Oral	
+8656	O-Oral	O-Oral	
+8657	O-Oral	O-Oral	
+8658	R-Rectal	R-Rectal	
+8659	R-Rectal	R-Rectal	
+8660	O-Oral	O-Oral	
+8661	Parentaral	P-Parenteral	Parentaral
+8662	Parentaral	P-Parenteral	Parentaral
+8663	Parentaral	P-Parenteral	Parentaral
+8664	O-Oral	O-Oral	
+8669	O-Oral	O-Oral	
+8670	O-Oral	O-Oral	
+8671	O-Oral	O-Oral	
+8672	Oph-Ophtalmic	Oph-Ophtalmic	
+8673	Parentaral	IM-Intramuscular	Parentaral
+8674	Parentaral	IM-Intramuscular	Parentaral
+8675	Parentaral	IM-Intramuscular	Parentaral
+8680	O-Oral	O-Oral	
+8681	O-Oral	O-Oral	
+8682	O-Oral	O-Oral	
+8683	O-Oral	O-Oral	
+8684	O-Oral	O-Oral	
+8685	O-Oral	O-Oral	
+8686	O-Oral	O-Oral	
+8687	O-Oral	O-Oral	
+8688	O-Oral	O-Oral	
+8689	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8690	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8692	O-Oral	O-Oral	
+8695	O-Oral	O-Oral	
+8701	Parentaral	Inf-Infusion	Parentaral
+8704	O-Oral	O-Oral	
+8705	O-Oral	O-Oral	
+8706	Parentaral	Inf-Infusion	Parentaral
+8707	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+8708	O-Oral	O-Oral	
+8709	O-Oral	O-Oral	
+8710	O-Oral	O-Oral	
+8711	O-Oral	O-Oral	
+8712	O-Oral	O-Oral	
+8713	O-Oral	O-Oral	
+8714	O-Oral	O-Oral	
+8715	O-Oral	O-Oral	
+8719	O-Oral	O-Oral	
+8720	O-Oral	O-Oral	
+8721	O-Oral	O-Oral	
+8722	O-Oral	O-Oral	
+8723	O-Oral	O-Oral	
+8724	O-Oral	O-Oral	
+8725	O-Oral	O-Oral	
+8726	Oph-Ophtalmic	Oph-Ophtalmic	
+8728	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8729	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8731	Parentaral	SC-Subcutanous	Parentaral
+8732	Parentaral	SC-Subcutanous	Parentaral
+8733	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8734	Parentaral	Inf-Infusion	Parentaral
+8735	Parentaral	Inf-Infusion	Parentaral
+8736	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8737	Parentaral	IM-Intramuscular	Parentaral
+8738	O-Oral	O-Oral	
+8739	O-Oral	O-Oral	
+8740	O-Oral	O-Oral	
+8741	O-Oral	O-Oral	
+8742	T-Topical	T-Topical	
+8743	IO-Intraoral	IO-Intraoral	
+8744	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+8745	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8746	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8747	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8748	T-Topical	T-Topical	
+8751	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8753	O-Oral	O-Oral	
+8754	O-Oral	O-Oral	
+8756	OG-Oral gingival	OG-Oral gingival	
+8757	T-Topical	T-Topical	
+8758	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8759	O-Oral	O-Oral	
+8760	O-Oral	O-Oral	
+8761	V-Vaginal	V-Vaginal	
+8763	O-Oral	O-Oral	
+8764	O-Oral	O-Oral	
+8765	O-Oral	O-Oral	
+8766	O-Oral	O-Oral	
+8767	O-Oral	O-Oral	
+8768	O-Oral	O-Oral	
+8769	O-Oral	O-Oral	
+8773	Parentaral	Inf-Infusion	Parentaral
+8774	Parentaral	Inf-Infusion	Parentaral
+8775	O-Oral	O-Oral	
+8777	O-Oral	O-Oral	
+8778	O-Oral	O-Oral	
+8779	T-Topical	T-Topical	
+8782	Res-Respiratory	Res-Respiratory	
+8783	O-Oral	O-Oral	
+8785	O-Oral	O-Oral	
+8786	Parentaral	Inf-Infusion	Parentaral
+8787	Parentaral	Inf-Infusion	Parentaral
+8788	Parentaral	SC-Subcutanous	Parentaral
+8789	O-Oral	O-Oral	
+8790	O-Oral	O-Oral	
+8791	O-Oral	O-Oral	
+8792	O-Oral	O-Oral	
+8793	O-Oral	O-Oral	
+8794	O-Oral	O-Oral	
+8796	O-Oral	O-Oral	
+8797	O-Oral	O-Oral	
+8800	Res-Respiratory	Res-Respiratory	
+8804	Parentaral	Inf-Infusion	Parentaral
+8805	Parentaral	Inf-Infusion	Parentaral
+8806	Parentaral	Inf-Infusion	Parentaral
+8807	T-Topical	T-Topical	
+8809	O-Oral	O-Oral	
+8810	O-Oral	O-Oral	
+8811	O-Oral	O-Oral	
+8812	O-Oral	O-Oral	
+8814	T-Topical	T-Topical	
+8815	O-Oral	O-Oral	
+8816	O-Oral	O-Oral	
+8817	O-Oral	O-Oral	
+8818	O-Oral	O-Oral	
+8819	O-Oral	O-Oral	
+8820	O-Oral	O-Oral	
+8822	O-Oral	O-Oral	
+8823	O-Oral	O-Oral	
+8824	O-Oral	O-Oral	
+8825	O-Oral	O-Oral	
+8826	IV-Intravenous	IV-Intravenous	
+8827	O-Oral	O-Oral	
+8828	O-Oral	O-Oral	
+8829	O-Oral	O-Oral	
+8830	O-Oral	O-Oral	
+8831	O-Oral	O-Oral	
+8832	Parentaral	SC-Subcutanous	Parentaral
+8833	O-Oral	O-Oral	
+8834	Parentaral	Inf-Infusion	Parentaral
+8835	Parentaral	Inf-Infusion	Parentaral
+8836	O-Oral	O-Oral	
+8838	O-Oral	O-Oral	
+8839	O-Oral	O-Oral	
+8840	O-Oral	O-Oral	
+8841	O-Oral	O-Oral	
+8842	O-Oral	O-Oral	
+8843	O-Oral	O-Oral	
+8844	O-Oral	O-Oral	
+8847	O-Oral	O-Oral	
+8848	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8849	Parentaral	Inf-Infusion	Parentaral
+8850	Parentaral	Inf-Infusion	Parentaral
+8851	Parentaral	Inf-Infusion	Parentaral
+8852	Parentaral	Inf-Infusion	Parentaral
+8853	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8854	Parentaral	SC-Subcutanous	Parentaral
+8856	Parentaral	Inf-IV-Epid-Infusion-Intravenous-Epidural	Parentaral
+8857	Parentaral	IV-Epid-Intavenous-Epidural	Parentaral
+8858	Parentaral	Inf-Infusion	Parentaral
+8859	O-Oral	O-Oral	
+8862	Parentaral	Inf-Infusion	Parentaral
+8863	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+8864	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+8865	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8868	Parentaral	Inf-Infusion	Parentaral
+8869	O-Oral	O-Oral	
+8870	T-Topical	T-Topical	
+8871	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+8876	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8877	O-Oral	O-Oral	
+8879	O-Oral	O-Oral	
+8880	O-Oral	O-Oral	
+8881	O-Oral	O-Oral	
+8882	O-Oral	O-Oral	
+8883	O-Oral	O-Oral	
+8886	O-Oral	O-Oral	
+8887	Oph-Ophtalmic	Oph-Ophtalmic	
+8888	O-Oral	O-Oral	
+8889	O-Oral	O-Oral	
+8892	O-Oral	O-Oral	
+8893	O-Oral	O-Oral	
+8894	Parentaral	IM-Intramuscular	Parentaral
+8895	Parentaral	IM-Intramuscular	Parentaral
+8896	Parentaral	IM-Intramuscular	Parentaral
+8897	Parentaral	IM-Intramuscular	Parentaral
+8898	O-Oral	O-Oral	
+8899	Parentaral	Inf-Infusion	Parentaral
+8900	Parentaral	Inf-Infusion	Parentaral
+8901	Parentaral	Inf-Infusion	Parentaral
+8903	O-Oral	O-Oral	
+8904	O-Oral	O-Oral	
+8905	O-Oral	O-Oral	
+8906	IV-Intravenous	IV-Intravenous	
+8907	Parentaral	SC-Subcutanous	Parentaral
+8908	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8909	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+8910	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8911	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8912	Parentaral	Inf-Infusion	Parentaral
+8913	Oph-Ophtalmic	Oph-Ophtalmic	
+8914	Oph-Ophtalmic	Oph-Ophtalmic	
+8915	Oph-Ophtalmic	Oph-Ophtalmic	
+8918	O-Oral	O-Oral	
+8919	O-Oral	O-Oral	
+8920	O-Oral	O-Oral	
+8921	Parentaral	SC-Subcutanous	Parentaral
+8922	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8923	O-Oral	O-Oral	
+8924	O-Oral	O-Oral	
+8925	Parentaral	Inf-Infusion	Parentaral
+8926	Parentaral	Inf-Infusion	Parentaral
+8927	Oph-Ophtalmic	Oph-Ophtalmic	
+8928	T-Topical	T-Topical	
+8929	O-Oral-V-Vaginal	O-Oral-V-Vaginal	
+8931	T-Topical	T-Topical	
+8932	T-Topical	T-Topical	
+8933	T-Topical	T-Topical	
+8938	O-Oral	O-Oral	
+8939	O-Oral	O-Oral	
+8942	Parentaral	Inf-Infusion	Parentaral
+8943	Parentaral	Inf-Infusion	Parentaral
+8944	Parentaral	SC-Subcutanous	Parentaral
+8947	Parentaral	SC-Subcutanous	Parentaral
+8948	Parentaral	SC-Subcutanous	Parentaral
+8949	O-Oral	O-Oral	
+8950	O-Oral	O-Oral	
+8951	O-Oral	O-Oral	
+8952	O-Oral	O-Oral	
+8953	TS-Topical,scalp	TS-Topical,scalp	
+8957	Oph-Ophtalmic	Oph-Ophtalmic	
+8958	IV-Intravenous	IV-Intravenous	
+8959	IV-Intravenous	IV-Intravenous	
+8960	O-Oral	O-Oral	
+8961	O-Oral	O-Oral	
+8962	IV-Intravenous	IV-Intravenous	
+8963	Parentaral	IM-Intramuscular	Parentaral
+8964	Parentaral	IM-Intramuscular	Parentaral
+8965	O-Oral	O-Oral	
+8971	O-Oral	O-Oral	
+8972	O-Oral	O-Oral	
+8973	R-Rectal	R-Rectal	
+8975	N-Nasal	N-Nasal	
+8976	N-Nasal	N-Nasal	
+8978	N-Nasal	N-Nasal	
+8979	O-Oral	O-Oral	
+8980	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+8981	Parentaral	Inf-Infusion	Parentaral
+8982	Parentaral	IM-Intramuscular	Parentaral
+8983	IV-Intravenous	IV-Intravenous	
+8984	IV-Intravenous	IV-Intravenous	
+8985	IV-Intravenous	IV-Intravenous	
+8986	IV-Intravenous	IV-Intravenous	
+8987	IV-Intravenous	IV-Intravenous	
+8988	IV-Intravenous	IV-Intravenous	
+8989	Parentaral	Inf-Infusion	Parentaral
+8990	O-Oral	O-Oral	
+8991	O-Oral	O-Oral	
+8992	O-Oral	O-Oral	
+8993	O-Oral	O-Oral	
+8994	O-Oral	O-Oral	
+8996	TS-Topical,scalp	TS-Topical,scalp	
+8998	O-Oral	O-Oral	
+8999	O-Oral	O-Oral	
+9000	O-Oral	O-Oral	
+9001	O-Oral	O-Oral	
+9002	Parentaral	SC-Subcutanous	Parentaral
+9003	Parentaral	SC-Subcutanous	Parentaral
+9004	Parentaral	IM-Intramuscular	Parentaral
+9005	O-Oral	O-Oral	
+9006	O-Oral	O-Oral	
+9007	O-Oral	O-Oral	
+9008	O-Oral	O-Oral	
+9009	O-Oral	O-Oral	
+9010	O-Oral	O-Oral	
+9011	O-Oral	O-Oral	
+9012	O-Oral	O-Oral	
+9013	O-Oral	O-Oral	
+9014	IV-Intravenous	IV-Intravenous	
+9015	Parentaral	Inf-Infusion	Parentaral
+9016	Parentaral	Inf-Infusion	Parentaral
+9017	T-Topical	T-Topical	
+9019	Res-Respiratory	Res-Respiratory	
+9020	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+9021	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+9022	T-Topical	T-Topical	
+9023	O-Oral	O-Oral	
+9024	O-Oral	O-Oral	
+9025	O-Oral	O-Oral	
+9026	O-Oral	O-Oral	
+9029	T-Topical	T-Topical	
+9031	Parentaral	IM-Intramuscular	Parentaral
+9032	Parentaral	IM-Intramuscular	Parentaral
+9033	Parentaral	Inf-Infusion	Parentaral
+9034	O-Oral	O-Oral	
+9035	Parentaral	IM-Intramuscular	Parentaral
+9036	O-Oral	O-Oral	
+9037	O-Oral	O-Oral	
+9038	Irrigation	Irrigation	
+9039	O-Oral	O-Oral	
+9040	O-Oral	O-Oral	
+9041	O-Oral	O-Oral	
+9042	O-Oral	O-Oral	
+9043	O-Oral	O-Oral	
+9045	T-Topical	T-Topical	
+9046	IVes-Intravesical	IVes-Intravesical	
+9048	O-Oral	O-Oral	
+9050	Oph-Ophtalmic	Oph-Ophtalmic	
+9051	O-Oral	O-Oral	
+9052	O-Oral	O-Oral	
+9053	O-Oral	O-Oral	
+9054	O-Oral	O-Oral	
+9055	O-Oral	O-Oral	
+9056	O-Oral	O-Oral	
+9058	O-Oral	O-Oral	
+9059	O-Oral	O-Oral	
+9061	T-Topical	T-Topical	
+9063	O-Oral	O-Oral	
+9064	O-Oral	O-Oral	
+9065	O-Oral	O-Oral	
+9066	O-Oral	O-Oral	
+9067	O-Oral	O-Oral	
+9068	O-Oral	O-Oral	
+9069	O-Oral	O-Oral	
+9070	O-Oral	O-Oral	
+9071	O-Oral	O-Oral	
+9072	O-Oral	O-Oral	
+9073	Parentaral	IM-Intramuscular	Parentaral
+9081	O-Oral	O-Oral	
+9083	O-Oral	O-Oral	
+9086	Parentaral	IV-IM-SC-Intravenous-Intramuscular-Subcutanous	Parentaral
+9087	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9090	O-Oral	O-Oral	
+9092	O-Oral	O-Oral	
+9093	O-Oral	O-Oral	
+9094	O-Oral	O-Oral	
+9095	O-Oral	O-Oral	
+9096	O-Oral	O-Oral	
+9097	O-Oral	O-Oral	
+9098	O-Oral	O-Oral	
+9099	O-Oral	O-Oral	
+9100	O-Oral	O-Oral	
+9101	O-Oral	O-Oral	
+9102	Parentaral	Inf-Infusion	Parentaral
+9103	Parentaral	Inf-Infusion	Parentaral
+9104	Parentaral	Inf-Infusion	Parentaral
+9105	Parentaral	Inf-Infusion	Parentaral
+9106	O-Oral	O-Oral	
+9108	O-Oral	O-Oral	
+9109	Parentaral	IM-Intramuscular	Parentaral
+9110	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9111	Parentaral	Inf-Infusion	Parentaral
+9112	O-Oral	O-Oral	
+9114	O-Oral	O-Oral	
+9115	O-Oral	O-Oral	
+9116	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9117	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9118	T-Topical	T-Topical	
+9120	R-Rectal	R-Rectal	
+9122	O-Oral	O-Oral	
+9123	O-Oral	O-Oral	
+9124	O-Oral	O-Oral	
+9125	O-Oral	O-Oral	
+9126	O-Oral	O-Oral	
+9127	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9128	Parentaral	Inf-Infusion	Parentaral
+9129	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9130	Parentaral	Inf-Infusion	Parentaral
+9132	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9133	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9134	Parentaral	Inf-Infusion	Parentaral
+9139	O-Oral	O-Oral	
+9140	O-Oral	O-Oral	
+9141	O-Oral	O-Oral	
+9144	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9146	O-Oral	O-Oral	
+9147	O-Oral	O-Oral	
+9148	O-Oral	O-Oral	
+9149	O-Oral	O-Oral	
+9150	Parentaral	Inf-Infusion	Parentaral
+9151	O-Oral	O-Oral	
+9152	O-Oral	O-Oral	
+9153	O-Oral	O-Oral	
+9154	O-Oral	O-Oral	
+9155	O-Oral	O-Oral	
+9156	O-Oral	O-Oral	
+9157	T-Topical	T-Topical	
+9160	O-Oral	O-Oral	
+9161	O-Oral	O-Oral	
+9162	O-Oral	O-Oral	
+9163	O-Oral	O-Oral	
+9164	O-Oral	O-Oral	
+9165	Parentaral	SC-Subcutanous	Parentaral
+9166	T-Topical	T-Topical	
+9167	O-Oral	O-Oral	
+9169	O-Oral	O-Oral	
+9170	O-Oral	O-Oral	
+9172	O-Oral	O-Oral	
+9173	O-Oral	O-Oral	
+9174	O-Oral	O-Oral	
+9175	O-Oral	O-Oral	
+9176	O-Oral	O-Oral	
+9179	T-Topical	T-Topical	
+9180	T-Topical	T-Topical	
+9181	O-Oral	O-Oral	
+9182	Ot-Otic	Ot-Otic	
+9183	O-Oral	O-Oral	
+9184	Parentaral	Inf-Infusion	Parentaral
+9185	Parentaral	Inf-Infusion	Parentaral
+9186	Parentaral	Inf-Infusion	Parentaral
+9189	Parentaral	Inf-Infusion	Parentaral
+9190	Parentaral	Inf-Infusion	Parentaral
+9191	O-Oral	O-Oral	
+9196	O-Oral	O-Oral	
+9198	Parentaral	Inf-Infusion	Parentaral
+9199	O-Oral	O-Oral	
+9200	O-Oral	O-Oral	
+9201	O-Oral	O-Oral	
+9202	Parentaral	Inf-Infusion	Parentaral
+9203	Parentaral	Inf-Infusion	Parentaral
+9204	O-Oral	O-Oral	
+9205	Parentaral	IV-IM-SC-Intravenous-Intamuscular-Subcutanous	Parentaral
+9206	Parentaral	IM-Intramuscular	Parentaral
+9207	Parentaral	IM-Intramuscular	Parentaral
+9209	Parentaral	Inf-Infusion	Parentaral
+9210	Parentaral	Inf-Infusion	Parentaral
+9211	Parentaral	Inf-Infusion	Parentaral
+9212	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9214	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9215	T-Topical	T-Topical	
+9216	Parentaral	Inf-Infusion	Parentaral
+9217	O-Oral	O-Oral	
+9218	O-Oral	O-Oral	
+9220	O-Oral	O-Oral	
+9221	O-Oral	O-Oral	
+9222	O-Oral	O-Oral	
+9223	O-Oral	O-Oral	
+9224	O-Oral	O-Oral	
+9227	IO-Intraoral	IO-Intraoral	
+9228	Parentaral	Inf-Infusion	Parentaral
+9230	O-Oral	O-Oral	
+9234	O-Oral	O-Oral	
+9235	O-Oral	O-Oral	
+9236	O-Oral	O-Oral	
+9237	O-Oral	O-Oral	
+9238	Res-Respiratory	Res-Respiratory	
+9239	Res-Respiratory	Res-Respiratory	
+9240	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9241	O-Oral	O-Oral	
+9242	Parentaral	SC-Subcutanous	Parentaral
+9243	O-Oral	O-Oral	
+9244	O-Oral	O-Oral	
+9245	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9246	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9247	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9248	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9249	O-Oral	O-Oral	
+9250	O-Oral	O-Oral	
+9251	O-Oral	O-Oral	
+9252	O-Oral	O-Oral	
+9253	O-Oral	O-Oral	
+9254	O-Oral	O-Oral	
+9255	O-Oral	O-Oral	
+9256	O-Oral	O-Oral	
+9257	O-Oral	O-Oral	
+9259	O-Oral	O-Oral	
+9260	O-Oral	O-Oral	
+9261	T-Topical	T-Topical	
+9262	O-Oral	O-Oral	
+9263	O-Oral	O-Oral	
+9264	O-Oral	O-Oral	
+9265	O-Oral	O-Oral	
+9266	O-Oral	O-Oral	
+9267	O-Oral	O-Oral	
+9268	O-Oral	O-Oral	
+9269	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+9270	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+9271	O-Oral	O-Oral	
+9272	Parentaral	SC-Subcutanous	Parentaral
+9275	IV-Intravenous	IV-Intravenous	
+9276	O-Oral	O-Oral	
+9277	O-Oral	O-Oral	
+9278	O-Oral	O-Oral	
+9279	O-Oral	O-Oral	
+9280	O-Oral	O-Oral	
+9281	O-Oral	O-Oral	
+9282	O-Oral	O-Oral	
+9283	O-Oral	O-Oral	
+9284	O-Oral	O-Oral	
+9285	O-Oral	O-Oral	
+9286	O-Oral	O-Oral	
+9287	O-Oral	O-Oral	
+9288	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9289	Parentaral	IM/IV/Intraarticular/intralesional/soft tissue injection	Parentaral
+9290	O-Oral	O-Oral	
+9294	O-Oral	O-Oral	
+9295	O-Oral	O-Oral	
+9296	O-Oral	O-Oral	
+9297	O-Oral	O-Oral	
+9298	O-Oral	O-Oral	
+9299	Parentaral	SC-Subcutanous	Parentaral
+9300	Parentaral	Inf-Infusion	Parentaral
+9302	Parentaral	IM-Intramuscular	Parentaral
+9303	Parentaral	IM-Intramuscular	Parentaral
+9313	O-Oral	O-Oral	
+9314	O-Oral	O-Oral	
+9315	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9317	O-Oral	O-Oral	
+9318	O-Oral	O-Oral	
+9320	T-Topical	T-Topical	
+9321	O-Oral	O-Oral	
+9322	O-Oral	O-Oral	
+9323	O-Oral	O-Oral	
+9324	O-Oral	O-Oral	
+9325	Parentaral	IM-Intramuscular	Parentaral
+9326	O-Oral	O-Oral	
+9327	O-Oral	O-Oral	
+9328	O-Oral	O-Oral	
+9329	T-Topical	T-Topical	
+9330	T-Topical	T-Topical	
+9331	IV-Intravenous	IV-Intravenous	
+9332	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+9333	Parentaral	Inf-Infusion	Parentaral
+9337	O-Oral	O-Oral	
+9339	O-Oral	O-Oral	
+9340	O-Oral	O-Oral	
+9341	O-Oral	O-Oral	
+9342	O-Oral	O-Oral	
+9343	T-Topical	T-Topical	
+9344	Oph-Ophtalmic	Oph-Ophtalmic	
+9345	Oph-Ophtalmic	Oph-Ophtalmic	
+9346	Parentaral	Varicose vein	Parentaral
+9347	Parentaral	Varicose vein	Parentaral
+9348	Parentaral	Varicose vein	Parentaral
+9349	O-Oral	O-Oral	
+9350	O-Oral	O-Oral	
+9351	T-Topical	T-Topical	
+9352	T-Topical	T-Topical	
+9353	O-Oral	O-Oral	
+9354	O-Oral	O-Oral	
+9355	O-Oral	O-Oral	
+9356	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+9357	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+9358	O-Oral	O-Oral	
+9359	Parentaral	SC-Subcutanous	Parentaral
+9360	O-Oral	O-Oral	
+9361	O-Oral	O-Oral	
+9362	O-Oral	O-Oral	
+9363	O-Oral	O-Oral	
+9364	O-Oral	O-Oral	
+9365	O-Oral	O-Oral	
+9366	Parentaral	Inf-Infusion	Parentaral
+9367	O-Oral	O-Oral	
+9368	O-R-Oral-Rectal	O-R-Oral-Rectal	
+9369	Parentaral	Inf-Infusion	Parentaral
+9370	Parentaral	Inf-Infusion	Parentaral
+9371	Parentaral	Inf-Infusion	Parentaral
+9372	Parentaral	Inf-Infusion	Parentaral
+9373	Parentaral	Inf-Infusion	Parentaral
+9374	Parentaral	Inf-Infusion	Parentaral
+9375	Parentaral	Inf-Infusion	Parentaral
+9376	Parentaral	Inf-Infusion	Parentaral
+9377	Parentaral	Inf-Infusion	Parentaral
+9378	Parentaral	Inf-Infusion	Parentaral
+9379	Parentaral	Inf-Infusion	Parentaral
+9380	Parentaral	Inf-Infusion	Parentaral
+9382	O-Oral	O-Oral	
+9383	Parentaral	Inf-Infusion	Parentaral
+9384	Parentaral	Inf-Infusion	Parentaral
+9385	Parentaral	Inf-Infusion	Parentaral
+9386	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+9387	O-Oral	O-Oral	
+9389	Parentaral	P-Parenteral	Parentaral
+9390	O-Oral	O-Oral	
+9391	O-Oral	O-Oral	
+9394	Parentaral	Inf-Infusion	Parentaral
+9395	Parentaral	SC-Subcutanous	Parentaral
+9396	Parentaral	Inf-Infusion	Parentaral
+9397	Parentaral	Inf-Infusion	Parentaral
+9399	Parentaral	Inf-Inh-Infusion-Inhalation	Parentaral
+9400	T-Topical	T-Topical	
+9406	O-Oral	O-Oral	
+9407	O-Oral	O-Oral	
+9408	O-Oral	O-Oral	
+9409	T-Topical	T-Topical	
+9410	T-Topical	T-Topical	
+9411	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9412	O-Oral	O-Oral	
+9413	O-Oral	O-Oral	
+9414	O-Oral	O-Oral	
+9416	Parentaral	IM-Intramuscular	Parentaral
+9419	O-Oral	O-Oral	
+9420	O-Oral	O-Oral	
+9422	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9423	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9426	Parentaral	Inf-Infusion	Parentaral
+9427	Parentaral	Inf-Infusion	Parentaral
+9432	Parentaral	Inf-Infusion	Parentaral
+9433	O-Oral	O-Oral	
+9436	O-Oral	O-Oral	
+9437	O-Oral	O-Oral	
+9438	O-Oral	O-Oral	
+9439	Parentaral	IM-Intramuscular	Parentaral
+9440	Parentaral	IM-Intramuscular	Parentaral
+9441	T-Topical	T-Topical	
+9442	O-Oral	O-Oral	
+9443	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+9444	Parentaral	Inf-Infusion	Parentaral
+9445	T-Topical	T-Topical	
+9446	O-Oral	O-Oral	
+9448	Parentaral	Inf-Infusion	Parentaral
+9449	O-Oral	O-Oral	
+9450	TD-Transdermal	TD-Transdermal	
+9451	TD-Transdermal	TD-Transdermal	
+9452	TD-Transdermal	TD-Transdermal	
+9453	TD-Transdermal	TD-Transdermal	
+9454	O-Oral	O-Oral	
+9455	T-Topical	T-Topical	
+9456	Parentaral	SC-Subcutanous	Parentaral
+9457	Parentaral	SC-Subcutanous	Parentaral
+9458	Parentaral	Inf-Infusion	Parentaral
+9459	O-Oral	O-Oral	
+9460	O-Oral	O-Oral	
+9461	O-Oral	O-Oral	
+9462	O-Oral	O-Oral	
+9463	O-Oral	O-Oral	
+9464	O-Oral	O-Oral	
+9465	O-Oral	O-Oral	
+9466	O-Oral	O-Oral	
+9467	O-Oral	O-Oral	
+9468	O-Oral	O-Oral	
+9469	O-Oral	O-Oral	
+9470	Parentaral	Inf-Infusion	Parentaral
+9471	Parentaral	Inf-Infusion	Parentaral
+9472	O-Oral	O-Oral	
+9473	O-Oral	O-Oral	
+9474	O-Oral	O-Oral	
+9475	O-Oral	O-Oral	
+9477	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+9478	O-Oral	O-Oral	
+9479	O-Oral	O-Oral	
+9480	O-Oral	O-Oral	
+9481	O-Oral	O-Oral	
+9482	Parentaral	Inf-Infusion	Parentaral
+9483	Parentaral	Inf-Infusion	Parentaral
+9484	Parentaral	Inf-Infusion	Parentaral
+9485	O-Oral	O-Oral	
+9486	O-Oral	O-Oral	
+9487	O-Oral	O-Oral	
+9488	T-Topical	T-Topical	
+9489	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9491	O-Oral	O-Oral	
+9492	O-Oral	O-Oral	
+9493	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9494	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9495	O-Oral	O-Oral	
+9496	T-Topical	T-Topical	
+9497	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+9498	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+9499	O-Oral	O-Oral	
+9500	O-Oral	O-Oral	
+9501	O-Oral	O-Oral	
+9502	O-Oral	O-Oral	
+9504	T-Topical	T-Topical	
+9505	O-Oral	O-Oral	
+9506	Epil-Epilesional	Epil-Epilesional	
+9507	Epil-Epilesional	Epil-Epilesional	
+9508	Epil-Epilesional	Epil-Epilesional	
+9509	Parentaral	Injectable route (except IV route)	Parentaral
+9510	Parentaral	Injectable route (except IV route)	Parentaral
+9511	O-Oral	O-Oral	
+9513	O-Oral	O-Oral	
+9514	O-Oral	O-Oral	
+9515	O-Oral	O-Oral	
+9516	O-Oral	O-Oral	
+9519	Parentaral	Inf-Infusion	Parentaral
+9520	Parentaral	Inf-Infusion	Parentaral
+9522	O-Oral	O-Oral	
+9523	O-Oral	O-Oral	
+9526	Parentaral	Inf-Infusion	Parentaral
+9527	Parentaral	Inf-Infusion	Parentaral
+9528	Parentaral	Inf-Inh-Infusion-Inhalation	Parentaral
+9529	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9530	T-Topical	T-Topical	
+9531	N-Nasal	N-Nasal	
+9532	O-Oral	O-Oral	
+9534	OG-Oral gingival	OG-Oral gingival	
+9535	O-Oral	O-Oral	
+9536	Parentaral	IM-Intramuscular	Parentaral
+9537	O-Oral	O-Oral	
+9538	O-Oral	O-Oral	
+9539	O-Oral	O-Oral	
+9540	O-Oral	O-Oral	
+9541	O-Oral	O-Oral	
+9542	O-Oral	O-Oral	
+9543	Parentaral	SC-Subcutanous	Parentaral
+9544	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9545	O-Oral	O-Oral	
+9546	O-Oral	O-Oral	
+9547	O-Oral	O-Oral	
+9548	Parentaral	SC-Subcutanous	Parentaral
+9549	Parentaral	Inf-Infusion	Parentaral
+9550	Parentaral	SC-Subcutanous	Parentaral
+9552	Parentaral	Inf-Infusion	Parentaral
+9553	O-Oral	O-Oral	
+9554	O-Oral	O-Oral	
+9555	Parentaral	Inf-Infusion	Parentaral
+9556	Parentaral	Inf-Infusion	Parentaral
+9557	Parentaral	Inf-Infusion	Parentaral
+9558	Parentaral	Inf-Infusion	Parentaral
+9559	Parentaral	Inf-Infusion	Parentaral
+9560	Parentaral	Inf-Infusion	Parentaral
+9561	Parentaral	Inf-Infusion	Parentaral
+9562	Parentaral	Inf-Infusion	Parentaral
+9563	Parentaral	Inf-Infusion	Parentaral
+9564	Parentaral	Inf-Infusion	Parentaral
+9565	Parentaral	Inf-Infusion	Parentaral
+9567	O-Oral	O-Oral	
+9568	O-Oral	O-Oral	
+9570	Parentaral	Inf-Infusion	Parentaral
+9571	Parentaral	Inf-Infusion	Parentaral
+9572	O-Oral	O-Oral	
+9573	O-Oral	O-Oral	
+9574	O-Oral	O-Oral	
+9575	O-Oral	O-Oral	
+9577	Res-Respiratory	Res-Respiratory	
+9578	Parentaral	Inf-Infusion	Parentaral
+9579	O-Oral	O-Oral	
+9580	O-Oral	O-Oral	
+9581	O-Oral	O-Oral	
+9582	O-Oral	O-Oral	
+9583	O-Oral	O-Oral	
+9584	Parentaral	Inf-Infusion	Parentaral
+9585	Parentaral	Inf-Infusion	Parentaral
+9586	Parentaral	Inf-Infusion	Parentaral
+9587	Parentaral	Inf-Infusion	Parentaral
+9588	Parentaral	Inf-Infusion	Parentaral
+9589	O-Oral	O-Oral	
+9590	O-Oral	O-Oral	
+9591	O-Oral	O-Oral	
+9592	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9593	O-Oral	O-Oral	
+9595	O-Oral	O-Oral	
+9597	Parentaral	SC-Subcutanous	Parentaral
+9598	Parentaral	SC-Subcutanous	Parentaral
+9599	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9600	N-Nasal	N-Nasal	
+9601	O-Oral	O-Oral	
+9602	O-Oral	O-Oral	
+9603	Parentaral	Inf-Infusion	Parentaral
+9604	Parentaral	Inf-Infusion	Parentaral
+9605	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9606	Parentaral	Inf-Infusion	Parentaral
+9607	Ot-Otic	Ot-Otic	
+9608	T-Topical	T-Topical	
+9609	O-Oral	O-Oral	
+9610	O-Oral	O-Oral	
+9611	O-Oral	O-Oral	
+9612	O-Oral	O-Oral	
+9613	O-Oral	O-Oral	
+9614	O-Oral	O-Oral	
+9615	O-Oral	O-Oral	
+9616	Parentaral	SC-Subcutanous	Parentaral
+9617	Parentaral	SC-Subcutanous	Parentaral
+9618	Parentaral	SC-Subcutanous	Parentaral
+9619	Oph-Ophtalmic	Oph-Ophtalmic	
+9621	Oph-Ophtalmic	Oph-Ophtalmic	
+9622	Parentaral	P-Parenteral	Parentaral
+9623	Parentaral	P-Parenteral	Parentaral
+9624	O-Oral	O-Oral	
+9625	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9626	O-Oral	O-Oral	
+9627	O-Oral	O-Oral	
+9628	O-Oral	O-Oral	
+9629	O-Oral	O-Oral	
+9630	O-Oral	O-Oral	
+9631	O-Oral	O-Oral	
+9632	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+9633	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+9634	Parentaral	Inf-Infusion	Parentaral
+9635	Parentaral	Inf-Infusion	Parentaral
+9638	T-Topical	T-Topical	
+9639	O-Oral	O-Oral	
+9640	O-Oral	O-Oral	
+9641	O-Oral	O-Oral	
+9644	Parentaral	Inf-Inh-Infusion-Inhalation	Parentaral
+9645	O-Oral	O-Oral	
+9646	O-Oral	O-Oral	
+9648	O-Oral	O-Oral	
+9649	O-Oral	O-Oral	
+9650	O-Oral	O-Oral	
+9651	O-Oral	O-Oral	
+9652	O-Oral	O-Oral	
+9653	O-Oral	O-Oral	
+9654	O-Oral	O-Oral	
+9655	O-Oral	O-Oral	
+9656	Parentaral	Inf-Infusion	Parentaral
+9657	O-Oral	O-Oral	
+9658	Oph-Ophtalmic	Oph-Ophtalmic	
+9659	O-Oral	O-Oral	
+9660	Oph-Ophtalmic	Oph-Ophtalmic	
+9661	Oph-Ophtalmic	Oph-Ophtalmic	
+9662	Oph-Ophtalmic	Oph-Ophtalmic	
+9663	O-Oral	O-Oral	
+9664	O-Oral	O-Oral	
+9666	O-Oral	O-Oral	
+9667	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9668	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+9669	Parentaral	Inf-Infusion	Parentaral
+9671	Parentaral	Inf-Infusion	Parentaral
+9672	Parentaral	Inf-Infusion	Parentaral
+9673	O-Oral	O-Oral	
+9674	O-Oral	O-Oral	
+9675	O-Oral	O-Oral	
+9676	O-Oral	O-Oral	
+9677	Oph-Ophtalmic	Oph-Ophtalmic	
+9678	O-Oral	O-Oral	
+9679	O-Oral	O-Oral	
+9682	O-Oral	O-Oral	
+9683	O-Oral	O-Oral	
+9684	O-Oral	O-Oral	
+9685	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9686	T-Topical	T-Topical	
+9687	T-Topical	T-Topical	
+9688	Parentaral	Inf-Infusion	Parentaral
+9689	IO-Intraoral	IO-Intraoral	
+9690	O-Oral	O-Oral	
+9691	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9692	O-Oral	O-Oral	
+9693	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9694	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9695	Parentaral	P-Parenteral	Parentaral
+9696	Parentaral	IM-Intramuscular	Parentaral
+9697	Parentaral	IM-Intramuscular	Parentaral
+9698	O-Oral	O-Oral	
+9699	O-Oral	O-Oral	
+9700	O-Oral	O-Oral	
+9701	N-Nasal	N-Nasal	
+9702	Res-Respiratory	Res-Respiratory	
+9703	O-Oral	O-Oral	
+9704	O-Oral	O-Oral	
+9705	O-Oral	O-Oral	
+9706	O-Oral	O-Oral	
+9707	O-Oral	O-Oral	
+9708	Parentaral	Inf-Infusion	Parentaral
+9709	Parentaral	Inf-Infusion	Parentaral
+9710	Parentaral	Inf-Infusion	Parentaral
+9711	Parentaral	Inf-Infusion	Parentaral
+9712	Parentaral	Inf-Infusion	Parentaral
+9713	Parentaral	Inf-Infusion	Parentaral
+9714	Parentaral	Inf-Infusion	Parentaral
+9715	Parentaral	Inf-Infusion	Parentaral
+9716	Parentaral	SC-Subcutanous	Parentaral
+9717	Parentaral	SC-Subcutanous	Parentaral
+9718	Parentaral	SC-Subcutanous	Parentaral
+9723	Oph-Ophtalmic	Oph-Ophtalmic	
+9724	Oph-Ophtalmic	Oph-Ophtalmic	
+9725	Oph-Ophtalmic	Oph-Ophtalmic	
+9726	Oph-Ophtalmic	Oph-Ophtalmic	
+9727	O-Oral	O-Oral	
+9728	O-Oral	O-Oral	
+9729	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9730	Parentaral	Inf-Infusion	Parentaral
+9731	Parentaral	SC-Subcutanous	Parentaral
+9732	O-Oral	O-Oral	
+9733	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9734	O-Oral	O-Oral	
+9735	O-Oral	O-Oral	
+9738	O-Oral	O-Oral	
+9739	O-Oral	O-Oral	
+9740	O-Oral	O-Oral	
+9741	O-Oral	O-Oral	
+9742	O-Oral	O-Oral	
+9743	O-Oral	O-Oral	
+9744	O-Oral	O-Oral	
+9745	O-Oral	O-Oral	
+9746	O-Oral	O-Oral	
+9747	O-Oral	O-Oral	
+9748	Parentaral	SC-Subcutanous	Parentaral
+9749	Parentaral	SC-Subcutanous	Parentaral
+9751	O-Oral	O-Oral	
+9752	O-Oral	O-Oral	
+9753	O-Oral	O-Oral	
+9754	O-Oral	O-Oral	
+9755	Parentaral	SC-Subcutanous	Parentaral
+9756	Parentaral	SC-Subcutanous	Parentaral
+9757	Parentaral	SC-Subcutanous	Parentaral
+9758	O-Oral	O-Oral	
+9759	O-Oral	O-Oral	
+9760	O-Oral	O-Oral	
+9761	O-Oral	O-Oral	
+9762	IV-Intravenous	IV-Intravenous	
+9763	IV-Intravenous	IV-Intravenous	
+9764	IVit-Intravitreal	IVit-Intravitreal	
+9765	Parentaral	Inf-IM-IArte-Ith-Infusion-Intramuscular-Intraarterial-Intrathecal	Parentaral
+9766	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9767	O-Oral	O-Oral	
+9768	O-Oral	O-Oral	
+9769	O-Oral	O-Oral	
+9770	Oph-Ophtalmic	Oph-Ophtalmic	
+9771	O-Oral	O-Oral	
+9772	Parentaral	Inf-Infusion	Parentaral
+9773	Parentaral	Inf-Infusion	Parentaral
+9774	Parentaral	Inf-Infusion	Parentaral
+9775	Parentaral	Inf-Infusion	Parentaral
+9776	T-Topical	T-Topical	
+9777	Parentaral	Inf-Infusion	Parentaral
+9778	Parentaral	Inf-Infusion	Parentaral
+9779	Parentaral	Inf-Infusion	Parentaral
+9780	Parentaral	Inf-Infusion	Parentaral
+9781	R-Rectal	R-Rectal	
+9782	O-Oral	O-Oral	
+9783	O-Oral	O-Oral	
+9784	Parentaral	Inf-Infusion	Parentaral
+9785	Parentaral	Inf-Infusion	Parentaral
+9786	Parentaral	Inf-Infusion	Parentaral
+9787	Parentaral	Inf-Infusion	Parentaral
+9788	Parentaral	Inf-Infusion	Parentaral
+9789	Parentaral	Inf-Infusion	Parentaral
+9790	Parentaral	Inf-Infusion	Parentaral
+9791	Parentaral	Inf-Infusion	Parentaral
+9792	Parentaral	Inf-Infusion	Parentaral
+9793	Parentaral	Inf-Infusion	Parentaral
+9794	O-Oral	O-Oral	
+9795	O-Oral	O-Oral	
+9796	O-Oral	O-Oral	
+9797	Oph-Ophtalmic	Oph-Ophtalmic	
+9798	O-Oral	O-Oral	
+9799	O-Oral	O-Oral	
+9800	O-Oral	O-Oral	
+9801	O-Oral	O-Oral	
+9802	O-Oral	O-Oral	
+9803	O-Oral	O-Oral	
+9804	O-Oral	O-Oral	
+9805	O-Oral	O-Oral	
+9806	O-Oral	O-Oral	
+9807	O-Oral	O-Oral	
+9808	O-Oral	O-Oral	
+9809	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+9810	O-Oral	O-Oral	
+9811	O-Oral	O-Oral	
+9812	O-Oral	O-Oral	
+9813	O-Oral	O-Oral	
+9814	O-Oral	O-Oral	
+9815	O-Oral	O-Oral	
+9816	O-Oral	O-Oral	
+9817	O-Oral	O-Oral	
+9818	Parentaral	Inf-Infusion	Parentaral
+9819	O-Oral	O-Oral	
+9820	Oph-Ophtalmic	Oph-Ophtalmic	
+9821	O-Oral	O-Oral	
+9822	O-Oral	O-Oral	
+9823	O-Oral	O-Oral	
+9825	Parentaral	SC-Subcutanous	Parentaral
+9826	O-Oral	O-Oral	
+9827	O-Oral	O-Oral	
+9828	Parentaral	SC-Subcutanous	Parentaral
+9829	Oph-Ophtalmic	Oph-Ophtalmic	
+9830	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+9831	O-Oral	O-Oral	
+9832	O-Oral	O-Oral	
+9833	Parentaral	SC-Subcutanous	Parentaral
+9834	Parentaral	Injectable route (except IV route)	Parentaral
+9835	Parentaral	Injectable route (except IV route)	Parentaral
+9836	IV-Intravenous	IV-Intravenous	
+9837	Parentaral	SC-Subcutanous	Parentaral
+9839	TD-Transdermal	TD-Transdermal	
+9841	TD-Transdermal	TD-Transdermal	
+9842	Res-Respiratory	Res-Respiratory	
+9843	T-Topical	T-Topical	
+9845	O-Oral	O-Oral	
+9846	O-Oral	O-Oral	
+9847	O-Oral	O-Oral	
+9848	O-Oral	O-Oral	
+9849	O-Oral	O-Oral	
+9850	O-Oral	O-Oral	
+9851	Parentaral and Non-parentaral	O-IV-IM-Oral-Intravenous-Intramuscular	Parentaral and Non-parentaral
+9852	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9853	O-Oral	O-Oral	
+9854	O-Oral	O-Oral	
+9855	O-Oral	O-Oral	
+9856	T-Topical	T-Topical	
+9857	O-Oral	O-Oral	
+9858	O-Oral	O-Oral	
+9859	Parentaral	Inf-Infusion	Parentaral
+9860	O-Oral	O-Oral	
+9861	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9862	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9863	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9864	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9865	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9866	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9867	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9868	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9869	PTon-Peritoneal Dialysis	PTon-Peritoneal Dialysis	
+9870	T-Topical	T-Topical	
+9871	O-Oral	O-Oral	
+9872	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9873	O-Oral	O-Oral	
+9874	O-Oral	O-Oral	
+9875	O-Oral	O-Oral	
+9876	O-Oral	O-Oral	
+9877	T-Topical	T-Topical	
+9878	T-Topical	T-Topical	
+9879	O-Oral	O-Oral	
+9880	Parentaral	P-Parenteral	Parentaral
+9881	Parentaral	Inf-Infusion	Parentaral
+9882	Parentaral	Inf-Infusion	Parentaral
+9883	Parentaral	Inf-Infusion	Parentaral
+9884	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9885	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+9886	Parentaral	Inf-Infusion	Parentaral
+9887	R-Rectal	R-Rectal	
+9888	R-Rectal	R-Rectal	
+9889	Parentaral	IM-Intramuscular	Parentaral
+9890	O-Oral	O-Oral	
+9891	O-Oral	O-Oral	
+9892	Parentaral	Inf-Infusion	Parentaral
+9893	Parentaral	Inf-Infusion	Parentaral
+9894	Parentaral	Inf-Infusion	Parentaral
+9895	Parentaral	Inf-Infusion	Parentaral
+9896	Parentaral	Inf-Infusion	Parentaral
+9897	Parentaral	Inf-Infusion	Parentaral
+9898	O-Oral	O-Oral	
+9899	O-Oral	O-Oral	
+9900	O-Oral	O-Oral	
+9901	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9902	Parentaral	SC-Subcutanous	Parentaral
+9903	Parentaral	SC-Subcutanous	Parentaral
+9904	Parentaral	SC-Subcutanous	Parentaral
+9905	Parentaral	SC-Subcutanous	Parentaral
+9906	O-Oral	O-Oral	
+9907	T-Topical	T-Topical	
+9908	O-Oral	O-Oral	
+9909	O-Oral	O-Oral	
+9910	O-Oral	O-Oral	
+9911	O-Oral	O-Oral	
+9912	O-Oral	O-Oral	
+9913	Parentaral	IM-Intramuscular	Parentaral
+9914	O-Oral	O-Oral	
+9915	O-Oral	O-Oral	
+9916	Parentaral	Inf-Infusion	Parentaral
+9917	Parentaral	Inf-Infusion	Parentaral
+9918	Oph-Ophtalmic	Oph-Ophtalmic	
+9919	T-Topical	T-Topical	
+9920	Parentaral	SC-Subcutanous	Parentaral
+9921	Parentaral	Inf-Infusion	Parentaral
+9922	Parentaral	SC-Subcutanous	Parentaral
+9923	O-Oral	O-Oral	
+9924	Parentaral	Inf-Infusion	Parentaral
+9925	O-Oral	O-Oral	
+9926	O-Oral	O-Oral	
+9927	O-Oral	O-Oral	
+9928	O-Oral	O-Oral	
+9929	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9930	O-Oral	O-Oral	
+9931	O-Oral	O-Oral	
+9932	O-Oral	O-Oral	
+9933	O-Oral	O-Oral	
+9934	O-Oral	O-Oral	
+9935	O-Oral	O-Oral	
+9936	O-Oral	O-Oral	
+9938	O-Oral	O-Oral	
+9939	O-Oral	O-Oral	
+9940	O-Oral	O-Oral	
+9941	O-Oral	O-Oral	
+9942	O-Oral	O-Oral	
+9943	O-Oral	O-Oral	
+9945	O-Oral	O-Oral	
+9946	O-Oral	O-Oral	
+9947	O-Oral	O-Oral	
+9948	O-Oral	O-Oral	
+9949	Parentaral	SC-Subcutanous	Parentaral
+9950	Parentaral	SC-Subcutanous	Parentaral
+9951	Parentaral	SC-Subcutanous	Parentaral
+9952	Parentaral	SC-Subcutanous	Parentaral
+9953	T-Topical	T-Topical	
+9954	Parentaral	Inf-Infusion	Parentaral
+9955	Parentaral	Inf-Infusion	Parentaral
+9956	Parentaral	Inf-Infusion	Parentaral
+9957	Parentaral	Inf-Infusion	Parentaral
+9958	Parentaral	Inf-Infusion	Parentaral
+9959	Parentaral	Inf-Infusion	Parentaral
+9960	O-Oral	O-Oral	
+9961	O-Oral	O-Oral	
+9962	O-Oral	O-Oral	
+9963	O-Oral	O-Oral	
+9964	O-Oral	O-Oral	
+9965	O-Oral	O-Oral	
+9966	O-Oral	O-Oral	
+9967	O-Oral	O-Oral	
+9968	O-Oral	O-Oral	
+9970	O-Oral	O-Oral	
+9971	IV-Intravenous	IV-Intravenous	
+9972	Parentaral	Inf-Infusion	Parentaral
+9973	N-Nasal	N-Nasal	
+9974	O-Oral	O-Oral	
+9975	O-Oral	O-Oral	
+9976	O-Oral	O-Oral	
+9977	O-Oral	O-Oral	
+9978	O-Oral	O-Oral	
+9979	R-Rectal	R-Rectal	
+9980	R-Rectal	R-Rectal	
+9981	R-Rectal	R-Rectal	
+9982	Parentaral	Inf-Infusion	Parentaral
+9983	O-Oral	O-Oral	
+9984	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+9985	Parentaral	Inf-Infusion	Parentaral
+9987	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9988	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+9989	O-Oral	O-Oral	
+9990	O-Oral	O-Oral	
+9991	O-Oral	O-Oral	
+9992	O-Oral	O-Oral	
+9993	O-Oral	O-Oral	
+9994	O-Oral	O-Oral	
+9996	Res-Respiratory	Res-Respiratory	
+9997	Parentaral	Inf-Infusion	Parentaral
+9998	Parentaral	Inf-Infusion	Parentaral
+9999	Parentaral	Inf-Infusion	Parentaral
+10001	N-Nasal	N-Nasal	
+10002	N-Nasal	N-Nasal	
+10004	T-Topical	T-Topical	
+10005	T-Topical	T-Topical	
+10006	O-Oral	O-Oral	
+10007	O-Oral	O-Oral	
+10008	IO-Intraoral	IO-Intraoral	
+10009	O-Oral	O-Oral	
+10010	O-Oral	O-Oral	
+10011	O-Oral	O-Oral	
+10012	O-Oral	O-Oral	
+10013	O-Oral	O-Oral	
+10014	Oph-Ophtalmic	Oph-Ophtalmic	
+10015	O-Oral	O-Oral	
+10016	IOc-Intraocular	IOc-Intraocular	
+10018	O-Oral	O-Oral	
+10019	Parentaral	Inf-Infusion	Parentaral
+10020	O-Oral	O-Oral	
+10021	Parentaral	Inf-Infusion	Parentaral
+10022	Parentaral	Inf-Infusion	Parentaral
+10023	Parentaral	Inf-Infusion	Parentaral
+10024	O-Oral	O-Oral	
+10025	O-Oral	O-Oral	
+10026	O-Oral	O-Oral	
+10027	Parentaral	Inf-IM-SC-Infusion-Intramuscular-Subcutaneous	Parentaral
+10029	Parentaral	Inf-Infusion	Parentaral
+10030	Parentaral	Inf-Infusion	Parentaral
+10031	O-Oral	O-Oral	
+10032	O-Oral	O-Oral	
+10033	Parentaral	Inf-Infusion	Parentaral
+10034	Parentaral	Inf-Infusion	Parentaral
+10035	O-Oral	O-Oral	
+10036	O-Oral	O-Oral	
+10037	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10038	O-Oral	O-Oral	
+10039	O-Oral	O-Oral	
+10040	R-Rectal	R-Rectal	
+10041	Parentaral	SC-Subcutanous	Parentaral
+10042	Parentaral	SC-Subcutanous	Parentaral
+10043	Parentaral	SC-Subcutanous	Parentaral
+10044	Parentaral	Inf-Infusion	Parentaral
+10045	Parentaral	Inf-Infusion	Parentaral
+10046	O-Oral	O-Oral	
+10047	O-Oral	O-Oral	
+10048	Parentaral	IM-Intramuscular	Parentaral
+10055	O-Oral	O-Oral	
+10056	T-Topical	T-Topical	
+10057	O-Oral	O-Oral	
+10058	O-Oral	O-Oral	
+10059	Oph-Ophtalmic	Oph-Ophtalmic	
+10060	O-Oral	O-Oral	
+10061	Oph-Ophtalmic	Oph-Ophtalmic	
+10062	Parentaral	Inf-Infusion	Parentaral
+10063	Parentaral	Inf-Infusion	Parentaral
+10064	Parentaral	Inf-Infusion	Parentaral
+10065	Parentaral	Inf-Infusion	Parentaral
+10067	N-Nasal	N-Nasal	
+10068	N-Nasal	N-Nasal	
+10069	N-Nasal	N-Nasal	
+10070	O-Oral	O-Oral	
+10071	Parentaral	Inf-Infusion	Parentaral
+10073	O-Oral	O-Oral	
+10074	O-Oral	O-Oral	
+10075	Parentaral	IM-Intramuscular	Parentaral
+10076	Parentaral	Inf-Infusion	Parentaral
+10077	Parentaral	Inf-Infusion	Parentaral
+10078	Parentaral	Inf-Infusion	Parentaral
+10079	O-Oral	O-Oral	
+10080	O-Oral	O-Oral	
+10081	O-Oral	O-Oral	
+10082	O-Oral	O-Oral	
+10083	IV-Intravenous	IV-Intravenous	
+10084	Parentaral	IM-Intramuscular	Parentaral
+10085	Parentaral	SC-Subcutanous	Parentaral
+10086	Parentaral	SC-Subcutanous	Parentaral
+10087	Parentaral	SC-Subcutanous	Parentaral
+10088	Parentaral	SC-Subcutanous	Parentaral
+10089	Oph-Ophtalmic	Oph-Ophtalmic	
+10090	TS-Topical,scalp	TS-Topical,scalp	
+10091	O-Oral	O-Oral	
+10092	O-Oral	O-Oral	
+10093	T-Topical	T-Topical	
+10094	O-Oral	O-Oral	
+10095	O-Oral	O-Oral	
+10096	Parentaral	Inf-Infusion	Parentaral
+10097	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10098	O-Oral	O-Oral	
+10099	O-Oral	O-Oral	
+10100	O-Oral	O-Oral	
+10105	O-Oral	O-Oral	
+10106	O-Oral	O-Oral	
+10107	Res-Respiratory	Res-Respiratory	
+10108	Parentaral	Inf-Infusion	Parentaral
+10109	O-Oral	O-Oral	
+10110	O-Oral	O-Oral	
+10111	O-Oral	O-Oral	
+10112	O-Oral	O-Oral	
+10113	O-Oral	O-Oral	
+10114	Parentaral	Inf-Infusion	Parentaral
+10115	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10116	Parentaral	Inf-Infusion	Parentaral
+10117	O-Oral	O-Oral	
+10118	O-Oral	O-Oral	
+10119	O-Oral	O-Oral	
+10120	T-Topical	T-Topical	
+10122	T-Topical	T-Topical	
+10123	N-Nasal	N-Nasal	
+10124	O-Oral	O-Oral	
+10125	O-Oral	O-Oral	
+10126	O-Oral	O-Oral	
+10127	O-Oral	O-Oral	
+10128	Parentaral	Inf-Infusion	Parentaral
+10129	Parentaral	Inf-Infusion	Parentaral
+10130	Parentaral	Inf-Infusion	Parentaral
+10131	Parentaral	Inf-Infusion	Parentaral
+10132	O-Oral	O-Oral	
+10133	O-Oral	O-Oral	
+10134	O-Oral	O-Oral	
+10135	O-Oral	O-Oral	
+10136	T-Topical	T-Topical	
+10137	Parentaral	Inf-Inh-Infusion-Inhalation	Parentaral
+10138	O-Oral	O-Oral	
+10139	O-Oral	O-Oral	
+10140	O-Oral	O-Oral	
+10141	O-Oral	O-Oral	
+10142	O-Oral	O-Oral	
+10143	O-Oral	O-Oral	
+10144	Parentaral	SC-Subcutanous	Parentaral
+10145	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10146	O-Oral	O-Oral	
+10147	O-Oral	O-Oral	
+10148	O-Oral	O-Oral	
+10152	Parentaral	IM-Intramuscular	Parentaral
+10153	N-Nasal	N-Nasal	
+10154	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10155	Parentaral	Inf-Infusion	Parentaral
+10156	O-Oral	O-Oral	
+10157	O-Oral	O-Oral	
+10158	O-Oral	O-Oral	
+10159	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10160	O-Oral	O-Oral	
+10161	O-Oral	O-Oral	
+10162	Res-Respiratory	Res-Respiratory	
+10163	O-Oral	O-Oral	
+10164	Parentaral	SC-Subcutanous	Parentaral
+10165	O-Oral	O-Oral	
+10166	Parentaral	Inf-Infusion	Parentaral
+10167	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10168	T-Topical	T-Topical	
+10169	O-Oral	O-Oral	
+10170	O-Oral	O-Oral	
+10171	O-Oral	O-Oral	
+10172	O-Oral	O-Oral	
+10173	O-Oral	O-Oral	
+10174	O-Oral	O-Oral	
+10175	O-Oral	O-Oral	
+10176	O-Oral	O-Oral	
+10177	O-Oral	O-Oral	
+10178	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10179	Res-Respiratory	Res-Respiratory	
+10180	Res-Respiratory	Res-Respiratory	
+10181	O-Oral	O-Oral	
+10182	O-Oral	O-Oral	
+10183	O-Oral	O-Oral	
+10184	O-Oral	O-Oral	
+10185	O-Oral	O-Oral	
+10186	O-Oral	O-Oral	
+10187	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10188	O-Oral	O-Oral	
+10189	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10190	O-Oral	O-Oral	
+10191	O-Oral	O-Oral	
+10192	O-Oral	O-Oral	
+10193	R-Rectal	R-Rectal	
+10194	O-Oral	O-Oral	
+10195	Parentaral	SC-Subcutanous	Parentaral
+10196	O-Oral	O-Oral	
+10197	O-Oral	O-Oral	
+10198	O-Oral	O-Oral	
+10200	T-Topical	T-Topical	
+10201	T-Topical	T-Topical	
+10202	T-Topical	T-Topical	
+10203	N-Nasal	N-Nasal	
+10204	O-Oral	O-Oral	
+10205	O-Oral	O-Oral	
+10206	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+10207	O-Oral	O-Oral	
+10208	O-Oral	O-Oral	
+10209	O-Oral	O-Oral	
+10210	O-Oral	O-Oral	
+10211	Parentaral	Inf-Infusion	Parentaral
+10212	Parentaral	Inf-Infusion	Parentaral
+10213	O-Oral	O-Oral	
+10214	O-Oral	O-Oral	
+10215	O-Oral	O-Oral	
+10216	Parentaral	Inf-Infusion	Parentaral
+10217	Parentaral	Inf-Infusion	Parentaral
+10218	O-Oral	O-Oral	
+10219	O-Oral	O-Oral	
+10220	Oph-Ophtalmic	Oph-Ophtalmic	
+10221	O-Oral	O-Oral	
+10222	Parentaral	Inf-Infusion	Parentaral
+10223	O-Oral	O-Oral	
+10224	IV-Intravenous	IV-Intravenous	
+10225	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10226	Parentaral	Inf-Infusion	Parentaral
+10227	O-Oral	O-Oral	
+10236	T-Topical	T-Topical	
+10238	O-Oral	O-Oral	
+10239	Parentaral	ITh-Intrathecal	Parentaral
+10240	Parentaral	ITh-Intrathecal	Parentaral
+10241	Parentaral	ITh-Intrathecal	Parentaral
+10242	Parentaral	ITh-Intrathecal	Parentaral
+10243	O-Oral	O-Oral	
+10244	O-Oral	O-Oral	
+10245	O-Oral	O-Oral	
+10246	O-Oral	O-Oral	
+10247	O-Oral	O-Oral	
+10248	R-Rectal	R-Rectal	
+10249	Parentaral	Inf-Infusion	Parentaral
+10251	O-Oral	O-Oral	
+10252	O-Oral	O-Oral	
+10253	Parentaral	Inf-Infusion	Parentaral
+10255	Parentaral	SC-Subcutanous	Parentaral
+10256	O-Oral	O-Oral	
+10259	O-Oral	O-Oral	
+10260	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+10261	Oph-Ophtalmic	Oph-Ophtalmic	
+10262	O-Oral	O-Oral	
+10263	O-Oral	O-Oral	
+10264	O-Oral	O-Oral	
+10265	O-Oral	O-Oral	
+10266	Parentaral	Inf-Infusion	Parentaral
+10268	O-Oral	O-Oral	
+10269	O-Oral	O-Oral	
+10270	O-Oral	O-Oral	
+10271	O-Oral	O-Oral	
+10272	O-Oral	O-Oral	
+10273	O-Oral	O-Oral	
+10274	O-Oral	O-Oral	
+10275	Parentaral	IM-Intramuscular	Parentaral
+10276	Parentaral	Inf-Infusion	Parentaral
+10277	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10278	O-Oral	O-Oral	
+10279	O-Oral	O-Oral	
+10280	O-Oral	O-Oral	
+10281	Parentaral	SC-Subcutanous	Parentaral
+10282	Parentaral	SC-Subcutanous	Parentaral
+10283	Parentaral	IV-ICav-IVes-Intravenous-Intracavitary-Intravesical	Parentaral
+10284	Parentaral	Inf-Infusion	Parentaral
+10285	Parentaral	Inf-Infusion	Parentaral
+10286	Parentaral	Inf-Infusion	Parentaral
+10287	Parentaral	Inf-Infusion	Parentaral
+10288	Parentaral	SC-Subcutanous	Parentaral
+10289	V-Vaginal	V-Vaginal	
+10290	V-Vaginal	V-Vaginal	
+10291	N-Nasal	N-Nasal	
+10292	Parentaral	SC-Subcutanous	Parentaral
+10293	O-Oral	O-Oral	
+10294	O-Oral	O-Oral	
+10295	O-Oral	O-Oral	
+10296	O-Oral	O-Oral	
+10297	R-Rectal	R-Rectal	
+10298	R-Rectal	R-Rectal	
+10299	O-Oral	O-Oral	
+10300	O-Oral	O-Oral	
+10301	O-Oral	O-Oral	
+10302	O-Oral	O-Oral	
+10303	O-Oral	O-Oral	
+10304	O-Oral	O-Oral	
+10305	O-Oral	O-Oral	
+10306	Parentaral	Inf-Infusion	Parentaral
+10307	Parentaral	Inf-Infusion	Parentaral
+10308	Parentaral	Inf-Infusion	Parentaral
+10309	Parentaral	Inf-Infusion	Parentaral
+10310	Parentaral	IM-Intramuscular	Parentaral
+10311	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+10312	Parentaral	SC-Subcutanous	Parentaral
+10313	V-Vaginal	V-Vaginal	
+10314	O-Oral	O-Oral	
+10315	O-Oral	O-Oral	
+10316	O-Oral	O-Oral	
+10317	O-Oral	O-Oral	
+10318	O-Oral	O-Oral	
+10319	O-Oral	O-Oral	
+10320	O-Oral	O-Oral	
+10321	O-Oral	O-Oral	
+10323	Parentaral	SC-Subcutanous	Parentaral
+10324	Parentaral	Inf-Infusion	Parentaral
+10325	Parentaral	Inf-Infusion	Parentaral
+10326	Parentaral	Inf-Infusion	Parentaral
+10327	Parentaral	Inf-Infusion	Parentaral
+10328	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10329	T-Topical	T-Topical	
+10330	O-Oral	O-Oral	
+10331	O-Oral	O-Oral	
+10332	Oph-Ophtalmic	Oph-Ophtalmic	
+10333	O-Oral	O-Oral	
+10334	O-Oral	O-Oral	
+10335	O-Oral	O-Oral	
+10336	O-Oral	O-Oral	
+10337	O-Oral	O-Oral	
+10338	O-Oral	O-Oral	
+10339	O-Oral	O-Oral	
+10340	O-Oral	O-Oral	
+10341	O-Oral	O-Oral	
+10342	O-Oral	O-Oral	
+10343	O-Oral	O-Oral	
+10344	Parentaral	Inf-Infusion	Parentaral
+10348	O-Oral	O-Oral	
+10349	O-Oral	O-Oral	
+10350	O-Oral	O-Oral	
+10351	O-Oral	O-Oral	
+10352	O-Oral	O-Oral	
+10353	O-Oral	O-Oral	
+10354	O-Oral	O-Oral	
+10355	Parentaral	Inf-Infusion	Parentaral
+10356	Parentaral	Inf-Infusion	Parentaral
+10357	O-Oral	O-Oral	
+10358	Parentaral	Inf-Infusion	Parentaral
+10359	O-Oral	O-Oral	
+10360	O-Oral	O-Oral	
+10361	O-Oral	O-Oral	
+10362	O-Oral	O-Oral	
+10363	T-Topical	T-Topical	
+10364	T-Topical	T-Topical	
+10365	T-Topical	T-Topical	
+10366	T-Topical	T-Topical	
+10367	IV-Intravenous	IV-Intravenous	
+10368	IV-Intravenous	IV-Intravenous	
+10369	T-Topical	T-Topical	
+10370	T-Topical	T-Topical	
+10371	O-Oral	O-Oral	
+10372	O-Oral	O-Oral	
+10373	O-Oral	O-Oral	
+10374	O-Oral	O-Oral	
+10375	O-Oral	O-Oral	
+10376	R-Rectal	R-Rectal	
+10377	Parentaral	SC-Subcutanous	Parentaral
+10380	O-Oral	O-Oral	
+10381	Parentaral	Inf-Infusion	Parentaral
+10382	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10383	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10384	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10385	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10386	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10387	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10388	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10389	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10390	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10391	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10392	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10393	Parentaral	SC-IVas-Subcutanous-Intravascular	Parentaral
+10394	V-Vaginal	V-Vaginal	
+10395	V-Vaginal	V-Vaginal	
+10396	O-Oral	O-Oral	
+10397	Parentaral	SC-Subcutanous	Parentaral
+10398	Parentaral	SC-Subcutanous	Parentaral
+10399	Parentaral	SC-Subcutanous	Parentaral
+10400	O-Oral	O-Oral	
+10401	O-Oral	O-Oral	
+10402	O-Oral	O-Oral	
+10403	O-Oral	O-Oral	
+10404	O-Oral	O-Oral	
+10405	O-Oral	O-Oral	
+10406	O-Oral	O-Oral	
+10407	O-Oral	O-Oral	
+10408	O-Oral	O-Oral	
+10409	O-Oral	O-Oral	
+10410	Parentaral	SC-Subcutanous	Parentaral
+10411	O-Oral	O-Oral	
+10412	O-Oral	O-Oral	
+10413	O-Oral	O-Oral	
+10415	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10416	O-Oral	O-Oral	
+10417	O-Oral	O-Oral	
+10418	O-Oral	O-Oral	
+10419	O-Oral	O-Oral	
+10420	O-Oral	O-Oral	
+10421	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10422	Parentaral	Inf-Infusion	Parentaral
+10423	R-Rectal	R-Rectal	
+10424	R-Rectal	R-Rectal	
+10425	R-Rectal	R-Rectal	
+10426	Parentaral	Inf-IM-Infusion-Intramuscular	Parentaral
+10427	O-Oral	O-Oral	
+10428	Parentaral	SC-Subcutanous	Parentaral
+10429	O-Oral	O-Oral	
+10430	O-Oral	O-Oral	
+10431	O-Oral	O-Oral	
+10432	O-Oral	O-Oral	
+10433	O-Oral	O-Oral	
+10434	O-Oral	O-Oral	
+10435	O-Oral	O-Oral	
+10436	Oph-Ophtalmic	Oph-Ophtalmic	
+10437	O-Oral	O-Oral	
+10438	O-Oral	O-Oral	
+10439	O-Oral	O-Oral	
+10440	Parentaral	IM-Intramuscular	Parentaral
+10441	O-Oral	O-Oral	
+10442	O-Oral	O-Oral	
+10443	O-Oral	O-Oral	
+10444	O-Oral	O-Oral	
+10445	Parentaral	Inf-Infusion	Parentaral
+10446	O-Oral	O-Oral	
+10447	O-Oral	O-Oral	
+10448	Parentaral	SC-Subcutanous	Parentaral
+10449	Parentaral	IM-Intramuscular	Parentaral
+10450	O-Oral	O-Oral	
+10451	O-Oral	O-Oral	
+10452	O-Oral	O-Oral	
+10453	O-Oral	O-Oral	
+10454	O-Oral	O-Oral	
+10455	O-Oral	O-Oral	
+10456	O-Oral	O-Oral	
+10457	O-Oral	O-Oral	
+10458	O-Oral	O-Oral	
+10460	O-Oral	O-Oral	
+10461	O-Oral	O-Oral	
+10462	O-Oral	O-Oral	
+10463	O-Oral	O-Oral	
+10464	O-Oral	O-Oral	
+10465	O-Oral	O-Oral	
+10466	O-Oral	O-Oral	
+10467	O-Oral	O-Oral	
+10468	O-Oral	O-Oral	
+10469	O-Oral	O-Oral	
+10470	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10471	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10472	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10473	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10474	O-Oral	O-Oral	
+10475	Parentaral	Inf-Infusion	Parentaral
+10476	Parentaral	SC-Subcutanous	Parentaral
+10477	Parentaral	SC-Subcutanous	Parentaral
+10478	Parentaral	SC-Subcutanous	Parentaral
+10479	Parentaral	SC-Subcutanous	Parentaral
+10480	O-Oral	O-Oral	
+10481	O-Oral	O-Oral	
+10482	O-Oral	O-Oral	
+10483	O-Oral	O-Oral	
+10484	O-Oral	O-Oral	
+10485	Res-Respiratory	Res-Respiratory	
+10486	O-Oral	O-Oral	
+10487	O-Oral	O-Oral	
+10488	O-Oral	O-Oral	
+10489	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10490	T-Topical	T-Topical	
+10491	T-Topical	T-Topical	
+10492	O-Oral	O-Oral	
+10493	O-Oral	O-Oral	
+10494	Parentaral	Inf-Infusion	Parentaral
+10495	Parentaral	Inf-Infusion	Parentaral
+10496	Parentaral	IM-Intramuscular	Parentaral
+10497	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10498	Parentaral	IM-Intramuscular	Parentaral
+10499	O-Oral	O-Oral	
+10500	O-Oral	O-Oral	
+10501	O-Oral	O-Oral	
+10502	O-Oral	O-Oral	
+10503	O-Oral	O-Oral	
+10504	O-Oral	O-Oral	
+10505	O-Oral	O-Oral	
+10506	O-Oral	O-Oral	
+10507	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10508	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10509	O-Oral	O-Oral	
+10510	Oph-Ophtalmic	Oph-Ophtalmic	
+10511	O-Oral	O-Oral	
+10512	O-Oral	O-Oral	
+10514	O-Oral	O-Oral	
+10515	O-Oral	O-Oral	
+10516	O-Oral	O-Oral	
+10517	Parentaral	Inf-Infusion	Parentaral
+10518	O-Oral	O-Oral	
+10519	Parentaral	Inf-Infusion	Parentaral
+10520	Parentaral	Inf-Infusion	Parentaral
+10521	O-Oral	O-Oral	
+10522	O-Oral	O-Oral	
+10523	O-Oral	O-Oral	
+10524	N-Nasal	N-Nasal	
+10525	Parentaral	Inf-Infusion	Parentaral
+10526	O-Oral	O-Oral	
+10527	O-Oral	O-Oral	
+10528	O-Oral	O-Oral	
+10529	O-Oral	O-Oral	
+10530	O-Oral	O-Oral	
+10531	O-Oral	O-Oral	
+10532	O-Oral	O-Oral	
+10533	O-Oral	O-Oral	
+10534	O-Oral	O-Oral	
+10535	O-Oral	O-Oral	
+10536	O-Oral	O-Oral	
+10537	O-Oral	O-Oral	
+10538	O-Oral	O-Oral	
+10539	O-Oral	O-Oral	
+10540	O-Oral	O-Oral	
+10541	O-Oral	O-Oral	
+10542	Oph-Ophtalmic	Oph-Ophtalmic	
+10543	R-Rectal	R-Rectal	
+10544	O-Oral	O-Oral	
+10545	O-Oral	O-Oral	
+10546	O-Oral	O-Oral	
+10547	O-Oral	O-Oral	
+10548	O-Oral	O-Oral	
+10550	O-Oral	O-Oral	
+10551	O-Oral	O-Oral	
+10552	O-Oral	O-Oral	
+10553	O-Oral	O-Oral	
+10554	O-Oral	O-Oral	
+10555	O-Oral	O-Oral	
+10556	O-Oral	O-Oral	
+10557	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10558	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10559	Parentaral	SC-Subcutanous	Parentaral
+10560	Parentaral	SC-Subcutanous	Parentaral
+10561	O-Oral	O-Oral	
+10562	O-Oral	O-Oral	
+10563	O-Oral	O-Oral	
+10564	O-Oral	O-Oral	
+10565	O-Oral	O-Oral	
+10566	Parentaral	Inf-Infusion	Parentaral
+10567	Parentaral	Inf-Infusion	Parentaral
+10568	Parentaral	Inf-Infusion	Parentaral
+10569	Parentaral	Inf-Infusion	Parentaral
+10570	Parentaral	Inf-Infusion	Parentaral
+10571	Parentaral	Inf-Infusion	Parentaral
+10572	Parentaral	Inf-Infusion	Parentaral
+10573	Parentaral	Inf-Infusion	Parentaral
+10574	Parentaral	Inf-Infusion	Parentaral
+10575	Parentaral	Inf-Infusion	Parentaral
+10576	O-Oral	O-Oral	
+10577	O-Oral	O-Oral	
+10578	O-Oral	O-Oral	
+10579	O-Oral	O-Oral	
+10580	O-Oral	O-Oral	
+10581	O-Oral	O-Oral	
+10582	O-Oral	O-Oral	
+10583	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10584	Parentaral	IM-Intramuscular	Parentaral
+10585	O-Oral	O-Oral	
+10586	O-Oral	O-Oral	
+10587	O-Oral	O-Oral	
+10588	O-Oral	O-Oral	
+10589	O-Oral	O-Oral	
+10590	O-Oral	O-Oral	
+10591	O-Oral	O-Oral	
+10592	Parentaral	SC-Subcutanous	Parentaral
+10593	O-Oral	O-Oral	
+10594	O-Oral	O-Oral	
+10595	Parentaral	Inf-Infusion	Parentaral
+10596	O-Oral	O-Oral	
+10597	O-Oral	O-Oral	
+10598	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10599	O-Oral	O-Oral	
+10600	O-Oral	O-Oral	
+10601	SL-Sublingual	SL-Sublingual	
+10602	SL-Sublingual	SL-Sublingual	
+10603	SL-Sublingual	SL-Sublingual	
+10604	SL-Sublingual	SL-Sublingual	
+10605	O-Oral	O-Oral	
+10606	O-Oral	O-Oral	
+10607	O-Oral	O-Oral	
+10608	O-Oral	O-Oral	
+10609	O-Oral	O-Oral	
+10610	O-Oral	O-Oral	
+10611	Parentaral	Inf-Infusion	Parentaral
+10612	Parentaral	Inf-Infusion	Parentaral
+10613	Parentaral	Inf-Infusion	Parentaral
+10614	Parentaral	Inf-Infusion	Parentaral
+10615	Parentaral	Inf-Infusion	Parentaral
+10616	Parentaral	Inf-Infusion	Parentaral
+10617	O-Oral	O-Oral	
+10618	O-Oral	O-Oral	
+10619	Parentaral	SC-Subcutanous	Parentaral
+10620	O-Oral	O-Oral	
+10621	O-Oral	O-Oral	
+10622	Parentaral	SC-Subcutanous	Parentaral
+10623	Parentaral	SC-Subcutanous	Parentaral
+10624	Parentaral	IM-Intramuscular	Parentaral
+10625	Parentaral	SC-Subcutanous	Parentaral
+10626	Parentaral	SC-Subcutanous	Parentaral
+10627	Parentaral	SC-Subcutanous	Parentaral
+10628	Parentaral	SC-Subcutanous	Parentaral
+10629	O-Oral	O-Oral	
+10630	O-Oral	O-Oral	
+10631	O-Oral	O-Oral	
+10632	Parentaral	SC-Subcutanous	Parentaral
+10633	O-Oral	O-Oral	
+10634	O-Oral	O-Oral	
+10635	O-Oral	O-Oral	
+10636	O-Oral	O-Oral	
+10637	O-Oral	O-Oral	
+10638	IVes-Intravesical	IVes-Intravesical	
+10639	N-Nasal	N-Nasal	
+10640	Parentaral	Inf-Infusion	Parentaral
+10643	O-Oral	O-Oral	
+10645	O-Oral	O-Oral	
+10646	T-Topical	T-Topical	
+10647	O-Oral	O-Oral	
+10648	O-Oral	O-Oral	
+10649	R-Rectal	R-Rectal	
+10650	O-Oral	O-Oral	
+10651	N-Nasal	N-Nasal	
+10652	Parentaral	Inf-Infusion	Parentaral
+10653	Parentaral	Inf-Infusion	Parentaral
+10654	Parentaral	Inf-Infusion	Parentaral
+10655	Parentaral	Inf-Infusion	Parentaral
+10656	Parentaral	Inf-Infusion	Parentaral
+10657	Parentaral	Inf-Infusion	Parentaral
+10658	O-Oral	O-Oral	
+10659	O-Oral	O-Oral	
+10660	Parentaral	Inf-Infusion	Parentaral
+10661	Parentaral	Inf-Infusion	Parentaral
+10662	O-Oral	O-Oral	
+10663	O-Oral	O-Oral	
+10664	O-Oral	O-Oral	
+10665	O-Oral	O-Oral	
+10666	O-Oral	O-Oral	
+10667	O-Oral	O-Oral	
+10668	O-Oral	O-Oral	
+10669	O-Oral	O-Oral	
+10670	O-Oral	O-Oral	
+10671	T-Topical	T-Topical	
+10672	Parentaral	Inf-Infusion	Parentaral
+10673	Parentaral	Inf-Infusion	Parentaral
+10674	Parentaral	Inf-Infusion	Parentaral
+10675	Parentaral	IV-IM-Inf-R-Intravenous-Intramuscular-Infusion-Rectal	Parentaral
+10676	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10677	Parentaral	SC-Subcutanous	Parentaral
+10678	O-Oral	O-Oral	
+10679	O-Oral	O-Oral	
+10680	O-Oral	O-Oral	
+10681	O-Oral	O-Oral	
+10682	R-Rectal	R-Rectal	
+10683	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10684	Parentaral	Inf-Infusion	Parentaral
+10685	Parentaral	Inf-Infusion	Parentaral
+10686	O-Oral	O-Oral	
+10687	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10688	O-Oral	O-Oral	
+10689	O-Oral	O-Oral	
+10690	O-Oral	O-Oral	
+10691	O-Oral	O-Oral	
+10692	O-Oral	O-Oral	
+10693	O-Oral	O-Oral	
+10694	O-Oral	O-Oral	
+10695	O-Oral	O-Oral	
+10696	O-Oral	O-Oral	
+10697	O-Oral	O-Oral	
+10698	O-Oral	O-Oral	
+10699	O-Oral	O-Oral	
+10702	O-Oral	O-Oral	
+10703	O-Oral	O-Oral	
+10706	O-Oral	O-Oral	
+10707	Parentaral	Inf-Infusion	Parentaral
+10708	O-Oral	O-Oral	
+10709	O-Oral	O-Oral	
+10710	O-Oral	O-Oral	
+10711	O-Oral	O-Oral	
+10712	O-Oral	O-Oral	
+10713	O-Oral	O-Oral	
+10714	O-Oral	O-Oral	
+10715	Parentaral	Inf-Infusion	Parentaral
+10716	Parentaral	SC-Subcutanous	Parentaral
+10717	Parentaral	SC-Subcutanous	Parentaral
+10718	Parentaral	SC-Subcutanous	Parentaral
+10719	Parentaral	SC-Subcutanous	Parentaral
+10720	Parentaral	SC-Subcutanous	Parentaral
+10721	Parentaral	SC-Subcutanous	Parentaral
+10722	Parentaral	SC-Subcutanous	Parentaral
+10723	Parentaral	SC-Subcutanous	Parentaral
+10724	Parentaral	SC-Subcutanous	Parentaral
+10725	O-Oral	O-Oral	
+10726	O-Oral	O-Oral	
+10727	O-Oral	O-Oral	
+10728	O-Oral	O-Oral	
+10729	O-Oral	O-Oral	
+10730	O-Oral	O-Oral	
+10731	Parentaral	Inf-Infusion	Parentaral
+10732	Parentaral	SC-Subcutanous	Parentaral
+10733	Parentaral	SC-Subcutanous	Parentaral
+10734	Parentaral	SC-Subcutanous	Parentaral
+10735	Parentaral	SC-Subcutanous	Parentaral
+10736	Parentaral	SC-Subcutanous	Parentaral
+10737	Parentaral	SC-Subcutanous	Parentaral
+10738	Parentaral	SC-Subcutanous	Parentaral
+10739	Parentaral	SC-Subcutanous	Parentaral
+10740	O-Oral	O-Oral	
+10741	O-Oral	O-Oral	
+10742	O-Oral	O-Oral	
+10743	O-Oral	O-Oral	
+10744	O-Oral	O-Oral	
+10745	O-Oral	O-Oral	
+10746	O-Oral	O-Oral	
+10747	O-Oral	O-Oral	
+10748	Res-Respiratory	Res-Respiratory	
+10749	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+10750	O-Oral	O-Oral	
+10751	O-Oral	O-Oral	
+10752	O-Oral	O-Oral	
+10753	O-Oral	O-Oral	
+10754	Parentaral	Inf-Infusion	Parentaral
+10755	Parentaral	ITh-Intrathecal	Parentaral
+10756	O-Oral	O-Oral	
+10757	O-Oral	O-Oral	
+10758	O-Oral	O-Oral	
+10759	O-Oral	O-Oral	
+10760	O-Oral	O-Oral	
+10761	O-Oral	O-Oral	
+10762	Parentaral	SC-Subcutanous	Parentaral
+10763	O-Oral	O-Oral	
+10764	O-Oral	O-Oral	
+10765	O-Oral	O-Oral	
+10766	O-Oral	O-Oral	
+10767	O-Oral	O-Oral	
+10768	R-Rectal	R-Rectal	
+10771	Irrigation	Irrigation	
+10772	Parentaral	Inf-Infusion	Parentaral
+10773	O-Oral	O-Oral	
+10774	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10775	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10776	Parentaral	Inf-Infusion	Parentaral
+10777	Parentaral	Inf-Infusion	Parentaral
+10778	O-Oral	O-Oral	
+10779	O-Oral	O-Oral	
+10780	O-Oral	O-Oral	
+10781	O-Oral	O-Oral	
+10782	O-Oral	O-Oral	
+10783	O-Oral	O-Oral	
+10784	O-Oral	O-Oral	
+10785	Parentaral	Inf-Infusion	Parentaral
+10786	Parentaral	Inf-Infusion	Parentaral
+10788	O-Oral	O-Oral	
+10789	O-Oral	O-Oral	
+10790	O-Oral	O-Oral	
+10791	O-Oral	O-Oral	
+10792	O-Oral	O-Oral	
+10793	O-Oral	O-Oral	
+10794	Parentaral	Inf-Infusion	Parentaral
+10795	Parentaral	Inf-Infusion	Parentaral
+10796	O-Oral	O-Oral	
+10797	O-Oral	O-Oral	
+10798	O-Oral	O-Oral	
+10799	O-Oral	O-Oral	
+10800	O-Oral	O-Oral	
+10801	Oph-Ophtalmic	Oph-Ophtalmic	
+10802	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10803	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10804	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10805	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10806	O-Oral	O-Oral	
+10807	O-Oral	O-Oral	
+10808	O-Oral	O-Oral	
+10809	Parentaral	Inf-Infusion	Parentaral
+10810	Parentaral	Inf-Infusion	Parentaral
+10811	O-Oral	O-Oral	
+10812	O-Oral	O-Oral	
+10813	O-Oral	O-Oral	
+10814	O-Oral	O-Oral	
+10815	O-Oral	O-Oral	
+10816	O-Oral	O-Oral	
+10817	Parentaral	SC-Subcutanous	Parentaral
+10818	Parentaral	SC-Subcutanous	Parentaral
+10819	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10820	O-Oral	O-Oral	
+10821	O-Oral	O-Oral	
+10822	O-Oral	O-Oral	
+10823	O-Oral	O-Oral	
+10824	O-Oral	O-Oral	
+10825	Parentaral	Inf-Infusion	Parentaral
+10826	Parentaral	Inf-Infusion	Parentaral
+10827	O-Oral	O-Oral	
+10828	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10829	Parentaral	IM-Intramuscular	Parentaral
+10830	Parentaral	IM-IntAr-Intramuscular-IntraArticular	Parentaral
+10831	Oph-Ophtalmic	Oph-Ophtalmic	
+10832	Oph-Ophtalmic	Oph-Ophtalmic	
+10833	O-Oral	O-Oral	
+10834	O-Oral	O-Oral	
+10835	Parentaral	Inf-Infusion	Parentaral
+10836	O-Oral	O-Oral	
+10837	O-Oral	O-Oral	
+10838	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+10839	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+10840	O-Oral	O-Oral	
+10841	O-Oral	O-Oral	
+10842	O-Oral	O-Oral	
+10843	O-Oral	O-Oral	
+10844	O-Oral	O-Oral	
+10845	O-Oral	O-Oral	
+10846	R-Rectal	R-Rectal	
+10847	O-Oral	O-Oral	
+10848	O-Oral	O-Oral	
+10849	O-Oral	O-Oral	
+10850	Parentaral	Inf-Inh-Infusion-Inhalation	Parentaral
+10851	R-Rectal	R-Rectal	
+10852	O-Oral	O-Oral	
+10853	Parentaral	Inf-IV-IM-Infusion-Intravenous-Intramuscular	Parentaral
+10854	O-Oral	O-Oral	
+10855	O-Oral	O-Oral	
+10856	Oph-Ophtalmic	Oph-Ophtalmic	
+10857	O-Oral	O-Oral	
+10858	R-Rectal	R-Rectal	
+10859	Parentaral	IM-Intramuscular	Parentaral
+10860	O-Oral	O-Oral	
+10861	O-Oral	O-Oral	
+10862	Res-Respiratory	Res-Respiratory	
+10863	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10864	Parentaral	IM-SC-Intramuscular-Subcutanous	Parentaral
+10865	O-Oral	O-Oral	
+10866	Parentaral	SC-Subcutanous	Parentaral
+10867	Parentaral	SC-Subcutanous	Parentaral
+10868	Parentaral	SC-Subcutanous	Parentaral
+10869	O-Oral	O-Oral	
+10870	O-Oral	O-Oral	
+10871	O-Oral	O-Oral	
+10872	O-Oral	O-Oral	
+10873	O-Oral	O-Oral	
+10874	O-Oral	O-Oral	
+10875	O-Oral	O-Oral	
+10876	Parentaral	Inf-Infusion	Parentaral
+10877	O-Oral	O-Oral	
+10878	O-Oral	O-Oral	
+10879	O-Oral	O-Oral	
+10880	O-Oral	O-Oral	
+10881	O-Oral	O-Oral	
+10882	O-Oral	O-Oral	
+10883	O-Oral	O-Oral	
+10884	O-Oral	O-Oral	
+10885	O-Oral	O-Oral	
+10886	Parentaral	IM-Intramuscular	Parentaral
+10887	O-Oral	O-Oral	
+10889	O-Oral	O-Oral	
+10890	O-Oral	O-Oral	
+10891	O-Oral	O-Oral	
+10892	O-Oral	O-Oral	
+10893	N-Nasal	N-Nasal	
+10894	N-Nasal	N-Nasal	
+10895	O-Oral	O-Oral	
+10896	O-Oral	O-Oral	
+10897	Res-Respiratory	Res-Respiratory	
+10898	InhRes-Inhalation or respiratory	InhRes-Inhalation or respiratory	
+10899	O-Oral	O-Oral	
+10900	O-Oral	O-Oral	
+10901	O-Oral	O-Oral	
+10902	O-Oral	O-Oral	
+10903	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10904	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10905	Parentaral	SC-Subcutanous	Parentaral
+10906	O-Oral	O-Oral	
+10907	O-Oral	O-Oral	
+10908	Parentaral	Inf-Infusion	Parentaral
+10909	Parentaral	Inf-Infusion	Parentaral
+10910	O-Oral	O-Oral	
+10911	Oph-Ophtalmic	Oph-Ophtalmic	
+10912	O-Oral	O-Oral	
+10913	O-Oral	O-Oral	
+10914	O-Oral	O-Oral	
+10915	O-R-Oral-Rectal	O-R-Oral-Rectal	
+10916	O-Oral	O-Oral	
+10918	Parentaral	SC-Subcutanous	Parentaral
+10919	Parentaral	Inf-Infusion	Parentaral
+10920	Parentaral	SC-Subcutanous	Parentaral
+10921	Parentaral	Inf-Infusion	Parentaral
+10922	O-Oral	O-Oral	
+10923	O-Oral	O-Oral	
+10924	O-Oral	O-Oral	
+10925	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10926	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10927	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+10928	Parentaral	IM-Intramuscular	Parentaral
+10929	IV-Intravenous	IV-Intravenous	
+10930	Parentaral	IV-IM-Intravenous-Intramuscular	Parentaral
+10931	IV-Intravenous	IV-Intravenous	
+10932	Parentaral	IM-Intramuscular	Parentaral
+10933	O-Oral	O-Oral	
+10934	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10935	Parentaral	IV-SC-Intravenous-Subcutanous	Parentaral
+10936	Parentaral	Inf-Infusion	Parentaral
+10937	Parentaral	ITh-Intrathecal	Parentaral
+10938	T-Topical	T-Topical	
+10939	T-Topical	T-Topical	
+10940	IO-Intraoral	IO-Intraoral	
+10941	Parentaral	IM-Intramuscular	Parentaral
+10942	Oph-Ophtalmic	Oph-Ophtalmic	
+10943	O-Oral	O-Oral	
+10944	O-Oral	O-Oral	
+10945	O-Oral	O-Oral	
+10946	O-Oral	O-Oral	
+10947	O-Oral	O-Oral	
+10948	O-Oral	O-Oral	
+10949	O-Oral	O-Oral	
+10950	Parentaral	IM-Intramuscular	Parentaral
+10951	O-Oral	O-Oral	
+10952	O-Oral	O-Oral	
+10953	Parentaral	Inf-Infusion	Parentaral
+10954	Parentaral	Inf-Infusion	Parentaral
+10955	Parentaral	Inf-Infusion	Parentaral
+10956	O-Oral	O-Oral	
+10957	O-Oral	O-Oral	
+10958	O-Oral	O-Oral	
+10959	Parentaral	Inf-Infusion	Parentaral
+10960	Parentaral	Inf-Infusion	Parentaral
+10961	O-Oral	O-Oral	
+10962	O-Oral	O-Oral	
+10963	O-Oral	O-Oral	
+10964	O-Oral	O-Oral	
+10965	O-Oral	O-Oral	
+10966	O-Oral	O-Oral	
+10967	T-Topical	T-Topical	
+10968	O-Oral	O-Oral	
+10969	O-Oral	O-Oral	
+10970	O-Oral	O-Oral	
+10971	O-Oral	O-Oral	
+10972	Oph-Ophtalmic	Oph-Ophtalmic	
+10973	O-Oral	O-Oral	
+10974	Parentaral	Inf-Infusion	Parentaral
+10975	Parentaral	SC-Subcutanous	Parentaral
+10976	Parentaral	Inf-Infusion	Parentaral
+10977	O-Oral	O-Oral	
+10978	Parentaral	Inf-Infusion	Parentaral
+10979	O-Oral	O-Oral	
+10980	O-Oral	O-Oral	
+10981	Parentaral	SC-Subcutanous	Parentaral
+10982	O-Oral	O-Oral	
+10983	Parentaral	SC-Subcutanous	Parentaral
+10984	R-Rectal	R-Rectal	
+10985	Parentaral	Inf-Infusion	Parentaral
+10986	Parentaral	Inf-Infusion	Parentaral
+10987	Parentaral	SC-Subcutanous	Parentaral
+10988	Parentaral	SC-Subcutanous	Parentaral
+10989	Parentaral	Inf-Infusion	Parentaral
+10990	Parentaral	Inf-Infusion	Parentaral
+10991	O-Oral	O-Oral	
+10992	O-Oral	O-Oral	
+10993	O-Oral	O-Oral	
+10994	Parentaral	Inf-Infusion	Parentaral
+10995	Parentaral	Inf-Infusion	Parentaral
+10996	Parentaral	Inf-Infusion	Parentaral
+10997	O-Oral	O-Oral	
+10998	O-Oral	O-Oral	
+10999	O-Oral	O-Oral	
+11000	O-Oral	O-Oral	
+11001	Parentaral	Inf-Infusion	Parentaral
+11002	O-Oral	O-Oral	
+11003	O-Oral	O-Oral	
+11004	O-Oral	O-Oral	
+11005	O-Oral	O-Oral	
+11006	O-Oral	O-Oral	
+11007	Parentaral	Inf-Infusion	Parentaral
+11008	TD-Transdermal	TD-Transdermal	
+11009	Parentaral	Inf-Infusion	Parentaral
+11010	Parentaral	Inf-Infusion	Parentaral
+11011	Parentaral	Inf-Infusion	Parentaral
+11012	Parentaral	Inf-IV-Infusion-Intravenous	Parentaral
+11013	O-Oral	O-Oral	
+11014	O-Oral	O-Oral	
+11015	O-Oral	O-Oral	
+11016	O-Oral	O-Oral	
+11017	O-Oral	O-Oral	
+11018	O-Oral	O-Oral	
+11019	O-Oral	O-Oral	
+11020	Parentaral	Inf-Infusion	Parentaral
+11021	Parentaral	SC-Subcutanous	Parentaral
+11022	Parentaral	SC-Subcutanous	Parentaral
+11023	O-Oral	O-Oral	
+11024	O-Oral	O-Oral	
+11025	IV-Intravenous	IV-Intravenous	
+11026	IV-Intravenous	IV-Intravenous	
+11027	IV-Intravenous	IV-Intravenous	
+11028	O-Oral	O-Oral	
+11029	O-Oral	O-Oral	
+11030	O-Oral	O-Oral	
+11031	IV-Intravenous	IV-Intravenous	
+11032	Oph-Ophtalmic	Oph-Ophtalmic	
+11033	O-Oral	O-Oral	
+11034	Parentaral	IM-Intramuscular	Parentaral
+11035	V-Vaginal	V-Vaginal	
+11036	O-Oral	O-Oral	
+11037	O-Oral	O-Oral	
+11038	O-Oral	O-Oral	
+11039	Parentaral	Inf-Infusion	Parentaral
+11040	O-Oral	O-Oral	
+11041	O-Oral	O-Oral	
+11042	O-Oral	O-Oral	
+11043	O-Oral	O-Oral	
+11044	O-Oral	O-Oral	
+11045	O-Oral	O-Oral	
+11046	IV-Intravenous	IV-Intravenous	
+11047	O-Oral	O-Oral	
+11048	O-Oral	O-Oral	
+11049	O-Oral	O-Oral	
+11050	O-Oral	O-Oral	
+11051	Parentaral	Inf-Infusion	Parentaral
+11052	O-Oral	O-Oral	
+11053	O-Oral	O-Oral	
+11054	O-Oral	O-Oral	
+11055	O-Oral	O-Oral	
+11056	Parentaral	Inf-Infusion	Parentaral
