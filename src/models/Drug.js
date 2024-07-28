@@ -41,8 +41,8 @@ const NewDrug = sequelize.define('drug', {
     Route: {
         type: DataTypes.STRING(255)
     },
-    IsParentaral:{
-        type: DataTypes.BOOLEAN
+    Parentaral:{
+        type: DataTypes.STRING(255)
     },
     RouteParent:{
         type: DataTypes.STRING(255)
