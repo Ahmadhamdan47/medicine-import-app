@@ -19,6 +19,9 @@ const NewDrug = sequelize.define('drug', {
     Form:{
         type: DataTypes.STRING(255)
     },
+    FormLNDI:{
+        type: DataTypes.STRING(255)
+    },
     IsScored:{
         type: DataTypes.BOOLEAN
     },
