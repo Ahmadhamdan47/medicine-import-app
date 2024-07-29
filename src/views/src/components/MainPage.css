@@ -150,7 +150,6 @@
 }
 
 .dropdown button {
-  width: 100%;
   padding: 10px;
   background-color: #fff;
   border: none;
@@ -196,8 +195,13 @@ th {
 }
 
 .pagination {
-  margin-top: 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
 }
+
 
 .pagination button {
   padding: 5px 10px;
@@ -205,6 +209,7 @@ th {
   font-size: 12px;
   cursor: pointer;
 }
+
 
 .pagination span {
   padding: 5px 10px;

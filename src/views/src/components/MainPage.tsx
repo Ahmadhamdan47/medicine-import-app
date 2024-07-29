@@ -35,12 +35,14 @@ const MainPage: React.FC = () => {
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [showDrugsTable, setShowDrugsTable] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const drugsPerPage = 5601;
+  const [totalPages, setTotalPages] = useState(1);
+  const drugsPerPage = 100; // Number of drugs per page
   const [searchQuery, setSearchQuery] = useState("");
   const [showImportPage, setShowImportPage] = useState(false);
   const [showAddBatchLot, setShowAddBatchLot] = useState(false);
   const [showInspection, setShowInspection] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [rowsPerPage, setRowsPerPage] = useState(25); // Default rows per page
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -83,11 +85,11 @@ const MainPage: React.FC = () => {
     }
   };
 
-  const fetchDrugs = async () => {
+  const fetchDrugs = async (page = 1, limit = rowsPerPage) => {
     setIsLoading(true); // Start loading
     try {
-      const response = await axios.get('/drugs/all');
-      const drugs = response.data;
+      const response = await axios.get(`/drugs/paginated?page=${page}&limit=${limit}`);
+      const { drugs, totalPages } = response.data;
   
       const drugsWithDetails = await Promise.all(drugs.map(async (drug: any) => {
         const atcCode = await fetchATC(drug.DrugID);
@@ -101,8 +103,8 @@ const MainPage: React.FC = () => {
           DosageDetails: dosage,
         };
       }));
-
-      const formattedData = drugsWithDetails.map((drug: any) => ({
+  
+      const formattedData = drugsWithDetails.map((drug) => ({
         DrugID: drug.DrugID || 'N/A',
         DrugName: drug.DrugName || 'N/A',
         DrugNameAR: drug.DrugNameAR || 'N/A',
@@ -148,20 +150,21 @@ const MainPage: React.FC = () => {
         Country: drug.Country || 'N/A',
         Price: drug.Price || 'N/A',
       }));
-
+  
       setAllData(formattedData);
-      setTableData(formattedData.slice(0, drugsPerPage));
+      setTableData(formattedData);
+      setTotalPages(totalPages);
     } catch (error) {
       console.error("Error fetching drugs:", error);
     } finally {
       setIsLoading(false); // End loading
     }
   };
-
+  
   const handleFetchDrugs = () => {
     setShowDrugsTable(true);
     setShowImportPage(false);
-    fetchDrugs();
+    fetchDrugs(currentPage);
   };
 
   const handleSearch = () => {
@@ -191,7 +194,12 @@ const MainPage: React.FC = () => {
       console.error("Error updating drug:", error);
     }
   };
-
+  const handleRowsPerPageChange = (event: any) => {
+    const newRowsPerPage = parseInt(event.target.value, 10);
+    setRowsPerPage(newRowsPerPage);
+    fetchDrugs(currentPage, newRowsPerPage);
+  };
+  
   const handleDeleteRow = async (row: any) => {
     try {
       if (window.confirm('Are you sure you want to delete this drug?')) {
@@ -215,6 +223,67 @@ const MainPage: React.FC = () => {
     }
   };
 
+  const handlePageChange = (newPage: any) => {
+    setCurrentPage(newPage);
+    fetchDrugs(newPage);
+  };
+
+  const renderPaginationControls = () => (
+    <div
+      className="pagination-controls"
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        bottom: '20px',
+        right: '20px',
+      }}
+    >
+      <label style={{ marginRight: '10px' }}>Rows per page:</label>
+      <select value={rowsPerPage} onChange={handleRowsPerPageChange} style={{ marginRight: '20px' }}>
+        <option value={10}>10</option>
+        <option value={25}>25</option>
+        <option value={50}>50</option>
+        <option value={100}>100</option>
+      </select>
+      <button
+        disabled={currentPage === 1}
+        onClick={() => handlePageChange(currentPage - 1)}
+        style={{
+          width: '80px',
+          padding: '5px 10px',
+          margin: '5px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Previous
+      </button>
+      <span
+        style={{
+          padding: '5px 10px',
+          margin: '5px',
+          fontSize: '14px',
+        }}
+      >
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        disabled={currentPage === totalPages}
+        onClick={() => handlePageChange(currentPage + 1)}
+        style={{
+          width: '80px',
+          padding: '5px 10px',
+          margin: '5px',
+          fontSize: '12px',
+          cursor: 'pointer',
+        }}
+      >
+        Next
+      </button>
+    </div>
+  );
+  
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -313,7 +382,6 @@ const MainPage: React.FC = () => {
       { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
       { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
       { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
-      
       { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
       { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
     ],
@@ -325,12 +393,14 @@ const MainPage: React.FC = () => {
     data: tableData,
     enableColumnResizing: true,
     enableEditing: true,
-    enableStickyHeader:true,
+    enableStickyHeader: true,
+    manualPagination: true,
+    enablePagination: false,
     state: {
       isLoading,
     },
     initialState: {
-      density:'xs',
+      density: 'xs',
       columnVisibility: {
         DrugID: false,
         DrugNameAR: false,
@@ -410,9 +480,11 @@ const MainPage: React.FC = () => {
 
   return (
     <div className={`main-page ${collapsed ? 'collapsed' : ''}`}>
-      <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}
-           onMouseEnter={() => setCollapsed(false)}
-           onMouseLeave={() => setCollapsed(true)}>
+      <div
+        className={`sidebar ${collapsed ? 'collapsed' : ''}`}
+        onMouseEnter={() => setCollapsed(false)}
+        onMouseLeave={() => setCollapsed(true)}
+      >
         <div className="header">
           <img src={logoIcon} alt="MedLeb Logo" className="logo" />
         </div>
@@ -466,14 +538,14 @@ const MainPage: React.FC = () => {
             />
           </div>
           <div className="profile-section">
-            <img src={networkIcon} alt="User" className="icon" />
-            <img src={listIcon} alt="Settings" className="icon" />
+            {/* Profile section content */}
           </div>
         </div>
         <div className="main-content">
           {showDrugsTable ? (
             <div className="table-container">
               <MantineReactTable table={table} />
+              {renderPaginationControls()}
             </div>
           ) : showImportPage ? (
             renderStep()
