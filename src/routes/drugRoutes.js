@@ -609,5 +609,6 @@ router.get('/checkDrugNameInAPI/:drugName', drugController.checkDrugNameInAPI);
 router.delete('/delete/:DrugID', drugController.deleteDrug);
 router.put('/update/:DrugID', drugController.updateDrug);
 router.get("/paginated", drugController.getAllDrugsPaginated);
+router.get("/paginatedByATC", drugController.getAllDrugsPaginatedByATC);
 
 module.exports = router;

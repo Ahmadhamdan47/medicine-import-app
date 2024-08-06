@@ -329,7 +329,7 @@ const getAllDrugs = async () => {
 };
 
 
-const getAllDrugsPaginated = async (page = 1, limit = 100) => {
+const getAllDrugsPaginated = async (page = 1, limit = 500) => {
   try {
     const offset = (page - 1) * limit;
     const { rows, count } = await Drug.findAndCountAll({
@@ -340,6 +340,20 @@ const getAllDrugsPaginated = async (page = 1, limit = 100) => {
   } catch (error) {
     console.error("Error fetching paginated drugs:", error);
     throw new Error("Failed to fetch paginated drugs");
+  }
+};
+const getAllDrugsPaginatedByATC = async (page = 1, limit = 500) => {
+  try {
+    const offset = (page - 1) * limit;
+    const { rows, count } = await Drug.findAndCountAll({
+      offset,
+      limit,
+      order: [['ATC', 'ASC']],
+    });
+    return { drugs: rows, totalPages: Math.ceil(count / limit) };
+  } catch (error) {
+    console.error("Error fetching paginated drugs by ATC:", error);
+    throw new Error("Failed to fetch paginated drugs by ATC");
   }
 };
 const smartSearch = async (query) => {
@@ -970,6 +984,7 @@ module.exports = {
   updateDrug,
   deleteDosagesByDrugId,
   deletePresentationsByDrugId,
-  getAllDrugsPaginated  
+  getAllDrugsPaginated,
+  getAllDrugsPaginatedByATC
   
 };

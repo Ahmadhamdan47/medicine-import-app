@@ -88,6 +88,15 @@ const getAllDrugsPaginated = async (req, res, next) => {
     next(error);
   }
 };
+const getAllDrugsPaginatedByATC = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 100 } = req.query;
+    const { drugs, totalPages } = await DrugService.getAllDrugsPaginatedByATC(parseInt(page, 10), parseInt(limit, 10));
+    res.status(200).json({ drugs, totalPages });
+  } catch (error) {
+    next(error);
+  }
+};
 const smartSearch = async (req, res) => {
   const searchTerm = req.params.query;
 
@@ -293,5 +302,6 @@ module.exports = {
   updateDrug,
   deleteDosagesByDrugId,
   deletePresentationsByDrugId,
-  getAllDrugsPaginated
+  getAllDrugsPaginated,
+  getAllDrugsPaginatedByATC,
 };
