@@ -360,16 +360,17 @@ const smartSearch = async (query) => {
   try {
     console.log("Query:", query); // Log the query
 
+    // Include GTIN in the attributes
     const drugs = await Drug.findAll({
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
       ],
     });
     
     const options = {
-      keys: ['DrugName', 'ATCRelatedIngredient'],
+      keys: ['DrugName', 'ATCRelatedIngredient', 'GTIN'], // Include GTIN in searchable keys
       includeScore: true,
       threshold: 0.3,  // Adjust this value to change the sensitivity of the search
       isCaseSensitive: false
@@ -379,22 +380,22 @@ const smartSearch = async (query) => {
     const results = fuse.search(query);
 
     let drugId;
-    if (results.some(result => result.item.DrugName === query )) {
-      const drug = results.find(result => result.item.DrugName === query );
+    if (results.some(result => result.item.DrugName === query || result.item.GTIN === query)) {
+      const drug = results.find(result => result.item.DrugName === query || result.item.GTIN === query);
       drugId = drug.item.DrugID;
     }
 
     const drugsWithDosageAndRoute = await Promise.all(results.map(async (result) => {
       const drug = result.item;
       const dosage = drug.Dosage;
-      const route = drug.Route; // Correctly map route
-      const form = drug.Form; // Correctly map form
+      const route = drug.Route;
+      const form = drug.Form;
       const presentation = drug.Presentation;
       const ManufacturerName = drug.Manufacturer;
       const CountryName = drug.Country;
       const priceInLBP = drug.Price * 90000;
 
-      const amount = drug.dataValues.Amount; // Directly use the integer value of Amount
+      const amount = drug.dataValues.Amount;
       const price = drug.Price;
 
       let unitPrice = null;
@@ -403,6 +404,17 @@ const smartSearch = async (query) => {
       if (amount && amount > 0) {
         unitPrice = price / amount;
         unitPriceInLBP = unitPrice * 90000;
+      }
+
+      // Fetch the additional data from getDrugById
+      let ATC;
+      let stratum;
+      try {
+        ATC = await ATCService.getATCByDrugID(drug.DrugID);
+        stratum = drug.Stratum;
+      } catch (error) {
+        ATC = null;
+        stratum = null;
       }
 
       return { 
@@ -415,7 +427,9 @@ const smartSearch = async (query) => {
         unitPriceInLBP, 
         unitPrice, 
         ManufacturerName, 
-        CountryName 
+        CountryName,
+        ATC, // Include ATC
+        stratum // Include stratum
       };
     }));
 
@@ -436,20 +450,20 @@ const smartSearch = async (query) => {
             attributes: [
               'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
               'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
+              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
             ],
           });
 
-          const substitutesWithDosageAndRoute = substituteDrugs.map(substituteDrug => {
+          const substitutesWithDosageAndRoute = await Promise.all(substituteDrugs.map(async (substituteDrug) => {
             const dosage = substituteDrug.Dosage;
-            const route = substituteDrug.Route; // Correctly map route
-            const form = substituteDrug.Form; // Correctly map form
+            const route = substituteDrug.Route;
+            const form = substituteDrug.Form;
             const presentation = substituteDrug.Presentation;
             const ManufacturerName = substituteDrug.Manufacturer;
             const CountryName = substituteDrug.Country;
             const priceInLBP = substituteDrug.Price * 90000;
 
-            const amount = substituteDrug.dataValues.Amount; // Directly use the integer value of Amount
+            const amount = substituteDrug.dataValues.Amount;
             const price = substituteDrug.Price;
 
             let unitPrice = null;
@@ -458,6 +472,17 @@ const smartSearch = async (query) => {
             if (amount && amount > 0) {
               unitPrice = price / amount;
               unitPriceInLBP = unitPrice * 90000;
+            }
+
+            // Fetch the additional data from getDrugById for substitutes
+            let ATC;
+            let stratum;
+            try {
+              ATC = await ATCService.getATCByDrugID(substituteDrug.DrugID);
+              stratum = substituteDrug.Stratum;
+            } catch (error) {
+              ATC = null;
+              stratum = null;
             }
 
             return { 
@@ -470,9 +495,11 @@ const smartSearch = async (query) => {
               unitPriceInLBP, 
               unitPrice, 
               ManufacturerName, 
-              CountryName 
+              CountryName,
+              ATC, // Include ATC for substitutes
+              stratum // Include stratum for substitutes
             };
-          });
+          }));
 
           drugsWithDosageAndRoute.push(...substitutesWithDosageAndRoute);
         }
@@ -487,6 +514,7 @@ const smartSearch = async (query) => {
     throw new Error('Error occurred in smartSearch: ' + error.message);
   }
 };
+
 
 
 const getDrugByATCLevel = async (query) => {
