@@ -16,6 +16,14 @@ const NewDrug = sequelize.define('drug', {
     DrugNameAR: {
         type: DataTypes.STRING(255)
     },
+    ATC_Code: {
+        type: DataTypes.STRING(255),
+        allowNull: true, // or false if it should be mandatory
+    },
+    GTIN:{
+        type: DataTypes.BIGINT(100),
+        allowNull: true,
+    },
     isOTC:{
         type: DataTypes.BOOLEAN
     },
