@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require ('../../config/databasePharmacy');
-const Drug = require('./drug');
+const Drug = require('./pharmacyDrug');
 const ATC_Code = require('./atc');
 class drug_atc_mapping extends Model {}
 

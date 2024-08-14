@@ -180,72 +180,56 @@ const searchDrugByName = async (query) => {
     throw new Error('Error occurred in searchDrugByATCName: ' + error.message);
   }
 };
-const getDrugById = async (DrugID) => {
+const getDrugById = async (DrugIDs) => {
   try {
-    const drug = await Drug.findOne({
+    const drugIdArray = DrugIDs.split(',').map(id => id.trim()); // Split and trim the DrugIDs
+
+    const drugs = await Drug.findAll({
       where: {
-        DrugID: DrugID,
+        DrugID: drugIdArray,
       },
       attributes: [
-        "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "imagesPath", 
-        "ManufacturerID", "RegistrationNumber", "NotMarketed", "ImagesPath", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route","Stratum"
+        "DrugID", "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "ImagesPath",
+        "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum"
       ],
     });
-    if (!drug) {
-      throw new Error('Drug not found');
+
+    if (!drugs.length) {
+      throw new Error('No drugs found');
     }
 
-    const dosage = drug.Dosage;
-    const route = drug.Route; // Correctly map route
-    const form = drug.Form; // Correctly map form
-    const presentation = drug.Presentation;
-    const ManufacturerName = drug.Manufacturer;
-    const CountryName = drug.Country;
-    const priceInLBP = drug.Price * 90000;
-    const stratum = drug.Stratum;
+    const drugsWithATC = await Promise.all(drugs.map(async (drug) => {
+      const drugPlainData = drug.get({ plain: true });
 
-    const amount = drug.dataValues.Amount; // Directly use the integer value of Amount
-    const price = drug.Price;
+      // Fetch ATC code for each drug
+      let ATC;
+      try {
+        ATC = await ATCService.getATCByDrugID(drugPlainData.DrugID);
+      } catch (error) {
+        ATC = null;
+      }
 
-    let unitPrice = null;
-    let unitPriceInLBP = null;
+      const priceInLBP = drugPlainData.Price * 90000;
+      const amount = drugPlainData.Amount;
+      const unitPrice = amount > 0 ? drugPlainData.Price / amount : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
 
-    if (amount && amount > 0) {
-      unitPrice = price / amount;
-      unitPriceInLBP = unitPrice * 90000;
-    }
+      return {
+        ...drugPlainData,
+        ATC,
+        priceInLBP,
+        unitPrice,
+        unitPriceInLBP,
+        AgentName: drugPlainData.Manufacturer // Assuming AgentName is the same as ManufacturerName
+      };
+    }));
 
-    let ATC;
-    try {
-      ATC = await ATCService.getATCByDrugID(DrugID);
-    } catch (error) {
-      ATC = null;
-    }
-
-
-    const imagesPath = drug.ImagesPath;
-
-    const allDrugData = {
-      ...drug.get({ plain: true }),
-      dosage,
-      route,
-      presentation,
-      ATC,
-      stratum,
-      priceInLBP,
-      unitPrice,
-      unitPriceInLBP,
-      imagesPath,
-      ManufacturerName,
-      CountryName,
-      AgentName: ManufacturerName // Assuming AgentName is the same as ManufacturerName
-    };
-
-    return allDrugData;
+    return drugsWithATC;
   } catch (error) {
     throw new Error("Error in getDrugById: " + error.message);
   }
 };
+
 
 // src/services/drugService.js
 
