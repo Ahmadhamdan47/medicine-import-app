@@ -47,13 +47,13 @@ const searchDrugByName = async (req, res) => {
 const getDrugById = async (req, res) => {
   try {
     const { DrugID } = req.params;
-    const drug = await DrugService.getDrugById(DrugID);
+    const drugs = await DrugService.getDrugById(DrugID);
 
-    if (!drug) {
-      return res.status(404).json({ error: "Drug not found" });
+    if (!drugs || !drugs.length) {
+      return res.status(404).json({ error: "Drugs not found" });
     }
 
-    res.json(drug);
+    res.json(drugs);
   } catch (error) {
     res.status(500).json({ error: error.toString() });
   }
