@@ -21,7 +21,7 @@ const Box = sequelize.define('Box', {
         allowNull: true,
     }
 }, {
-    tableName: 'Box',
+    tableName: 'box',
     timestamps: false,
 });
 
