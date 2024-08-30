@@ -3,8 +3,8 @@ const BoxService = require('../services/boxService'); // Adjust the path as need
 const BoxController = {
   async addBox(req, res) {
     try {
-      const { donationId, boxLabel } = req.body;
-      const newBox = await BoxService.addBox(donationId, boxLabel);
+      const { DonationId, boxLabel } = req.body;
+      const newBox = await BoxService.addBox(DonationId, boxLabel);
       res.status(201).json(newBox);
     } catch (error) {
       res.status(500).json({ message: error.message });
