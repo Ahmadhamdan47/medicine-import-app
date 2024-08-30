@@ -36,8 +36,13 @@ const Donation = sequelize.define(
     NumberOfBoxes: {  // New field to store the number of boxes
       type: DataTypes.INTEGER,
       allowNull: true,  // Allow null to avoid issues with existing data
-    }
+    },
+    status: {
+      type: DataTypes.ENUM('pending', 'accepted', 'rejected'),
+      defaultValue: 'pending',
+    },
   },
+  
   {
     tableName: "donation",
     timestamps: false,

@@ -70,50 +70,56 @@ const createBatchLot = async (batchLotData) => {
 
   let actualBoxId = BoxId;
 
-  // If no BoxId is provided, create a new box
-  if (!BoxId) {
-    const newBox = await Box.create({
-      DonationId: DonationId,
-      BoxLabel: BoxLabel || `Box-${new Date().getTime()}`,  // Generate a unique BoxLabel if not provided
-    });
-
-    actualBoxId = newBox.BoxId;
-
-    // Update the NumberOfBoxes in the Donation model
-    await Donation.increment('NumberOfBoxes', {
-      where: {
+  try {
+    // If no BoxId is provided, create a new box
+    if (!BoxId) {
+      const newBox = await Box.create({
         DonationId: DonationId,
-      }
+        BoxLabel: BoxLabel || `Box-${new Date().getTime()}`,  // Generate a unique BoxLabel if not provided
+      });
+
+      actualBoxId = newBox.BoxId;
+
+      // Update the NumberOfBoxes in the Donation model
+      await Donation.increment('NumberOfBoxes', {
+        where: {
+          DonationId: DonationId,
+        }
+      });
+    }
+
+    // Create the batch lot record with the actual BoxId
+    const batchLot = await BatchLotTracking.create({
+      DonationId: DonationId,
+      BoxId: actualBoxId,
+      DrugName: DrugName,
+      Form: Form,
+      Presentation: Presentation,
+      GTIN: GTIN,
+      BatchNumber: LOT,
+      ProductionDate: ProductionDate,
+      ExpiryDate: ExpiryDate,
+      Quantity: Quantity,
+      Laboratory: Laboratory,
+      LaboratoryCountry: LaboratoryCountry,
     });
+
+    // Assuming you have a separate table for serial numbers, create the serial number record
+    const batchSerialNumber = await BatchSerialNumber.create({
+      BatchId: batchLot.BatchLotId,
+      SerialNumber: SerialNumber,
+    });
+
+    return {
+      batchLot,
+      batchSerialNumber,
+    };
+  } catch (error) {
+    console.error("Error creating batch lot:", error);
+    throw new Error(`Failed to create batch lot: ${error.message}`);
   }
-
-  // Create the batch lot record with the actual BoxId
-  const batchLot = await BatchLotTracking.create({
-    DonationId: DonationId,
-    BoxId: actualBoxId,
-    DrugName: DrugName,
-    Form: Form,
-    Presentation: Presentation,
-    GTIN: GTIN,
-    BatchNumber: LOT,
-    ProductionDate: ProductionDate,
-    ExpiryDate: ExpiryDate,
-    Quantity: Quantity,
-    Laboratory: Laboratory,
-    LaboratoryCountry: LaboratoryCountry,
-  });
-
-  // Assuming you have a separate table for serial numbers, create the serial number record
-  const batchSerialNumber = await BatchSerialNumber.create({
-    BatchId: batchLot.BatchLotId,
-    SerialNumber: SerialNumber,
-  });
-
-  return {
-    batchLot,
-    batchSerialNumber,
-  };
 };
+
 
 const getAllDonations = async () => {
   try {
