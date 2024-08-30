@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Donation = require('./donation');
-const { all } = require('axios');
+const Box = require('./box');  // Import the new Box model
 
 const BatchLotTracking = sequelize.define('batchlottracking', {
     BatchLotId: {
@@ -9,55 +9,61 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         autoIncrement: true,
         primaryKey: true
     },
-    DonationId:{
+    DonationId: {
         type: DataTypes.INTEGER,
+        allowNull: true,  // Allow null to avoid issues with existing data
         references: {
             model: 'Donation',
             key: 'DonationId'
         }
     },
-    DrugName:{
-        type: DataTypes.STRING(255),
+    BoxId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,  // Allow null to avoid issues with existing data
+        references: {
+            model: Box,
+            key: 'BoxId',
+        }
     },
-    Form:{
+    DrugName: {
         type: DataTypes.STRING(255),
-        
+        allowNull: true  // Allow null to avoid issues with existing data
     },
-    Presentation:{
+    Form: {
         type: DataTypes.STRING(255),
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
-
-    GTIN:{
+    Presentation: {
+        type: DataTypes.STRING(255),
+        allowNull: true  // Allow null to avoid issues with existing data
+    },
+    GTIN: {
         type: DataTypes.BIGINT(100),
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
-
     BatchNumber: {
         type: DataTypes.INTEGER(50),
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
     ExpiryDate: {
         type: DataTypes.DATE,
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
     Quantity: {
         type: DataTypes.INTEGER,
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
     Laboratory: {
         type: DataTypes.STRING(255),
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
     LaboratoryCountry: {
         type: DataTypes.STRING(255),
-        allowNull: true
-         
+        allowNull: true  // Allow null to avoid issues with existing data
     },
-
 }, {
     tableName: 'batchlottracking',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false
 });
 
 module.exports = BatchLotTracking;
