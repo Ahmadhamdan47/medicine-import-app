@@ -5,6 +5,7 @@ const Recipient = require("../models/recipient");
 const Drug = require("../models/drug");
 const BatchLotTracking = require("../models/BatchLot");
 const BatchSerialNumber = require("../models/batchserialnumber");
+const Box = require("../models/box");
 const { getDrugById } = require("./drugService");
 drugService = require("./drugService");
 
@@ -20,11 +21,13 @@ const createDonation = async (donationData) => {
     DonorId,
     RecipientId,
     donationPurpose,
+    numberOfBoxes,  // New parameter for number of boxes
   } = donationData;
 
+  // Validate that the donor exists
   const donor = await Donor.findOne({
     where: {
-      DonorId:DonorId
+      DonorId: DonorId
     }
   });
 
@@ -32,20 +35,26 @@ const createDonation = async (donationData) => {
     throw new Error('Donor not found');
   }
 
+  // Create the donation record with the number of boxes
   const donation = await Donation.create({
-    DonorId: donor.DonorId ||DonorId,
+    DonorId: donor.DonorId || DonorId,
     RecipientId: RecipientId,
     DonationPurpose: donationPurpose,
-    donationDate: new Date(),
+    DonationDate: new Date(),
+    NumberOfBoxes: numberOfBoxes || 0  // Initialize NumberOfBoxes to 0 if not provided
   });
 
   return donation;
 };
+
+
 const createBatchLot = async (batchLotData) => {
   console.log("Batch Lot Data:", batchLotData);
 
   const {
     DonationId,
+    BoxId,  // Parameter for BoxId, may be null if creating a new box
+    BoxLabel,  // New parameter for BoxLabel when creating a new box
     DrugName,
     GTIN,
     LOT,
@@ -59,9 +68,30 @@ const createBatchLot = async (batchLotData) => {
     SerialNumber,
   } = batchLotData;
 
+  let actualBoxId = BoxId;
+
+  // If no BoxId is provided, create a new box
+  if (!BoxId) {
+    const newBox = await Box.create({
+      DonationId: DonationId,
+      BoxLabel: BoxLabel || `Box-${new Date().getTime()}`,  // Generate a unique BoxLabel if not provided
+    });
+
+    actualBoxId = newBox.BoxId;
+
+    // Update the NumberOfBoxes in the Donation model
+    await Donation.increment('NumberOfBoxes', {
+      where: {
+        DonationId: DonationId,
+      }
+    });
+  }
+
+  // Create the batch lot record with the actual BoxId
   const batchLot = await BatchLotTracking.create({
     DonationId: DonationId,
-    DrugName: DrugName, // Use DrugName directly
+    BoxId: actualBoxId,
+    DrugName: DrugName,
     Form: Form,
     Presentation: Presentation,
     GTIN: GTIN,
@@ -73,6 +103,7 @@ const createBatchLot = async (batchLotData) => {
     LaboratoryCountry: LaboratoryCountry,
   });
 
+  // Assuming you have a separate table for serial numbers, create the serial number record
   const batchSerialNumber = await BatchSerialNumber.create({
     BatchId: batchLot.BatchLotId,
     SerialNumber: SerialNumber,
@@ -80,9 +111,10 @@ const createBatchLot = async (batchLotData) => {
 
   return {
     batchLot,
-    batchSerialNumber
+    batchSerialNumber,
   };
 };
+
 const getAllDonations = async () => {
   try {
     const donations = await Donation.findAll();
