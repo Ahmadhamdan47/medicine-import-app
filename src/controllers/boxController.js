@@ -8,7 +8,7 @@ const BoxController = {
       res.status(201).json(newBox);
     } catch (error) {
       res.status(500).json({ message: error.message });
-    }
+    }   
   },
 
   async deleteBox(req, res) {
