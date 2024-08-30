@@ -32,6 +32,7 @@ const hospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
 const userRoutes = require('./src/routes/userRoutes');
 const batchLotRoutes = require('./src/routes/batchLotRoutes');
 const roleRoutes = require('./src/routes/roleRoutes');
+const boxRoutes = require('./src/routes/boxRoutes');
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -80,7 +81,8 @@ app.use("/dispensingCategory", dispensingCategoryRoutes);
 app.use("/hospitalization", hospitalizationRoutes);
 app.use('/users', userRoutes);
 app.use('/batchLots', batchLotRoutes);
-app.use('/roles',roleRoutes)
+app.use('/roles',roleRoutes);
+app.use('/boxes',boxRoutes);
 app.use('/img', express.static('img'));
 
 // Serve static files from the React app
