@@ -1,7 +1,7 @@
 const { Box } = require('../models/box'); // Adjust the path as needed
 
 const BoxService = {
-  createBox: async (boxData) => {
+  addBox: async (boxData) => {
     try {
       const newBox = await Box.create({
         DonationId: boxData.DonationId,
