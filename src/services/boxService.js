@@ -1,35 +1,18 @@
 const  Box  = require('../models/box'); // Adjust the path as needed
 
 const BoxService = {
-    addBox: async (boxData) => {
-        try {
-          // Log the received data
-          console.log('Attempting to add a new box with data:', boxData);
-    
-          if (!boxData.DonationId || !boxData.BoxLabel) {
-            console.error('Invalid data: DonationId or BoxLabel is missing');
-            throw new Error('Invalid data: DonationId or BoxLabel is missing');
-          }
-    
-          // Log before attempting to create a new box
-          console.log('Creating a new box with DonationId:', boxData.DonationId, 'and BoxLabel:', boxData.BoxLabel);
-    
-          const newBox = await Box.create({
-            DonationId: boxData.DonationId,
-            BoxLabel: boxData.BoxLabel,
-          });
-    
-          // Log the successfully created box
-          console.log('Successfully added new box:', newBox);
-    
-          return newBox;
-        } catch (error) {
-          // Log the error with more details
-          console.error('Error adding box:', error.message, error.stack);
-          throw new Error('Error adding box');
-        }
-      },
-    
+  addBox: async (boxData) => {
+    try {
+      const newBox = await Box.create({
+        DonationId: boxData.DonationId,
+        BoxLabel: boxData.BoxLabel,
+      });
+      return newBox;
+    } catch (error) {
+      console.error('Error adding box:', error);
+      throw new Error('Error adding box');
+    }
+  },
 
   deleteBox: async (boxId) => {
     try {
