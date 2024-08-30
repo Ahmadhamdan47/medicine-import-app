@@ -1,4 +1,4 @@
-const { Box } = require('../models/box'); // Adjust the path as needed
+const  Box  = require('../models/box'); // Adjust the path as needed
 
 const BoxService = {
   addBox: async (boxData) => {
