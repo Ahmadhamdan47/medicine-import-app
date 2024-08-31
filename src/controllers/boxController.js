@@ -48,10 +48,21 @@ const updateBox = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const getBoxesByDonation = async (req, res) => {
+    const { donationId } = req.params;
 
+    try {
+        const boxes = await boxService.getBoxesByDonation(donationId);
+        res.status(200).json(boxes);
+    } catch (error) {
+        console.error('Error in getBoxesByDonationController:', error);
+        res.status(500).json({ message: 'Failed to fetch boxes for the donation' });
+    }
+};
 module.exports = {
   createBox,
   deleteBox,
   getBoxById,
-  updateBox
+  updateBox,
+  getBoxesByDonation
 };
