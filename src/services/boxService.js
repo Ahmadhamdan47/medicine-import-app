@@ -1,5 +1,7 @@
 // src/services/boxService.js
 const Box = require('../models/box');
+const Donation = require('../models/donation');
+
 
 /**
  * Create a new box.
@@ -7,19 +9,29 @@ const Box = require('../models/box');
  * @returns {Promise} A promise that resolves to the newly created box.
  */
 const createBox = async (boxData) => {
-  const { DonationId, BoxLabel } = boxData;
-
-  try {
-    const newBox = await Box.create({
+    console.log("Box Data:", boxData);
+  
+    const {
+      DonationId,
+      BoxLabel,
+    } = boxData;
+  
+    // Create the box record
+    const box = await Box.create({
       DonationId: DonationId,
-      BoxLabel: BoxLabel
+      BoxLabel: BoxLabel,
     });
-    return newBox;
-  } catch (error) {
-    console.error("Error creating box:", error);
-    throw new Error(`Failed to create box: ${error.message}`);
-  }
-};
+  
+    // Update the NumberOfBoxes in the Donation model
+    await Donation.increment('NumberOfBoxes', {
+      where: {
+        DonationId: DonationId,
+      }
+    });
+  
+    return box;
+  };
+  
 
 /**
  * Delete a box by ID.
