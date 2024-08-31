@@ -77,9 +77,22 @@ const getBatchLotsByBoxId = async (boxId) => {
     // Fetch batch lots associated with the provided BoxId
     const batchLots = await BatchLotTracking.findAll({
       where: { BoxId: boxId },
-     
     });
 
+    for (let batchLot of batchLots) {
+      const batchSerialNumber = await BatchSerialNumber.findOne({
+        where: { BatchId: batchLot.BatchLotId }
+      });
+
+      // Directly access the DrugName from the batchLot object
+      if (batchLot.DrugName) {
+        batchLot.dataValues.DrugName = batchLot.DrugName;
+      }
+
+      if (batchSerialNumber) {
+        batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
+      }
+    }
     console.log("Batch lots fetched successfully:", batchLots);
     return batchLots;
   } catch (error) {
