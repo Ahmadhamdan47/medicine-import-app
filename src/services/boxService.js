@@ -14,12 +14,15 @@ const createBox = async (boxData) => {
     const {
       DonationId,
       BoxLabel,
+      NumberOfPacks
     } = boxData;
   
     // Create the box record
     const box = await Box.create({
       DonationId: DonationId,
       BoxLabel: BoxLabel,
+      NumberOfPacks: NumberOfPacks || 0,  // Initialize NumberOfPacks
+
     });
   
     // Update the NumberOfBoxes in the Donation model
