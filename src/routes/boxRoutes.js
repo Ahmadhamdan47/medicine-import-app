@@ -1,11 +1,19 @@
+// src/routes/boxRoutes.js
 const express = require('express');
-const BoxController = require('../controllers/boxController'); // Adjust the path as needed
+const boxController = require('../controllers/boxController');
 
 const router = express.Router();
 
-router.post('/add', BoxController.addBox);
-router.delete('/:boxId', BoxController.deleteBox);
-router.get('/:donationId', BoxController.getBoxes);
-router.put('/:boxId', BoxController.updateBox);
+// Route to create a new box
+router.post('/add', boxController.createBox);
+
+// Route to delete a box
+router.delete('/:boxId', boxController.deleteBox);
+
+// Route to get a box by ID
+router.get('/:boxId', boxController.getBoxById);
+
+// Route to update a box
+router.put('/:boxId', boxController.updateBox);
 
 module.exports = router;
