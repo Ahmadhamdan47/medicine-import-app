@@ -99,10 +99,23 @@ const updateBox = async (boxId, updateData) => {
     throw new Error(`Failed to update box: ${error.message}`);
   }
 };
-
+const getBoxesByDonation = async (donationId) => {
+    try {
+        const boxes = await Box.findAll({
+            where: {
+                DonationId: donationId
+            }
+        });
+        return boxes;
+    } catch (error) {
+        console.error('Error fetching boxes by donation ID:', error);
+        throw error;
+    }
+};
 module.exports = {
   createBox,
   deleteBox,
   getBoxById,
-  updateBox
+  updateBox,
+  getBoxesByDonation
 };

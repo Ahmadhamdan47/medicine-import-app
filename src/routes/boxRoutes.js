@@ -16,4 +16,6 @@ router.get('/:boxId', boxController.getBoxById);
 // Route to update a box
 router.put('/:boxId', boxController.updateBox);
 
+router.get('/byDonation/:donationId', boxController.getBoxesByDonation);
+
 module.exports = router;
