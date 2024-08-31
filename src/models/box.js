@@ -19,6 +19,11 @@ const Box = sequelize.define('Box', {
     BoxLabel: {
         type: DataTypes.STRING(255),
         allowNull: true,
+    },
+    NumberOfPacks: {  // New field for storing the number of packs
+        type: DataTypes.INTEGER,
+        allowNull: true,  // Allow null to handle existing data without this field
+        defaultValue: 0,  // Default to 0 if not specified
     }
 }, {
     tableName: 'box',
