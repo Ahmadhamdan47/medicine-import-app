@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const sequelize = require('../../config/databasePharmacy')
+const sequelize = require('../../config/databasePharmacy');
 const BatchLotTracking = require("../models/BatchLot");
 const BatchSerialNumber = require("../models/batchserialnumber");
 
@@ -61,6 +61,37 @@ const addBatchLot = async (batchLotData, serialNumber) => {
   }
 };
 
+/**
+ * Retrieves all batch lots associated with a specific BoxId.
+ * @param {number} boxId - The ID of the box to fetch batch lots for.
+ * @returns {Promise<Array>} A promise that resolves to an array of batch lots.
+ */
+const getBatchLotsByBoxId = async (boxId) => {
+  if (!boxId) {
+    throw new Error("Missing required parameter: boxId must be provided.");
+  }
+
+  try {
+    console.log(`Fetching batch lots for BoxId: ${boxId}`);
+
+    // Fetch batch lots associated with the provided BoxId
+    const batchLots = await BatchLotTracking.findAll({
+      where: { BoxId: boxId },
+      include: [{
+        model: BatchSerialNumber,
+        attributes: ['SerialNumber'],
+      }],
+    });
+
+    console.log("Batch lots fetched successfully:", batchLots);
+    return batchLots;
+  } catch (error) {
+    console.error(`Error fetching batch lots by BoxId: ${error.message}`);
+    throw error;
+  }
+};
+
 module.exports = {
   addBatchLot,
+  getBatchLotsByBoxId, // Export the new service function
 };
