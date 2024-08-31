@@ -77,10 +77,7 @@ const getBatchLotsByBoxId = async (boxId) => {
     // Fetch batch lots associated with the provided BoxId
     const batchLots = await BatchLotTracking.findAll({
       where: { BoxId: boxId },
-      include: [{
-        model: BatchSerialNumber,
-        attributes: ['SerialNumber'],
-      }],
+     
     });
 
     console.log("Batch lots fetched successfully:", batchLots);
