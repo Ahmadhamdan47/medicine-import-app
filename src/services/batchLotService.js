@@ -100,8 +100,53 @@ const getBatchLotsByBoxId = async (boxId) => {
     throw error;
   }
 };
+/**
+ * Update batch lot inspection status to 'inspected'
+ * @param {number} batchId - The ID of the batch lot to update
+ * @returns {Promise} - Resolves with the updated batch lot or rejects with an error
+ */
+const batchLotInspected = async (batchId) => {
+  try {
+      const batchLot = await BatchLotTracking.findOne({ where: { BatchLotId: batchId } });
+
+      if (!batchLot) {
+          throw new Error('Batch lot not found');
+      }
+
+      batchLot.Inspection = 'inspected';
+      await batchLot.save();
+
+      return batchLot;
+  } catch (error) {
+      throw new Error(`Failed to update batch lot: ${error.message}`);
+  }
+};
+
+/**
+* Update batch lot inspection status to 'rejected'
+* @param {number} batchId - The ID of the batch lot to update
+* @returns {Promise} - Resolves with the updated batch lot or rejects with an error
+*/
+const batchLotRejected = async (batchId) => {
+  try {
+      const batchLot = await BatchLotTracking.findOne({ where: { BatchLotId: batchId } });
+
+      if (!batchLot) {
+          throw new Error('Batch lot not found');
+      }
+
+      batchLot.Inspection = 'rejected';
+      await batchLot.save();
+
+      return batchLot;
+  } catch (error) {
+      throw new Error(`Failed to update batch lot: ${error.message}`);
+  }
+};
 
 module.exports = {
   addBatchLot,
-  getBatchLotsByBoxId, // Export the new service function
+  getBatchLotsByBoxId,
+  batchLotInspected,
+  batchLotRejected // Export the new service function
 };
