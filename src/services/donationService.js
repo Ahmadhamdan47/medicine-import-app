@@ -192,44 +192,44 @@ const getAllDonations = async () => {
     console.error(error);
   }
 };
-const getDonationById = async (id) => {
-  try {
-    const donation = await Donation.findOne({
-      where: { DonationId: id }
-    });
+  const getDonationById = async (DonationId) => {
+    try {
+      const donation = await Donation.findOne({
+        where: { DonationId: DonationId }
+      });
 
-    if (!donation) {
-      throw new Error(`No donation found with id: ${id}`);
-    }
-
-    const recipient = await Recipient.findOne({
-      where: { RecipientId: donation.RecipientId }
-    });
-
-    if (recipient) {
-      donation.dataValues.RecipientName = recipient.RecipientName;
-    }
-
-    const batchLots = await BatchLotTracking.findAll({
-      where: { DonationId: id }
-    });
-
-    // Fetch the DrugName for each BatchLotTracking record
-    for (let batchLot of batchLots) {
-      // Directly access the DrugName from the batchLot object
-      if (batchLot.DrugName) {
-        batchLot.dataValues.DrugName = batchLot.DrugName;
+      if (!donation) {
+        throw new Error(`No donation found with id: ${DonationId}`);
       }
+
+      const recipient = await Recipient.findOne({
+        where: { RecipientId: donation.RecipientId }
+      });
+
+      if (recipient) {
+        donation.dataValues.RecipientName = recipient.RecipientName;
+      }
+
+      const batchLots = await BatchLotTracking.findAll({
+        where: { DonationId: DonationId }
+      });
+
+      // Fetch the DrugName for each BatchLotTracking record
+      for (let batchLot of batchLots) {
+        // Directly access the DrugName from the batchLot object
+        if (batchLot.DrugName) {
+          batchLot.dataValues.DrugName = batchLot.DrugName;
+        }
+      }
+
+      donation.dataValues.BatchLotTrackings = batchLots;
+
+      return donation;
+    } catch (error) {
+      console.error(`Error getting donation by id: ${DonationId}`, error);
+      throw error;
     }
-
-    donation.dataValues.BatchLotTrackings = batchLots;
-
-    return donation;
-  } catch (error) {
-    console.error(`Error getting donation by id: ${id}`, error);
-    throw error;
-  }
-};
+  };
 const editDonation = async (DonationId, donationData) => {
   try {
 

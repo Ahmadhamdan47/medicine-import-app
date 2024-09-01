@@ -22,7 +22,7 @@ const getAllDonations = async (req, res) => {
 
 const getDonationById = async (req, res) => {
     try {
-      const donation = await donationService.getDonationById(req.params.id);
+      const donation = await donationService.getDonationById(req.params.DonationId);
       res.json(donation);
     } catch (error) {
       res.status(500).json({ message: error.message });
