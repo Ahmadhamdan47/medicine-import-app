@@ -17,9 +17,9 @@ router.get('/:boxId', boxController.getBoxById);
 router.put('/:boxId', boxController.updateBox);
 
 router.get('/byDonation/:donationId', boxController.getBoxesByDonation);
-router.put('/boxes/inspected/:boxId', boxController.markBoxAsInspected);
+router.put('/inspected/:boxId', boxController.markBoxAsInspected);
 
 // Route to mark a box as rejected
-router.put('/boxes/rejected/:boxId', boxController.markBoxAsRejected);
+router.put('/rejected/:boxId', boxController.markBoxAsRejected);
 
 module.exports = router;
