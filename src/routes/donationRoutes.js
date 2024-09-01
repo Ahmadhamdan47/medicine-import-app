@@ -90,5 +90,17 @@ router.post('/batchlot', donationController.createBatchLot);
 
 router.get('/byDonor/:donorId', donationController.getDonationsByDonor);
 
+router.get('/donor/:donorId', donationController.fetchDonationsByDonor);
+
+// Route to fetch donations by recipient
+router.get('/recipient/:recipientId', donationController.fetchDonationsByRecipient);
+
+// Route to fetch donations by date range
+router.get('/date', donationController.fetchDonationsByDate);
+
+// Route to fetch donations by status
+router.get('/status/:status', donationController.fetchDonationsByStatus);
+
+
 
 module.exports = router;
