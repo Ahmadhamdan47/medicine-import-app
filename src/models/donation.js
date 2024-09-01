@@ -9,6 +9,10 @@ const Donation = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
+    DonationTitle: {
+      type: DataTypes.STRING,
+      allowNull: true,  // Or `false` if it should be required
+  },
     DonorId: {
       type: DataTypes.INTEGER,
       references: {

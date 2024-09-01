@@ -21,6 +21,7 @@ const createDonation = async (donationData) => {
     DonorId,
     RecipientId,
     donationPurpose,
+    donationTitle, // New parameter for donation title
     numberOfBoxes,  // New parameter for number of boxes
   } = donationData;
 
@@ -35,11 +36,12 @@ const createDonation = async (donationData) => {
     throw new Error('Donor not found');
   }
 
-  // Create the donation record with the number of boxes
+  // Create the donation record with the number of boxes and donation title
   const donation = await Donation.create({
     DonorId: donor.DonorId || DonorId,
     RecipientId: RecipientId,
     DonationPurpose: donationPurpose,
+    DonationTitle: donationTitle || '', // Include DonationTitle here
     DonationDate: new Date(),
     NumberOfBoxes: numberOfBoxes || 0  // Initialize NumberOfBoxes to 0 if not provided
   });
