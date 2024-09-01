@@ -729,7 +729,7 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       }
     });
 
-    console.log('Batch lot found:', batchLot);
+    console.log('Batch lot found:', batchLot); // Log the batch lot details
 
     if (!batchLot) {
       console.log('No batch lot found for GTIN:', GTIN, 'BatchNumber:', BatchNumber);
@@ -762,9 +762,9 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       };
     }
 
-    console.log('Batch serial number found:', batchSerialNumber);
+    console.log('Batch serial number found:', batchSerialNumber); // Log the batch serial number details
 
-    // If valid, return all relevant batch lot data
+    // Return a successful response including the batch lot details
     return {
       isValid: true,
       messageEN: 'This drug is imported legally by the importation process of the MoPH.',
@@ -776,12 +776,11 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
         Quantity: batchLot.Quantity,
         Laboratory: batchLot.Laboratory,
         LaboratoryCountry: batchLot.LaboratoryCountry,
-        BoxId: batchLot.BoxId,
-        // Include other relevant fields here
+        BoxId: batchLot.BoxId
       }
     };
   } catch (error) {
-    console.error('Error in checkMate:', error);
+    console.error('Error in checkMate:', error); // Log any errors that occur
     throw error;
   }
 };
