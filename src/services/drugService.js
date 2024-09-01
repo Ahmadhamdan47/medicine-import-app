@@ -770,6 +770,7 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       messageEN: 'This drug is imported legally by the importation process of the MoPH.',
       messageAR: 'هذا الدّواء مستورد قانونياً وفق آليات استيراد الدّواء المعتمدة من قبل وزارة الصحة العامة.',
       batchLot: {
+        BatchLotId:batchLot.BatchLotId,
         DrugName: batchLot.DrugName,
         Form: batchLot.Form,
         Presentation: batchLot.Presentation,
