@@ -15,38 +15,58 @@ drugService = require("./drugService");
  * @returns {Promise} A promise that resolves to the newly created donation.
  */
 const createDonation = async (donationData) => {
-  console.log("Donation Data:", donationData);
+  console.log("Received Donation Data:", donationData);  // Log the incoming donation data
 
   const {
     DonorId,
     RecipientId,
-    donationPurpose,
-    donationTitle, // New parameter for donation title
-    numberOfBoxes,  // New parameter for number of boxes
+    DonationTitle,  // Ensure DonationTitle is being destructured from donationData
+    DonationPurpose,
+    NumberOfBoxes,
   } = donationData;
+
+  // Log the individual fields to verify they're being set correctly
+  console.log("DonorId:", DonorId);
+  console.log("RecipientId:", RecipientId);
+  console.log("DonationTitle:", DonationTitle);
+  console.log("DonationPurpose:", DonationPurpose);
+  console.log("NumberOfBoxes:", NumberOfBoxes);
 
   // Validate that the donor exists
   const donor = await Donor.findOne({
     where: {
-      DonorId: DonorId
+      DonorId: DonorId,
     }
   });
 
   if (!donor) {
+    console.error('Donor not found with DonorId:', DonorId);  // Log an error if donor is not found
     throw new Error('Donor not found');
   }
 
-  // Create the donation record with the number of boxes and donation title
-  const donation = await Donation.create({
-    DonorId: donor.DonorId || DonorId,
-    RecipientId: RecipientId,
-    DonationPurpose: donationPurpose,
-    DonationTitle: donationTitle || '', // Include DonationTitle here
-    DonationDate: new Date(),
-    NumberOfBoxes: numberOfBoxes || 0  // Initialize NumberOfBoxes to 0 if not provided
-  });
+  console.log("Donor found:", donor);  // Log the found donor
 
-  return donation;
+  try {
+    // Create the donation record with the title
+    const donation = await Donation.create({
+      DonorId: donor.DonorId || DonorId,
+      RecipientId: RecipientId,
+      DonationTitle: DonationTitle,  // Log this to ensure it's being set
+      DonationPurpose: DonationPurpose,
+      DonationDate: new Date(),
+      NumberOfBoxes: NumberOfBoxes || 0,
+    });
+
+    console.log("Donation created successfully:", donation);  // Log the created donation
+    return donation;
+  } catch (error) {
+    console.error('Error creating donation:', error);  // Log any errors that occur during creation
+    throw error;
+  }
+};
+
+module.exports = {
+  createDonation,
 };
 
 
