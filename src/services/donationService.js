@@ -303,6 +303,46 @@ const getDonationsByDonor = async (donorId) => {
       console.error(error);
     }
 };
+const getByDonor = async (donorId) => {
+  try {
+    return await Donation.findAll({ where: { DonorId: donorId } });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Fetch donations by recipient
+const getDonationsByRecipient = async (recipientId) => {
+  try {
+    return await Donation.findAll({ where: { RecipientId: recipientId } });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Fetch donations by date
+const getDonationsByDate = async (startDate, endDate) => {
+  try {
+    return await Donation.findAll({
+      where: {
+        DonationDate: {
+          [sequelize.Op.between]: [startDate, endDate],
+        },
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Fetch donations by status
+const getDonationsByStatus = async (status) => {
+  try {
+    return await Donation.findAll({ where: { status } });
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = {
   createDonation,
@@ -311,4 +351,8 @@ module.exports = {
   getDonationById,
   editDonation,
   getDonationsByDonor,
+  getDonationsByRecipient,
+  getDonationsByDate,
+  getDonationsByStatus,
+  getByDonor
 };
