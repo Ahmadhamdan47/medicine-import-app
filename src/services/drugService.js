@@ -764,10 +764,21 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
 
     console.log('Batch serial number found:', batchSerialNumber);
 
+    // If valid, return all relevant batch lot data
     return {
       isValid: true,
       messageEN: 'This drug is imported legally by the importation process of the MoPH.',
-      messageAR: 'هذا الدّواء مستورد قانونياً وفق آليات استيراد الدّواء المعتمدة من قبل وزارة الصحة العامة.'
+      messageAR: 'هذا الدّواء مستورد قانونياً وفق آليات استيراد الدّواء المعتمدة من قبل وزارة الصحة العامة.',
+      batchLot: {
+        DrugName: batchLot.DrugName,
+        Form: batchLot.Form,
+        Presentation: batchLot.Presentation,
+        Quantity: batchLot.Quantity,
+        Laboratory: batchLot.Laboratory,
+        LaboratoryCountry: batchLot.LaboratoryCountry,
+        BoxId: batchLot.BoxId,
+        // Include other relevant fields here
+      }
     };
   } catch (error) {
     console.error('Error in checkMate:', error);
