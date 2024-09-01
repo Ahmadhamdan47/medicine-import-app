@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.post('/addBatchLot', batchLotController.addBatchLotController);
 router.get('/byBox/:boxId', batchLotController.getBatchLotsByBoxId);
-router.post('/batchlot/inspected/:batchId', batchLotController.markAsInspected);
+router.post('/inspected/:batchId', batchLotController.markAsInspected);
 
 // Route to mark batch lot as rejected
-router.post('/batchlot/rejected/:batchId', batchLotController.markAsRejected);
+router.post('/rejected/:batchId', batchLotController.markAsRejected);
 
 module.exports = router;
