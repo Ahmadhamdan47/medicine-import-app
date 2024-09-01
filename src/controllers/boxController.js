@@ -59,10 +59,34 @@ const getBoxesByDonation = async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch boxes for the donation' });
     }
 };
+const markBoxAsInspected = async (req, res) => {
+    const { boxId } = req.params;
+  
+    try {
+      await boxService.markBoxAsInspected(boxId);
+      res.status(200).json({ message: 'Box marked as inspected successfully.' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  
+  // Controller function to mark a box as rejected
+  const markBoxAsRejected = async (req, res) => {
+    const { boxId } = req.params;
+  
+    try {
+      await boxService.markBoxAsRejected(boxId);
+      res.status(200).json({ message: 'Box marked as rejected successfully.' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
 module.exports = {
   createBox,
   deleteBox,
   getBoxById,
   updateBox,
-  getBoxesByDonation
+  getBoxesByDonation,
+  markBoxAsInspected,
+  markBoxAsRejected
 };

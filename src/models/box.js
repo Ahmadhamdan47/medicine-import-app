@@ -24,7 +24,11 @@ const Box = sequelize.define('Box', {
         type: DataTypes.INTEGER,
         allowNull: true,  // Allow null to handle existing data without this field
         defaultValue: 0,  // Default to 0 if not specified
-    }
+    },
+    inspected: {
+        type: DataTypes.ENUM('inspected', 'not_inspected', 'rejected'),
+        defaultValue: 'not_inspected'
+      }
 }, {
     tableName: 'box',
     timestamps: false,

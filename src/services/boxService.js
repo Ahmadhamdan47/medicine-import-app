@@ -115,10 +115,36 @@ const getBoxesByDonation = async (donationId) => {
         throw error;
     }
 };
+const markBoxAsInspected = async (boxId) => {
+    try {
+      const result = await Box.update(
+        { inspected: 'inspected' },
+        { where: { BoxId: boxId } }
+      );
+      return result;
+    } catch (error) {
+      throw new Error(`Failed to mark box as inspected: ${error.message}`);
+    }
+  };
+  
+  // Function to mark a box as rejected
+  const markBoxAsRejected = async (boxId) => {
+    try {
+      const result = await Box.update(
+        { inspected: 'rejected' },
+        { where: { BoxId: boxId } }
+      );
+      return result;
+    } catch (error) {
+      throw new Error(`Failed to mark box as rejected: ${error.message}`);
+    }
+  };
 module.exports = {
   createBox,
   deleteBox,
   getBoxById,
   updateBox,
-  getBoxesByDonation
+  getBoxesByDonation,
+  markBoxAsInspected,
+  markBoxAsRejected
 };
