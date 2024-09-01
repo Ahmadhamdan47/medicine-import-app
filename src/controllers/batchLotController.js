@@ -32,9 +32,41 @@ const getBatchLotsByBoxId = async (req, res) => {
 	  return res.status(500).json({ error: "An error occurred while fetching batch lots." });
 	}
   };
-  
+  /**
+ * Controller function to mark a batch lot as inspected
+ * @param {Request} req - The request object
+ * @param {Response} res - The response object
+ */
+const markAsInspected = async (req, res) => {
+    const { batchId } = req.params;
+
+    try {
+        const updatedBatchLot = await batchLotService.batchLotInspected(batchId);
+        res.status(200).json(updatedBatchLot);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+/**
+ * Controller function to mark a batch lot as rejected
+ * @param {Request} req - The request object
+ * @param {Response} res - The response object
+ */
+const markAsRejected = async (req, res) => {
+    const { batchId } = req.params;
+
+    try {
+        const updatedBatchLot = await batchLotService.batchLotRejected(batchId);
+        res.status(200).json(updatedBatchLot);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 module.exports = {
   addBatchLotController,
-  getBatchLotsByBoxId
+  getBatchLotsByBoxId,
+  markAsInspected,
+  markAsRejected
 };

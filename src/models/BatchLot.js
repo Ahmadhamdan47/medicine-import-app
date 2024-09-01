@@ -42,7 +42,7 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         allowNull: true  // Allow null to avoid issues with existing data
     },
     BatchNumber: {
-        type: DataTypes.INTEGER(50),
+        type: DataTypes.STRING(50),  // Changed to STRING for consistency
         allowNull: true  // Allow null to avoid issues with existing data
     },
     ExpiryDate: {
@@ -60,6 +60,11 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
     LaboratoryCountry: {
         type: DataTypes.STRING(255),
         allowNull: true  // Allow null to avoid issues with existing data
+    },
+    Inspection: {
+        type: DataTypes.ENUM('null', 'rejected', 'inspected'),
+        allowNull: true,  // Allow null to indicate the inspection status
+        defaultValue: 'null',
     },
 }, {
     tableName: 'batchlottracking',
