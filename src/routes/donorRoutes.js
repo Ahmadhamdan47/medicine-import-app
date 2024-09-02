@@ -65,4 +65,6 @@ router.put("/:donorId", donorController.editDonor);
 router.delete("/:donorId", donorController.deleteDonor);
 router.get('/byUsername/:username', donorController.getDonorByUsername);
 
+router.get('/isActive/:donorId', donorController.getIsActiveStatus);
+
 module.exports = router;
