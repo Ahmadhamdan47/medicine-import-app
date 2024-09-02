@@ -43,7 +43,7 @@ class UserService {
           token,
           role: role.RoleName,
           donorData
-        }
+        };
     }
 else
     // Return token, role name, and full donor data if available
