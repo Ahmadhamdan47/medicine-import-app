@@ -81,6 +81,8 @@ router.get("/all", donationController.getAllDonations);
     *       '500':
     *         description: Internal Server Error. Failed to retrieve donation.
     */
+router.get('/donation/filtered', donationController.getDonations);
+
 router.get("/:DonationId", donationController.getDonationById);
 
 
@@ -101,7 +103,7 @@ router.get('/date', donationController.fetchDonationsByDate);
 // Route to fetch donations by status
 router.get('/status/:status', donationController.fetchDonationsByStatus);
 
-router.get('/filtered/', donationController.getDonations);
+router.get('/donation/filtered', donationController.getDonations);
 
 
 module.exports = router;
