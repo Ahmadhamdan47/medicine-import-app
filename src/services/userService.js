@@ -36,7 +36,7 @@ class UserService {
     const role = await Roles.findByPk(user.RoleId);
 
     let donorData = null; // Initialize a variable to store the donor data
-    if (user.RoleId === 0) {
+    if (role.RoleName === 'Donor') {
         // Fetch donor data using DonorId
         donorData = await Donor.findOne({ where: { DonorId: user.DonorId } });
         return{
