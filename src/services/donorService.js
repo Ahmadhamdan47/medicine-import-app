@@ -1,5 +1,7 @@
 const Donor = require('../models/donor');
 const UserAccounts = require('../models/userAccounts');
+const sequelize = require("sequelize");
+
 const addDonor = async (donorData) => {
     try {
         const newDonor = await Donor.create(donorData);
