@@ -46,7 +46,8 @@ class UserService {
     }
     console.log(IsActive);
     // Return token, role name, and IsActive status if available
-    return { token, role: role.RoleName, IsActive }; 
+    return { token, role: role.RoleName,   IsActive: user.RoleId === 0 ? IsActive : null, // Includes IsActive if donor, null otherwise
+    }; 
 }
 
 
