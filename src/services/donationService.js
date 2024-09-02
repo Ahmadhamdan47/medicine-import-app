@@ -400,7 +400,22 @@ const getFilteredDonations = async (filters) => {
         donation.dataValues.RecipientName = recipient.RecipientName;
       }
 
-      
+      for (let batchLot of batchLots) {
+        const batchSerialNumber = await BatchSerialNumber.findOne({
+          where: { BatchId: batchLot.BatchLotId }
+        });
+
+        // Directly access the DrugName from the batchLot object
+        if (batchLot.DrugName) {
+          batchLot.dataValues.DrugName = batchLot.DrugName;
+        }
+
+        if (batchSerialNumber) {
+          batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
+        }
+      }
+
+      donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
     }
 
     return donations.map(donation => donation.dataValues);
