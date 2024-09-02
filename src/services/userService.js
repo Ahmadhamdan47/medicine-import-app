@@ -37,16 +37,16 @@ class UserService {
 
     // Fetch the role name
     const role = await Roles.findByPk(user.RoleId);
-    let isActive = null; // Initialize a variable to store the donor's IsActive status
+    let IsActive = null; // Initialize a variable to store the donor's IsActive status
     if (user.RoleId === 0) {
         const donorData = await Donor.findOne({ where: { DonorId: user.DonorId } }); // Fetch donor data using DonorId
         if (donorData) {
-            isActive = donorData.IsActive; // Set the IsActive status
+            IsActive = donorData.IsActive; // Set the IsActive status
         }
     }
-    console.log(isActive);
+    console.log(IsActive);
     // Return token, role name, and IsActive status if available
-    return { token, role: role.RoleName, isActive }; 
+    return { token, role: role.RoleName, IsActive }; 
 }
 
 
