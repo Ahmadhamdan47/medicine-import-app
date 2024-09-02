@@ -17,37 +17,20 @@ class UserService {
   static async login(username, password) {
     const user = await UserAccounts.findOne({ where: { Username: username } });
     if (!user) {
-        throw new Error('User not found');
+      throw new Error('User not found');
     }
-
     const isMatch = await bcrypt.compare(password, user.PasswordHash);
     if (!isMatch) {
-        throw new Error('Incorrect password');
+      throw new Error('Incorrect password');
     }
-
-    // Fetch the associated donor to check the isActive status
-    const donor = await Donors.findOne({ where: { DonorId: user.DonorId } });
-    if (!donor) {
-        throw new Error('Donor not found');
-    }
-
-    if (donor.isActive === null) {
-        throw new Error('Account is awaiting validation. Please wait for approval.');
-    }
-
-    if (donor.isActive === false) {
-        throw new Error('Your account has been rejected. Please contact support.');
-    }
-
-    // If isActive is true, proceed with generating a token
     const token = jwt.sign({ id: user.UserId, roleId: user.RoleId }, 'secret', {
-        expiresIn: '1h',
+      expiresIn: '1h',
     });
 
     const role = await Roles.findByPk(user.RoleId); // Fetch the role name
     console.log('Role:', role.RoleName);
     return { token, role: role.RoleName }; // Return token and role name
-}
+  }
   static async donorSignup(donorData, username, password) {
     const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
     
