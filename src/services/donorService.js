@@ -1,5 +1,5 @@
 const Donor = require('../models/donor');
-const userAccounts = require('../models/userAccounts');
+const UserAccounts = require('../models/userAccounts');
 const addDonor = async (donorData) => {
     try {
         const newDonor = await Donor.create(donorData);
