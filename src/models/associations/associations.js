@@ -4,6 +4,8 @@ const Box = require('../box');
 const Donor = require('../donor');
 const Recipient = require('../recipient');
 const UserAccounts = require('../userAccounts');
+const Role = require('../roles');
+
 
 // Associations
 Donation.hasMany(Box, { foreignKey: 'DonationId' });
@@ -20,3 +22,8 @@ Recipient.hasMany(Donation, { foreignKey: 'RecipientId' });
 
 Donor.hasOne(UserAccounts, { foreignKey: 'DonorId' });
 UserAccounts.belongsTo(Donor, { foreignKey: 'DonorId' });
+Donor.hasMany(UserAccounts, { foreignKey: 'DonorId' });
+UserAccounts.belongsTo(Donor, { foreignKey: 'DonorId' });
+
+Role.hasMany(UserAccounts, { foreignKey: 'RoleId' });
+UserAccounts.belongsTo(Role, { foreignKey: 'RoleId' });
