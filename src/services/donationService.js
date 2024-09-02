@@ -343,6 +343,71 @@ const getDonationsByStatus = async (status) => {
     throw error;
   }
 };
+const getFilteredDonations = async (filters) => {
+  try {
+    const { donorId, recipientId, startDate, endDate, status } = filters;
+
+    // Construct the where clause dynamically based on the provided filters
+    const whereClause = {};
+
+    if (donorId) {
+      whereClause.DonorId = donorId;
+    }
+
+    if (recipientId) {
+      whereClause.RecipientId = recipientId;
+    }
+
+    if (startDate && endDate) {
+      whereClause.DonationDate = {
+        [Op.between]: [startDate, endDate]
+      };
+    } else if (startDate) {
+      whereClause.DonationDate = {
+        [Op.gte]: startDate
+      };
+    } else if (endDate) {
+      whereClause.DonationDate = {
+        [Op.lte]: endDate
+      };
+    }
+
+    if (status) {
+      whereClause.Status = status;
+    }
+
+    // Fetch donations based on the dynamically constructed where clause
+    const donations = await Donation.findAll({ where: whereClause });
+
+    for (let donation of donations) {
+      const batchLots = await BatchLotTracking.findAll({
+        where: { DonationId: donation.DonationId }
+      });
+
+      const donor = await Donor.findOne({
+        where: { DonorId: donation.DonorId }
+      });
+
+      const recipient = await Recipient.findOne({
+        where: { RecipientId: donation.RecipientId }
+      });
+
+      if (donor) {
+        donation.dataValues.DonorName = donor.DonorName;
+      }
+
+      if (recipient) {
+        donation.dataValues.RecipientName = recipient.RecipientName;
+      }
+
+      
+    }
+
+    return donations.map(donation => donation.dataValues);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 module.exports = {
   createDonation,
@@ -354,5 +419,6 @@ module.exports = {
   getDonationsByRecipient,
   getDonationsByDate,
   getDonationsByStatus,
-  getByDonor
+  getByDonor,
+  getFilteredDonations
 };

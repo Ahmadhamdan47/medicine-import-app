@@ -98,10 +98,34 @@ const fetchDonationsByStatus = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const getDonations = async (req, res) => {
+  try {
+    // Extract query parameters from the request
+    const { donorId, recipientId, startDate, endDate, status } = req.query;
+
+    // Create a filters object based on the query parameters
+    const filters = {
+      donorId,
+      recipientId,
+      startDate,
+      endDate,
+      status,
+    };
+
+    // Call the service function to get filtered donations
+    const donations = await getFilteredDonations(filters);
+
+    // Respond with the fetched donations
+    res.status(200).json(donations);
+  } catch (error) {
+    console.error('Error fetching donations:', error);
+    res.status(500).json({ error: 'Failed to fetch donations' });
+  }
+};
 
 module.exports = { addDonation, getAllDonations, getDonationById, editDonation, createBatchLot,getDonationsByDonor, fetchDonationsByDonor,
   fetchDonationsByRecipient,
   fetchDonationsByDate,
-  fetchDonationsByStatus,};
+  fetchDonationsByStatus,getDonations};
 
 
