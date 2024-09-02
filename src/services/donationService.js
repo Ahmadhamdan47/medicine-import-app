@@ -331,19 +331,29 @@ const getFilteredDonations = async ({ donorId, recipientId, status, startDate, e
       };
     }
 
-    const donations = await Donation.findAll({
-      where: whereClause,
-      include: [
-        {
-          model: Donor,
+    // Fetch donations based on filters
+    const donations = await Donation.findAll({ where: whereClause });
+
+    // Fetch donors and recipients separately
+    for (let donation of donations) {
+      if (donation.DonorId) {
+        const donor = await Donor.findByPk(donation.DonorId, {
           attributes: ['DonorName'],
-        },
-        {
-          model: Recipient,
+        });
+        if (donor) {
+          donation.dataValues.DonorName = donor.DonorName;
+        }
+      }
+
+      if (donation.RecipientId) {
+        const recipient = await Recipient.findByPk(donation.RecipientId, {
           attributes: ['RecipientName'],
-        },
-      ],
-    });
+        });
+        if (recipient) {
+          donation.dataValues.RecipientName = recipient.RecipientName;
+        }
+      }
+    }
 
     return donations;
   } catch (error) {
@@ -351,6 +361,7 @@ const getFilteredDonations = async ({ donorId, recipientId, status, startDate, e
     throw error;
   }
 };
+
 
 
 module.exports = {
