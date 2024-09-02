@@ -20,10 +20,10 @@ const getAllDonors = async () => {
     }
 };
 
-const editDonor = async (donorId, donorData) => {
+const editDonor = async (DonorId, donorData) => {
     try {
         const donor = await Donor.update(donorData, {
-            where: { id: donorId }
+            where: { DonorId: DonorId }
         });
         return donor;
     } catch (error) {

@@ -22,7 +22,7 @@ const getAllDonors = async (req, res) => {
 
 const editDonor = async (req, res) => {
     try {
-        const donor = await donorService.editDonor(req.params.donorId, req.body);
+        const donor = await donorService.editDonor(req.params.DonorId, req.body);
         res.json(donor);
     } catch (error) {
         res.status(500).json({ error: error.toString() });
