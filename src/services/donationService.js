@@ -334,8 +334,14 @@ const getFilteredDonations = async ({ donorId, recipientId, status, startDate, e
     const donations = await Donation.findAll({
       where: whereClause,
       include: [
-        { model: Donor, attributes: ['DonorName'] },
-        { model: Recipient, attributes: ['RecipientName'] },
+        {
+          model: Donor,
+          attributes: ['DonorName'],
+        },
+        {
+          model: Recipient,
+          attributes: ['RecipientName'],
+        },
       ],
     });
 
