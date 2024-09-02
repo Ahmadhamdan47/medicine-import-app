@@ -343,86 +343,65 @@ const getDonationsByStatus = async (status) => {
     throw error;
   }
 };
-const getFilteredDonations = async (filters) => {
+const getFilteredDonations = async (req, res) => {
   try {
-    const { donorId, recipientId, startDate, endDate, status } = filters;
+      // Destructure query parameters with default values to avoid undefined errors
+      const { donorId, recipientId, startDate, endDate, status } = req.query || {};
 
-    // Construct the where clause dynamically based on the provided filters
-    const whereClause = {};
+      // Initialize filters object
+      let filters = {};
 
-    if (donorId) {
-      whereClause.DonorId = donorId;
-    }
-
-    if (recipientId) {
-      whereClause.RecipientId = recipientId;
-    }
-
-    if (startDate && endDate) {
-      whereClause.DonationDate = {
-        [Op.between]: [startDate, endDate]
-      };
-    } else if (startDate) {
-      whereClause.DonationDate = {
-        [Op.gte]: startDate
-      };
-    } else if (endDate) {
-      whereClause.DonationDate = {
-        [Op.lte]: endDate
-      };
-    }
-
-    if (status) {
-      whereClause.Status = status;
-    }
-
-    // Fetch donations based on the dynamically constructed where clause
-    const donations = await Donation.findAll({ where: whereClause });
-
-    for (let donation of donations) {
-      const batchLots = await BatchLotTracking.findAll({
-        where: { DonationId: donation.DonationId }
-      });
-
-      const donor = await Donor.findOne({
-        where: { DonorId: donation.DonorId }
-      });
-
-      const recipient = await Recipient.findOne({
-        where: { RecipientId: donation.RecipientId }
-      });
-
-      if (donor) {
-        donation.dataValues.DonorName = donor.DonorName;
+      // Add filters conditionally based on available query parameters
+      if (donorId) {
+          filters.DonorId = donorId;
+      }
+      if (recipientId) {
+          filters.RecipientId = recipientId;
+      }
+      if (startDate && endDate) {
+          filters.DonationDate = {
+              [Op.between]: [new Date(startDate), new Date(endDate)]
+          };
+      }
+      if (status) {
+          filters.Status = status;
       }
 
-      if (recipient) {
-        donation.dataValues.RecipientName = recipient.RecipientName;
+      // Fetch donations based on filters (or all if filters is empty)
+      const donations = await Donation.findAll({ where: filters });
+
+      // Additional logic to add related data (donor, recipient, batch lots, etc.)
+      for (let donation of donations) {
+          const batchLots = await BatchLotTracking.findAll({
+              where: { DonationId: donation.DonationId }
+          });
+
+          const donor = await Donor.findOne({
+              where: { DonorId: donation.DonorId }
+          });
+
+          const recipient = await Recipient.findOne({
+              where: { RecipientId: donation.RecipientId }
+          });
+
+          if (donor) {
+              donation.dataValues.DonorName = donor.DonorName;
+          }
+
+          if (recipient) {
+              donation.dataValues.RecipientName = recipient.RecipientName;
+          }
+
+          donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
       }
 
-      for (let batchLot of batchLots) {
-        const batchSerialNumber = await BatchSerialNumber.findOne({
-          where: { BatchId: batchLot.BatchLotId }
-        });
-
-        // Directly access the DrugName from the batchLot object
-        if (batchLot.DrugName) {
-          batchLot.dataValues.DrugName = batchLot.DrugName;
-        }
-
-        if (batchSerialNumber) {
-          batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
-        }
-      }
-
-      donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
-    }
-
-    return donations.map(donation => donation.dataValues);
+      return res.status(200).json(donations);
   } catch (error) {
-    console.error(error);
+      console.error('Error fetching donations:', error);
+      return res.status(500).json({ message: 'Error fetching donations', error: error.message });
   }
 };
+
 
 module.exports = {
   createDonation,
