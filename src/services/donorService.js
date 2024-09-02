@@ -55,6 +55,21 @@ const getDonorByUsername = async (username) => {
         throw new Error('Error in donorService: ' + error.message);
     }
 };
+const getIsActiveByDonorId = async (donorId) => {
+    try {
+        const userAccount = await userAccounts.findOne({
+            where: { DonorId: donorId },
+            attributes: ['isActive']
+        });
 
-
-module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername };
+        if (userAccount) {
+            return userAccount.isActive;
+        } else {
+            throw new Error('UserAccount not found');
+        }
+    } catch (error) {
+        console.error('Error fetching isActive status:', error);
+        throw error;
+    }
+};
+module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername, getIsActiveByDonorId };
