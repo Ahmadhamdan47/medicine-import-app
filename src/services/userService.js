@@ -39,8 +39,13 @@ class UserService {
     if (user.RoleId === 0) {
         // Fetch donor data using DonorId
         donorData = await Donor.findOne({ where: { DonorId: user.DonorId } });
+        return{
+          token,
+          role: role.RoleName,
+          donorData
+        }
     }
-
+else
     // Return token, role name, and full donor data if available
     return { 
         token, 
