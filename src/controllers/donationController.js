@@ -98,7 +98,7 @@ const fetchDonationsByStatus = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-const getDonations = async (req, res) => {
+const getFilteredDonations = async (req, res) => {
   try {
     // Extract query parameters from the request
     const { donorId, recipientId, startDate, endDate, status } = req.query;
@@ -126,6 +126,6 @@ const getDonations = async (req, res) => {
 module.exports = { addDonation, getAllDonations, getDonationById, editDonation, createBatchLot,getDonationsByDonor, fetchDonationsByDonor,
   fetchDonationsByRecipient,
   fetchDonationsByDate,
-  fetchDonationsByStatus,getDonations};
+  fetchDonationsByStatus,getFilteredDonations};
 
 

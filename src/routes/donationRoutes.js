@@ -103,7 +103,7 @@ router.get('/date', donationController.fetchDonationsByDate);
 // Route to fetch donations by status
 router.get('/status/:status', donationController.fetchDonationsByStatus);
 
-router.get('/donation/filtered', donationController.getDonations);
+router.get('/donation/filtered', donationController.getFilteredDonations);
 
 
 module.exports = router;
