@@ -61,10 +61,10 @@ router.post("/add", donorController.addDonor);
  */
 router.get("/all", donorController.getAllDonors);
 
-router.put("/:donorId", donorController.editDonor);
+router.put("/:DonorId", donorController.editDonor);
 router.delete("/:donorId", donorController.deleteDonor);
 router.get('/byUsername/:username', donorController.getDonorByUsername);
 
-router.get('/isActive/:DonorId', donorController.getIsActiveStatus);
+router.get('/isActive/:donorId', donorController.getIsActiveStatus);
 
 module.exports = router;
