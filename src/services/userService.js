@@ -22,13 +22,7 @@ class UserService {
     }
 
     // If the role is donor (RoleId = 0), find the donor data
-    let isActive = null; // Initialize a variable to store the donor's IsActive status
-    if (user.RoleId === 0) {
-        const donorData = await Donor.findOne({ where: { DonorId: user.DonorId } }); // Fetch donor data using DonorId
-        if (donorData) {
-            isActive = donorData.IsActive; // Set the IsActive status
-        }
-    }
+   
 
     // Verify the password
     const isMatch = await bcrypt.compare(password, user.PasswordHash);
@@ -43,7 +37,14 @@ class UserService {
 
     // Fetch the role name
     const role = await Roles.findByPk(user.RoleId);
-
+    let isActive = null; // Initialize a variable to store the donor's IsActive status
+    if (user.RoleId === 0) {
+        const donorData = await Donor.findOne({ where: { DonorId: user.DonorId } }); // Fetch donor data using DonorId
+        if (donorData) {
+            isActive = donorData.IsActive; // Set the IsActive status
+        }
+    }
+    console.log(isActive);
     // Return token, role name, and IsActive status if available
     return { token, role: role.RoleName, isActive }; 
 }
