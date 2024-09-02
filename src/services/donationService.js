@@ -346,7 +346,13 @@ const getDonationsByStatus = async (status) => {
 const getFilteredDonations = async (req, res) => {
   try {
       // Destructure query parameters with default values to avoid undefined errors
-      const { donorId, recipientId, startDate, endDate, status } = req.query || {};
+      const {
+          donorId = null,
+          recipientId = null,
+          startDate = null,
+          endDate = null,
+          status = null
+      } = req.query;
 
       // Initialize filters object
       let filters = {};
