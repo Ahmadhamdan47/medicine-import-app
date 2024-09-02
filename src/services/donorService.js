@@ -1,7 +1,5 @@
 const Donor = require('../models/donor');
-const UserAccounts = require('../models/userAccounts');
-const sequelize = require("sequelize");
-
+const userAccounts = require('../models/userAccounts');
 const addDonor = async (donorData) => {
     try {
         const newDonor = await Donor.create(donorData);
@@ -14,29 +12,10 @@ const addDonor = async (donorData) => {
 
 const getAllDonors = async () => {
     try {
-        // Use sequelize to include UserAccounts and get the IsActive field
-        const donors = await Donor.findAll({
-            include: [
-                {
-                    model: UserAccounts,
-                    attributes: ['IsActive'],  // Select only the IsActive field from UserAccounts
-                    where: {
-                        DonorId: sequelize.col('Donor.DonorId')  // Join condition based on DonorId
-                    },
-                    required: false  // Set to false to include donors even if they don't have a UserAccount
-                }
-            ]
-        });
-
-        // Format the response to include IsActive field in the main object for easier access
-        const formattedDonors = donors.map(donor => ({
-            ...donor.dataValues,
-            IsActive: donor.UserAccount ? donor.UserAccount.IsActive : null  // Include IsActive from UserAccount or null if not present
-        }));
-
-        return formattedDonors;
+        const donors = await Donor.findAll();
+        return donors;
     } catch (error) {
-        console.error('Error in donorService:', error);
+        console.error(error);
         throw new Error('Error in donorService: ' + error.message);
     }
 };
