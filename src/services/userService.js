@@ -21,9 +21,6 @@ class UserService {
         throw new Error('User not found');
     }
 
-    // If the role is donor (RoleId = 0), find the donor data
-   
-
     // Verify the password
     const isMatch = await bcrypt.compare(password, user.PasswordHash);
     if (!isMatch) {
@@ -37,18 +34,21 @@ class UserService {
 
     // Fetch the role name
     const role = await Roles.findByPk(user.RoleId);
-    let IsActive = null; // Initialize a variable to store the donor's IsActive status
+
+    let donorData = null; // Initialize a variable to store the donor data
     if (user.RoleId === 0) {
-        const donorData = await Donor.findOne({ where: { DonorId: user.DonorId } }); // Fetch donor data using DonorId
-        if (donorData) {
-            IsActive = donorData.IsActive; // Set the IsActive status
-        }
+        // Fetch donor data using DonorId
+        donorData = await Donor.findOne({ where: { DonorId: user.DonorId } });
     }
-    console.log(IsActive);
-    // Return token, role name, and IsActive status if available
-    return { token, role: role.RoleName,   IsActive: user.RoleId === 0 ? IsActive : null, // Includes IsActive if donor, null otherwise
-    }; 
+
+    // Return token, role name, and full donor data if available
+    return { 
+        token, 
+        role: role.RoleName, 
+        donorData// Includes full donor data if donor, null otherwise
+    };
 }
+
 
 
   static async donorSignup(donorData, username, password) {
