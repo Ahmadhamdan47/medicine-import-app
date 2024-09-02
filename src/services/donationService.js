@@ -303,108 +303,46 @@ const getDonationsByDonor = async (donorId) => {
       console.error(error);
     }
 };
-const getByDonor = async (donorId) => {
-  try {
-    return await Donation.findAll({ where: { DonorId: donorId } });
-  } catch (error) {
-    throw error;
-  }
-};
 
-// Fetch donations by recipient
-const getDonationsByRecipient = async (recipientId) => {
+const getFilteredDonations = async ({ donorId, recipientId, status, startDate, endDate }) => {
   try {
-    return await Donation.findAll({ where: { RecipientId: recipientId } });
-  } catch (error) {
-    throw error;
-  }
-};
+    const whereClause = {};
 
-// Fetch donations by date
-const getDonationsByDate = async (startDate, endDate) => {
-  try {
-    return await Donation.findAll({
-      where: {
-        DonationDate: {
-          [sequelize.Op.between]: [startDate, endDate],
-        },
-      },
+    if (donorId) {
+      whereClause.DonorId = donorId;
+    }
+    if (recipientId) {
+      whereClause.RecipientId = recipientId;
+    }
+    if (status) {
+      whereClause.status = status;
+    }
+    if (startDate && endDate) {
+      whereClause.DonationDate = {
+        [Op.between]: [new Date(startDate), new Date(endDate)],
+      };
+    } else if (startDate) {
+      whereClause.DonationDate = {
+        [Op.gte]: new Date(startDate),
+      };
+    } else if (endDate) {
+      whereClause.DonationDate = {
+        [Op.lte]: new Date(endDate),
+      };
+    }
+
+    const donations = await Donation.findAll({
+      where: whereClause,
+      include: [
+        { model: Donor, attributes: ['DonorName'] },
+        { model: Recipient, attributes: ['RecipientName'] },
+      ],
     });
+
+    return donations;
   } catch (error) {
+    console.error('Error fetching filtered donations:', error);
     throw error;
-  }
-};
-
-// Fetch donations by status
-const getDonationsByStatus = async (status) => {
-  try {
-    return await Donation.findAll({ where: { status } });
-  } catch (error) {
-    throw error;
-  }
-};
-const getFilteredDonations = async (req, res) => {
-  try {
-      // Destructure query parameters with default values to avoid undefined errors
-      const {
-          donorId = null,
-          recipientId = null,
-          startDate = null,
-          endDate = null,
-          status = null
-      } = req.query;
-
-      // Initialize filters object
-      let filters = {};
-
-      // Add filters conditionally based on available query parameters
-      if (donorId) {
-          filters.DonorId = donorId;
-      }
-      if (recipientId) {
-          filters.RecipientId = recipientId;
-      }
-      if (startDate && endDate) {
-          filters.DonationDate = {
-              [Op.between]: [new Date(startDate), new Date(endDate)]
-          };
-      }
-      if (status) {
-          filters.Status = status;
-      }
-
-      // Fetch donations based on filters (or all if filters is empty)
-      const donations = await Donation.findAll({ where: filters });
-
-      // Additional logic to add related data (donor, recipient, batch lots, etc.)
-      for (let donation of donations) {
-          const batchLots = await BatchLotTracking.findAll({
-              where: { DonationId: donation.DonationId }
-          });
-
-          const donor = await Donor.findOne({
-              where: { DonorId: donation.DonorId }
-          });
-
-          const recipient = await Recipient.findOne({
-              where: { RecipientId: donation.RecipientId }
-          });
-
-          if (donor) {
-              donation.dataValues.DonorName = donor.DonorName;
-          }
-
-          if (recipient) {
-              donation.dataValues.RecipientName = recipient.RecipientName;
-          }
-
-          donation.dataValues.BatchLotTrackings = batchLots.map(batchLot => batchLot.dataValues);
-      }
-
-      return res.status(200).json(donations);
-  } catch (error) {
-      console.error('Error fetching donations:', error);
-      return res.status(500).json({ message: 'Error fetching donations', error: error.message });
   }
 };
 
@@ -413,12 +351,8 @@ module.exports = {
   createDonation,
   createBatchLot, 
   getAllDonations,
-  getDonationById,
+getDonationById,
   editDonation,
   getDonationsByDonor,
-  getDonationsByRecipient,
-  getDonationsByDate,
-  getDonationsByStatus,
-  getByDonor,
   getFilteredDonations
 };
