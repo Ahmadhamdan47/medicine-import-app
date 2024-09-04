@@ -61,11 +61,7 @@ const BatchLotTracking = sequelize.define('batchlottracking', {
         type: DataTypes.STRING(255),
         allowNull: true  // Allow null to avoid issues with existing data
     },
-    Inspection: {
-        type: DataTypes.ENUM('null', 'rejected', 'inspected'),
-        allowNull: true,  // Allow null to indicate the inspection status
-        defaultValue: 'null',
-    },
+
 }, {
     tableName: 'batchlottracking',
     timestamps: false

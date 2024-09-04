@@ -107,20 +107,23 @@ const getBatchLotsByBoxId = async (boxId) => {
  */
 const batchLotInspected = async (batchId) => {
   try {
-      const batchLot = await BatchLotTracking.findOne({ where: { BatchLotId: batchId } });
+    const batchSerialNumbers = await BatchSerialNumber.findAll({ where: { BatchId: batchId } });
 
-      if (!batchLot) {
-          throw new Error('Batch lot not found');
-      }
+    if (!batchSerialNumbers || batchSerialNumbers.length === 0) {
+      throw new Error('Batch serial numbers not found');
+    }
 
-      batchLot.Inspection = 'inspected';
-      await batchLot.save();
+    for (const serialNumber of batchSerialNumbers) {
+      serialNumber.Inspection = 'inspected';
+      await serialNumber.save();
+    }
 
-      return batchLot;
+    return batchSerialNumbers;
   } catch (error) {
-      throw new Error(`Failed to update batch lot: ${error.message}`);
+    throw new Error(`Failed to update batch serial numbers: ${error.message}`);
   }
 };
+
 
 /**
 * Update batch lot inspection status to 'rejected'
@@ -129,20 +132,23 @@ const batchLotInspected = async (batchId) => {
 */
 const batchLotRejected = async (batchId) => {
   try {
-      const batchLot = await BatchLotTracking.findOne({ where: { BatchLotId: batchId } });
+    const batchSerialNumbers = await BatchSerialNumber.findAll({ where: { BatchId: batchId } });
 
-      if (!batchLot) {
-          throw new Error('Batch lot not found');
-      }
+    if (!batchSerialNumbers || batchSerialNumbers.length === 0) {
+      throw new Error('Batch serial numbers not found');
+    }
 
-      batchLot.Inspection = 'rejected';
-      await batchLot.save();
+    for (const serialNumber of batchSerialNumbers) {
+      serialNumber.Inspection = 'rejected';
+      await serialNumber.save();
+    }
 
-      return batchLot;
+    return batchSerialNumbers;
   } catch (error) {
-      throw new Error(`Failed to update batch lot: ${error.message}`);
+    throw new Error(`Failed to update batch serial numbers: ${error.message}`);
   }
 };
+
 
 module.exports = {
   addBatchLot,
