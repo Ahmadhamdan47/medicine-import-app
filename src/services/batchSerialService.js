@@ -1,5 +1,5 @@
 const BatchSerialNumber = require('../models/batchserialnumber');
-const BatchLotTracking = require('../models/Batchlot');
+const BatchLotTracking = require('../models/batchLot');
 
 /**
  * Update inspection status of a batch serial number to 'inspected'
