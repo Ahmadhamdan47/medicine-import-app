@@ -156,10 +156,21 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
-
+const fetchSerialNumberData = async (serialNumber) => {
+  try {
+    const serialNumberData = await BatchSerialNumber.findOne({
+      where: { SerialNumber: serialNumber }
+    });
+    return serialNumberData;
+  } catch (error) {
+    console.error('Error fetching serial number data:', error);
+    throw new Error('Failed to fetch serial number data');
+  }
+};
 
 module.exports = {
   updateInspectionInspected,
   updateInspectionRejected,
-  checkDonationStatus
+  checkDonationStatus,
+  fetchSerialNumberData
 };

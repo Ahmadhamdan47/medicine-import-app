@@ -1,4 +1,4 @@
-const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus } = require('../services/batchSerialService');
+const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData} = require('../services/batchSerialService');
 
 /**
  * Controller to update inspection status to 'inspected'
@@ -56,9 +56,24 @@ const checkDonationStatusController = async (req, res) => {
   }
 };
 
+const getSerialNumberData = async (req, res) => {
+  const { serialNumber } = req.params;
 
+  try {
+    const serialNumberData = await fetchSerialNumberData(serialNumber);
+    
+    if (!serialNumberData) {
+      return res.status(404).json({ error: 'Serial number not found' });
+    }
+
+    res.status(200).json(serialNumberData);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 module.exports = {
   setInspectionInspected,
   setInspectionRejected,
-  checkDonationStatusController
+  checkDonationStatusController,
+  getSerialNumberData
 };
