@@ -92,6 +92,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
       console.log('No batch lot found for GTIN:', GTIN, 'BatchNumber:', BatchNumber, 'ExpiryDate:', ExpiryDate);
       return {
         isValid: false,
+        isDonated: false,
         messageEN: 'This combination of GTIN, LOT, Expiry Date, and Serial Number does not exist.',
         messageAR: 'هذا المزيج من GTIN ، LOT ، تاريخ انتهاء الصلاحية ، والرقم التسلسلي غير موجود.'
       };
@@ -114,6 +115,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
       console.log('No batch serial number found for BatchId:', batchLot.BatchLotId, 'SerialNumber:', formattedSerialNumber);
       return {
         isValid: false,
+        isDonated: false,
         messageEN: 'This combination of GTIN, LOT, Expiry Date, and Serial Number does not exist.',
         messageAR: 'هذا المزيج من GTIN ، LOT ، تاريخ انتهاء الصلاحية ، والرقم التسلسلي غير موجود.'
       };
@@ -123,9 +125,10 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     if (!batchLot.DonationId) {
       console.log('Batch lot is not associated with a donation');
       return {
-        isValid: false,
-        messageEN: 'This drug is not donated.',
-        messageAR: 'هذا الدواء غير متبرع به.'
+        isValid: true,
+        isDonated: false,
+        messageEN: 'This drug is found but not donated.',
+        messageAR: 'هذا الدواء موجود لكنه غير متبرع به.'
       };
     }
 
@@ -133,7 +136,8 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     console.log('Batch lot is associated with a donation');
     return {
       isValid: true,
-      messageEN: 'This drug is donated.',
+      isDonated: true,
+      messageEN: 'This drug is already donated.',
       messageAR: 'هذا الدواء متبرع به.',
       batchLot: {
         BatchLotId: batchLot.BatchLotId,
