@@ -1,4 +1,5 @@
 const BatchSerialNumber = require('../models/batchserialnumber');
+const BatchLotTracking = require('../models/Batchlot');
 
 /**
  * Update inspection status of a batch serial number to 'inspected'
@@ -63,8 +64,98 @@ const updateInspectionRejected = async (batchSerialNumberId) => {
     throw new Error(`Failed to update inspection status: ${error.message}`);
   }
 };
+const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
+  try {
+    console.log('Input Parameters:', { GTIN, BatchNumber, SerialNumber, ExpiryDate });
+
+    // Validate input parameters
+    if (typeof GTIN !== 'string') {
+      throw new Error('GTIN must be a string');
+    }
+
+    if (SerialNumber.length > 20) {
+      throw new Error('SerialNumber cannot exceed 20 characters.');
+    }
+
+    // Query for the batch lot using GTIN, BatchNumber, and ExpiryDate
+    const batchLot = await BatchLotTracking.findOne({
+      where: {
+        GTIN: GTIN,
+        BatchNumber: BatchNumber,
+        ExpiryDate: ExpiryDate,
+      }
+    });
+
+    console.log('Batch lot found:', batchLot);
+
+    if (!batchLot) {
+      console.log('No batch lot found for GTIN:', GTIN, 'BatchNumber:', BatchNumber, 'ExpiryDate:', ExpiryDate);
+      return {
+        isValid: false,
+        messageEN: 'This combination of GTIN, LOT, Expiry Date, and Serial Number does not exist.',
+        messageAR: 'هذا المزيج من GTIN ، LOT ، تاريخ انتهاء الصلاحية ، والرقم التسلسلي غير موجود.'
+      };
+    }
+
+    // Ensure the SerialNumber is correctly formatted
+    const formattedSerialNumber = SerialNumber.trim();
+
+    // Query for the batch serial number using BatchId and SerialNumber
+    const batchSerialNumber = await BatchSerialNumber.findOne({
+      where: {
+        BatchId: batchLot.BatchLotId,
+        SerialNumber: formattedSerialNumber,
+      }
+    });
+
+    console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', formattedSerialNumber);
+
+    if (!batchSerialNumber) {
+      console.log('No batch serial number found for BatchId:', batchLot.BatchLotId, 'SerialNumber:', formattedSerialNumber);
+      return {
+        isValid: false,
+        messageEN: 'This combination of GTIN, LOT, Expiry Date, and Serial Number does not exist.',
+        messageAR: 'هذا المزيج من GTIN ، LOT ، تاريخ انتهاء الصلاحية ، والرقم التسلسلي غير موجود.'
+      };
+    }
+
+    // Check if the batch lot has a DonationId associated
+    if (!batchLot.DonationId) {
+      console.log('Batch lot is not associated with a donation');
+      return {
+        isValid: false,
+        messageEN: 'This drug is not donated.',
+        messageAR: 'هذا الدواء غير متبرع به.'
+      };
+    }
+
+    // Return a successful response indicating the drug is donated
+    console.log('Batch lot is associated with a donation');
+    return {
+      isValid: true,
+      messageEN: 'This drug is donated.',
+      messageAR: 'هذا الدواء متبرع به.',
+      batchLot: {
+        BatchLotId: batchLot.BatchLotId,
+        DrugName: batchLot.DrugName,
+        Form: batchLot.Form,
+        Presentation: batchLot.Presentation,
+        Quantity: batchLot.Quantity,
+        Laboratory: batchLot.Laboratory,
+        LaboratoryCountry: batchLot.LaboratoryCountry,
+        BoxId: batchLot.BoxId,
+        DonationId: batchLot.DonationId
+      }
+    };
+  } catch (error) {
+    console.error('Error in checkDonationStatus:', error);
+    throw error;
+  }
+};
+
 
 module.exports = {
   updateInspectionInspected,
   updateInspectionRejected,
+  checkDonationStatus
 };

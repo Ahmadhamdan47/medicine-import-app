@@ -10,4 +10,5 @@ router.post('/inspected/:batchId', batchLotController.markAsInspected);
 // Route to mark batch lot as rejected
 router.post('/rejected/:batchId', batchLotController.markAsRejected);
 
-module.exports = router;
+
+module.exports = router;    

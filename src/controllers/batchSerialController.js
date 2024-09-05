@@ -1,4 +1,4 @@
-const { updateInspectionInspected, updateInspectionRejected } = require('../services/batchSerialService');
+const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus } = require('../services/batchSerialService');
 
 /**
  * Controller to update inspection status to 'inspected'
@@ -45,8 +45,20 @@ const setInspectionRejected = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+const checkDonationStatusController = async (req, res) => {
+  const { GTIN, BatchNumber, SerialNumber, ExpiryDate } = req.body;
+
+  try {
+    const result = await checkDonationStatus({ GTIN, BatchNumber, SerialNumber, ExpiryDate });
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 module.exports = {
   setInspectionInspected,
   setInspectionRejected,
+  checkDonationStatusController
 };
