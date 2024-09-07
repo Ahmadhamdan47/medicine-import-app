@@ -170,9 +170,9 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     }
 
     // Query for the box using BoxId from the batchSerialNumber
-    const box = await Box.findOne({
+    const box = batchSerialNumber.BoxId ? await Box.findOne({
       where: { BoxId: batchSerialNumber.BoxId }
-    });
+    }) : null;
 
     console.log('Box found:', box);
 
@@ -220,6 +220,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
+
 
 
 const fetchSerialNumberData = async (serialNumber) => {
