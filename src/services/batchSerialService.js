@@ -27,6 +27,11 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
       return { message: `Changes can only be made within ${TIME_LIMIT_MINUTES} minutes of the last update.` };
     }
 
+    // Check if the SerialNumber is under report
+    if (batchSerialNumber.Inspection === 'underReport') {
+      return { message: 'This pack is under report and cannot be inspected or rejected.' };
+    }
+
     // Check if the SerialNumber has already been inspected or rejected
     if (batchSerialNumber.Inspection === 'inspected') {
       return { message: 'This pack was already inspected before.' };
@@ -46,7 +51,6 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
     throw new Error(`Failed to update inspection status: ${error.message}`);
   }
 };
-
 
 /**
  * Update inspection status of a batch serial number to 'rejected'
@@ -69,6 +73,11 @@ const updateInspectionRejected = async (batchSerialNumberId) => {
       return { message: `Changes can only be made within ${TIME_LIMIT_MINUTES} minutes of the last update.` };
     }
 
+    // Check if the SerialNumber is under report
+    if (batchSerialNumber.Inspection === 'underReport') {
+      return { message: 'This pack is under report and cannot be inspected or rejected.' };
+    }
+
     // Check if the SerialNumber has already been inspected or rejected
     if (batchSerialNumber.Inspection === 'inspected') {
       return { message: 'This pack was already inspected before.' };
@@ -88,6 +97,7 @@ const updateInspectionRejected = async (batchSerialNumberId) => {
     throw new Error(`Failed to update inspection status: ${error.message}`);
   }
 };
+
 const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
   try {
     console.log('Input Parameters:', { GTIN, BatchNumber, SerialNumber, ExpiryDate });
@@ -145,6 +155,18 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
       };
     }
 
+    // Check if the batch serial number is under report
+    if (batchSerialNumber.Inspection === 'underReport') {
+      console.log('Batch serial number is under report');
+      return {
+        isValid: true,
+        isDonated: true,
+        messageEN: 'This pack is under report and cannot be processed further.',
+        messageAR: 'هذه العبوة قيد التبليغ ولا يمكن معالجتها.',
+        batchSerialNumberId: batchSerialNumber.BatchSerialNumberId
+      };
+    }
+
     // Check if the batch lot has a DonationId associated
     if (!batchLot.DonationId) {
       console.log('Batch lot is not associated with a donation');
@@ -180,6 +202,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
+
 const fetchSerialNumberData = async (serialNumber) => {
   try {
     const serialNumberData = await BatchSerialNumber.findOne({
