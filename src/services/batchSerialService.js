@@ -242,28 +242,39 @@ const getSerialNumbersByBoxId = async (boxId) => {
 
 const reportBatchSerialNumber = async (batchSerialNumberId) => {
   try {
-    // Find the batch serial number record
-    const batchSerialNumber = await BatchSerialNumber.findByPk(batchSerialNumberId, {
-      include: [{
-        model: BatchLotTracking,
-        as: 'BatchLot',
-        include: [{
-          model: Donation,
-          as: 'Donation',
-          include: [{
-            model: Donor,
-            as: 'Donor'
-          }, {
-            model: Recipient,
-            as: 'Recipient'
-          }]
-        }]
-      }]
-    });
+    // Fetch the batch serial number details
+    const batchSerialNumber = await BatchSerialNumber.findByPk(batchSerialNumberId);
 
     if (!batchSerialNumber) {
       throw new Error('Batch serial number not found');
     }
+
+    // Fetch the related batch lot information
+    const batchLot = await BatchLotTracking.findOne({
+      where: { BatchLotId: batchSerialNumber.BatchId }
+    });
+
+    if (!batchLot) {
+      throw new Error('Batch lot not found');
+    }
+
+    // Fetch the related donation information
+    const donation = await Donation.findOne({
+      where: { DonationId: batchLot.DonationId }
+    });
+
+    if (!donation) {
+      throw new Error('Donation not found');
+    }
+
+    // Fetch the donor and recipient information
+    const donor = await Donor.findOne({
+      where: { DonorId: donation.DonorId }
+    });
+
+    const recipient = await Recipient.findOne({
+      where: { RecipientId: donation.RecipientId }
+    });
 
     // Check if the SerialNumber is already under report
     if (batchSerialNumber.Inspection === 'underReport') {
@@ -274,7 +285,7 @@ const reportBatchSerialNumber = async (batchSerialNumberId) => {
     batchSerialNumber.Inspection = 'underReport';
     await batchSerialNumber.save();
 
-    // Return all related information about the pack
+    // Construct and return the report details manually
     const reportDetails = {
       batchSerial: {
         id: batchSerialNumber.BatchSerialNumberId,
@@ -282,17 +293,17 @@ const reportBatchSerialNumber = async (batchSerialNumberId) => {
         inspectionStatus: batchSerialNumber.Inspection,
       },
       batchLot: {
-        id: batchSerialNumber.BatchLot.BatchLotId,
-        drugName: batchSerialNumber.BatchLot.DrugName,
-        gtin: batchSerialNumber.BatchLot.GTIN,
-        batchNumber: batchSerialNumber.BatchLot.BatchNumber,
-        expiryDate: batchSerialNumber.BatchLot.ExpiryDate,
+        id: batchLot.BatchLotId,
+        drugName: batchLot.DrugName,
+        gtin: batchLot.GTIN,
+        batchNumber: batchLot.BatchNumber,
+        expiryDate: batchLot.ExpiryDate,
       },
       donation: {
-        id: batchSerialNumber.BatchLot.Donation.DonationId,
-        title: batchSerialNumber.BatchLot.Donation.DonationTitle,
-        donor: batchSerialNumber.BatchLot.Donation.Donor ? batchSerialNumber.BatchLot.Donation.Donor.DonorName : null,
-        recipient: batchSerialNumber.BatchLot.Donation.Recipient ? batchSerialNumber.BatchLot.Donation.Recipient.RecipientName : null
+        id: donation.DonationId,
+        title: donation.DonationTitle,
+        donor: donor ? donor.DonorName : null,
+        recipient: recipient ? recipient.RecipientName : null
       }
     };
 
@@ -302,6 +313,7 @@ const reportBatchSerialNumber = async (batchSerialNumberId) => {
     throw new Error(`Failed to report the batch serial number: ${error.message}`);
   }
 };
+
 
 module.exports = {
   updateInspectionInspected,
