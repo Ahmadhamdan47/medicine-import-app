@@ -75,7 +75,7 @@ const createBatchLot = async (batchLotData) => {
 
   const {
     DonationId,
-    BoxId,  // Parameter for BoxId, may be null if creating a new box
+    BoxId,  // BoxId parameter is still needed to associate it with serial numbers
     BoxLabel,  // New parameter for BoxLabel when creating a new box
     DrugName,
     GTIN,
@@ -110,10 +110,9 @@ const createBatchLot = async (batchLotData) => {
       });
     }
 
-    // Create the batch lot record with the actual BoxId
+    // Create the batch lot record without the BoxId
     const batchLot = await BatchLotTracking.create({
       DonationId: DonationId,
-      BoxId: actualBoxId,
       DrugName: DrugName,
       Form: Form,
       Presentation: Presentation,
@@ -126,9 +125,10 @@ const createBatchLot = async (batchLotData) => {
       LaboratoryCountry: LaboratoryCountry,
     });
 
-    // Assuming you have a separate table for serial numbers, create the serial number record
+    // Create the serial number record with the BoxId (but not for batch lot)
     const batchSerialNumber = await BatchSerialNumber.create({
       BatchId: batchLot.BatchLotId,
+      BoxId: actualBoxId,  // Associate the serial number with the box
       SerialNumber: SerialNumber,
     });
 
@@ -141,6 +141,7 @@ const createBatchLot = async (batchLotData) => {
     throw new Error(`Failed to create batch lot: ${error.message}`);
   }
 };
+  
 
 
 const getAllDonations = async () => {

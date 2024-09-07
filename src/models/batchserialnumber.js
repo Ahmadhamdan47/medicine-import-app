@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require ('../../config/databasePharmacy');
+const sequelize = require('../../config/databasePharmacy');
+const Box = require('./box');  // Import the Box model
 
 class BatchSerialNumber extends Model {}
 
@@ -13,9 +14,17 @@ BatchSerialNumber.init({
   BatchId: {
     type: DataTypes.INTEGER,
     allowNull: true,
-    refrence:{
+    references: {
         model: 'batchlottracking',
-        key:'BatchLotId'
+        key: 'BatchLotId'
+    }
+  },
+  BoxId: {  // Add BoxId field
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: Box,  // Link to the Box model
+      key: 'BoxId'
     }
   },
   SerialNumber: {
@@ -24,9 +33,9 @@ BatchSerialNumber.init({
   },
   Inspection: {
     type: DataTypes.ENUM('non-inspected', 'rejected', 'inspected'),
-    allowNull: true,  // Allow null to indicate the inspection status
+    allowNull: true,
     defaultValue: 'non-inspected',
-},
+  },
 }, {
   sequelize,
   modelName: 'BatchSerialNumber',
