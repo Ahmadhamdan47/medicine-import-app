@@ -209,7 +209,7 @@ const getAllDonations = async () => {
         where: { RecipientId: donation.RecipientId }
       });
       if (donor){
-        donation.dataValues.DonorName = Donor.DonorName;
+        donation.dataValues.DonorName = donor.DonorName;
       }
       if (recipient) {
         donation.dataValues.RecipientName = recipient.RecipientName;
