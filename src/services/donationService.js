@@ -141,7 +141,7 @@ const createBatchLot = async (batchLotData) => {
     throw new Error(`Failed to create batch lot: ${error.message}`);
   }
 };
-  
+
 
 
 const getAllDonations = async () => {
@@ -202,11 +202,15 @@ const getAllDonations = async () => {
       if (!donation) {
         throw new Error(`No donation found with id: ${DonationId}`);
       }
-
+      const donor = await Donor.findOne({
+        where: {DonorId: donation.DonorId}
+      });
       const recipient = await Recipient.findOne({
         where: { RecipientId: donation.RecipientId }
       });
-
+      if (donor){
+        donation.dataValues.DonorName = Donor.DonorName;
+      }
       if (recipient) {
         donation.dataValues.RecipientName = recipient.RecipientName;
       }
