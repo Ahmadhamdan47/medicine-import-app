@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("./config/logger");
 const path = require("path");
+const sequelize = require('./config/databasePharmacy');  // Adjust the path to your Sequelize instance
 
 const drugRouter = require("./src/routes/drugRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
@@ -111,3 +112,10 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
+sequelize.sync()
+  .then(() => {
+    console.log('Database synchronized successfully!');
+  })
+  .catch((error) => {
+    console.error('Error synchronizing the database:', error);
+  });
