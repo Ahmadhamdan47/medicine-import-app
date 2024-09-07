@@ -236,6 +236,7 @@ const getSerialNumbersByBoxId = async (boxId) => {
     throw error;
   }
 };
+
 const reportBatchSerialNumber = async (batchSerialNumberId) => {
   try {
     // Find the batch serial number record

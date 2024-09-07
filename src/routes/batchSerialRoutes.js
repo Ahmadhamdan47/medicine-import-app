@@ -7,7 +7,7 @@ router.put('/inspect/:batchSerialNumberId', setInspectionInspected);
 
 // Route to update inspection status to 'rejected'
 router.put('/reject/:batchSerialNumberId', setInspectionRejected);
-router.put('/report/:batchSerialNumberId', reportBatchSerialNumber)
+router.put('/report/:batchSerialNumberId', reportBatchSerialNumber);
 router.post('/checkDonationStatus', checkDonationStatusController);
 router.get('/:serialNumber', getSerialNumberData);
 router.get('/byBox/:boxId',fetchSerialNumbersByBoxId);
