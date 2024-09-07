@@ -140,8 +140,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
       where: {
         BatchId: batchLot.BatchLotId,
         SerialNumber: formattedSerialNumber,
-      },
-      include: [{ model: Box, as: 'Box' }]  // Include the related Box model
+      }
     });
 
     console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', formattedSerialNumber);
@@ -164,8 +163,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
         isDonated: true,
         messageEN: 'This pack is under report and cannot be processed further.',
         messageAR: 'هذه العبوة قيد التبليغ ولا يمكن معالجتها.',
-        batchSerialNumberId: batchSerialNumber.BatchSerialNumberId,
-        boxId: batchSerialNumber.BoxId,  // Return BoxId here
+        batchSerialNumberId: batchSerialNumber.BatchSerialNumberId
       };
     }
 
@@ -195,8 +193,8 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
         Quantity: batchLot.Quantity,
         Laboratory: batchLot.Laboratory,
         LaboratoryCountry: batchLot.LaboratoryCountry,
-        BoxId: batchSerialNumber.BoxId,  // Fetch BoxId from the BatchSerialNumber
-        DonationId: batchLot.DonationId,
+        BoxId: batchSerialNumber.BoxId,
+        DonationId: batchLot.DonationId
       }
     };
   } catch (error) {
@@ -204,7 +202,6 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
-
 
 const fetchSerialNumberData = async (serialNumber) => {
   try {
