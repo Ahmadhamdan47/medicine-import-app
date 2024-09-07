@@ -236,11 +236,74 @@ const getSerialNumbersByBoxId = async (boxId) => {
     throw error;
   }
 };
+const reportBatchSerialNumber = async (batchSerialNumberId) => {
+  try {
+    // Find the batch serial number record
+    const batchSerialNumber = await BatchSerialNumber.findByPk(batchSerialNumberId, {
+      include: [{
+        model: BatchLotTracking,
+        as: 'BatchLot',
+        include: [{
+          model: Donation,
+          as: 'Donation',
+          include: [{
+            model: Donor,
+            as: 'Donor'
+          }, {
+            model: Recipient,
+            as: 'Recipient'
+          }]
+        }]
+      }]
+    });
+
+    if (!batchSerialNumber) {
+      throw new Error('Batch serial number not found');
+    }
+
+    // Check if the SerialNumber is already under report
+    if (batchSerialNumber.Inspection === 'underReport') {
+      return { message: 'This pack is already under report and cannot be inspected or rejected.' };
+    }
+
+    // Update the Inspection status to 'underReport'
+    batchSerialNumber.Inspection = 'underReport';
+    await batchSerialNumber.save();
+
+    // Return all related information about the pack
+    const reportDetails = {
+      batchSerial: {
+        id: batchSerialNumber.BatchSerialNumberId,
+        serialNumber: batchSerialNumber.SerialNumber,
+        inspectionStatus: batchSerialNumber.Inspection,
+      },
+      batchLot: {
+        id: batchSerialNumber.BatchLot.BatchLotId,
+        drugName: batchSerialNumber.BatchLot.DrugName,
+        gtin: batchSerialNumber.BatchLot.GTIN,
+        batchNumber: batchSerialNumber.BatchLot.BatchNumber,
+        expiryDate: batchSerialNumber.BatchLot.ExpiryDate,
+      },
+      donation: {
+        id: batchSerialNumber.BatchLot.Donation.DonationId,
+        title: batchSerialNumber.BatchLot.Donation.DonationTitle,
+        donor: batchSerialNumber.BatchLot.Donation.Donor ? batchSerialNumber.BatchLot.Donation.Donor.DonorName : null,
+        recipient: batchSerialNumber.BatchLot.Donation.Recipient ? batchSerialNumber.BatchLot.Donation.Recipient.RecipientName : null
+      }
+    };
+
+    return reportDetails;
+
+  } catch (error) {
+    throw new Error(`Failed to report the batch serial number: ${error.message}`);
+  }
+};
 
 module.exports = {
   updateInspectionInspected,
   updateInspectionRejected,
   checkDonationStatus,
   fetchSerialNumberData,
-  getSerialNumbersByBoxId 
+  getSerialNumbersByBoxId,
+  reportBatchSerialNumber
 };

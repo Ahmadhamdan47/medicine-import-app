@@ -106,11 +106,40 @@ const fetchSerialNumbersByBoxId = async (req, res) => {
     });
   }
 };
+const reportBatchSerialNumberController = async (req, res) => {
+  const { batchSerialNumberId } = req.params;
+
+  try {
+    // Call the service to report the batch serial number
+    const reportDetails = await reportBatchSerialNumber(batchSerialNumberId);
+
+    // If a message was returned, send that as the response (e.g., already reported)
+    if (reportDetails.message) {
+      return res.status(400).json({ success: false, message: reportDetails.message });
+    }
+
+    // Send back the detailed information of the reported batch
+    return res.status(200).json({
+      success: true,
+      message: `Batch serial number ${batchSerialNumberId} has been reported.`,
+      data: reportDetails,
+    });
+
+  } catch (error) {
+    // Handle errors and send appropriate response
+    console.error(`Error reporting batch serial number: ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      message: `Failed to report batch serial number: ${error.message}`,
+    });
+  }
+};
 
 module.exports = {
   setInspectionInspected,
   setInspectionRejected,
   checkDonationStatusController,
   getSerialNumberData,
-  fetchSerialNumbersByBoxId
+  fetchSerialNumbersByBoxId,
+  reportBatchSerialNumberController
 };
