@@ -3,7 +3,6 @@ const BatchLotTracking = require('../models/batchLot');
 const  Donation  = require('../models/donation');  // Import Donation model
 const Donor  = require('../models/donor');  // Import Donor model
 const  Recipient  = require('../models/recipient');  //
-const Box = require('../models/box');
 const moment = require('moment');
 const TIME_LIMIT_MINUTES = 15; // You can change this value as needed
 
@@ -141,7 +140,8 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
       where: {
         BatchId: batchLot.BatchLotId,
         SerialNumber: formattedSerialNumber,
-      }
+      },
+      include: [{ model: Box, as: 'Box' }]  // Include the related Box model
     });
 
     console.log('Batch serial number lookup with BatchId:', batchLot.BatchLotId, 'and SerialNumber:', formattedSerialNumber);
@@ -166,22 +166,6 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
         messageAR: 'هذه العبوة قيد التبليغ ولا يمكن معالجتها.',
         batchSerialNumberId: batchSerialNumber.BatchSerialNumberId,
         boxId: batchSerialNumber.BoxId,  // Return BoxId here
-      };
-    }
-
-    // Query for the box using BoxId from the batchSerialNumber
-    const box = batchSerialNumber.BoxId ? await Box.findOne({
-      where: { BoxId: batchSerialNumber.BoxId }
-    }) : null;
-
-    console.log('Box found:', box);
-
-    if (!box) {
-      return {
-        isValid: false,
-        isDonated: false,
-        messageEN: 'Box not found for this batch serial number.',
-        messageAR: 'لم يتم العثور على الصندوق لهذا الرقم التسلسلي.'
       };
     }
 
@@ -220,7 +204,6 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
-
 
 
 const fetchSerialNumberData = async (serialNumber) => {
