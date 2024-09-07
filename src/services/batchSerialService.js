@@ -163,7 +163,24 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
         isDonated: true,
         messageEN: 'This pack is under report and cannot be processed further.',
         messageAR: 'هذه العبوة قيد التبليغ ولا يمكن معالجتها.',
-        batchSerialNumberId: batchSerialNumber.BatchSerialNumberId
+        batchSerialNumberId: batchSerialNumber.BatchSerialNumberId,
+        boxId: batchSerialNumber.BoxId,  // Return BoxId here
+      };
+    }
+
+    // Query for the box using BoxId from the batchSerialNumber
+    const box = await Box.findOne({
+      where: { BoxId: batchSerialNumber.BoxId }
+    });
+
+    console.log('Box found:', box);
+
+    if (!box) {
+      return {
+        isValid: false,
+        isDonated: false,
+        messageEN: 'Box not found for this batch serial number.',
+        messageAR: 'لم يتم العثور على الصندوق لهذا الرقم التسلسلي.'
       };
     }
 
@@ -193,8 +210,8 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
         Quantity: batchLot.Quantity,
         Laboratory: batchLot.Laboratory,
         LaboratoryCountry: batchLot.LaboratoryCountry,
-        BoxId: batchLot.BoxId,
-        DonationId: batchLot.DonationId
+        BoxId: batchSerialNumber.BoxId,  // Fetch BoxId from the BatchSerialNumber
+        DonationId: batchLot.DonationId,
       }
     };
   } catch (error) {
@@ -202,6 +219,7 @@ const checkDonationStatus = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate
     throw error;
   }
 };
+
 
 const fetchSerialNumberData = async (serialNumber) => {
   try {
