@@ -191,6 +191,7 @@ const getSerialNumbersByBoxId = async (boxId) => {
       // Prepare the result with both serial number and batch lot info
       const serialNumberWithBatchInfo = {
         SerialNumber: serialNumber.SerialNumber,
+        Inspection: serialNumber.Inspection,
         BatchLotId: serialNumber.BatchId,
         DrugName: batchLot ? batchLot.DrugName : null,
         GTIN: batchLot ? batchLot.GTIN : null,
