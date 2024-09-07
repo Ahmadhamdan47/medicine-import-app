@@ -200,8 +200,8 @@ const getSerialNumbersByBoxId = async (boxId) => {
         Quantity: batchLot ? batchLot.Quantity : null,
         Laboratory: batchLot ? batchLot.Laboratory : null,
         LaboratoryCountry: batchLot ? batchLot.LaboratoryCountry : null,
-        presentation: batchLot ? batchLot.Presentation : null,
-        form: batchLot ? batchLot.form :null,
+        Presentation: batchLot ? batchLot.Presentation : null,
+        Form: batchLot ? batchLot.Form :null,
       };
 
       serialNumbersWithBatchInfo.push(serialNumberWithBatchInfo);
