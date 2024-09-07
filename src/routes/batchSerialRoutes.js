@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { setInspectionInspected, setInspectionRejected, checkDonationStatusController, getSerialNumberData } = require('../controllers/batchSerialController');
+const { setInspectionInspected, setInspectionRejected, checkDonationStatusController, getSerialNumberData,fetchSerialNumbersByBoxId } = require('../controllers/batchSerialController');
 
 // Route to update inspection status to 'inspected'
 router.put('/inspect/:batchSerialNumberId', setInspectionInspected);
@@ -9,6 +9,6 @@ router.put('/inspect/:batchSerialNumberId', setInspectionInspected);
 router.put('/reject/:batchSerialNumberId', setInspectionRejected);
 router.post('/checkDonationStatus', checkDonationStatusController);
 router.get('/:serialNumber', getSerialNumberData);
-
+router.get('/byBox/:boxId',fetchSerialNumbersByBoxId);
 
 module.exports = router;

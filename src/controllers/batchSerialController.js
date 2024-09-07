@@ -1,4 +1,4 @@
-const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData} = require('../services/batchSerialService');
+const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData,getSerialNumbersByBoxId} = require('../services/batchSerialService');
 
 /**
  * Controller to update inspection status to 'inspected'
@@ -71,9 +71,46 @@ const getSerialNumberData = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const fetchSerialNumbersByBoxId = async (req, res) => {
+  const { boxId } = req.params;  // Assuming BoxId is provided as a route parameter
+
+  try {
+    if (!boxId) {
+      return res.status(400).json({
+        success: false,
+        message: "BoxId is required."
+      });
+    }
+
+    // Call the service to get serial numbers and batch lot information
+    const result = await getSerialNumbersByBoxId(boxId);
+
+    if (result.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: `No serial numbers found for BoxId: ${boxId}`
+      });
+    }
+
+    // Success response with fetched data
+    return res.status(200).json({
+      success: true,
+      message: `Serial numbers and batch lot information for BoxId: ${boxId}`,
+      data: result
+    });
+  } catch (error) {
+    console.error(`Error fetching serial numbers by BoxId: ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      message: `Internal server error: ${error.message}`
+    });
+  }
+};
+
 module.exports = {
   setInspectionInspected,
   setInspectionRejected,
   checkDonationStatusController,
-  getSerialNumberData
+  getSerialNumberData,
+  fetchSerialNumbersByBoxId
 };

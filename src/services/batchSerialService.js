@@ -167,10 +167,55 @@ const fetchSerialNumberData = async (serialNumber) => {
     throw new Error('Failed to fetch serial number data');
   }
 };
+const getSerialNumbersByBoxId = async (boxId) => {
+  if (!boxId) {
+    throw new Error("Missing required parameter: boxId must be provided.");
+  }
+
+  try {
+    console.log(`Fetching serial numbers for BoxId: ${boxId}`);
+
+    // Fetch serial numbers associated with the provided BoxId
+    const serialNumbers = await BatchSerialNumber.findAll({
+      where: { BoxId: boxId },  // Find serial numbers related to the box
+    });
+
+    const serialNumbersWithBatchInfo = [];
+
+    for (let serialNumber of serialNumbers) {
+      // Fetch the corresponding batch lot using BatchId from the serial number
+      const batchLot = await BatchLotTracking.findOne({
+        where: { BatchLotId: serialNumber.BatchId }
+      });
+
+      // Prepare the result with both serial number and batch lot info
+      const serialNumberWithBatchInfo = {
+        SerialNumber: serialNumber.SerialNumber,
+        BatchLotId: serialNumber.BatchId,
+        DrugName: batchLot ? batchLot.DrugName : null,
+        GTIN: batchLot ? batchLot.GTIN : null,
+        BatchNumber: batchLot ? batchLot.BatchNumber : null,
+        ExpiryDate: batchLot ? batchLot.ExpiryDate : null,
+        Quantity: batchLot ? batchLot.Quantity : null,
+        Laboratory: batchLot ? batchLot.Laboratory : null,
+        LaboratoryCountry: batchLot ? batchLot.LaboratoryCountry : null,
+      };
+
+      serialNumbersWithBatchInfo.push(serialNumberWithBatchInfo);
+    }
+
+    console.log("Serial numbers with batch info fetched successfully:", serialNumbersWithBatchInfo);
+    return serialNumbersWithBatchInfo;
+  } catch (error) {
+    console.error(`Error fetching serial numbers by BoxId: ${error.message}`);
+    throw error;
+  }
+};
 
 module.exports = {
   updateInspectionInspected,
   updateInspectionRejected,
   checkDonationStatus,
-  fetchSerialNumberData
+  fetchSerialNumberData,
+  getSerialNumbersByBoxId 
 };
