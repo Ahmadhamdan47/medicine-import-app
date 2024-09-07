@@ -106,7 +106,7 @@ const fetchSerialNumbersByBoxId = async (req, res) => {
     });
   }
 };
-const reportBatchSerialNumberController = async (req, res) => {
+const reportBatchSerialNumber = async (req, res) => {
   const { batchSerialNumberId } = req.params;
 
   try {
@@ -141,5 +141,5 @@ module.exports = {
   checkDonationStatusController,
   getSerialNumberData,
   fetchSerialNumbersByBoxId,
-  reportBatchSerialNumberController
+  reportBatchSerialNumber
 };
