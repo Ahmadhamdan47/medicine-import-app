@@ -23,9 +23,9 @@ BatchSerialNumber.init({
     allowNull: true,
   },
   Inspection: {
-    type: DataTypes.ENUM('null', 'rejected', 'inspected'),
+    type: DataTypes.ENUM('non-inspected', 'rejected', 'inspected'),
     allowNull: true,  // Allow null to indicate the inspection status
-    defaultValue: 'null',
+    defaultValue: 'non-inspected',
 },
 }, {
   sequelize,
