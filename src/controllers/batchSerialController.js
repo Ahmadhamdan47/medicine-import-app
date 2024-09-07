@@ -1,4 +1,4 @@
-const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData,getSerialNumbersByBoxId} = require('../services/batchSerialService');
+const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData,getSerialNumbersByBoxId, reportBatchSerialNumber} = require('../services/batchSerialService');
 
 /**
  * Controller to update inspection status to 'inspected'
