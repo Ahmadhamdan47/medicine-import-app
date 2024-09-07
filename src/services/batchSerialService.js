@@ -1,5 +1,7 @@
 const BatchSerialNumber = require('../models/batchserialnumber');
 const BatchLotTracking = require('../models/batchLot');
+const moment = require('moment');
+const TIME_LIMIT_MINUTES = 15; // You can change this value as needed
 
 /**
  * Update inspection status of a batch serial number to 'inspected'
@@ -14,6 +16,14 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
       throw new Error('Batch serial number not found');
     }
 
+    const now = moment(); // Get the current time
+    const lastUpdated = moment(batchSerialNumber.lastUpdated);
+
+    // Check if the time difference is within the allowed limit
+    if (batchSerialNumber.lastUpdated && now.diff(lastUpdated, 'minutes') > TIME_LIMIT_MINUTES) {
+      return { message: `Changes can only be made within ${TIME_LIMIT_MINUTES} minutes of the last update.` };
+    }
+
     // Check if the SerialNumber has already been inspected or rejected
     if (batchSerialNumber.Inspection === 'inspected') {
       return { message: 'This pack was already inspected before.' };
@@ -23,8 +33,9 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
       return { message: 'This pack was already rejected before.' };
     }
 
-    // Update the Inspection status to 'inspected'
+    // Update the Inspection status to 'inspected' and set the lastUpdated timestamp
     batchSerialNumber.Inspection = 'inspected';
+    batchSerialNumber.lastUpdated = now.toDate();
     await batchSerialNumber.save();
 
     return batchSerialNumber;
@@ -32,6 +43,7 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
     throw new Error(`Failed to update inspection status: ${error.message}`);
   }
 };
+
 
 /**
  * Update inspection status of a batch serial number to 'rejected'
@@ -46,6 +58,14 @@ const updateInspectionRejected = async (batchSerialNumberId) => {
       throw new Error('Batch serial number not found');
     }
 
+    const now = moment(); // Get the current time
+    const lastUpdated = moment(batchSerialNumber.lastUpdated);
+
+    // Check if the time difference is within the allowed limit
+    if (batchSerialNumber.lastUpdated && now.diff(lastUpdated, 'minutes') > TIME_LIMIT_MINUTES) {
+      return { message: `Changes can only be made within ${TIME_LIMIT_MINUTES} minutes of the last update.` };
+    }
+
     // Check if the SerialNumber has already been inspected or rejected
     if (batchSerialNumber.Inspection === 'inspected') {
       return { message: 'This pack was already inspected before.' };
@@ -55,8 +75,9 @@ const updateInspectionRejected = async (batchSerialNumberId) => {
       return { message: 'This pack was already rejected before.' };
     }
 
-    // Update the Inspection status to 'rejected'
+    // Update the Inspection status to 'rejected' and set the lastUpdated timestamp
     batchSerialNumber.Inspection = 'rejected';
+    batchSerialNumber.lastUpdated = now.toDate();
     await batchSerialNumber.save();
 
     return batchSerialNumber;

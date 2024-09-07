@@ -36,6 +36,10 @@ BatchSerialNumber.init({
     allowNull: true,
     defaultValue: 'non-inspected',
   },
+  lastUpdated: {
+    type: DataTypes.DATE,
+    allowNull: true, // Tracks the last time the status was updated
+  }
 }, {
   sequelize,
   modelName: 'BatchSerialNumber',
