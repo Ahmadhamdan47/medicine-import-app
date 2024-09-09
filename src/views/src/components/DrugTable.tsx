@@ -19,8 +19,8 @@ const DrugTable: React.FC = () => {
   const [sortByATC, setSortByATC] = useState(false); // State to track sorting by ATC
 
   useEffect(() => {
-    fetchDrugs(currentPage, rowsPerPage);
-  }, [currentPage, rowsPerPage]);
+    fetchDrugs(currentPage, rowsPerPage, sortByATC);
+  }, [currentPage, rowsPerPage, sortByATC]);
 
   const fetchPresentation = async (drugID: number) => {
     try {
@@ -42,10 +42,11 @@ const DrugTable: React.FC = () => {
     }
   };
 
-  const fetchDrugs = async (page = 1, limit = rowsPerPage) => {
+  const fetchDrugs = async (page = 1, limit = rowsPerPage, sortByATC = false) => {
     setIsLoading(true); // Start loading
     try {
-      const response = await axios.get(`/drugs/paginated?page=${page}&limit=${limit}`);
+      const endpoint = sortByATC ? '/drugs/paginatedByATC' : '/drugs/paginated';
+      const response = await axios.get(`${endpoint}?page=${page}&limit=${limit}`);
       const { drugs, totalPages } = response.data;
 
       const drugsWithDetails = await Promise.all(drugs.map(async (drug: any) => {
@@ -64,7 +65,7 @@ const DrugTable: React.FC = () => {
         DrugName: drug.DrugName || 'N/A',
         DrugNameAR: drug.DrugNameAR || 'N/A',
         ProductType: drug.ProductType || 'N/A',
-        ATC: drug.ATC || 'N/A',
+        ATC: drug.ATC_Code || 'N/A', // Adjusted here for ATC_Code
         ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
         OtherIngredients: drug.OtherIngredients || 'N/A',
         Dosage: drug.Dosage || 'N/A',
@@ -117,6 +118,10 @@ const DrugTable: React.FC = () => {
     }
   };
 
+  const handleSortByATC = () => {
+    setSortByATC(prev => !prev);
+  };
+
   const handleSearch = () => {
     if (searchQuery) {
       const filteredData = allData.filter(drug =>
@@ -148,7 +153,7 @@ const DrugTable: React.FC = () => {
   const handleRowsPerPageChange = (event: any) => {
     const newRowsPerPage = parseInt(event.target.value, 10);
     setRowsPerPage(newRowsPerPage);
-    fetchDrugs(currentPage, newRowsPerPage);
+    fetchDrugs(currentPage, newRowsPerPage, sortByATC);
   };
 
   const handleDeleteRow = async (row: any) => {
@@ -167,7 +172,7 @@ const DrugTable: React.FC = () => {
 
   const handlePageChange = (newPage: any) => {
     setCurrentPage(newPage);
-    fetchDrugs(newPage, rowsPerPage);
+    fetchDrugs(newPage, rowsPerPage, sortByATC);
   };
 
   const renderPaginationControls = () => (
@@ -234,7 +239,19 @@ const DrugTable: React.FC = () => {
       { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
       { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
       { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
-      { accessorKey: 'ATC', header: 'ATC', size: 80 },
+      {
+        accessorKey: 'ATC',
+        header: 'ATC',
+        size: 80,
+        Cell: ({ cell }) => (
+          <span
+            onClick={handleSortByATC}
+            style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+          >
+            {cell.getValue() as string}
+          </span>
+        ),
+      },
       { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient', size: 150 },
       { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
       { accessorKey: 'Dosage', header: 'Dosage', size: 100 },
@@ -331,7 +348,6 @@ const DrugTable: React.FC = () => {
         DrugID: false,
         DrugNameAR: false,
         isOTC: false,
-        Parentaral: false,
         PresentationUnitQuantity1: false,
         PresentationUnitType1: false,
         PresentationUnitQuantity2: false,
