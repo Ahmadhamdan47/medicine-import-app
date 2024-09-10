@@ -56,4 +56,13 @@ const getIsActiveStatus = async (req, res) => {
         res.status(500).json({ error: error.message || 'An error occurred while fetching the isActive status.' });
     }
 };
-module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername, getIsActiveStatus };
+const getDonorById = async (req, res) => {
+    try {
+        const { donorId } = req.params;
+        const donor = await donorService.getDonorById(donorId);
+        res.status(200).json(donor);
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
+module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername, getIsActiveStatus, getDonorById  };

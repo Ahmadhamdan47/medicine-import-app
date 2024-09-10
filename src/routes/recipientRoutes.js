@@ -62,5 +62,5 @@ router.post("/add", recipientController.addRecipient);
 router.get("/all", recipientController.getAllRecipients);
 router.put("/:recipientId", recipientController.editRecipient);
 router.delete("/:recipientId", recipientController.deleteRecipient);
-
+router.get("/:recipientId", recipientController.getRecipientById)
 module.exports = router;

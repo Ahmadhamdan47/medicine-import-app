@@ -37,5 +37,13 @@ const deleteRecipient = async (req, res) => {
         res.status(500).json({ error: error.toString() });
     }
 };
-
-module.exports = { addRecipient, getAllRecipients, editRecipient, deleteRecipient };
+const getRecipientById = async (req, res) => {
+    try {
+        const { recipientId } = req.params;
+        const recipient = await recipientService.getRecipientById(recipientId);
+        res.status(200).json(recipient);
+    } catch (error) {
+        res.status(404).json({ error: error.message });
+    }
+};
+module.exports = { addRecipient, getAllRecipients, editRecipient, deleteRecipient, getRecipientById };

@@ -72,4 +72,16 @@ const getIsActiveByDonorId = async (donorId) => {
         throw error;
     }
 };
-module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername, getIsActiveByDonorId };
+const getDonorById = async (donorId) => {
+    try {
+        const donor = await Donor.findByPk(donorId); // Find donor by primary key (DonorId)
+        if (!donor) {
+            throw new Error('Donor not found');
+        }
+        return donor;
+    } catch (error) {
+        console.error('Error fetching donor by ID:', error);
+        throw new Error('Error in getDonorById: ' + error.message);
+    }
+};
+module.exports = { addDonor, getAllDonors, editDonor, deleteDonor, getDonorByUsername, getIsActiveByDonorId, getDonorById };

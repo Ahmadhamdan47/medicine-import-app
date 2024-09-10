@@ -42,5 +42,16 @@ const deleteRecipient = async (recipientId) => {
         throw new Error('Error in recipientService: ' + error.message);
     }
 };
-
-module.exports = { addRecipient, getAllRecipients, editRecipient, deleteRecipient };
+const getRecipientById = async (recipientId) => {
+    try {
+        const recipient = await Recipient.findByPk(recipientId);
+        if (!recipient) {
+            throw new Error('Recipient not found');
+        }
+        return recipient;
+    } catch (error) {
+        console.error('Error fetching recipient by ID:', error);
+        throw new Error('Error in getRecipientById: ' + error.message);
+    }
+};
+module.exports = { addRecipient, getAllRecipients, editRecipient, deleteRecipient,getRecipientById };

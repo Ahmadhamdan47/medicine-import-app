@@ -179,5 +179,5 @@ router.get('/byUsername/:username', donorController.getDonorByUsername);
  *         description: Internal Server Error. Failed to retrieve donor status.
  */
 router.get('/isActive/:donorId', donorController.getIsActiveStatus);
-
+router.get('/:donorId',donorController.getDonorById)
 module.exports = router;
