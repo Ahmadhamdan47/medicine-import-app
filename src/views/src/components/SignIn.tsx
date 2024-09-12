@@ -31,7 +31,7 @@ const SignIn: React.FC = () => {
 
       if (username === 'testuser') {
         navigate('/adminMainPage');
-      } else if (username === 'Nizar') {
+      } else if (username === 'Nizar'|| username === 'Psmanager') {
         navigate('/agentMainPage');
       } else {
         navigate('/dashboard'); // Default redirection if username doesn't match
