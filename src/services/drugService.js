@@ -981,6 +981,140 @@ const deletePresentationsByDrugId = async (DrugID, transaction) => {
     throw new Error('Error occurred in deletePresentationsByDrugId: ' + error.message);
   }
 };
+const fetchDrugDataFromServer = async () => {
+  try {
+    // Fetch drug data from the server
+    const drugs = await Drug.findAll({
+      attributes: [
+        'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
+        'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
+        'Country', 'MoPHCode', 'UpdatedDate'
+      ],
+    });
+
+    // Manually map database columns to camelCase fields
+    return drugs.map(drug => ({
+      drugId: drug.DrugID,
+      drugName: drug.DrugName,
+      drugNameAr: drug.DrugNameAR,
+      manufacturerId: drug.ManufacturerID,
+      productType: drug.ProductType,
+      price: drug.Price,
+      atcRelatedIngredient: drug.ATCRelatedIngredient,
+      imagesPath: drug.ImagesPath,
+      subsidyPercentage: drug.SubsidyPercentage,
+      notMarketed: drug.NotMarketed,
+      isOtc: drug.isOTC,
+      registrationNumber: drug.RegistrationNumber,
+      substitutable: drug.Substitutable,
+      amount: drug.Amount,
+      dosage: drug.Dosage,
+      form: drug.Form,
+      route: drug.Route,
+      presentation: drug.Presentation,
+      agent: drug.Agent,
+      manufacturer: drug.Manufacturer,
+      country: drug.Country,
+      moPhCode: drug.MoPHCode,
+      updatedDate: drug.UpdatedDate
+    }));
+  } catch (error) {
+    console.error('Error fetching drug data from server:', error);
+    throw new Error('Error fetching drug data from server');
+  }
+};
+
+const fetchAndUpdateDrugs = async (updateDrugIds) => {
+  try {
+    if (updateDrugIds.length === 0) {
+      console.log('No updates required.');
+      return;
+    }
+
+    // Fetch the updated data for the drugs needing updates
+    const updatedDrugs = await Drug.findAll({
+      where: {
+        DrugID: {
+          [Op.in]: updateDrugIds
+        }
+      },
+      attributes: [
+        'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
+        'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
+        'Country', 'MoPHCode', 'UpdatedDate'
+      ]
+    });
+
+    // Replace the local copy with the updated data in the database
+    for (const updatedDrug of updatedDrugs) {
+      await Drug.update(
+        {
+          DrugName: updatedDrug.DrugName,
+          DrugNameAR: updatedDrug.DrugNameAR,
+          ManufacturerID: updatedDrug.ManufacturerID,
+          ProductType: updatedDrug.ProductType,
+          Price: updatedDrug.Price,
+          ATCRelatedIngredient: updatedDrug.ATCRelatedIngredient,
+          ImagesPath: updatedDrug.ImagesPath,
+          SubsidyPercentage: updatedDrug.SubsidyPercentage,
+          NotMarketed: updatedDrug.NotMarketed,
+          isOTC: updatedDrug.isOTC,
+          RegistrationNumber: updatedDrug.RegistrationNumber,
+          Substitutable: updatedDrug.Substitutable,
+          Amount: updatedDrug.Amount,
+          Dosage: updatedDrug.Dosage,
+          Form: updatedDrug.Form,
+          Route: updatedDrug.Route,
+          Presentation: updatedDrug.Presentation,
+          Agent: updatedDrug.Agent,
+          Manufacturer: updatedDrug.Manufacturer,
+          Country: updatedDrug.Country,
+          MoPHCode: updatedDrug.MoPHCode,
+          UpdatedDate: updatedDrug.UpdatedDate
+        },
+        { where: { DrugID: updatedDrug.DrugID } }
+      );
+    }
+
+    console.log('Drugs updated successfully.');
+  } catch (error) {
+    console.error('Error fetching or updating drugs:', error);
+    throw new Error('Error fetching or updating drugs');
+  }
+};
+
+const checkForDrugUpdates = async () => {
+  try {
+    // Fetch all drugs in the local database
+    const localDrugs = await Drug.findAll({
+      attributes: ['DrugID', 'UpdatedDate']
+    });
+
+    const drugsNeedingUpdate = [];
+
+    for (const localDrug of localDrugs) {
+      // Fetch the server data to compare with local data
+      const serverDrug = await Drug.findOne({
+        where: { DrugID: localDrug.DrugID },
+        attributes: ['DrugID', 'UpdatedDate']
+      });
+
+      // Compare timestamps, if server version is newer, mark for update
+      if (serverDrug && new Date(serverDrug.UpdatedDate) > new Date(localDrug.UpdatedDate)) {
+        drugsNeedingUpdate.push(localDrug.DrugID);
+      }
+    }
+
+    return drugsNeedingUpdate;
+  } catch (error) {
+    console.error('Error checking for drug updates:', error);
+    throw new Error('Error checking for drug updates');
+  }
+};
+
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -1008,6 +1142,9 @@ module.exports = {
   deleteDosagesByDrugId,
   deletePresentationsByDrugId,
   getAllDrugsPaginated,
-  getAllDrugsPaginatedByATC
+  getAllDrugsPaginatedByATC,
+  fetchAndUpdateDrugs,
+  fetchDrugDataFromServer,
+  checkForDrugUpdates
   
 };

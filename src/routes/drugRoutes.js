@@ -611,4 +611,85 @@ router.put('/update/:DrugID', drugController.updateDrug);
 router.get("/paginated", drugController.getAllDrugsPaginated);
 router.get("/paginatedByATC", drugController.getAllDrugsPaginatedByATC);
 
+/**
+ * @swagger
+ * /drugs/fetch:
+ *   get:
+ *     summary: Fetch drug data from server
+ *     description: Retrieve drug data from the server.
+ *     tags: [Drug]
+ *     responses:
+ *       '200':
+ *         description: OK. Drug data retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   drugId:
+ *                     type: integer
+ *                   drugName:
+ *                     type: string
+ *                   drugNameAr:
+ *                     type: string
+ *                   manufacturerId:
+ *                     type: integer
+ *                   price:
+ *                     type: number
+ *       '500':
+ *         description: Internal Server Error. Failed to fetch drug data.
+ */
+router.get("/fetch", drugController.fetchDrugData);
+
+/**
+ * @swagger
+ * /drugs/checkUpdates:
+ *   get:
+ *     summary: Check for drug updates
+ *     description: Check if any local drugs need updates by comparing with the server's data.
+ *     tags: [Drug]
+ *     responses:
+ *       '200':
+ *         description: OK. Updates needed for the following drug IDs.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: integer
+ *       '500':
+ *         description: Internal Server Error. Failed to check for updates.
+ */
+router.get("/checkUpdates", drugController.checkForUpdates);
+
+/**
+ * @swagger
+ * /drugs/applyUpdates:
+ *   post:
+ *     summary: Apply drug updates
+ *     description: Fetch and apply updates for the specified drug IDs.
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               updateDrugIds:
+ *                 type: array
+ *                 items:
+ *                   type: integer
+ *     responses:
+ *       '200':
+ *         description: OK. Drugs updated successfully.
+ *       '400':
+ *         description: Bad Request. Invalid drug IDs provided.
+ *       '500':
+ *         description: Internal Server Error. Failed to update drugs.
+ */
+router.post("/applyUpdates", drugController.fetchAndApplyUpdates);
+
 module.exports = router;

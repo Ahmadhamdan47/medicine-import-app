@@ -275,6 +275,53 @@ const deletePresentationsByDrugId = async (req, res) => {
     res.status(500).json({ error: error.toString() });
   }
 };
+const fetchDrugData = async (req, res) => {
+  try {
+    // Call the service to fetch data from the server
+    const drugs = await DrugService.fetchDrugDataFromServer();
+
+    // Return the fetched data as a JSON response
+    return res.status(200).json({
+      success: true,
+      data: drugs,
+    });
+  } catch (error) {
+    console.error('Error in fetchDrugData controller:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to fetch drug data from the server.',
+      error: error.message
+    });
+  }
+};
+const checkForUpdates = async (req, res) => {
+  try {
+    const drugsNeedingUpdate = await DrugService.checkForDrugUpdates();
+    return res.status(200).json({ success: true, data: drugsNeedingUpdate });
+  } catch (error) {
+    console.error('Error in checkForUpdates controller:', error);
+    return res.status(500).json({ success: false, message: 'Failed to check for updates.' });
+  }
+};
+
+const fetchAndApplyUpdates = async (req, res) => {
+  try {
+    const { updateDrugIds } = req.body;
+
+    if (!updateDrugIds || !Array.isArray(updateDrugIds) || updateDrugIds.length === 0) {
+      return res.status(400).json({ success: false, message: 'Invalid or empty updateDrugIds array provided.' });
+    }
+
+    await DrugService.fetchAndUpdateDrugs(updateDrugIds);
+
+    return res.status(200).json({ success: true, message: 'Drugs updated successfully.' });
+  } catch (error) {
+    console.error('Error in fetchAndApplyUpdates controller:', error);
+    return res.status(500).json({ success: false, message: 'Failed to update drugs.' });
+  }
+};
+
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -304,4 +351,7 @@ module.exports = {
   deletePresentationsByDrugId,
   getAllDrugsPaginated,
   getAllDrugsPaginatedByATC,
+  fetchDrugData,
+  fetchAndApplyUpdates,
+  checkForUpdates
 };
