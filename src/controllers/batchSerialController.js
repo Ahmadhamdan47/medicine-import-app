@@ -7,9 +7,14 @@ const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus
  */
 const setInspectionInspected = async (req, res) => {
   const { batchSerialNumberId } = req.params;
+  const inspectedBy = req.body.inspectedBy; // Extracting inspectedBy from the request body
+
+  if (!inspectedBy) {
+    return res.status(400).json({ message: 'Inspected by field is required.' });
+  }
 
   try {
-    const result = await updateInspectionInspected(batchSerialNumberId);
+    const result = await updateInspectionInspected(batchSerialNumberId, inspectedBy);
 
     if (result.message) {
       // If a message is returned, send it as a response

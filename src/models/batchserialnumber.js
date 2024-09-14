@@ -36,6 +36,10 @@ BatchSerialNumber.init({
     allowNull: true,
     defaultValue: 'non-inspected',
   },
+  inspectedBy: {  // New column for indicating the source of inspection
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   lastUpdated: {
     type: DataTypes.DATE,
     allowNull: true, // Tracks the last time the status was updated

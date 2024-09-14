@@ -43,6 +43,7 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
 
     // Update the Inspection status to 'inspected' and set the lastUpdated timestamp
     batchSerialNumber.Inspection = 'inspected';
+  batchSerialNumber.inspectedBy = inspectedBy; // Saving who inspected the batch
     batchSerialNumber.lastUpdated = now.toDate();
     await batchSerialNumber.save();
 
