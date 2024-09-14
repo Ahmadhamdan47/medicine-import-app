@@ -14,6 +14,7 @@ const setInspectionInspected = async (req, res) => {
   }
 
   try {
+    // Pass the inspectedBy field to the updateInspectionInspected function
     const result = await updateInspectionInspected(batchSerialNumberId, inspectedBy);
 
     if (result.message) {

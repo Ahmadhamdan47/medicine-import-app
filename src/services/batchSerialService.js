@@ -11,7 +11,7 @@ const TIME_LIMIT_MINUTES = 15; // You can change this value as needed
  * @param {number} batchSerialNumberId - The ID of the batch serial number to update
  * @returns {Promise<Object>} - Resolves with a message or the updated batch serial number
  */
-const updateInspectionInspected = async (batchSerialNumberId) => {
+const updateInspectionInspected = async (batchSerialNumberId, inspectedBy) => { // Accept inspectedBy as a parameter
   try {
     const batchSerialNumber = await BatchSerialNumber.findByPk(batchSerialNumberId);
 
@@ -41,9 +41,9 @@ const updateInspectionInspected = async (batchSerialNumberId) => {
       return { message: 'This pack was already rejected before.' };
     }
 
-    // Update the Inspection status to 'inspected' and set the lastUpdated timestamp
+    // Update the Inspection status to 'inspected', set inspectedBy, and lastUpdated timestamp
     batchSerialNumber.Inspection = 'inspected';
-  batchSerialNumber.inspectedBy = inspectedBy; // Saving who inspected the batch
+    batchSerialNumber.inspectedBy = inspectedBy; // Set inspectedBy to the value passed from the frontend
     batchSerialNumber.lastUpdated = now.toDate();
     await batchSerialNumber.save();
 
