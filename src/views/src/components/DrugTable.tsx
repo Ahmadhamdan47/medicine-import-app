@@ -17,6 +17,7 @@ const DrugTable: React.FC = () => {
   const [rowsPerPage, setRowsPerPage] = useState(25); // Default rows per page
   const [searchQuery, setSearchQuery] = useState("");
   const [sortByATC, setSortByATC] = useState(false); // State to track sorting by ATC
+  const [columnPreset, setColumnPreset] = useState<string>('default');
 
   useEffect(() => {
     fetchDrugs(currentPage, rowsPerPage, sortByATC);
@@ -109,7 +110,7 @@ const DrugTable: React.FC = () => {
       }));
 
       setAllData(formattedData);
-      setTableData(formattedData);
+      setTableData(formattedData.slice((page - 1) * rowsPerPage, page * rowsPerPage));
       setTotalPages(totalPages);
     } catch (error) {
       console.error("Error fetching drugs:", error);
@@ -153,7 +154,8 @@ const DrugTable: React.FC = () => {
   const handleRowsPerPageChange = (event: any) => {
     const newRowsPerPage = parseInt(event.target.value, 10);
     setRowsPerPage(newRowsPerPage);
-    fetchDrugs(currentPage, newRowsPerPage, sortByATC);
+    setCurrentPage(1); // Reset to first page when changing rows per page
+    fetchDrugs(1, newRowsPerPage, sortByATC);
   };
 
   const handleDeleteRow = async (row: any) => {
@@ -170,7 +172,7 @@ const DrugTable: React.FC = () => {
     }
   };
 
-  const handlePageChange = (newPage: any) => {
+  const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
     fetchDrugs(newPage, rowsPerPage, sortByATC);
   };
@@ -182,12 +184,12 @@ const DrugTable: React.FC = () => {
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        bottom: '20px',
-        right: '20px',
+        padding: '10px',
+        position: 'relative',
       }}
     >
       <label style={{ marginRight: '10px' }}>Rows per page:</label>
-      <select value={rowsPerPage} onChange={handleRowsPerPageChange} style={{ marginRight: '20px' }}>
+      <select value={rowsPerPage} onChange={handleRowsPerPageChange} style={{ marginRight: '10px' }}>
         <option value={10}>10</option>
         <option value={25}>25</option>
         <option value={50}>50</option>
@@ -201,7 +203,7 @@ const DrugTable: React.FC = () => {
         style={{
           width: '80px',
           padding: '5px 10px',
-          margin: '5px',
+          margin: '0 5px',
           fontSize: '12px',
           cursor: 'pointer',
         }}
@@ -211,7 +213,6 @@ const DrugTable: React.FC = () => {
       <span
         style={{
           padding: '5px 10px',
-          margin: '5px',
           fontSize: '14px',
         }}
       >
@@ -223,7 +224,7 @@ const DrugTable: React.FC = () => {
         style={{
           width: '80px',
           padding: '5px 10px',
-          margin: '5px',
+          margin: '0 5px',
           fontSize: '12px',
           cursor: 'pointer',
         }}
@@ -234,101 +235,142 @@ const DrugTable: React.FC = () => {
   );
 
   const columns = useMemo<MRT_ColumnDef<any>[]>(
-    () => [
-      { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
-      { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
-      { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
-      { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
-      {
-        accessorKey: 'ATC',
-        header: 'ATC',
-        size: 80,
-        Cell: ({ cell }) => (
-          <span
-            onClick={handleSortByATC}
-            style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
-          >
-            {cell.getValue() as string}
-          </span>
-        ),
-      },
-      { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient', size: 150 },
-      { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
-      { accessorKey: 'Dosage', header: 'Dosage', size: 100 },
-      { accessorKey: 'DosageNumerator1', header: 'Dosage Numerator 1', size: 120 },
-      { accessorKey: 'DosageNumerator1Unit', header: 'Dosage Numerator 1 Unit', size: 150 },
-      { accessorKey: 'DosageDenominator1', header: 'Dosage Denominator 1', size: 150 },
-      { accessorKey: 'DosageDenominator1Unit', header: 'Dosage Denominator 1 Unit', size: 150 },
-      { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
-      { accessorKey: 'DosageNumerator2Unit', header: 'Dosage Numerator 2 Unit', size: 150 },
-      { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
-      { accessorKey: 'DosageDenominator2Unit', header: 'Dosage Denominator 2 Unit', size: 150 },
-      { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
-      { accessorKey: 'DosageNumerator3Unit', header: 'Dosage Numerator 3 Unit', size: 150 },
-      { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
-      { accessorKey: 'DosageDenominator3Unit', header: 'Dosage Denominator 3 Unit', size: 150 },
-      { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
-      { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
-      { accessorKey: 'Form', header: 'Form', size: 100 },
-      { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
-      { accessorKey: 'Presentation', header: 'Presentation', size: 120 },
-      { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
-      { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
-      { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
-      { accessorKey: 'PresentationUnitType2', header: 'Presentation Unit Type 2', size: 150 },
-      { accessorKey: 'PresentationPackageQuantity1', header: 'Presentation Package Quantity 1', size: 180 },
-      { accessorKey: 'PresentationPackageType1', header: 'Presentation Package Type 1', size: 150 },
-      { accessorKey: 'PresentationPackageQuantity2', header: 'Presentation Package Quantity 2', size: 180 },
-      { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
-      { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
-      { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
-      { accessorKey: 'PresentationDescription', header: 'Presentation Description', size: 180 },
-      { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
-      { accessorKey: 'Route', header: 'Route', size: 100 },
-      { accessorKey: 'Parentaral', header: 'Parentaral', size: 60 },
-      { accessorKey: 'Stratum', header: 'Stratum', size: 100 },
-      { accessorKey: 'Amount', header: 'Amount', size: 80 },
-      { accessorKey: 'Agent', header: 'Agent', size: 100 },
-      { accessorKey: 'Manufacturer', header: 'Manufacturer', size: 120 },
-      { accessorKey: 'Country', header: 'Country', size: 80 },
-      { accessorKey: 'ManufacturerID', header: 'ManufacturerID', size: 120 },
-      { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
-      { accessorKey: 'Notes', header: 'Notes', size: 100 },
-      { accessorKey: 'Description', header: 'Description', size: 120 },
-      { accessorKey: 'Indication', header: 'Indication', size: 100 },
-      { accessorKey: 'Posology', header: 'Posology', size: 100 },
-      { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration', size: 180 },
-      { accessorKey: 'Contraindications', header: 'Contraindications', size: 150 },
-      { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse', size: 150 },
-      { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN', size: 120 },
-      { accessorKey: 'SideEffect', header: 'SideEffect', size: 100 },
-      { accessorKey: 'Toxicity', header: 'Toxicity', size: 80 },
-      { accessorKey: 'StorageCondition', header: 'StorageCondition', size: 150 },
-      { accessorKey: 'ShelfLife', header: 'ShelfLife', size: 100 },
-      { accessorKey: 'IngredientLabel', header: 'IngredientLabel', size: 150 },
-      { accessorKey: 'Price', header: 'Price', size: 80 },
-      { accessorKey: 'ImagesPath', header: 'ImagesPath', size: 100 },
-      { accessorKey: 'ImageDefault', header: 'ImageDefault', size: 100 },
-      { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName', size: 180 },
-      { accessorKey: 'IsDouanes', header: 'IsDouanes', size: 100 },
-      { accessorKey: 'RegistrationDate', header: 'RegistrationDate', size: 150 },
-      { accessorKey: 'PublicPrice', header: 'PublicPrice', size: 100 },
-      { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel', size: 100 },
-      { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage', size: 150 },
-      { accessorKey: 'HospPricing', header: 'HospPricing', size: 100 },
-      { accessorKey: 'Substitutable', header: 'Substitutable', size: 120 },
-      { accessorKey: 'CreatedBy', header: 'CreatedBy', size: 100 },
-      { accessorKey: 'CreatedDate', header: 'CreatedDate', size: 150 },
-      { accessorKey: 'UpdatedBy', header: 'UpdatedBy', size: 100 },
-      { accessorKey: 'UpdatedDate', header: 'UpdatedDate', size: 150 },
-      { accessorKey: 'ReviewDate', header: 'ReviewDate', size: 100 },
-      { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
-      { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
-      { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
-      { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
-      { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
-    ],
-    []
+    () => {
+      switch (columnPreset) {
+        case 'substitutionCheck':
+          return [
+            { accessorKey: 'ATC', header: 'ATC', size: 80 },
+            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+            { accessorKey: 'FormLNDI', header: 'Dosage LNDI', size: 100 },
+            { accessorKey: 'DosageNumerator1', header: 'Num1', size: 120 },
+            { accessorKey: 'DosageNumerator1Unit', header: 'Num1 Unit', size: 150 },
+            { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
+            { accessorKey: 'DosageDenominator1Unit', header: 'Deno1 Unit', size: 150 },
+            { accessorKey: 'DFSequence', header: 'D-F Sequence', size: 100 },
+            { accessorKey: 'Form', header: 'Form LNDI', size: 100 },
+            { accessorKey: 'Route', header: 'Route CLEAN', size: 100 },
+            { accessorKey: 'Parentaral', header: 'Parenteral (yes/no)', size: 60 },
+          ];
+        case 'atcCheck':
+          return [
+            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+            { accessorKey: 'ATC', header: 'ATC', size: 80 },
+            { accessorKey: 'ATCRelatedIngredient', header: 'ATC-related Ingredient', size: 150 },
+            { accessorKey: 'OtherIngredients', header: 'Ingredients', size: 150 },
+            { accessorKey: 'Dosage', header: 'Dosage (Num1, Num1Unit, Deno1, Deno1Unit...)', size: 200 },
+            { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
+          ];
+        case 'presentationCheck':
+          return [
+            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+            { accessorKey: 'FormLNDI', header: 'Presentation LNDI', size: 100 },
+            { accessorKey: 'PresentationUnitQuantity1', header: 'Unit Qtty CLEAN', size: 150 },
+            { accessorKey: 'PresentationUnitType1', header: 'Unit Type CLEAN', size: 150 },
+            { accessorKey: 'PresentationPackageType1', header: 'Package Type CLEAN', size: 150 },
+            { accessorKey: 'PresentationPackageQuantity2', header: 'PQ2', size: 150 },
+            { accessorKey: 'PresentationPackageType2', header: 'PT2', size: 150 },
+            { accessorKey: 'PresentationPackageQuantity3', header: 'PQ3', size: 150 },
+            { accessorKey: 'PresentationPackageType3', header: 'PT3', size: 150 },
+            { accessorKey: 'PresentationDescription', header: 'Description CLEAN', size: 180 },
+          ];
+        default:
+          return [
+            { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
+            { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
+            { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
+            { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
+            {
+              accessorKey: 'ATC',
+              header: 'ATC',
+              size: 80,
+              Cell: ({ cell }) => (
+                <span
+                  onClick={handleSortByATC}
+                  style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+                >
+                  {cell.getValue() as string}
+                </span>
+              ),
+            },
+            { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient', size: 150 },
+            { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
+            { accessorKey: 'Dosage', header: 'Dosage', size: 100 },
+            { accessorKey: 'DosageNumerator1', header: 'Dosage Numerator 1', size: 120 },
+            { accessorKey: 'DosageNumerator1Unit', header: 'Dosage Numerator 1 Unit', size: 150 },
+            { accessorKey: 'DosageDenominator1', header: 'Dosage Denominator 1', size: 150 },
+            { accessorKey: 'DosageDenominator1Unit', header: 'Dosage Denominator 1 Unit', size: 150 },
+            { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
+            { accessorKey: 'DosageNumerator2Unit', header: 'Dosage Numerator 2 Unit', size: 150 },
+            { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
+            { accessorKey: 'DosageDenominator2Unit', header: 'Dosage Denominator 2 Unit', size: 150 },
+            { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
+            { accessorKey: 'DosageNumerator3Unit', header: 'Dosage Numerator 3 Unit', size: 150 },
+            { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
+            { accessorKey: 'DosageDenominator3Unit', header: 'Dosage Denominator 3 Unit', size: 150 },
+            { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
+            { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
+            { accessorKey: 'Form', header: 'Form', size: 100 },
+            { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
+            { accessorKey: 'Presentation', header: 'Presentation', size: 120 },
+            { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
+            { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
+            { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
+            { accessorKey: 'PresentationUnitType2', header: 'Presentation Unit Type 2', size: 150 },
+            { accessorKey: 'PresentationPackageQuantity1', header: 'Presentation Package Quantity 1', size: 180 },
+            { accessorKey: 'PresentationPackageType1', header: 'Presentation Package Type 1', size: 150 },
+            { accessorKey: 'PresentationPackageQuantity2', header: 'Presentation Package Quantity 2', size: 180 },
+            { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
+            { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
+            { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
+            { accessorKey: 'PresentationDescription', header: 'Presentation Description', size: 180 },
+            { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
+            { accessorKey: 'Route', header: 'Route', size: 100 },
+            { accessorKey: 'Parentaral', header: 'Parentaral', size: 60 },
+            { accessorKey: 'Stratum', header: 'Stratum', size: 100 },
+            { accessorKey: 'Amount', header: 'Amount', size: 80 },
+            { accessorKey: 'Agent', header: 'Agent', size: 100 },
+            { accessorKey: 'Manufacturer', header: 'Manufacturer', size: 120 },
+            { accessorKey: 'Country', header: 'Country', size: 80 },
+            { accessorKey: 'ManufacturerID', header: 'ManufacturerID', size: 120 },
+            { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
+            { accessorKey: 'Notes', header: 'Notes', size: 100 },
+            { accessorKey: 'Description', header: 'Description', size: 120 },
+            { accessorKey: 'Indication', header: 'Indication', size: 100 },
+            { accessorKey: 'Posology', header: 'Posology', size: 100 },
+            { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration', size: 180 },
+            { accessorKey: 'Contraindications', header: 'Contraindications', size: 150 },
+            { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse', size: 150 },
+            { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN', size: 120 },
+            { accessorKey: 'SideEffect', header: 'SideEffect', size: 100 },
+            { accessorKey: 'Toxicity', header: 'Toxicity', size: 80 },
+            { accessorKey: 'StorageCondition', header: 'StorageCondition', size: 150 },
+            { accessorKey: 'ShelfLife', header: 'ShelfLife', size: 100 },
+            { accessorKey: 'IngredientLabel', header: 'IngredientLabel', size: 150 },
+            { accessorKey: 'Price', header: 'Price', size: 80 },
+            { accessorKey: 'ImagesPath', header: 'ImagesPath', size: 100 },
+            { accessorKey: 'ImageDefault', header: 'ImageDefault', size: 100 },
+            { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName', size: 180 },
+            { accessorKey: 'IsDouanes', header: 'IsDouanes', size: 100 },
+            { accessorKey: 'RegistrationDate', header: 'RegistrationDate', size: 150 },
+            { accessorKey: 'PublicPrice', header: 'PublicPrice', size: 100 },
+            { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel', size: 100 },
+            { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage', size: 150 },
+            { accessorKey: 'HospPricing', header: 'HospPricing', size: 100 },
+            { accessorKey: 'Substitutable', header: 'Substitutable', size: 120 },
+            { accessorKey: 'CreatedBy', header: 'CreatedBy', size: 100 },
+            { accessorKey: 'CreatedDate', header: 'CreatedDate', size: 150 },
+            { accessorKey: 'UpdatedBy', header: 'UpdatedBy', size: 100 },
+            { accessorKey: 'UpdatedDate', header: 'UpdatedDate', size: 150 },
+            { accessorKey: 'ReviewDate', header: 'ReviewDate', size: 100 },
+            { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
+            { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
+            { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
+            { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
+            { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
+          ];
+      }
+    },
+    [columnPreset]
   );
 
   const table = useMantineReactTable({
@@ -407,7 +449,7 @@ const DrugTable: React.FC = () => {
         NotMarketed: false,
         PriceForeign: false,
         CurrencyForeign: false,
-      }
+      },
     },
     onEditingRowSave: handleSaveRow,
     renderRowActionMenuItems: ({ row }) => [
@@ -422,9 +464,34 @@ const DrugTable: React.FC = () => {
   });
 
   return (
-    <div className="table-container">
-      <MantineReactTable table={table} />
-      {renderPaginationControls()}
+    <div className="table-container" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
+        <label htmlFor="columnPresetSelect" style={{ marginRight: '10px', fontWeight: 'bold', fontSize: '14px' }}>Select Column Preset:</label>
+        <select
+          id="columnPresetSelect"
+          value={columnPreset}
+          onChange={(e) => setColumnPreset(e.target.value)}
+          style={{
+            padding: '5px',
+            fontSize: '14px',
+            borderRadius: '4px',
+            border: '1px solid #ccc',
+            outline: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <option value="default">Default</option>
+          <option value="substitutionCheck">Substitution Check</option>
+          <option value="atcCheck">ATC Check</option>
+          <option value="presentationCheck">Presentation Check</option>
+        </select>
+      </div>
+      <div style={{ flex: '1 1 auto', overflowY: 'auto' }}>
+        <MantineReactTable table={table} />
+      </div>
+      <div style={{ flexShrink: 0 }}>
+        {renderPaginationControls()}
+      </div>
     </div>
   );
 };

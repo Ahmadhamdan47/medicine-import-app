@@ -591,7 +591,7 @@ router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryCont
  * tags: [Drug]
  * parameters:
  * - in: path
- * name: drugName
+ * name: drugNames
  * required: true
  * description: The name of the drug to retrieve substitutes for.
  * schema:

@@ -29,6 +29,7 @@
     "rizzui": "^0.8.4",
     "simplebar-react": "^3.2.5",
     "typescript": "^4.9.5",
+    "views": "file:",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
