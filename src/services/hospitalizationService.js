@@ -392,6 +392,58 @@ const addOperation= async (operationData, categoryPricingData) => {
       throw new Error("Failed to create hospitalization service");
   }
 };
+const filterOperations = async ({ system, name, hospitalCategoryType, hospitalName }) => {
+  const whereConditions = {};
+  const includeConditions = [];
+
+  // Filter by system
+  if (system) {
+    const operationSystem = await OperationSystems.findOne({
+      where: { [Op.or]: [{ systemName: system }, { NameAR: system }] },
+    });
+    if (!operationSystem) {
+      throw new Error('No matching operation system found');
+    }
+    whereConditions.systemChar = operationSystem.systemChar;
+  }
+
+  // Filter by operation name
+  if (name) {
+    whereConditions[Op.or] = [
+      { Name: { [Op.like]: `%${name}%` } },
+      { NameAR: { [Op.like]: `%${name}%` } },
+    ];
+  }
+
+  // Filter by hospital category type and hospital name
+  if (hospitalCategoryType || hospitalName) {
+    includeConditions.push({
+      model: HospitalOperationMapping,
+      required: true,
+      include: [
+        {
+          model: Hospital,
+          required: true,
+          where: {
+            ...(hospitalCategoryType && { categoryType: hospitalCategoryType }), // Ensure `categoryType` matches your model attribute
+            ...(hospitalName && { hospitalName: { [Op.like]: `%${hospitalName}%` } }), // Ensure `hospitalName` matches your model attribute
+          },
+        },
+      ],
+    });
+  }
+
+  // Fetch filtered operations
+  const operations = await Operation.findAll({
+    where: whereConditions,
+    include: includeConditions,
+  });
+
+  return operations;
+};
+
+
+
 module.exports = {
   searchOperationsBySystemPrivate,
   searchOperationsBySystemPublic,
@@ -406,5 +458,6 @@ module.exports = {
   getAllHospitals,
   getAllOperations,
   getAllOperationSystems,
-  addOperation
+  addOperation,
+  filterOperations
 };
