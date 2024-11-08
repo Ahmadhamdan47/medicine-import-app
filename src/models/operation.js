@@ -43,5 +43,6 @@ Operation.hasMany(CategoryPricing, {
     foreignKey: 'OperationId'
 });
 Operation.hasMany(HospitalOperationMapping, { foreignKey: 'OperationId' });
+HospitalOperationMapping.belongsTo(Operation, { foreignKey: 'OperationId' });
 
 module.exports = Operation;

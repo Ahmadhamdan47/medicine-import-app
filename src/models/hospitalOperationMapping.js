@@ -27,5 +27,7 @@ OperationId: {
   sequelize,
   tableName: 'hospitaloperationmapping',
 });
+HospitalOperationMapping.belongsTo(Hospital, { foreignKey: 'HospitalId' });
+Hospital.hasMany(HospitalOperationMapping, { foreignKey: 'HospitalId' });
 
 module.exports = HospitalOperationMapping;

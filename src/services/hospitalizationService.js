@@ -392,15 +392,20 @@ const addOperation= async (operationData, categoryPricingData) => {
       throw new Error("Failed to create hospitalization service");
   }
 };
+
 const filterOperations = async ({ system, name, hospitalCategoryType, hospitalName }) => {
   const whereConditions = {};
   const includeConditions = [];
+
+  console.log("Filter parameters received:", { system, name, hospitalCategoryType, hospitalName });
 
   // Filter by system
   if (system) {
     const operationSystem = await OperationSystems.findOne({
       where: { [Op.or]: [{ systemName: system }, { NameAR: system }] },
     });
+    console.log("System found:", operationSystem ? operationSystem.systemChar : "No system found");
+
     if (!operationSystem) {
       throw new Error('No matching operation system found');
     }
@@ -413,35 +418,51 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
       { Name: { [Op.like]: `%${name}%` } },
       { NameAR: { [Op.like]: `%${name}%` } },
     ];
+    console.log("Name filter applied:", whereConditions[Op.or]);
   }
 
-  // Filter by hospital category type and hospital name
-  if (hospitalCategoryType || hospitalName) {
-    includeConditions.push({
-      model: HospitalOperationMapping,
-      required: true,
-      include: [
-        {
-          model: Hospital,
-          required: true,
-          where: {
-            ...(hospitalCategoryType && { categoryType: hospitalCategoryType }), // Ensure `categoryType` matches your model attribute
-            ...(hospitalName && { hospitalName: { [Op.like]: `%${hospitalName}%` } }), // Ensure `hospitalName` matches your model attribute
-          },
+  // Determine `isPrivate` value based on `hospitalCategoryType`
+  let isPrivate = null;
+  if (hospitalCategoryType) {
+    if (hospitalCategoryType.toLowerCase() === 'private') {
+      isPrivate = true;
+    } else if (hospitalCategoryType.toLowerCase() === 'public') {
+      isPrivate = false;
+    }
+  }
+
+  // Filter by hospital name or isPrivate if specified
+  includeConditions.push({
+    model: HospitalOperationMapping,
+    required: false, // Allow operations without mappings to still be included
+    include: [
+      {
+        model: Hospital,
+        required: false,
+        where: {
+          ...(isPrivate !== null && { isPrivate }), // Filter by `isPrivate` if specified
+          ...(hospitalName && { hospitalName: { [Op.like]: `%${hospitalName}%` } }), // Filter by hospital name if provided
         },
-      ],
-    });
-  }
-
-  // Fetch filtered operations
-  const operations = await Operation.findAll({
-    where: whereConditions,
-    include: includeConditions,
+      },
+    ],
   });
 
-  return operations;
-};
+  console.log("Hospital filter conditions:", includeConditions);
 
+  try {
+    // Fetch filtered operations
+    const operations = await Operation.findAll({
+      where: whereConditions,
+      include: includeConditions,
+    });
+
+    console.log("Filtered operations result:", operations);
+    return operations;
+  } catch (error) {
+    console.error("Error during operation filtering:", error.message);
+    throw new Error("hospital is not associated to hospitaloperationmapping!");
+  }
+};
 
 
 module.exports = {
