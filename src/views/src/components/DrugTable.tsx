@@ -464,7 +464,7 @@ const DrugTable: React.FC = () => {
   });
 
   return (
-    <div className="table-container" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
+    <div className="table-container" style={{ height: '100vh', display: 'flex', flexDirection: 'column',overflow: 'hidden', }}>
       <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
         <label htmlFor="columnPresetSelect" style={{ marginRight: '10px', fontWeight: 'bold', fontSize: '14px' }}>Select Column Preset:</label>
         <select

@@ -93,7 +93,7 @@ const MainPage: React.FC = () => {
           </a>
           {showDropdown && (
             <div className="dropdown">
-              <button onClick={() => setShowDrugsTable(true)} style={{ color: 'black' }}>Drugs</button>
+              <button onClick={() => navigate('/drugs')} style={{ color: 'black' }}>Drugs</button>
             </div>
           )}
         </div>
