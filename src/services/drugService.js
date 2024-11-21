@@ -986,7 +986,7 @@ const fetchDrugDataFromServer = async () => {
     // Fetch drug data from the server
     const drugs = await Drug.findAll({
       attributes: [
-        'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'DrugID', 'DrugName', 'DrugNameAR','ATC_Code','Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
         'Country', 'MoPHCode', 'UpdatedDate'
@@ -998,6 +998,8 @@ const fetchDrugDataFromServer = async () => {
       drugId: drug.DrugID,
       drugName: drug.DrugName,
       drugNameAr: drug.DrugNameAR,
+      code:drug.ATC_Code,
+      stratum:drug.Stratum,
       manufacturerId: drug.ManufacturerID,
       productType: drug.ProductType,
       price: drug.Price,
