@@ -5,6 +5,9 @@ const Box = require('../box');
 const Donor = require('../donor');
 const Recipient = require('../recipient');
 const UserAccounts = require('../userAccounts');
+const DrugPresentation = require('../drugPresentation');
+const Drug = require('../pharmacyDrug');
+
 
 // Associations
 Donation.hasMany(Box, { foreignKey: 'DonationId' });

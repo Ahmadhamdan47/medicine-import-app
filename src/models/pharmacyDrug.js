@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
+const DrugPresentation = require('./drugPresentation');
+const Dosage = require('./dosage');
 
 const NewDrug = sequelize.define('drug', {
     DrugID: {
@@ -188,5 +190,9 @@ const NewDrug = sequelize.define('drug', {
     
 });
 
+NewDrug.hasMany(DrugPresentation, { foreignKey: 'DrugId' }); // Drug can have many presentations
+DrugPresentation.belongsTo(NewDrug, { foreignKey: 'DrugId' }); // Each presentation belongs to a drug
+NewDrug.hasMany(Dosage, { foreignKey: 'DrugId' }); // Drug can have many presentations
+Dosage.belongsTo(NewDrug, { foreignKey: 'DrugId' }); // Each presentation belongs to a drug
 
 module.exports = NewDrug;

@@ -20,8 +20,8 @@ const DrugTable: React.FC = () => {
   const [columnPreset, setColumnPreset] = useState<string>('default');
 
   useEffect(() => {
-    fetchDrugs(currentPage, rowsPerPage, sortByATC);
-  }, [currentPage, rowsPerPage, sortByATC]);
+    fetchDrugs();
+  }, []);
 
   const fetchPresentation = async (drugID: number) => {
     try {
@@ -43,81 +43,67 @@ const DrugTable: React.FC = () => {
     }
   };
 
-  const fetchDrugs = async (page = 1, limit = rowsPerPage, sortByATC = false) => {
-    setIsLoading(true); // Start loading
-    try {
-      const endpoint = sortByATC ? '/drugs/paginatedByATC' : '/drugs/paginated';
-      const response = await axios.get(`${endpoint}?page=${page}&limit=${limit}`);
-      const { drugs, totalPages } = response.data;
+const fetchDrugs = async () => {
+  setIsLoading(true); // Start loading
+  try {
+    const response = await axios.get('/drugs/all'); // Adjust the endpoint based on your backend
+    const { drugs, totalPages } = response.data;
 
-      const drugsWithDetails = await Promise.all(drugs.map(async (drug: any) => {
-        const presentation = await fetchPresentation(drug.DrugID);
-        const dosage = await fetchDosage(drug.DrugID);
+    const formattedData = drugs.map((drug: any) => ({
+      DrugID: drug.DrugID || 'N/A',
+      DrugName: drug.DrugName || 'N/A',
+      DrugNameAR: drug.DrugNameAR || 'N/A',
+      ProductType: drug.ProductType || 'N/A',
+      ATC: drug.ATC_Code || 'N/A',
+      ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
+      OtherIngredients: drug.OtherIngredients || 'N/A',
+      Dosage: drug.Dosage || 'N/A',
+      DosageNumerator1: drug.Dosage?.Numerator1 || 'N/A',
+      DosageNumerator1Unit: drug.Dosage?.Numerator1Unit || 'N/A',
+      DosageDenominator1: drug.Dosage?.Denominator1 || 'N/A',
+      DosageDenominator1Unit: drug.Dosage?.Denominator1Unit || 'N/A',
+      DosageNumerator2: drug.Dosage?.Numerator2 || 'N/A',
+      DosageNumerator2Unit: drug.Dosage?.Numerator2Unit || 'N/A',
+      DosageDenominator2: drug.Dosage?.Denominator2 || 'N/A',
+      DosageDenominator2Unit: drug.Dosage?.Denominator2Unit || 'N/A',
+      DosageNumerator3: drug.Dosage?.Numerator3 || 'N/A',
+      DosageNumerator3Unit: drug.Dosage?.Numerator3Unit || 'N/A',
+      DosageDenominator3: drug.Dosage?.Denominator3 || 'N/A',
+      DosageDenominator3Unit: drug.Dosage?.Denominator3Unit || 'N/A',
+      PresentationDescription: drug.DrugPresentation?.Description || 'N/A',
+      PresentationUnitQuantity1: drug.DrugPresentation?.UnitQuantity1 || 'N/A',
+      PresentationUnitType1: drug.DrugPresentation?.UnitType1 || 'N/A',
+      PresentationUnitQuantity2: drug.DrugPresentation?.UnitQuantity2 || 'N/A',
+      PresentationUnitType2: drug.DrugPresentation?.UnitType2 || 'N/A',
+      PresentationPackageQuantity1: drug.DrugPresentation?.PackageQuantity1 || 'N/A',
+      PresentationPackageType1: drug.DrugPresentation?.PackageType1 || 'N/A',
+      PresentationPackageQuantity2: drug.DrugPresentation?.PackageQuantity2 || 'N/A',
+      PresentationPackageType2: drug.DrugPresentation?.PackageType2 || 'N/A',
+      PresentationPackageQuantity3: drug.DrugPresentation?.PackageQuantity3 || 'N/A',
+      PresentationPackageType3: drug.DrugPresentation?.PackageType3 || 'N/A',
+      isOTC: drug.isOTC || false,
+      DFSequence: drug.DFSequence || 'N/A',
+      Form: drug.Form || 'N/A',
+      FormLNDI: drug.FormLNDI || 'N/A',
+      Parent: drug.RouteParent || 'N/A',
+      Route: drug.Route || 'N/A',
+      Parentaral: drug.Parentaral || 'N/A',
+      Stratum: drug.Stratum || 'N/A',
+      Amount: drug.Amount || 0,
+      Agent: drug.Agent || 'N/A',
+      Manufacturer: drug.Manufacturer || 'N/A',
+      Country: drug.Country || 'N/A',
+      Price: drug.Price || 'N/A',
+    }));
 
-        return {
-          ...drug,
-          PresentationDetails: presentation,
-          DosageDetails: dosage,
-        };
-      }));
+    setTableData(formattedData);
+  } catch (error) {
+    console.error('Error fetching drugs:', error);
+  } finally {
+    setIsLoading(false); // End loading
+  }
+};
 
-      const formattedData = drugsWithDetails.map((drug) => ({
-        DrugID: drug.DrugID || 'N/A',
-        DrugName: drug.DrugName || 'N/A',
-        DrugNameAR: drug.DrugNameAR || 'N/A',
-        ProductType: drug.ProductType || 'N/A',
-        ATC: drug.ATC_Code || 'N/A', // Adjusted here for ATC_Code
-        ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
-        OtherIngredients: drug.OtherIngredients || 'N/A',
-        Dosage: drug.Dosage || 'N/A',
-        DosageNumerator1: drug.DosageDetails?.Numerator1 || 'N/A',
-        DosageNumerator1Unit: drug.DosageDetails?.Numerator1Unit || 'N/A',
-        DosageDenominator1: drug.DosageDetails?.Denominator1 || 'N/A',
-        DosageDenominator1Unit: drug.DosageDetails?.Denominator1Unit || 'N/A',
-        DosageNumerator2: drug.DosageDetails?.Numerator2 || 'N/A',
-        DosageNumerator2Unit: drug.DosageDetails?.Numerator2Unit || 'N/A',
-        DosageDenominator2: drug.DosageDetails?.Denominator2 || 'N/A',
-        DosageDenominator2Unit: drug.DosageDetails?.Denominator2Unit || 'N/A',
-        DosageNumerator3: drug.DosageDetails?.Numerator3 || 'N/A',
-        DosageNumerator3Unit: drug.DosageDetails?.Numerator3Unit || 'N/A',
-        DosageDenominator3: drug.DosageDetails?.Denominator3 || 'N/A',
-        DosageDenominator3Unit: drug.DosageDetails?.Denominator3Unit || 'N/A',
-        isOTC: drug.isOTC || false,
-        DFSequence: drug.DFSequence || 'N/A',
-        Form: drug.Form || 'N/A',
-        FormLNDI: drug.FormLNDI || 'N/A',
-        Presentation: drug.Presentation || 'N/A',
-        PresentationUnitQuantity1: drug.PresentationDetails?.UnitQuantity1 || 'N/A',
-        PresentationUnitType1: drug.PresentationDetails?.UnitType1 || 'N/A',
-        PresentationUnitQuantity2: drug.PresentationDetails?.UnitQuantity2 || 'N/A',
-        PresentationUnitType2: drug.PresentationDetails?.UnitType2 || 'N/A',
-        PresentationPackageQuantity1: drug.PresentationDetails?.PackageQuantity1 || 'N/A',
-        PresentationPackageType1: drug.PresentationDetails?.PackageType1 || 'N/A',
-        PresentationPackageQuantity2: drug.PresentationDetails?.PackageQuantity2 || 'N/A',
-        PresentationPackageType2: drug.PresentationDetails?.PackageType2 || 'N/A',
-        PresentationPackageQuantity3: drug.PresentationDetails?.PackageQuantity3 || 'N/A',
-        PresentationPackageType3: drug.PresentationDetails?.PackageType3 || 'N/A',
-        PresentationDescription: drug.PresentationDetails?.Description || 'N/A',
-        Parent: drug.RouteParent || 'N/A',
-        Route: drug.Route || 'N/A',
-        Parentaral: drug.Parentaral || 'N/A',
-        Stratum: drug.Stratum || 'N/A',
-        Amount: drug.Amount || 0,
-        Agent: drug.Agent || 'N/A',
-        Manufacturer: drug.Manufacturer || 'N/A',
-        Country: drug.Country || 'N/A',
-        Price: drug.Price || 'N/A',
-      }));
-
-      setAllData(formattedData);
-      setTableData(formattedData.slice((page - 1) * rowsPerPage, page * rowsPerPage));
-      setTotalPages(totalPages);
-    } catch (error) {
-      console.error("Error fetching drugs:", error);
-    } finally {
-      setIsLoading(false); // End loading
-    }
-  };
 
   const handleSortByATC = () => {
     setSortByATC(prev => !prev);
@@ -155,7 +141,6 @@ const DrugTable: React.FC = () => {
     const newRowsPerPage = parseInt(event.target.value, 10);
     setRowsPerPage(newRowsPerPage);
     setCurrentPage(1); // Reset to first page when changing rows per page
-    fetchDrugs(1, newRowsPerPage, sortByATC);
   };
 
   const handleDeleteRow = async (row: any) => {
@@ -174,7 +159,6 @@ const DrugTable: React.FC = () => {
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
-    fetchDrugs(newPage, rowsPerPage, sortByATC);
   };
 
   const renderPaginationControls = () => (
@@ -387,8 +371,7 @@ const DrugTable: React.FC = () => {
     enableColumnResizing: true,
     enableEditing: true,
     enableStickyHeader: true,
-    manualPagination: true,
-    enablePagination: false,
+    enablePagination: true,
     state: {
       isLoading,
     },

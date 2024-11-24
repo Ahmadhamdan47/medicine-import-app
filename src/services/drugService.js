@@ -289,43 +289,105 @@ const addPharmacyDrug = async (drugData) => {
 
 const getAllDrugs = async () => {
   try {
+    // Fetch all drugs with associated presentations and dosages
     const drugs = await Drug.findAll({
-      // attributes: [
-      //   "BrandName",
-      //   "ATCName",
-      //   "PriceUSD",
-      //   "PriceLBP",
-      //   "DosageName",
-      //   "PresentationName",
-      //   "FormName",
-      //   "RouteName",
-      //   "StratumTypeName",
-      //   "CountryName",
-      //   "ManufacturerName",
-      //   "ImageDefault",
-      // ],
+      include: [
+        {
+          model: DrugPresentation,
+          attributes: [
+            'UnitQuantity1',
+            'UnitType1',
+            'UnitQuantity2',
+            'UnitType2',
+            'PackageQuantity1',
+            'PackageType1',
+            'PackageQuantity2',
+            'PackageType2',
+            'PackageQuantity3',
+            'PackageType3',
+            'Description',
+          ],
+        },
+        {
+          model: Dosage,
+          attributes: [
+            'Numerator1',
+            'Numerator1Unit',
+            'Denominator1',
+            'Denominator1Unit',
+            'Numerator2',
+            'Numerator2Unit',
+            'Denominator2',
+            'Denominator2Unit',
+            'Numerator3',
+            'Numerator3Unit',
+            'Denominator3',
+            'Denominator3Unit',
+          ],
+        },
+      ],
     });
-    return drugs;
+
+    return { drugs };
   } catch (error) {
-    console.error("Error fetching drugs:", error);
-    throw new Error("Failed to fetch drugs");
+    console.error('Error fetching all drugs with details:', error);
+    throw new Error('Failed to fetch all drugs with details');
   }
 };
 
 
 const getAllDrugsPaginated = async (page = 1, limit = 500) => {
-  try {
-    const offset = (page - 1) * limit;
-    const { rows, count } = await Drug.findAndCountAll({
-      offset,
-      limit,
-    });
-    return { drugs: rows, totalPages: Math.ceil(count / limit) };
-  } catch (error) {
-    console.error("Error fetching paginated drugs:", error);
-    throw new Error("Failed to fetch paginated drugs");
-  }
-};
+    try {
+      const offset = (page - 1) * limit;
+
+      // Fetch drugs with associated presentations and dosages
+      const { rows, count } = await Drug.findAndCountAll({
+        offset,
+        limit,
+        include: [
+          {
+            model: DrugPresentation,
+            attributes: [
+              'UnitQuantity1',
+              'UnitType1',
+              'UnitQuantity2',
+              'UnitType2',
+              'PackageQuantity1',
+              'PackageType1',
+              'PackageQuantity2',
+              'PackageType2',
+              'PackageQuantity3',
+              'PackageType3',
+              'Description',
+            ],
+          },
+          {
+            model: Dosage,
+            attributes: [
+              'Numerator1',
+              'Numerator1Unit',
+              'Denominator1',
+              'Denominator1Unit',
+              'Numerator2',
+              'Numerator2Unit',
+              'Denominator2',
+              'Denominator2Unit',
+              'Numerator3',
+              'Numerator3Unit',
+              'Denominator3',
+              'Denominator3Unit',
+            ],
+          },
+        ],
+      });
+
+      return { drugs: rows, totalPages: Math.ceil(count / limit) };
+    } catch (error) {
+      console.error('Error fetching paginated drugs with details:', error);
+      throw new Error('Failed to fetch paginated drugs with details');
+    }
+  };
+
 const getAllDrugsPaginatedByATC = async (page = 1, limit = 500) => {
   try {
     const offset = (page - 1) * limit;
