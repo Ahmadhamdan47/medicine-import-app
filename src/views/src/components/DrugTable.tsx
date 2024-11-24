@@ -409,6 +409,7 @@ const DrugTable: React.FC = () => {
     enableEditing: true,
     enableStickyHeader: true,
     enablePagination: true,
+    enableRowVirtualization: true, //enable row virtualization
     mantinePaginationProps: {
       rowsPerPageOptions: ['100', '250', '500', '1000', '2500', '5000'],
       withEdges: false, //note: changed from `showFirstLastButtons` in v1.0
