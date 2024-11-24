@@ -43,66 +43,104 @@ const DrugTable: React.FC = () => {
     }
   };
 
-const fetchDrugs = async () => {
-  setIsLoading(true); // Start loading
-  try {
-    const response = await axios.get('/drugs/all'); // Adjust the endpoint based on your backend
-    const { drugs, totalPages } = response.data;
-
-    const formattedData = drugs.map((drug: any) => ({
-      DrugID: drug.DrugID || 'N/A',
-      DrugName: drug.DrugName || 'N/A',
-      DrugNameAR: drug.DrugNameAR || 'N/A',
-      ProductType: drug.ProductType || 'N/A',
-      ATC: drug.ATC_Code || 'N/A',
-      ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
-      OtherIngredients: drug.OtherIngredients || 'N/A',
-      Dosage: drug.Dosage || 'N/A',
-      DosageNumerator1: drug.Dosages?.Numerator1 || 'N/A',
-      DosageNumerator1Unit: drug.Dosages?.Numerator1Unit || 'N/A',
-      DosageDenominator1: drug.Dosages?.Denominator1 || 'N/A',
-      DosageDenominator1Unit: drug.Dosages?.Denominator1Unit || 'N/A',
-      DosageNumerator2: drug.Dosages?.Numerator2 || 'N/A',
-      DosageNumerator2Unit: drug.Dosages?.Numerator2Unit || 'N/A',
-      DosageDenominator2: drug.Dosages?.Denominator2 || 'N/A',
-      DosageDenominator2Unit: drug.Dosages?.Denominator2Unit || 'N/A',
-      DosageNumerator3: drug.Dosages?.Numerator3 || 'N/A',
-      DosageNumerator3Unit: drug.Dosages?.Numerator3Unit || 'N/A',
-      DosageDenominator3: drug.Dosages?.Denominator3 || 'N/A',
-      DosageDenominator3Unit: drug.Dosages?.Denominator3Unit || 'N/A',
-      PresentationDescription: drug.DrugPresentations?.Description || 'N/A',
-      PresentationUnitQuantity1: drug.DrugPresentations?.UnitQuantity1 || 'N/A',
-      PresentationUnitType1: drug.DrugPresentations?.UnitType1 || 'N/A',
-      PresentationUnitQuantity2: drug.DrugPresentations?.UnitQuantity2 || 'N/A',
-      PresentationUnitType2: drug.DrugPresentations?.UnitType2 || 'N/A',
-      PresentationPackageQuantity1: drug.DrugPresentations?.PackageQuantity1 || 'N/A',
-      PresentationPackageType1: drug.DrugPresentations?.PackageType1 || 'N/A',
-      PresentationPackageQuantity2: drug.DrugPresentations?.PackageQuantity2 || 'N/A',
-      PresentationPackageType2: drug.DrugPresentations?.PackageType2 || 'N/A',
-      PresentationPackageQuantity3: drug.DrugPresentations?.PackageQuantity3 || 'N/A',
-      PresentationPackageType3: drug.DrugPresentations?.PackageType3 || 'N/A',
-      isOTC: drug.isOTC || false,
-      DFSequence: drug.DFSequence || 'N/A',
-      Form: drug.Form || 'N/A',
-      FormLNDI: drug.FormLNDI || 'N/A',
-      Parent: drug.RouteParent || 'N/A',
-      Route: drug.Route || 'N/A',
-      Parentaral: drug.Parentaral || 'N/A',
-      Stratum: drug.Stratum || 'N/A',
-      Amount: drug.Amount || 0,
-      Agent: drug.Agent || 'N/A',
-      Manufacturer: drug.Manufacturer || 'N/A',
-      Country: drug.Country || 'N/A',
-      Price: drug.Price || 'N/A',
-    }));
-
-    setTableData(formattedData);
-  } catch (error) {
-    console.error('Error fetching drugs:', error);
-  } finally {
-    setIsLoading(false); // End loading
-  }
-};
+  const fetchDrugs = async () => {
+    setIsLoading(true); // Start loading
+    try {
+      const response = await axios.get('/drugs/all'); // Adjust the endpoint based on your backend
+      const { drugs } = response.data;
+  
+      const formattedData = drugs.map((drug: any) => ({
+        DrugID: drug.DrugID || 'N/A',
+        DrugName: drug.DrugName || 'N/A',
+        DrugNameAR: drug.DrugNameAR || 'N/A',
+        ProductType: drug.ProductType || 'N/A',
+        ATC: drug.ATC_Code || 'N/A',
+        ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
+        OtherIngredients: drug.OtherIngredients || 'N/A',
+        Dosage: drug.Dosage || 'N/A',
+        // Dosages Fields
+        DosageNumerator1: drug.Dosages?.[0]?.Numerator1 || 'N/A',
+        DosageNumerator1Unit: drug.Dosages?.[0]?.Numerator1Unit || 'N/A',
+        DosageDenominator1: drug.Dosages?.[0]?.Denominator1 || 'N/A',
+        DosageDenominator1Unit: drug.Dosages?.[0]?.Denominator1Unit || 'N/A',
+        DosageNumerator2: drug.Dosages?.[0]?.Numerator2 || 'N/A',
+        DosageNumerator2Unit: drug.Dosages?.[0]?.Numerator2Unit || 'N/A',
+        DosageDenominator2: drug.Dosages?.[0]?.Denominator2 || 'N/A',
+        DosageDenominator2Unit: drug.Dosages?.[0]?.Denominator2Unit || 'N/A',
+        DosageNumerator3: drug.Dosages?.[0]?.Numerator3 || 'N/A',
+        DosageNumerator3Unit: drug.Dosages?.[0]?.Numerator3Unit || 'N/A',
+        DosageDenominator3: drug.Dosages?.[0]?.Denominator3 || 'N/A',
+        DosageDenominator3Unit: drug.Dosages?.[0]?.Denominator3Unit || 'N/A',
+        // Drug Presentations Fields
+        PresentationDescription: drug.DrugPresentations?.[0]?.Description || 'N/A',
+        PresentationUnitQuantity1: drug.DrugPresentations?.[0]?.UnitQuantity1 || 'N/A',
+        PresentationUnitType1: drug.DrugPresentations?.[0]?.UnitType1 || 'N/A',
+        PresentationUnitQuantity2: drug.DrugPresentations?.[0]?.UnitQuantity2 || 'N/A',
+        PresentationUnitType2: drug.DrugPresentations?.[0]?.UnitType2 || 'N/A',
+        PresentationPackageQuantity1: drug.DrugPresentations?.[0]?.PackageQuantity1 || 'N/A',
+        PresentationPackageType1: drug.DrugPresentations?.[0]?.PackageType1 || 'N/A',
+        PresentationPackageQuantity2: drug.DrugPresentations?.[0]?.PackageQuantity2 || 'N/A',
+        PresentationPackageType2: drug.DrugPresentations?.[0]?.PackageType2 || 'N/A',
+        PresentationPackageQuantity3: drug.DrugPresentations?.[0]?.PackageQuantity3 || 'N/A',
+        PresentationPackageType3: drug.DrugPresentations?.[0]?.PackageType3 || 'N/A',
+        // Other Drug Fields
+        isOTC: drug.isOTC || false,
+        DFSequence: drug.DFSequence || 'N/A',
+        Form: drug.Form || 'N/A',
+        FormLNDI: drug.FormLNDI || 'N/A',
+        Parent: drug.RouteParent || 'N/A',
+        Route: drug.Route || 'N/A',
+        Parentaral: drug.Parentaral || 'N/A',
+        Stratum: drug.Stratum || 'N/A',
+        Amount: drug.Amount || 0,
+        Agent: drug.Agent || 'N/A',
+        Manufacturer: drug.Manufacturer || 'N/A',
+        Country: drug.Country || 'N/A',
+        RegistrationNumber: drug.RegistrationNumber || 'N/A',
+        Notes: drug.Notes || 'N/A',
+        Description: drug.Description || 'N/A',
+        Indication: drug.Indication || 'N/A',
+        Posology: drug.Posology || 'N/A',
+        MethodOfAdministration: drug.MethodOfAdministration || 'N/A',
+        Contraindications: drug.Contraindications || 'N/A',
+        PrecautionForUse: drug.PrecautionForUse || 'N/A',
+        EffectOnFGN: drug.EffectOnFGN || 'N/A',
+        SideEffect: drug.SideEffect || 'N/A',
+        Toxicity: drug.Toxicity || 'N/A',
+        StorageCondition: drug.StorageCondition || 'N/A',
+        ShelfLife: drug.ShelfLife || 'N/A',
+        IngredientLabel: drug.IngredientLabel || 'N/A',
+        ImagesPath: drug.ImagesPath || 'N/A',
+        ImageDefault: drug.ImageDefault || 'N/A',
+        InteractionIngredientName: drug.InteractionIngredientName || 'N/A',
+        IsDouanes: drug.IsDouanes || 'N/A',
+        RegistrationDate: drug.RegistrationDate || 'N/A',
+        PublicPrice: drug.PublicPrice || 'N/A',
+        SubsidyLabel: drug.SubsidyLabel || 'N/A',
+        SubsidyPercentage: drug.SubsidyPercentage || 'N/A',
+        HospPricing: drug.HospPricing || 'N/A',
+        Substitutable: drug.Substitutable || 'N/A',
+        CreatedBy: drug.CreatedBy || 'N/A',
+        CreatedDate: drug.CreatedDate || 'N/A',
+        UpdatedBy: drug.UpdatedBy || 'N/A',
+        UpdatedDate: drug.UpdatedDate || 'N/A',
+        ReviewDate: drug.ReviewDate || 'N/A',
+        MoPHCode: drug.MoPHCode || 'N/A',
+        CargoShippingTerms: drug.CargoShippingTerms || 'N/A',
+        NotMarketed: drug.NotMarketed || 'N/A',
+        PriceForeign: drug.PriceForeign || 'N/A',
+        CurrencyForeign: drug.CurrencyForeign || 'N/A',
+      }));
+  
+      setTableData(formattedData);
+      setAllData(formattedData); // If you need to keep a full copy for searching
+    } catch (error) {
+      console.error('Error fetching drugs:', error);
+    } finally {
+      setIsLoading(false); // End loading
+    }
+  };
+  
 
 
   const handleSortByATC = () => {
@@ -303,7 +341,7 @@ const fetchDrugs = async () => {
             { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
             { accessorKey: 'Form', header: 'Form', size: 100 },
             { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
-            { accessorKey: 'Presentation', header: 'Presentation', size: 120 },
+            { accessorKey: 'PresentationDescription', header: 'Presentation', size: 120 },
             { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
             { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
             { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
@@ -314,7 +352,6 @@ const fetchDrugs = async () => {
             { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
             { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
             { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
-            { accessorKey: 'PresentationDescription', header: 'Presentation Description', size: 180 },
             { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
             { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
             { accessorKey: 'Parentaral', header: 'Parentaral', size: 60 },
@@ -372,11 +409,19 @@ const fetchDrugs = async () => {
     enableEditing: true,
     enableStickyHeader: true,
     enablePagination: true,
+    mantinePaginationProps: {
+      rowsPerPageOptions: ['100', '250', '500', '1000', '2500', '5000'],
+      withEdges: false, //note: changed from `showFirstLastButtons` in v1.0
+    },
     state: {
       isLoading,
     },
     initialState: {
       density: 'xs',
+      pagination: {
+        pageSize: 500, // Default to 500 rows per page
+        pageIndex: 0, // Start from the first page
+      },
       columnVisibility: {
         DrugID: false,
         DrugNameAR: false,
@@ -391,7 +436,7 @@ const fetchDrugs = async () => {
         PresentationPackageType2: false,
         PresentationPackageQuantity3: false,
         PresentationPackageType3: false,
-        PresentationDescription: false,
+        PresentationDescription: true,
         Amount: false,
         ManufacturerID: false,
         RegistrationNumber: false,
@@ -428,8 +473,10 @@ const fetchDrugs = async () => {
         NotMarketed: false,
         PriceForeign: false,
         CurrencyForeign: false,
+        
       },
     },
+    
     onEditingRowSave: handleSaveRow,
     renderRowActionMenuItems: ({ row }) => [
       <Menu.Item
@@ -468,9 +515,7 @@ const fetchDrugs = async () => {
       <div style={{ flex: '1 1 auto', overflowY: 'auto' }}>
         <MantineReactTable table={table} />
       </div>
-      <div style={{ flexShrink: 0 }}>
-        {renderPaginationControls()}
-      </div>
+      
     </div>
   );
 };
