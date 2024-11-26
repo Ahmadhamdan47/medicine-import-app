@@ -279,7 +279,6 @@ const DrugTable: React.FC = () => {
             { accessorKey: 'DFSequence', header: 'D-F Sequence', size: 100 },
             { accessorKey: 'Form', header: 'Form LNDI', size: 100 },
             { accessorKey: 'Route', header: 'Route CLEAN', size: 100 },
-            { accessorKey: 'Parentaral', header: 'Parenteral (yes/no)', size: 60 },
           ];
         case 'atcCheck':
           return [
@@ -354,7 +353,6 @@ const DrugTable: React.FC = () => {
             { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
             { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
             { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
-            { accessorKey: 'Parentaral', header: 'Parentaral', size: 60 },
             { accessorKey: 'Stratum', header: 'Stratum', size: 100 },
             { accessorKey: 'Amount', header: 'Amount', size: 80 },
             { accessorKey: 'Agent', header: 'Agent', size: 100 },
