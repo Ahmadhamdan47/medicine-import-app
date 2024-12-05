@@ -35,6 +35,7 @@ const batchLotRoutes = require('./src/routes/batchLotRoutes');
 const roleRoutes = require('./src/routes/roleRoutes');
 const boxRoutes = require('./src/routes/boxRoutes');
 const batchSerialRoutes = require('./src/routes/batchSerialRoutes');
+const notificationRoutes = require('./src/routes/notificationRoutes');
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -86,6 +87,7 @@ app.use('/batchLots', batchLotRoutes);
 app.use('/roles',roleRoutes);
 app.use('/boxes',boxRoutes);
 app.use('/batchserial',batchSerialRoutes);
+app.use('/notification', notificationRoutes);
 app.use('/img', express.static('img'));
 
 // Serve static files from the React app
