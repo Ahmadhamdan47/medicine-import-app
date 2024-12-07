@@ -44,11 +44,31 @@ const deleteNotification = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+const addFirebaseToken = async (req, res) => {
+    try {
+        const { token, userId } = req.body;
+        const newToken = await notificationService.addFirebaseToken(token, userId);
+        res.status(201).json(newToken);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
+const sendPushNotification = async (req, res) => {
+    try {
+        const { notificationId } = req.params;
+        const response = await notificationService.sendPushNotification(notificationId);
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 module.exports = {
     addNotification,
     getAllNotifications,
     getNotificationById,
     markAsRead,
     deleteNotification,
+    addFirebaseToken,
+    sendPushNotification,
 };
