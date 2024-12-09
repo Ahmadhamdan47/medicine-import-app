@@ -1088,6 +1088,7 @@ const fetchDrugDataFromServer = async () => {
         priceInLBP: drug.Price * 90000,
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 90000 : null,
+        GTIN: drug.GTIN,
       };
     });
   } catch (error) {
