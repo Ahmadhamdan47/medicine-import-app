@@ -1048,46 +1048,54 @@ const fetchDrugDataFromServer = async () => {
     // Fetch drug data from the server
     const drugs = await Drug.findAll({
       attributes: [
-        'DrugID', 'DrugName', 'DrugNameAR','ATC_Code','Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
-        'Country', 'MoPHCode', 'UpdatedDate'
+        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN'
       ],
     });
 
     // Manually map database columns to camelCase fields
-    return drugs.map(drug => ({
-      drugId: drug.DrugID,
-      drugName: drug.DrugName,
-      drugNameAr: drug.DrugNameAR,
-      code:drug.ATC_Code,
-      stratum:drug.Stratum,
-      manufacturerId: drug.ManufacturerID,
-      productType: drug.ProductType,
-      price: drug.Price,
-      atcRelatedIngredient: drug.ATCRelatedIngredient,
-      imagesPath: drug.ImagesPath,
-      subsidyPercentage: drug.SubsidyPercentage,
-      notMarketed: drug.NotMarketed,
-      isOtc: drug.isOTC,
-      registrationNumber: drug.RegistrationNumber,
-      substitutable: drug.Substitutable,
-      amount: drug.Amount,
-      dosage: drug.Dosage,
-      form: drug.Form,
-      route: drug.Route,
-      presentation: drug.Presentation,
-      agent: drug.Agent,
-      manufacturer: drug.Manufacturer,
-      country: drug.Country,
-      moPhCode: drug.MoPHCode,
-      updatedDate: drug.UpdatedDate
-    }));
+    return drugs.map(drug => {
+      const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
+
+      return {
+        drugId: drug.DrugID,
+        drugName: drug.DrugName,
+        drugNameAr: drug.DrugNameAR,
+        code: drug.ATC_Code,
+        stratum: drug.Stratum,
+        manufacturerId: drug.ManufacturerID,
+        productType: drug.ProductType,
+        price: drug.Price,
+        atcRelatedIngredient: drug.ATCRelatedIngredient,
+        imagesPath: drug.ImagesPath,
+        subsidyPercentage: drug.SubsidyPercentage,
+        notMarketed: drug.NotMarketed,
+        isOtc: drug.isOTC,
+        registrationNumber: drug.RegistrationNumber,
+        substitutable: drug.Substitutable,
+        amount: drug.Amount,
+        dosage: drug.Dosage,
+        form: drug.Form,
+        route: drug.Route,
+        presentation: drug.Presentation,
+        agent: drug.Agent,
+        manufacturer: drug.Manufacturer,
+        country: drug.Country,
+        moPhCode: drug.MoPHCode,
+        updatedDate: drug.UpdatedDate,
+        priceInLBP: drug.Price * 90000,
+        unitPrice: unitPrice,
+        unitPriceInLBP: unitPrice ? unitPrice * 90000 : null,
+      };
+    });
   } catch (error) {
     console.error('Error fetching drug data from server:', error);
     throw new Error('Error fetching drug data from server');
   }
 };
+
 
 const fetchAndUpdateDrugs = async (updateDrugIds) => {
   try {
