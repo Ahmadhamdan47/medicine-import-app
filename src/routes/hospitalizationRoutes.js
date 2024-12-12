@@ -3,6 +3,44 @@ const router = express.Router();
 const hospitalizationController = require('../controllers/hospitalizationController');
 /**
  * @swagger
+ * /operations/filter:
+ *   get:
+ *     summary: Filter operations by system, name, hospital category type, and hospital name
+ *     parameters:
+ *       - in: query
+ *         name: system
+ *         schema:
+ *           type: string
+ *         description: Filter by operation system
+ *       - in: query
+ *         name: name
+ *         schema:
+ *           type: string
+ *         description: Filter by operation name
+ *       - in: query
+ *         name: hospitalCategoryType
+ *         schema:
+ *           type: string
+ *         description: Filter by hospital category type
+ *       - in: query
+ *         name: hospitalName
+ *         schema:
+ *           type: string
+ *         description: Filter by hospital name
+ *     responses:
+ *       200:
+ *         description: Filtered list of operations
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Operation'
+ */
+router.get('/filter', hospitalizationController.filterOperations);
+
+/**
+ * @swagger
  * /operations/{system}:
  *   get:
  *     summary: Retrieve a list of operations by system
