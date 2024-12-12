@@ -457,10 +457,47 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
     });
 
     console.log("Filtered operations result:", operations);
+
+    for (let operation of operations) {
+      // Retrieve both public and private pricing and shares
+      const categoryPricingPrivate = await getCategoryPricingByOperationIdPrivate(operation.ID);
+      const categoryPricingPublic = await getCategoryPricingByOperationIdPublic(operation.ID);
+      const operationSharePrivate = await getOperationSharePrivate();
+      const operationSharePublic = await getOperationSharePublic();
+
+      if (
+        categoryPricingPrivate.length > 0 &&
+        categoryPricingPublic.length > 0 &&
+        operationSharePrivate.length > 0 &&
+        operationSharePublic.length > 0
+      ) {
+        const privateShare = operationSharePrivate[0].Share;
+        const publicShare = operationSharePublic[0].Share;
+
+        // Add private and public pricing and shares to operation
+        operation.dataValues.categoryPricingPrivate = categoryPricingPrivate;
+        operation.dataValues.categoryPricingPublic = categoryPricingPublic;
+
+        operation.dataValues.patientSharePrivateCategory1 =
+          categoryPricingPrivate[0].FirstCategory1 * privateShare / 100;
+        operation.dataValues.patientSharePrivateCategory2 =
+          categoryPricingPrivate[0].FirstCategory2 * privateShare / 100;
+        operation.dataValues.patientSharePrivateCategory3 =
+          categoryPricingPrivate[0].FirstCategory3 * privateShare / 100;
+
+        operation.dataValues.patientSharePublicCategory1 =
+          categoryPricingPublic[0].FirstCategory1 * publicShare / 100;
+        operation.dataValues.patientSharePublicCategory2 =
+          categoryPricingPublic[0].FirstCategory2 * publicShare / 100;
+        operation.dataValues.patientSharePublicCategory3 =
+          categoryPricingPublic[0].FirstCategory3 * publicShare / 100;
+      }
+    }
+
     return operations;
   } catch (error) {
     console.error("Error during operation filtering:", error.message);
-    throw new Error("hospital is not associated to hospitaloperationmapping!");
+    throw new Error("Error while filtering operations");
   }
 };
 
