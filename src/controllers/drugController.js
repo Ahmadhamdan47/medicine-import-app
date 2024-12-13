@@ -320,7 +320,32 @@ const fetchAndApplyUpdates = async (req, res) => {
     return res.status(500).json({ success: false, message: 'Failed to update drugs.' });
   }
 };
+const path = require("path");
 
+const uploadDrugImage = async (req, res) => {
+  const { DrugID } = req.params;
+
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+
+    const imagePath = path.join(req.file.filename);
+
+    // Update the drug's ImagesPath
+    const updatedDrug = await DrugService.updateDrug(DrugID, { ImagesPath: imagePath });
+
+    res.status(200).json({
+      success: true,
+      message: "Image uploaded successfully",
+      imagePath,
+      drug: updatedDrug,
+    });
+  } catch (error) {
+    console.error("Error in uploadDrugImage:", error);
+    res.status(500).json({ error: "Failed to upload image" });
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -353,5 +378,7 @@ module.exports = {
   getAllDrugsPaginatedByATC,
   fetchDrugData,
   fetchAndApplyUpdates,
-  checkForUpdates
+  checkForUpdates,
+  uploadDrugImage,
+
 };

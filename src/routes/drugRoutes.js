@@ -692,4 +692,23 @@ router.get("/checkUpdates", drugController.checkForUpdates);
  */
 router.post("/applyUpdates", drugController.fetchAndApplyUpdates);
 
+
+
+
+// Configure multer
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, '../img')); // Ensure this is the correct path
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`); // Generate a unique filename
+  },
+});
+
+const upload = multer({ storage });
+
+
 module.exports = router;

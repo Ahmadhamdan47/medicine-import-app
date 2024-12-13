@@ -1186,7 +1186,26 @@ const checkForDrugUpdates = async () => {
     throw new Error('Error checking for drug updates');
   }
 };
+const updateDrugImage = async (DrugID, imagePath) => {
+  try {
+    const drug = await Drug.findOne({
+      where: { DrugID },
+    });
 
+    if (!drug) {
+      throw new Error(`No drug found with ID: ${DrugID}`);
+    }
+
+    // Update the ImagesPath field
+    drug.ImagesPath = imagePath;
+    await drug.save();
+
+    return drug;
+  } catch (error) {
+    console.error("Error in updateDrugImage:", error);
+    throw new Error("Failed to update drug image");
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -1218,6 +1237,7 @@ module.exports = {
   getAllDrugsPaginatedByATC,
   fetchAndUpdateDrugs,
   fetchDrugDataFromServer,
-  checkForDrugUpdates
+  checkForDrugUpdates,
+  updateDrugImage,
   
 };
