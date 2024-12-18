@@ -92,11 +92,15 @@ const MainPage: React.FC = () => {
             <span>Dashboard</span>
           </a>
           {showDropdown && (
-            <div className="dropdown">
-              <button onClick={() => navigate('/drugs')} style={{ color: 'black' }}>Drugs</button>
-            </div>
-    
-          )}
+  <div className="dropdown">
+    <button onClick={() => navigate('/drugs')} style={{ color: 'black' }}>
+      Drugs
+    </button>
+    <button onClick={() => navigate('/drug-images')} style={{ color: 'black', marginTop: '5px' }}>
+      Add Drug Image
+    </button>
+  </div>
+)}
         </div>
         <div className="divider"></div>
         <div className="icon-group drug-group">
@@ -104,7 +108,6 @@ const MainPage: React.FC = () => {
             <img src={addIcon} alt="Add" />
             <span>Add</span>
           </a>
-          <button onClick={() => navigate('/drug-images')} style={{ color: 'black' }}>Add Drug Image</button>
 
           <a href="#" className="icon" onClick={() => { setShowInspection(true); setShowAddBatchLot(false); setShowImportPage(false); }}>
             <img src={heartIcon} alt="Inspect" />
