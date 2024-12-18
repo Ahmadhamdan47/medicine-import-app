@@ -1188,22 +1188,22 @@ const checkForDrugUpdates = async () => {
 };
 const updateDrugImage = async (DrugID, imagePath) => {
   try {
-    const drug = await Drug.findOne({
-      where: { DrugID },
-    });
+    console.log(`Updating DrugID ${DrugID} with imagePath ${imagePath}`);
+    const drug = await Drug.findOne({ where: { DrugID } });
 
     if (!drug) {
+      console.error(`No drug found with ID: ${DrugID}`);
       throw new Error(`No drug found with ID: ${DrugID}`);
     }
 
-    // Update the ImagesPath field
     drug.ImagesPath = imagePath;
     await drug.save();
+    console.log('Image path updated in DB:', drug.ImagesPath);
 
     return drug;
   } catch (error) {
-    console.error("Error in updateDrugImage:", error);
-    throw new Error("Failed to update drug image");
+    console.error('Error in updateDrugImage:', error);
+    throw error;
   }
 };
 

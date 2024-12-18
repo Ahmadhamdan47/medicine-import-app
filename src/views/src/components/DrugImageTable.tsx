@@ -41,7 +41,7 @@ const DrugImageTable: React.FC = () => {
     formData.append('image', file);
   
     try {
-      const response = await axios.post(`/upload/${drugID}`, formData, {
+      const response = await axios.post(`/drugs/upload/${drugID}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -701,7 +701,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../img')); // Ensure this is the correct path
+    cb(null, path.join(__dirname, '../../img')); // Ensure this is the correct path
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`); // Generate a unique filename
@@ -709,6 +709,9 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+router.post("/upload/:DrugID", upload.single("image"), drugController.uploadDrugImage);
+
 
 
 module.exports = router;

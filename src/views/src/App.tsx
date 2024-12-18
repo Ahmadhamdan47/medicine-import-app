@@ -5,7 +5,7 @@ import MainPage from './components/MainPage'; // Adjust the path if necessary
 import SignIn from './components/SignIn'; // Adjust the path if necessary
 import SignUp from './components/SignUp'; // Adjust the path if necessary
 import DrugTable from './components/DrugTable';
-
+import DrugImageTable from './components/DrugImageTable';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/agentMainPage" element={<MainPage />} />
         <Route path="/adminMainPage" element={<MainPage />} />
         <Route path="/drugs" element={<DrugTable />} /> 
+        <Route path="/drug-images" element={<DrugImageTable />} />
 
       </Routes>
     </Router>
