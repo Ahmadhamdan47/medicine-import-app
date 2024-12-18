@@ -5,6 +5,8 @@ import {
   MantineReactTable,
   useMantineReactTable,
   type MRT_ColumnDef,
+  type MRT_Row,
+  type MRT_TableOptions,
 } from 'mantine-react-table';
 import { Menu } from '@mantine/core';
 
@@ -18,28 +20,31 @@ const DrugTable: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortByATC, setSortByATC] = useState(false); // State to track sorting by ATC
   const [columnPreset, setColumnPreset] = useState<string>('default');
+  const [atcOptions, setAtcOptions] = useState<{ value: string; label: string }[]>([]);
+  const atcMap = useMemo(() => {
+    const map: Record<string, string> = {};
+    atcOptions.forEach((option) => {
+      map[option.value] = option.label;
+    });
+    return map;
+  }, [atcOptions]);
 
   useEffect(() => {
     fetchDrugs();
+    fetchAtcOptions();
+
   }, []);
 
-  const fetchPresentation = async (drugID: number) => {
+  const fetchAtcOptions = async () => {
     try {
-      const response = await axios.get(`/drugs/presentation/id/${drugID}`);
-      return response.data;
+      const response = await axios.get('/atc/all');
+      const formattedOptions = response.data.map((atc: any) => ({
+        value: atc.Code,
+        label: atc.Name,
+      }));
+      setAtcOptions(formattedOptions);
     } catch (error) {
-      console.error(`Error fetching presentation for DrugID ${drugID}:`, error);
-      return null;
-    }
-  };
-
-  const fetchDosage = async (drugID: number) => {
-    try {
-      const response = await axios.get(`/drugs/dosage/id/${drugID}`);
-      return response.data;
-    } catch (error) {
-      console.error(`Error fetching dosage for DrugID ${drugID}:`, error);
-      return null;
+      console.error('Error fetching ATC options:', error);
     }
   };
 
@@ -142,28 +147,50 @@ const DrugTable: React.FC = () => {
   };
   
 
-
-  const handleSortByATC = () => {
-    setSortByATC(prev => !prev);
-  };
-
-  const handleSearch = () => {
-    if (searchQuery) {
-      const filteredData = allData.filter(drug =>
-        Object.values(drug).some((value: unknown) =>
-          (value as string).toString().toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      );
-      setTableData(filteredData.slice(0, rowsPerPage));
-    } else {
-      setTableData(allData.slice(0, rowsPerPage));
-    }
-  };
-
   const handleSaveRow = async ({ row, values, exitEditingMode }: { row: any, values: any, exitEditingMode: () => void }) => {
     try {
       const updatedDrug = { ...row.original, ...values };
+      if (updatedDrug.ATC) {
+        updatedDrug.ATC_Code = updatedDrug.ATC;
+
+      }
+      const dosageData = {
+        Numerator1: updatedDrug.DosageNumerator1,
+        Numerator1Unit: updatedDrug.DosageNumerator1Unit,
+        Denominator1: updatedDrug.DosageDenominator1,
+        Denominator1Unit: updatedDrug.DosageDenominator1Unit,
+        Numerator2: updatedDrug.DosageNumerator2,
+        Numerator2Unit: updatedDrug.DosageNumerator2Unit,
+        Denominator2: updatedDrug.DosageDenominator2,
+        Denominator2Unit: updatedDrug.DosageDenominator2Unit,
+        Numerator3: updatedDrug.DosageNumerator3,
+        Numerator3Unit: updatedDrug.DosageNumerator3Unit,
+        Denominator3: updatedDrug.DosageDenominator3,
+        Denominator3Unit: updatedDrug.DosageDenominator3Unit,
+      };
+  
+      const presentationData = {
+        UnitQuantity1: updatedDrug.PresentationUnitQuantity1,
+        UnitType1: updatedDrug.PresentationUnitType1,
+        UnitQuantity2: updatedDrug.PresentationUnitQuantity2,
+        UnitType2: updatedDrug.PresentationUnitType2,
+        PackageQuantity1: updatedDrug.PresentationPackageQuantity1,
+        PackageType1: updatedDrug.PresentationPackageType1,
+        PackageQuantity2: updatedDrug.PresentationPackageQuantity2,
+        PackageType2: updatedDrug.PresentationPackageType2,
+        PackageQuantity3: updatedDrug.PresentationPackageQuantity3,
+        PackageType3: updatedDrug.PresentationPackageType3,
+        Description: updatedDrug.PresentationDescription,
+      };
+  
+      console.log("Payload Sent to Backend:", updatedDrug);
+
       await axios.put(`/drugs/update/${updatedDrug.DrugID}`, updatedDrug);
+
+      await axios.put(`/dosages/updateByDrug/${updatedDrug.DrugID}`, dosageData);
+
+      // Update Presentations by DrugId
+      await axios.put(`/presentations/updateByDrug/${updatedDrug.DrugID}`, presentationData);
 
       // Update the table data locally
       setTableData(prevData => prevData.map(drug => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)));
@@ -173,12 +200,6 @@ const DrugTable: React.FC = () => {
     } catch (error) {
       console.error("Error updating drug:", error);
     }
-  };
-
-  const handleRowsPerPageChange = (event: any) => {
-    const newRowsPerPage = parseInt(event.target.value, 10);
-    setRowsPerPage(newRowsPerPage);
-    setCurrentPage(1); // Reset to first page when changing rows per page
   };
 
   const handleDeleteRow = async (row: any) => {
@@ -195,73 +216,55 @@ const DrugTable: React.FC = () => {
     }
   };
 
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
-  };
-
-  const renderPaginationControls = () => (
-    <div
-      className="pagination-controls"
-      style={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        padding: '10px',
-        position: 'relative',
-      }}
-    >
-      <label style={{ marginRight: '10px' }}>Rows per page:</label>
-      <select value={rowsPerPage} onChange={handleRowsPerPageChange} style={{ marginRight: '10px' }}>
-        <option value={10}>10</option>
-        <option value={25}>25</option>
-        <option value={50}>50</option>
-        <option value={100}>100</option>
-        <option value={250}>250</option>
-        <option value={500}>500</option>
-      </select>
-      <button
-        disabled={currentPage === 1}
-        onClick={() => handlePageChange(currentPage - 1)}
-        style={{
-          width: '80px',
-          padding: '5px 10px',
-          margin: '0 5px',
-          fontSize: '12px',
-          cursor: 'pointer',
-        }}
-      >
-        Previous
-      </button>
-      <span
-        style={{
-          padding: '5px 10px',
-          fontSize: '14px',
-        }}
-      >
-        Page {currentPage} of {totalPages}
-      </span>
-      <button
-        disabled={currentPage === totalPages}
-        onClick={() => handlePageChange(currentPage + 1)}
-        style={{
-          width: '80px',
-          padding: '5px 10px',
-          margin: '0 5px',
-          fontSize: '12px',
-          cursor: 'pointer',
-        }}
-      >
-        Next
-      </button>
-    </div>
-  );
 
   const columns = useMemo<MRT_ColumnDef<any>[]>(
     () => {
       switch (columnPreset) {
         case 'substitutionCheck':
           return [
-            { accessorKey: 'ATC', header: 'ATC', size: 80 },
+            {
+              accessorKey: 'ATC',
+              header: 'ATC',
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATC || '', // Bind to the current ATC value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATC: value } // Update the ATC value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
+              }),
+            },
+            
+            {
+              accessorKey: 'ATCRelatedIngredient',
+              header: 'ATC Related Ingredient',
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
+              }),
+            },
             { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
             { accessorKey: 'FormLNDI', header: 'Dosage LNDI', size: 100 },
             { accessorKey: 'DosageNumerator1', header: 'Num1', size: 120 },
@@ -283,8 +286,49 @@ const DrugTable: React.FC = () => {
         case 'atcCheck':
           return [
             { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            { accessorKey: 'ATC', header: 'ATC', size: 80 },
-            { accessorKey: 'ATCRelatedIngredient', header: 'ATC-related Ingredient', size: 150 },
+            {
+              accessorKey: 'ATC',
+              header: 'ATC',
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATC || '', // Bind to the current ATC value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATC: value } // Update the ATC value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
+              }),
+            },
+            
+            {
+              accessorKey: 'ATCRelatedIngredient',
+              header: 'ATC Related Ingredient',
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
+              }),
+            },
             { accessorKey: 'OtherIngredients', header: 'Ingredients', size: 150 },
             { accessorKey: 'Dosage', header: 'Dosage (CLEAN)', size: 200 },
             { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
@@ -311,17 +355,48 @@ const DrugTable: React.FC = () => {
             {
               accessorKey: 'ATC',
               header: 'ATC',
-              size: 80,
-              Cell: ({ cell }) => (
-                <span
-                  onClick={handleSortByATC}
-                  style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
-                >
-                  {cell.getValue() as string}
-                </span>
-              ),
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATC || '', // Bind to the current ATC value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATC: value } // Update the ATC value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
+              }),
             },
-            { accessorKey: 'ATCRelatedIngredient', header: 'ATCRelatedIngredient', size: 150 },
+            
+            {
+              accessorKey: 'ATCRelatedIngredient',
+              header: 'ATC Related Ingredient',
+              editVariant: 'select',
+              mantineEditSelectProps: ({ row }) => ({
+                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
+                searchable: true,
+                clearable: true,
+                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
+                onChange: (value: any) => {
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
+                        : drug
+                    )
+                  );
+                },
+                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
+              }),
+            },
+            
+            
             { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
             { accessorKey: 'Dosage', header: 'Dosage CLEAN', size: 100 },
             { accessorKey: 'DosageNumerator1', header: 'Dosage Numerator 1', size: 120 },
@@ -397,7 +472,7 @@ const DrugTable: React.FC = () => {
           ];
       }
     },
-    [columnPreset]
+    [columnPreset,atcOptions]
   );
 
   const table = useMantineReactTable({
@@ -405,6 +480,9 @@ const DrugTable: React.FC = () => {
     data: tableData,
     enableColumnResizing: true,
     enableEditing: true,
+    editDisplayMode: 'row',
+    enableRowActions: true,
+
     enableStickyHeader: true,
     enablePagination: true,
     enableRowVirtualization: true, //enable row virtualization
@@ -476,7 +554,7 @@ const DrugTable: React.FC = () => {
       },
     },
     
-    onEditingRowSave: handleSaveRow,
+    onEditingRowSave: handleSaveRow, // Handles saving row edit
     renderRowActionMenuItems: ({ row }) => [
       <Menu.Item
         key="delete"
