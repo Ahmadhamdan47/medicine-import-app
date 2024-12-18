@@ -90,7 +90,7 @@ async function updateDrugData() {
             if (drugData) {
                 await connection.execute(
                     `INSERT INTO drug (
-                        ATC_Code, ProductType, Substitutable, OtherIngredients,
+                        ATC_Code, ProductType, OtherIngredients,
                         MoPHCode, RegistrationNumber, DrugName, Presentation,
                         Form, FormLNDI, Route, Agent, Manufacturer, Country,
                         SubsidyPercentage, NotMarketed
@@ -98,7 +98,6 @@ async function updateDrugData() {
                     [
                         drugData.ATC_Code,
                         drugData.ProductType,
-                        drugData.Substitutable,
                         drugData.OtherIngredients,
                         drugData.MoPHCode,
                         drugData.RegistrationNumber,
