@@ -94,7 +94,7 @@ async function updateDrugData() {
                         MoPHCode, RegistrationNumber, DrugName, Presentation,
                         Form, FormLNDI, Route, Agent, Manufacturer, Country,
                         SubsidyPercentage, NotMarketed
-                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, false)`,
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, false)`,
                     [
                         drugData.ATC_Code,
                         drugData.ProductType,
