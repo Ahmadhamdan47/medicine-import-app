@@ -21,6 +21,20 @@ const DrugTable: React.FC = () => {
   const [sortByATC, setSortByATC] = useState(false); // State to track sorting by ATC
   const [columnPreset, setColumnPreset] = useState<string>('default');
   const [atcOptions, setAtcOptions] = useState<{ value: string; label: string }[]>([]);
+  const [dosageNumerator1UnitOptions, setDosageNumerator1UnitOptions] = useState<string[]>([]);
+  const [dosageNumerator2UnitOptions, setDosageNumerator2UnitOptions] = useState<string[]>([]);
+  const [dosageNumerator3UnitOptions, setDosageNumerator3UnitOptions] = useState<string[]>([]);
+  
+  const [dosageDenominator1UnitOptions, setDosageDenominator1UnitOptions] = useState<string[]>([]);
+  const [dosageDenominator2UnitOptions, setDosageDenominator2UnitOptions] = useState<string[]>([]);
+  const [dosageDenominator3UnitOptions, setDosageDenominator3UnitOptions] = useState<string[]>([]);
+  
+  const [formOptions, setFormOptions] = useState<string[]>([]);
+  const [routeOptions, setRouteOptions] = useState<string[]>([]);
+  const [stratumOptions, setStratumOptions] = useState<string[]>([]);
+  const [agentOptions, setAgentOptions] = useState<string[]>([]);
+  const [manufacturerOptions, setManufacturerOptions] = useState<string[]>([]);
+
   const atcMap = useMemo(() => {
     const map: Record<string, string> = {};
     atcOptions.forEach((option) => {
@@ -34,7 +48,13 @@ const DrugTable: React.FC = () => {
     fetchAtcOptions();
 
   }, []);
-
+  const getUniqueValues = (data: any[], column: string) => {
+    return Array.from(new Set(data.map((row) => row[column]))).filter(
+      (value) => value !== null && value !== 'N/A'
+    );
+  };
+  
+  
   const fetchAtcOptions = async () => {
     try {
       const response = await axios.get('/atc/all');
@@ -136,6 +156,18 @@ const DrugTable: React.FC = () => {
         PriceForeign: drug.PriceForeign || 'N/A',
         CurrencyForeign: drug.CurrencyForeign || 'N/A',
       }));
+      
+      setDosageNumerator1UnitOptions(getUniqueValues(formattedData, 'DosageNumerator1Unit'));
+      setDosageNumerator2UnitOptions(getUniqueValues(formattedData, 'DosageNumerator2Unit'));
+      setDosageNumerator3UnitOptions(getUniqueValues(formattedData, 'DosageNumerator3Unit'));
+      setDosageDenominator1UnitOptions(getUniqueValues(formattedData, 'DosageDenominator1Unit'));
+      setDosageDenominator2UnitOptions(getUniqueValues(formattedData, 'DosageDenominator2Unit'));
+      setDosageDenominator3UnitOptions(getUniqueValues(formattedData, 'DosageDenominator3Unit'));
+      setFormOptions(getUniqueValues(formattedData, 'Form'));
+      setRouteOptions(getUniqueValues(formattedData, 'Route'));
+      setStratumOptions(getUniqueValues(formattedData, 'Stratum'));
+      setAgentOptions(getUniqueValues(formattedData, 'Agent'));
+      setManufacturerOptions(getUniqueValues(formattedData, 'Manufacturer'));
   
       setTableData(formattedData);
       setAllData(formattedData); // If you need to keep a full copy for searching
@@ -266,22 +298,93 @@ const DrugTable: React.FC = () => {
               }),
             },
             { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            { accessorKey: 'FormLNDI', header: 'Dosage LNDI', size: 100 },
-            { accessorKey: 'DosageNumerator1', header: 'Num1', size: 120 },
-            { accessorKey: 'DosageNumerator1Unit', header: 'Num1 Unit', size: 150 },
+            { accessorKey: 'DosageNumerator1', header: 'DosageNumerator1', size: 120 },
+            {
+              accessorKey: 'DosageNumerator1Unit',
+              header: 'Dosage Numerator 1 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
             { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
-            { accessorKey: 'DosageDenominator1Unit', header: 'Deno1 Unit', size: 150 },
+            {
+              accessorKey: 'DosageDenominator1Unit',
+              header: 'Dosage Denominator 1 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
-            { accessorKey: 'DosageNumerator2Unit', header: 'Dosage Numerator 2 Unit', size: 150 },
+            {
+              accessorKey: 'DosageNumerator2Unit',
+              header: 'Dosage Numerator 2 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
-            { accessorKey: 'DosageDenominator2Unit', header: 'Dosage Denominator 2 Unit', size: 150 },
+            {
+              accessorKey: 'DosageDenominator2Unit',
+              header: 'Dosage Denominator 2 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
-            { accessorKey: 'DosageNumerator3Unit', header: 'Dosage Numerator 3 Unit', size: 150 },
+            {
+              accessorKey: 'DosageNumerator3Unit',
+              header: 'Dosage Numerator 3 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
             { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
-            { accessorKey: 'DosageDenominator3Unit', header: 'Dosage Denominator 3 Unit', size: 150 },
+            {
+              accessorKey: 'DosageDenominator3Unit',
+              header: 'Dosage Denominator 3 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DFSequence', header: 'D-F Sequence', size: 100 },
-            { accessorKey: 'Form', header: 'Form LNDI', size: 100 },
-            { accessorKey: 'Route', header: 'Route CLEAN', size: 100 },
+            {
+              accessorKey: 'Form',
+              header: 'Form',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: formOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
+            {
+              accessorKey: 'Route',
+              header: 'Route',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: routeOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
           ];
         case 'atcCheck':
           return [
@@ -331,13 +434,30 @@ const DrugTable: React.FC = () => {
             },
             { accessorKey: 'OtherIngredients', header: 'Ingredients', size: 150 },
             { accessorKey: 'Dosage', header: 'Dosage (CLEAN)', size: 200 },
-            { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
-          ];
+            {
+              accessorKey: 'Route',
+              header: 'Route',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: routeOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
+                    ];
         case 'presentationCheck':
           return [
             { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            { accessorKey: 'FormLNDI', header: 'Presentation LNDI', size: 100 },
-            { accessorKey: 'PresentationUnitQuantity1', header: 'Unit Qtty CLEAN', size: 150 },
+            {
+              accessorKey: 'Form',
+              header: 'Form',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: formOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            { accessorKey: 'PresentationUnitQuantity1', header: 'Unit Qtty CLEAN', size: 150 },
             { accessorKey: 'PresentationUnitType1', header: 'Unit Type CLEAN', size: 150 },
             { accessorKey: 'PresentationPackageType1', header: 'Package Type CLEAN', size: 150 },
             { accessorKey: 'PresentationPackageQuantity2', header: 'PQ2', size: 150 },
@@ -399,21 +519,84 @@ const DrugTable: React.FC = () => {
             
             { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
             { accessorKey: 'Dosage', header: 'Dosage CLEAN', size: 100 },
-            { accessorKey: 'DosageNumerator1', header: 'Dosage Numerator 1', size: 120 },
-            { accessorKey: 'DosageNumerator1Unit', header: 'Dosage Numerator 1 Unit', size: 150 },
-            { accessorKey: 'DosageDenominator1', header: 'Dosage Denominator 1', size: 150 },
-            { accessorKey: 'DosageDenominator1Unit', header: 'Dosage Denominator 1 Unit', size: 150 },
+            { accessorKey: 'DosageNumerator1', header: 'Num1Unit', size: 120 },
+            {
+              accessorKey: 'DosageNumerator1Unit',
+              header: 'Dosage Numerator 1 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
+            { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
+            {
+              accessorKey: 'DosageDenominator1Unit',
+              header: 'Dosage Denominator 1 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
-            { accessorKey: 'DosageNumerator2Unit', header: 'Dosage Numerator 2 Unit', size: 150 },
+            {
+              accessorKey: 'DosageNumerator2Unit',
+              header: 'Dosage Numerator 2 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
-            { accessorKey: 'DosageDenominator2Unit', header: 'Dosage Denominator 2 Unit', size: 150 },
+            {
+              accessorKey: 'DosageDenominator2Unit',
+              header: 'Dosage Denominator 2 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
-            { accessorKey: 'DosageNumerator3Unit', header: 'Dosage Numerator 3 Unit', size: 150 },
+            {
+              accessorKey: 'DosageNumerator3Unit',
+              header: 'Dosage Numerator 3 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
             { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
-            { accessorKey: 'DosageDenominator3Unit', header: 'Dosage Denominator 3 Unit', size: 150 },
+            {
+              accessorKey: 'DosageDenominator3Unit',
+              header: 'Dosage Denominator 3 Unit',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
             { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
-            { accessorKey: 'Form', header: 'Form', size: 100 },
+            {
+              accessorKey: 'Form',
+              header: 'Form',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: formOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
             { accessorKey: 'PresentationDescription', header: 'Presentation', size: 120 },
             { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
@@ -427,13 +610,48 @@ const DrugTable: React.FC = () => {
             { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
             { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
             { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
-            { accessorKey: 'Route', header: 'Route (CLEAN)', size: 100 },
-            { accessorKey: 'Stratum', header: 'Stratum', size: 100 },
+            {
+              accessorKey: 'Route',
+              header: 'Route',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: routeOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
+            {
+              accessorKey: 'Stratum',
+              header: 'Stratum',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: stratumOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
             { accessorKey: 'Amount', header: 'Amount', size: 80 },
-            { accessorKey: 'Agent', header: 'Agent', size: 100 },
-            { accessorKey: 'Manufacturer', header: 'Manufacturer', size: 120 },
+            {
+              accessorKey: 'Agent',
+              header: 'Agent',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: agentOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },
+            {
+              accessorKey: 'Manufacturer',
+              header: 'Manufacturer',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: manufacturerOptions.map((value) => ({ value, label: value })),
+                searchable: true,
+                clearable: true,
+              },
+            },            
             { accessorKey: 'Country', header: 'Country', size: 80 },
-            { accessorKey: 'ManufacturerID', header: 'ManufacturerID', size: 120 },
             { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
             { accessorKey: 'Notes', header: 'Notes', size: 100 },
             { accessorKey: 'Description', header: 'Description', size: 120 },
@@ -472,7 +690,7 @@ const DrugTable: React.FC = () => {
           ];
       }
     },
-    [columnPreset,atcOptions]
+    [columnPreset,atcOptions, dosageNumerator1UnitOptions,dosageNumerator2UnitOptions,dosageNumerator3UnitOptions,dosageDenominator1UnitOptions,dosageDenominator2UnitOptions,dosageDenominator3UnitOptions,formOptions, routeOptions, stratumOptions, agentOptions, manufacturerOptions]
   );
 
   const table = useMantineReactTable({
@@ -515,7 +733,6 @@ const DrugTable: React.FC = () => {
         PresentationPackageType3: false,
         PresentationDescription: true,
         Amount: false,
-        ManufacturerID: false,
         RegistrationNumber: false,
         Notes: false,
         Description: false,
