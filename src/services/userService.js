@@ -4,6 +4,8 @@ const UserAccounts = require('../models/userAccounts');
 const Roles = require('../models/roles');
 const Agent = require('../models/agent');
 const Donor = require('../models/donor');
+const Recipient = require('../models/recipient');
+
 
 class UserService {
   static async register(username, password, roleId, donorId) {
@@ -78,6 +80,35 @@ else
     });
 
     await this.register(username, password, donorRole.RoleId, donor.DonorId);
+  }
+  static async recipientSignup(recipientData, username, password) {
+    const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive } = recipientData;
+    
+    // Fetch the RoleId for Recipient
+    const recipientRole = await Roles.findOne({ where: { RoleName: 'Recipient' } });
+    if (!recipientRole) {
+      throw new Error('Role not found');
+    }
+
+    const recipient = await Recipient.create({
+      RecipientName,
+      RecipientType,
+      Address,
+      City,
+      Country,
+      ContactPerson,
+      ContactNumber,
+      IsActive,
+      CreatedDate: new Date(),
+      UpdatedDate: new Date()
+    });
+
+    await UserAccounts.create({
+      Username: username,
+      PasswordHash: await bcrypt.hash(password, 10),
+      RoleId: recipientRole.RoleId,
+      RecipientId: recipient.RecipientId
+    });
   }
 }
 
