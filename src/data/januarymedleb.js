@@ -3,33 +3,30 @@ const csv = require('csv-parser');
 const mysql = require('mysql2/promise');
 const _ = require('lodash');
 
-// Database configuration
 const dbConfig = {
   host: 'localhost',
-  user: 'ommal_ahmad', // Replace with your database username
-  password: 'fISfGr^8q!_gUPMY', // Replace with your database password
-  database: 'ommal_medlebapiv2', // Replace with your database name
+  user: 'ommal_ahmad',
+  password: 'fISfGr^8q!_gUPMY',
+  database: 'ommal_medapiv2',
 };
 
-// Path to the CSV file
 const csvFilePath = './january.csv';
 
-// Function to update prices in the database
-async function updatePricesFromCSV(csvPath, dbConfig) {
+async function updatePricesDirectly(csvPath) {
   let connection;
   try {
     // Connect to the database
     connection = await mysql.createConnection(dbConfig);
     console.log('Connected to the database.');
 
-    // Read and process the CSV file
+    // Parse the CSV file
     const updates = [];
     await new Promise((resolve, reject) => {
       fs.createReadStream(csvPath)
         .pipe(csv())
         .on('data', (row) => {
           if (row.code && row.public_price) {
-            updates.push([parseFloat(row.public_price), row.code]); // Prepare data for batch updates
+            updates.push([parseFloat(row.public_price), row.code]);
           } else {
             console.error('Missing required fields (code, public_price) in row:', row);
           }
@@ -74,5 +71,5 @@ async function updatePricesFromCSV(csvPath, dbConfig) {
   }
 }
 
-// Call the function
-updatePricesFromCSV(csvFilePath, dbConfig);
+// Run the function
+updatePricesDirectly(csvFilePath);
