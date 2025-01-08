@@ -8,7 +8,7 @@ const dbConfig = {
   host: 'localhost',
   user: 'ommal_ahmad', // Replace with your database username
   password: 'fISfGr^8q!_gUPMY', // Replace with your database password
-  database: 'medlebapiv2', // Replace with your database name
+  database: 'ommal_medlebapiv2', // Replace with your database name
 };
 
 // Path to the CSV file
