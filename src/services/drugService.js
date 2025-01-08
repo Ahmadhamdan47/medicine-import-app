@@ -961,13 +961,15 @@ const getDrugSubstitutes = async (drugName) => {
       };
     });
 
+    // Sort the substitutes by price from lowest to highest
+    substitutesWithDetails.sort((a, b) => a.Price - b.Price);
+
     return substitutesWithDetails;
   } catch (error) {
     console.error("Error in getDrugSubstitutes:", error);
     throw new Error('Error occurred in getDrugSubstitutes: ' + error.message);
   }
 };
-
 const checkDrugNameInAPI = async (drugName) => {
   try {
     const response = await axios.get(`https://data.instamed.fr/api/drugs?page=1&_per_page=30&name=${drugName}`);
