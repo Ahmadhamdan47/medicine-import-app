@@ -111,6 +111,12 @@ try {
   const sequelize = new Sequelize("ommal_medapiv2",  "ommal_ahmad", "fISfGr^8q!_gUPMY", {
     host: 'localhost',
     dialect: 'mysql',
+    pool: {
+      max: 26, // Increase the maximum number of connections
+      min: 1,  // Keep a minimum number of connections
+      acquire: 300000, // Increase timeout to 30 seconds
+      idle: 100000, // Set idle time to 10 seconds
+    },
     logging: (query) => {
       logger.info(`Executing SQL Query: ${query}`);
       if (!query || !query.sql) {
