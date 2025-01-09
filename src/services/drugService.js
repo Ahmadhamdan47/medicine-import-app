@@ -70,9 +70,9 @@ const drugsWithDosageAndRoute = drugs.map(drug => {
   const presentation = drug.Presentation;
   const ManufacturerName = drug.Manufacturer;
   const CountryName = drug.Country;
-  const priceInLBP = drug.Price * 90000;
+  const priceInLBP = drug.Price * 89500;
   const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
-  const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+  const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
 
   return {
     ...drug.dataValues,
@@ -113,9 +113,9 @@ const searchDrugByATCName = async (atcName) => {
       const presentation = drug.Presentation;
       const ManufacturerName = drug.Manufacturer;
       const CountryName = drug.Country;
-      const priceInLBP = drug.Price * 90000;
+      const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
-      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
   
       return {
         ...drug.dataValues,
@@ -157,9 +157,9 @@ const searchDrugByName = async (query) => {
       const presentation = drug.Presentation;
       const ManufacturerName = drug.Manufacturer;
       const CountryName = drug.Country;
-      const priceInLBP = drug.Price * 90000;
+      const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
-      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
   
       return {
         ...drug.dataValues,
@@ -209,10 +209,10 @@ const getDrugById = async (DrugIDs) => {
         ATC = null;
       }
 
-      const priceInLBP = drugPlainData.Price * 90000;
+      const priceInLBP = drugPlainData.Price * 89500;
       const amount = drugPlainData.Amount;
       const unitPrice = amount > 0 ? drugPlainData.Price / amount : null;
-      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
 
       return {
         ...drugPlainData,
@@ -439,7 +439,7 @@ const smartSearch = async (query) => {
       const presentation = drug.Presentation;
       const ManufacturerName = drug.Manufacturer;
       const CountryName = drug.Country;
-      const priceInLBP = drug.Price * 90000;
+      const priceInLBP = drug.Price * 89500;
 
       const amount = drug.dataValues.Amount;
       const price = drug.Price;
@@ -449,7 +449,7 @@ const smartSearch = async (query) => {
 
       if (amount && amount > 0) {
         unitPrice = price / amount;
-        unitPriceInLBP = unitPrice * 90000;
+        unitPriceInLBP = unitPrice * 89500;
       }
 
       // Fetch the additional data from getDrugById
@@ -507,7 +507,7 @@ const smartSearch = async (query) => {
             const presentation = substituteDrug.Presentation;
             const ManufacturerName = substituteDrug.Manufacturer;
             const CountryName = substituteDrug.Country;
-            const priceInLBP = substituteDrug.Price * 90000;
+            const priceInLBP = substituteDrug.Price * 89500;
 
             const amount = substituteDrug.dataValues.Amount;
             const price = substituteDrug.Price;
@@ -517,7 +517,7 @@ const smartSearch = async (query) => {
 
             if (amount && amount > 0) {
               unitPrice = price / amount;
-              unitPriceInLBP = unitPrice * 90000;
+              unitPriceInLBP = unitPrice * 89500;
             }
 
             // Fetch the additional data from getDrugById for substitutes
@@ -872,9 +872,9 @@ const getOTCDrugs = async () => {
       const presentation = drug.Presentation;
       const ManufacturerName = drug.Manufacturer;
       const CountryName = drug.Country;
-      const priceInLBP = drug.Price * 90000;
+      const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
-      const unitPriceInLBP = unitPrice ? unitPrice * 90000 : null;
+      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
   
       return {
         ...drug.dataValues,
@@ -934,7 +934,7 @@ const getDrugSubstitutes = async (drugName) => {
       const presentation = substituteDrug.Presentation;
       const ManufacturerName = substituteDrug.Manufacturer;
       const CountryName = substituteDrug.Country;
-      const priceInLBP = substituteDrug.Price * 90000;
+      const priceInLBP = substituteDrug.Price * 89500;
 
       const amount = substituteDrug.dataValues.Amount; // Directly use the integer value of Amount
       const price = substituteDrug.Price;
@@ -944,7 +944,7 @@ const getDrugSubstitutes = async (drugName) => {
 
       if (amount && amount > 0) {
         unitPrice = price / amount;
-        unitPriceInLBP = unitPrice * 90000;
+        unitPriceInLBP = unitPrice * 89500;
       }
 
       return {
@@ -1087,9 +1087,9 @@ const fetchDrugDataFromServer = async () => {
         country: drug.Country,
         moPhCode: drug.MoPHCode,
         updatedDate: drug.UpdatedDate,
-        priceInLBP: drug.Price * 90000,
+        priceInLBP: drug.Price * 89500,
         unitPrice: unitPrice,
-        unitPriceInLBP: unitPrice ? unitPrice * 90000 : null,
+        unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
       };
     });
