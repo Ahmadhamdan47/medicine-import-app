@@ -4,8 +4,8 @@ const mysql = require('mysql2/promise');
 
 const dbConfig = {
   host: 'localhost',
-  user: 'root',
-  password: '',
+  user: 'ommal_ahmad',
+  password: 'fISfGr^8q!_gUPMY',
   database: 'ommal_medapiv2',
 };
 
