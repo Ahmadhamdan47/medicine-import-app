@@ -3,7 +3,7 @@ const path = require('path');
 const { NewDrug } = require('../models/pharmacyDrug'); // Import the NewDrug model
 
 // Path to the TSV file
-const tsvFilePath = path.join(__dirname, 'drugs_data.tsv');
+const tsvFilePath = path.join(__dirname, 'seq.tsv');
 
 async function updateDrugsFromTSV() {
     try {
