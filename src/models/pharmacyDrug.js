@@ -183,7 +183,13 @@ const NewDrug = sequelize.define('drug', {
     },
     CurrencyForeign: {
         type: DataTypes.UUID
-    }
+    },
+    Seq:{
+        type: DataTypes.STRING(255)
+    },
+    PresentationLNDI:{
+        type: DataTypes.STRING(255)
+    },
 }, {
     tableName: 'drug',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
