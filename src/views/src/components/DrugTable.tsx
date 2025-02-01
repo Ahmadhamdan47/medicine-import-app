@@ -9,52 +9,34 @@ import {
   type MRT_TableOptions,
 } from 'mantine-react-table';
 import { Menu } from '@mantine/core';
+import AddDrugModal from './AddDrugModal'; // import our new modal component
 
 const DrugTable: React.FC = () => {
   const [allData, setAllData] = useState<any[]>([]);
   const [tableData, setTableData] = useState<any[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [rowsPerPage, setRowsPerPage] = useState(25); // Default rows per page
-  const [searchQuery, setSearchQuery] = useState("");
-  const [sortByATC, setSortByATC] = useState(false); // State to track sorting by ATC
   const [columnPreset, setColumnPreset] = useState<string>('default');
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
+  // --- Options States (for select dropdowns) ---
   const [atcOptions, setAtcOptions] = useState<{ value: string; label: string }[]>([]);
   const [dosageNumerator1UnitOptions, setDosageNumerator1UnitOptions] = useState<string[]>([]);
   const [dosageNumerator2UnitOptions, setDosageNumerator2UnitOptions] = useState<string[]>([]);
   const [dosageNumerator3UnitOptions, setDosageNumerator3UnitOptions] = useState<string[]>([]);
-  
   const [dosageDenominator1UnitOptions, setDosageDenominator1UnitOptions] = useState<string[]>([]);
   const [dosageDenominator2UnitOptions, setDosageDenominator2UnitOptions] = useState<string[]>([]);
   const [dosageDenominator3UnitOptions, setDosageDenominator3UnitOptions] = useState<string[]>([]);
-  
   const [formOptions, setFormOptions] = useState<string[]>([]);
   const [routeOptions, setRouteOptions] = useState<string[]>([]);
   const [stratumOptions, setStratumOptions] = useState<string[]>([]);
   const [agentOptions, setAgentOptions] = useState<string[]>([]);
   const [manufacturerOptions, setManufacturerOptions] = useState<string[]>([]);
 
-  const atcMap = useMemo(() => {
-    const map: Record<string, string> = {};
-    atcOptions.forEach((option) => {
-      map[option.value] = option.label;
-    });
-    return map;
-  }, [atcOptions]);
-
   useEffect(() => {
     fetchDrugs();
     fetchAtcOptions();
-
   }, []);
-  const getUniqueValues = (data: any[], column: string) => {
-    return Array.from(new Set(data.map((row) => row[column]))).filter(
-      (value) => value !== null && value !== 'N/A'
-    );
-  };
-  
-  
+
   const fetchAtcOptions = async () => {
     try {
       const response = await axios.get('/atc/all');
@@ -68,12 +50,23 @@ const DrugTable: React.FC = () => {
     }
   };
 
+  const getUniqueValues = (data: any[], column: string) => {
+    return Array.from(new Set(data.map((row) => row[column]))).filter(
+      (value) => value !== null && value !== 'N/A'
+    );
+  };
+  const handleAddSuccess = (newDrug: any) => {
+    // The backend likely returns the newly created drug record
+    // Append to table data
+    setTableData((prev) => [...prev, newDrug]);
+    setAllData((prev) => [...prev, newDrug]);
+  };
   const fetchDrugs = async () => {
-    setIsLoading(true); // Start loading
+    setIsLoading(true); 
     try {
-      const response = await axios.get('/drugs/all'); // Adjust the endpoint based on your backend
+      const response = await axios.get('/drugs/all'); 
       const { drugs } = response.data;
-  
+
       const formattedData = drugs.map((drug: any) => ({
         DrugID: drug.DrugID || 'N/A',
         DrugName: drug.DrugName || 'N/A',
@@ -96,6 +89,7 @@ const DrugTable: React.FC = () => {
         DosageNumerator3Unit: drug.Dosages?.[0]?.Numerator3Unit || 'N/A',
         DosageDenominator3: drug.Dosages?.[0]?.Denominator3 || 'N/A',
         DosageDenominator3Unit: drug.Dosages?.[0]?.Denominator3Unit || 'N/A',
+
         // Drug Presentations Fields
         PresentationDescription: drug.DrugPresentations?.[0]?.Description || 'N/A',
         PresentationUnitQuantity1: drug.DrugPresentations?.[0]?.UnitQuantity1 || 'N/A',
@@ -108,13 +102,17 @@ const DrugTable: React.FC = () => {
         PresentationPackageType2: drug.DrugPresentations?.[0]?.PackageType2 || 'N/A',
         PresentationPackageQuantity3: drug.DrugPresentations?.[0]?.PackageQuantity3 || 'N/A',
         PresentationPackageType3: drug.DrugPresentations?.[0]?.PackageType3 || 'N/A',
-        // Other Drug Fields
+
+        // Additional fields
         isOTC: drug.isOTC || false,
         DFSequence: drug.DFSequence || 'N/A',
+        // If you have a field like 'FormLNDI' in DB, map it. Example:
         Form: drug.Form || 'N/A',
-        FormLNDI: drug.FormLNDI || 'N/A',
+        FormLNDI: drug.FormLNDI || 'N/A', // or wherever your LNDI form is stored
         Parent: drug.RouteParent || 'N/A',
         Route: drug.Route || 'N/A',
+        // If there's a RouteLNDI field in DB:
+        RouteLNDI: drug.RouteLNDI || 'N/A', // only if it exists
         Parentaral: drug.Parentaral || 'N/A',
         Stratum: drug.Stratum || 'N/A',
         Amount: drug.Amount || 0,
@@ -156,7 +154,8 @@ const DrugTable: React.FC = () => {
         PriceForeign: drug.PriceForeign || 'N/A',
         CurrencyForeign: drug.CurrencyForeign || 'N/A',
       }));
-      
+
+      // Populate dropdowns
       setDosageNumerator1UnitOptions(getUniqueValues(formattedData, 'DosageNumerator1Unit'));
       setDosageNumerator2UnitOptions(getUniqueValues(formattedData, 'DosageNumerator2Unit'));
       setDosageNumerator3UnitOptions(getUniqueValues(formattedData, 'DosageNumerator3Unit'));
@@ -168,24 +167,33 @@ const DrugTable: React.FC = () => {
       setStratumOptions(getUniqueValues(formattedData, 'Stratum'));
       setAgentOptions(getUniqueValues(formattedData, 'Agent'));
       setManufacturerOptions(getUniqueValues(formattedData, 'Manufacturer'));
-  
+
       setTableData(formattedData);
-      setAllData(formattedData); // If you need to keep a full copy for searching
+      setAllData(formattedData);
     } catch (error) {
       console.error('Error fetching drugs:', error);
     } finally {
-      setIsLoading(false); // End loading
+      setIsLoading(false);
     }
   };
-  
 
-  const handleSaveRow = async ({ row, values, exitEditingMode }: { row: any, values: any, exitEditingMode: () => void }) => {
+  const handleSaveRow = async ({
+    row,
+    values,
+    exitEditingMode,
+  }: {
+    row: any;
+    values: any;
+    exitEditingMode: () => void;
+  }) => {
     try {
       const updatedDrug = { ...row.original, ...values };
+      // If ATC was changed in editing:
       if (updatedDrug.ATC) {
         updatedDrug.ATC_Code = updatedDrug.ATC;
-
       }
+
+      // Dosage sub-payload
       const dosageData = {
         Numerator1: updatedDrug.DosageNumerator1,
         Numerator1Unit: updatedDrug.DosageNumerator1Unit,
@@ -200,7 +208,8 @@ const DrugTable: React.FC = () => {
         Denominator3: updatedDrug.DosageDenominator3,
         Denominator3Unit: updatedDrug.DosageDenominator3Unit,
       };
-  
+
+      // Presentation sub-payload
       const presentationData = {
         UnitQuantity1: updatedDrug.PresentationUnitQuantity1,
         UnitType1: updatedDrug.PresentationUnitType1,
@@ -214,23 +223,28 @@ const DrugTable: React.FC = () => {
         PackageType3: updatedDrug.PresentationPackageType3,
         Description: updatedDrug.PresentationDescription,
       };
-  
-      console.log("Payload Sent to Backend:", updatedDrug);
 
+      // Debug payload
+      console.log('Payload Sent to Backend:', updatedDrug);
+
+      // Update drug main info
       await axios.put(`/drugs/update/${updatedDrug.DrugID}`, updatedDrug);
-
+      // Update dosage info
       await axios.put(`/dosages/updateByDrug/${updatedDrug.DrugID}`, dosageData);
-
-      // Update Presentations by DrugId
+      // Update presentation info
       await axios.put(`/presentations/updateByDrug/${updatedDrug.DrugID}`, presentationData);
 
-      // Update the table data locally
-      setTableData(prevData => prevData.map(drug => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)));
-      setAllData(prevData => prevData.map(drug => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)));
+      // Update tableData locally
+      setTableData((prevData) =>
+        prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug))
+      );
+      setAllData((prevData) =>
+        prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug))
+      );
 
-      exitEditingMode(); // Required to exit editing mode and close the editor
+      exitEditingMode();
     } catch (error) {
-      console.error("Error updating drug:", error);
+      console.error('Error updating drug:', error);
     }
   };
 
@@ -238,460 +252,560 @@ const DrugTable: React.FC = () => {
     try {
       if (window.confirm('Are you sure you want to delete this drug?')) {
         await axios.delete(`/drugs/delete/${row.original.DrugID}`);
-
-        // Update the table data locally
-        setTableData(prevData => prevData.filter(drug => drug.DrugID !== row.original.DrugID));
-        setAllData(prevData => prevData.filter(drug => drug.DrugID !== row.original.DrugID));
+        setTableData((prevData) =>
+          prevData.filter((drug) => drug.DrugID !== row.original.DrugID)
+        );
+        setAllData((prevData) =>
+          prevData.filter((drug) => drug.DrugID !== row.original.DrugID)
+        );
       }
     } catch (error) {
-      console.error("Error deleting drug:", error);
+      console.error('Error deleting drug:', error);
     }
   };
 
+  const columns = useMemo<MRT_ColumnDef<any>[]>(() => {
+    switch (columnPreset) {
+      /* --------------------------------------------------
+         Substitution Check Preset
+         -------------------------------------------------- */
+      case 'substitutionCheck':
+        return [
+          {
+            accessorKey: 'ATC',
+            header: 'ATC',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ value }) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATC || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID ? { ...drug, ATC: value } : drug
+                  )
+                );
+              },
+              placeholder: row.original.ATC || 'Select ATC',
+            }),
+          },
+          {
+            accessorKey: 'ATCRelatedIngredient',
+            header: 'ATC Related Ingredient',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ label }) => ({ value: label, label })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATCRelatedIngredient || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID
+                      ? { ...drug, ATCRelatedIngredient: value }
+                      : drug
+                  )
+                );
+              },
+              placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient',
+            }),
+          },
+          { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
 
-  const columns = useMemo<MRT_ColumnDef<any>[]>(
-    () => {
-      switch (columnPreset) {
-        case 'substitutionCheck':
-          return [
-            {
-              accessorKey: 'ATC',
-              header: 'ATC',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATC || '', // Bind to the current ATC value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATC: value } // Update the ATC value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
-              }),
+          // New columns per request
+          { accessorKey: 'OtherIngredients', header: 'All Ingredients', size: 150 },
+          {
+            accessorKey: 'FormLNDI',
+            header: 'Form LNDI',
+            size: 100,
+          },
+          {
+            accessorKey: 'Form',
+            header: 'Dosage-form (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: formOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            
-            {
-              accessorKey: 'ATCRelatedIngredient',
-              header: 'ATC Related Ingredient',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
-              }),
+            size: 120,
+          },
+          {
+            accessorKey: 'RouteLNDI',
+            header: 'Route LNDI',
+            size: 100,
+          },
+          {
+            accessorKey: 'Route',
+            header: 'Route (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: routeOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            { accessorKey: 'DosageNumerator1', header: 'DosageNumerator1', size: 120 },
-            {
-              accessorKey: 'DosageNumerator1Unit',
-              header: 'Dosage Numerator 1 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
-            {
-              accessorKey: 'DosageDenominator1Unit',
-              header: 'Dosage Denominator 1 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
+
+          // Keep the existing dosage columns
+          { accessorKey: 'DosageNumerator1', header: 'DosageNumerator1', size: 120 },
+          {
+            accessorKey: 'DosageNumerator1Unit',
+            header: 'Num 1 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
-            {
-              accessorKey: 'DosageNumerator2Unit',
-              header: 'Dosage Numerator 2 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
+          {
+            accessorKey: 'DosageDenominator1Unit',
+            header: 'Deno 1 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
-            {
-              accessorKey: 'DosageDenominator2Unit',
-              header: 'Dosage Denominator 2 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageNumerator2', header: 'Num 2', size: 120 },
+          {
+            accessorKey: 'DosageNumerator2Unit',
+            header: 'Num 2 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
-            {
-              accessorKey: 'DosageNumerator3Unit',
-              header: 'Dosage Numerator 3 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
-            {
-              accessorKey: 'DosageDenominator3Unit',
-              header: 'Dosage Denominator 3 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageDenominator2', header: 'Deno 2', size: 150 },
+          {
+            accessorKey: 'DosageDenominator2Unit',
+            header: 'Deno 2 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DFSequence', header: 'D-F Sequence', size: 100 },
-            {
-              accessorKey: 'Form',
-              header: 'Form',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: formOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            {
-              accessorKey: 'Route',
-              header: 'Route',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: routeOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageNumerator3', header: 'Num 3', size: 120 },
+          {
+            accessorKey: 'DosageNumerator3Unit',
+            header: 'Num 3 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-          ];
-        case 'atcCheck':
-          return [
-            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            {
-              accessorKey: 'ATC',
-              header: 'ATC',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATC || '', // Bind to the current ATC value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATC: value } // Update the ATC value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
-              }),
+          },
+          { accessorKey: 'DosageDenominator3', header: 'Deno 3', size: 150 },
+          {
+            accessorKey: 'DosageDenominator3Unit',
+            header: 'Deno 3 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            
-            {
-              accessorKey: 'ATCRelatedIngredient',
-              header: 'ATC Related Ingredient',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
-              }),
+          },
+          { accessorKey: 'DFSequence', header: 'D-F Sequence', size: 100 },
+
+          // The route column remains if needed
+         
+        ];
+
+      /* --------------------------------------------------
+         ATC Check Preset
+         -------------------------------------------------- */
+      case 'atcCheck':
+        return [
+          { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+          {
+            accessorKey: 'ATC',
+            header: 'ATC',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ value }) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATC || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID ? { ...drug, ATC: value } : drug
+                  )
+                );
+              },
+              placeholder: row.original.ATC || 'Select ATC',
+            }),
+          },
+          {
+            accessorKey: 'ATCRelatedIngredient',
+            header: 'ATC Related Ingredient',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ label }) => ({ value: label, label })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATCRelatedIngredient || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID
+                      ? { ...drug, ATCRelatedIngredient: value }
+                      : drug
+                  )
+                );
+              },
+              placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient',
+            }),
+          },
+          { accessorKey: 'OtherIngredients', header: 'All Ingredients', size: 150 },
+          { accessorKey: 'Dosage', header: 'Dosage (merged)', size: 200 },
+
+          {
+            accessorKey: 'Route',
+            header: 'Route (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: routeOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'OtherIngredients', header: 'Ingredients', size: 150 },
-            { accessorKey: 'Dosage', header: 'Dosage (CLEAN)', size: 200 },
-            {
-              accessorKey: 'Route',
-              header: 'Route',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: routeOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+        ];
+
+      /* --------------------------------------------------
+         Presentation Check Preset
+         -------------------------------------------------- */
+      case 'presentationCheck':
+        return [
+          { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+
+          // Add Form LNDI + Dosage-Dosage-form (clean)
+          {
+            accessorKey: 'FormLNDI',
+            header: 'Form LNDI',
+            size: 120,
+          },
+          {
+            accessorKey: 'Form',
+            header: 'Dosage-form (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: formOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-                    ];
-        case 'presentationCheck':
-          return [
-            { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-            {
-              accessorKey: 'Form',
-              header: 'Form',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: formOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
+            size: 120,
+          },
+
+          // The requested "presentation" field => rename your
+          // PresentationDescription to "Presentation (clean)"
+          {
+            accessorKey: 'PresentationDescription',
+            header: 'Presentation Descripiton',
+            size: 180,
+          },
+          {
+            accessorKey: 'PresentationUnitQuantity1',
+            header: 'Unit Qtty 1 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationUnitType1',
+            header: 'Unit Type 1 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationPackageQuantity1',
+            header: 'Package Qtty 1 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationPackageType1',
+            header: 'Package Type 1 (clean)',
+            size: 150,
+          },
+
+          // If you want to display the 2nd and 3rd sets as well:
+          {
+            accessorKey: 'PresentationPackageQuantity2',
+            header: 'Package Qtty 2 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationPackageType2',
+            header: 'Package Type 2 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationPackageQuantity3',
+            header: 'Package Qtty 3 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationPackageType3',
+            header: 'Package Type 3 (clean)',
+            size: 150,
+          },
+        ];
+
+      /* --------------------------------------------------
+         Default Preset
+         -------------------------------------------------- */
+      default:
+        return [
+          { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
+          { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
+          { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
+          { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
+          {
+            accessorKey: 'ATC',
+            header: 'ATC',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ value }) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATC || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID ? { ...drug, ATC: value } : drug
+                  )
+                );
               },
-            },            { accessorKey: 'PresentationUnitQuantity1', header: 'Unit Qtty CLEAN', size: 150 },
-            { accessorKey: 'PresentationUnitType1', header: 'Unit Type CLEAN', size: 150 },
-            { accessorKey: 'PresentationPackageType1', header: 'Package Type CLEAN', size: 150 },
-            { accessorKey: 'PresentationPackageQuantity2', header: 'PQ2', size: 150 },
-            { accessorKey: 'PresentationPackageType2', header: 'PT2', size: 150 },
-            { accessorKey: 'PresentationPackageQuantity3', header: 'PQ3', size: 150 },
-            { accessorKey: 'PresentationPackageType3', header: 'PT3', size: 150 },
-            { accessorKey: 'PresentationDescription', header: 'Description CLEAN', size: 180 },
-          ];
-        default:
-          return [
-            { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
-            { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
-            { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
-            { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
-            {
-              accessorKey: 'ATC',
-              header: 'ATC',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ value }) => ({ value, label: value })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATC || '', // Bind to the current ATC value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATC: value } // Update the ATC value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATC || 'Select ATC', // Reflect updated value immediately
-              }),
+              placeholder: row.original.ATC || 'Select ATC',
+            }),
+          },
+          {
+            accessorKey: 'ATCRelatedIngredient',
+            header: 'ATC Related Ingredient',
+            editVariant: 'select',
+            mantineEditSelectProps: ({ row }) => ({
+              data: atcOptions.map(({ label }) => ({ value: label, label })),
+              searchable: true,
+              clearable: true,
+              value: row.original.ATCRelatedIngredient || '',
+              onChange: (value: any) => {
+                setTableData((prevData) =>
+                  prevData.map((drug) =>
+                    drug.DrugID === row.original.DrugID
+                      ? { ...drug, ATCRelatedIngredient: value }
+                      : drug
+                  )
+                );
+              },
+              placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient',
+            }),
+          },
+          { accessorKey: 'OtherIngredients', header: 'All Ingredients', size: 150 },
+          { accessorKey: 'Dosage', header: 'Dosage (merged)', size: 100 },
+          { accessorKey: 'DosageNumerator1', header: 'Num 1', size: 120 },
+          {
+            accessorKey: 'DosageNumerator1Unit',
+            header: 'Num 1 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            
-            {
-              accessorKey: 'ATCRelatedIngredient',
-              header: 'ATC Related Ingredient',
-              editVariant: 'select',
-              mantineEditSelectProps: ({ row }) => ({
-                data: atcOptions.map(({ label }) => ({ value: label, label })), // Dropdown options
-                searchable: true,
-                clearable: true,
-                value: row.original.ATCRelatedIngredient || '', // Bind to the current ingredient value
-                onChange: (value: any) => {
-                  setTableData((prevData) =>
-                    prevData.map((drug) =>
-                      drug.DrugID === row.original.DrugID
-                        ? { ...drug, ATCRelatedIngredient: value } // Update the ingredient value in state
-                        : drug
-                    )
-                  );
-                },
-                placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient', // Reflect updated value immediately
-              }),
+          },
+          { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
+          {
+            accessorKey: 'DosageDenominator1Unit',
+            header: 'Deno1 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            
-            
-            { accessorKey: 'OtherIngredients', header: 'OtherIngredients', size: 150 },
-            { accessorKey: 'Dosage', header: 'Dosage CLEAN', size: 100 },
-            { accessorKey: 'DosageNumerator1', header: 'Num1Unit', size: 120 },
-            {
-              accessorKey: 'DosageNumerator1Unit',
-              header: 'Dosage Numerator 1 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator1UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            { accessorKey: 'DosageDenominator1', header: 'Deno1', size: 150 },
-            {
-              accessorKey: 'DosageDenominator1Unit',
-              header: 'Dosage Denominator 1 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator1UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageNumerator2', header: 'Num2', size: 120 },
+          {
+            accessorKey: 'DosageNumerator2Unit',
+            header: 'Num2 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageNumerator2', header: 'Dosage Numerator 2', size: 120 },
-            {
-              accessorKey: 'DosageNumerator2Unit',
-              header: 'Dosage Numerator 2 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator2UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageDenominator2', header: 'Deno 2', size: 150 },
+          {
+            accessorKey: 'DosageDenominator2Unit',
+            header: 'Deno 2 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageDenominator2', header: 'Dosage Denominator 2', size: 150 },
-            {
-              accessorKey: 'DosageDenominator2Unit',
-              header: 'Dosage Denominator 2 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator2UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageNumerator3', header: 'Num 3', size: 120 },
+          {
+            accessorKey: 'DosageNumerator3Unit',
+            header: 'Num 3 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'DosageNumerator3', header: 'Dosage Numerator 3', size: 120 },
-            {
-              accessorKey: 'DosageNumerator3Unit',
-              header: 'Dosage Numerator 3 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            { accessorKey: 'DosageDenominator3', header: 'Dosage Denominator 3', size: 150 },
-            {
-              accessorKey: 'DosageDenominator3Unit',
-              header: 'Dosage Denominator 3 Unit',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'DosageDenominator3', header: 'Deno 3', size: 150 },
+          {
+            accessorKey: 'DosageDenominator3Unit',
+            header: 'Deno 3 Unit',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: dosageDenominator3UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
-            { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
-            {
-              accessorKey: 'Form',
-              header: 'Form',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: formOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'isOTC', header: 'isOTC', size: 60 },
+          { accessorKey: 'DFSequence', header: 'DFSequence', size: 100 },
+          {
+            accessorKey: 'Form',
+            header: 'Dosage-form (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: formOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
-            { accessorKey: 'PresentationDescription', header: 'Presentation', size: 120 },
-            { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
-            { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
-            { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
-            { accessorKey: 'PresentationUnitType2', header: 'Presentation Unit Type 2', size: 150 },
-            { accessorKey: 'PresentationPackageQuantity1', header: 'Presentation Package Quantity 1', size: 180 },
-            { accessorKey: 'PresentationPackageType1', header: 'Presentation Package Type 1', size: 150 },
-            { accessorKey: 'PresentationPackageQuantity2', header: 'Presentation Package Quantity 2', size: 180 },
-            { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
-            { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Quantity 3', size: 180 },
-            { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
-            { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
-            {
-              accessorKey: 'Route',
-              header: 'Route',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: routeOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            {
-              accessorKey: 'Stratum',
-              header: 'Stratum',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: stratumOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'FormLNDI', header: 'FormLNDI', size: 100 },
+
+          {
+            accessorKey: 'RouteLNDI',
+            header: 'Route LNDI',
+            size: 100,
+          },
+          {
+            accessorKey: 'Route',
+            header: 'Route (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: routeOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            { accessorKey: 'Amount', header: 'Amount', size: 80 },
-            {
-              accessorKey: 'Agent',
-              header: 'Agent',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: agentOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
+          },
+          { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
+         
+          { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
+          { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
+          { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
+          { accessorKey: 'PresentationUnitType2', header: 'Presentation Unit Type 2', size: 150 },
+          { accessorKey: 'PresentationPackageQuantity1', header: 'Presentation Package Qtty 1', size: 180 },
+          { accessorKey: 'PresentationPackageType1', header: 'Presentation Package Type 1', size: 150 },
+          { accessorKey: 'PresentationPackageQuantity2', header: 'Presentation Package Qtty 2', size: 180 },
+          { accessorKey: 'PresentationPackageType2', header: 'Presentation Package Type 2', size: 150 },
+          { accessorKey: 'PresentationPackageQuantity3', header: 'Presentation Package Qtty 3', size: 180 },
+          { accessorKey: 'PresentationPackageType3', header: 'Presentation Package Type 3', size: 150 },
+          { accessorKey: 'PresentationDescription', header: 'Presentation Description', size: 120 },
+          
+          
+          {
+            accessorKey: 'Stratum',
+            header: 'Stratum',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: stratumOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
             },
-            {
-              accessorKey: 'Manufacturer',
-              header: 'Manufacturer',
-              editVariant: 'select',
-              mantineEditSelectProps: {
-                data: manufacturerOptions.map((value) => ({ value, label: value })),
-                searchable: true,
-                clearable: true,
-              },
-            },            
-            { accessorKey: 'Country', header: 'Country', size: 80 },
-            { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
-            { accessorKey: 'Notes', header: 'Notes', size: 100 },
-            { accessorKey: 'Description', header: 'Description', size: 120 },
-            { accessorKey: 'Indication', header: 'Indication', size: 100 },
-            { accessorKey: 'Posology', header: 'Posology', size: 100 },
-            { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration', size: 180 },
-            { accessorKey: 'Contraindications', header: 'Contraindications', size: 150 },
-            { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse', size: 150 },
-            { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN', size: 120 },
-            { accessorKey: 'SideEffect', header: 'SideEffect', size: 100 },
-            { accessorKey: 'Toxicity', header: 'Toxicity', size: 80 },
-            { accessorKey: 'StorageCondition', header: 'StorageCondition', size: 150 },
-            { accessorKey: 'ShelfLife', header: 'ShelfLife', size: 100 },
-            { accessorKey: 'IngredientLabel', header: 'IngredientLabel', size: 150 },
-            { accessorKey: 'Price', header: 'Price', size: 80 },
-            { accessorKey: 'ImagesPath', header: 'ImagesPath', size: 100 },
-            { accessorKey: 'ImageDefault', header: 'ImageDefault', size: 100 },
-            { accessorKey: 'InteractionIngredientName', header: 'InteractionIngredientName', size: 180 },
-            { accessorKey: 'IsDouanes', header: 'IsDouanes', size: 100 },
-            { accessorKey: 'RegistrationDate', header: 'RegistrationDate', size: 150 },
-            { accessorKey: 'PublicPrice', header: 'PublicPrice', size: 100 },
-            { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel', size: 100 },
-            { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage', size: 150 },
-            { accessorKey: 'HospPricing', header: 'HospPricing', size: 100 },
-            { accessorKey: 'Substitutable', header: 'Substitutable', size: 120 },
-            { accessorKey: 'CreatedBy', header: 'CreatedBy', size: 100 },
-            { accessorKey: 'CreatedDate', header: 'CreatedDate', size: 150 },
-            { accessorKey: 'UpdatedBy', header: 'UpdatedBy', size: 100 },
-            { accessorKey: 'UpdatedDate', header: 'UpdatedDate', size: 150 },
-            { accessorKey: 'ReviewDate', header: 'ReviewDate', size: 100 },
-            { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
-            { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
-            { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
-            { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
-            { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
-          ];
-      }
-    },
-    [columnPreset,atcOptions, dosageNumerator1UnitOptions,dosageNumerator2UnitOptions,dosageNumerator3UnitOptions,dosageDenominator1UnitOptions,dosageDenominator2UnitOptions,dosageDenominator3UnitOptions,formOptions, routeOptions, stratumOptions, agentOptions, manufacturerOptions]
-  );
+          },
+          { accessorKey: 'Amount', header: 'Amount', size: 80 },
+          {
+            accessorKey: 'Agent',
+            header: 'Agent',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: agentOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+            },
+          },
+          {
+            accessorKey: 'Manufacturer',
+            header: 'Manufacturer',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: manufacturerOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+            },
+          },
+          { accessorKey: 'Country', header: 'Country', size: 80 },
+          { accessorKey: 'RegistrationNumber', header: 'RegistrationNumber', size: 150 },
+          { accessorKey: 'Notes', header: 'Notes', size: 100 },
+          { accessorKey: 'Description', header: 'Description', size: 120 },
+          { accessorKey: 'Indication', header: 'Indication', size: 100 },
+          { accessorKey: 'Posology', header: 'Posology', size: 100 },
+          { accessorKey: 'MethodOfAdministration', header: 'MethodOfAdministration', size: 180 },
+          { accessorKey: 'Contraindications', header: 'Contraindications', size: 150 },
+          { accessorKey: 'PrecautionForUse', header: 'PrecautionForUse', size: 150 },
+          { accessorKey: 'EffectOnFGN', header: 'EffectOnFGN', size: 120 },
+          { accessorKey: 'SideEffect', header: 'SideEffect', size: 100 },
+          { accessorKey: 'Toxicity', header: 'Toxicity', size: 80 },
+          { accessorKey: 'StorageCondition', header: 'StorageCondition', size: 150 },
+          { accessorKey: 'ShelfLife', header: 'ShelfLife', size: 100 },
+          { accessorKey: 'IngredientLabel', header: 'IngredientLabel', size: 150 },
+          { accessorKey: 'ImagesPath', header: 'ImagesPath', size: 100 },
+          { accessorKey: 'ImageDefault', header: 'ImageDefault', size: 100 },
+          {
+            accessorKey: 'InteractionIngredientName',
+            header: 'InteractionIngredientName',
+            size: 180,
+          },
+          { accessorKey: 'IsDouanes', header: 'IsDouanes', size: 100 },
+          { accessorKey: 'RegistrationDate', header: 'RegistrationDate', size: 150 },
+          { accessorKey: 'PublicPrice', header: 'PublicPrice', size: 100 },
+          { accessorKey: 'SubsidyLabel', header: 'SubsidyLabel', size: 100 },
+          { accessorKey: 'SubsidyPercentage', header: 'SubsidyPercentage', size: 150 },
+          { accessorKey: 'HospPricing', header: 'HospPricing', size: 100 },
+          { accessorKey: 'Substitutable', header: 'Substitutable', size: 120 },
+          { accessorKey: 'CreatedBy', header: 'CreatedBy', size: 100 },
+          { accessorKey: 'CreatedDate', header: 'CreatedDate', size: 150 },
+          { accessorKey: 'UpdatedBy', header: 'UpdatedBy', size: 100 },
+          { accessorKey: 'UpdatedDate', header: 'UpdatedDate', size: 150 },
+          { accessorKey: 'ReviewDate', header: 'ReviewDate', size: 100 },
+          { accessorKey: 'MoPHCode', header: 'MoPHCode', size: 80 },
+          { accessorKey: 'CargoShippingTerms', header: 'CargoShippingTerms', size: 150 },
+          { accessorKey: 'NotMarketed', header: 'NotMarketed', size: 100 },
+          { accessorKey: 'PriceForeign', header: 'PriceForeign', size: 100 },
+          { accessorKey: 'CurrencyForeign', header: 'CurrencyForeign', size: 100 },
+        ];
+    }
+  }, [
+    columnPreset,
+    atcOptions,
+    dosageNumerator1UnitOptions,
+    dosageNumerator2UnitOptions,
+    dosageNumerator3UnitOptions,
+    dosageDenominator1UnitOptions,
+    dosageDenominator2UnitOptions,
+    dosageDenominator3UnitOptions,
+    formOptions,
+    routeOptions,
+    stratumOptions,
+    agentOptions,
+    manufacturerOptions,
+  ]);
 
   const table = useMantineReactTable({
     columns,
@@ -700,13 +814,12 @@ const DrugTable: React.FC = () => {
     enableEditing: true,
     editDisplayMode: 'row',
     enableRowActions: true,
-
     enableStickyHeader: true,
     enablePagination: true,
     enableRowVirtualization: true, //enable row virtualization
     mantinePaginationProps: {
       rowsPerPageOptions: ['100', '250', '500', '1000', '2500', '5000'],
-      withEdges: false, //note: changed from `showFirstLastButtons` in v1.0
+      withEdges: false,
     },
     state: {
       isLoading,
@@ -714,24 +827,14 @@ const DrugTable: React.FC = () => {
     initialState: {
       density: 'xs',
       pagination: {
-        pageSize: 500, // Default to 500 rows per page
-        pageIndex: 0, // Start from the first page
+        pageSize: 500,
+        pageIndex: 0,
       },
+      // You can hide or show columns by default here
       columnVisibility: {
         DrugID: false,
         DrugNameAR: false,
         isOTC: false,
-        PresentationUnitQuantity1: false,
-        PresentationUnitType1: false,
-        PresentationUnitQuantity2: false,
-        PresentationUnitType2: false,
-        PresentationPackageQuantity1: false,
-        PresentationPackageType1: false,
-        PresentationPackageQuantity2: false,
-        PresentationPackageType2: false,
-        PresentationPackageQuantity3: false,
-        PresentationPackageType3: false,
-        PresentationDescription: true,
         Amount: false,
         RegistrationNumber: false,
         Notes: false,
@@ -767,26 +870,28 @@ const DrugTable: React.FC = () => {
         NotMarketed: false,
         PriceForeign: false,
         CurrencyForeign: false,
-        
       },
     },
-    
-    onEditingRowSave: handleSaveRow, // Handles saving row edit
+    onEditingRowSave: handleSaveRow,
     renderRowActionMenuItems: ({ row }) => [
-      <Menu.Item
-        key="delete"
-        onClick={() => handleDeleteRow(row)}
-        style={{ color: 'red' }}
-      >
+      <Menu.Item key="delete" onClick={() => handleDeleteRow(row)} style={{ color: 'red' }}>
         Delete
       </Menu.Item>,
     ],
   });
 
   return (
-    <div className="table-container" style={{ height: '100vh', display: 'flex', flexDirection: 'column',overflow: 'hidden', }}>
+    <div
+      className="table-container"
+      style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+    >
       <div style={{ marginBottom: '10px', display: 'flex', alignItems: 'center' }}>
-        <label htmlFor="columnPresetSelect" style={{ marginRight: '10px', fontWeight: 'bold', fontSize: '14px' }}>Select Column Preset:</label>
+        <label
+          htmlFor="columnPresetSelect"
+          style={{ marginRight: '10px', fontWeight: 'bold', fontSize: '14px' }}
+        >
+          Select Column Preset:
+        </label>
         <select
           id="columnPresetSelect"
           value={columnPreset}
@@ -805,11 +910,37 @@ const DrugTable: React.FC = () => {
           <option value="atcCheck">ATC Check</option>
           <option value="presentationCheck">Presentation Check</option>
         </select>
+        <button
+          onClick={() => setIsAddModalOpen(true)}
+          style={{
+            marginLeft: 'auto',
+            padding: '5px 10px',
+            fontSize: '14px',
+            borderRadius: '4px',
+            border: 'none',
+            backgroundColor: '#007bff',
+            color: '#fff',
+            cursor: 'pointer',
+          }}
+        >
+          Add Drug
+        </button>
       </div>
+
       <div style={{ flex: '1 1 auto', overflowY: 'auto' }}>
         <MantineReactTable table={table} />
       </div>
-      
+      <AddDrugModal
+        opened={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onAddSuccess={handleAddSuccess}
+        // pass the dropdown options
+        atcOptions={atcOptions}
+        dosageNumerator1UnitOptions={dosageNumerator1UnitOptions}
+        dosageDenominator1UnitOptions={dosageDenominator1UnitOptions}
+        formOptions={formOptions}
+        routeOptions={routeOptions}
+      />
     </div>
   );
 };
