@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { NewDrug } = require('../models/pharmacyDrug'); // Import the NewDrug model
+const  NewDrug  = require('../models/pharmacyDrug'); // Import the NewDrug model
 
 // Path to the TSV file
 const tsvFilePath = path.join(__dirname, 'seq.tsv');
