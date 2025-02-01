@@ -1,39 +1,46 @@
 const fs = require('fs');
-const csv = require('csv-parser');
-const NewDrug = require('../models/pharmacyDrug');
+const path = require('path');
+const { NewDrug } = require('../models/pharmacyDrug'); // Import the NewDrug model
 
-function updateDrugTable(filePath) {
-    console.log('Starting update process...');
-    
-    fs.createReadStream(filePath)
-        .pipe(csv({ separator: '\t' }))
-        .on('data', (row) => {
-            const { MoPHCode, Seq, PresentationLNDI } = row;
-            if (MoPHCode) {
-                NewDrug.update(
-                    { Seq: Seq, PresentationLNDI: PresentationLNDI },
-                    { where: { MoPHCode: MoPHCode }, logging: console.log }
-                )
-                .then(([affectedRows]) => {
-                    if (affectedRows > 0) {
-                        console.log(`Successfully updated MoPHCode: ${MoPHCode}`);
-                    } else {
-                        console.log(`No matching record found for MoPHCode: ${MoPHCode}`);
-                    }
-                })
-                .catch((error) => {
-                    console.error(`Error updating MoPHCode ${MoPHCode}:`, error);
-                });
-            }
-        })
-        .on('end', () => {
-            console.log('Update process completed.');
-            process.exit(0);
-        })
-        .on('error', (error) => {
-            console.error('Error reading file:', error);
-            process.exit(1);
+// Path to the TSV file
+const tsvFilePath = path.join(__dirname, 'drugs_data.tsv');
+
+async function updateDrugsFromTSV() {
+    try {
+        // Step 1: Read and parse the TSV file
+        const tsvData = fs.readFileSync(tsvFilePath, 'utf8');
+        const rows = tsvData.split('\n').slice(1); // Skip the header row
+        const parsedData = rows.map(row => {
+            const [MoPHCode, Seq, PresentationLNDI] = row.trim().split('\t');
+            return { MoPHCode, Seq: parseInt(Seq, 10), PresentationLNDI };
         });
+
+        // Step 2: Iterate over the parsed data and update the database
+        for (const { MoPHCode, Seq, PresentationLNDI } of parsedData) {
+            if (!MoPHCode || !Seq || !PresentationLNDI) continue; // Skip invalid rows
+
+            // Find the drug by MoPHCode
+            const drug = await NewDrug.findOne({ where: { MoPHCode } });
+            if (drug) {
+                // Update the drug record with Seq and PresentationLNDI
+                await drug.update({
+                    DFSequence: Seq.toString(), // Assuming DFSequence corresponds to Seq
+                    Presentation: PresentationLNDI // Assuming Presentation corresponds to PresentationLNDI
+                });
+                console.log(`Updated drug with MoPHCode: ${MoPHCode}`);
+            } else {
+                console.log(`No drug found with MoPHCode: ${MoPHCode}`);
+            }
+        }
+
+        console.log('Database update completed.');
+    } catch (error) {
+        console.error('Error updating drugs:', error);
+    } finally {
+        // Close the database connection
+        await sequelize.close();
+    }
 }
 
-updateDrugTable('./seq.tsv');
+// Run the script
+updateDrugsFromTSV();
