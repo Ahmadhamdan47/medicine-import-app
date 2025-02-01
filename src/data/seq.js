@@ -1,13 +1,22 @@
 const fs = require('fs');
 const readline = require('readline');
-const { sequelize } = require('../../config/databasePharmacy'); // Import Sequelize instance
-const Drug = require('../models/pharmacyDrug'); // Adjusted to the correct model file name
+const mysql = require('mysql2/promise'); // Use mysql2 for MySQL database
 
 /**
  * Process the TSV file and update the drug records.
  * @param {string} filePath - Path to the TSV file.
  */
 const processSeqTsv = async (filePath) => {
+  // Create a connection to the database
+  const connection = await mysql.createConnection({
+    host: 'localhost', // Replace with your database host
+    user: 'ommal_ahmad',      // Replace with your database username
+    password: 'fISfGr^8q!_gUPMY',      // Replace with your database password
+    database: 'ommal_medapiv2' // Replace with your database name
+  });
+
+  console.log('Database connection established.');
+
   const fileStream = fs.createReadStream(filePath);
   const rl = readline.createInterface({
     input: fileStream,
@@ -25,19 +34,18 @@ const processSeqTsv = async (filePath) => {
     }
 
     try {
-      // Update the drug record with the new DFSequence and Presentation values
-      const result = await Drug.update(
-        {
-          DFSequence: Seq.toString(), // Convert Seq to string
-          Presentation: PresentationLNDI.trim() // Trim any extra spaces
-        },
-        {
-          where: { MoPHCode: MoPHCode.trim() } // Match the drug by MoPHCode
-        }
-      );
+      // Prepare the SQL query to update the drug record
+      const query = `
+        UPDATE drug
+        SET Seq = ?, PresentationLNDI = ?
+        WHERE MoPHCode = ?
+      `;
+
+      // Execute the query
+      const [result] = await connection.execute(query, [Seq.toString(), PresentationLNDI.trim(), MoPHCode.trim()]);
 
       // Check if the update was successful
-      if (result[0] === 0) {
+      if (result.affectedRows === 0) {
         console.error(`No drug found for MoPHCode: ${MoPHCode}, unable to update.`);
       } else {
         console.log(`Updated drug with MoPHCode: ${MoPHCode}`);
@@ -48,7 +56,7 @@ const processSeqTsv = async (filePath) => {
   }
 
   // Close the database connection after processing
-  await sequelize.close();
+  await connection.end();
   console.log('Database connection closed.');
 };
 
