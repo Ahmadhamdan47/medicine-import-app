@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline');
 const { sequelize } = require('../../config/databasePharmacy'); // Import Sequelize instance
-const Drug = require('../models/drug'); // Adjusted to the correct model file name
+const Drug = require('../models/pharmacyDrug'); // Adjusted to the correct model file name
 
 /**
  * Process the TSV file and update the drug records.
