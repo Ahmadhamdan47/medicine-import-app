@@ -70,7 +70,8 @@ const DrugTable: React.FC = () => {
       const formattedData = drugs.map((drug: any) => ({
         DrugID: drug.DrugID || 'N/A',
         DrugName: drug.DrugName || 'N/A',
-        DrugNameAR: drug.DrugNameAR || 'N/A',
+        DrugNameAR: drug.DrugNameAR || 'N/A', 
+        Seq:  drug.Seq || 'N/A',
         ProductType: drug.ProductType || 'N/A',
         ATC: drug.ATC_Code || 'N/A',
         ATCRelatedIngredient: drug.ATCRelatedIngredient || 'N/A',
@@ -91,6 +92,7 @@ const DrugTable: React.FC = () => {
         DosageDenominator3Unit: drug.Dosages?.[0]?.Denominator3Unit || 'N/A',
 
         // Drug Presentations Fields
+        PresentationLNDI:drug.PresentationLNDI || 'N/A',
         PresentationDescription: drug.DrugPresentations?.[0]?.Description || 'N/A',
         PresentationUnitQuantity1: drug.DrugPresentations?.[0]?.UnitQuantity1 || 'N/A',
         PresentationUnitType1: drug.DrugPresentations?.[0]?.UnitType1 || 'N/A',
@@ -312,7 +314,7 @@ const DrugTable: React.FC = () => {
             }),
           },
           { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
-
+          { accessorKey: 'Seq', header: 'Seq', size: 100 },
           // New columns per request
           { accessorKey: 'OtherIngredients', header: 'All Ingredients', size: 150 },
           {
@@ -467,7 +469,10 @@ const DrugTable: React.FC = () => {
               placeholder: row.original.ATCRelatedIngredient || 'Select Ingredient',
             }),
           },
+          
           { accessorKey: 'OtherIngredients', header: 'All Ingredients', size: 150 },
+          { accessorKey: 'Seq', header: 'Seq', size: 100 },
+
           { accessorKey: 'Dosage', header: 'Dosage (merged)', size: 200 },
 
           {
@@ -488,6 +493,7 @@ const DrugTable: React.FC = () => {
       case 'presentationCheck':
         return [
           { accessorKey: 'DrugName', header: 'Brand Name', size: 100 },
+          { accessorKey: 'Seq', header: 'Seq', size: 100 },
 
           // Add Form LNDI + Dosage-Dosage-form (clean)
           {
@@ -508,32 +514,64 @@ const DrugTable: React.FC = () => {
           },
 
           // The requested "presentation" field => rename your
-          // PresentationDescription to "Presentation (clean)"
-          {
+            // PresentationDescription to "Presentation (clean)"
+            {
+            accessorKey: 'PresentationLNDI',
+            header: 'PresentationLNDI',
+            size: 100,
+            },
+            {
             accessorKey: 'PresentationDescription',
-            header: 'Presentation Descripiton',
+            header: 'Presentation Description',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationDescription').map((value) => ({
+              value,
+              label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
             size: 180,
-          },
-          {
+            },
+            {
             accessorKey: 'PresentationUnitQuantity1',
-            header: 'Unit Qtty 1 (clean)',
+            header: 'Unit Qtty 1 ',
             size: 150,
-          },
-          {
+            },
+            {
             accessorKey: 'PresentationUnitType1',
-            header: 'Unit Type 1 (clean)',
+            header: 'Unit Type 1 ',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationUnitType1').map((value) => ({
+              value,
+              label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
             size: 150,
-          },
-          {
+            },
+            {
             accessorKey: 'PresentationPackageQuantity1',
-            header: 'Package Qtty 1 (clean)',
+            header: 'Package Qtty 1',
             size: 150,
-          },
-          {
+            },
+            {
             accessorKey: 'PresentationPackageType1',
-            header: 'Package Type 1 (clean)',
+            header: 'Package Type 1 ',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationPackageType1').map((value) => ({
+              value,
+              label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
             size: 150,
-          },
+            },
 
           // If you want to display the 2nd and 3rd sets as well:
           {
@@ -543,19 +581,70 @@ const DrugTable: React.FC = () => {
           },
           {
             accessorKey: 'PresentationPackageType2',
-            header: 'Package Type 2 (clean)',
+            header: 'Package Type 2',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationPackageType1').map((value) => ({
+              value,
+              label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
+            size: 150,
+            },
+          {
+            accessorKey: 'PresentationUnitQuantity2',
+            header: 'Unit Qtty 2 (clean)',
+            size: 150,
+          },
+          {
+            accessorKey: 'PresentationUnitType2',
+            header: 'Unit Type 2 (clean)',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationUnitType2').map((value) => ({
+                value,
+                label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
             size: 150,
           },
           {
             accessorKey: 'PresentationPackageQuantity3',
-            header: 'Package Qtty 3 (clean)',
+            header: 'Package Qtty 3 ',
             size: 150,
           },
           {
             accessorKey: 'PresentationPackageType3',
-            header: 'Package Type 3 (clean)',
+            header: 'Package Type 3',
+            editVariant: 'select',
+            mantineEditSelectProps: {
+              data: getUniqueValues(tableData, 'PresentationPackageType1').map((value) => ({
+              value,
+              label: value,
+              })),
+              searchable: true,
+              clearable: true,
+            },
             size: 150,
-          },
+            },
+            {
+              accessorKey: 'PresentationUnitType3',
+              header: 'Unit Type 3 ',
+              editVariant: 'select',
+              mantineEditSelectProps: {
+                data: getUniqueValues(tableData, 'PresentationUnitType1').map((value) => ({
+                value,
+                label: value,
+                })),
+                searchable: true,
+                clearable: true,
+              },
+              size: 150,
+              },
         ];
 
       /* --------------------------------------------------
@@ -566,6 +655,7 @@ const DrugTable: React.FC = () => {
           { accessorKey: 'DrugID', header: 'DrugID', size: 80 },
           { accessorKey: 'DrugName', header: 'DrugName', size: 100 },
           { accessorKey: 'DrugNameAR', header: 'DrugNameAR', size: 100 },
+          { accessorKey: 'Seq', header: 'Seq', size: 100 },
           { accessorKey: 'ProductType', header: 'ProductType', size: 100 },
           {
             accessorKey: 'ATC',
@@ -705,7 +795,8 @@ const DrugTable: React.FC = () => {
             },
           },
           { accessorKey: 'Parent', header: 'Route Parent', size: 100 },
-         
+          { accessorKey: 'PresentationLNDI', header: 'PresentationLNDI', size: 100 },
+
           { accessorKey: 'PresentationUnitQuantity1', header: 'Presentation Unit Quantity 1', size: 180 },
           { accessorKey: 'PresentationUnitType1', header: 'Presentation Unit Type 1', size: 150 },
           { accessorKey: 'PresentationUnitQuantity2', header: 'Presentation Unit Quantity 2', size: 180 },
