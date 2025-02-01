@@ -289,8 +289,13 @@ const addPharmacyDrug = async (drugData) => {
 
 const getAllDrugs = async () => {
   try {
-    // Fetch all drugs with associated presentations and dosages
+    // Fetch all drugs with associated presentations and dosages, excluding NotMarketed drugs
     const drugs = await Drug.findAll({
+      where: {
+        NotMarketed: {
+          [Op.ne]: 1
+        }
+      },
       include: [
         {
           model: DrugPresentation,
