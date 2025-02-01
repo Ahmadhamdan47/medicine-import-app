@@ -53,5 +53,5 @@ const processSeqTsv = async (filePath) => {
 };
 
 // Call the function with the path to your TSV file
-const tsvFilePath = __dirname + 'seq.tsv'; // Adjust the path to your TSV file
+const tsvFilePath = __dirname + '/seq.tsv'; // Adjust the path to your TSV file
 processSeqTsv(tsvFilePath);
