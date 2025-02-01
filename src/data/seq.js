@@ -31,30 +31,24 @@ async function addColumns() {
 }
 
 async function updateDrugTable(filePath) {
-    const updates = [];
-    
     fs.createReadStream(filePath)
         .pipe(csv({ separator: '\t' }))
-        .on('data', (row) => {
+        .on('data', async (row) => {
             const { MoPHCode, Seq, PresentationLNDI } = row;
             if (MoPHCode) {
-                updates.push({ MoPHCode, Seq, PresentationLNDI });
-            }
-        })
-        .on('end', async () => {
-            console.log(`Processing ${updates.length} records...`);
-            for (const update of updates) {
                 try {
                     await NewDrug.update(
-                        { Seq: update.Seq, PresentationLNDI: update.PresentationLNDI },
-                        { where: { MoPHCode: update.MoPHCode }, logging: false }
+                        { Seq: Seq, PresentationLNDI: PresentationLNDI },
+                        { where: { MoPHCode: MoPHCode }, logging: false }
                     );
-                    console.log(`Updated MoPHCode ${update.MoPHCode}`);
+                    console.log(`Updated MoPHCode ${MoPHCode}`);
                 } catch (error) {
-                    console.error(`Error updating MoPHCode ${update.MoPHCode}:`, error);
+                    console.error(`Error updating MoPHCode ${MoPHCode}:`, error);
                 }
             }
-            console.log('Batch update completed.');
+        })
+        .on('end', () => {
+            console.log('File processing completed.');
         })
         .on('error', (error) => {
             console.error('Error reading file:', error);
