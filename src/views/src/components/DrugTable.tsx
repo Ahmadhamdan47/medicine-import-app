@@ -1005,8 +1005,9 @@ const DrugTable: React.FC = () => {
           onClick={() => setIsAddModalOpen(true)}
           style={{
             marginLeft: 'auto',
-            padding: '5px 10px',
-            fontSize: '14px',
+            width: '80px',
+            height: '30px',
+            fontSize: '12px',
             borderRadius: '4px',
             border: 'none',
             backgroundColor: '#007bff',
