@@ -9,7 +9,7 @@ const dbConfig = {
   database: 'ommal_medapiv2',
 };
 
-const csvFilePath = './january.csv';
+const csvFilePath = './February.csv';
 
 async function updatePricesDirectly(csvPath) {
   let connection;

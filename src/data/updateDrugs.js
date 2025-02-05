@@ -12,7 +12,7 @@ const dbConfig = {
 };
 
 // Path to the TSV file
-const filePath = path.join(__dirname, "finalDrugData.tsv");
+const filePath = path.join(__dirname, "February.tsv");
 
 // Read and parse the TSV file
 const fileContent = fs.readFileSync(filePath, "utf8");
@@ -48,9 +48,9 @@ async function addNewDrugs() {
                 `INSERT INTO drug (
                     ATC_Code, ProductType, OtherIngredients,
                     MoPHCode, RegistrationNumber, DrugName, Presentation,
-                    Form, FormLNDI, Route, Agent, Manufacturer, Country,
+                    Form, Route, Agent, Manufacturer, Country,
                     SubsidyPercentage, NotMarketed
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, false)`,
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                 [
                     drug.ATC_Code || null,
                     drug.ProductType || null,
@@ -60,18 +60,34 @@ async function addNewDrugs() {
                     drug.DrugName || null,
                     drug.Presentation || null,
                     drug.Form || null,
-                    drug.FormLNDI || null,
                     drug.Route || null,
                     drug.Agent || null,
                     drug.Manufacturer || null,
                     drug.Country || null,
-                    parseFloat(drug.SubsidyPercentage) || 0
+                    parseFloat(drug.SubsidyPercentage) || 0,
+                    false
                 ]
             );
             console.log(`Added new drug: "${drug.DrugName}" (MoPHCode: ${drug.MoPHCode}).`);
         }
 
         console.log("All new drugs have been added.");
+
+        // Step 4: Update NotMarketed to true for drugs not in the file
+        const fileMoPHCodes = new Set(parsedData.map(drug => drug.MoPHCode));
+        const drugsToUpdate = existingDrugs.filter(drug => !fileMoPHCodes.has(drug.MoPHCode));
+
+        console.log(`Found ${drugsToUpdate.length} drugs to update as NotMarketed.`);
+
+        for (const drug of drugsToUpdate) {
+            await connection.execute(
+                "UPDATE drug SET NotMarketed = ? WHERE MoPHCode = ?",
+                [true, drug.MoPHCode]
+            );
+            console.log(`Updated drug as NotMarketed: MoPHCode ${drug.MoPHCode}.`);
+        }
+
+        console.log("All necessary drugs have been updated as NotMarketed.");
     } catch (error) {
         console.error("Error adding new drugs:", error);
     } finally {

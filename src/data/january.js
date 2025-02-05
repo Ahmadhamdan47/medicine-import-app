@@ -11,7 +11,7 @@ const dbConfig = {
 };
 
 // Path to the CSV file
-const csvFilePath = './january.csv';
+const csvFilePath = './February.csv';
 
 // Function to update prices
 async function updatePrices(csvPath, dbConfig) {
