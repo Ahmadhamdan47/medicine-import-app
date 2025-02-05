@@ -57,7 +57,15 @@ const getAllATC = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
-
+const getATCById = async (req, res) => {
+    try {
+      const atcId = req.params.id;
+      const atcCode = await atcService.getATCById(atcId);
+      res.status(200).json(atcCode);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
 
 module.exports = {
     getATCByDrugID,
@@ -66,4 +74,6 @@ module.exports = {
     deleteATC,
     getAllATC,
     addATCMapping,
+    getATCById,
+
 };

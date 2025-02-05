@@ -91,49 +91,58 @@ return drugsWithDosageAndRoute;
 };
 
 
+
+
 const searchDrugByATCName = async (atcName) => {
   try {
+    console.log("🔍 Searching for drugs with ATC Name:", atcName);
+
+    // 1️⃣ Find the ATC code based on the ATC name
+    const atc = await ATC_Code.findOne({ where: { Code: atcName } });
+
+    if (!atc) {
+      console.log(`❌ No ATC found with name: ${atcName}`);
+      return [];
+    }
+
+    console.log("✅ Found ATC:", atc);
+
+    // 2️⃣ Fetch drugs related to the ATC Code
     const drugs = await Drug.findAll({
       where: {
-        DrugID: {
-          [Op.in]: drugIds.map(drug => drug.DrugID)
-        }
+        ATC_Code: atc.Code // Use the found ATC Code
       },
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
-        'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode'
+        'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
+        'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode'
       ],
     });
-  
+
+    if (!drugs.length) {
+      console.log(`❌ No drugs found for ATC Name: ${atcName}`);
+      return [];
+    }
+
+    console.log("✅ Found Drugs:", drugs);
+
+    // 3️⃣ Process drug data (Convert price, add extra fields)
     const drugsWithDosageAndRoute = drugs.map(drug => {
-      const dosage = drug.Dosage;
-      const route = drug.Route; // Assuming 'Form' corresponds to 'route'
-      const form = drug.Form;
-      const presentation = drug.Presentation;
-      const ManufacturerName = drug.Manufacturer;
-      const CountryName = drug.Country;
       const priceInLBP = drug.Price * 89500;
-      const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
+      const unitPrice = drug.Amount ? drug.Price / drug.Amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
-  
+
       return {
         ...drug.dataValues,
-        dosage,
-        route,
-        form,
-        presentation,
-        ManufacturerName,
-        CountryName,
         priceInLBP,
         unitPrice,
         unitPriceInLBP
       };
     });
-    
+
     return drugsWithDosageAndRoute;
   } catch (error) {
-    console.error("Error in searchDrugByATCName:", error);
+    console.error("❌ Error in searchDrugByATCName:", error);
     throw new Error('Error occurred in searchDrugByATCName: ' + error.message);
   }
 };

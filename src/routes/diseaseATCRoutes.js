@@ -171,6 +171,6 @@ router.get("/:drugName", diseaseATCController.getDiseaseByDrugName);
  *       '500':
  *         description: Server error
  */
-router.get("/:diseaseCategoryName", diseaseATCController.getDrugsByDiseaseCategoryName);
+router.get("/category/:diseaseCategoryName", diseaseATCController.getDrugsByDiseaseCategoryName);
 
 module.exports = router;

@@ -104,6 +104,22 @@ const getAllATC = async () => {
     throw new Error("Error in getAllATC service: " + error.message);
   }
 };
+const getATCById = async (atcId) => {
+  try {
+    const atcCode = await ATC_Code.findOne({
+      where: { ATC_ID: atcId },
+    });
+
+    if (!atcCode) {
+      throw new Error(`No ATC code found for ID: ${atcId}`);
+    }
+
+    return atcCode;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Error in getATCById service: " + error.message);
+  }
+};
 
 module.exports = {
   getATCByDrugID,
@@ -112,4 +128,5 @@ module.exports = {
   deleteATC,
   getAllATC,
   addATCMapping,
+  getATCById,
 };
