@@ -9,7 +9,7 @@ const dbConfig = {
     user: 'ommal_oummal',
     password: 'dMR2id57dviMJJnc',
     database: 'ommal_medlist',
-  };
+};
 
 // Path to the TSV file
 const filePath = path.join(__dirname, "February.tsv");
@@ -20,6 +20,35 @@ const parsedData = parse(fileContent, {
     header: true,
     delimiter: "\t",
 }).data;
+
+// Map TSV headers to database column names
+const headerMapping = {
+    MoPHCode: 'code',
+    ATC_Code: 'atc',
+    Seq: 'seq',
+    BG: 'bg',
+    Ingredients: 'ingredients',
+    RegistrationNumber: 'reg_number',
+    DrugName: 'brand_name',
+    Strength: 'strength',
+    Presentation: 'presentation',
+    Form: 'form',
+    DosageLNDI: 'dosage_lndi',
+    PresentationLNDI: 'presentation_lndi',
+    FormLNDI: 'form_lndi',
+    RouteLNDI: 'route_lndi',
+    Agent: 'agent',
+    Manufacturer: 'manufacturer',
+    Country: 'country',
+    PublicPrice: 'public_price',
+    Stratum: 'stratum',
+    SubsidyPercentage: 'subsidy_percentage',
+    PillPrice: 'pill_price',
+    BarcodeGTIN: 'barcode_gtin',
+    AddedDate: 'added_date',
+    ModifiedDate: 'modified_date',
+    ModifiedBy: 'modified_by'
+};
 
 async function updateMedications() {
     let connection;
@@ -38,7 +67,7 @@ async function updateMedications() {
 
         // Step 2: Find medications that are in the file but not in the database
         console.log("Comparing file and database data...");
-        const newMedications = parsedData.filter(med => !existingCodes.has(med.code));
+        const newMedications = parsedData.filter(med => !existingCodes.has(med[headerMapping.MoPHCode]));
 
         console.log(`Found ${newMedications.length} new medications to add.`);
 
@@ -51,36 +80,35 @@ async function updateMedications() {
                     agent, manufacturer, country, public_price, stratum, subsidy_percentage,
                     pill_price, barcode_gtin, added_date, modified_date, modified_by
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-
                 [
-                    med.atc || null,
-                    med.seq || null,
-                    med.bg || null,
-                    med.ingredients || null,
-                    med.code || null,
-                    med.reg_number || null,
-                    med.brand_name || null,
-                    med.strength || null,
-                    med.presentation || null,
-                    med.form || null,
-                    med.dosage_lndi || null,
-                    med.presentation_lndi || null,
-                    med.form_lndi || null,
-                    med.route_lndi || null,
-                    med.agent || null,
-                    med.manufacturer || null,
-                    med.country || null,
-                    parseFloat(med.public_price) || null,
-                    med.stratum || null,
-                    med.subsidy_percentage || null,
-                    parseFloat(med.pill_price) || null,
-                    med.barcode_gtin || null,
+                    med[headerMapping.ATC_Code] || null,
+                    med[headerMapping.Seq] || null,
+                    med[headerMapping.BG] || null,
+                    med[headerMapping.Ingredients] || null,
+                    med[headerMapping.MoPHCode] || null,
+                    med[headerMapping.RegistrationNumber] || null,
+                    med[headerMapping.DrugName] || null,
+                    med[headerMapping.Strength] || null,
+                    med[headerMapping.Presentation] || null,
+                    med[headerMapping.Form] || null,
+                    med[headerMapping.DosageLNDI] || null,
+                    med[headerMapping.PresentationLNDI] || null,
+                    med[headerMapping.FormLNDI] || null,
+                    med[headerMapping.RouteLNDI] || null,
+                    med[headerMapping.Agent] || null,
+                    med[headerMapping.Manufacturer] || null,
+                    med[headerMapping.Country] || null,
+                    parseFloat(med[headerMapping.PublicPrice]) || null,
+                    med[headerMapping.Stratum] || null,
+                    med[headerMapping.SubsidyPercentage] || null,
+                    parseFloat(med[headerMapping.PillPrice]) || null,
+                    med[headerMapping.BarcodeGTIN] || null,
                     new Date(),
                     null,
                     null
                 ]
             );
-            console.log(`Added new medication: "${med.brand_name}" (code: ${med.code}).`);
+            console.log(`Added new medication: "${med[headerMapping.DrugName]}" (code: ${med[headerMapping.MoPHCode]}).`);
         }
 
         console.log("All new medications have been added.");
