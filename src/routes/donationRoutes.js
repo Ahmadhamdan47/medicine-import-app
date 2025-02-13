@@ -92,5 +92,6 @@ router.post('/batchlot', donationController.createBatchLot);
 
 router.get('/byDonor/:donorId', donationController.getDonationsByDonor);
 
+router.get('/byRecipient/:recipientId', donationController.getDonationsByRecipient);
 
 module.exports = router;

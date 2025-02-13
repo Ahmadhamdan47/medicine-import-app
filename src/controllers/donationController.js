@@ -66,6 +66,24 @@ const getFilteredDonations = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-module.exports = { addDonation, getAllDonations, getDonationById, editDonation, createBatchLot,getDonationsByDonor, getFilteredDonations};
+const getDonationsByRecipient = async (req, res) => {
+  try {
+    const { recipientId } = req.params; // Extract recipientId from request parameters
+    const donations = await donationService.getDonationsByRecipient(recipientId); // Call the service function
+    res.status(200).json(donations); // Return the donations as JSON response
+  } catch (error) {
+    res.status(500).json({ error: error.message }); // Handle errors and return a 500 status code
+  }
+};
+module.exports = { 
+  addDonation, 
+  getAllDonations, 
+  getDonationById, 
+  editDonation, 
+  createBatchLot,
+  getDonationsByDonor, 
+  getFilteredDonations,  
+  getDonationsByRecipient, // Add the new controller here
+};
 
 

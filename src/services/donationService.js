@@ -367,7 +367,65 @@ const getFilteredDonations = async ({ donorId, recipientId, status, startDate, e
   }
 };
 
+/**
+ * Retrieves all donations associated with a specific recipient.
+ * @param {number} recipientId - The ID of the recipient.
+ * @returns {Promise<Array>} A promise that resolves to an array of donations for the recipient.
+ */
+const getDonationsByRecipient = async (recipientId) => {
+  try {
+    // Fetch all donations for the given recipientId
+    const donations = await Donation.findAll({ where: { RecipientId: recipientId } });
 
+    // Loop through each donation to enrich it with additional details
+    for (let donation of donations) {
+      // Fetch batch lots associated with the donation
+      const batchLots = await BatchLotTracking.findAll({
+        where: { DonationId: donation.DonationId },
+      });
+
+      // Fetch donor and recipient details
+      const donor = await Donor.findOne({
+        where: { DonorId: donation.DonorId },
+      });
+      const recipient = await Recipient.findOne({
+        where: { RecipientId: donation.RecipientId },
+      });
+
+      // Add donor and recipient names to the donation data
+      if (donor) {
+        donation.dataValues.DonorName = donor.DonorName;
+      }
+      if (recipient) {
+        donation.dataValues.RecipientName = recipient.RecipientName;
+      }
+
+      // Enrich batch lots with serial numbers and drug names
+      for (let batchLot of batchLots) {
+        const batchSerialNumber = await BatchSerialNumber.findOne({
+          where: { BatchId: batchLot.BatchLotId },
+        });
+
+        // Add drug name and serial number to the batch lot data
+        if (batchLot.DrugName) {
+          batchLot.dataValues.DrugName = batchLot.DrugName;
+        }
+        if (batchSerialNumber) {
+          batchLot.dataValues.SerialNumber = batchSerialNumber.SerialNumber;
+        }
+      }
+
+      // Attach enriched batch lots to the donation
+      donation.dataValues.BatchLotTrackings = batchLots.map((batchLot) => batchLot.dataValues);
+    }
+
+    // Return the enriched donations
+    return donations.map((donation) => donation.dataValues);
+  } catch (error) {
+    console.error(`Error fetching donations for recipientId: ${recipientId}`, error);
+    throw error;
+  }
+};
 
 module.exports = {
   createDonation,
@@ -376,5 +434,7 @@ module.exports = {
 getDonationById,
   editDonation,
   getDonationsByDonor,
-  getFilteredDonations
+  getFilteredDonations,
+  getDonationsByRecipient, // Add the new function here
+
 };
