@@ -1073,8 +1073,13 @@ const deletePresentationsByDrugId = async (DrugID, transaction) => {
 };
 const fetchDrugDataFromServer = async () => {
   try {
-    // Fetch drug data from the server
+    // Fetch drug data from the server, excluding NotMarketed drugs
     const drugs = await Drug.findAll({
+      where: {
+        NotMarketed: {
+          [Op.ne]: true
+        }
+      },
       attributes: [
         'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
