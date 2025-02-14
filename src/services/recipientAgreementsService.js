@@ -29,7 +29,7 @@ class RecipientAgreementService {
                 include: [
                     {
                         model: require('../models/donor'),
-                        as: 'Donor',
+                        as: 'donor',
                         attributes: ['DonorName']
                     },
                     {
@@ -87,7 +87,7 @@ class RecipientAgreementService {
                 include: [
                     {
                         model: require('../models/donor'),
-                        as: 'Donor',
+                        as: 'donor',
                         attributes: ['DonorName']
                     },
                     {
@@ -119,7 +119,7 @@ class RecipientAgreementService {
                 include: [
                     {
                         model: require('../models/donor'),
-                        as: 'Donor',
+                        as: 'donor',
                         attributes: ['DonorName']
                     },
                     {
