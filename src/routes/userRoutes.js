@@ -10,5 +10,5 @@ router.post('/Recipient/register', UserController.recipientSignup);
 router.get('/Donor/:userId', UserController.getDonorDetails);
 router.get('/Recipient/:userId', UserController.getRecipientDetails);
 router.get('/Donor/username/:username', UserController.getDonorDetailsByUsername);
-router.get('/Decipient/username/:username', UserController.getRecipientDetailsByUsername);
+router.get('/Recipient/username/:username', UserController.getRecipientDetailsByUsername);
 module.exports = router;
