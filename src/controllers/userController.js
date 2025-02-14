@@ -60,6 +60,26 @@ class UserController {
       res.status(404).json({ error: error.message });
     }
   }
+  
+  static async getDonorDetailsByUsername(req, res) {
+    try {
+      const { username } = req.params;
+      const donorDetails = await UserService.getDonorDetailsByUsername(username);
+      res.status(200).json(donorDetails);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
+
+  static async getRecipientDetailsByUsername(req, res) {
+    try {
+      const { username } = req.params;
+      const recipientDetails = await UserService.getRecipientDetailsByUsername(username);
+      res.status(200).json(recipientDetails);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 }
 
 module.exports = UserController;

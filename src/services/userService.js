@@ -141,6 +141,37 @@ else
       throw new Error(`Error fetching recipient details: ${error.message}`);
     }
   }
+  static async getDonorDetailsByUsername(username) {
+    try {
+      const user = await UserAccounts.findOne({ where: { Username: username } });
+      if (!user) {
+        throw new Error('User not found');
+      }
+      const donor = await Donor.findOne({ where: { DonorId: user.DonorId } });
+      if (!donor) {
+        throw new Error('Donor not found');
+      }
+      return donor;
+    } catch (error) {
+      throw new Error(`Error fetching donor details: ${error.message}`);
+    }
+  }
+
+  static async getRecipientDetailsByUsername(username) {
+    try {
+      const user = await UserAccounts.findOne({ where: { Username: username } });
+      if (!user) {
+        throw new Error('User not found');
+      }
+      const recipient = await Recipient.findOne({ where: { RecipientId: user.RecipientId } });
+      if (!recipient) {
+        throw new Error('Recipient not found');
+      }
+      return recipient;
+    } catch (error) {
+      throw new Error(`Error fetching recipient details: ${error.message}`);
+    }
+  }
 }
 
 
