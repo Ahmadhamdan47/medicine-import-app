@@ -39,7 +39,7 @@ class RecipientAgreementService {
                     },
                     {
                         model: require('../models/donation'),
-                        as: 'Donation',
+                        as: 'donation',
                         attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes', 'Laboratory', 'LaboratoryCountry']
                     }
                 ]
@@ -97,7 +97,7 @@ class RecipientAgreementService {
                     },
                     {
                         model: require('../models/donation'),
-                        as: 'Donation',
+                        as: 'donation',
                         attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes']
                     }
                 ]
@@ -129,7 +129,7 @@ class RecipientAgreementService {
                     },
                     {
                         model: require('../models/donation'),
-                        as: 'Donation',
+                        as: 'donation',
                         attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes']
                     }
                 ]
