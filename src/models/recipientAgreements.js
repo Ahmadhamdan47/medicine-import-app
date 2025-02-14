@@ -30,10 +30,10 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
 
 // Define foreign key associations (if needed)
 // Uncomment and adjust these lines if you want to define associations explicitly
-// RecipientAgreement.associate = (models) => {
-//     RecipientAgreement.belongsTo(models.Donation, { foreignKey: 'DonationId' });
-//     RecipientAgreement.belongsTo(models.Donor, { foreignKey: 'DonorId' });
-//     RecipientAgreement.belongsTo(models.Recipient, { foreignKey: 'RecipientId' });
-// };
+RecipientAgreement.associate = (models) => {
+   RecipientAgreement.belongsTo(models.Donation, { foreignKey: 'DonationId' });
+     RecipientAgreement.belongsTo(models.Donor, { foreignKey: 'DonorId' });
+     RecipientAgreement.belongsTo(models.Recipient, { foreignKey: 'RecipientId' });
+ };
 
 module.exports = RecipientAgreement;
