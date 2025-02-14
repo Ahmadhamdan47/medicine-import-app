@@ -107,10 +107,13 @@ const searchDrugByATCName = async (atcName) => {
 
     console.log("✅ Found ATC:", atc);
 
-    // 2️⃣ Fetch drugs related to the ATC Code
+    // 2️⃣ Fetch drugs related to the ATC Code, excluding NotMarketed drugs
     const drugs = await Drug.findAll({
       where: {
-        ATC_Code: atc.Code // Use the found ATC Code
+        ATC_Code: atc.Code, // Use the found ATC Code
+        NotMarketed: {
+          [Op.ne]: true
+        }
       },
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
@@ -151,6 +154,9 @@ const searchDrugByName = async (query) => {
     const drugs = await Drug.findAll({
       where: {
         DrugName: { [Op.like]: `%${query}%` },
+        NotMarketed: {
+          [Op.ne]: true
+        }
       },
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
@@ -184,9 +190,9 @@ const searchDrugByName = async (query) => {
       };
     });
     return drugsWithDosageAndRoute;
-    } catch (error) {
-    console.error("Error in searchDrugByATCName:", error);
-    throw new Error('Error occurred in searchDrugByATCName: ' + error.message);
+  } catch (error) {
+    console.error("Error in searchDrugByName:", error);
+    throw new Error('Error occurred in searchDrugByName: ' + error.message);
   }
 };
 const getDrugById = async (DrugIDs) => {
@@ -870,7 +876,10 @@ const getOTCDrugs = async () => {
   try {
     const drugs = await Drug.findAll({
       where: {
-        isOTC: true
+        isOTC: true,
+        NotMarketed: {
+          [Op.ne]: true
+        }
       },
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
@@ -932,7 +941,10 @@ const getDrugSubstitutes = async (drugName) => {
 
     const substituteDrugs = await Drug.findAll({
       where: {
-        DrugID: substitutes.map(sub => sub.Substitute)
+        DrugID: substitutes.map(sub => sub.Substitute),
+        NotMarketed: {
+          [Op.ne]: true
+        }
       },
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
