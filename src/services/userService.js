@@ -110,6 +110,37 @@ else
       RecipientId: recipient.RecipientId
     });
   }
+  static async getDonorDetailsByUserId(userId) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+      const donor = await Donor.findOne({ where: { DonorId: user.DonorId } });
+      if (!donor) {
+        throw new Error('Donor not found');
+      }
+      return donor;
+    } catch (error) {
+      throw new Error(`Error fetching donor details: ${error.message}`);
+    }
+  }
+
+  static async getRecipientDetailsByUserId(userId) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+      const recipient = await Recipient.findOne({ where: { RecipientId: user.RecipientId } });
+      if (!recipient) {
+        throw new Error('Recipient not found');
+      }
+      return recipient;
+    } catch (error) {
+      throw new Error(`Error fetching recipient details: ${error.message}`);
+    }
+  }
 }
 
 

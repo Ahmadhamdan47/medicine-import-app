@@ -41,6 +41,25 @@ class UserController {
       res.status(500).json({ error: 'An error occurred while registering the recipient user' });
     }
   }
+  static async getDonorDetails(req, res) {
+    try {
+      const { userId } = req.params;
+      const donorDetails = await UserService.getDonorDetailsByUserId(userId);
+      res.status(200).json(donorDetails);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
+
+  static async getRecipientDetails(req, res) {
+    try {
+      const { userId } = req.params;
+      const recipientDetails = await UserService.getRecipientDetailsByUserId(userId);
+      res.status(200).json(recipientDetails);
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
 }
 
 module.exports = UserController;

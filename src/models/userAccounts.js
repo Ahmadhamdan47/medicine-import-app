@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const Role = require('./roles');
 const Donor = require('./donor');
+const Recipient = require('./recipient'); // Add this line to import the Recipient model
 
 const UserAccounts = sequelize.define('UserAccounts', {
     UserId: {
@@ -52,6 +53,14 @@ const UserAccounts = sequelize.define('UserAccounts', {
         references: {
             model: Role,
             key: 'RoleId'
+        }
+    },
+    RecipientId: { // Add this block
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: Recipient,
+            key: 'RecipientId'
         }
     }
 }, {

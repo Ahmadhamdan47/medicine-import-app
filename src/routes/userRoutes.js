@@ -7,4 +7,6 @@ router.post('/login', UserController.login);
 router.post('/Donor/register', UserController.donorSignup);
 router.post('/Recipient/register', UserController.recipientSignup);
 
+router.get('/Donor/:userId', UserController.getDonorDetails);
+router.get('/Recipient/:userId', UserController.getRecipientDetails);
 module.exports = router;
