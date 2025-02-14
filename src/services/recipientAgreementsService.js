@@ -25,7 +25,25 @@ class RecipientAgreementService {
     // Get a single recipient agreement by AgreementId
     static async getRecipientAgreementById(agreementId) {
         try {
-            const agreement = await RecipientAgreement.findByPk(agreementId);
+            const agreement = await RecipientAgreement.findByPk(agreementId, {
+                include: [
+                    {
+                        model: require('../models/donor'),
+                        as: 'Donor',
+                        attributes: ['DonorName']
+                    },
+                    {
+                        model: require('../models/recipient'),
+                        as: 'Recipient',
+                        attributes: ['RecipientName']
+                    },
+                    {
+                        model: require('../models/donation'),
+                        as: 'Donation',
+                        attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes', 'Laboratory', 'LaboratoryCountry']
+                    }
+                ]
+            });
             if (!agreement) {
                 throw new Error('Recipient agreement not found');
             }
@@ -65,7 +83,24 @@ class RecipientAgreementService {
     static async getByRecipientId(recipientId) {
         try {
             const agreements = await RecipientAgreement.findAll({
-                where: { RecipientId: recipientId }
+                where: { RecipientId: recipientId },
+                include: [
+                    {
+                        model: require('../models/donor'),
+                        as: 'Donor',
+                        attributes: ['DonorName']
+                    },
+                    {
+                        model: require('../models/recipient'),
+                        as: 'Recipient',
+                        attributes: ['RecipientName']
+                    },
+                    {
+                        model: require('../models/donation'),
+                        as: 'Donation',
+                        attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes']
+                    }
+                ]
             });
             if (!agreements || agreements.length === 0) {
                 throw new Error('No recipient agreements found for this RecipientId');
@@ -80,7 +115,24 @@ class RecipientAgreementService {
     static async getByDonorId(donorId) {
         try {
             const agreements = await RecipientAgreement.findAll({
-                where: { DonorId: donorId }
+                where: { DonorId: donorId },
+                include: [
+                    {
+                        model: require('../models/donor'),
+                        as: 'Donor',
+                        attributes: ['DonorName']
+                    },
+                    {
+                        model: require('../models/recipient'),
+                        as: 'Recipient',
+                        attributes: ['RecipientName']
+                    },
+                    {
+                        model: require('../models/donation'),
+                        as: 'Donation',
+                        attributes: ['DonationId', 'DonationPurpose', 'DonationDate', 'NumberOfBoxes']
+                    }
+                ]
             });
             if (!agreements || agreements.length === 0) {
                 throw new Error('No recipient agreements found for this DonorId');
