@@ -31,6 +31,7 @@ const parsedData = parse(fileContent, {
   delimiter: ',',
 }).data;
 console.log("CSV file parsed successfully");
+console.log("First 5 records from CSV:", parsedData.slice(0, 5));
 
 async function updateIsOTC() {
     console.log("Updating isOTC flag in drug table...");
@@ -42,8 +43,8 @@ async function updateIsOTC() {
         for (const record of parsedData) {
             const { MoPHCode } = record;
             
-            if (!MoPHCode) {
-                console.log(`Skipping record with missing MoPHCode`);
+            if (!MoPHCode || MoPHCode.trim() === "") {
+                console.log(`Skipping record with missing or empty MoPHCode`);
                 continue;
             }
             
@@ -53,7 +54,7 @@ async function updateIsOTC() {
                 await new Promise((resolve, reject) => {
                     db.query(
                         `UPDATE drug SET isOTC = 1 WHERE MoPHCode = ?`,
-                        [MoPHCode],
+                        [MoPHCode.trim()],
                         (err, results) => {
                             if (err) {
                                 failureCount++;
