@@ -691,6 +691,7 @@ router.get("/checkUpdates", drugController.checkForUpdates);
  *         description: Internal Server Error. Failed to update drugs.
  */
 router.post("/applyUpdates", drugController.fetchAndApplyUpdates);
+router.post("/setPriceUpdateDate", drugController.setPriceUpdateDate);
 
 
 

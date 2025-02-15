@@ -1,7 +1,8 @@
 // src/services/drugService.js
 const Sequelize = require("sequelize");
 const { sequelize } = require('../../config/databasePharmacy'); // Adjust the path to your sequelize configuration
-
+const path = require('path'); // Add this line to import the path module
+const fs = require('fs'); // Add this line to import the fs module
 const { Op } = require("sequelize");
 const Drug = require("../models/pharmacyDrug");
 const PharmacyDrug = require("../models/pharmacyDrug");
@@ -1071,6 +1072,28 @@ const deletePresentationsByDrugId = async (DrugID, transaction) => {
     throw new Error('Error occurred in deletePresentationsByDrugId: ' + error.message);
   }
 };
+const loadPriceUpdateDate = () => {
+  try {
+    const filePath = path.join(__dirname, '../data/priceUpdateDate.json');
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf-8');
+      const json = JSON.parse(data);
+      return json.price_update_date;
+    }
+  } catch (error) {
+    console.error('Error loading price update date:', error);
+  }
+  return null;
+};
+
+let price_update_date = loadPriceUpdateDate();
+
+const setPriceUpdateDate = (date) => {
+  price_update_date = date;
+  // Save the date to a JSON file
+  const filePath = path.join(__dirname, '../data/priceUpdateDate.json');
+  fs.writeFileSync(filePath, JSON.stringify({ price_update_date: date }, null, 2));
+};
 const fetchDrugDataFromServer = async () => {
   try {
     // Fetch drug data from the server, excluding NotMarketed drugs
@@ -1081,7 +1104,7 @@ const fetchDrugDataFromServer = async () => {
         }
       },
       attributes: [
-        'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient','OtherIngredients', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
         'Country', 'MoPHCode', 'UpdatedDate', 'GTIN'
@@ -1102,6 +1125,7 @@ const fetchDrugDataFromServer = async () => {
         productType: drug.ProductType,
         price: drug.Price,
         atcRelatedIngredient: drug.ATCRelatedIngredient,
+        ingredients: drug.OtherIngredients,
         imagesPath: drug.ImagesPath,
         subsidyPercentage: drug.SubsidyPercentage,
         notMarketed: drug.NotMarketed,
@@ -1122,6 +1146,7 @@ const fetchDrugDataFromServer = async () => {
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
+        priceUpdateDate: price_update_date
       };
     });
   } catch (error) {
@@ -1146,7 +1171,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
         }
       },
       attributes: [
-        'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 
+        'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'OtherIngredients',
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
         'Country', 'MoPHCode', 'UpdatedDate'
@@ -1163,6 +1188,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
           ProductType: updatedDrug.ProductType,
           Price: updatedDrug.Price,
           ATCRelatedIngredient: updatedDrug.ATCRelatedIngredient,
+          ingredients: updatedDrug.OtherIngredients,
           ImagesPath: updatedDrug.ImagesPath,
           SubsidyPercentage: updatedDrug.SubsidyPercentage,
           NotMarketed: updatedDrug.NotMarketed,
@@ -1179,6 +1205,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
           Country: updatedDrug.Country,
           MoPHCode: updatedDrug.MoPHCode,
           UpdatedDate: updatedDrug.UpdatedDate
+          
         },
         { where: { DrugID: updatedDrug.DrugID } }
       );
@@ -1272,5 +1299,6 @@ module.exports = {
   fetchDrugDataFromServer,
   checkForDrugUpdates,
   updateDrugImage,
+  setPriceUpdateDate,
   
 };

@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const DrugService = require("../services/drugService");
 
 const addPharmacyDrug = async (req, res) => {
@@ -347,6 +349,24 @@ const uploadDrugImage = async (req, res) => {
   }
 };
 
+const setPriceUpdateDate = async (req, res) => {
+  try {
+    const { date } = req.body;
+
+    if (!date) {
+      return res.status(400).json({ error: "Date is required" });
+    }
+
+    // Set the price update date in the service
+    DrugService.setPriceUpdateDate(date);
+
+    res.status(200).json({ message: "Price update date set successfully", date });
+  } catch (error) {
+    console.error("Error in setPriceUpdateDate:", error);
+    res.status(500).json({ error: "Failed to set price update date" });
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -380,5 +400,6 @@ module.exports = {
   fetchAndApplyUpdates,
   checkForUpdates,
   uploadDrugImage,
+  setPriceUpdateDate,
 
 };
