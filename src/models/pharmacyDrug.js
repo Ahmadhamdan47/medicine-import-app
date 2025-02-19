@@ -64,9 +64,15 @@ const NewDrug = sequelize.define('drug', {
     Manufacturer: {
         type: DataTypes.STRING(255)
     },
+    RespnsibleParty: {
+    },
     Country : {
         type: DataTypes.STRING(255)
     },
+    ResponsiblePartyCountry: {
+        type: DataTypes.STRING(255)
+    },
+
     RegistrationNumber: {
         type: DataTypes.STRING(255)
     },
