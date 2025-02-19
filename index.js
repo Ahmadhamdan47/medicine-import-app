@@ -40,7 +40,7 @@ const presentationRoutes = require('./src/routes/presentationRoutes');
 const dosageRoutes = require('./src/routes/dosageRoutes');
 const recipientAgreementsRoutes = require('./src/routes/recipientAgreementsRoutes');
 const manufacturerRoutes = require('./src/routes/manufacturerRoutes');
-const responsiblPartyRoutes = require('./src/routes/ResponsiblePartyRoutes');
+const responsiblPartyRoutes = require('./src/routes/responsiblePartyRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 8066;
