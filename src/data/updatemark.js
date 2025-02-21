@@ -6,9 +6,9 @@ const csv = require('csv-parser');
 // Database configuration
 const dbConfig = {
     host: "localhost",
-    user: "ommal_ahmad",
-    password: "fISfGr^8q!_gUPMY",
-    database: "ommal_medapiv2",
+    user: "ommal_oummal",
+    password: "dMR2id57dviMJJnc",
+    database: "ommal_medlist",
 };
 
 const db = mysql.createConnection(dbConfig);
@@ -21,22 +21,22 @@ db.connect((err) => {
 });
 
 // Path to the TSV file
-const FILE_PATH = './mark.tsv';
+const FILE_PATH = './medlist.tsv';
 
-console.log("Reading mark.tsv file...");
-const MoPHCodes = new Set();
+console.log("Reading medlist.tsv file...");
+const existingCodes = new Set();
 
 async function readTSVFile() {
     return new Promise((resolve, reject) => {
         fs.createReadStream(FILE_PATH)
             .pipe(csv({ separator: '\t' }))
             .on('data', (row) => {
-                if (row.MoPHCode) {
-                    MoPHCodes.add(row.MoPHCode.trim());
+                if (row.code) {
+                    existingCodes.add(row.code.trim());
                 }
             })
             .on('end', () => {
-                console.log(`Finished reading file. Total MoPHCodes found: ${MoPHCodes.size}`);
+                console.log(`Finished reading file. Total codes found: ${existingCodes.size}`);
                 resolve();
             })
             .on('error', (error) => {
@@ -46,36 +46,34 @@ async function readTSVFile() {
     });
 }
 
-async function updateNotMarketed() {
-    console.log("Updating NotMarketed flag in drug table...");
+async function deleteMissingMedications() {
+    console.log("Checking for medications to delete...");
     let successCount = 0;
     let failureCount = 0;
     let errorLog = [];
 
     try {
-        const [allDrugs] = await db.promise().query("SELECT DrugID, MoPHCode, NotMarketed FROM drug");
-        console.log(`Total drugs fetched: ${allDrugs.length}`);
+        const [allMeds] = await db.promise().query("SELECT id, code FROM medications");
+        console.log(`Total medications fetched: ${allMeds.length}`);
 
-        for (const drug of allDrugs) {
-            const newStatus = MoPHCodes.has(drug.MoPHCode) ? false : true;
-            console.log(`Processing DrugID ${drug.DrugID} - MoPHCode ${drug.MoPHCode} - Current NotMarketed: ${drug.NotMarketed} - New NotMarketed: ${newStatus}`);
-            
-            if (newStatus !== drug.NotMarketed) {
+        for (const med of allMeds) {
+            if (!existingCodes.has(med.code)) {
+                console.log(`Deleting Medication ID ${med.id} - Code ${med.code}`);
                 try {
-                    await db.promise().query("UPDATE drug SET NotMarketed = ? WHERE DrugID = ?", [newStatus, drug.DrugID]);
-                    console.log(`Updated DrugID ${drug.DrugID} - MoPHCode ${drug.MoPHCode} - NotMarketed = ${newStatus}`);
+                    await db.promise().query("DELETE FROM medications WHERE id = ?", [med.id]);
+                    console.log(`Deleted Medication ID ${med.id} - Code ${med.code}`);
                     successCount++;
-                } catch (updateError) {
-                    console.error(`Error updating DrugID ${drug.DrugID}:`, updateError.message);
+                } catch (deleteError) {
+                    console.error(`Error deleting Medication ID ${med.id}:`, deleteError.message);
                     failureCount++;
-                    errorLog.push({ DrugID: drug.DrugID, MoPHCode: drug.MoPHCode, error: updateError.message });
+                    errorLog.push({ id: med.id, code: med.code, error: deleteError.message });
                 }
             }
         }
 
-        console.log(`Update complete: ${successCount} successes, ${failureCount} failures`);
-        fs.writeFileSync("update_NotMarketed_log.json", JSON.stringify(errorLog, null, 2));
-        console.log("Error log saved to update_NotMarketed_log.json");
+        console.log(`Deletion complete: ${successCount} deletions, ${failureCount} failures`);
+        fs.writeFileSync("delete_medications_log.json", JSON.stringify(errorLog, null, 2));
+        console.log("Error log saved to delete_medications_log.json");
     } catch (error) {
         console.error("Unexpected error during processing:", error);
     } finally {
@@ -85,7 +83,7 @@ async function updateNotMarketed() {
 }
 
 (async () => {
-    console.log("Starting NotMarketed update script...");
+    console.log("Starting medication deletion script...");
     await readTSVFile();
-    await updateNotMarketed();
+    await deleteMissingMedications();
 })();
