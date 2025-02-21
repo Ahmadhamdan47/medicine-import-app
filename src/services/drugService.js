@@ -236,7 +236,9 @@ const getDrugById = async (DrugIDs) => {
         priceInLBP,
         unitPrice,
         unitPriceInLBP,
-        AgentName: drugPlainData.Manufacturer // Assuming AgentName is the same as ManufacturerName
+        AgentName: drugPlainData.Manufacturer ,
+        usdRate: 89500,
+        priceUpdateDate: price_update_date
       };
     }));
 
@@ -496,7 +498,9 @@ const smartSearch = async (query) => {
         ManufacturerName, 
         CountryName,
         ATC, // Include ATC
-        stratum // Include stratum
+        stratum, // Include stratum,
+        usdRate: 89500,
+        priceUpdateDate: price_update_date
       };
     }));
 
@@ -910,7 +914,9 @@ const getOTCDrugs = async () => {
         CountryName,
         priceInLBP,
         unitPrice,
-        unitPriceInLBP
+        unitPriceInLBP,
+        usdRate: 89500,
+        priceUpdateDate: price_update_date,
       };
     });
 
@@ -927,7 +933,7 @@ const getDrugSubstitutes = async (drugName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode', 'Stratum'
       ],
     });
 
@@ -950,7 +956,7 @@ const getDrugSubstitutes = async (drugName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode', 'Stratum'
       ],
     });
 
@@ -959,8 +965,8 @@ const getDrugSubstitutes = async (drugName) => {
       const route = substituteDrug.Route; // Correctly map route
       const form = substituteDrug.Form; // Correctly map form
       const presentation = substituteDrug.Presentation;
-      const ManufacturerName = substituteDrug.Manufacturer;
-      const CountryName = substituteDrug.Country;
+      const manufacturerName = substituteDrug.Manufacturer;
+      const countryName = substituteDrug.Country;
       const priceInLBP = substituteDrug.Price * 89500;
 
       const amount = substituteDrug.dataValues.Amount; // Directly use the integer value of Amount
@@ -983,8 +989,13 @@ const getDrugSubstitutes = async (drugName) => {
         priceInLBP,
         unitPriceInLBP,
         unitPrice,
-        ManufacturerName,
-        CountryName,
+        manufacturerName,
+        countryName,
+        usdRate: 89500,
+        priceUpdateDate: price_update_date,
+        stratum: substituteDrug.Stratum
+
+
       };
     });
 
@@ -1146,7 +1157,8 @@ const fetchDrugDataFromServer = async () => {
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
-        priceUpdateDate: price_update_date
+        priceUpdateDate: price_update_date,
+        usdRate: 89500,
       };
     });
   } catch (error) {
@@ -1204,7 +1216,9 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
           Manufacturer: updatedDrug.Manufacturer,
           Country: updatedDrug.Country,
           MoPHCode: updatedDrug.MoPHCode,
-          UpdatedDate: updatedDrug.UpdatedDate
+          UpdatedDate: updatedDrug.UpdatedDate,
+          usdRate: 89500,
+
           
         },
         { where: { DrugID: updatedDrug.DrugID } }
