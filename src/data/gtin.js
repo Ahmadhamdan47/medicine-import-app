@@ -24,7 +24,7 @@ const importGTINs = async () => {
 
             const [MoPHCode, GTIN] = line.split('\t');
 
-            if (MoPHCode && GTIN) {
+            if (MoPHCode && GTIN && GTIN.trim() !== '') {
                 // Update the drug with the matching MoPHCode
                 await NewDrug.update(
                     { GTIN },
