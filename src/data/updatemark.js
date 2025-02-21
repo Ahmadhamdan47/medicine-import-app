@@ -1,89 +1,75 @@
 const fs = require('fs');
-const path = require('path');
-const mysql = require('mysql2');
-const csv = require('csv-parser');
+const mysql = require('mysql');
 
 // Database configuration
 const dbConfig = {
-    host: "localhost",
-    user: "ommal_oummal",
-    password: "dMR2id57dviMJJnc",
-    database: "ommal_medlist",
+  host: 'localhost',
+  user: 'ommal_oummal',
+  password: 'dMR2id57dviMJJnc',
+  database: 'ommal_medlist',
 };
 
-const db = mysql.createConnection(dbConfig);
-db.connect((err) => {
-    if (err) {
-        console.error("Database connection failed:", err);
-        process.exit(1);
-    }
-    console.log("Connected to the database");
+console.log('Database configuration:', {
+  host: dbConfig.host,
+  user: dbConfig.user,
+  database: dbConfig.database
 });
 
-// Path to the TSV file
-const FILE_PATH = './mark.tsv';
+const connection = mysql.createConnection(dbConfig);
 
-console.log("Reading medlist.tsv file...");
-const existingCodes = new Set();
+connection.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database:", err);
+    process.exit(1);
+  }
+  console.log("Connected to the database successfully.");
+});
 
-async function readTSVFile() {
-    return new Promise((resolve, reject) => {
-        fs.createReadStream(FILE_PATH)
-            .pipe(csv({ separator: '\t' }))
-            .on('data', (row) => {
-                if (row.code) {
-                    existingCodes.add(row.code.trim());
-                }
-            })
-            .on('end', () => {
-                console.log(`Finished reading file. Total codes found: ${existingCodes.size}`);
-                resolve();
-            })
-            .on('error', (error) => {
-                console.error("Error reading file:", error);
-                reject(error);
-            });
-    });
-}
+console.log('Reading TSV file: mark.tsv');
+fs.readFile('mark2.tsv', 'utf8', (err, data) => {
+  if (err) {
+    console.error("Error reading the file:", err);
+    connection.end();
+    return;
+  }
 
-async function deleteMissingMedications() {
-    console.log("Checking for medications to delete...");
-    let successCount = 0;
-    let failureCount = 0;
-    let errorLog = [];
+  console.log("File content read successfully. Data length:", data.length);
 
-    try {
-        const [allMeds] = await db.promise().query("SELECT id, code FROM medications");
-        console.log(`Total medications fetched: ${allMeds.length}`);
+  // Split file into lines and filter out any empty lines.
+  const lines = data.split('\n').map(line => line.trim()).filter(line => line !== '');
+  console.log("Parsed lines from file:", lines);
 
-        for (const med of allMeds) {
-            if (!existingCodes.has(med.code)) {
-                console.log(`Deleting Medication ID ${med.id} - Code ${med.code}`);
-                try {
-                    await db.promise().query("DELETE FROM medications WHERE id = ?", [med.id]);
-                    console.log(`Deleted Medication ID ${med.id} - Code ${med.code}`);
-                    successCount++;
-                } catch (deleteError) {
-                    console.error(`Error deleting Medication ID ${med.id}:`, deleteError.message);
-                    failureCount++;
-                    errorLog.push({ id: med.id, code: med.code, error: deleteError.message });
-                }
-            }
-        }
+  // Assuming each line is tab-separated and the first column is the code.
+  // If your file has a header row, uncomment the next line to skip it:
+  // lines.shift();
 
-        console.log(`Deletion complete: ${successCount} deletions, ${failureCount} failures`);
-        fs.writeFileSync("delete_medications_log.json", JSON.stringify(errorLog, null, 2));
-        console.log("Error log saved to delete_medications_log.json");
-    } catch (error) {
-        console.error("Unexpected error during processing:", error);
-    } finally {
-        console.log("Closing database connection");
-        db.end();
+  const codes = lines.map(line => line.split('\t')[0]);
+  console.log("Extracted codes:", codes);
+
+  if (codes.length === 0) {
+    console.log("No codes found in the file. Aborting deletion.");
+    connection.end();
+    return;
+  }
+
+  // Build the DELETE query to remove rows with codes NOT in our list.
+  const placeholders = codes.map(() => '?').join(',');
+  const sql = `DELETE FROM medications WHERE code NOT IN (${placeholders})`;
+  console.log("Constructed SQL query:", sql);
+  console.log("With parameters:", codes);
+
+  connection.query(sql, codes, (error, results) => {
+    if (error) {
+      console.error("Error executing deletion query:", error);
+    } else {
+      console.log(`Deletion query executed successfully. Deleted ${results.affectedRows} rows.`);
     }
-}
-
-(async () => {
-    console.log("Starting medication deletion script...");
-    await readTSVFile();
-    await deleteMissingMedications();
-})();
+    connection.end((err) => {
+      if (err) {
+        console.error("Error closing the database connection:", err);
+      } else {
+        console.log("Database connection closed.");
+      }
+    });
+  });
+});
