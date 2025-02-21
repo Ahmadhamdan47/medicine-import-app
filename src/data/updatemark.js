@@ -21,7 +21,7 @@ db.connect((err) => {
 });
 
 // Path to the TSV file
-const FILE_PATH = './medlist.tsv';
+const FILE_PATH = './mark.tsv';
 
 console.log("Reading medlist.tsv file...");
 const existingCodes = new Set();
