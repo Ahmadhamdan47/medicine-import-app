@@ -13,27 +13,32 @@ const importGTINs = async () => {
             crlfDelay: Infinity
         });
 
-        // Skip the header line if there is one
         let isFirstLine = true;
 
         for await (const line of rl) {
             if (isFirstLine) {
                 isFirstLine = false;
-                continue; // skip header
+                continue; // Skip header
             }
 
             const [MoPHCode, GTIN] = line.split('\t');
 
-            if (MoPHCode && GTIN && GTIN.trim() !== '') {
-                // Update the drug with the matching MoPHCode
-                await NewDrug.update(
-                    { GTIN },
-                    { where: { MoPHCode } }
-                );
+            // Skip rows where GTIN is missing, empty, or 'NULL'
+            if (!GTIN || GTIN.trim() === '' || GTIN.trim().toUpperCase() === 'NULL') {
+                continue;
             }
+
+            // Trim values
+            const gtinValue = GTIN.trim();
+            const mophCodeValue = MoPHCode.trim();
+
+            await NewDrug.update(
+                { GTIN: gtinValue },
+                { where: { MoPHCode: mophCodeValue } }
+            );
         }
 
-        console.log('GTINs have been successfully imported.');
+        console.log('GTINs have been successfully imported (NULLs skipped).');
     } catch (error) {
         console.error('Error importing GTINs:', error);
     }
