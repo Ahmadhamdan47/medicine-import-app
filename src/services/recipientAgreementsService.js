@@ -66,7 +66,6 @@ class RecipientAgreementService {
             throw new Error(`Error updating recipient agreement: ${error.message}`);
         }
     }
-
     // Delete a recipient agreement
     static async deleteRecipientAgreement(agreementId) {
         try {

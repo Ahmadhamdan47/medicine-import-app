@@ -31,8 +31,8 @@ class RecipientAgreementController {
     // Get a single recipient agreement by AgreementId
     static async getById(req, res) {
         try {
-            const { id } = req.params;
-            const agreement = await RecipientAgreementService.getRecipientAgreementById(id);
+            const { agreementId } = req.params;
+            const agreement = await RecipientAgreementService.getRecipientAgreementById(agreementId);
             res.status(200).json({ success: true, data: agreement });
         } catch (error) {
             res.status(404).json({ success: false, error: error.message });
@@ -42,9 +42,9 @@ class RecipientAgreementController {
     // Update a recipient agreement
     static async update(req, res) {
         try {
-            const { id } = req.params;
+            const { agreementId } = req.params;
             const { DonationId, DonorId, RecipientId, Agreed_Upon } = req.body;
-            const updatedAgreement = await RecipientAgreementService.updateRecipientAgreement(id, {
+            const updatedAgreement = await RecipientAgreementService.updateRecipientAgreement(agreementId, {
                 DonationId,
                 DonorId,
                 RecipientId,
