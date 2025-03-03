@@ -11,4 +11,6 @@ router.get('/Donor/:userId', UserController.getDonorDetails);
 router.get('/Recipient/:userId', UserController.getRecipientDetails);
 router.get('/Donor/username/:username', UserController.getDonorDetailsByUsername);
 router.get('/Recipient/username/:username', UserController.getRecipientDetailsByUsername);
+router.post('/send-otp', UserController.sendOTP);
+router.post('/verify-otp', UserController.verifyOTP);
 module.exports = router;

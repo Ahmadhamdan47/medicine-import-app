@@ -5,6 +5,10 @@ const Roles = require('../models/roles');
 const Agent = require('../models/agent');
 const Donor = require('../models/donor');
 const Recipient = require('../models/recipient');
+const OTP = require('../models/otp');
+const emailService = require('./emailService');
+const crypto = require('crypto');
+
 
 
 class UserService {
@@ -170,6 +174,27 @@ static async recipientSignup(recipientData, username, password, email) {
     } catch (error) {
       throw new Error(`Error fetching recipient details: ${error.message}`);
     }
+  }
+  static generateOTP() {
+    return crypto.randomInt(100000, 999999).toString();
+  }
+
+  static async sendOTP(email) {
+    const otp = this.generateOTP();
+    // Store OTP in the database or cache with an expiration time
+    await OTP.create({ email, otp, expiresAt: new Date(Date.now() + 10 * 60000) }); // Expires in 10 minutes
+    // Send OTP via email
+    await emailService.sendEmail(email, 'Your OTP Code', `Your OTP code is ${otp}`);
+  }
+
+  static async verifyOTP(email, otp) {
+    const record = await OTP.findOne({ where: { email, otp } });
+    if (!record || record.expiresAt < new Date()) {
+      throw new Error('Invalid or expired OTP');
+    }
+    // OTP is valid, delete the record
+    await OTP.destroy({ where: { email, otp } });
+    return true;
   }
 }
 
