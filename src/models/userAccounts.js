@@ -62,6 +62,11 @@ const UserAccounts = sequelize.define('UserAccounts', {
             model: Recipient,
             key: 'RecipientId'
         }
+    },
+    Email: { // Add this block
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true
     }
 }, {
     tableName: 'useraccounts',

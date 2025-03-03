@@ -3,8 +3,8 @@ const UserService = require('../services/userService');
 class UserController {
   static async register(req, res) {
     try {
-      const { username, password, roleId } = req.body;
-      await UserService.register(username, password, roleId);
+      const { username, password, roleId, email } = req.body;
+      await UserService.register(username, password, roleId, email);
       res.status(201).send('User registered');
     } catch (error) {
       res.status(500).send(error.message);
@@ -23,8 +23,8 @@ class UserController {
   
   static async donorSignup(req, res) {
     try {
-      const { donorData, username, password, roleId } = req.body;
-      await UserService.donorSignup(donorData, username, password, roleId);
+      const { donorData, username, password, roleId, email } = req.body;
+      await UserService.donorSignup(donorData, username, password, roleId, email);
       res.status(201).json({ message: 'Donor user registered successfully' });
     } catch (error) {
       console.error('Error registering donor user:', error);
@@ -33,8 +33,8 @@ class UserController {
   }
   static async recipientSignup(req, res) {
     try {
-      const { recipientData, username, password } = req.body;
-      await UserService.recipientSignup(recipientData, username, password);
+      const { recipientData, username, password, email } = req.body;
+      await UserService.recipientSignup(recipientData, username, password, email);
       res.status(201).json({ message: 'Recipient user registered successfully' });
     } catch (error) {
       console.error('Error registering recipient user:', error);

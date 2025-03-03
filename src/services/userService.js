@@ -10,7 +10,7 @@ const Recipient = require('../models/recipient');
 class UserService {
   static async register(username, password, roleId, donorId) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await UserAccounts.create({ Username: username, PasswordHash: hashedPassword, RoleId: roleId, DonorId: donorId 
+    await UserAccounts.create({ Username: username, PasswordHash: hashedPassword, RoleId: roleId, DonorId: donorId, Email: email 
     });
 
   }
@@ -58,58 +58,57 @@ else
 
 
 
-  static async donorSignup(donorData, username, password) {
-    const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
-    
-    // Fetch the RoleId for Donor
-    const donorRole = await Roles.findOne({ where: { RoleName: 'Donor' } });
-    if (!donorRole) {
-      throw new Error('Role not found');
-    }
-
-    const donor = await Donor.create({
-      DonorName,
-      DonorType,
-      Address,
-      PhoneNumber,
-      Email,
-      DonorCountry,
-      IsActive,
-      CreatedDate: new Date(),
-      UpdatedDate: new Date()
-    });
-
-    await this.register(username, password, donorRole.RoleId, donor.DonorId);
+static async donorSignup(donorData, username, password, roleId, email) {
+  const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
+  
+  const donorRole = await Roles.findOne({ where: { RoleName: 'Donor' } });
+  if (!donorRole) {
+    throw new Error('Role not found');
   }
-  static async recipientSignup(recipientData, username, password) {
-    const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive } = recipientData;
-    
-    // Fetch the RoleId for Recipient
-    const recipientRole = await Roles.findOne({ where: { RoleName: 'Recipient' } });
-    if (!recipientRole) {
-      throw new Error('Role not found');
-    }
 
-    const recipient = await Recipient.create({
-      RecipientName,
-      RecipientType,
-      Address,
-      City,
-      Country,
-      ContactPerson,
-      ContactNumber,
-      IsActive,
-      CreatedDate: new Date(),
-      UpdatedDate: new Date()
-    });
+  const donor = await Donor.create({
+    DonorName,
+    DonorType,
+    Address,
+    PhoneNumber,
+    Email,
+    DonorCountry,
+    IsActive,
+    CreatedDate: new Date(),
+    UpdatedDate: new Date()
+  });
 
-    await UserAccounts.create({
-      Username: username,
-      PasswordHash: await bcrypt.hash(password, 10),
-      RoleId: recipientRole.RoleId,
-      RecipientId: recipient.RecipientId
-    });
+  await this.register(username, password, donorRole.RoleId, donor.DonorId, email); // Add email parameter
+}
+static async recipientSignup(recipientData, username, password, email) {
+  const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive } = recipientData;
+  
+  const recipientRole = await Roles.findOne({ where: { RoleName: 'Recipient' } });
+  if (!recipientRole) {
+    throw new Error('Role not found');
   }
+
+  const recipient = await Recipient.create({
+    RecipientName,
+    RecipientType,
+    Address,
+    City,
+    Country,
+    ContactPerson,
+    ContactNumber,
+    IsActive,
+    CreatedDate: new Date(),
+    UpdatedDate: new Date()
+  });
+
+  await UserAccounts.create({
+    Username: username,
+    PasswordHash: await bcrypt.hash(password, 10),
+    RoleId: recipientRole.RoleId,
+    RecipientId: recipient.RecipientId,
+    Email: email // Add this line
+  });
+}
   static async getDonorDetailsByUserId(userId) {
     try {
       const user = await UserAccounts.findByPk(userId);
