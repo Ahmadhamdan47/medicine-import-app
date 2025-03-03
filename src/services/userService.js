@@ -33,8 +33,8 @@ class UserService {
         throw new Error('Incorrect password');
     }
 
-    // Generate JWT token
-    const token = jwt.sign({ id: user.UserId, roleId: user.RoleId }, 'secret', {
+    // Generate JWT token with email
+    const token = jwt.sign({ id: user.UserId, roleId: user.RoleId, email: user.Email }, 'secret', {
         expiresIn: '1h',
     });
 
@@ -45,18 +45,20 @@ class UserService {
     if (role.RoleName === 'Donor') {
         // Fetch donor data using DonorId
         donorData = await Donor.findOne({ where: { DonorId: user.DonorId } });
-        return{
-          token,
-          role: role.RoleName,
-          donorData
+        return {
+            token,
+            role: role.RoleName,
+            email: user.Email, // Include email in the response
+            donorData
         };
     }
-else
-    // Return token, role name, and full donor data if available
-    return { 
-        token, 
-        role: role.RoleName, 
-        donorData// Includes full donor data if donor, null otherwise
+
+    // Return token, role name, email, and full donor data if available
+    return {
+        token,
+        role: role.RoleName,
+        email: user.Email, // Include email in the response
+        donorData // Includes full donor data if donor, null otherwise
     };
 }
 
