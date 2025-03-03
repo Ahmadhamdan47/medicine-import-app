@@ -14,13 +14,12 @@ class UserController {
   static async login(req, res) {
     try {
       const { username, password } = req.body;
-      const { token, role, donorData } = await UserService.login(username, password); // Destructure role
-      res.status(200).json({ token, role, donorData }); // Include role in the response
+      const { token, role, donorData, email } = await UserService.login(username, password); // Destructure email
+      res.status(200).json({ token, role, donorData, email }); // Include email in the response
     } catch (error) {
       res.status(401).send(error.message);
     }
   }
-  
   static async donorSignup(req, res) {
     try {
       const { donorData, username, password, roleId, email } = req.body;
