@@ -33,16 +33,11 @@ async function updatePrices() {
 
         // Execute updates in a transaction
         await connection.beginTransaction();
-        for (let i = 1; i < lines.length; i++) { // Start from 1 to skip the header
-            const [code, public_price] = lines[i].split('\t');
+        for (const line of lines) {
+            const [code, public_price] = line.split('\t');
 
             if (code && public_price) {
-                const price = parseFloat(public_price);
-                if (!isNaN(price) && price >= 0 && price <= 999999.99) { // Adjust the range as needed
-                    await connection.execute(query, [price, code]);
-                } else {
-                    console.warn(`Skipping invalid price at line ${i + 1}: ${public_price}`);
-                }
+                await connection.execute(query, [public_price, code]);
             }
         }
         await connection.commit();
