@@ -12,13 +12,12 @@ const crypto = require('crypto');
 
 
 class UserService {
-  static async register(username, password, roleId, donorId, email) {
+  static async register(username, password, roleId, email) {
     const hashedPassword = await bcrypt.hash(password, 10);
     await UserAccounts.create({ 
       Username: username, 
       PasswordHash: hashedPassword, 
       RoleId: roleId, 
-      DonorId: donorId, 
       Email: email // Now properly assigned
     });
   }
