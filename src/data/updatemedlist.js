@@ -88,7 +88,7 @@ async function updateMedications() {
                 } else {
                     console.log(`Inserting new medication record: ${code}`);
                     await connection.execute(
-                        `INSERT INTO medications (id, code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                        `INSERT INTO medications (id, code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                         [newId++, code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum]
                     );
                     addedCodes.push(code);
