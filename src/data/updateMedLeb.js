@@ -35,7 +35,6 @@ console.log("TSV file parsed successfully");
 async function processMedlebData() {
   console.log("Processing Medleb data...");
   const addedMoPHCodes = [];
-  const notMarketedTrue = [];
   const notMarketedFalse = [];
 
   try {
@@ -48,11 +47,13 @@ async function processMedlebData() {
     });
     console.log("Fetched existing drug records");
 
-    const existingMoPHCodes = new Set(existingDrugs.map(drug => drug.MoPHCode));
+    const existingDrugsMap = new Map(existingDrugs.map(drug => [String(drug.MoPHCode).trim(), drug]));
 
     for (const drugData of parsedData) {
+      const MoPHCode = String(drugData.MoPHCode).trim();
+      const existingDrug = existingDrugsMap.get(MoPHCode);
+
       const {
-        MoPHCode,
         RegistrationNumber,
         DrugName,
         Presentation,
@@ -61,32 +62,32 @@ async function processMedlebData() {
         Manufacturer,
         Country,
         PublicPrice,
-        NotMarketed,
         Stratum,
       } = drugData;
 
       const publicPrice = isNaN(parseFloat(PublicPrice)) ? null : parseFloat(PublicPrice) / 89500;
-      const existingDrug = existingDrugs.find(drug => drug.MoPHCode === MoPHCode);
 
       try {
         if (existingDrug) {
           if (
-            existingDrug.RegistrationNumber !== RegistrationNumber ||
-            existingDrug.DrugName !== DrugName ||
-            existingDrug.Presentation !== Presentation ||
-            existingDrug.Form !== Form ||
-            existingDrug.Agent !== Agent ||
-            existingDrug.Manufacturer !== Manufacturer ||
-            existingDrug.Country !== Country ||
+            existingDrug.RegistrationNumber !== RegistrationNumber.trim() ||
+            existingDrug.DrugName !== DrugName.trim() ||
+            existingDrug.Presentation !== Presentation.trim() ||
+            existingDrug.Form !== (Form ? Form.trim() : null) ||
+            existingDrug.Agent !== Agent.trim() ||
+            existingDrug.Manufacturer !== Manufacturer.trim() ||
+            existingDrug.Country !== Country.trim() ||
             existingDrug.PublicPrice !== publicPrice ||
-            existingDrug.Stratum !== Stratum 
+            existingDrug.Stratum !== (Stratum ? Stratum.trim() : null)
           ) {
             console.log(`Updating drug record: ${MoPHCode}`);
             await new Promise((resolve, reject) => {
               db.query(
                 `UPDATE drug SET RegistrationNumber = ?, DrugName = ?, Presentation = ?, Form = ?, Agent = ?, Manufacturer = ?, Country = ?, PublicPrice = ?, Stratum = ?, NotMarketed = 0 WHERE MoPHCode = ?`,
                 [
-                  RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice, Stratum, MoPHCode
+                  RegistrationNumber.trim(), DrugName.trim(), Presentation.trim(),
+                  Form ? Form.trim() : null, Agent.trim(), Manufacturer.trim(),
+                  Country.trim(), publicPrice, Stratum ? Stratum.trim() : null, MoPHCode
                 ],
                 (err) => (err ? reject(err) : resolve())
               );
@@ -103,17 +104,7 @@ async function processMedlebData() {
             });
             notMarketedFalse.push(MoPHCode);
           }
-        } else {
-          console.log(`Inserting new drug record: ${MoPHCode}`);
-          await new Promise((resolve, reject) => {
-            db.query(
-              `INSERT INTO drug (MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, PublicPrice, NotMarketed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
-              [MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice],
-              (err) => (err ? reject(err) : resolve())
-            );
-          });
-          addedMoPHCodes.push(MoPHCode);
-        }
+        } 
       } catch (error) {
         if (error.code === 'ER_DATA_TOO_LONG') {
           console.error(`Skipping record due to data too long error: ${MoPHCode}`);
@@ -123,32 +114,8 @@ async function processMedlebData() {
       }
     }
 
-    console.log("Checking for drugs no longer in the file...");
-    const fileMoPHCodes = new Set(parsedData.map(drug => drug.MoPHCode));
-    for (const drug of existingDrugs) {
-      if (!fileMoPHCodes.has(drug.MoPHCode)) {
-        console.log(`Marking drug as not marketed: ${drug.MoPHCode}`);
-        await new Promise((resolve, reject) => {
-          db.query(
-            `UPDATE drug SET NotMarketed = 1 WHERE MoPHCode = ?`,
-            [drug.MoPHCode],
-            (err) => (err ? reject(err) : resolve())
-          );
-        });
-        notMarketedTrue.push(drug.MoPHCode);
-      }
-    }
-
-    // Generate the report
-    const report = {
-      addedMoPHCodes,
-      notMarketedTrue,
-      notMarketedFalse,
-    };
-
-    const reportPath = path.join(__dirname, 'medleb_update_report.json');
-    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
-    console.log(`Report exported to ${reportPath}`);
+    console.log(`Total records updated: ${notMarketedFalse.length}`);
+    console.log(`Total new records inserted: ${addedMoPHCodes.length}`);
   } catch (error) {
     console.error('Error processing medleb data:', error);
   } finally {
