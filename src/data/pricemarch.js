@@ -37,7 +37,12 @@ async function updatePrices() {
             const [code, public_price] = lines[i].split('\t');
 
             if (code && public_price) {
-                await connection.execute(query, [public_price, code]);
+                const price = parseFloat(public_price);
+                if (!isNaN(price) && price >= 0 && price <= 999999.99) { // Adjust the range as needed
+                    await connection.execute(query, [price, code]);
+                } else {
+                    console.warn(`Skipping invalid price at line ${i + 1}: ${public_price}`);
+                }
             }
         }
         await connection.commit();
