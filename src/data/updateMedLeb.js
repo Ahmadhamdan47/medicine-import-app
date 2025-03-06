@@ -6,8 +6,8 @@ const { parse } = require('papaparse');
 // Database configuration
 const dbConfig = {
     host: "localhost",       // Replace with your database host
-    user: "root",     // Replace with your database user
-    password: "", // Replace with your database password
+    user: "ommal_ahmad",     // Replace with your database user
+    password: "fISfGr^8q!_gUPMY", // Replace with your database password
     database: "ommal_medapiv2",  // Replace with your database name
 };
 
@@ -21,7 +21,7 @@ db.connect((err) => {
 });
 
 // Path to the TSV file
-const filePath = path.join(__dirname, 'medleb.tsv');
+const filePath = path.join(__dirname, 'marchmedleb.tsv');
 
 // Read and parse the TSV file
 console.log("Reading TSV file...");
@@ -61,7 +61,8 @@ async function processMedlebData() {
         Manufacturer,
         Country,
         PublicPrice,
-        NotMarketed
+        NotMarketed,
+        Stratum,
       } = drugData;
 
       const publicPrice = isNaN(parseFloat(PublicPrice)) ? null : parseFloat(PublicPrice) / 89500;
@@ -76,14 +77,15 @@ async function processMedlebData() {
           existingDrug.Agent !== Agent ||
           existingDrug.Manufacturer !== Manufacturer ||
           existingDrug.Country !== Country ||
-          existingDrug.PublicPrice !== publicPrice
+          existingDrug.PublicPrice !== publicPrice ||
+          existingDrug.Stratum !== Stratum 
         ) {
           console.log(`Updating drug record: ${MoPHCode}`);
           await new Promise((resolve, reject) => {
             db.query(
-              `UPDATE drug SET RegistrationNumber = ?, DrugName = ?, Presentation = ?, Form = ?, Agent = ?, Manufacturer = ?, Country = ?, PublicPrice = ?, NotMarketed = 0 WHERE MoPHCode = ?`,
+              `UPDATE drug SET RegistrationNumber = ?, DrugName = ?, Presentation = ?, Form = ?, Agent = ?, Manufacturer = ?, Country = ?, PublicPrice = ?, Stratum = ?, NotMarketed = 0 WHERE MoPHCode = ?`,
               [
-                RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice, MoPHCode
+                RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice, MoPHCode, Stratum
               ],
               (err) => (err ? reject(err) : resolve())
             );

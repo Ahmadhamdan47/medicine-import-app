@@ -12,7 +12,7 @@ const dbConfig = {
 };
 
 // Path to the TSV file
-const filePath = path.join(__dirname, "febmedlist.tsv");
+const filePath = path.join(__dirname, "marchmedlist.tsv");
 
 // Read and parse the TSV file
 const fileContent = fs.readFileSync(filePath, "utf8");
