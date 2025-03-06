@@ -40,6 +40,11 @@ async function updateMedications() {
 
         const existingCodes = new Set(existingMeds.map(med => med.code));
 
+        // Fetch highest existing ID
+        console.log("Fetching the highest existing ID from the database...");
+        const [result] = await connection.execute("SELECT MAX(id) as maxId FROM medications");
+        let newId = result[0].maxId ? result[0].maxId + 1 : 1;
+
         for (const med of parsedData) {
             const {
                 code,
@@ -83,8 +88,8 @@ async function updateMedications() {
                 } else {
                     console.log(`Inserting new medication record: ${code}`);
                     await connection.execute(
-                        `INSERT INTO medications (code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                        [code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum]
+                        `INSERT INTO medications (id, code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                        [newId++, code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum]
                     );
                     addedCodes.push(code);
                 }
