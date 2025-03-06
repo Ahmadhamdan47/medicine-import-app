@@ -33,8 +33,8 @@ async function updatePrices() {
 
         // Execute updates in a transaction
         await connection.beginTransaction();
-        for (const line of lines) {
-            const [code, public_price] = line.split('\t');
+        for (let i = 1; i < lines.length; i++) { // Start from 1 to skip the header
+            const [code, public_price] = lines[i].split('\t');
 
             if (code && public_price) {
                 await connection.execute(query, [public_price, code]);
