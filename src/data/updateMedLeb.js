@@ -68,50 +68,58 @@ async function processMedlebData() {
       const publicPrice = isNaN(parseFloat(PublicPrice)) ? null : parseFloat(PublicPrice) / 89500;
       const existingDrug = existingDrugs.find(drug => drug.MoPHCode === MoPHCode);
 
-      if (existingDrug) {
-        if (
-          existingDrug.RegistrationNumber !== RegistrationNumber ||
-          existingDrug.DrugName !== DrugName ||
-          existingDrug.Presentation !== Presentation ||
-          existingDrug.Form !== Form ||
-          existingDrug.Agent !== Agent ||
-          existingDrug.Manufacturer !== Manufacturer ||
-          existingDrug.Country !== Country ||
-          existingDrug.PublicPrice !== publicPrice ||
-          existingDrug.Stratum !== Stratum 
-        ) {
-          console.log(`Updating drug record: ${MoPHCode}`);
+      try {
+        if (existingDrug) {
+          if (
+            existingDrug.RegistrationNumber !== RegistrationNumber ||
+            existingDrug.DrugName !== DrugName ||
+            existingDrug.Presentation !== Presentation ||
+            existingDrug.Form !== Form ||
+            existingDrug.Agent !== Agent ||
+            existingDrug.Manufacturer !== Manufacturer ||
+            existingDrug.Country !== Country ||
+            existingDrug.PublicPrice !== publicPrice ||
+            existingDrug.Stratum !== Stratum 
+          ) {
+            console.log(`Updating drug record: ${MoPHCode}`);
+            await new Promise((resolve, reject) => {
+              db.query(
+                `UPDATE drug SET RegistrationNumber = ?, DrugName = ?, Presentation = ?, Form = ?, Agent = ?, Manufacturer = ?, Country = ?, PublicPrice = ?, Stratum = ?, NotMarketed = 0 WHERE MoPHCode = ?`,
+                [
+                  RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice, Stratum, MoPHCode
+                ],
+                (err) => (err ? reject(err) : resolve())
+              );
+            });
+            notMarketedFalse.push(MoPHCode);
+          } else if (existingDrug.NotMarketed) {
+            console.log(`Updating NotMarketed flag to false for drug: ${MoPHCode}`);
+            await new Promise((resolve, reject) => {
+              db.query(
+                `UPDATE drug SET NotMarketed = 0 WHERE MoPHCode = ?`,
+                [MoPHCode],
+                (err) => (err ? reject(err) : resolve())
+              );
+            });
+            notMarketedFalse.push(MoPHCode);
+          }
+        } else {
+          console.log(`Inserting new drug record: ${MoPHCode}`);
           await new Promise((resolve, reject) => {
             db.query(
-              `UPDATE drug SET RegistrationNumber = ?, DrugName = ?, Presentation = ?, Form = ?, Agent = ?, Manufacturer = ?, Country = ?, PublicPrice = ?, Stratum = ?, NotMarketed = 0 WHERE MoPHCode = ?`,
-              [
-                RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice, MoPHCode, Stratum
-              ],
+              `INSERT INTO drug (MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, PublicPrice, NotMarketed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
+              [MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice],
               (err) => (err ? reject(err) : resolve())
             );
           });
-          notMarketedFalse.push(MoPHCode);
-        } else if (existingDrug.NotMarketed) {
-          console.log(`Updating NotMarketed flag to false for drug: ${MoPHCode}`);
-          await new Promise((resolve, reject) => {
-            db.query(
-              `UPDATE drug SET NotMarketed = 0 WHERE MoPHCode = ?`,
-              [MoPHCode],
-              (err) => (err ? reject(err) : resolve())
-            );
-          });
-          notMarketedFalse.push(MoPHCode);
+          addedMoPHCodes.push(MoPHCode);
         }
-      } else {
-        console.log(`Inserting new drug record: ${MoPHCode}`);
-        await new Promise((resolve, reject) => {
-          db.query(
-            `INSERT INTO drug (MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, PublicPrice, NotMarketed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
-            [MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, publicPrice],
-            (err) => (err ? reject(err) : resolve())
-          );
-        });
-        addedMoPHCodes.push(MoPHCode);
+      } catch (error) {
+        if (error.code === 'ER_DATA_TOO_LONG') {
+          console.error(`Skipping record due to data too long error: ${MoPHCode}`);
+        } else {
+          throw error;
+        }
       }
     }
 
