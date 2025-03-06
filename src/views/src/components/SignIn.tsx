@@ -13,7 +13,7 @@ const SignIn: React.FC = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('/users/login', {
+      const response = await fetch('https://apiv2.medleb.org/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,16 +22,16 @@ const SignIn: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Login failed. Please check your credentials.');
+        throw new Error('Login failed');
       }
 
-      const data = await response.json();
-      console.log('Login successful', data);
-      localStorage.setItem('token', data.token); // Store the token
+      const { token, role, donorData, email } = await response.json();
+      console.log('Login successful', { token, role, donorData, email });
+      localStorage.setItem('token', token); // Store the token
 
       if (username === 'testuser') {
         navigate('/adminMainPage');
-      } else if (username === 'Nizar'|| username === 'Psmanager') {
+      } else if (username === 'Nizar' || username === 'Psmanager') {
         navigate('/agentMainPage');
       } else {
         navigate('/dashboard'); // Default redirection if username doesn't match

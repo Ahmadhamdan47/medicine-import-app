@@ -104,7 +104,19 @@ async function processMedlebData() {
             });
             notMarketedFalse.push(MoPHCode);
           }
-        } 
+        } else {
+          console.log(`Inserting new drug record: ${MoPHCode}`);
+          await new Promise((resolve, reject) => {
+            db.query(
+              `INSERT INTO drug (MoPHCode, RegistrationNumber, DrugName, Presentation, Form, Agent, Manufacturer, Country, PublicPrice, NotMarketed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
+              [MoPHCode, RegistrationNumber.trim(), DrugName.trim(), Presentation.trim(),
+              Form ? Form.trim() : null, Agent.trim(), Manufacturer.trim(),
+              Country.trim(), publicPrice],
+              (err) => (err ? reject(err) : resolve())
+            );
+          });
+          addedMoPHCodes.push(MoPHCode);
+        }
       } catch (error) {
         if (error.code === 'ER_DATA_TOO_LONG') {
           console.error(`Skipping record due to data too long error: ${MoPHCode}`);
