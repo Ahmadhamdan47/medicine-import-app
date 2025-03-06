@@ -26,8 +26,7 @@ console.log("TSV file parsed successfully");
 async function updateMedications() {
     let connection;
     const addedCodes = [];
-    const notMarketedTrue = [];
-    const notMarketedFalse = [];
+    const deletedCodes = [];
 
     try {
         console.log("Connecting to the database...");
@@ -75,24 +74,16 @@ async function updateMedications() {
                     ) {
                         console.log(`Updating medication record: ${code}`);
                         await connection.execute(
-                            `UPDATE medications SET reg_number = ?, brand_name = ?, strength = ?, presentation = ?, form = ?, agent = ?, manufacturer = ?, country = ?, public_price = ?, stratum = ?, not_marketed = 0 WHERE code = ?`,
+                            `UPDATE medications SET reg_number = ?, brand_name = ?, strength = ?, presentation = ?, form = ?, agent = ?, manufacturer = ?, country = ?, public_price = ?, stratum = ? WHERE code = ?`,
                             [
                                 reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum, code
                             ]
                         );
-                        notMarketedFalse.push(code);
-                    } else if (existingMed.not_marketed) {
-                        console.log(`Updating not_marketed flag to false for medication: ${code}`);
-                        await connection.execute(
-                            `UPDATE medications SET not_marketed = 0 WHERE code = ?`,
-                            [code]
-                        );
-                        notMarketedFalse.push(code);
                     }
                 } else {
                     console.log(`Inserting new medication record: ${code}`);
                     await connection.execute(
-                        `INSERT INTO medications (code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum, not_marketed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
+                        `INSERT INTO medications (code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, public_price, stratum) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                         [code, reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum]
                     );
                     addedCodes.push(code);
@@ -110,20 +101,19 @@ async function updateMedications() {
         const fileCodes = new Set(parsedData.map(med => med.code));
         for (const med of existingMeds) {
             if (!fileCodes.has(med.code)) {
-                console.log(`Marking medication as not marketed: ${med.code}`);
+                console.log(`Deleting medication: ${med.code}`);
                 await connection.execute(
-                    `UPDATE medications SET not_marketed = 1 WHERE code = ?`,
+                    `DELETE FROM medications WHERE code = ?`,
                     [med.code]
                 );
-                notMarketedTrue.push(med.code);
+                deletedCodes.push(med.code);
             }
         }
 
         // Generate the report
         const report = {
             addedCodes,
-            notMarketedTrue,
-            notMarketedFalse,
+            deletedCodes,
         };
 
         const reportPath = path.join(__dirname, 'medlist_update_report.json');
