@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './SignIn.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -11,36 +13,30 @@ const SignIn: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     try {
-      const response = await fetch('https://apiv2.medleb.org/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+      const response = await axios.post('https://apiv2.medleb.org/users/login', {
+        username,
+        password,
       });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const { token, role, donorData, email } = await response.json();
+  
+      const { token, role, donorData, email } = response.data;
       console.log('Login successful', { token, role, donorData, email });
-      localStorage.setItem('token', token); // Store the token
-
+  
+      localStorage.setItem('token', token);
+  
       if (username === 'testuser') {
         navigate('/adminMainPage');
       } else if (username === 'Nizar' || username === 'Psmanager') {
         navigate('/agentMainPage');
       } else {
-        navigate('/dashboard'); // Default redirection if username doesn't match
+        navigate('/dashboard');
       }
     } catch (error: any) {
-      setError(error.message);
+      console.error('Login error:', error.response?.data?.error || error.message);
+      setError(error.response?.data?.error || 'Login failed');
     }
   };
-
   return (
     <div className="signin-wrapper">
       <div className="signin-container">
