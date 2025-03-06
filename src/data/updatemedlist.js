@@ -25,6 +25,7 @@ console.log("TSV file parsed successfully");
 
 async function updateMedications() {
     let connection;
+    let updatedCount = 0;
 
     try {
         console.log("Connecting to the database...");
@@ -36,11 +37,16 @@ async function updateMedications() {
         const [existingMeds] = await connection.execute("SELECT * FROM medications");
         console.log("Fetched existing medication records.");
 
-        const existingMedsMap = new Map(existingMeds.map(med => [med.code, med]));
+        // Convert database codes to a map for quick lookup
+        const existingMedsMap = new Map(existingMeds.map(med => [String(med.code).trim(), med]));
 
         for (const med of parsedData) {
+            const fileCode = String(med.code).trim();
+            const existingMed = existingMedsMap.get(fileCode);
+            
+            if (!existingMed) continue; // Skip if the code doesn't exist in DB
+
             const {
-                code,
                 reg_number,
                 brand_name,
                 strength,
@@ -53,32 +59,34 @@ async function updateMedications() {
                 stratum
             } = med;
 
-            const existingMed = existingMedsMap.get(code);
             const publicPrice = isNaN(parseFloat(public_price)) ? null : parseFloat(public_price) / 89500;
 
-            if (existingMed) {
-                if (
-                    existingMed.reg_number !== reg_number ||
-                    existingMed.brand_name !== brand_name ||
-                    existingMed.strength !== strength ||
-                    existingMed.presentation !== presentation ||
-                    existingMed.form !== form ||
-                    existingMed.agent !== agent ||
-                    existingMed.manufacturer !== manufacturer ||
-                    existingMed.country !== country ||
-                    existingMed.public_price !== publicPrice ||
-                    existingMed.stratum !== stratum
-                ) {
-                    console.log(`Updating medication record: ${code}`);
-                    await connection.execute(
-                        `UPDATE medications SET reg_number = ?, brand_name = ?, strength = ?, presentation = ?, form = ?, agent = ?, manufacturer = ?, country = ?, public_price = ?, stratum = ? WHERE code = ?`,
-                        [
-                            reg_number, brand_name, strength, presentation, form, agent, manufacturer, country, publicPrice, stratum, code
-                        ]
-                    );
-                }
+            // Check if any field has changed
+            if (
+                existingMed.reg_number !== reg_number.trim() ||
+                existingMed.brand_name !== brand_name.trim() ||
+                existingMed.strength !== strength.trim() ||
+                existingMed.presentation !== presentation.trim() ||
+                existingMed.form !== (form ? form.trim() : null) ||
+                existingMed.agent !== agent.trim() ||
+                existingMed.manufacturer !== manufacturer.trim() ||
+                existingMed.country !== country.trim() ||
+                existingMed.public_price !== publicPrice ||
+                existingMed.stratum !== (stratum ? stratum.trim() : null)
+            ) {
+                console.log(`Updating medication record: ${fileCode}`);
+                await connection.execute(
+                    `UPDATE medications SET reg_number = ?, brand_name = ?, strength = ?, presentation = ?, form = ?, agent = ?, manufacturer = ?, country = ?, public_price = ?, stratum = ? WHERE code = ?`,
+                    [
+                        reg_number.trim(), brand_name.trim(), strength.trim(), presentation.trim(),
+                        form ? form.trim() : null, agent.trim(), manufacturer.trim(), country.trim(),
+                        publicPrice, stratum ? stratum.trim() : null, fileCode
+                    ]
+                );
+                updatedCount++;
             }
         }
+        console.log(`Total records updated: ${updatedCount}`);
     } catch (error) {
         console.error("Error updating medications:", error);
     } finally {
