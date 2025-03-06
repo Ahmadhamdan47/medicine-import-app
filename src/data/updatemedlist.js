@@ -1,3 +1,28 @@
+const mysql = require("mysql2/promise");
+const fs = require("fs");
+const path = require("path");
+const { parse } = require("papaparse");
+
+// Database connection details for medlist
+const dbConfig = {
+    host: 'localhost',
+    user: 'ommal_oummal',
+    password: 'dMR2id57dviMJJnc',
+    database: 'ommal_medlist',
+};
+
+// Path to the TSV file
+const filePath = path.join(__dirname, "marchmedlist.tsv");
+
+// Read and parse the TSV file
+console.log("Reading TSV file...");
+const fileContent = fs.readFileSync(filePath, "utf8");
+const parsedData = parse(fileContent, {
+    header: true,
+    delimiter: "\t",
+}).data;
+console.log("TSV file parsed successfully");
+
 async function updateMedications() {
     let connection;
 
