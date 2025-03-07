@@ -11,7 +11,7 @@ class RecipientAgreementController {
                 DonorId,
                 RecipientId,
                 Agreed_Upon,
-                ExpensesOn
+                expenses_on
             });
             res.status(201).json({ success: true, data: agreement });
         } catch (error) {
@@ -50,7 +50,7 @@ class RecipientAgreementController {
                 DonorId,
                 RecipientId,
                 Agreed_Upon,
-                ExpensesOn
+                expenses_on
             });
             res.status(200).json({ success: true, data: updatedAgreement });
         } catch (error) {

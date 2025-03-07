@@ -26,7 +26,7 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
         type: DataTypes.ENUM('agreed', 'pending', 'refused'),
         allowNull: false
     },
-    ExpensesOn: {
+    expenses_on: {
         type: DataTypes.ENUM('recipient', 'donor'),
         allowNull: false
     }
