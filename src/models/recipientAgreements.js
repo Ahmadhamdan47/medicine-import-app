@@ -25,16 +25,20 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
     Agreed_Upon: {
         type: DataTypes.ENUM('agreed', 'pending', 'refused'),
         allowNull: false
+    },
+    ExpensesOn: {
+        type: DataTypes.ENUM('recipient', 'donor'),
+        allowNull: false
     }
 }, {
     tableName: 'recipientagreements',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: true, // Automatically adds createdAt and updatedAt
+    underscored: true, // Uses `created_at` and `updated_at` instead of camelCase
 });
 
-// Define foreign key associations (if needed)
-// Uncomment and adjust these lines if you want to define associations explicitly
- RecipientAgreement.belongsTo(Donation, { foreignKey: 'DonationId' });
-    RecipientAgreement.belongsTo(Donor, { foreignKey: 'DonorId' });
-    RecipientAgreement.belongsTo(Recipient, { foreignKey: 'RecipientId' });
+// Define foreign key associations
+RecipientAgreement.belongsTo(Donation, { foreignKey: 'DonationId' });
+RecipientAgreement.belongsTo(Donor, { foreignKey: 'DonorId' });
+RecipientAgreement.belongsTo(Recipient, { foreignKey: 'RecipientId' });
 
 module.exports = RecipientAgreement;

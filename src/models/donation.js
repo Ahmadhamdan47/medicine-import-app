@@ -49,7 +49,8 @@ const Donation = sequelize.define(
   
   {
     tableName: "donation",
-    timestamps: false,
+    timestamps: true,
+    underscored: true, // Optional: changes `createdAt` to `created_at`
   }
 );
 
