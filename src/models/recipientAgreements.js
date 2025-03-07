@@ -40,7 +40,7 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
       },
 }, {
     tableName: 'recipientagreements',
-    timestamps: true, // Automatically adds createdAt and updatedAt
+    timestamps: false, // Automatically adds createdAt and updatedAt
 });
 
 // Define foreign key associations

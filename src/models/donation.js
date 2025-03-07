@@ -57,7 +57,7 @@ const Donation = sequelize.define(
   
   {
     tableName: "donation",
-    timestamps: true,
+    timestamps: false,
   }
 );
 
