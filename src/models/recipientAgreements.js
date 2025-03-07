@@ -33,7 +33,6 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
 }, {
     tableName: 'recipientagreements',
     timestamps: true, // Automatically adds createdAt and updatedAt
-    underscored: true, // Uses `created_at` and `updated_at` instead of camelCase
 });
 
 // Define foreign key associations
