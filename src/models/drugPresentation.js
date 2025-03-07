@@ -49,7 +49,7 @@ const DrugPresentation = sequelize.define('DrugPresentation', {
         type: DataTypes.STRING(255)
     },
     Description:{
-        type:DataTypes.TEXT(255)
+        type:DataTypes.TEXT
     },
     CreatedDate: {
         type: DataTypes.DATE,
