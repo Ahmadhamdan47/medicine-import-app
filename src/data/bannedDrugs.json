@@ -1,0 +1,16 @@
+{
+    "bannedDrugs": [
+        {
+            "cisId": "61266250",
+            "format": "pommade",
+            "owner": "PHARMA DEVELOPPEMENT",
+            "type": "Drug"
+        },
+        {
+            "cisId": "62869109",
+            "format": "capsule molle",
+            "owner": "PHARMA DEVELOPPEMENT",
+            "type": "Drug"
+        }
+    ]
+}

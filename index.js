@@ -41,6 +41,7 @@ const dosageRoutes = require('./src/routes/dosageRoutes');
 const recipientAgreementsRoutes = require('./src/routes/recipientAgreementsRoutes');
 const manufacturerRoutes = require('./src/routes/manufacturerRoutes');
 const responsiblPartyRoutes = require('./src/routes/responsiblePartyRoutes');
+const bannedDrugsRoutes = require('./src/routes/bannedDrugsRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 8066;
@@ -99,6 +100,7 @@ app.use('/dosages',dosageRoutes);
 app.use('/recipientAgreements', recipientAgreementsRoutes);
 app.use('/manufacturer',manufacturerRoutes);
 app.use('/responsibleParty',responsiblPartyRoutes);   
+app.use('/bannedDrugs', bannedDrugsRoutes);
 app.use('/img', express.static('img'));
 
 // Serve static files from the React app
