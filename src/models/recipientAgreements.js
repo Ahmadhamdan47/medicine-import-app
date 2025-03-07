@@ -29,7 +29,15 @@ const RecipientAgreement = sequelize.define('RecipientAgreement', {
     expenses_on: {
         type: DataTypes.ENUM('recipient', 'donor'),
         allowNull: false
-    }
+    },
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
+      updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
 }, {
     tableName: 'recipientagreements',
     timestamps: true, // Automatically adds createdAt and updatedAt
