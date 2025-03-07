@@ -5,7 +5,7 @@ class RecipientAgreementController {
     // Create a new recipient agreement
     static async create(req, res) {
         try {
-            const { DonationId, DonorId, RecipientId, Agreed_Upon } = req.body;
+            const { DonationId, DonorId, RecipientId, Agreed_Upon, expenses_on } = req.body;
             const agreement = await RecipientAgreementService.createRecipientAgreement({
                 DonationId,
                 DonorId,
@@ -44,13 +44,13 @@ class RecipientAgreementController {
     static async update(req, res) {
         try {
             const { agreementId } = req.params;
-            const { DonationId, DonorId, RecipientId, Agreed_Upon } = req.body;
+            const { DonationId, DonorId, RecipientId, Agreed_Upon, expenses_on } = req.body;
             const updatedAgreement = await RecipientAgreementService.updateRecipientAgreement(agreementId, {
                 DonationId,
                 DonorId,
                 RecipientId,
                 Agreed_Upon,
-                expenses_on
+                expenses_on 
             });
             res.status(200).json({ success: true, data: updatedAgreement });
         } catch (error) {
