@@ -198,6 +198,9 @@ const NewDrug = sequelize.define('drug', {
     PresentationLNDI:{
         type: DataTypes.STRING(255)
     },
+    RouteLNDI:{
+        type: DataTypes.STRING(255)
+    },
 }, {
     tableName: 'drug',
     timestamps: false

@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const DrugPresentation = require('./drugPresentation');
 const Dosage = require('./dosage');
+const { Route } = require('react-router-dom');
 
 const NewDrug = sequelize.define('drug', {
     DrugID: {
@@ -195,6 +196,9 @@ const NewDrug = sequelize.define('drug', {
         type: DataTypes.STRING(255)
     },
     PresentationLNDI:{
+        type: DataTypes.STRING(255)
+    },
+    RouteLNDI:{
         type: DataTypes.STRING(255)
     },
 }, {
