@@ -4,9 +4,9 @@ const mysql = require('mysql2/promise');
 
 const dbConfig = {
     host: 'localhost',
-    user: 'your_username',
-    password: 'your_password',
-    database: 'your_database'
+    user: 'ommal_ahmad',
+    password: 'fISfGr^8q!_gUPMY',
+    database: 'ommal_medapiv2'
 };
 
 async function clearFormAndRoute(filePath) {
