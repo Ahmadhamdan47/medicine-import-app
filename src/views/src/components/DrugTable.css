@@ -1,0 +1,42 @@
+.mantine-ScrollArea-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+    background-color: #f0f0f0 !important;
+    border-radius: 6px !important;
+  }
+  
+  .mantine-ScrollArea-thumb {
+    background-color: #888 !important;
+    border-radius: 6px !important;
+  }
+  
+  .mantine-ScrollArea-thumb:hover {
+    background-color: #666 !important;
+  }
+  
+  .cell-highlight {
+    background-color: rgba(0, 123, 255, 0.2) !important;
+    border: 2px solid #007bff !important;
+  }
+  
+  .cell-changed {
+    position: relative;
+  }
+  
+  .cell-changed::after {
+    content: "✓";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #28a745;
+    font-size: 12px;
+  }
+  
+  .cell-error::after {
+    content: "✗";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: #dc3545;
+    font-size: 12px;
+  }
