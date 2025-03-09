@@ -360,7 +360,6 @@ const DrugTable: React.FC = () => {
       setChangedCells({})
     }
   }
-
   // Cell drag and drop handlers
   const handleCellMouseDown = (value: any, columnId: string, rowId: string) => {
     if (value && value !== "N/A") {
@@ -371,7 +370,7 @@ const DrugTable: React.FC = () => {
       document.body.style.userSelect = "none"
     }
   }
-
+  
   const handleCellMouseUp = () => {
     setIsDragging(false)
     setDragValue(null)
@@ -379,11 +378,11 @@ const DrugTable: React.FC = () => {
     // Restore text selection
     document.body.style.userSelect = ""
   }
-
+  
   const handleCellMouseEnter = (row: MRT_Row<any>) => {
     if (isDragging && dragValue && dragColumnId) {
       const cellKey = `${row.id}-${dragColumnId}`
-
+  
       // Update the data with the dragged value
       setTableData((prevData) =>
         prevData.map((drug) => {
@@ -402,7 +401,6 @@ const DrugTable: React.FC = () => {
       )
     }
   }
-
   // Confirm or reject cell changes
   const handleConfirmChange = (rowId: string, columnId: string) => {
     const cellKey = `${rowId}-${columnId}`
@@ -1289,7 +1287,7 @@ const DrugTable: React.FC = () => {
     mantineTableBodyCellProps: ({ cell }) => {
       const cellKey = `${cell.row.original.DrugID}-${cell.column.id}`
       const cellStatus = changedCells[cellKey]
-
+  
       return {
         onMouseDown: () => handleCellMouseDown(cell.getValue<any>(), cell.column.id, cell.row.original.DrugID),
         onMouseUp: handleCellMouseUp,
@@ -1306,51 +1304,9 @@ const DrugTable: React.FC = () => {
           ...(cellStatus === "rejected" ? tableStyles.cellRejected : {}),
         },
         children: (
-            <>
+          <>
             {cell.renderValue()}
-            {cellStatus === "pending" && (
-              <div style={tableStyles.confirmIcon}>
-              <div style={{ display: "flex", gap: "2px" }}>
-              <ActionIcon
-              color="green"
-              variant="subtle"
-              size="xs"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleConfirmChange(cell.row.original.DrugID, cell.column.id)
-              }}
-              >
-              <IconCheck size={12} />
-              </ActionIcon>
-              <ActionIcon
-              color="red"
-              variant="subtle"
-              size="xs"
-              onClick={(e) => {
-                e.stopPropagation()
-                handleRejectChange(
-                cell.row.original.DrugID,
-                cell.column.id,
-                history[historyIndex - 1]?.find((d) => d.DrugID === cell.row.original.DrugID)?.[cell.column.id],
-                )
-              }}
-              >
-              <IconX size={12} />
-              </ActionIcon>
-              </div>
-              </div>
-            )}
-            {cellStatus === "confirmed" && (
-              <div style={tableStyles.confirmIcon}>
-              <IconCheck size={12} color="green" />
-              </div>
-            )}
-            {cellStatus === "rejected" && (
-              <div style={tableStyles.confirmIcon}>
-              <IconX size={12} color="red" />
-              </div>
-            )}
-            </>
+          </>
         ),
       }
     },
