@@ -201,6 +201,12 @@ const NewDrug = sequelize.define('drug', {
     RouteLNDI:{
         type: DataTypes.STRING(255)
     },
+    FormRaw:{
+        type: DataTypes.STRING(255)
+    },
+    RouteRaw:{
+        type: DataTypes.STRING(255)
+    },
 }, {
     tableName: 'drug',
     timestamps: false

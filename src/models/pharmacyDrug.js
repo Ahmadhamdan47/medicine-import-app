@@ -33,6 +33,9 @@ const NewDrug = sequelize.define('drug', {
     FormLNDI:{
         type: DataTypes.STRING(255)
     },
+    FormRaw:{
+        type: DataTypes.STRING(255)
+    },
     IsScored:{
         type: DataTypes.BOOLEAN
     },
@@ -199,6 +202,9 @@ const NewDrug = sequelize.define('drug', {
         type: DataTypes.STRING(255)
     },
     RouteLNDI:{
+        type: DataTypes.STRING(255)
+    },
+    RouteRaw:{
         type: DataTypes.STRING(255)
     },
 }, {
