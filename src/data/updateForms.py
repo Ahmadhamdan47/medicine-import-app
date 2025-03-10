@@ -17,10 +17,10 @@ def read_tsv(file_path):
 
 def get_db_connection():
     return mysql.connector.connect(
-        host=input("Database host: "),
-        user=input("Username: "),
-        password=input("Password: "),
-        database=input("Database name: ")
+        host=input("localhost"),
+        user=input("ommal_ahmad"),
+        password=input("fISfGr^8q!_gUPMY"),
+        database=input("ommal_medapiv2")
     )
 
 def main():
