@@ -12,7 +12,7 @@ def read_tsv(file_path):
                 form = row['Form'].strip()
                 tsv_data[moph_code] = form
             except (ValueError, KeyError) as e:
-                print(f"Skipping invalid row: {row}")
+                print("Skipping invalid row: {}".format(row))
     return tsv_data
 
 def get_db_connection():
@@ -51,17 +51,17 @@ def main():
 
         # Show preview
         print("\n===== Changes Preview =====")
-        print(f"Updates to perform: {len(update_list)}")
+        print("Updates to perform: {}".format(len(update_list)))
         if update_list:
             print("Sample updates:")
             for update in update_list[:3]:
-                print(f"Code {update[1]}: '{current_data.get(update[1])}' → '{update[0]}'")
+                print("Code {}: '{}' → '{}'".format(update[1], current_data.get(update[1]), update[0]))
         
-        print(f"\nForms to clear: {len(delete_list)}")
+        print("\nForms to clear: {}".format(len(delete_list)))
         if delete_list:
             print("Sample deletions:")
             for code in delete_list[:3]:
-                print(f"Code {code}: '{current_data[code]}' → NULL")
+                print("Code {}: '{}' → NULL".format(code, current_data[code]))
 
         # Confirmation
         confirm = input("\nDo you want to commit these changes? (yes/no): ").lower()
@@ -80,10 +80,10 @@ def main():
             cursor.executemany(delete_query, [(code,) for code in delete_list])
         
         conn.commit()
-        print(f"Successfully committed {cursor.rowcount} changes")
+        print("Successfully committed {} changes".format(cursor.rowcount))
 
     except Error as e:
-        print(f"Database error: {e}")
+        print("Database error: {}".format(e))
         conn.rollback()
     finally:
         if conn.is_connected():
