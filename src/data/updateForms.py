@@ -47,6 +47,7 @@ def main():
         # Calculate changes
         update_list = []
         delete_list = []
+        all_tsv_codes = set(tsv_data.keys())
 
         # Find updates
         for code, new_form in tsv_data.items():
@@ -59,7 +60,7 @@ def main():
       # Find deletions (codes in DB but not in TSV)
         delete_list = [
     code for code, form in current_data.items()
-    if code not in tsv_data and form is not None
+    if code not in all_tsv_codes and form is not None
 ]
 
 
