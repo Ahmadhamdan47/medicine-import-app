@@ -56,10 +56,12 @@ def main():
 
         # Find deletions (exclude updated codes)
         update_codes = set(code for _, code in update_list)
+      # Find deletions (codes in DB but not in TSV)
         delete_list = [
-            code for code, form in current_data.items()
-            if code not in tsv_data and form is not None and code not in update_codes
-        ]
+    code for code, form in current_data.items()
+    if code not in tsv_data and form is not None
+]
+
 
         # Show preview
         print("\n===== Changes Preview =====")
