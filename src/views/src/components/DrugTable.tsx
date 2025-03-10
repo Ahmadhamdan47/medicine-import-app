@@ -4,8 +4,8 @@ import type React from "react"
 
 import { useEffect, useState, useMemo, useRef } from "react"
 import { MantineReactTable, useMantineReactTable, type MRT_ColumnDef, type MRT_Row } from "mantine-react-table"
-import { Menu, ActionIcon, Button as MantineButton, MantineProvider } from "@mantine/core"
-import { IconCheck, IconX, IconArrowBackUp, IconPlus } from "@tabler/icons-react"
+import { Menu, Button as MantineButton, MantineProvider } from "@mantine/core"
+import { IconArrowBackUp, IconPlus } from "@tabler/icons-react"
 import AddDrugModal from "./AddDrugModal" // import our modal component
 import { useHotkeys } from "@mantine/hooks"
 import axios from "axios"
@@ -370,7 +370,7 @@ const DrugTable: React.FC = () => {
       document.body.style.userSelect = "none"
     }
   }
-  
+
   const handleCellMouseUp = () => {
     setIsDragging(false)
     setDragValue(null)
@@ -378,11 +378,12 @@ const DrugTable: React.FC = () => {
     // Restore text selection
     document.body.style.userSelect = ""
   }
-  
+
+  // Update the handleCellMouseEnter function to also update DFSequence when Form is dragged
   const handleCellMouseEnter = (row: MRT_Row<any>) => {
     if (isDragging && dragValue && dragColumnId) {
       const cellKey = `${row.id}-${dragColumnId}`
-  
+
       // Update the data with the dragged value
       setTableData((prevData) =>
         prevData.map((drug) => {
@@ -393,6 +394,32 @@ const DrugTable: React.FC = () => {
                 ...prev,
                 [cellKey]: "pending",
               }))
+
+              // If we're dragging a Form value, also update the DFSequence
+              if (dragColumnId === "Form") {
+                // Find a matching drug with the same Form to get its DFSequence
+                const matchingDrug = allData.find(
+                  (d) => d.DrugID !== drug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
+                )
+
+                if (matchingDrug) {
+                  // Also mark the DFSequence cell as changed
+                  const dfSequenceCellKey = `${row.id}-DFSequence`
+                  setChangedCells((prev) => ({
+                    ...prev,
+                    [dfSequenceCellKey]: "pending",
+                  }))
+
+                  // Return with both Form and DFSequence updated
+                  return {
+                    ...drug,
+                    [dragColumnId]: dragValue,
+                    DFSequence: matchingDrug.DFSequence,
+                  }
+                }
+              }
+
+              // For other columns or if no matching DFSequence found
               return { ...drug, [dragColumnId]: dragValue }
             }
           }
@@ -460,6 +487,22 @@ const DrugTable: React.FC = () => {
   }) => {
     try {
       const updatedDrug = { ...row.original, ...values }
+      // If Form (DosageForm Clean) was changed, find a matching DFSequence
+      if (values.Form && values.Form !== row.original.Form) {
+        // Find another drug with the same Form value to get its DFSequence
+        const matchingDrug = allData.find(
+          (drug) =>
+            drug.DrugID !== updatedDrug.DrugID &&
+            drug.Form === values.Form &&
+            drug.DFSequence &&
+            drug.DFSequence !== "N/A",
+        )
+
+        if (matchingDrug) {
+          updatedDrug.DFSequence = matchingDrug.DFSequence
+          console.log(`Auto-selected DFSequence ${matchingDrug.DFSequence} based on Form ${values.Form}`)
+        }
+      }
       // If ATC was changed in editing:
       if (updatedDrug.ATC) {
         updatedDrug.ATC_Code = updatedDrug.ATC
@@ -489,7 +532,7 @@ const DrugTable: React.FC = () => {
         UnitType2: updatedDrug.PresentationUnitType2,
         PackageQuantity1: updatedDrug.PresentationPackageQuantity1,
         PackageType1: updatedDrug.PresentationPackageType1,
-        PackageQuantity2: updatedDrug.PresentationPackageType2,
+        PackageQuantity2: updatedDrug.PresentationPackageQuantity2,
         PackageType2: updatedDrug.PresentationPackageType2,
         PackageQuantity3: updatedDrug.PresentationPackageQuantity3,
         PackageType3: updatedDrug.PresentationPackageType3,
@@ -600,11 +643,37 @@ const DrugTable: React.FC = () => {
             header: "Dosage-form (clean)",
             size: 150,
             editVariant: "select",
-            mantineEditSelectProps: {
+            mantineEditSelectProps: ({ row }) => ({
               data: formOptions.map((value) => ({ value, label: value })),
               searchable: true,
               clearable: true,
-            },
+              onChange: (value) => {
+                // Find a matching drug with the same Form to get its DFSequence
+                const matchingDrug = allData.find(
+                  (drug) =>
+                    drug.DrugID !== row.original.DrugID &&
+                    drug.Form === value &&
+                    drug.DFSequence &&
+                    drug.DFSequence !== "N/A",
+                )
+
+                if (matchingDrug) {
+                  // Update the DFSequence in the table data
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, Form: value, DFSequence: matchingDrug.DFSequence }
+                        : drug,
+                    ),
+                  )
+                } else {
+                  // Just update the Form if no matching DFSequence is found
+                  setTableData((prevData) =>
+                    prevData.map((drug) => (drug.DrugID === row.original.DrugID ? { ...drug, Form: value } : drug)),
+                  )
+                }
+              },
+            }),
           },
           {
             accessorKey: "FormRaw",
@@ -612,8 +681,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: formOptions.map((value) => ({ value, label: value })),
+            },
           },
-        },
           {
             accessorKey: "RouteLNDI",
             header: "Route LNDI",
@@ -636,9 +705,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: routeOptions.map((value) => ({ value, label: value })),
-
-          }
-        },
+            },
+          },
           { accessorKey: "Parent", header: "Route Parent", size: 120 },
 
           // Keep the existing dosage columns
@@ -772,9 +840,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: routeOptions.map((value) => ({ value, label: value })),
-
-          }
-        },
+            },
+          },
         ]
 
       /* --------------------------------------------------
@@ -796,11 +863,37 @@ const DrugTable: React.FC = () => {
             header: "Dosage-form (clean)",
             size: 60,
             editVariant: "select",
-            mantineEditSelectProps: {
+            mantineEditSelectProps: ({ row }) => ({
               data: formOptions.map((value) => ({ value, label: value })),
               searchable: true,
               clearable: true,
-            },
+              onChange: (value) => {
+                // Find a matching drug with the same Form to get its DFSequence
+                const matchingDrug = allData.find(
+                  (drug) =>
+                    drug.DrugID !== row.original.DrugID &&
+                    drug.Form === value &&
+                    drug.DFSequence &&
+                    drug.DFSequence !== "N/A",
+                )
+
+                if (matchingDrug) {
+                  // Update the DFSequence in the table data
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, Form: value, DFSequence: matchingDrug.DFSequence }
+                        : drug,
+                    ),
+                  )
+                } else {
+                  // Just update the Form if no matching DFSequence is found
+                  setTableData((prevData) =>
+                    prevData.map((drug) => (drug.DrugID === row.original.DrugID ? { ...drug, Form: value } : drug)),
+                  )
+                }
+              },
+            }),
           },
           {
             accessorKey: "FormRaw",
@@ -808,8 +901,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: formOptions.map((value) => ({ value, label: value })),
+            },
           },
-        },
 
           // The requested "presentation" field => rename your
           // PresentationDescription to "Presentation (clean)"
@@ -1060,11 +1153,37 @@ const DrugTable: React.FC = () => {
             header: "Dosage-form (clean)",
             size: 60,
             editVariant: "select",
-            mantineEditSelectProps: {
+            mantineEditSelectProps: ({ row }) => ({
               data: formOptions.map((value) => ({ value, label: value })),
               searchable: true,
               clearable: true,
-            },
+              onChange: (value) => {
+                // Find a matching drug with the same Form to get its DFSequence
+                const matchingDrug = allData.find(
+                  (drug) =>
+                    drug.DrugID !== row.original.DrugID &&
+                    drug.Form === value &&
+                    drug.DFSequence &&
+                    drug.DFSequence !== "N/A",
+                )
+
+                if (matchingDrug) {
+                  // Update the DFSequence in the table data
+                  setTableData((prevData) =>
+                    prevData.map((drug) =>
+                      drug.DrugID === row.original.DrugID
+                        ? { ...drug, Form: value, DFSequence: matchingDrug.DFSequence }
+                        : drug,
+                    ),
+                  )
+                } else {
+                  // Just update the Form if no matching DFSequence is found
+                  setTableData((prevData) =>
+                    prevData.map((drug) => (drug.DrugID === row.original.DrugID ? { ...drug, Form: value } : drug)),
+                  )
+                }
+              },
+            }),
           },
           {
             accessorKey: "FormRaw",
@@ -1072,8 +1191,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: formOptions.map((value) => ({ value, label: value })),
+            },
           },
-        },
           { accessorKey: "FormLNDI", header: "FormLNDI", size: 120 },
 
           {
@@ -1098,9 +1217,8 @@ const DrugTable: React.FC = () => {
             size: 120,
             mantineEditSelectProps: {
               data: routeOptions.map((value) => ({ value, label: value })),
-
-          }
-        },
+            },
+          },
           { accessorKey: "Parent", header: "Route Parent", size: 120 },
           { accessorKey: "PresentationLNDI", header: "PresentationLNDI", size: 60 },
 
@@ -1287,7 +1405,7 @@ const DrugTable: React.FC = () => {
     mantineTableBodyCellProps: ({ cell }) => {
       const cellKey = `${cell.row.original.DrugID}-${cell.column.id}`
       const cellStatus = changedCells[cellKey]
-  
+
       return {
         onMouseDown: () => handleCellMouseDown(cell.getValue<any>(), cell.column.id, cell.row.original.DrugID),
         onMouseUp: handleCellMouseUp,
@@ -1303,11 +1421,7 @@ const DrugTable: React.FC = () => {
           ...(cellStatus === "confirmed" ? tableStyles.cellConfirmed : {}),
           ...(cellStatus === "rejected" ? tableStyles.cellRejected : {}),
         },
-        children: (
-          <>
-            {cell.renderValue()}
-          </>
-        ),
+        children: <>{cell.renderValue()}</>,
       }
     },
     mantineTableProps: {
