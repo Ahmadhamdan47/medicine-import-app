@@ -9,7 +9,7 @@ def read_tsv(file_path):
         reader = csv.DictReader(tsvfile, delimiter='\t')
         for row in reader:
             try:
-                moph_code = row['MoPHCode'].strip()  # Keep as string
+                moph_code = row['MoPHCode'].strip()  # Clean TSV codes
                 form = row['Form'].strip()
                 tsv_data[moph_code] = form
             except KeyError:
@@ -40,21 +40,24 @@ def main():
         conn.autocommit = False
         cursor = conn.cursor(dictionary=True)
 
-        # Get current data from database
+        # Fetch and clean database codes
         cursor.execute("SELECT MoPHCode, Form FROM drug")
-        current_data = {row['MoPHCode']: row['Form'] for row in cursor.fetchall()}
+        current_data = {
+            row['MoPHCode'].strip(): row['Form']  # Clean DB codes
+            for row in cursor.fetchall()
+        }
 
         # Calculate changes
         update_list = []
         delete_list = []
 
-        # Find updates and new entries
+        # Process TSV codes (5578 entries)
         for code, new_form in tsv_data.items():
             current_form = current_data.get(code)
             if current_form != new_form:
                 update_list.append((new_form, code))
 
-        # Find deletions (codes in DB but not in TSV)
+        # Process codes in DB but not in TSV
         delete_list = [
             code for code, form in current_data.items()
             if code not in tsv_data and form is not None
@@ -66,8 +69,7 @@ def main():
         if update_list:
             print("Sample updates:")
             for update in update_list[:3]:
-                current_val = current_data.get(update[1], 'NOT FOUND')
-                print(f"Code {update[1]}: '{current_val}' → '{update[0]}'")
+                print(f"Code {update[1]}: '{current_data.get(update[1])}' → '{update[0]}'")
 
         print(f"\nForms to clear: {len(delete_list)}")
         if delete_list:
@@ -87,7 +89,7 @@ def main():
             update_query = "UPDATE drug SET Form = %s WHERE MoPHCode = %s"
             cursor.executemany(update_query, update_list)
 
-        # Execute deletions (set Form to NULL)
+        # Execute deletions
         if delete_list:
             delete_query = "UPDATE drug SET Form = NULL WHERE MoPHCode = %s"
             cursor.executemany(delete_query, [(code,) for code in delete_list])
