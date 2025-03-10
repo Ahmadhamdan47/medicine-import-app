@@ -12,8 +12,8 @@ def read_tsv(file_path):
                 public_price = float(row['PublicPrice'].strip())
                 not_marketed = int(row['NotMarketed'].strip())
                 tsv_data[moph_code] = {'PublicPrice': public_price, 'NotMarketed': not_marketed}
-            except (ValueError, KeyError):
-                print(f"Skipping invalid row: {row}")
+            except (ValueError, KeyError) as e:
+                print(f"Skipping invalid row: {row} due to error: {e}")
     return tsv_data
 
 def get_db_connection():
@@ -30,6 +30,10 @@ def get_db_connection():
 
 def main():
     tsv_data = read_tsv('./march.tsv')
+
+    if not tsv_data:
+        print("No valid data found in the TSV file.")
+        return
 
     conn = get_db_connection()
     if conn is None:
@@ -54,7 +58,7 @@ def main():
                 if current_data[code]['PublicPrice'] != details['PublicPrice']:
                     update_price_list.append((details['PublicPrice'], code))
                 # Update NotMarketed to 0 if currently 1
-                if current_data[code]['NotMarketed'] == 1:
+                if current_data[code]['NotMarketed'] == 1 and details['NotMarketed'] == 0:
                     update_not_marketed_list.append((0, code))
 
         # Show preview
