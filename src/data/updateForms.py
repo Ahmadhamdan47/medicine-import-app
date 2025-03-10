@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 import mysql.connector
 from mysql.connector import Error
