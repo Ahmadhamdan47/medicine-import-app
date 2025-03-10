@@ -172,7 +172,7 @@ const NewDrug = sequelize.define('drug', {
         type: DataTypes.DATE
     },
     MoPHCode: {
-        type: DataTypes.STRING(10)
+        type: DataTypes.INTEGER
     },
     CargoShippingTerms: {
         type: DataTypes.STRING(255)
