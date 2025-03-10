@@ -17,18 +17,26 @@ def read_tsv(file_path):
     return tsv_data
 
 def get_db_connection():
-    return mysql.connector.connect(
-        host=input("localhost"),
-        user=input("ommal_ahmad"),
-        password=input("fISfGr^8q!_gUPMY"),
-        database=input("ommal_medapiv2")
-    )
+    try:
+        return mysql.connector.connect(
+            host='localhost',
+            user='ommal_ahmad',
+            password='fISfGr^8q!_gUPMY',
+            database='ommal_medapiv2'
+        )
+    except Error as e:
+        print(f"Error: {e}")
+        return None
 
 def main():
     tsv_data = read_tsv('RPFD.tsv')
     
+    conn = get_db_connection()
+    if conn is None:
+        print("Failed to connect to the database.")
+        return
+    
     try:
-        conn = get_db_connection()
         conn.autocommit = False  # Start transaction
         cursor = conn.cursor(dictionary=True)
 
