@@ -510,7 +510,7 @@ const DrugTable: React.FC = () => {
 
         // Save only the changed field to backend
         axios
-          .put(`drugs/update-field/${row.original.DrugID}`, payload)
+          .put(`drugs/${row.original.DrugID}`, payload)
           .then(() => {
             console.log(`Successfully saved field ${dragColumnId} for drug ${row.original.DrugID}`)
             // Mark as confirmed after successful save
