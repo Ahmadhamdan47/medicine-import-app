@@ -20,14 +20,21 @@ def read_tsv(file_path):
 def get_db_connection():
     try:
         return mysql.connector.connect(
-    host='localhost',
-    user='ommal_oummal',
-    password='dMR2id57dviMJJnc',
-    database='ommal_medlist',
+            host='localhost',
+            user='ommal_oummal',
+            password='dMR2id57dviMJJnc',
+            database='ommal_medlist',
         )
     except Error as e:
         print(f"Error: {e}")
         return None
+
+def get_column_lengths(cursor, table_name):
+    cursor.execute(f"SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'")
+    return {row['COLUMN_NAME']: row['CHARACTER_MAXIMUM_LENGTH'] for row in cursor.fetchall()}
+
+def truncate_values(row, column_lengths):
+    return {col: (val[:column_lengths[col]] if col in column_lengths and isinstance(val, str) else val) for col, val in row.items()}
 
 def main():
     tsv_data = read_tsv('./march.tsv')
@@ -50,6 +57,12 @@ def main():
         # Identify entries for deletion and insertion
         delete_list = list(current_data - tsv_codes)  # In DB but not in file
         insert_list = [drug for drug in tsv_data if drug['code'] not in current_data]  # In file but not in DB
+
+        # Get column lengths
+        column_lengths = get_column_lengths(cursor, 'medications')
+
+        # Truncate values to fit within column lengths
+        insert_list = [truncate_values(drug, column_lengths) for drug in insert_list]
 
         # Show preview
         print("\n===== Changes Preview =====")
