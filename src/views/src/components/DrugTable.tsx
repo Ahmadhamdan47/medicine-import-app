@@ -538,27 +538,33 @@ const DrugTable: React.FC = () => {
   }) => {
     try {
       const updatedDrug = { ...row.original, ...values }
+  
+      // Ensure ImageDefault is an integer or null
+      if (updatedDrug.ImageDefault === 'N/A' || updatedDrug.ImageDefault === undefined) {
+        updatedDrug.ImageDefault = null
+      }
+  
       // If Form (DosageForm Clean) was changed, find a matching DFSequence
       if (values.Form && values.Form !== row.original.Form) {
-        // Find another drug with the same Form value to get its DFSequence
         const matchingDrug = allData.find(
           (drug) =>
             drug.DrugID !== updatedDrug.DrugID &&
             drug.Form === values.Form &&
             drug.DFSequence &&
-            drug.DFSequence !== "N/A",
+            drug.DFSequence !== 'N/A',
         )
-
+  
         if (matchingDrug) {
           updatedDrug.DFSequence = matchingDrug.DFSequence
           console.log(`Auto-selected DFSequence ${matchingDrug.DFSequence} based on Form ${values.Form}`)
         }
       }
+  
       // If ATC was changed in editing:
       if (updatedDrug.ATC) {
         updatedDrug.ATC_Code = updatedDrug.ATC
       }
-
+  
       // Dosage sub-payload
       const dosageData = {
         Numerator1: updatedDrug.DosageNumerator1,
@@ -574,7 +580,7 @@ const DrugTable: React.FC = () => {
         Denominator3: updatedDrug.DosageDenominator3,
         Denominator3Unit: updatedDrug.DosageDenominator3Unit,
       }
-
+  
       // Presentation sub-payload
       const presentationData = {
         UnitQuantity1: updatedDrug.PresentationUnitQuantity1,
@@ -589,10 +595,10 @@ const DrugTable: React.FC = () => {
         PackageType3: updatedDrug.PresentationPackageType3,
         Description: updatedDrug.PresentationDescription,
       }
-
+  
       // Debug payload
       console.log("Payload Sent to Backend:", updatedDrug)
-
+  
       try {
         // Make the API calls
         await axios.put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
@@ -602,11 +608,11 @@ const DrugTable: React.FC = () => {
         console.error("API error during save, continuing with local update:", apiError)
         // Continue with local update even if API fails
       }
-
+  
       // Update tableData locally
       setTableData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
       setAllData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
-
+  
       exitEditingMode()
     } catch (error) {
       console.error("Error updating drug:", error)
@@ -833,7 +839,7 @@ const DrugTable: React.FC = () => {
               clearable: true,
             },
           },
-          
+
           { accessorKey: "DFSequence", header: "D-F Sequence", size: 120 },
         ]
 
