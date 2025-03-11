@@ -20,10 +20,10 @@ def read_tsv(file_path):
 def get_db_connection():
     try:
         return mysql.connector.connect(
-            host='localhost',
-            user='ommal_ahmad',
-            password='fISfGr^8q!_gUPMY',
-            database='medlist'
+        host='localhost',
+        user='ommal_oummal',
+        password='dMR2id57dviMJJnc',
+        database='ommal_medlist',
         )
     except Error as e:
         print(f"Error: {e}")
