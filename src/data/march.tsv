@@ -1,4 +1,4 @@
-MoPHCode	RegistrationNumber	DrugName	Dosage	Presentation	FormRaw	Agent	Manufacturer	Country	PublicPrice	Stratum	ResponsibleParty	ResponsiblePartyCountry
+code	reg_number	brand_name	strength	presentation	formRaw	agent	manufacturer	country	public_price	stratum	ResponsibleParty	ResponsiblePartyCountry
 10574	51721/1	0.45% SODIUM CHLORIDE INJECTION USP	0.45%	1000ml		A Pharma Solutions SAL	Serum and Solutions SAL	Lebanon	160885			
 11135	9723/1	0.45% SODIUM CHLORIDE INJECTION USP	0.45%	1000ml non pvc		A Pharma Solutions SAL	Serum and Solutions SAL	Lebanon	176974			
 10570	51921/1	0.9% SODIUM CHLORIDE INJECTION USP	0.9%	100ml		A Pharma Solutions SAL	Serum and Solutions SAL	Lebanon	145946			
