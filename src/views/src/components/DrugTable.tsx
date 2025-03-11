@@ -536,6 +536,39 @@ const DrugTable: React.FC = () => {
   }
 
   // Update the handleSaveRow function to properly handle API calls
+  const sanitizeDrugData = (drug: any) => {
+    const sanitizedDrug = { ...drug }
+  
+    // List of fields that should be integers
+    const integerFields = ['ImageDefault', 'Amount']
+  
+    // List of fields that should be dates
+    const dateFields = ['RegistrationDate', 'CreatedDate', 'UpdatedDate', 'ReviewDate']
+  
+    // Sanitize integer fields
+    integerFields.forEach(field => {
+      if (sanitizedDrug[field] === 'N/A' || sanitizedDrug[field] === undefined) {
+        sanitizedDrug[field] = null
+      }
+    })
+  
+    // Sanitize date fields
+    dateFields.forEach(field => {
+      if (sanitizedDrug[field] === 'Invalid date' || sanitizedDrug[field] === undefined) {
+        sanitizedDrug[field] = null
+      }
+    })
+  
+    // Sanitize other fields
+    Object.keys(sanitizedDrug).forEach(key => {
+      if (sanitizedDrug[key] === 'N/A' || sanitizedDrug[key] === undefined) {
+        sanitizedDrug[key] = null
+      }
+    })
+  
+    return sanitizedDrug
+  }
+  
   const handleSaveRow = async ({
     row,
     values,
@@ -546,28 +579,32 @@ const DrugTable: React.FC = () => {
     exitEditingMode: () => void
   }) => {
     try {
-      const updatedDrug = { ...row.original, ...values }
+      let updatedDrug = { ...row.original, ...values }
+  
+      // Sanitize the updated drug data
+      updatedDrug = sanitizeDrugData(updatedDrug)
+  
       // If Form (DosageForm Clean) was changed, find a matching DFSequence
       if (values.Form && values.Form !== row.original.Form) {
-        // Find another drug with the same Form value to get its DFSequence
         const matchingDrug = allData.find(
           (drug) =>
             drug.DrugID !== updatedDrug.DrugID &&
             drug.Form === values.Form &&
             drug.DFSequence &&
-            drug.DFSequence !== "N/A",
+            drug.DFSequence !== 'N/A',
         )
-
+  
         if (matchingDrug) {
           updatedDrug.DFSequence = matchingDrug.DFSequence
           console.log(`Auto-selected DFSequence ${matchingDrug.DFSequence} based on Form ${values.Form}`)
         }
       }
+  
       // If ATC was changed in editing:
       if (updatedDrug.ATC) {
         updatedDrug.ATC_Code = updatedDrug.ATC
       }
-
+  
       // Dosage sub-payload
       const dosageData = {
         Numerator1: updatedDrug.DosageNumerator1,
@@ -583,7 +620,7 @@ const DrugTable: React.FC = () => {
         Denominator3: updatedDrug.DosageDenominator3,
         Denominator3Unit: updatedDrug.DosageDenominator3Unit,
       }
-
+  
       // Presentation sub-payload
       const presentationData = {
         UnitQuantity1: updatedDrug.PresentationUnitQuantity1,
@@ -598,10 +635,10 @@ const DrugTable: React.FC = () => {
         PackageType3: updatedDrug.PresentationPackageType3,
         Description: updatedDrug.PresentationDescription,
       }
-
+  
       // Debug payload
       console.log("Payload Sent to Backend:", updatedDrug)
-
+  
       try {
         // Make the API calls
         await axios.put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
@@ -611,11 +648,11 @@ const DrugTable: React.FC = () => {
         console.error("API error during save, continuing with local update:", apiError)
         // Continue with local update even if API fails
       }
-
+  
       // Update tableData locally
       setTableData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
       setAllData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
-
+  
       exitEditingMode()
     } catch (error) {
       console.error("Error updating drug:", error)
@@ -623,7 +660,6 @@ const DrugTable: React.FC = () => {
       exitEditingMode()
     }
   }
-
   // Update the handleDeleteRow function to properly handle API calls
   const handleDeleteRow = async (row: any) => {
     try {
