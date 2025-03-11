@@ -540,14 +540,14 @@ const DrugTable: React.FC = () => {
     const sanitizedDrug = { ...drug }
   
     // List of fields that should be integers
-    const integerFields = ['ImageDefault', 'Amount']
+    const integerFields = ['ImageDefault', 'Amount', 'IsDouanes']
   
     // List of fields that should be dates
     const dateFields = ['RegistrationDate', 'CreatedDate', 'UpdatedDate', 'ReviewDate']
   
     // Sanitize integer fields
     integerFields.forEach(field => {
-      if (sanitizedDrug[field] === 'N/A' || sanitizedDrug[field] === undefined) {
+      if (sanitizedDrug[field] === 'N/A' || sanitizedDrug[field] === undefined || isNaN(sanitizedDrug[field])) {
         sanitizedDrug[field] = null
       }
     })
@@ -565,6 +565,11 @@ const DrugTable: React.FC = () => {
         sanitizedDrug[key] = null
       }
     })
+  
+    // Specific handling for IsDouanes field
+    sanitizedDrug.IsDouanes = (sanitizedDrug.IsDouanes === 'N/A' || sanitizedDrug.IsDouanes === null || isNaN(sanitizedDrug.IsDouanes))
+      ? 0  // Default value when invalid or missing
+      : parseInt(sanitizedDrug.IsDouanes, 10)
   
     return sanitizedDrug
   }
