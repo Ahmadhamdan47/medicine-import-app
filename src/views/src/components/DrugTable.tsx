@@ -456,7 +456,7 @@ const DrugTable: React.FC = () => {
 
       // Only proceed if the value is actually different
       if (row.original[dragColumnId] !== dragValue) {
-        // Create a minimal payload with just the changed field
+        // Create a minimal payload with just the changed field and DrugID
         const payload: any = {
           DrugID: row.original.DrugID,
           [dragColumnId]: dragValue,
@@ -508,9 +508,9 @@ const DrugTable: React.FC = () => {
           [cellKey]: "pending",
         }))
 
-        // Save only the changed field to backend
+        // Save only the changed field to backend using the existing endpoint
         axios
-          .put(`drugs/${row.original.DrugID}`, payload)
+          .put(`drugs/update/${row.original.DrugID}`, payload)
           .then(() => {
             console.log(`Successfully saved field ${dragColumnId} for drug ${row.original.DrugID}`)
             // Mark as confirmed after successful save
