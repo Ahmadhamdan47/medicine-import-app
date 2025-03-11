@@ -11,7 +11,6 @@ def read_tsv(file_path):
         # Clean data entries
         df['MoPHCode'] = pd.to_numeric(df['MoPHCode'].str.strip(), errors='coerce').fillna(0).astype(int)
         df['PublicPrice'] = pd.to_numeric(df['PublicPrice'].str.strip(), errors='coerce').fillna(0.0).astype(float)
-        df['NotMarketed'] = pd.to_numeric(df['NotMarketed'].str.strip(), errors='coerce').fillna(0).astype(int)
         return df.set_index('MoPHCode').to_dict(orient='index')
     except Exception as e:
         print(f"Error reading TSV file: {e}")
@@ -54,7 +53,7 @@ def main():
                 # Update PublicPrice if different (rounded to 6 decimals for precision)
                 if round(float(current_data[code]['PublicPrice'] or 0), 6) != round(details['PublicPrice'], 6):
                     update_price_list.append((details['PublicPrice'], code))
-                # Update NotMarketed to 0 if currently 1
+                # If MoPHCode exists in both, update NotMarketed to 0 if currently 1
                 if int(current_data[code]['NotMarketed']) == 1:
                     update_not_marketed_list.append((0, code))
 
