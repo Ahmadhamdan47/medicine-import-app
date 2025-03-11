@@ -12,9 +12,9 @@ import axios from "axios"
 
 // Add this debounce utility function at the top of the file, before the DrugTable component
 function debounce(func: (...args: any[]) => void, wait: number) {
-  let timeout: ReturnType<typeof setTimeout> | undefined
+  let timeout: NodeJS.Timeout | null
   return function (this: any, ...args: any[]) {
-    clearTimeout(timeout)
+    if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => func.apply(this, args), wait)
   }
 }
@@ -456,25 +456,51 @@ const DrugTable: React.FC = () => {
 
       // Only proceed if the value is actually different
       if (row.original[dragColumnId] !== dragValue) {
-        // Create updated drug object
-        let updatedDrug = { ...row.original, [dragColumnId]: dragValue }
+        // Create a minimal payload with just the changed field
+        const payload: any = {
+          DrugID: row.original.DrugID,
+          [dragColumnId]: dragValue,
+        }
 
         // If Form is being dragged, also update DFSequence
         if (dragColumnId === "Form") {
           const matchingDrug = allData.find(
-            (d) => d.DrugID !== updatedDrug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
+            (d) => d.DrugID !== row.original.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
           )
 
           if (matchingDrug) {
-            updatedDrug.DFSequence = matchingDrug.DFSequence
+            payload.DFSequence = matchingDrug.DFSequence
+
+            // Also update the local state with the DFSequence
+            setTableData((prevData) =>
+              prevData.map((drug) =>
+                drug.DrugID === row.original.DrugID
+                  ? { ...drug, [dragColumnId]: dragValue, DFSequence: matchingDrug.DFSequence }
+                  : drug,
+              ),
+            )
+          } else {
+            // Just update the local state with the dragged value
+            setTableData((prevData) =>
+              prevData.map((drug) =>
+                drug.DrugID === row.original.DrugID ? { ...drug, [dragColumnId]: dragValue } : drug,
+              ),
+            )
           }
+        } else {
+          // Update local state with the dragged value
+          setTableData((prevData) =>
+            prevData.map((drug) =>
+              drug.DrugID === row.original.DrugID ? { ...drug, [dragColumnId]: dragValue } : drug,
+            ),
+          )
         }
 
-        // Sanitize the data before sending to backend
-        updatedDrug = sanitizeDrugData(updatedDrug)
-
-        // Update local state
-        setTableData((prevData) => prevData.map((drug) => (drug.DrugID === row.original.DrugID ? updatedDrug : drug)))
+        // Handle 'N/A' values for integer fields if the changed field is an integer field
+        const integerFields = ["ImageDefault", "Amount", "IsDouanes", "NotMarketed"]
+        if (integerFields.includes(dragColumnId) && payload[dragColumnId] === "N/A") {
+          payload[dragColumnId] = null
+        }
 
         // Mark cell as pending
         setChangedCells((prev) => ({
@@ -482,11 +508,11 @@ const DrugTable: React.FC = () => {
           [cellKey]: "pending",
         }))
 
-        // Save to backend immediately
+        // Save only the changed field to backend
         axios
-          .put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
+          .put(`drugs/update-field/${row.original.DrugID}`, payload)
           .then(() => {
-            console.log(`Successfully saved drag change for drug ${updatedDrug.DrugID}`)
+            console.log(`Successfully saved field ${dragColumnId} for drug ${row.original.DrugID}`)
             // Mark as confirmed after successful save
             setChangedCells((prev) => ({
               ...prev,
@@ -503,7 +529,7 @@ const DrugTable: React.FC = () => {
             }, 2000)
           })
           .catch((error) => {
-            console.error("Error saving drag change:", error)
+            console.error("Error saving field change:", error)
             // Mark as rejected if save fails
             setChangedCells((prev) => ({
               ...prev,
