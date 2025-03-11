@@ -20,17 +20,17 @@ def read_tsv(file_path):
 def get_db_connection():
     try:
         return mysql.connector.connect(
-        host='localhost',
-        user='ommal_oummal',
-        password='dMR2id57dviMJJnc',
-        database='ommal_medlist',
+    host='localhost',
+    user='ommal_oummal',
+    password='dMR2id57dviMJJnc',
+    database='ommal_medlist',
         )
     except Error as e:
         print(f"Error: {e}")
         return None
 
 def main():
-    tsv_data = read_tsv('./march.tsv')
+    tsv_data = read_tsv('/mnt/data/march.tsv')
 
     conn = get_db_connection()
     if conn is None:
@@ -68,8 +68,11 @@ def main():
             delete_query = "DELETE FROM medications WHERE code = %s"
             cursor.executemany(delete_query, [(code,) for code in delete_list])
 
-        # Execute insertions
+        # Execute insertions with generated ID
         if insert_list:
+            for entry in insert_list:
+                entry['id'] = None  # Auto-generate ID in the database
+
             column_names = insert_list[0].keys()
             columns = ', '.join(column_names)
             values_placeholder = ', '.join(['%s'] * len(column_names))
