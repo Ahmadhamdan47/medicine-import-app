@@ -620,7 +620,6 @@ const DrugTable: React.FC = () => {
       exitEditingMode()
     }
   }
-
   // Update the handleDeleteRow function to properly handle API calls
   const handleDeleteRow = async (row: any) => {
     try {
