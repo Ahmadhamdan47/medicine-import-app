@@ -2,13 +2,22 @@
 
 import type React from "react"
 
-import { useEffect, useState, useMemo, useRef } from "react"
+import { useEffect, useState, useMemo, useRef, useCallback } from "react"
 import { MantineReactTable, useMantineReactTable, type MRT_ColumnDef, type MRT_Row } from "mantine-react-table"
 import { Menu, Button as MantineButton, MantineProvider } from "@mantine/core"
 import { IconArrowBackUp, IconPlus } from "@tabler/icons-react"
 import AddDrugModal from "./AddDrugModal" // import our modal component
 import { useHotkeys } from "@mantine/hooks"
 import axios from "axios"
+
+// Add this debounce utility function at the top of the file, before the DrugTable component
+function debounce(func: (...args: any[]) => void, wait: number) {
+  let timeout: NodeJS.Timeout | null
+  return function (this: any, ...args: any[]) {
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => func.apply(this, args), wait)
+  }
+}
 
 // Update the custom styles for the table to make scrollbars bigger
 const tableStyles = {
@@ -145,6 +154,25 @@ const DrugTable: React.FC = () => {
   const [agentOptions, setAgentOptions] = useState<string[]>([])
   const [manufacturerOptions, setManufacturerOptions] = useState<string[]>([])
 
+  const [dataChunks, setDataChunks] = useState<any[][]>([])
+  const [currentChunkIndex, setCurrentChunkIndex] = useState(0)
+
+  // Debounced save function
+  const debouncedSaveChange = useCallback(
+    debounce((updatedDrug) => {
+      // Make the API call
+      axios
+        .put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
+        .then(() => {
+          console.log(`Successfully saved change for drug ${updatedDrug.DrugID}`)
+        })
+        .catch((error) => {
+          console.error("API error during drag save:", error)
+        })
+    }, 500), // 500ms debounce time
+    [],
+  )
+
   // Hotkeys for undo (Ctrl+Z)
   useHotkeys([["ctrl+z", () => handleUndo()]])
 
@@ -210,6 +238,14 @@ const DrugTable: React.FC = () => {
     // Append to table data
     setTableData((prev) => [...prev, newDrug])
     setAllData((prev) => [...prev, newDrug])
+  }
+
+  const chunkData = (data: any[], size = 1000) => {
+    const chunks = []
+    for (let i = 0; i < data.length; i += size) {
+      chunks.push(data.slice(i, i + size))
+    }
+    return chunks
   }
 
   // Update the fetchDrugs function to properly handle API responses
@@ -325,8 +361,11 @@ const DrugTable: React.FC = () => {
         setAgentOptions(getUniqueValues(formattedData, "Agent"))
         setManufacturerOptions(getUniqueValues(formattedData, "Manufacturer"))
 
-        setTableData(formattedData)
-        setAllData(formattedData)
+        const dataChunks = chunkData(formattedData)
+        setTableData(dataChunks[0] || []) // Start with first chunk
+        setAllData(formattedData) // Keep full dataset for reference
+        // Store chunks for pagination
+        setDataChunks(dataChunks)
 
         // Initialize history with the first state
         setHistory([JSON.parse(JSON.stringify(formattedData))])
@@ -379,53 +418,65 @@ const DrugTable: React.FC = () => {
     document.body.style.userSelect = ""
   }
 
-  // Update the handleCellMouseEnter function to also update DFSequence when Form is dragged
+  // Replace the handleCellMouseEnter function with this implementation
   const handleCellMouseEnter = (row: MRT_Row<any>) => {
     if (isDragging && dragValue && dragColumnId) {
       const cellKey = `${row.id}-${dragColumnId}`
 
-      // Update the data with the dragged value
-      setTableData((prevData) =>
-        prevData.map((drug) => {
-          if (drug.DrugID === row.original.DrugID) {
-            // Only mark as changed if the value is actually different
-            if (drug[dragColumnId] !== dragValue) {
-              setChangedCells((prev) => ({
-                ...prev,
-                [cellKey]: "pending",
-              }))
+      // Only proceed if the value is actually different
+      if (row.original[dragColumnId] !== dragValue) {
+        // Create updated drug object
+        const updatedDrug = { ...row.original, [dragColumnId]: dragValue }
 
-              // If we're dragging a Form value, also update the DFSequence
-              if (dragColumnId === "Form") {
-                // Find a matching drug with the same Form to get its DFSequence
-                const matchingDrug = allData.find(
-                  (d) => d.DrugID !== drug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
-                )
+        // If Form is being dragged, also update DFSequence
+        if (dragColumnId === "Form") {
+          const matchingDrug = allData.find(
+            (d) => d.DrugID !== updatedDrug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
+          )
 
-                if (matchingDrug) {
-                  // Also mark the DFSequence cell as changed
-                  const dfSequenceCellKey = `${row.id}-DFSequence`
-                  setChangedCells((prev) => ({
-                    ...prev,
-                    [dfSequenceCellKey]: "pending",
-                  }))
-
-                  // Return with both Form and DFSequence updated
-                  return {
-                    ...drug,
-                    [dragColumnId]: dragValue,
-                    DFSequence: matchingDrug.DFSequence,
-                  }
-                }
-              }
-
-              // For other columns or if no matching DFSequence found
-              return { ...drug, [dragColumnId]: dragValue }
-            }
+          if (matchingDrug) {
+            updatedDrug.DFSequence = matchingDrug.DFSequence
           }
-          return drug
-        }),
-      )
+        }
+
+        // Update local state
+        setTableData((prevData) => prevData.map((drug) => (drug.DrugID === row.original.DrugID ? updatedDrug : drug)))
+
+        // Mark cell as pending
+        setChangedCells((prev) => ({
+          ...prev,
+          [cellKey]: "pending",
+        }))
+
+        // Save to backend immediately
+        axios
+          .put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
+          .then(() => {
+            console.log(`Successfully saved drag change for drug ${updatedDrug.DrugID}`)
+            // Mark as confirmed after successful save
+            setChangedCells((prev) => ({
+              ...prev,
+              [cellKey]: "confirmed",
+            }))
+
+            // After a short delay, remove the confirmation indicator
+            setTimeout(() => {
+              setChangedCells((prev) => {
+                const newState = { ...prev }
+                delete newState[cellKey]
+                return newState
+              })
+            }, 2000)
+          })
+          .catch((error) => {
+            console.error("Error saving drag change:", error)
+            // Mark as rejected if save fails
+            setChangedCells((prev) => ({
+              ...prev,
+              [cellKey]: "rejected",
+            }))
+          })
+      }
     }
   }
   // Confirm or reject cell changes
@@ -770,6 +821,19 @@ const DrugTable: React.FC = () => {
               clearable: true,
             },
           },
+          { accessorKey: "DosageNumerator3", header: "Num 3", size: 100 },
+          {
+            accessorKey: "DosageNumerator3Unit",
+            header: "Num 3 Unit",
+            size: 60,
+            editVariant: "select",
+            mantineEditSelectProps: {
+              data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
+              searchable: true,
+              clearable: true,
+            },
+          },
+          
           { accessorKey: "DFSequence", header: "D-F Sequence", size: 120 },
         ]
 
@@ -1326,6 +1390,8 @@ const DrugTable: React.FC = () => {
     tableData,
   ])
 
+  // Update the table configuration to improve memory usage
+  // Replace the useMantineReactTable call with this updated version
   const table = useMantineReactTable({
     columns,
     data: tableData,
@@ -1336,6 +1402,12 @@ const DrugTable: React.FC = () => {
     enableStickyHeader: true,
     enablePagination: true,
     enableRowVirtualization: true, // Enable row virtualization for better performance
+    mantineTableContainerProps: {
+      sx: { maxHeight: "80vh" }, // Limit container height to enable efficient virtualization
+    },
+    mantineTableBodyProps: {
+      sx: { maxHeight: "80vh" }, // Limit container height to enable efficient virtualization
+    },
     mantinePaginationProps: {
       rowsPerPageOptions: ["100", "250", "500", "1000", "2500", "5000"],
       withEdges: false,

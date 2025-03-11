@@ -3,3 +3,4 @@ config/database.js
 logfile.log
 # Ignore the img folder
 /img
+.qodo
