@@ -27,6 +27,13 @@ def get_db_connection():
         print(f"Error: {e}")
         return None
 
+def get_column_lengths(cursor, table_name):
+    cursor.execute(f"SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'")
+    return {row['COLUMN_NAME']: row['CHARACTER_MAXIMUM_LENGTH'] for row in cursor.fetchall()}
+
+def truncate_values(row, column_lengths):
+    return {col: (val[:column_lengths[col]] if col in column_lengths and isinstance(val, str) else val) for col, val in row.items()}
+
 def main():
     tsv_data = read_tsv('./march.tsv')
 
@@ -43,9 +50,12 @@ def main():
         cursor.execute("SELECT MoPHCode FROM drug")
         existing_moph_codes = {row['MoPHCode'] for row in cursor.fetchall()}
 
+        # Get column lengths
+        column_lengths = get_column_lengths(cursor, 'drug')
+
         # Identify entries to insert
         insert_list = [
-            {**row, 'NotMarketed': 0}  # Add NotMarketed field with value 0
+            truncate_values({**row, 'NotMarketed': 0}, column_lengths)  # Add NotMarketed field with value 0 and truncate values
             for row in tsv_data if row['MoPHCode'] not in existing_moph_codes
         ]
 
