@@ -327,7 +327,7 @@ const DrugTable: React.FC = () => {
           ShelfLife: drug.ShelfLife || "N/A",
           IngredientLabel: drug.IngredientLabel || "N/A",
           ImagesPath: drug.ImagesPath || "N/A",
-          ImageDefault: drug.ImageDefault || "N/A",
+          ImageDefault: drug.ImageDefault === 'N/A' ? null : drug.ImageDefault,
           InteractionIngredientName: drug.InteractionIngredientName || "N/A",
           IsDouanes: drug.IsDouanes || "N/A",
           RegistrationDate: drug.RegistrationDate || "N/A",
@@ -426,56 +426,65 @@ const DrugTable: React.FC = () => {
       // Only proceed if the value is actually different
       if (row.original[dragColumnId] !== dragValue) {
         // Create updated drug object
-        const updatedDrug = { ...row.original, [dragColumnId]: dragValue }
-
+        const updatedDrug = { ...row.original, [dragColumnId]: dragValue };
+        
         // If Form is being dragged, also update DFSequence
         if (dragColumnId === "Form") {
           const matchingDrug = allData.find(
-            (d) => d.DrugID !== updatedDrug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A",
-          )
-
+            (d) => d.DrugID !== updatedDrug.DrugID && d.Form === dragValue && d.DFSequence && d.DFSequence !== "N/A"
+          );
+          
           if (matchingDrug) {
-            updatedDrug.DFSequence = matchingDrug.DFSequence
+            updatedDrug.DFSequence = matchingDrug.DFSequence;
           }
         }
 
+        // Handle 'N/A' values for integer fields
+        const integerFields = ['ImageDefault']; // Add other integer fields here if needed
+        integerFields.forEach(field => {
+          if (updatedDrug[field] === 'N/A') {
+            updatedDrug[field] = null; // Or use a default integer value, e.g., 0
+          }
+        });
+        
         // Update local state
-        setTableData((prevData) => prevData.map((drug) => (drug.DrugID === row.original.DrugID ? updatedDrug : drug)))
+        setTableData((prevData) =>
+          prevData.map((drug) => (drug.DrugID === row.original.DrugID ? updatedDrug : drug))
+        );
 
         // Mark cell as pending
         setChangedCells((prev) => ({
           ...prev,
           [cellKey]: "pending",
-        }))
+        }));
 
         // Save to backend immediately
-        axios
-          .put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
+        axios.put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
           .then(() => {
-            console.log(`Successfully saved drag change for drug ${updatedDrug.DrugID}`)
+            console.log(`Successfully saved drag change for drug ${updatedDrug.DrugID}`);
             // Mark as confirmed after successful save
             setChangedCells((prev) => ({
               ...prev,
               [cellKey]: "confirmed",
-            }))
-
+            }));
+            
             // After a short delay, remove the confirmation indicator
             setTimeout(() => {
               setChangedCells((prev) => {
-                const newState = { ...prev }
-                delete newState[cellKey]
-                return newState
-              })
-            }, 2000)
+                const newState = { ...prev };
+                delete newState[cellKey];
+                return newState;
+              });
+            }, 2000);
           })
-          .catch((error) => {
-            console.error("Error saving drag change:", error)
+          .catch(error => {
+            console.error("Error saving drag change:", error);
             // Mark as rejected if save fails
             setChangedCells((prev) => ({
               ...prev,
               [cellKey]: "rejected",
-            }))
-          })
+            }));
+          });
       }
     }
   }
@@ -538,33 +547,27 @@ const DrugTable: React.FC = () => {
   }) => {
     try {
       const updatedDrug = { ...row.original, ...values }
-  
-      // Ensure ImageDefault is an integer or null
-      if (updatedDrug.ImageDefault === 'N/A' || updatedDrug.ImageDefault === undefined) {
-        updatedDrug.ImageDefault = null
-      }
-  
       // If Form (DosageForm Clean) was changed, find a matching DFSequence
       if (values.Form && values.Form !== row.original.Form) {
+        // Find another drug with the same Form value to get its DFSequence
         const matchingDrug = allData.find(
           (drug) =>
             drug.DrugID !== updatedDrug.DrugID &&
             drug.Form === values.Form &&
             drug.DFSequence &&
-            drug.DFSequence !== 'N/A',
+            drug.DFSequence !== "N/A",
         )
-  
+
         if (matchingDrug) {
           updatedDrug.DFSequence = matchingDrug.DFSequence
           console.log(`Auto-selected DFSequence ${matchingDrug.DFSequence} based on Form ${values.Form}`)
         }
       }
-  
       // If ATC was changed in editing:
       if (updatedDrug.ATC) {
         updatedDrug.ATC_Code = updatedDrug.ATC
       }
-  
+
       // Dosage sub-payload
       const dosageData = {
         Numerator1: updatedDrug.DosageNumerator1,
@@ -580,7 +583,7 @@ const DrugTable: React.FC = () => {
         Denominator3: updatedDrug.DosageDenominator3,
         Denominator3Unit: updatedDrug.DosageDenominator3Unit,
       }
-  
+
       // Presentation sub-payload
       const presentationData = {
         UnitQuantity1: updatedDrug.PresentationUnitQuantity1,
@@ -595,10 +598,10 @@ const DrugTable: React.FC = () => {
         PackageType3: updatedDrug.PresentationPackageType3,
         Description: updatedDrug.PresentationDescription,
       }
-  
+
       // Debug payload
       console.log("Payload Sent to Backend:", updatedDrug)
-  
+
       try {
         // Make the API calls
         await axios.put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
@@ -608,11 +611,11 @@ const DrugTable: React.FC = () => {
         console.error("API error during save, continuing with local update:", apiError)
         // Continue with local update even if API fails
       }
-  
+
       // Update tableData locally
       setTableData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
       setAllData((prevData) => prevData.map((drug) => (drug.DrugID === updatedDrug.DrugID ? updatedDrug : drug)))
-  
+
       exitEditingMode()
     } catch (error) {
       console.error("Error updating drug:", error)
@@ -620,6 +623,7 @@ const DrugTable: React.FC = () => {
       exitEditingMode()
     }
   }
+
   // Update the handleDeleteRow function to properly handle API calls
   const handleDeleteRow = async (row: any) => {
     try {
@@ -826,19 +830,6 @@ const DrugTable: React.FC = () => {
               clearable: true,
             },
           },
-          { accessorKey: "DosageNumerator3", header: "Num 3", size: 100 },
-          {
-            accessorKey: "DosageNumerator3Unit",
-            header: "Num 3 Unit",
-            size: 60,
-            editVariant: "select",
-            mantineEditSelectProps: {
-              data: dosageNumerator3UnitOptions.map((value) => ({ value, label: value })),
-              searchable: true,
-              clearable: true,
-            },
-          },
-
           { accessorKey: "DFSequence", header: "D-F Sequence", size: 120 },
         ]
 
@@ -1410,9 +1401,7 @@ const DrugTable: React.FC = () => {
     mantineTableContainerProps: {
       sx: { maxHeight: "80vh" }, // Limit container height to enable efficient virtualization
     },
-    mantineTableBodyProps: {
-      sx: { maxHeight: "80vh" }, // Limit container height to enable efficient virtualization
-    },
+    mantineTableBodyProps: {},
     mantinePaginationProps: {
       rowsPerPageOptions: ["100", "250", "500", "1000", "2500", "5000"],
       withEdges: false,
@@ -1614,4 +1603,3 @@ const DrugTable: React.FC = () => {
 }
 
 export default DrugTable
-
