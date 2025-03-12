@@ -10,9 +10,9 @@ df_codes['MoPHCode'] = pd.to_numeric(df_codes['MoPHCode'], errors='coerce').drop
 moph_codes = df_codes['MoPHCode'].tolist()
 
 # Database connection
-conn = pymysql.connect(host='your_host',
-                       user='your_user',
-                       password='your_password',
+conn = pymysql.connect(host='localhost',
+                       user='ommal_ahmad',
+                       password='fISfGr^8q!_gUPMY',
                        db='ommal_medapiv2',
                        charset='utf8mb4',
                        cursorclass=pymysql.cursors.DictCursor)
