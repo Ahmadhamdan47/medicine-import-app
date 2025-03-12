@@ -14,6 +14,9 @@ def read_tsv(file_path):
         df.columns = df.columns.str.strip().str.lower()
         # Clean and convert code to integers
         df['code'] = pd.to_numeric(df['code'].str.strip(), errors='coerce').fillna(0).astype(int)
+        # Skip invalid seq values
+        if 'seq' in df.columns:
+            df['seq'] = pd.to_numeric(df['seq'].str.strip(), errors='coerce')
         # Retain 'bg' column as-is for medlist database
         if 'bg' in df.columns:
             df['bg'] = df['bg'].str.strip()
@@ -55,6 +58,9 @@ def main():
         for code in moph_codes:
             if code in medleb_data:
                 data = medleb_data[code]
+                # Filter out invalid seq values
+                if 'seq' in data and pd.isna(data['seq']):
+                    data.pop('seq')
                 # Prepare update tuple (column values + code)
                 update_values = list(data.values()) + [code]
                 update_list.append(tuple(update_values))
