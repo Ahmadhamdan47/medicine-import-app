@@ -41,14 +41,14 @@ try:
     # Count matching drugs
     count_matching = len(matching_drugs)
 
-    # Save results to JSON
-    result = {
-        "count": count_matching,
-        "matching_drugs": matching_drugs
-    }
+    # Save full details to JSON
+    with open('matching_drugs_details.json', 'w', encoding='utf-8') as details_file:
+        json.dump(matching_drugs, details_file, default=decimal_default, ensure_ascii=False, indent=4)
 
-    with open('matching_drugs.json', 'w', encoding='utf-8') as json_file:
-        json.dump(result, json_file, default=decimal_default, ensure_ascii=False, indent=4)
+    # Save only MoPHCodes to JSON
+    matching_moph_codes = [drug['MoPHCode'] for drug in matching_drugs]
+    with open('matching_drugs_mophcodes.json', 'w', encoding='utf-8') as codes_file:
+        json.dump(matching_moph_codes, codes_file, ensure_ascii=False, indent=4)
 
 finally:
     conn.close()
