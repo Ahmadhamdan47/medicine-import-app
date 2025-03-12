@@ -37,7 +37,7 @@ def get_db_connection():
         return None
 
 def main():
-    moph_codes = read_json('./matching_drugs_mophcodes.json')
+    moph_codes = read_json('./matching_medications_codes.json')
     medleb_data = read_tsv('./meddown.tsv')
 
     conn = get_db_connection()
