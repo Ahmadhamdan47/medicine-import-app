@@ -1,4 +1,4 @@
-code	atc	seq	bg	ingredients	reg_number	brand_name	strength	presentation	form	preserntation_lndi	form_lndi	route_lndi	agent	manufacturer	country	public_price	stratum
+code	atc	seq	bg	ingredients	reg_number	brand_name	strength	presentation	form	presentation_lndi	form_lndi	route_lndi	agent	manufacturer	country	public_price	stratum
 9876	A01AB09	1	B	Miconazole nitrate - 20mg/g	7919/1	DAKTARIN ORAL		40g	Gel	40g	Gel	Oral	Droguerie Columbus	Janssen Pharmaceutica NV	Belgium	377,620	A1
 4648	A01AB09	1	G	Miconazole nitrate - 20mg/g	28560/93	MICONAZ	20mg/g	30g	Oral gel	30g	Gel	Oral	Pharmaline S.A.L.	Pharmaline SAL	Lebanon	229,093	A1
 6868	A01AB09	1	G	Miconazole - 20mg/g	166907/11	MICOZOLE	2g	20g	Oral gel	20g	Gel	Oral	Mediterranean Pharmaceutical Company	Medical Union Pharmaceuticals Company	Egypt	41,659	A1
