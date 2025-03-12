@@ -63,7 +63,7 @@ def clear_form_and_route(file_path):
         for i in range(0, update_count, batch_size):
             batch = updates[i:i + batch_size]
             cursor.executemany(
-                "UPDATE drug SET Form = '', Route = '' WHERE DrugID = %s",
+                "UPDATE drug SET Form = '', Route = '' WHERE DrugID = %s AND NotMarketed = 0",
                 [(drug['DrugID'],) for drug in batch]
             )
             print(f"✅ Processed {i + len(batch)} / {update_count}")
