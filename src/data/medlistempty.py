@@ -74,7 +74,7 @@ def main():
         if update_list:
             columns = ', '.join(medleb_data[next(iter(medleb_data))].keys())
             set_clause = ', '.join([f"{col} = %s" for col in medleb_data[next(iter(medleb_data))].keys()])
-            update_query = f"UPDATE drug SET {set_clause} WHERE code = %s"
+            update_query = f"UPDATE medications SET {set_clause} WHERE code = %s"
             cursor.executemany(update_query, update_list)
 
         conn.commit()
