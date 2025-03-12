@@ -35,8 +35,8 @@ def clear_form_and_route(file_path):
         conn.autocommit = False  # Start transaction
         cursor = conn.cursor(dictionary=True)
 
-        # Fetch all MoPHCodes from the database
-        cursor.execute("SELECT DrugID, MoPHCode, Form, Route FROM drug")
+        # Fetch all MoPHCodes from the database where NotMarketed = 0
+        cursor.execute("SELECT DrugID, MoPHCode, Form, Route FROM drug WHERE NotMarketed = 0")
         drugs = cursor.fetchall()
 
         # Identify entries for updates
@@ -63,7 +63,7 @@ def clear_form_and_route(file_path):
         for i in range(0, update_count, batch_size):
             batch = updates[i:i + batch_size]
             cursor.executemany(
-                "UPDATE drug SET Form = '', Route = '' WHERE DrugID = %s AND NotMarketed = 0",
+                "UPDATE drug SET Form = '', Route = '' WHERE DrugID = %s",
                 [(drug['DrugID'],) for drug in batch]
             )
             print(f"✅ Processed {i + len(batch)} / {update_count}")
@@ -80,5 +80,5 @@ def clear_form_and_route(file_path):
             conn.close()
 
 if __name__ == "__main__":
-    file_path = './routenull.tsv'  # Specify the path to your TSV file
+    file_path = 'routenull.tsv'  # Specify the path to your TSV file
     clear_form_and_route(file_path)
