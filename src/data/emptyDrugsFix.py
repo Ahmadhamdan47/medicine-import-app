@@ -10,10 +10,10 @@ def read_json(file_path):
 def read_tsv(file_path):
     try:
         df = pd.read_csv(file_path, delimiter='\t', dtype=str, engine='python', encoding='utf-8').fillna('')
+        # Clean column names
+        df.columns = df.columns.str.strip()
+        # Clean and convert MoPHCode to integers
         df['MoPHCode'] = pd.to_numeric(df['MoPHCode'].str.strip(), errors='coerce').fillna(0).astype(int)
-        # Skip records with overly large values (e.g., invalid data)
-        for col in df.columns:
-            df[col] = df[col].apply(lambda x: x if len(str(x)) < 100 else None)
         # Map ProductType from 'B' and 'G' to 'Brand' and 'Generic'
         if 'ProductType' in df.columns:
             df['ProductType'] = df['ProductType'].map({'B': 'Brand', 'G': 'Generic'})
@@ -38,7 +38,7 @@ def get_db_connection():
 
 def main():
     moph_codes = read_json('./matching_drugs_mophcodes.json')
-    medleb_data = read_tsv('./medleb.tsv')
+    medleb_data = read_tsv('./medup.tsv')
 
     conn = get_db_connection()
     if conn is None:
