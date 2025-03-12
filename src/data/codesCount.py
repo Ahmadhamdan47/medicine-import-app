@@ -10,7 +10,7 @@ def decimal_default(obj):
     raise TypeError
 
 # Load TSV file
-df_codes = pd.read_csv('//codes.tsv', sep='\t')
+df_codes = pd.read_csv('./codes.tsv', sep='\t')
 
 # Ensure MoPHCode is integer type
 df_codes['MoPHCode'] = pd.to_numeric(df_codes['MoPHCode'], errors='coerce').dropna().astype(int)
