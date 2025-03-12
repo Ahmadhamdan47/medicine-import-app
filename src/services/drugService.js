@@ -30,7 +30,11 @@ const DiseaseCategory = require('../models/diseaseCategory');
 const DiseaseCategoryATC = require('../models/diseaseCategoryAtc');
 const axios = require('axios');
 
-
+const formatNumberWithCommas = (number) => {
+  return new Intl.NumberFormat('en-US').format(number);
+};
+const rate = 89500;
+const formattedRate = formatNumberWithCommas(rate); 
 
 const getDrugByDiseaseCategory = async (categoryName) => {
 
@@ -237,7 +241,7 @@ const getDrugById = async (DrugIDs) => {
         unitPrice,
         unitPriceInLBP,
         AgentName: drugPlainData.Manufacturer ,
-        usdRate: 89500,
+        usdRate: formattedRate,
         priceUpdateDate: price_update_date
       };
     }));
@@ -499,7 +503,7 @@ const smartSearch = async (query) => {
         CountryName,
         ATC, // Include ATC
         stratum, // Include stratum,
-        usdRate: 89500,
+        usdRate: formattedRate,
         priceUpdateDate: price_update_date
       };
     }));
@@ -915,7 +919,7 @@ const getOTCDrugs = async () => {
         priceInLBP,
         unitPrice,
         unitPriceInLBP,
-        usdRate: 89500,
+        usdRate: formattedRate,
         priceUpdateDate: price_update_date,
       };
     });
@@ -991,11 +995,9 @@ const getDrugSubstitutes = async (drugName) => {
         unitPrice,
         manufacturerName,
         countryName,
-        usdRate: 89500,
+        usdRate: formattedRate,
         priceUpdateDate: price_update_date,
         stratum: substituteDrug.Stratum
-
-
       };
     });
 
@@ -1158,7 +1160,7 @@ const fetchDrugDataFromServer = async () => {
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
         priceUpdateDate: price_update_date,
-        usdRate: 89500,
+        usdRate: formattedRate,
       };
     });
   } catch (error) {
@@ -1217,7 +1219,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
           Country: updatedDrug.Country,
           MoPHCode: updatedDrug.MoPHCode,
           UpdatedDate: updatedDrug.UpdatedDate,
-          usdRate: 89500,
+          usdRate: formattedRate,
 
           
         },
