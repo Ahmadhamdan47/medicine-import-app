@@ -30,7 +30,7 @@ def get_db_connection():
             host='localhost',
             user='ommal_oummal',
             password='dMR2id57dviMJJnc',
-            database='medlist'
+            database='ommal_medlist'
         )
     except Error as e:
         print(f"Error: {e}")
