@@ -1,9 +1,16 @@
 import pandas as pd
 import pymysql
 import json
+from decimal import Decimal
+
+# Function to convert Decimal to float for JSON serialization
+def decimal_default(obj):
+    if isinstance(obj, Decimal):
+        return float(obj)
+    raise TypeError
 
 # Load TSV file
-df_codes = pd.read_csv('./codes.tsv', sep='\t')
+df_codes = pd.read_csv('//codes.tsv', sep='\t')
 
 # Ensure MoPHCode is integer type
 df_codes['MoPHCode'] = pd.to_numeric(df_codes['MoPHCode'], errors='coerce').dropna().astype(int)
@@ -41,7 +48,7 @@ try:
     }
 
     with open('matching_drugs.json', 'w', encoding='utf-8') as json_file:
-        json.dump(result, json_file, ensure_ascii=False, indent=4)
+        json.dump(result, json_file, default=decimal_default, ensure_ascii=False, indent=4)
 
 finally:
     conn.close()
