@@ -185,9 +185,6 @@ const DrugTable: React.FC = () => {
   const [agentOptions, setAgentOptions] = useState<string[]>([])
   const [manufacturerOptions, setManufacturerOptions] = useState<string[]>([])
 
-  const [dataChunks, setDataChunks] = useState<any[][]>([])
-  const [currentChunkIndex, setCurrentChunkIndex] = useState(0)
-
   // Debounced save function
   const debouncedSaveChange = useCallback(
     debounce((updatedDrug) => {
@@ -269,14 +266,6 @@ const DrugTable: React.FC = () => {
     // Append to table data
     setTableData((prev) => [...prev, newDrug])
     setAllData((prev) => [...prev, newDrug])
-  }
-
-  const chunkData = (data: any[], size = 1000) => {
-    const chunks = []
-    for (let i = 0; i < data.length; i += size) {
-      chunks.push(data.slice(i, i + size))
-    }
-    return chunks
   }
 
   // Update the fetchDrugs function to properly handle API responses
@@ -392,11 +381,9 @@ const DrugTable: React.FC = () => {
         setAgentOptions(getUniqueValues(formattedData, "Agent"))
         setManufacturerOptions(getUniqueValues(formattedData, "Manufacturer"))
 
-        const dataChunks = chunkData(formattedData)
-        setTableData(dataChunks[0] || []) // Start with first chunk
-        setAllData(formattedData) // Keep full dataset for reference
-        // Store chunks for pagination
-        setDataChunks(dataChunks)
+        // Set the full dataset directly to tableData
+        setTableData(formattedData)
+        setAllData(formattedData)
 
         // Initialize history with the first state
         setHistory([JSON.parse(JSON.stringify(formattedData))])
@@ -1396,7 +1383,11 @@ const DrugTable: React.FC = () => {
           { accessorKey: "SideEffect", header: "SideEffect", size: 120 },
           { accessorKey: "Toxicity", header: "Toxicity", size: 100 },
           { accessorKey: "StorageCondition", header: "StorageCondition", size: 150 },
-          { accessorKey: "ShelfLife", header: "ShelfLife", size: 120 },
+          {
+            accessorKey: "ShelfLife",
+            header: "ShelfLife",
+            size: 120,
+          },
           { accessorKey: "IngredientLabel", header: "IngredientLabel", size: 150 },
           { accessorKey: "ImagesPath", header: "ImagesPath", size: 120 },
           { accessorKey: "ImageDefault", header: "ImageDefault", size: 120 },
