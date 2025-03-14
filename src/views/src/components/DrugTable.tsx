@@ -701,7 +701,7 @@ export function DrugTable() {
   const fetchDrugs = async () => {
     setIsLoading(true)
     try {
-      const response = await axios.get("drugs/all")
+      const response = await axios.get("https://apiv2.medleb.org/drugs/all")
 
       // Check if response.data and response.data.drugs exist
       if (response.data && response.data.drugs && Array.isArray(response.data.drugs)) {
