@@ -16,6 +16,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "dayjs": "^1.11.11",
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5",
     "jquery": "^3.7.1",
     "jsgrid": "^1.5.3",
     "jwt-decode": "^4.0.0",
