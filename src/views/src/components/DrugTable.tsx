@@ -924,7 +924,7 @@ export function DrugTable() {
           payload[columnId] = null
         }
 
-        await axios.put(`drugs/update/${rowId}`, payload)
+        await axios.put(`https://apiv2.medleb.org/drugs/update/${rowId}`, payload)
 
         // Mark as successful
         results.push({
@@ -1138,9 +1138,9 @@ export function DrugTable() {
 
       try {
         // Make the API calls
-        await axios.put(`drugs/update/${updatedDrug.DrugID}`, updatedDrug)
-        await axios.put(`dosages/updateByDrug/${updatedDrug.DrugID}`, dosageData)
-        await axios.put(`presentations/updateByDrug/${updatedDrug.DrugID}`, presentationData)
+        await axios.put(`https://apiv2.medleb.org/drugs/update/${updatedDrug.DrugID}`, updatedDrug)
+        await axios.put(`https://apiv2.medleb.org/dosages/updateByDrug/${updatedDrug.DrugID}`, dosageData)
+        await axios.put(`https://apiv2.medleb.org/presentations/updateByDrug/${updatedDrug.DrugID}`, presentationData)
         showNotification("Drug updated successfully", "success")
       } catch (apiError) {
         console.error("API error during save, continuing with local update:", apiError)
@@ -1163,7 +1163,7 @@ export function DrugTable() {
     try {
       if (window.confirm("Are you sure you want to delete this drug?")) {
         try {
-          await axios.delete(`drugs/delete/${rowId}`)
+          await axios.delete(`https://apiv2.medleb.org/drugs/delete/${rowId}`)
           showNotification("Drug deleted successfully", "success")
         } catch (apiError) {
           console.error("API error during delete, continuing with local update:", apiError)
@@ -1824,7 +1824,7 @@ export function DrugTable() {
       try {
         // Delete each selected row
         const promises = Array.from(selectedRows).map((rowId) =>
-          axios.delete(`drugs/delete/${rowId}`).catch((error) => {
+          axios.delete(`https://apiv2.medleb.org/drugs/delete/${rowId}`).catch((error) => {
             console.error(`Error deleting drug ${rowId}:`, error)
             return { error, rowId }
           }),
