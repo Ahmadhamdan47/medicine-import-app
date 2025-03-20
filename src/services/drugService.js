@@ -364,56 +364,69 @@ const getAllDrugs = async () => {
 
 
 const getAllDrugsPaginated = async (page = 1, limit = 500) => {
-    try {
-      const offset = (page - 1) * limit;
+  try {
+    const offset = (page - 1) * limit;
 
-      // Fetch drugs with associated presentations and dosages
-      const { rows, count } = await Drug.findAndCountAll({
-        offset,
-        limit,
-        include: [
-          {
-            model: DrugPresentation,
-            attributes: [
-              'UnitQuantity1',
-              'UnitType1',
-              'UnitQuantity2',
-              'UnitType2',
-              'PackageQuantity1',
-              'PackageType1',
-              'PackageQuantity2',
-              'PackageType2',
-              'PackageQuantity3',
-              'PackageType3',
-              'Description',
-            ],
-          },
-          {
-            model: Dosage,
-            attributes: [
-              'Numerator1',
-              'Numerator1Unit',
-              'Denominator1',
-              'Denominator1Unit',
-              'Numerator2',
-              'Numerator2Unit',
-              'Denominator2',
-              'Denominator2Unit',
-              'Numerator3',
-              'Numerator3Unit',
-              'Denominator3',
-              'Denominator3Unit',
-            ],
-          },
-        ],
-      });
+    // Fetch drugs with associated presentations and dosages, excluding NotMarketed drugs
+    const { rows, count } = await Drug.findAndCountAll({
+      where: {
+        NotMarketed: {
+          [Op.ne]: true, // Exclude NotMarketed drugs
+        },
+      },
+      offset,
+      limit,
+      include: [
+        {
+          model: DrugPresentation,
+          attributes: [
+            'UnitQuantity1',
+            'UnitType1',
+            'UnitQuantity2',
+            'UnitType2',
+            'PackageQuantity1',
+            'PackageType1',
+            'PackageQuantity2',
+            'PackageType2',
+            'PackageQuantity3',
+            'PackageType3',
+            'Description',
+          ],
+        },
+        {
+          model: Dosage,
+          attributes: [
+            'Numerator1',
+            'Numerator1Unit',
+            'Denominator1',
+            'Denominator1Unit',
+            'Numerator2',
+            'Numerator2Unit',
+            'Denominator2',
+            'Denominator2Unit',
+            'Numerator3',
+            'Numerator3Unit',
+            'Denominator3',
+            'Denominator3Unit',
+          ],
+        },
+      ],
+    });
 
-      return { drugs: rows, totalPages: Math.ceil(count / limit) };
-    } catch (error) {
-      console.error('Error fetching paginated drugs with details:', error);
-      throw new Error('Failed to fetch paginated drugs with details');
-    }
-  };
+    // Format the data for easier consumption in DrugsTable.tsx
+    const formattedDrugs = rows.map((drug) => ({
+      ...drug.get({ plain: true }),
+      priceInLBP: drug.Price * 89500, // Add price in LBP
+      unitPrice: drug.Amount ? drug.Price / drug.Amount : null, // Calculate unit price
+      unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null, // Calculate unit price in LBP
+    }));
+
+    return { drugs: formattedDrugs, totalPages: Math.ceil(count / limit) };
+  } catch (error) {
+    console.error('Error fetching paginated drugs with details:', error);
+    throw new Error('Failed to fetch paginated drugs with details');
+  }
+};
 
 const getAllDrugsPaginatedByATC = async (page = 1, limit = 500) => {
   try {
