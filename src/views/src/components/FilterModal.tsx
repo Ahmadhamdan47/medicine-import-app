@@ -239,3 +239,5 @@ export function FilterModal({
   )
 }
 
+export default FilterModal
+

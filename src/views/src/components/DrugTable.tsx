@@ -50,11 +50,13 @@ import {
   IconAlertCircle,
   IconAdjustments,
   IconEye,
+  IconFilter,
 } from "@tabler/icons-react"
 
 import AddDrugModal from "./AddDrugModal"
 // Add the DraggableHeader import at the top with other imports
 import { DraggableHeader } from "./DraggableHeader"
+import FilterModal from "./FilterModal"
 
 // Create styles for the components
 const useStyles = createStyles((theme) => ({
@@ -562,6 +564,9 @@ export function DrugTable() {
   const [draggedColumn, setDraggedColumn] = useState<string | null>(null)
   const [columnOrder, setColumnOrder] = useState<string[]>([])
 
+  // Add state for filter modal
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
+
   // Add a function to handle sorting
   const handleSort = (columnId: string) => {
     if (sortColumn === columnId) {
@@ -793,7 +798,7 @@ export function DrugTable() {
           PresentationUnitType2: drug.DrugPresentations?.[0]?.UnitType2 || "N/A",
           PresentationPackageQuantity1: drug.DrugPresentations?.[0]?.PackageQuantity1 || "N/A",
           PresentationPackageType1: drug.DrugPresentations?.[0]?.PackageType1 || "N/A",
-          PresentationPackageQuantity2: drug.DrugPresentations?.[0]?.PackageQuantity2 || "N/A",
+          PresentationPackageQuantity2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
           PresentationPackageType2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
           PresentationPackageQuantity3: drug.DrugPresentations?.[0]?.PackageQuantity3 || "N/A",
           PresentationPackageType3: drug.DrugPresentations?.[0]?.PackageType3 || "N/A",
@@ -2137,13 +2142,18 @@ export function DrugTable() {
         </Box>
 
         <Group position="apart" mb="md">
-          <TextInput
-            placeholder="Search all columns..."
-            value={globalFilter}
-            onChange={(e) => setGlobalFilter(e.target.value)}
-            icon={<IconSearch size={16} />}
-            className={classes.searchInput}
-          />
+          <Group>
+            <TextInput
+              placeholder="Search all columns..."
+              value={globalFilter}
+              onChange={(e) => setGlobalFilter(e.target.value)}
+              icon={<IconSearch size={16} />}
+              className={classes.searchInput}
+            />
+            <Button variant="outline" leftIcon={<IconFilter size={16} />} onClick={() => setIsFilterModalOpen(true)}>
+              {activeFilters.length > 0 ? `Filters (${activeFilters.length})` : "Filters"}
+            </Button>
+          </Group>
 
           {selectedRows.size > 0 && (
             <Group>
@@ -2564,6 +2574,19 @@ export function DrugTable() {
           }
         `}</style>
       </Box>
+      <FilterModal
+        opened={isFilterModalOpen}
+        onClose={() => setIsFilterModalOpen(false)}
+        columns={columns}
+        tableData={tableData}
+        columnFilters={columnFilters}
+        activeFilters={activeFilters}
+        onFilterChange={updateColumnFilters}
+        onClearAllFilters={() => {
+          setColumnFilters({})
+          setActiveFilters([])
+        }}
+      />
     </MantineProvider>
   )
 }
