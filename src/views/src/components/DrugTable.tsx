@@ -6,7 +6,6 @@ import { useEffect, useState, useMemo, useRef, useCallback } from "react"
 import { useVirtualizer } from "@tanstack/react-virtual"
 import { useHotkeys, useLocalStorage, useViewportSize } from "@mantine/hooks"
 import exportToExcel from "./exportutil"
-
 import axios from "axios"
 import {
   Table,
@@ -33,6 +32,7 @@ import {
   ScrollArea,
   Notification,
   Tabs,
+  Popover,
 } from "@mantine/core"
 import {
   IconArrowBackUp,
@@ -51,17 +51,18 @@ import {
   IconAdjustments,
   IconEye,
   IconFilter,
+  IconArrowUp,
+  IconArrowDown,
+  IconFilterOff,
 } from "@tabler/icons-react"
 
 import AddDrugModal from "./AddDrugModal"
-// Add the DraggableHeader import at the top with other imports
-import { DraggableHeader } from "./DraggableHeader"
-import FilterModal from "./FilterModal"
+import { ColumnFilter } from "./column-filter"
 
 // Create styles for the components
 const useStyles = createStyles((theme) => ({
   tableContainer: {
-    height: "90vh", // Increased from 80vh to 90vh
+    height: "90vh",
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
@@ -268,6 +269,19 @@ const useStyles = createStyles((theme) => ({
   columnVisibilityLabel: {
     flex: 1,
   },
+  headerFilterIcon: {
+    marginLeft: 5,
+    color: theme.colors.blue[6],
+  },
+  headerSortIcon: {
+    marginLeft: 5,
+  },
+  headerContent: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+  },
 }))
 
 // Debounce utility function
@@ -467,6 +481,100 @@ interface TableSettings {
   confirmBeforeRefresh: boolean
   autoSaveState: boolean
   visibleColumns: Record<string, boolean>
+  lazyLoading: boolean
+  batchSize: number
+}
+
+// Enhanced Header component with integrated filtering
+interface EnhancedHeaderProps {
+  column: any
+  onResize: (columnId: string, width: number) => void
+  onSort: (columnId: string) => void
+  sortDirection: "asc" | "desc" | null
+  sortColumn: string | null
+  onFilter: (columnId: string, values: string[]) => void
+  activeFilters: Record<string, string[]>
+  filterOptions: string[]
+}
+
+const EnhancedHeader = ({
+  column,
+  onResize,
+  onSort,
+  sortDirection,
+  sortColumn,
+  onFilter,
+  activeFilters,
+  filterOptions,
+}: EnhancedHeaderProps) => {
+  const { classes } = useStyles()
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
+
+  const isFiltered = activeFilters[column.accessor]?.length > 0
+  const isSorted = sortColumn === column.accessor
+
+  return (
+    <th
+      style={{
+        width: column.width,
+        position: "relative",
+        padding: "8px",
+      }}
+    >
+      <div className={classes.headerContent}>
+        <div
+          style={{
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            fontWeight: "bold",
+          }}
+          onClick={() => onSort(column.accessor)}
+        >
+          {column.title}
+          {isSorted && (
+            <span className={classes.headerSortIcon}>
+              {sortDirection === "asc" ? <IconArrowUp size={14} /> : <IconArrowDown size={14} />}
+            </span>
+          )}
+        </div>
+
+        <div>
+          {isFiltered && (
+            <Badge size="xs" color="blue" style={{ marginRight: "5px" }}>
+              {activeFilters[column.accessor].length}
+            </Badge>
+          )}
+
+          <Popover
+            opened={isFilterOpen}
+            onClose={() => setIsFilterOpen(false)}
+            position="bottom"
+            width={250}
+            shadow="md"
+          >
+            <Popover.Target>
+              <ActionIcon size="sm" onClick={() => setIsFilterOpen(!isFilterOpen)} color={isFiltered ? "blue" : "gray"}>
+                <IconFilter size={14} />
+              </ActionIcon>
+            </Popover.Target>
+
+            <Popover.Dropdown>
+              <ColumnFilter
+                columnId={column.accessor}
+                columnTitle={column.title}
+                options={filterOptions}
+                selectedValues={activeFilters[column.accessor] || []}
+                onChange={(values) => onFilter(column.accessor, values)}
+              />
+            </Popover.Dropdown>
+          </Popover>
+        </div>
+      </div>
+
+      <ColumnResizeHandle column={column} onResize={onResize} />
+    </th>
+  )
 }
 
 export function DrugTable() {
@@ -494,11 +602,13 @@ export function DrugTable() {
     key: "drug-table-settings",
     defaultValue: {
       rowColorScheme: "default",
-      cellSize: 25, // Changed from 35 to 25
+      cellSize: 25,
       enableVirtualization: true,
       confirmBeforeRefresh: true,
-      autoSaveState: false, // Changed from true to false
+      autoSaveState: false,
       visibleColumns: {},
+      lazyLoading: true,
+      batchSize: 500,
     },
   })
 
@@ -564,8 +674,26 @@ export function DrugTable() {
   const [draggedColumn, setDraggedColumn] = useState<string | null>(null)
   const [columnOrder, setColumnOrder] = useState<string[]>([])
 
-  // Add state for filter modal
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false)
+  // Add state for column filters
+  const [columnFilters, setColumnFilters] = useState<Record<string, string[]>>({})
+  const [activeFilters, setActiveFilters] = useState<string[]>([])
+
+  // Add state for lazy loading
+  const [loadedData, setLoadedData] = useState<any[]>([])
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [hasMoreData, setHasMoreData] = useState(true)
+  const [loadedCount, setLoadedCount] = useState(0)
+
+  // Function to update column filters
+  const updateColumnFilters = (columnId: string, values: string[]) => {
+    setColumnFilters((prev) => ({
+      ...prev,
+      [columnId]: values,
+    }))
+
+    // Update active filters
+    setActiveFilters(Object.keys(columnFilters).filter((key) => columnFilters[key] && columnFilters[key].length > 0))
+  }
 
   // Add a function to handle sorting
   const handleSort = (columnId: string) => {
@@ -665,7 +793,12 @@ export function DrugTable() {
 
   // Load data on mount
   useEffect(() => {
-    fetchDrugs()
+    if (settings.lazyLoading) {
+      fetchDrugsLazy(0, settings.batchSize)
+    } else {
+      fetchDrugs()
+    }
+
     fetchAtcOptions()
 
     // Try to load saved state
@@ -711,6 +844,43 @@ export function DrugTable() {
     }
   }, [tableData])
 
+  // Implement lazy loading
+  const loadMoreData = useCallback(() => {
+    if (isLoadingMore || !hasMoreData) return
+
+    setIsLoadingMore(true)
+    const nextBatch = loadedCount + settings.batchSize
+
+    fetchDrugsLazy(loadedCount, settings.batchSize)
+      .then(() => {
+        setLoadedCount(nextBatch)
+      })
+      .finally(() => {
+        setIsLoadingMore(false)
+      })
+  }, [loadedCount, isLoadingMore, hasMoreData, settings.batchSize])
+
+  // Add scroll event listener for lazy loading
+  useEffect(() => {
+    if (!settings.lazyLoading || !hasMoreData) return
+
+    const handleScroll = () => {
+      if (!tableContainerRef.current) return
+
+      const { scrollTop, scrollHeight, clientHeight } = tableContainerRef.current
+      // Load more when user scrolls to 80% of the container
+      if (scrollTop + clientHeight >= scrollHeight * 0.8) {
+        loadMoreData()
+      }
+    }
+
+    const container = tableContainerRef.current
+    if (container) {
+      container.addEventListener("scroll", handleScroll)
+      return () => container.removeEventListener("scroll", handleScroll)
+    }
+  }, [loadMoreData, settings.lazyLoading, hasMoreData])
+
   // Save table state to localStorage
   const saveTableState = () => {
     saveAllChanges()
@@ -747,6 +917,177 @@ export function DrugTable() {
     }
   }
 
+  // Fetch drugs with lazy loading
+  const fetchDrugsLazy = async (offset: number, limit: number) => {
+    setIsLoading(true)
+    try {
+      // Modify the API endpoint to support pagination if available
+      // If your API doesn't support pagination, you'll need to implement client-side pagination
+      const response = await axios.get(`https://apiv2.medleb.org/drugs/all?offset=${offset}&limit=${limit}`)
+
+      if (response.data && response.data.drugs && Array.isArray(response.data.drugs)) {
+        const { drugs } = response.data
+
+        // Format the data
+        const formattedData = drugs.map(formatDrugData)
+
+        // If this is the first batch, initialize options
+        if (offset === 0) {
+          initializeOptions(formattedData)
+        }
+
+        // Update loaded data
+        setLoadedData((prev) => [...prev, ...formattedData])
+
+        // Update table data
+        setTableData((prev) => [...prev, ...formattedData])
+        setAllData((prev) => [...prev, ...formattedData])
+
+        // Check if we've reached the end
+        if (drugs.length < limit) {
+          setHasMoreData(false)
+        }
+
+        // Initialize history if this is the first batch
+        if (offset === 0) {
+          setHistory([JSON.parse(JSON.stringify([...formattedData]))])
+          setHistoryIndex(0)
+
+          // Initialize column visibility if not already set
+          if (Object.keys(settings.visibleColumns).length === 0) {
+            const initialVisibility: Record<string, boolean> = {}
+            Object.keys(formattedData[0] || {}).forEach((key) => {
+              initialVisibility[key] = true
+            })
+            setSettings({ ...settings, visibleColumns: initialVisibility })
+          }
+        }
+
+        showNotification(`Loaded ${formattedData.length} drugs successfully`, "success")
+      } else {
+        console.error("Invalid drug data format:", response.data)
+        setHasMoreData(false)
+        showNotification("Failed to load drugs: Invalid data format", "error")
+      }
+    } catch (error) {
+      console.error("Error fetching drugs:", error)
+      setHasMoreData(false)
+      showNotification("Failed to load drugs: Server error", "error")
+    } finally {
+      setIsLoading(false)
+    }
+
+    return true
+  }
+
+  // Format drug data helper function
+  const formatDrugData = (drug: any) => {
+    return {
+      DrugID: drug.DrugID || "N/A",
+      DrugName: drug.DrugName || "N/A",
+      DrugNameAR: drug.DrugNameAR || "N/A",
+      Seq: drug.Seq || "N/A",
+      ProductType: drug.ProductType || "N/A",
+      ATC: drug.ATC_Code || "N/A",
+      ATCRelatedIngredient: drug.ATCRelatedIngredient || "N/A",
+      OtherIngredients: drug.OtherIngredients || "N/A",
+      Dosage: drug.Dosage || "N/A",
+      // Dosages Fields
+      DosageNumerator1: drug.Dosages?.[0]?.Numerator1 || "N/A",
+      DosageNumerator1Unit: drug.Dosages?.[0]?.Numerator1Unit || "N/A",
+      DosageDenominator1: drug.Dosages?.[0]?.Denominator1 || "N/A",
+      DosageDenominator1Unit: drug.Dosages?.[0]?.Denominator1Unit || "N/A",
+      DosageNumerator2: drug.Dosages?.[0]?.Numerator2 || "N/A",
+      DosageNumerator2Unit: drug.Dosages?.[0]?.Numerator2Unit || "N/A",
+      DosageDenominator2: drug.Dosages?.[0]?.Denominator2 || "N/A",
+      DosageDenominator2Unit: drug.Dosages?.[0]?.Denominator2Unit || "N/A",
+      DosageNumerator3: drug.Dosages?.[0]?.Numerator3 || "N/A",
+      DosageNumerator3Unit: drug.Dosages?.[0]?.Numerator3Unit || "N/A",
+      DosageDenominator3: drug.Dosages?.[0]?.Denominator3 || "N/A",
+      DosageDenominator3Unit: drug.Dosages?.[0]?.Denominator3Unit || "N/A",
+
+      // Drug Presentations Fields
+      PresentationLNDI: drug.PresentationLNDI || "N/A",
+      PresentationDescription: drug.DrugPresentations?.[0]?.Description || "N/A",
+      PresentationUnitQuantity1: drug.DrugPresentations?.[0]?.UnitQuantity1 || "N/A",
+      PresentationUnitType1: drug.DrugPresentations?.[0]?.UnitType1 || "N/A",
+      PresentationUnitQuantity2: drug.DrugPresentations?.[0]?.UnitQuantity2 || "N/A",
+      PresentationUnitType2: drug.DrugPresentations?.[0]?.UnitType2 || "N/A",
+      PresentationPackageQuantity1: drug.DrugPresentations?.[0]?.PackageQuantity1 || "N/A",
+      PresentationPackageType1: drug.DrugPresentations?.[0]?.PackageType1 || "N/A",
+      PresentationPackageQuantity2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
+      PresentationPackageType2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
+      PresentationPackageQuantity3: drug.DrugPresentations?.[0]?.PackageQuantity3 || "N/A",
+      PresentationPackageType3: drug.DrugPresentations?.[0]?.PackageType3 || "N/A",
+
+      // Additional fields
+      isOTC: drug.isOTC || false,
+      DFSequence: drug.DFSequence || "N/A",
+      Form: drug.Form || "N/A",
+      FormRaw: drug.FormRaw || "N/A",
+      FormLNDI: drug.FormLNDI || "N/A",
+      Parent: drug.RouteParent || "N/A",
+      Route: drug.Route || "N/A",
+      RouteRaw: drug.RouteRaw || "N/A",
+      RouteLNDI: drug.RouteLNDI || "N/A",
+      Parentaral: drug.Parentaral || "N/A",
+      Stratum: drug.Stratum || "N/A",
+      Amount: drug.Amount || 0,
+      Agent: drug.Agent || "N/A",
+      Manufacturer: drug.Manufacturer || "N/A",
+      Country: drug.Country || "N/A",
+      RegistrationNumber: drug.RegistrationNumber || "N/A",
+      Notes: drug.Notes || "N/A",
+      Description: drug.Description || "N/A",
+      Indication: drug.Indication || "N/A",
+      Posology: drug.Posology || "N/A",
+      MethodOfAdministration: drug.MethodOfAdministration || "N/A",
+      Contraindications: drug.Contraindications || "N/A",
+      PrecautionForUse: drug.PrecautionForUse || "N/A",
+      EffectOnFGN: drug.EffectOnFGN || "N/A",
+      SideEffect: drug.SideEffect || "N/A",
+      Toxicity: drug.Toxicity || "N/A",
+      StorageCondition: drug.StorageCondition || "N/A",
+      ShelfLife: drug.ShelfLife || "N/A",
+      IngredientLabel: drug.IngredientLabel || "N/A",
+      ImagesPath: drug.ImagesPath || "N/A",
+      ImageDefault: drug.ImageDefault === "N/A" ? null : drug.ImageDefault,
+      InteractionIngredientName: drug.InteractionIngredientName || "N/A",
+      IsDouanes: drug.IsDouanes || "N/A",
+      RegistrationDate: drug.RegistrationDate || "N/A",
+      PublicPrice: drug.PublicPrice || "N/A",
+      SubsidyLabel: drug.SubsidyLabel || "N/A",
+      SubsidyPercentage: drug.SubsidyPercentage || "N/A",
+      HospPricing: drug.HospPricing || "N/A",
+      Substitutable: drug.Substitutable || "N/A",
+      CreatedBy: drug.CreatedBy || "N/A",
+      CreatedDate: drug.CreatedDate || "N/A",
+      UpdatedBy: drug.UpdatedBy || "N/A",
+      UpdatedDate: drug.UpdatedDate || "N/A",
+      ReviewDate: drug.ReviewDate || "N/A",
+      MoPHCode: drug.MoPHCode || "N/A",
+      CargoShippingTerms: drug.CargoShippingTerms || "N/A",
+      NotMarketed: drug.NotMarketed || "N/A",
+      PriceForeign: drug.PriceForeign || "N/A",
+      CurrencyForeign: drug.CurrencyForeign || "N/A",
+    }
+  }
+
+  // Initialize options helper function
+  const initializeOptions = (formattedData: any[]) => {
+    setDosageNumerator1UnitOptions(getUniqueValues(formattedData, "DosageNumerator1Unit"))
+    setDosageNumerator2UnitOptions(getUniqueValues(formattedData, "DosageNumerator2Unit"))
+    setDosageNumerator3UnitOptions(getUniqueValues(formattedData, "DosageNumerator3Unit"))
+    setDosageDenominator1UnitOptions(getUniqueValues(formattedData, "DosageDenominator1Unit"))
+    setDosageDenominator2UnitOptions(getUniqueValues(formattedData, "DosageDenominator2Unit"))
+    setDosageDenominator3UnitOptions(getUniqueValues(formattedData, "DosageDenominator3Unit"))
+    setFormOptions(getUniqueValues(formattedData, "Form"))
+    setRouteOptions(getUniqueValues(formattedData, "Route"))
+    setStratumOptions(getUniqueValues(formattedData, "Stratum"))
+    setAgentOptions(getUniqueValues(formattedData, "Agent"))
+    setManufacturerOptions(getUniqueValues(formattedData, "Manufacturer"))
+  }
+
   const handleAddSuccess = (newDrug: any) => {
     // The backend likely returns the newly created drug record
     // Append to table data
@@ -765,108 +1106,10 @@ export function DrugTable() {
       if (response.data && response.data.drugs && Array.isArray(response.data.drugs)) {
         const { drugs } = response.data
 
-        const formattedData = drugs.map((drug: any) => ({
-          DrugID: drug.DrugID || "N/A",
-          DrugName: drug.DrugName || "N/A",
-          DrugNameAR: drug.DrugNameAR || "N/A",
-          Seq: drug.Seq || "N/A",
-          ProductType: drug.ProductType || "N/A",
-          ATC: drug.ATC_Code || "N/A",
-          ATCRelatedIngredient: drug.ATCRelatedIngredient || "N/A",
-          OtherIngredients: drug.OtherIngredients || "N/A",
-          Dosage: drug.Dosage || "N/A",
-          // Dosages Fields
-          DosageNumerator1: drug.Dosages?.[0]?.Numerator1 || "N/A",
-          DosageNumerator1Unit: drug.Dosages?.[0]?.Numerator1Unit || "N/A",
-          DosageDenominator1: drug.Dosages?.[0]?.Denominator1 || "N/A",
-          DosageDenominator1Unit: drug.Dosages?.[0]?.Denominator1Unit || "N/A",
-          DosageNumerator2: drug.Dosages?.[0]?.Numerator2 || "N/A",
-          DosageNumerator2Unit: drug.Dosages?.[0]?.Numerator2Unit || "N/A",
-          DosageDenominator2: drug.Dosages?.[0]?.Denominator2 || "N/A",
-          DosageDenominator2Unit: drug.Dosages?.[0]?.Denominator2Unit || "N/A",
-          DosageNumerator3: drug.Dosages?.[0]?.Numerator3 || "N/A",
-          DosageNumerator3Unit: drug.Dosages?.[0]?.Numerator3Unit || "N/A",
-          DosageDenominator3: drug.Dosages?.[0]?.Denominator3 || "N/A",
-          DosageDenominator3Unit: drug.Dosages?.[0]?.Denominator3Unit || "N/A",
-
-          // Drug Presentations Fields
-          PresentationLNDI: drug.PresentationLNDI || "N/A",
-          PresentationDescription: drug.DrugPresentations?.[0]?.Description || "N/A",
-          PresentationUnitQuantity1: drug.DrugPresentations?.[0]?.UnitQuantity1 || "N/A",
-          PresentationUnitType1: drug.DrugPresentations?.[0]?.UnitType1 || "N/A",
-          PresentationUnitQuantity2: drug.DrugPresentations?.[0]?.UnitQuantity2 || "N/A",
-          PresentationUnitType2: drug.DrugPresentations?.[0]?.UnitType2 || "N/A",
-          PresentationPackageQuantity1: drug.DrugPresentations?.[0]?.PackageQuantity1 || "N/A",
-          PresentationPackageType1: drug.DrugPresentations?.[0]?.PackageType1 || "N/A",
-          PresentationPackageQuantity2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
-          PresentationPackageType2: drug.DrugPresentations?.[0]?.PackageType2 || "N/A",
-          PresentationPackageQuantity3: drug.DrugPresentations?.[0]?.PackageQuantity3 || "N/A",
-          PresentationPackageType3: drug.DrugPresentations?.[0]?.PackageType3 || "N/A",
-
-          // Additional fields
-          isOTC: drug.isOTC || false,
-          DFSequence: drug.DFSequence || "N/A",
-          Form: drug.Form || "N/A",
-          FormRaw: drug.FormRaw || "N/A",
-          FormLNDI: drug.FormLNDI || "N/A",
-          Parent: drug.RouteParent || "N/A",
-          Route: drug.Route || "N/A",
-          RouteRaw: drug.RouteRaw || "N/A",
-          RouteLNDI: drug.RouteLNDI || "N/A",
-          Parentaral: drug.Parentaral || "N/A",
-          Stratum: drug.Stratum || "N/A",
-          Amount: drug.Amount || 0,
-          Agent: drug.Agent || "N/A",
-          Manufacturer: drug.Manufacturer || "N/A",
-          Country: drug.Country || "N/A",
-          RegistrationNumber: drug.RegistrationNumber || "N/A",
-          Notes: drug.Notes || "N/A",
-          Description: drug.Description || "N/A",
-          Indication: drug.Indication || "N/A",
-          Posology: drug.Posology || "N/A",
-          MethodOfAdministration: drug.MethodOfAdministration || "N/A",
-          Contraindications: drug.Contraindications || "N/A",
-          PrecautionForUse: drug.PrecautionForUse || "N/A",
-          EffectOnFGN: drug.EffectOnFGN || "N/A",
-          SideEffect: drug.SideEffect || "N/A",
-          Toxicity: drug.Toxicity || "N/A",
-          StorageCondition: drug.StorageCondition || "N/A",
-          ShelfLife: drug.ShelfLife || "N/A",
-          IngredientLabel: drug.IngredientLabel || "N/A",
-          ImagesPath: drug.ImagesPath || "N/A",
-          ImageDefault: drug.ImageDefault === "N/A" ? null : drug.ImageDefault,
-          InteractionIngredientName: drug.InteractionIngredientName || "N/A",
-          IsDouanes: drug.IsDouanes || "N/A",
-          RegistrationDate: drug.RegistrationDate || "N/A",
-          PublicPrice: drug.PublicPrice || "N/A",
-          SubsidyLabel: drug.SubsidyLabel || "N/A",
-          SubsidyPercentage: drug.SubsidyPercentage || "N/A",
-          HospPricing: drug.HospPricing || "N/A",
-          Substitutable: drug.Substitutable || "N/A",
-          CreatedBy: drug.CreatedBy || "N/A",
-          CreatedDate: drug.CreatedDate || "N/A",
-          UpdatedBy: drug.UpdatedBy || "N/A",
-          UpdatedDate: drug.UpdatedDate || "N/A",
-          ReviewDate: drug.ReviewDate || "N/A",
-          MoPHCode: drug.MoPHCode || "N/A",
-          CargoShippingTerms: drug.CargoShippingTerms || "N/A",
-          NotMarketed: drug.NotMarketed || "N/A",
-          PriceForeign: drug.PriceForeign || "N/A",
-          CurrencyForeign: drug.CurrencyForeign || "N/A",
-        }))
+        const formattedData = drugs.map(formatDrugData)
 
         // Populate dropdowns with unique, non-empty values
-        setDosageNumerator1UnitOptions(getUniqueValues(formattedData, "DosageNumerator1Unit"))
-        setDosageNumerator2UnitOptions(getUniqueValues(formattedData, "DosageNumerator2Unit"))
-        setDosageNumerator3UnitOptions(getUniqueValues(formattedData, "DosageNumerator3Unit"))
-        setDosageDenominator1UnitOptions(getUniqueValues(formattedData, "DosageDenominator1Unit"))
-        setDosageDenominator2UnitOptions(getUniqueValues(formattedData, "DosageDenominator2Unit"))
-        setDosageDenominator3UnitOptions(getUniqueValues(formattedData, "DosageDenominator3Unit"))
-        setFormOptions(getUniqueValues(formattedData, "Form"))
-        setRouteOptions(getUniqueValues(formattedData, "Route"))
-        setStratumOptions(getUniqueValues(formattedData, "Stratum"))
-        setAgentOptions(getUniqueValues(formattedData, "Agent"))
-        setManufacturerOptions(getUniqueValues(formattedData, "Manufacturer"))
+        initializeOptions(formattedData)
 
         // Set the full dataset directly to tableData
         setTableData(formattedData)
@@ -1261,22 +1504,26 @@ export function DrugTable() {
 
   // Export current view to CSV
   const handleExportCSV = () => {
-    const visibleColumns = columns.filter((col) => settings.visibleColumns[col.accessor] !== false)
-    const dataToExport = filteredData.map((row) => {
+    const visibleColumns = columns.filter(
+      (col: { accessor: string; title: string; width: number }) => settings.visibleColumns[col.accessor] !== false,
+    )
+
+    const dataToExport = filteredData.map((row: any) => {
       const exportRow: Record<string, any> = {}
-      visibleColumns.forEach((col) => {
+      visibleColumns.forEach((col: { accessor: string; title: string; width: number }) => {
         exportRow[col.accessor] = row[col.accessor]
       })
       return exportRow
     })
 
     exportToCSV(dataToExport, visibleColumns, `drug-data-export-${new Date().toISOString().slice(0, 10)}.csv`)
+
     showNotification("Data exported to CSV successfully", "success")
   }
 
   // Define columns based on the selected preset
-  const columns = useMemo(() => {
-    let columnsList = []
+  const columns = useMemo<Array<{ accessor: string; title: string; width: number }>>(() => {
+    let columnsList: Array<{ accessor: string; title: string; width: number }> = []
 
     switch (columnPreset) {
       /* --------------------------------------------------
@@ -1431,7 +1678,6 @@ export function DrugTable() {
             title: "ATC Related Ingredient",
             width: columnWidths["ATCRelatedIngredient"] || 180,
           },
-          // Add more columns for the default preset as needed
           { accessor: "OtherIngredients", title: "All Ingredients", width: columnWidths["OtherIngredients"] || 180 },
           { accessor: "Dosage", title: "Dosage (merged)", width: columnWidths["Dosage"] || 200 },
           { accessor: "PresentationLNDI", title: "PresentationLNDI", width: columnWidths["PresentationLNDI"] || 60 },
@@ -1584,23 +1830,8 @@ export function DrugTable() {
     tableData,
   ])
 
-  // Add state for column filters
-  const [columnFilters, setColumnFilters] = useState<Record<string, string[]>>({})
-  const [activeFilters, setActiveFilters] = useState<string[]>([])
-
-  // Function to update column filters
-  const updateColumnFilters = (columnId: string, values: string[]) => {
-    setColumnFilters((prev) => ({
-      ...prev,
-      [columnId]: values,
-    }))
-
-    // Update active filters
-    setActiveFilters(Object.keys(columnFilters).filter((key) => columnFilters[key] && columnFilters[key].length > 0))
-  }
-
   // Modify the filteredData useMemo to include sorting
-  const filteredData = useMemo(() => {
+  const filteredData = useMemo<any[]>(() => {
     let filtered = tableData
 
     // Apply global filter
@@ -1613,8 +1844,7 @@ export function DrugTable() {
     }
 
     // Apply column filters
-    activeFilters.forEach((columnId) => {
-      const filterValues = columnFilters[columnId]
+    Object.entries(columnFilters).forEach(([columnId, filterValues]) => {
       if (filterValues && filterValues.length > 0) {
         filtered = filtered.filter((row) => {
           const cellValue = row[columnId]
@@ -1647,7 +1877,7 @@ export function DrugTable() {
     }
 
     return filtered
-  }, [tableData, globalFilter, columnFilters, activeFilters, sortColumn, sortDirection])
+  }, [tableData, globalFilter, columnFilters, sortColumn, sortDirection])
 
   // Modify the columns useMemo to respect column order
   const orderedColumns = useMemo(() => {
@@ -2052,6 +2282,29 @@ export function DrugTable() {
     showNotification("Settings applied successfully", "success")
   }
 
+  // Get filter options for a column
+  const getFilterOptions = (columnId: string) => {
+    const uniqueValues = new Set<string>()
+
+    // Use a limited subset of data for better performance
+    const sampleData = allData.slice(0, 1000)
+
+    sampleData.forEach((row) => {
+      const value = row[columnId]
+      if (value !== null && value !== undefined && value !== "" && value !== "N/A") {
+        uniqueValues.add(value.toString())
+      }
+    })
+
+    return Array.from(uniqueValues).sort()
+  }
+
+  // Clear all filters
+  const clearAllFilters = () => {
+    setColumnFilters({})
+    setActiveFilters([])
+  }
+
   return (
     <MantineProvider withNormalizeCSS withGlobalStyles>
       <Box className={cx(classes.tableContainer, isFullscreen && classes.fullscreenTable)}>
@@ -2069,6 +2322,14 @@ export function DrugTable() {
               ]}
               style={{ width: 180 }}
             />
+
+            <Button
+              variant="outline"
+              onClick={() => setIsColumnVisibilityModalOpen(true)}
+              leftIcon={<IconEye size={16} />}
+            >
+              Manage Columns
+            </Button>
 
             <Modal
               opened={isColumnVisibilityModalOpen}
@@ -2150,9 +2411,12 @@ export function DrugTable() {
               icon={<IconSearch size={16} />}
               className={classes.searchInput}
             />
-            <Button variant="outline" leftIcon={<IconFilter size={16} />} onClick={() => setIsFilterModalOpen(true)}>
-              {activeFilters.length > 0 ? `Filters (${activeFilters.length})` : "Filters"}
-            </Button>
+
+            {Object.keys(columnFilters).length > 0 && (
+              <Button variant="outline" color="red" leftIcon={<IconFilterOff size={16} />} onClick={clearAllFilters}>
+                Clear All Filters
+              </Button>
+            )}
           </Group>
 
           {selectedRows.size > 0 && (
@@ -2200,16 +2464,16 @@ export function DrugTable() {
                     />
                   </th>
                   {orderedColumns.map((column) => (
-                    <DraggableHeader
+                    <EnhancedHeader
                       key={column.accessor}
                       column={column}
                       onResize={handleColumnResize}
                       onSort={handleSort}
                       sortDirection={sortColumn === column.accessor ? sortDirection : null}
                       sortColumn={sortColumn}
-                      onDragStart={handleColumnDragStart}
-                      onDragOver={handleColumnDragOver}
-                      onDragEnd={handleColumnDragEnd}
+                      onFilter={(columnId, values) => updateColumnFilters(columnId, values)}
+                      activeFilters={columnFilters}
+                      filterOptions={getFilterOptions(column.accessor)}
                     />
                   ))}
                   <th style={{ width: 80 }}>Actions</th>
@@ -2305,6 +2569,13 @@ export function DrugTable() {
                 )}
               </tbody>
             </Table>
+          )}
+
+          {isLoadingMore && (
+            <Box sx={{ display: "flex", justifyContent: "center", padding: "1rem" }}>
+              <Loader size="sm" />
+              <Text ml="md">Loading more data...</Text>
+            </Box>
           )}
         </Paper>
 
@@ -2449,6 +2720,41 @@ export function DrugTable() {
                   Virtualization improves performance with large datasets but may cause some visual glitches.
                 </Text>
               </Box>
+
+              <Divider my="md" />
+
+              <Box>
+                <Group position="apart">
+                  <Text weight={500}>Enable Lazy Loading</Text>
+                  <Switch
+                    checked={tempSettings.lazyLoading}
+                    onChange={(e) => setTempSettings((prev) => ({ ...prev, lazyLoading: e.currentTarget.checked }))}
+                  />
+                </Group>
+                <Text size="xs" color="dimmed" mt={5}>
+                  Load data in batches as you scroll for better initial performance.
+                </Text>
+              </Box>
+
+              <Box mt="md">
+                <Text weight={500} mb={5}>
+                  Batch Size
+                </Text>
+                <Slider
+                  min={100}
+                  max={1000}
+                  step={100}
+                  value={tempSettings.batchSize}
+                  onChange={(value) => setTempSettings((prev) => ({ ...prev, batchSize: value }))}
+                  marks={[
+                    { value: 100, label: "100" },
+                    { value: 500, label: "500" },
+                    { value: 1000, label: "1000" },
+                  ]}
+                  label={(value) => `${value} rows`}
+                  disabled={!tempSettings.lazyLoading}
+                />
+              </Box>
             </Tabs.Panel>
 
             <Tabs.Panel value="behavior" pt="xs">
@@ -2574,19 +2880,6 @@ export function DrugTable() {
           }
         `}</style>
       </Box>
-      <FilterModal
-        opened={isFilterModalOpen}
-        onClose={() => setIsFilterModalOpen(false)}
-        columns={columns}
-        tableData={tableData}
-        columnFilters={columnFilters}
-        activeFilters={activeFilters}
-        onFilterChange={updateColumnFilters}
-        onClearAllFilters={() => {
-          setColumnFilters({})
-          setActiveFilters([])
-        }}
-      />
     </MantineProvider>
   )
 }
