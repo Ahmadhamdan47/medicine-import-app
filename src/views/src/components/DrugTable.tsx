@@ -5,7 +5,7 @@ import type React from "react"
 import { useEffect, useState, useMemo, useRef, useCallback } from "react"
 import { useVirtualizer } from "@tanstack/react-virtual"
 import { useHotkeys, useLocalStorage, useViewportSize } from "@mantine/hooks"
-import  exportToExcel  from "./exportutil"
+import exportToExcel from "./exportutil"
 
 import axios from "axios"
 import {
@@ -42,7 +42,6 @@ import {
   IconChevronDown,
   IconCheck,
   IconX,
-  IconArrowsUpDown,
   IconSettings,
   IconDownload,
   IconMaximize,
@@ -53,7 +52,9 @@ import {
   IconEye,
 } from "@tabler/icons-react"
 
-import  AddDrugModal  from "./AddDrugModal"
+import AddDrugModal from "./AddDrugModal"
+// Add the DraggableHeader import at the top with other imports
+import { DraggableHeader } from "./DraggableHeader"
 
 // Create styles for the components
 const useStyles = createStyles((theme) => ({
@@ -554,6 +555,58 @@ export function DrugTable() {
   const [stratumOptions, setStratumOptions] = useState<string[]>([])
   const [agentOptions, setAgentOptions] = useState<string[]>([])
   const [manufacturerOptions, setManufacturerOptions] = useState<string[]>([])
+
+  // Add state for sorting and column dragging
+  const [sortColumn, setSortColumn] = useState<string | null>(null)
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(null)
+  const [draggedColumn, setDraggedColumn] = useState<string | null>(null)
+  const [columnOrder, setColumnOrder] = useState<string[]>([])
+
+  // Add a function to handle sorting
+  const handleSort = (columnId: string) => {
+    if (sortColumn === columnId) {
+      // Toggle direction if already sorting by this column
+      if (sortDirection === "asc") {
+        setSortDirection("desc")
+      } else if (sortDirection === "desc") {
+        // Clear sort if already descending
+        setSortColumn(null)
+        setSortDirection(null)
+      }
+    } else {
+      // Start with ascending sort for new column
+      setSortColumn(columnId)
+      setSortDirection("asc")
+    }
+  }
+
+  // Add a function to handle column drag start
+  const handleColumnDragStart = (columnId: string) => {
+    setDraggedColumn(columnId)
+  }
+
+  // Add a function to handle column drag over
+  const handleColumnDragOver = (columnId: string) => {
+    if (draggedColumn && draggedColumn !== columnId) {
+      // Get current order or initialize from columns
+      const currentOrder = columnOrder.length > 0 ? columnOrder : columns.map((col) => col.accessor)
+
+      const draggedIdx = currentOrder.indexOf(draggedColumn)
+      const targetIdx = currentOrder.indexOf(columnId)
+
+      if (draggedIdx !== -1 && targetIdx !== -1) {
+        const newOrder = [...currentOrder]
+        newOrder.splice(draggedIdx, 1)
+        newOrder.splice(targetIdx, 0, draggedColumn)
+        setColumnOrder(newOrder)
+      }
+    }
+  }
+
+  // Add a function to handle column drag end
+  const handleColumnDragEnd = () => {
+    setDraggedColumn(null)
+  }
 
   // Debounced save function
   const debouncedSaveChange = useCallback(
@@ -1526,16 +1579,86 @@ export function DrugTable() {
     tableData,
   ])
 
-  // Filter data based on global filter
-  const filteredData = useMemo(() => {
-    if (!globalFilter) return tableData
+  // Add state for column filters
+  const [columnFilters, setColumnFilters] = useState<Record<string, string[]>>({})
+  const [activeFilters, setActiveFilters] = useState<string[]>([])
 
-    return tableData.filter((row) => {
-      return Object.values(row).some(
-        (value) => value && value.toString().toLowerCase().includes(globalFilter.toLowerCase()),
-      )
+  // Function to update column filters
+  const updateColumnFilters = (columnId: string, values: string[]) => {
+    setColumnFilters((prev) => ({
+      ...prev,
+      [columnId]: values,
+    }))
+
+    // Update active filters
+    setActiveFilters(Object.keys(columnFilters).filter((key) => columnFilters[key] && columnFilters[key].length > 0))
+  }
+
+  // Modify the filteredData useMemo to include sorting
+  const filteredData = useMemo(() => {
+    let filtered = tableData
+
+    // Apply global filter
+    if (globalFilter) {
+      filtered = filtered.filter((row) => {
+        return Object.values(row).some(
+          (value) => value && value.toString().toLowerCase().includes(globalFilter.toLowerCase()),
+        )
+      })
+    }
+
+    // Apply column filters
+    activeFilters.forEach((columnId) => {
+      const filterValues = columnFilters[columnId]
+      if (filterValues && filterValues.length > 0) {
+        filtered = filtered.filter((row) => {
+          const cellValue = row[columnId]
+          return filterValues.includes(cellValue?.toString() || "")
+        })
+      }
     })
-  }, [tableData, globalFilter])
+
+    // Apply sorting
+    if (sortColumn && sortDirection) {
+      filtered = [...filtered].sort((a, b) => {
+        const aValue = a[sortColumn]
+        const bValue = b[sortColumn]
+
+        // Handle null, undefined, and "N/A" values
+        if (aValue === null || aValue === undefined || aValue === "N/A") return sortDirection === "asc" ? 1 : -1
+        if (bValue === null || bValue === undefined || bValue === "N/A") return sortDirection === "asc" ? -1 : 1
+
+        // Compare numbers
+        if (!isNaN(Number(aValue)) && !isNaN(Number(bValue))) {
+          return sortDirection === "asc" ? Number(aValue) - Number(bValue) : Number(bValue) - Number(aValue)
+        }
+
+        // Compare strings
+        const aString = String(aValue).toLowerCase()
+        const bString = String(bValue).toLowerCase()
+
+        return sortDirection === "asc" ? aString.localeCompare(bString) : bString.localeCompare(aString)
+      })
+    }
+
+    return filtered
+  }, [tableData, globalFilter, columnFilters, activeFilters, sortColumn, sortDirection])
+
+  // Modify the columns useMemo to respect column order
+  const orderedColumns = useMemo(() => {
+    if (columnOrder.length === 0) {
+      return columns
+    }
+
+    // Create a map for quick lookup
+    const columnMap = new Map(columns.map((col) => [col.accessor, col]))
+
+    // Return columns in the specified order, falling back to original order for any not in columnOrder
+    return [
+      ...columnOrder.map((id) => columnMap.get(id)).filter((col): col is (typeof columns)[0] => col !== undefined), // Type guard to ensure no undefined values
+      ...columns.filter((col) => !columnOrder.includes(col.accessor)),
+    ]
+  }, [columns, columnOrder])
 
   // Pagination
   const paginatedData = useMemo(() => {
@@ -2007,13 +2130,9 @@ export function DrugTable() {
               Add Drug
             </Button>
 
-            <Button
-  leftIcon={<IconDownload size={16} />}
-  onClick={() => exportToExcel(tableData)}
-
->
-  Export to Excel
-</Button>
+            <Button leftIcon={<IconDownload size={16} />} onClick={() => exportToExcel(tableData)}>
+              Export to Excel
+            </Button>
           </Group>
         </Box>
 
@@ -2070,20 +2189,18 @@ export function DrugTable() {
                       indeterminate={selectedRows.size > 0 && selectedRows.size < paginatedData.length}
                     />
                   </th>
-                  {columns.map((column) => (
-                    <th
+                  {orderedColumns.map((column) => (
+                    <DraggableHeader
                       key={column.accessor}
-                      style={{ width: column.width, position: "relative" }}
-                      className={classes.tableHeaderCell}
-                    >
-                      <Group position="apart" noWrap>
-                        <Text weight={500}>{column.title}</Text>
-                        <ActionIcon size="xs" variant="subtle">
-                          <IconArrowsUpDown size={14} />
-                        </ActionIcon>
-                      </Group>
-                      <ColumnResizeHandle column={column} onResize={handleColumnResize} />
-                    </th>
+                      column={column}
+                      onResize={handleColumnResize}
+                      onSort={handleSort}
+                      sortDirection={sortColumn === column.accessor ? sortDirection : null}
+                      sortColumn={sortColumn}
+                      onDragStart={handleColumnDragStart}
+                      onDragOver={handleColumnDragOver}
+                      onDragEnd={handleColumnDragEnd}
+                    />
                   ))}
                   <th style={{ width: 80 }}>Actions</th>
                 </tr>
@@ -2133,7 +2250,7 @@ export function DrugTable() {
                               }}
                             />
                           </td>
-                          {columns.map((column) => (
+                          {orderedColumns.map((column) => (
                             <td key={`${row.DrugID}-${column.accessor}`}>
                               <Cell
                                 value={row[column.accessor]}
