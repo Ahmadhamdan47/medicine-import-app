@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const logger = require("./config/logger");
 const path = require("path");
 const sequelize = require("./config/databasePharmacy");
-
+const cors = require("cors");
 // Routers
 const drugRouter = require("./src/routes/drugRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
