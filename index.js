@@ -66,29 +66,22 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 // --- Custom CORS Middleware ---
-// Define the allowed origins.
-const allowedOrigins = [
-  "https://ps-new.vercel.app",
-  "https://drug-table.vercel.app"
-];
+// Place this middleware as early as possible, and ensure no other middleware sets Access-Control-Allow-Origin.
+const allowedOrigins = ["https://ps-new.vercel.app", "https://drug-table.vercel.app"];
 
-app.use((req, res, next) => {
-  const origin = req.headers.origin;
-  // If the request has an origin and it is in our allowed list, echo it back.
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  // Optional: explicitly set other CORS headers.
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  // Handle preflight requests
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || !allowedOrigins.includes(origin)) {
+        return callback(new Error("Origin not allowed"), false);
+      }
+      callback(null, origin); // Explicitly set the allowed origin
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 // --- End Custom CORS Middleware ---
 
 // --- API Routers ---
@@ -152,7 +145,7 @@ app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
 
-// --- Database Synchronization ---
+// --- Database Synchronization --- 
 sequelize.sync()
   .then(() => {
     console.log("Database synchronized successfully!");
