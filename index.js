@@ -6,7 +6,9 @@ const bodyParser = require("body-parser");
 const logger = require("./config/logger");
 const path = require("path");
 const sequelize = require("./config/databasePharmacy");
-const cors = require("cors");
+// Remove the built-in cors package usage
+// const cors = require("cors");
+
 // Routers
 const drugRouter = require("./src/routes/drugRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
@@ -66,22 +68,32 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 // --- Custom CORS Middleware ---
-// Place this middleware as early as possible, and ensure no other middleware sets Access-Control-Allow-Origin.
-const allowedOrigins = ["https://ps-new.vercel.app", "https://drug-table.vercel.app"];
+// Define the allowed origins.
+const allowedOrigins = [
+  "https://ps-new.vercel.app",
+  "https://drug-table.vercel.app"
+];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || !allowedOrigins.includes(origin)) {
-        return callback(new Error("Origin not allowed"), false);
-      }
-      callback(null, origin); // Explicitly set the allowed origin
-    },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+app.use((req, res, next) => {
+  const requestOrigin = req.headers.origin;
+  // If the incoming request's origin is allowed, echo it back.
+  if (requestOrigin && allowedOrigins.includes(requestOrigin)) {
+    res.setHeader("Access-Control-Allow-Origin", requestOrigin);
+  }
+  // Optionally, you can decide what to do if the origin is not allowed.
+  // For example, do not set the header or set it to null.
+  
+  // Set additional CORS headers
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  // Handle preflight OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
 // --- End Custom CORS Middleware ---
 
 // --- API Routers ---
@@ -145,7 +157,7 @@ app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
 
-// --- Database Synchronization --- 
+// --- Database Synchronization ---
 sequelize.sync()
   .then(() => {
     console.log("Database synchronized successfully!");
