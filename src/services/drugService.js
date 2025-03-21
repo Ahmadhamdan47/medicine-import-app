@@ -365,6 +365,9 @@ const getAllDrugs = async () => {
 
 const getAllDrugsPaginated = async (page = 1, limit = 500) => {
   try {
+    // Ensure page is at least 1
+    page = Math.max(page, 1);
+
     const offset = (page - 1) * limit;
 
     // Fetch drugs with associated presentations and dosages, excluding NotMarketed drugs
@@ -413,12 +416,12 @@ const getAllDrugsPaginated = async (page = 1, limit = 500) => {
       ],
     });
 
-    // Format the data for easier consumption in DrugsTable.tsx
+    // Format the data for easier consumption
     const formattedDrugs = rows.map((drug) => ({
       ...drug.get({ plain: true }),
-      priceInLBP: drug.Price * 89500, // Add price in LBP
-      unitPrice: drug.Amount ? drug.Price / drug.Amount : null, // Calculate unit price
-      unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null, // Calculate unit price in LBP
+      priceInLBP: drug.Price * 89500,
+      unitPrice: drug.Amount ? drug.Price / drug.Amount : null,
+      unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null,
     }));
 
     return { drugs: formattedDrugs, totalPages: Math.ceil(count / limit) };
