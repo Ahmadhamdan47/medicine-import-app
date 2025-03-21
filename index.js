@@ -3,7 +3,6 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerConfig = require("./config/swagger");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const logger = require("./config/logger");
 const path = require("path");
 const sequelize = require("./config/databasePharmacy");
@@ -48,7 +47,7 @@ const stratumRoutes = require("./src/routes/stratumRoutes");
 const app = express();
 const PORT = process.env.PORT || 8066;
 
-// Swagger definition
+// --- Swagger Configuration ---
 const swaggerSpec = swaggerJSDoc(swaggerConfig);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/swagger-ui", express.static("node_modules/swagger-ui-dist"));
@@ -57,40 +56,42 @@ app.get("/swagger.json", (req, res) => {
   res.send(swaggerSpec);
 });
 
-// Middleware for logging incoming requests
+// --- Logging Middleware ---
 app.use((req, res, next) => {
   logger.info(`[${new Date().toISOString()}] [${req.method}] ${req.url}`);
   next();
 });
 
+// --- Body Parser Middleware ---
 app.use(bodyParser.json());
 
-// --- CORS Configuration for Multiple Origins ---
+// --- Custom CORS Middleware ---
+// Define the allowed origins.
 const allowedOrigins = [
   "https://ps-new.vercel.app",
   "https://drug-table.vercel.app"
 ];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "FETCH"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-};
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  // If the request has an origin and it is in our allowed list, echo it back.
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  // Optional: explicitly set other CORS headers.
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
-// --- End CORS Configuration ---
+  // Handle preflight requests
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+// --- End Custom CORS Middleware ---
 
-// Use routers for API endpoints
+// --- API Routers ---
 app.use("/drugs", drugRouter);
 app.use("/submittedOrders", submittedOrderRoutes);
 app.use("/rfi", rfiRoutes);
@@ -128,31 +129,30 @@ app.use("/bannedDrugs", bannedDrugsRoutes);
 app.use("/stratum", stratumRoutes);
 app.use("/img", express.static("img"));
 
-// Serve static files from the React app
+// --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
-
-// Handle React routing, return all requests to React app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "src/views/build", "index.html"));
 });
 
-// Sample route
+// --- Root Route ---
 app.get("/", (req, res) => {
   logger.info(`[${new Date().toISOString()}] [GET] / - Hello, Medicine Import App!`);
   res.send("Hello, Medicine Import App!");
 });
 
-// Error handling middleware
+// --- Error Handling Middleware ---
 app.use((err, req, res, next) => {
   logger.error(`[${new Date().toISOString()}] An error occurred: ${err.message}`);
   res.status(500).send("Something went wrong!");
 });
 
-// Start the server
+// --- Start the Server ---
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
 
+// --- Database Synchronization ---
 sequelize.sync()
   .then(() => {
     console.log("Database synchronized successfully!");
