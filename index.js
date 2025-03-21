@@ -6,8 +6,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("./config/logger");
 const path = require("path");
-const sequelize = require('./config/databasePharmacy');  // Adjust the path to your Sequelize instance
+const sequelize = require("./config/databasePharmacy");
 
+// Routers
 const drugRouter = require("./src/routes/drugRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
 const rfiRoutes = require("./src/routes/rfiRoutes");
@@ -30,27 +31,25 @@ const agentRoutes = require("./src/routes/agentRoutes");
 const containerTypeRoutes = require("./src/routes/containerTypeRoutes");
 const dispensingCategoryRoutes = require("./src/routes/dispensingCategoryRoutes");
 const hospitalizationRoutes = require("./src/routes/hospitalizationRoutes");
-const userRoutes = require('./src/routes/userRoutes');
-const batchLotRoutes = require('./src/routes/batchLotRoutes');
-const roleRoutes = require('./src/routes/roleRoutes');
-const boxRoutes = require('./src/routes/boxRoutes');
-const batchSerialRoutes = require('./src/routes/batchSerialRoutes');
-const notificationRoutes = require('./src/routes/notificationRoutes');
-const presentationRoutes = require('./src/routes/presentationRoutes');
-const dosageRoutes = require('./src/routes/dosageRoutes');
-const recipientAgreementsRoutes = require('./src/routes/recipientAgreementsRoutes');
-const manufacturerRoutes = require('./src/routes/manufacturerRoutes');
-const responsiblPartyRoutes = require('./src/routes/responsiblePartyRoutes');
-const bannedDrugsRoutes = require('./src/routes/bannedDrugsRoutes');
-const stratumRoutes = require('./src/routes/stratumRoutes');
+const userRoutes = require("./src/routes/userRoutes");
+const batchLotRoutes = require("./src/routes/batchLotRoutes");
+const roleRoutes = require("./src/routes/roleRoutes");
+const boxRoutes = require("./src/routes/boxRoutes");
+const batchSerialRoutes = require("./src/routes/batchSerialRoutes");
+const notificationRoutes = require("./src/routes/notificationRoutes");
+const presentationRoutes = require("./src/routes/presentationRoutes");
+const dosageRoutes = require("./src/routes/dosageRoutes");
+const recipientAgreementsRoutes = require("./src/routes/recipientAgreementsRoutes");
+const manufacturerRoutes = require("./src/routes/manufacturerRoutes");
+const responsiblPartyRoutes = require("./src/routes/responsiblePartyRoutes");
+const bannedDrugsRoutes = require("./src/routes/bannedDrugsRoutes");
+const stratumRoutes = require("./src/routes/stratumRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8066;
 
 // Swagger definition
 const swaggerSpec = swaggerJSDoc(swaggerConfig);
-
-// Serve Swagger UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/swagger-ui", express.static("node_modules/swagger-ui-dist"));
 app.get("/swagger.json", (req, res) => {
@@ -65,9 +64,33 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use(cors());
 
-// Use your routers
+// --- CORS Configuration for Multiple Origins ---
+const allowedOrigins = [
+  "https://ps-new.vercel.app",
+  "https://drug-table.vercel.app"
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+// --- End CORS Configuration ---
+
+// Use routers for API endpoints
 app.use("/drugs", drugRouter);
 app.use("/submittedOrders", submittedOrderRoutes);
 app.use("/rfi", rfiRoutes);
@@ -90,27 +113,27 @@ app.use("/agent", agentRoutes);
 app.use("/containerType", containerTypeRoutes);
 app.use("/dispensingCategory", dispensingCategoryRoutes);
 app.use("/hospitalization", hospitalizationRoutes);
-app.use('/users', userRoutes);
-app.use('/batchLots', batchLotRoutes);
-app.use('/roles',roleRoutes);
-app.use('/boxes',boxRoutes);
-app.use('/batchserial',batchSerialRoutes);
-app.use('/notification', notificationRoutes);
-app.use('/presentations',presentationRoutes);
-app.use('/dosages',dosageRoutes);
-app.use('/recipientAgreements', recipientAgreementsRoutes);
-app.use('/manufacturer',manufacturerRoutes);
-app.use('/responsibleParty',responsiblPartyRoutes);   
-app.use('/bannedDrugs', bannedDrugsRoutes);
-app.use('/stratum', stratumRoutes);
-app.use('/img', express.static('img'));
+app.use("/users", userRoutes);
+app.use("/batchLots", batchLotRoutes);
+app.use("/roles", roleRoutes);
+app.use("/boxes", boxRoutes);
+app.use("/batchserial", batchSerialRoutes);
+app.use("/notification", notificationRoutes);
+app.use("/presentations", presentationRoutes);
+app.use("/dosages", dosageRoutes);
+app.use("/recipientAgreements", recipientAgreementsRoutes);
+app.use("/manufacturer", manufacturerRoutes);
+app.use("/responsibleParty", responsiblPartyRoutes);
+app.use("/bannedDrugs", bannedDrugsRoutes);
+app.use("/stratum", stratumRoutes);
+app.use("/img", express.static("img"));
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'src/views/build')));
+app.use(express.static(path.join(__dirname, "src/views/build")));
 
 // Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/views/build', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "src/views/build", "index.html"));
 });
 
 // Sample route
@@ -129,10 +152,11 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
 });
+
 sequelize.sync()
   .then(() => {
-    console.log('Database synchronized successfully!');
+    console.log("Database synchronized successfully!");
   })
   .catch((error) => {
-    console.error('Error synchronizing the database:', error);
+    console.error("Error synchronizing the database:", error);
   });
