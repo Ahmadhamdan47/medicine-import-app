@@ -66,7 +66,7 @@ router.get("/:ResponsiblePartyId", responsiblePartyController.getResponsiblePart
  *       '500':
  *         description: Server error
  */
-router.get("/", responsiblePartyController.getAllResponsibleParties);
+router.get("/all", responsiblePartyController.getAllResponsibleParties);
 
 /**
  * @swagger
