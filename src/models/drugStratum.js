@@ -36,6 +36,12 @@ const DrugStratum = sequelize.define('drugstratum', {
 }, {
     tableName: 'drugstratum',
     timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    , indexes: [
+        {
+            name: 'idx_drugstratum_drug_id',
+            fields: ['DrugId']
+        }
+    ]
 });
 
 module.exports = DrugStratum;

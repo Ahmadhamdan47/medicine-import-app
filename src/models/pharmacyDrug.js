@@ -211,9 +211,52 @@ const NewDrug = sequelize.define('drug', {
     },
 }, {
     tableName: 'drug',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false ,
+    indexes: [
+        {
+            name: 'idx_drug_name',
+            fields: ['DrugName']
+        },
+        {
+            name: 'idx_drug_name_ar',
+            fields: ['DrugNameAR']
+        },
+        {
+            name: 'idx_atc_related',
+            fields: ['ATCRelatedIngredient']
+        },
+        {
+            name: 'idx_gtin',
+            fields: ['GTIN']
+        },
+        {
+            name: 'idx_moph_code',
+            fields: ['MoPHCode']
+        },
+        {
+            name: 'idx_form',
+            fields: ['Form']
+        },
+        {
+            name: 'idx_route',
+            fields: ['Route']
+        },
+        {
+            name: 'idx_not_marketed',
+            fields: ['NotMarketed', 'DrugID']
+        },
+        {
+            name: 'idx_is_otc',
+            fields: ['isOTC']
+        },
+        {
+            name: 'idx_manufacturer',
+            fields: ['Manufacturer']
+        }
+    ]
     
 });
+// Add these indexes to your Drug model
 
 NewDrug.hasMany(DrugPresentation, { foreignKey: 'DrugId' }); // Drug can have many presentations
 DrugPresentation.belongsTo(NewDrug, { foreignKey: 'DrugId' }); // Each presentation belongs to a drug

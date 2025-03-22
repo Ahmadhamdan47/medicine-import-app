@@ -26,7 +26,19 @@ const Substitute = sequelize.define('substitute', {
     }
 }, {
     tableName: 'substitute',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+        {
+            name: 'idx_substitute_drug',
+            fields: ['Drug']
+        },
+        {
+            name: 'idx_substitute_sub',
+            fields: ['Substitute']
+        }
+    ]
 });
+// Add these indexes to your Substitute model
+
 
 module.exports = Substitute;

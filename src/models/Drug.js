@@ -209,6 +209,48 @@ const NewDrug = sequelize.define('drug', {
     },
 }, {
     tableName: 'drug',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+        {
+            name: 'idx_drug_name',
+            fields: ['DrugName']
+        },
+        {
+            name: 'idx_drug_name_ar',
+            fields: ['DrugNameAR']
+        },
+        {
+            name: 'idx_atc_related',
+            fields: ['ATCRelatedIngredient']
+        },
+        {
+            name: 'idx_gtin',
+            fields: ['GTIN']
+        },
+        {
+            name: 'idx_moph_code',
+            fields: ['MoPHCode']
+        },
+        {
+            name: 'idx_form',
+            fields: ['Form']
+        },
+        {
+            name: 'idx_route',
+            fields: ['Route']
+        },
+        {
+            name: 'idx_not_marketed',
+            fields: ['NotMarketed', 'DrugID']
+        },
+        {
+            name: 'idx_is_otc',
+            fields: ['isOTC']
+        },
+        {
+            name: 'idx_manufacturer',
+            fields: ['Manufacturer']
+        }
+    ]
 });
 module.exports = NewDrug;

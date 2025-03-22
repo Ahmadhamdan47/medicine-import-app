@@ -69,7 +69,14 @@ const Dosage = sequelize.define('Dosage', {
     }
 }, {
     tableName: 'dosage',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false,
+    indexes: [
+        {
+            name: 'idx_dosage_drug_id',
+            fields: ['DrugId']
+        }
+    ]
 });
+// Add this index to your Dosage model
 
 module.exports = Dosage;

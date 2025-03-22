@@ -36,7 +36,24 @@ drug_atc_mapping.init({
   modelName: 'drug_atc_mapping',
   tableName: 'drug_atc_mapping',
   timestamps: false,
+  indexes: [
+    {
+      name: 'idx_mapping_drug_id',
+      fields: ['DrugID']
+    },
+    {
+      name: 'idx_mapping_atc_id',
+      fields: ['ATC_ID']
+    },
+    {
+      name: 'idx_drug_atc_composite',
+      fields: ['DrugID', 'ATC_ID'],
+      unique: false
+    }
+  ]
 });
+// Add these indexes to your Drug_ATC_Mapping model
+
 drug_atc_mapping.belongsTo(Drug, { foreignKey: 'DrugID' });
 drug_atc_mapping.belongsTo(ATC_Code, { foreignKey: 'ATC_ID' });
 module.exports = drug_atc_mapping;

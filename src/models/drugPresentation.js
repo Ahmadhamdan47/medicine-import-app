@@ -61,7 +61,14 @@ const DrugPresentation = sequelize.define('DrugPresentation', {
     }
 }, {
     tableName: 'drugpresentation',
-    timestamps: false // Assuming there are no 'createdAt' and 'updatedAt' fields in the table
+    timestamps: false,
+    indexes: [
+        {
+            fields: ['DrugId'],
+            name: 'idx_presentation_drug_id'
+        }
+    ]
 });
+
 
 module.exports = DrugPresentation;
