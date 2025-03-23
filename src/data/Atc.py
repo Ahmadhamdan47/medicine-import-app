@@ -26,7 +26,7 @@ def get_db_connection():
         return None
 
 def main():
-    # Read data from the CSV file
+    # Read data from the CSV file (with headers: ATC_ID, Code, Name, ParentID)
     csv_data = read_csv('./ATC.csv')
     if not csv_data:
         print("No data loaded from CSV. Exiting.")
@@ -41,16 +41,17 @@ def main():
         conn.autocommit = False  # Start a transaction
         cursor = conn.cursor(dictionary=True)
 
-        # Retrieve existing ATC_IDs from the atc_code table
+        # Retrieve existing ATC_IDs from the atc_code table, converting them to strings for consistent comparison
         cursor.execute("SELECT ATC_ID FROM atc_code")
-        existing_ids = {row['ATC_ID'] for row in cursor.fetchall()}
+        existing_ids = {str(row['ATC_ID']) for row in cursor.fetchall()}
 
-        # Determine which rows are new inserts vs. updates
+        # Determine which rows need to be inserted versus updated.
         insert_list = []
         update_list = []
         for row in csv_data:
-            # row keys: ATC_ID, Code, Name, ParentID
-            if row['ATC_ID'] in existing_ids:
+            # Convert the CSV row's ATC_ID to string for comparison
+            atc_id_str = str(row['ATC_ID']).strip()
+            if atc_id_str in existing_ids:
                 update_list.append(row)
             else:
                 insert_list.append(row)
@@ -78,6 +79,7 @@ def main():
                 for row in insert_list
             ]
             cursor.executemany(insert_query, insert_values)
+            print(f"Inserted {cursor.rowcount} rows.")
 
         # Update existing rows if any
         if update_list:
@@ -91,9 +93,10 @@ def main():
                 for row in update_list
             ]
             cursor.executemany(update_query, update_values)
+            print(f"Updated {cursor.rowcount} rows.")
 
         conn.commit()
-        print(f"Successfully inserted {len(insert_list)} new rows and updated {len(update_list)} rows.")
+        print("Transaction committed successfully.")
 
     except Error as e:
         print(f"Database error: {e}")
