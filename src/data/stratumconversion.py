@@ -8,7 +8,7 @@ config = {
     'user': 'ommal_ahmad',
     'password': 'fISfGr^8q!_gUPMY',
     'host': 'localhost',
-    'database': 'ommal_medleb'
+    'database': 'ommal_medapiv2'
 }
 
 # CSV files and their corresponding shipping terms
