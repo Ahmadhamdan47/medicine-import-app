@@ -32,5 +32,16 @@ async function calculatePublicPrice({ price, isFOB, rateType }) {
         publicPrice: publicPrice.toFixed(2)
     };
 }
+async function getStratumInfo(stratumCode) {
+    const stratum = await Stratum.findOne({
+        where: { stratumCode }
+    });
 
-module.exports = { calculatePublicPrice };
+    if (!stratum) {
+        throw new Error('Stratum not found.');
+    }
+
+    return stratum;
+}
+
+module.exports = { calculatePublicPrice,getStratumInfo };
