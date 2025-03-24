@@ -1,4 +1,5 @@
 const Stratum = require('../models/stratum');
+const StratumConversion = require('../models/stratum_conversion'); // Adjust path as needed
 const { Op } = require('sequelize');
 
 async function getStratum(price) {
