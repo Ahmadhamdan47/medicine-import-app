@@ -14,22 +14,68 @@ async function getStratum(price) {
     return stratum;
 }
 
-async function calculatePublicPrice({ price, isFOB, rateType }) {
-    const stratum = await getStratum(price);
+// Conversion Service
+const conversionService = {
+    async getConversionRate(currency, shippingTerm) {
+        const term = this.determineShippingTerm(shippingTerm);
+        const conversion = await StratumConversion.findOne({
+            where: {
+                shipping_term: term,
+                currency: currency
+            }
+        });
+        
+        if (!conversion) throw new Error(`No conversion rate found for ${currency} (${term})`);
+        return conversion;
+    },
 
-    const dutyRate = rateType === 'regular' ? stratum.regularDutyRate : stratum.specialDutyRate;
+    async convertToUSD(amount, currency, shippingTerm) {
+        const conversion = await this.getConversionRate(currency, shippingTerm);
+        return amount * conversion.rate;
+    },
 
-    let publicPrice = price * (1 + dutyRate / 100) * 
-                            (1 + stratum.agentMargin / 100) * 
-                            (1 + stratum.pharmacyMargin / 100);
+    async convertUSDToLBP(amountUSD, shippingTerm) {
+        const conversion = await this.getConversionRate('USD', shippingTerm);
+        return amountUSD * conversion.lbp_equivalent;
+    },
+
+    determineShippingTerm(isFOB) {
+        if (isFOB === true) return 'FOB';
+        if (isFOB === false) return 'CIF';
+        return 'Local';
+    }
+};
+
+// Updated Price Calculation Service
+async function calculatePublicPrice({ price, currency, isFOB, rateType }) {
+    // Convert to USD if necessary
+    let usdPrice = currency === 'USD' 
+        ? price 
+        : await conversionService.convertToUSD(price, currency, isFOB);
+
+    // Original calculation logic
+    const stratum = await getStratum(usdPrice);
+    const dutyRate = rateType === 'regular' 
+        ? stratum.regularDutyRate 
+        : stratum.specialDutyRate;
+
+    let publicPriceUSD = usdPrice * 
+        (1 + dutyRate / 100) *
+        (1 + stratum.agentMargin / 100) * 
+        (1 + stratum.pharmacyMargin / 100);
 
     if (isFOB) {
-        publicPrice *= (1 + stratum.shippingCostRate / 100);
+        publicPriceUSD *= (1 + stratum.shippingCostRate / 100);
     }
+
+    // Convert final USD amount to LBP
+    const publicPriceLBP = await conversionService.convertUSDToLBP(publicPriceUSD, isFOB);
 
     return {
         stratumCode: stratum.stratumCode,
-        publicPrice: publicPrice.toFixed(2)
+        originalCurrency: currency,
+        usdAmount: publicPriceUSD.toFixed(2),
+        lbpAmount: publicPriceLBP.toFixed(2)
     };
 }
 async function getStratumInfo(stratumCode) {
@@ -44,4 +90,4 @@ async function getStratumInfo(stratumCode) {
     return stratum;
 }
 
-module.exports = { calculatePublicPrice,getStratumInfo };
+module.exports = { calculatePublicPrice,getStratumInfo, conversionService };
