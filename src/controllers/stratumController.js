@@ -1,4 +1,5 @@
-const { calculatePublicPrice, getStratumInfo, conversionService } = require('../services/stratumService');
+const { calculatePublicPrice, getStratumInfo } = require('../services/stratumService');
+const conversionService = require('../services/stratumService');
 
 exports.getPublicPrice = async (req, res) => {
     const { price, currency, isFOB, rateType } = req.body;
@@ -21,7 +22,12 @@ exports.getPublicPrice = async (req, res) => {
 
     try {
         const result = await calculatePublicPrice({ price: parseFloat(price), currency, isFOB, rateType });
-        res.status(200).json(result);
+        res.status(200).json({
+            stratumCode: result.stratumCode,
+            originalCurrency: result.originalCurrency,
+            usdAmount: result.usdAmount,
+            lbpAmount: result.lbpAmount
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -83,10 +89,14 @@ exports.convertToUSD = async (req, res) => {
 };
 
 exports.convertUSDToLBP = async (req, res) => {
-    const { amountUSD, shippingTerm } = req.body;
+    const { amountUSD, stratumCode, shippingTerm } = req.body;
 
     if (!amountUSD || isNaN(amountUSD)) {
         return res.status(400).json({ error: 'Invalid USD amount value.' });
+    }
+
+    if (!stratumCode) {
+        return res.status(400).json({ error: 'stratumCode is required.' });
     }
 
     if (!shippingTerm) {
@@ -94,7 +104,7 @@ exports.convertUSDToLBP = async (req, res) => {
     }
 
     try {
-        const convertedAmount = await conversionService.convertUSDToLBP(parseFloat(amountUSD), shippingTerm);
+        const convertedAmount = await conversionService.convertUSDToLBP(parseFloat(amountUSD), stratumCode, shippingTerm);
         res.status(200).json({ convertedAmount });
     } catch (error) {
         res.status(500).json({ error: error.message });

@@ -1,4 +1,4 @@
-const Stratum = require('../models/stratum');
+  const Stratum = require('../models/stratum');
 const StratumConversion = require('../models/stratum_conversion'); // Adjust path as needed
 const { Op } = require('sequelize');
 
@@ -31,13 +31,32 @@ const conversionService = {
     },
 
     async convertToUSD(amount, currency, shippingTerm) {
+        if (currency === 'USD') return amount; // No conversion needed for USD
         const conversion = await this.getConversionRate(currency, shippingTerm);
-        return amount * conversion.rate;
+        return amount / conversion.rate; // Convert foreign currency to USD
     },
 
-    async convertUSDToLBP(amountUSD, shippingTerm) {
+    async convertUSDToLBP(amountUSD, stratumCode, shippingTerm) {
         const conversion = await this.getConversionRate('USD', shippingTerm);
-        return amountUSD * conversion.lbp_equivalent;
+        
+        // Map stratumCode to the correct column in stratum_conversion
+        const stratumColumnMap = {
+            'E2': 'e2',
+            'E1': 'e1',
+            'D': 'd',
+            'C': 'c',
+            'B': 'b',
+            'A2': 'a2',
+            'A1': 'a1'
+        };
+
+        const column = stratumColumnMap[stratumCode];
+        if (!column) throw new Error(`Invalid stratumCode: ${stratumCode}`);
+
+        const lbpRate = conversion[column];
+        if (!lbpRate) throw new Error(`No LBP rate found for stratum ${stratumCode}`);
+
+        return amountUSD * lbpRate; // Convert USD to LBP using stratum-specific rate
     },
 
     determineShippingTerm(isFOB) {
@@ -50,9 +69,7 @@ const conversionService = {
 // Updated Price Calculation Service
 async function calculatePublicPrice({ price, currency, isFOB, rateType }) {
     // Convert to USD if necessary
-    let usdPrice = currency === 'USD' 
-        ? price 
-        : await conversionService.convertToUSD(price, currency, isFOB);
+    let usdPrice = await conversionService.convertToUSD(price, currency, isFOB);
 
     // Original calculation logic
     const stratum = await getStratum(usdPrice);
@@ -69,8 +86,8 @@ async function calculatePublicPrice({ price, currency, isFOB, rateType }) {
         publicPriceUSD *= (1 + stratum.shippingCostRate / 100);
     }
 
-    // Convert final USD amount to LBP
-    const publicPriceLBP = await conversionService.convertUSDToLBP(publicPriceUSD, isFOB);
+    // Convert final USD amount to LBP using stratum-specific rate
+    const publicPriceLBP = await conversionService.convertUSDToLBP(publicPriceUSD, stratum.stratumCode, isFOB);
 
     return {
         stratumCode: stratum.stratumCode,
