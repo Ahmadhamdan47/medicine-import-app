@@ -40,7 +40,7 @@ exports.getStratumInfo = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-xports.getConversionRate = async (req, res) => {
+exports.getConversionRate = async (req, res) => {
     const { currency, shippingTerm } = req.query;
 
     if (!currency) {
