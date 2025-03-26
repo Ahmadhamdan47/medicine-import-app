@@ -37,7 +37,7 @@ const previewFile = async () => {
             Anesthetic: row.Anesthetic,
             LOS: parseInt(row.LOS, 10),
             Description: row.Description || '',         // Add fallback if empty
-            DescriptionAR: row.DescriptionAR || '',     // Critical field to avoid error
+            DescriptionAR: row.DescriptionAR || 'لا يوجد وصف',     // Critical field to avoid error
           };
   
           const categoryPricingData = {
