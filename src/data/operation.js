@@ -23,11 +23,17 @@ const processFile = () => {
   fs.createReadStream(filePath)
     .pipe(csv({ separator: '\t' }))
     .on('data', async (row) => {
+      const code = row.Code?.trim().toUpperCase();
+      if (!code || existingCodes.has(code)) return;
+    
+      // ✅ Clean and validate Anesthetic before using it
+      const rawAnesthetic = row.Anesthetic?.trim()?.charAt(0).toUpperCase();
+      const anesthetic = (rawAnesthetic === 'L' || rawAnesthetic === 'G') ? rawAnesthetic : 'L';
       const operationData = {
         Code: row.Code,
         Name: row.Name,
         systemChar: row.SystemChar,
-        Anesthetic: row.Anesthetic,
+        Anesthetic: anesthetic,
         LOS: parseInt(row.LOS, 10),
       };
 
