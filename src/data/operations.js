@@ -36,6 +36,8 @@ const previewFile = async () => {
             systemChar: row.SystemChar,
             Anesthetic: row.Anesthetic,
             LOS: parseInt(row.LOS, 10),
+            Description: row.Description || '',         // Add fallback if empty
+            DescriptionAR: row.DescriptionAR || '',     // Critical field to avoid error
           };
   
           const categoryPricingData = {
