@@ -45,6 +45,7 @@ const manufacturerRoutes = require("./src/routes/manufacturerRoutes");
 const responsiblPartyRoutes = require("./src/routes/responsiblePartyRoutes");
 const bannedDrugsRoutes = require("./src/routes/bannedDrugsRoutes");
 const stratumRoutes = require("./src/routes/stratumRoutes");
+const drugsUnderProcessRoutes = require("./src/routes/drugsUnderProcessRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8066;
@@ -132,6 +133,7 @@ app.use("/manufacturer", manufacturerRoutes);
 app.use("/responsibleParty", responsiblPartyRoutes);
 app.use("/bannedDrugs", bannedDrugsRoutes);
 app.use("/stratum", stratumRoutes);
+app.use("/drugsUnderProcess", drugsUnderProcessRoutes);
 app.use("/img", express.static("img"));
 
 // --- Serve React Static Files ---
