@@ -1143,7 +1143,9 @@ const fetchDrugDataFromServer = async () => {
     // Manually map database columns to camelCase fields
     return drugs.map(drug => {
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
-
+      const formattedPriceUpdateDate = price_update_date
+        ? new Date(price_update_date).toISOString().split('T')[0]
+        : null;
       return {
         drugId: drug.DrugID,
         drugName: drug.DrugName,
@@ -1175,7 +1177,7 @@ const fetchDrugDataFromServer = async () => {
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
-        priceUpdateDate: price_update_date,
+        priceUpdateDate: formattedPriceUpdateDate, // Use the formatted date
         usdRate: formattedRate,
       };
     });
