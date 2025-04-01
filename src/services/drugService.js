@@ -30,8 +30,12 @@ const DiseaseCategory = require('../models/diseaseCategory');
 const DiseaseCategoryATC = require('../models/diseaseCategoryAtc');
 const axios = require('axios');
 
-const formatNumberWithCommas = (number) => {
-  return new Intl.NumberFormat('en-US').format(number);
+const formatNumberWithCommas = (date) => {
+  const d = new Date(date);
+  const day = String(d.getDate()).padStart(2, '0');
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const year = d.getFullYear();
+  return `${day}-${month}-${year}`;
 };
 const rate = 89500;
 const formattedRate = formatNumberWithCommas(rate); 
