@@ -1107,14 +1107,22 @@ const loadPriceUpdateDate = () => {
     if (fs.existsSync(filePath)) {
       const data = fs.readFileSync(filePath, 'utf-8');
       const json = JSON.parse(data);
-      return json.price_update_date;
+
+      // Format the date to "DD-MM-YYYY"
+      const date = new Date(json.price_update_date);
+      const formattedDate = date.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      });
+
+      return formattedDate;
     }
   } catch (error) {
     console.error('Error loading price update date:', error);
   }
   return null;
 };
-
 let price_update_date = loadPriceUpdateDate();
 
 const setPriceUpdateDate = (date) => {
