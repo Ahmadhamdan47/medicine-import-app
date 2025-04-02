@@ -1155,12 +1155,12 @@ const fetchDrugDataFromServer = async () => {
       // Format the priceUpdateDate to "DD-MM-YYYY"
       const formattedPriceUpdateDate = price_update_date
         ? new Date(price_update_date).toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-          })
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+          }).replace(/\//g, '-')
         : null;
-        
+
       return {
         drugId: drug.DrugID,
         drugName: drug.DrugName,
