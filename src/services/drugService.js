@@ -1116,7 +1116,7 @@ const loadPriceUpdateDate = () => {
         year: 'numeric',
       });
 
-      return formattedDate;
+      return formattedDate; // Returns "DD-MM-YYYY"
     }
   } catch (error) {
     console.error('Error loading price update date:', error);
@@ -1151,9 +1151,16 @@ const fetchDrugDataFromServer = async () => {
     // Manually map database columns to camelCase fields
     return drugs.map(drug => {
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
+
+      // Format the priceUpdateDate to "DD-MM-YYYY"
       const formattedPriceUpdateDate = price_update_date
-        ? new Date(price_update_date).toISOString().split('T')[0]
+        ? new Date(price_update_date).toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+          })
         : null;
+        
       return {
         drugId: drug.DrugID,
         drugName: drug.DrugName,
