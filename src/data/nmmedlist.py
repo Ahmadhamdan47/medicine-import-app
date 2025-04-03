@@ -95,13 +95,21 @@ def main():
         conn.commit()
         print(f"Successfully deleted {len(delete_list)} entries and inserted {len(insert_list)} new entries")
 
+        # Return the codes of inserted and removed drugs
+        return {"deleted_codes": delete_list, "inserted_codes": [drug['code'] for drug in insert_list]}
+
     except Error as e:
         print(f"Database error: {e}")
         conn.rollback()
+        return {"deleted_codes": [], "inserted_codes": []}
     finally:
         if conn.is_connected():
             cursor.close()
             conn.close()
 
 if __name__ == "__main__":
-    main()
+    result = main()
+    if result:
+        print("\n===== Result =====")
+        print(f"Deleted codes: {result['deleted_codes']}")
+        print(f"Inserted codes: {result['inserted_codes']}")
