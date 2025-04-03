@@ -1,4 +1,3 @@
-import csv
 import mysql.connector
 from mysql.connector import Error
 import pandas as pd
@@ -35,7 +34,7 @@ def get_column_lengths(cursor, table_name):
 
 def truncate_values(row, column_lengths):
     return {col: (val[:column_lengths[col]] if col in column_lengths and isinstance(val, str) else val) for col, val in row.items()}
-
+    return {col: (str(val)[:column_lengths[col]] if col in column_lengths and isinstance(val, (str, int, float)) else val) for col, val in row.items()}
 def main():
     tsv_data = read_tsv('./april.tsv')
 
