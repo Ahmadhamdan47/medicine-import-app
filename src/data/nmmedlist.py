@@ -29,8 +29,12 @@ def get_db_connection():
         return None
 
 def get_column_lengths(cursor, table_name):
-    cursor.execute(f"SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'")
-    return {row['COLUMN_NAME']: row['CHARACTER_MAXIMUM_LENGTH'] for row in cursor.fetchall()}
+    try:
+        cursor.execute(f"SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{table_name}'")
+        return {row['COLUMN_NAME']: row['CHARACTER_MAXIMUM_LENGTH'] for row in cursor.fetchall()}
+    except Error as e:
+        print(f"Error fetching column lengths: {e}")
+        return {}
 
 def truncate_values(row, column_lengths):
     for col, val in row.items():
@@ -38,10 +42,14 @@ def truncate_values(row, column_lengths):
             row[col] = val[:column_lengths[col]]  # Truncate string values
         elif col == 'public_price':
             try:
-                row[col] = float(val)  # Convert to float if possible
-            except ValueError:
+                # Clean and convert to float
+                val = val.replace(',', '').strip()
+                row[col] = float(val) if val else None
+            except (ValueError, TypeError):
+                print(f"Warning: Invalid public_price value '{val}' in row with code {row.get('code')}")
                 row[col] = None  # Set to NULL if conversion fails
     return row
+
 def main():
     tsv_data = read_tsv('./april.tsv')
 
@@ -85,7 +93,12 @@ def main():
         # Execute deletions
         if delete_list:
             delete_query = "DELETE FROM medications WHERE code = %s"
-            cursor.executemany(delete_query, [(code,) for code in delete_list])
+            try:
+                cursor.executemany(delete_query, [(code,) for code in delete_list])
+            except Error as e:
+                print(f"Error while deleting data: {e}")
+                conn.rollback()
+                return
 
         # Execute insertions with generated ID
         if insert_list:
@@ -96,7 +109,17 @@ def main():
             columns = ', '.join(column_names)
             values_placeholder = ', '.join(['%s'] * len(column_names))
             insert_query = f"INSERT INTO medications ({columns}) VALUES ({values_placeholder})"
-            cursor.executemany(insert_query, [tuple(drug.values()) for drug in insert_list])
+            try:
+                cursor.executemany(insert_query, [tuple(drug.values()) for drug in insert_list])
+            except Error as e:
+                print(f"Error while inserting data: {e}")
+                for drug in insert_list:
+                    try:
+                        cursor.execute(insert_query, tuple(drug.values()))
+                    except Error as single_error:
+                        print(f"Failed to insert entry with code {drug['code']}: {single_error}")
+                conn.rollback()
+                return
 
         conn.commit()
         print(f"Successfully deleted {len(delete_list)} entries and inserted {len(insert_list)} new entries")
