@@ -37,7 +37,7 @@ def truncate_values(row, column_lengths):
     return {col: (val[:column_lengths[col]] if col in column_lengths and isinstance(val, str) else val) for col, val in row.items()}
 
 def main():
-    tsv_data = read_tsv('./march.tsv')
+    tsv_data = read_tsv('./april.tsv')
 
     conn = get_db_connection()
     if conn is None:
