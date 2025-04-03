@@ -33,8 +33,15 @@ def get_column_lengths(cursor, table_name):
     return {row['COLUMN_NAME']: row['CHARACTER_MAXIMUM_LENGTH'] for row in cursor.fetchall()}
 
 def truncate_values(row, column_lengths):
-    return {col: (val[:column_lengths[col]] if col in column_lengths and isinstance(val, str) else val) for col, val in row.items()}
-    return {col: (str(val)[:column_lengths[col]] if col in column_lengths and isinstance(val, (str, int, float)) else val) for col, val in row.items()}
+    for col, val in row.items():
+        if col in column_lengths and isinstance(val, str):
+            row[col] = val[:column_lengths[col]]  # Truncate string values
+        elif col == 'public_price':
+            try:
+                row[col] = float(val)  # Convert to float if possible
+            except ValueError:
+                row[col] = None  # Set to NULL if conversion fails
+    return row
 def main():
     tsv_data = read_tsv('./april.tsv')
 
