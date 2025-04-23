@@ -2,7 +2,6 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const DrugPresentation = require('./drugPresentation');
 const Dosage = require('./dosage');
-const { Route } = require('react-router-dom');
 
 const NewDrug = sequelize.define('drug', {
     DrugID: {
@@ -221,10 +220,8 @@ const NewDrug = sequelize.define('drug', {
             name: 'idx_drug_name_ar',
             fields: ['DrugNameAR']
         },
-        {
-            name: 'idx_atc_related',
-            fields: ['ATCRelatedIngredient']
-        },
+        // Remove/comment out the duplicate index below:
+        // { name: 'idx_atc_related', fields: ['ATCRelatedIngredient'] },
         {
             name: 'idx_gtin',
             fields: ['GTIN']

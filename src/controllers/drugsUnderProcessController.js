@@ -22,6 +22,7 @@ class DrugsUnderProcessController {
 
   static async createDrugUnderProcess(req, res) {
     try {
+      // Pass the complete multi-step form data (including new variables)
       const drug = await DrugsUnderProcessService.createDrugUnderProcess(req.body);
       res.status(201).json(drug);
     } catch (error) {

@@ -25,7 +25,9 @@ class DrugsUnderProcessService {
 
   static async createDrugUnderProcess(data) {
     try {
-      return await DrugsUnderProcess.create(data);
+      // Ensure all new fields from the multi-step form are passed
+      const newDrug = await DrugsUnderProcess.create({ ...data });
+      return newDrug;
     } catch (error) {
       console.error('Error creating drug under process:', error);
       throw new Error('Failed to create drug under process');
@@ -38,7 +40,8 @@ class DrugsUnderProcessService {
       if (!drug) {
         throw new Error(`Drug under process with ID ${id} not found`);
       }
-      await drug.update(data);
+      // Update including new fields
+      await drug.update({ ...data });
       return drug;
     } catch (error) {
       console.error('Error updating drug under process:', error);
