@@ -1144,7 +1144,7 @@ const fetchDrugDataFromServer = async () => {
         'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient','OtherIngredients', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
-        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN'
+        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN', 'registrationDay', 'registrationMonth', 'registrationYear'
       ],
     });
 
