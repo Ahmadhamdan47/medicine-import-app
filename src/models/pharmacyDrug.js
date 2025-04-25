@@ -208,6 +208,45 @@ const NewDrug = sequelize.define('drug', {
     RouteRaw:{
         type: DataTypes.STRING(255)
     },
+    rep: {
+        type: DataTypes.BOOLEAN
+    },
+    "2019": {
+        type: DataTypes.BOOLEAN
+    },
+    "2021": {
+        type: DataTypes.BOOLEAN
+    },
+    "2022": {
+        type: DataTypes.BOOLEAN
+    },
+    "2023": {
+        type: DataTypes.BOOLEAN
+    },
+    "2024": {
+        type: DataTypes.BOOLEAN
+    },
+    "2025": {
+        type: DataTypes.BOOLEAN
+    },
+    "2026": {
+        type: DataTypes.BOOLEAN
+    },
+    "2027": {
+        type: DataTypes.BOOLEAN
+    },
+    "2028": {
+        type: DataTypes.BOOLEAN
+    },
+    registrationDay: {
+        type: DataTypes.STRING
+    },
+    registrationMonth: {
+        type: DataTypes.STRING
+    },
+    registrationYear: {
+        type: DataTypes.STRING
+    }
 }, {
     tableName: 'drug',
     timestamps: false ,
