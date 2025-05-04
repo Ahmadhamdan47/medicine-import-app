@@ -48,6 +48,8 @@ const stratumRoutes = require("./src/routes/stratumRoutes");
 const drugsUnderProcessRoutes = require("./src/routes/drugsUnderProcessRoutes");
 const alfaRoutes = require("./src/routes/alfaRoutes");
 const touchRoutes = require("./src/routes/touchRoutes");
+// Add dashboard routes
+const dashboardRoutes = require("./src/routes/dashboardRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8066;
@@ -138,6 +140,7 @@ app.use("/stratum", stratumRoutes);
 app.use("/drugsUnderProcess", drugsUnderProcessRoutes);
 app.use("/alfa", alfaRoutes);
 app.use("/touch", touchRoutes);
+app.use("/dashboard", dashboardRoutes); // <-- new dashboard route
 app.use("/img", express.static("img"));
 
 // --- Serve React Static Files ---
