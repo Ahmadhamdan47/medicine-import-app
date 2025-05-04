@@ -8,8 +8,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def read_csv(file_path):
     try:
         df = pd.read_csv(file_path, dtype=str, encoding='ISO-8859-1').fillna('')
-        df['Manufacturer'] = df['Manufacturer'].str.strip()
-        df['parentCompany'] = df['parentCompany'].str.strip()
+        df['ManufacturerName'] = df['ManufacturerName'].str.strip()
+        df['ParentCompany'] = df['ParentCompany'].str.strip()
         return df.to_dict(orient='records')
     except Exception as e:
         print(f"Error reading CSV: {e}")
