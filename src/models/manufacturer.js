@@ -16,6 +16,14 @@ const Manufacturer = sequelize.define('Manufacturer', {
         type: DataTypes.STRING(255),
         allowNull: true
     },
+    ParentCompany: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+    },
+    ParentGroup: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+    },
 }, {
     tableName: 'manufacturer',
     timestamps: false
