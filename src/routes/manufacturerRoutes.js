@@ -78,7 +78,7 @@ router.get("/:ManufacturerId", manufacturerController.getManufacturerById);
  *       '500':
  *         description: Server error
  */
-router.get("/", manufacturerController.getAllManufacturers);
+router.get("/all", manufacturerController.getAllManufacturers);
 
 /**
  * @swagger
