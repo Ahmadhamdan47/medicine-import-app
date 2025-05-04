@@ -40,9 +40,9 @@ def main():
 
         updates = []
         for row in data:
-            name = row['Manufacturer']
-            parent = row['parentCompany']
-            logging.info(f"Processed record: Manufacturer='{name}', ParentCompany='{parent}'")
+            name = row['ManufacturerName']
+            parent = row['ParentCompany']
+            logging.info(f"Processed record: ManufacturerName='{name}', ParentCompany='{parent}'")
             if name and parent:
                 query = """
                 UPDATE manufacturer
