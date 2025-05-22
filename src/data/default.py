@@ -109,12 +109,17 @@ def main():
                     csv_value = "1"
                 elif csv_value.lower() == "false":
                     csv_value = "0"
-                # If value is empty, set to '0' for numeric conversion
                 if csv_value == "":
                     csv_value = "0"
+                # Convert csv_value to a numeric string for numeric columns.
+                try:
+                    numeric_value = str(int(float(csv_value)))
+                except ValueError:
+                    numeric_value = "0"
+                # Use the numeric_value for comparison
                 db_value = str(current_dosage.get(col, '') or '')
-                if db_value != csv_value:
-                    changes_dosage[col] = csv_value
+                if db_value != numeric_value:
+                    changes_dosage[col] = numeric_value
             if changes_dosage:
                 set_clause_dosage = ', '.join([f"`{k}` = %s" for k in changes_dosage.keys()])
                 values_dosage = list(changes_dosage.values()) + [drug_id]
