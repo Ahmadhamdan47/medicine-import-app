@@ -37,7 +37,8 @@ def main():
 
     try:
         conn.autocommit = False
-        cursor = conn.cursor(dictionary=True)
+        # Use a buffered cursor to prevent unread result issues
+        cursor = conn.cursor(dictionary=True, buffered=True)
 
         # Add column DosageLNDI if it does not exist
         cursor.execute("ALTER TABLE drug ADD COLUMN IF NOT EXISTS DosageLNDI VARCHAR(255)")
