@@ -54,12 +54,23 @@ def main():
             if not current:
                 continue
 
+            # Define columns to skip when updating changes
+            skip_columns = set([
+                'DrugID', 'MoPHCode', 
+                'Numerator1','Numerator1Unit','Denominator1','Denominator1Unit',
+                'Numerator2','Numerator2Unit','Denominator2','Denominator2Unit',
+                'Numerator3','Numerator3Unit','Denominator3','Denominator3Unit',
+                'PresentationUnitQuantity1','PresentationUnitType1',
+                'PresentationUnitQuantity2','PresentationUnitType2',
+                'PresentationPackageQuantity1','PresentationPackageType1',
+                'PresentationPackageQuantity2','PresentationPackageType2',
+                'PresentationPackageQuantity3','PresentationPackageType3',
+                'PresentationDescription'
+            ])
+
             changes = {}
             for key, value in row.items():
-                if key in ['DrugID', 'MoPHCode', 
-                           'Numerator1','Numerator1Unit','Denominator1','Denominator1Unit',
-                           'Numerator2','Numerator2Unit','Denominator2','Denominator2Unit',
-                           'Numerator3','Numerator3Unit','Denominator3','Denominator3Unit']:
+                if key in skip_columns:  # skip columns not intended for update
                     continue
                 db_value = str(current.get(key, '') or '')
                 file_value = value.strip()
