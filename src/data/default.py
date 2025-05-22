@@ -39,6 +39,9 @@ def main():
         conn.autocommit = False
         cursor = conn.cursor(dictionary=True)
 
+        # Add column DosageLNDI if it does not exist
+        cursor.execute("ALTER TABLE drug ADD COLUMN IF NOT EXISTS DosageLNDI VARCHAR(255)")
+
         update_count = 0
         for row in data:
             moph_code = row.get('MoPHCode')
