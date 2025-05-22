@@ -17,7 +17,7 @@ def get_db_connection():
             host='localhost',
             user='ommal_ahmad',
             password='fISfGr^8q!_gUPMY',
-            database='ommal_apiv2',
+            database='ommal_medapiv2',
         )
     except Error as e:
         print(f"Error: {e}")
