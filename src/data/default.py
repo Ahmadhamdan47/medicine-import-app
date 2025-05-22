@@ -70,10 +70,15 @@ def main():
 
             changes = {}
             for key, value in row.items():
-                if key in skip_columns:  # skip columns not intended for update
+                if key in skip_columns:  # skip fields not intended for update
                     continue
-                db_value = str(current.get(key, '') or '')
                 file_value = value.strip()
+                # Convert boolean text to 0 or 1
+                if file_value.lower() == "true":
+                    file_value = "1"
+                elif file_value.lower() == "false":
+                    file_value = "0"
+                db_value = str(current.get(key, '') or '')
                 if db_value != file_value:
                     changes[key] = file_value
 
@@ -103,6 +108,11 @@ def main():
             changes_dosage = {}
             for col in dosage_columns:
                 csv_value = row.get(col, '').strip()
+                # Convert boolean text to 0 or 1 if present
+                if csv_value.lower() == "true":
+                    csv_value = "1"
+                elif csv_value.lower() == "false":
+                    csv_value = "0"
                 db_value = str(current_dosage.get(col, '') or '')
                 if db_value != csv_value:
                     changes_dosage[col] = csv_value
