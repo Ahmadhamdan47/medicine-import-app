@@ -37,6 +37,7 @@ def main():
         return
 
     try:
+        
         conn.autocommit = False  # Start transaction
         cursor = conn.cursor(dictionary=True)
 
