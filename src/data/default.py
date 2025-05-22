@@ -90,17 +90,14 @@ def main():
                 update_count += 1
 
             # --- New dosage update block ---
-            # List of dosage fields that belong to the dosage table.
             dosage_columns = [
                 'Numerator1','Numerator1Unit','Denominator1','Denominator1Unit',
                 'Numerator2','Numerator2Unit','Denominator2','Denominator2Unit',
                 'Numerator3','Numerator3Unit','Denominator3','Denominator3Unit'
             ]
-            # Retrieve DrugID from CSV row
             drug_id = row.get('DrugID')
             if not drug_id:
                 continue
-            # Fetch current record from dosage table
             cursor.execute("SELECT * FROM dosage WHERE DrugID = %s", (drug_id,))
             current_dosage = cursor.fetchone()
             if not current_dosage:
@@ -108,10 +105,12 @@ def main():
             changes_dosage = {}
             for col in dosage_columns:
                 csv_value = row.get(col, '').strip()
-                # Convert boolean text to 0 or 1 if present
                 if csv_value.lower() == "true":
                     csv_value = "1"
                 elif csv_value.lower() == "false":
+                    csv_value = "0"
+                # If value is empty, set to '0' for numeric conversion
+                if csv_value == "":
                     csv_value = "0"
                 db_value = str(current_dosage.get(col, '') or '')
                 if db_value != csv_value:
