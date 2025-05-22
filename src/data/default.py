@@ -61,7 +61,7 @@ def main():
                     changes[key] = file_value
 
             if changes:
-                set_clause = ', '.join([f"{k} = %s" for k in changes.keys()])
+                set_clause = ', '.join([f"`{k}` = %s" for k in changes.keys()])
                 values = list(changes.values()) + [moph_code]
                 update_query = f"UPDATE drug SET {set_clause} WHERE MoPHCode = %s"
                 cursor.execute(update_query, values)
