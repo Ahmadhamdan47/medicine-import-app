@@ -1211,6 +1211,7 @@ if (dp) {
     presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${type}`);
   }
 }
+const presentationString = presentationParts.join(', ');
 
 
       return {
