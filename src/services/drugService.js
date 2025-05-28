@@ -838,12 +838,25 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
 
     console.log('Batch lot found:', batchLot); // Log the batch lot details
 
+    // Find the drug name using GTIN if possible
+    let drugNameFromGTIN = null;
+    if (GTIN) {
+      const drugByGTIN = await Drug.findOne({
+        where: { GTIN: GTIN },
+        attributes: ['DrugName']
+      });
+      if (drugByGTIN) {
+        drugNameFromGTIN = drugByGTIN.DrugName;
+      }
+    }
+
     if (!batchLot) {
       console.log('No batch lot found for GTIN:', GTIN, 'BatchNumber:', BatchNumber);
       return {
         isValid: false,
         messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
-        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
+        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.',
+        drugName: drugNameFromGTIN
       };
     }
 
@@ -865,7 +878,8 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       return {
         isValid: false,
         messageEN: 'This drug is not imported legally by the importation process of the MoPH. You are advised to check if it is forged!',
-        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.'
+        messageAR: 'هذا الدّواء غير مستورد قانونياً وفق آليات استيراد الدواء المعتمدة من قبل وزارة الصحة العامة. يرجى الإنتباه قد يكون هذا الدّواء مزوّر.',
+        drugName: drugNameFromGTIN
       };
     }
 
@@ -877,7 +891,7 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
       messageEN: 'This drug is imported legally by the importation process of the MoPH.',
       messageAR: 'هذا الدّواء مستورد قانونياً وفق آليات استيراد الدّواء المعتمدة من قبل وزارة الصحة العامة.',
       batchLot: {
-        BatchLotId:batchLot.BatchLotId,
+        BatchLotId: batchLot.BatchLotId,
         DrugName: batchLot.DrugName,
         Form: batchLot.Form,
         Presentation: batchLot.Presentation,
@@ -885,7 +899,8 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
         Laboratory: batchLot.Laboratory,
         LaboratoryCountry: batchLot.LaboratoryCountry,
         BoxId: batchLot.BoxId
-      }
+      },
+      drugName: drugNameFromGTIN
     };
   } catch (error) {
     console.error('Error in checkMate:', error); // Log any errors that occur
@@ -1144,8 +1159,19 @@ const fetchDrugDataFromServer = async () => {
         'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient','OtherIngredients', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
-        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN', 'registrationDay', 'registrationMonth', 'registrationYear'
+        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN', 'DFSequence'
       ],
+      include: [
+        {
+          model: DrugPresentation,
+          as: 'DrugPresentations',
+          attributes: [
+            'UnitQuantity1', 'UnitType1', 'UnitQuantity2', 'UnitType2',
+            'PackageQuantity1', 'PackageType1', 'PackageQuantity2', 'PackageType2',
+            'PackageQuantity3', 'PackageType3', 'Description',
+          ]
+        }
+      ]
     });
 
     // Manually map database columns to camelCase fields
@@ -1183,6 +1209,17 @@ const fetchDrugDataFromServer = async () => {
         form: drug.Form,
         route: drug.Route,
         presentation: drug.Presentation,
+        presentationQuantity1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitQuantity1 : null,
+        presentationUnitType1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitType1 : null,
+        presentationQuantity2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitQuantity2 : null,
+        presentationUnitType2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitType2 : null,
+        presentationPackageQuantity1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity1 : null,
+        presentationPackageType1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType1 : null,
+        presentationPackageQuantity2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity2 : null,
+        presentationPackageType2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType2 : null,
+        presentationPackageQuantity3: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity3 : null,
+        presentationPackageType3: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType3 : null,
+        dfSequence: drug.DFSequence,
         agent: drug.Agent,
         manufacturer: drug.Manufacturer,
         country: drug.Country,
@@ -1192,7 +1229,7 @@ const fetchDrugDataFromServer = async () => {
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: drug.GTIN,
-        priceUpdateDate: formattedPriceUpdateDate, // Use the formatted date
+        priceUpdateDate: formattedPriceUpdateDate,
         usdRate: formattedRate,
       };
     });

@@ -1,0 +1,5214 @@
+DrugId,UnitQuantity1,UnitType1,UnitQuantity2,UnitType2,PackageQuantity1,PackageType1,PackageQuantity2,PackageType2,PackageQuantity3,PackageType3,Description
+3157,30,g,,,,,,,,,30 g
+4140,40,g,,,,,,,,,40 g
+4242,20,g,,,,,,,,,20 g
+6387,40,g,,,1,Tube,,,,,1 Tube of 40 g
+3626,10,ml,,,1,Bottle,,,,,"1 Bottle of 10 ml, with applicator"
+5056,48,Pill,,,,,,,,,48 Pills
+6903,48,Pill,,,,,,,,,48 Pills
+2561,30,Pill,,,,,,,,,30 pills
+6128,200,ml,,,,,,,,,200 ml
+6692,250,ml,,,,,,,,,250 ml
+2287,20,Pill,,,,,,,,,20 Pills
+2288,10,Pill,,,,,,,,,10 Pills
+7506,,,,,,,,,,,
+7507,,,,,,,,,,,
+5516,28,Pill,,,,,,,,,28 Pills
+6859,8,Pill,,,,,,,,,8 Pills
+6860,4,Pill,,,,,,,,,4 Pills
+6212,,,,,15,Packet / Sachet,,,,,15 Packets / Sachets
+2210,14,Pill,,,,,,,,,14 Pills
+2211,14,Pill,,,,,,,,,14 pills
+2212,,,,,1,vial,,,,,1 Vial
+2427,,,,,5,vial,,,,,5 Vials
+2626,14,Pill,,,,,,,,,14 Pills
+2898,14,Pill,,,,,,,,,14 Pills
+3021,14,Pill,,,,,,,,,14 Pills
+3777,14,Pill,,,,,,,,,14 Pills
+3778,,,,,12,Packet / Sachet,,,,,12 Packet / Sachets
+3859,14,Pill,,,,,,,,,14 Pills
+3873,28,Pill,,,,,,,,,28 Pills
+4280,,,,,10,vial,,,,,10 Vials
+4323,30,Pill,,,,,,,,,30 Pills
+4802,,,,,1,vial,,,,,1 Vial
+5230,,,,,1,vial,1,ampule,,,1 vial and 1 ampule of solvant
+5293,504,Pill,,,,,,,,,504 Pills
+5402,30,Pill,,,,,,,,,30 Pills
+5477,,,,,10,vial,,,,,10 Vials
+5545,,,,,1,vial,,,,,1 Vial
+5594,28,Pill,,,,,,,,,28 Pills
+5751,,,,,50,vial,,,,,50 Vials
+5790,56,Pill,,,,,,,,,56 Pills
+5913,10,Pill,,,,,,,,,10 Pills
+6109,30,Pill,,,,,,,,,30 Pills
+6636,,,,,30,Packet / Sachet,,,,,30 Packet / Sachets
+7508,,,,,,,,,,,
+7509,,,,,,,,,,,
+7510,,,,,,,,,,,
+7511,,,,,,,,,,,
+7512,,,,,,,,,,,
+7513,,,,,,,,,,,
+7514,,,,,,,,,,,
+7515,,,,,,,,,,,
+7516,,,,,,,,,,,
+7517,,,,,,,,,,,
+2312,14,Pill,,,,,,,,,14 Pills
+3716,30,Pill,,,,,,,,,30 Pills
+3717,15,Pill,,,,,,,,,15 Pills
+3764,15,Pill,,,,,,,,,15 Pills
+3835,15,Pill,,,,,,,,,15 Pills
+3836,30,Pill,,,,,,,,,30 Pills
+3837,15,Pill,,,,,,,,,15 Pills
+3838,30,Pill,,,,,,,,,30 Pills
+4065,14,Pill,,,,,,,,,14 Pills
+4439,,,,,1,vial,,,,,1 Vial
+4457,15,Pill,,,,,,,,,15 Pills
+4834,,,,,1,vial,,,,,1 Vial
+5034,14,Pill,,,,,,,,,14 Pills
+5551,,,,,1,vial,,,,,1 Vial
+6576,30,Pill,,,,,,,,,30 Pills
+7374,,,,,10,vial,,,,,10 Vials
+7518,,,,,,,,,,,
+2035,14,Pill,,,,,,,,,14 Pills
+4129,15,Pill,,,,,,,,,15 Pills
+4130,15,Pill,,,,,,,,,15 Pills
+4710,30,Pill,,,,,,,,,30 Pills
+5383,30,Pill,,,,,,,,,30 Pills
+2675,28,Pill,,,,,,,,,28 Pills
+2676,14,Pill,,,,,,,,,14 Pills
+3262,14,Pill,,,,,,,,,14 Pills
+3302,10,Pill,,,,,,,,,10 Pills
+3303,30,Pill,,,,,,,,,30 Pills
+3996,10,Pill,,,,,,,,,10 Pills
+4715,28,Pill,,,,,,,,,28 Pills
+4793,30,Pill,,,,,,,,,30 Pills
+4822,14,Pill,,,,,,,,,14 Pills
+4823,28,Pill,,,,,,,,,28 Pills
+7498,28,Pill,,,,,,,,,28 Pills
+2198,28,Pill,,,,,,,,,28 Pills
+2199,28,Pill,,,,,,,,,28 Pills
+3847,,,,,28,Packet / Sachet,,,,,28 Packet / Sachets
+3892,28,Pill,,,,,,,,,28 Pills
+3893,28,Pill,,,,,,,,,28 Pills
+4684,14,Pill,,,,,,,,,14 Pills
+4820,15,Pill,,,,,,,,,15 Pills
+4821,14,Pill,,,,,,,,,14 Pills
+4849,,,,,1,vial,,,,,1 Vial
+4853,10,Pill,,,,,,,,,10 Pills
+5327,14,Pill,,,,,,,,,14 Pills
+5632,,,,,1,vial,,,,,1 Vial
+5856,28,Pill,,,,,,,,,28 Pills
+7519,,,,,,,,,,,
+7520,,,,,,,,,,,
+7521,,,,,,,,,,,
+7522,,,,,,,,,,,
+12288,,,,,,,,,,,
+7523,,,,,,,,,,,
+7524,,,,,,,,,,,
+4747,30,Pill,,,,,,,,,30 Pills
+7525,,,,,,,,,,,
+2540,,,,,30,Packet / Sachet,,,,,30 Packet / Sachets
+2601,200,ml,,,,Bottle,,,,,Bottle of 200 ml
+5567,,,,,30,Packet / Sachet,,,,,30 Packet / Sachets
+6482,300,ml,,,,,,,,,300 ml
+7098,32,Pill,,,,,,,,,32 Pills
+7305,300,ml,,,,,,,,,300 ml
+7526,,,,,,,,,,,
+4206,30,Pill,,,,,,,,,30 Pills
+2315,48,Pill,,,,,,,,,48 Pills
+3392,30,Pill,,,,,,,,,30 Pills
+7042,30,Pill,,,,,,,,,30 Pills
+5364,10,ml,,,10,vial,,,,,10 vials of 1 ml each
+2654,30,Pill,,,,,,,,,30 Pills
+6706,30,Pill,,,,,,,,,30 Pills
+2076,30,Pill,,,,,,,,,30 Pills
+2304,30,Pill,,,,,,,,,30 Pills
+3046,120,ml,,,1,Bottle,,,,,1 Bottle of 120 ml
+4671,30,Pill,,,,,,,,,30 Pills
+5736,10,ml,,,1,ampule,,,,,1 Ampule of 10 ml
+2200,15,ml,,,,,,,,,15 ml
+2201,33,Pill,,,,,,,,,33 Pills
+2740,30,Pill,,,,,,,,,30 Pills
+4519,30,ml,,,,,,,,,30 ml
+2525,30,Pill,,,,,,,,,30 Pills
+2352,10,ml,,,10,ampule,,,,,10 Ampules of 1 ml each
+2353,10,ml,,,10,ampule,,,,,10 Ampules of 1 ml each
+2856,,,,,,,,,,,
+2868,10,ml,,,10,ampule,,,,,10 Ampules of 1 ml each
+3267,100,ml,,,100,ampule,,,,,100 Ampules of 1 ml each
+7476,10,ml,,,10,Pre-filled syringe,,,,,10 Pre-Filled Syringes of 1 ml each
+2220,5,ml,,,5,ampule,,,,,5 Ampules of 1 ml each
+2537,10,ml,,,10,ampule,,,,,10 Ampules of 1 ml each
+2671,20,Pill,,,,,,,,,20 Pills
+2672,100,ml,,,,,,,,,100 ml
+4911,5,ml,,,5,ampule,,,,,5 Ampules of 1 ml each
+5716,50,ml,,,50,ampule,,,,,50 Ampules of 1 ml each
+6047,50,Pill,,,,,,,,,50 Pills
+6048,20,Pill,,,,,,,,,20 Pills
+2970,30,Pill,,,,,,,,,30 Pills
+2993,30,Pill,,,,,,,,,30 Pills
+3150,30,Pill,,,,,,,,,30 Pills
+5218,30,Pill,,,,,,,,,30 Pills
+6025,30,Pill,,,,,,,,,30 Pills
+2945,25,ml,,,,,,,,,25 ml
+4675,10,Pill,,,,,,,,,10 Pills
+2421,42,Pill,,,,,,,,,42 Pills
+3061,20,Pill,,,,,,,,,20 Pills
+5324,100,Pill,,,,,,,,,100 Pills
+5325,30,Pill,,,,,,,,,30 Pills
+2479,20,ml,,,10,ampule,,,,,10 Ampules of 2 ml each
+4779,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5554,20,ml,,,10,ampule,,,,,10 Ampules of 2 ml each
+5717,100,ml,,,50,ampule,,,,,50 Ampules of 2 ml each
+6137,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+6251,20,ml,,,20,ampule,,,,,20 Ampules of 1 ml each
+2254,30,Pill,,,,,,,,,30 Pills
+2302,24,Pill,,,,,,,,,24 Pills
+2303,120,ml,,,,,,,,,120 ml
+3017,30,Pill,,,,,,,,,30 Pills
+3288,20,Pill,,,,,,,,,20 Pills
+3765,200,ml,,,,,,,,,200 ml
+3855,30,Pill,,,,,,,,,30 Pills
+4619,30,Pill,,,,,,,,,30 Pills
+6386,200,ml,,,,,,,,,200 ml
+7527,,,,,,,,,,,
+7528,,,,,,,,,,,
+5764,50,Pill,,,,,,,,,50 Pills
+2739,20,Pill,,,,,,,,,20 Pills
+3016,10,Pill,,,,,,,,,10 Pills
+3440,40,ml,,,10,ampule,,,,,10 Ampules of 4 ml each
+3590,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+4759,20,ml,,,5,ampule,,,,,5 Ampules of 4 ml each
+4861,2,ml,,,1,ampule,,,,,1 Ampule of 2 ml
+4862,4,ml,,,1,ampule,,,,,1 Ampule of 4 ml
+5019,20,ml,,,5,ampule,,,,,5 Ampules of 4 ml each
+5589,10,Pill,,,,,,,,,10 Pills
+5617,20,ml,,,5,ampule,,,,,5 Ampules of 4 ml each
+5618,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5621,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5663,4,Pill,,,,,,,,,4 Pills
+5718,4,Pill,,,,,,,,,4 Pills
+5741,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5742,20,ml,,,5,ampule,,,,,5 Ampules of 4 ml each
+6037,100,ml,,,,,,,,,100 ml
+6125,10,Pill,,,,,,,,,10 Pills
+6439,60,ml,,,,,,,,,60 ml
+6494,20,ml,,,5,ampule,,,,,5 Ampules of 4 ml each
+6495,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+6806,10,Pill,,,,,,,,,10 Pills
+6807,10,Pill,,,,,,,,,10 Pills
+6899,10,Pill,,,,,,,,,10 Pills
+7278,500,Pill,,,,,,,,,500 Pills
+7352,90,ml,,,,,,,,,90 ml
+7433,4,Pill,,,,,,,,,4 Pills
+7529,,,,,,,,,,,
+7530,,,,,,,,,,,
+7531,,,,,,,,,,,
+7532,,,,,,,,,,,
+7533,,,,,,,,,,,
+5234,5,ml,,,5,ampule,,,,,5 Ampules of 1 ml each
+5235,15,ml,,,5,ampule,,,,,5 Ampules of 3 ml each
+6084,10,Pill,,,,,,,,,10 Pills
+6363,15,ml,,,5,ampule,,,,,5 Ampules of 3 ml each
+7457,,,,,1,pack,,,,,1 Pack
+5129,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+7534,,,,,,,,,,,
+5326,1,Pill,,,,,,,,,1 Pill
+2181,75,ml,,,,,,,,,75 ml
+2182,30,Pill,,,,,,,,,30 Pills
+2183,10,Pill,,,,,,,,,10 Pills
+6812,2,Pill,,,,,,,,,2 Pills
+6813,3,Pill,,,,,,,,,1 pill (125 mg) and 2 pills (80 mg)
+1940,100,Pill,,,,,,,,,100 Pills
+6401,30,Pill,,,,,,,,,30 Pills
+6402,30,Pill,,,,,,,,,30 Pills
+3047,240,ml,,,,,,,,,240 ml
+6253,100,Pill,,,,,,,,,100 Pills
+6254,40,Pill,,,,,,,,,40 Pills
+7302,10,Pill,,,,,,,,,10 Pills
+3049,60,ml,,,,,,,,,60 ml
+5360,30,Pill,,,,,,,,,30 Pills
+4007,,,,,2,Packet / Sachet,,,,,2 Packet / Sachets
+4940,,,,,2,Packet / Sachet,,,,,2 Packet / Sachets
+6791,,,,,2,Packet / Sachet,,,,,2 Packet / Sachets
+3043,40,g,,,,,,,,,40 g
+2541,300,ml,,,,,,,,,300 ml
+2434,,,,,20,Packet / Sachet,,,,,20 Packet / Sachets
+2223,200,ml,,,,,,,,,200 ml
+2435,,,,,4,Packet / Sachet,,,,,4 Packet / Sachets
+6172,,,,,20,Packet / Sachet,,,,,20 Packet / Sachets
+6173,,,,,20,Packet / Sachet,,,,,20 Packet / Sachets
+4153,40,ml,,,4,Tube,,,,,4 Tubes of 10 ml each
+3071,12,Pill,,,,,,,,,12 Pills
+3072,12,Pill,,,,,,,,,12 Pills
+3073,12,Pill,,,,,,,,,12 Pills
+7535,,,,,,,,,,,
+7536,,,,,,,,,,,
+12252,,,,,,,,,,,
+12253,,,,,,,,,,,
+3015,60,ml,,,,,,,,,60 ml
+5534,20,Pill,,,,,,,,,20 Pills
+6041,30,Pill,,,,,,,,,30 Pills
+2673,12,Pill,,,,,,,,,12 Pills
+2674,60,ml,,,,,,,,,60 ml
+7537,,,,,,,,,,,
+2999,28,Pill,,,,,,,,,28 Pills
+6975,50,Pill,,,,,,,,,50 Pills
+2367,48,Pill,,,,,,,,,48 Pills
+2429,100,Pill,,,,,,,,,100 Pills
+4284,,,,,12,Packet / Sachet,,,,,12 Packet / Sachets
+5921,,,,,12,Packet / Sachet,,,,,12 Packet / Sachets
+4738,12,Pill,,,,,,,,,12 Pills
+6588,6,Pill,,,,,,,,,6 Pills
+7538,,,,,,,,,,,
+7539,,,,,,,,,,,
+4414,100,Pill,,,,,,,,,100 Pills
+5624,30,Pill,,,,,,,,,30 Pills
+7284,100,Pill,,,,,,,,,100 Pills
+7285,50,Pill,,,,,,,,,50 Pills
+1941,420,ml,,,7,Non stated,,,,,7 Enemas with 60 ml each
+2074,100,Pill,,,,,,,,,100 Pills
+2075,20,Pill,,,,,,,,,20 Pills
+2137,28,Pill,,,,,,,,,28 Pills
+2535,100,Pill,,,,,,,,,100 Pills
+2536,10,Pill,,,,,,,,,10 Pills
+3510,60,Pill,,,,,,,,,60 Pills
+3886,700,ml,,,7,Non stated,,,,,7 Enemas with 100 ml each
+4253,60,Pill,,,,,,,,,60 Pills
+4858,30,Pill,,,,,,,,,30 Pills
+5151,,,,,60,Packet / Sachet,,,,,60 Packet / Sachets
+5152,,,,,60,Packet / Sachet,,,,,60 Packet / Sachets
+5153,,,,,50,Packet / Sachet,,,,,50 Packet / Sachets
+5479,100,Pill,,,,,,,,,100 Pills
+5798,,,,,60,Packet / Sachet,,,,,60 Packet / Sachets
+6809,100,Pill,,,,,,,,,100 Pills
+7005,700,ml,,,7,Non stated,,,,,7 Enemas with 100 ml each
+7140,12,Pill,,,,,,,,,12 Pills
+7257,60,Pill,,,,,,,,,60 Pills
+7258,90,Pill,,,,,,,,,90 Pills
+7259,,,,,30,Packet / Sachet,,,,,30 Packet / Sachets
+7540,,,,,,,,,,,
+1949,20,Pill,,,,,,,,,20 Pills
+2720,10,Pill,,,,,,,,,10 Pills
+5269,,,,,20,Packet / Sachet,,,,,20 Packet / Sachets
+2725,20,Pill,,,,,,,,,20 Pills
+5130,,,,,16,Packet / Sachet,,,,,16 Packet / Sachets
+5131,10,Pill,,,,,,,,,10 Pills
+5467,10,Pill,,,,,,,,,10 Pills
+5468,20,Pill,,,,,,,,,20 Pills
+7541,,,,,,,,,,,
+6449,90,Pill,,,,,,,,,90 Pills
+6589,112,Pill,,,,,,,,,112 Pills
+3888,30,Pill,,,,,,,,,30 Pills
+3901,10,Pill,,,,,,,,,10 Pills
+3902,30,Pill,,,,,,,,,30 Pills
+4069,30,Pill,,,,,,,,,30 Pills
+4248,40,Pill,,,,,,,,,40 Pills
+5834,30,Pill,,,,,,,,,30 Pills
+5997,84,Pill,,,,,,,,,84 Pills
+7542,,,,,,,,,,,
+2548,100,Pill,,,,,,,,,100 Pills
+3408,100,Pill,,,,,,,,,100 Pills
+2080,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+2333,10,ml,,,1,vial,,,,,1 vial of 10 ml
+3290,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5286,10,ml,,,1,vial,,,,,1 vial of 10 ml
+2078,10,ml,,,1,vial,,,,,1 vial of 10 ml
+3683,15,ml,,,5,Penfill,,,,,5 Penfills of 3 ml each
+7053,10,ml,,,1,vial,,,,,1 vial of 10 ml
+7080,3,ml,,,1,Cartridge,,,,,1 Cartridge of 3 ml
+7430,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+7432,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+2330,15,ml,,,5,Pen,,,,,5 Pens of 3 ml each
+5008,15,ml,,,5,Pen,,,,,5 Pens of 3 ml each
+5029,15,ml,,,5,Pen,,,,,5 Pens of 3 ml each
+3409,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3410,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+2079,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+2336,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3291,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5009,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3681,15,ml,,,5,Pen,,,,,5 Pens of 3 ml each
+3682,15,ml,,,5,Pen,,,,,5 Pens of 3 ml each
+2329,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+5007,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+5027,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+4931,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+2081,10,ml,,,1,vial,,,,,1 vial of 10 ml
+2334,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3289,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5285,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+2345,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3411,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+5221,4.5,ml,,,3,Pre-filled pen,,,,,3 Prefilled pens of 1.5 ml each
+5580,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+6763,6,ml,,,2,Pre-filled pen,,,,,2 Prefilled pens of 3 ml each
+4463,15,ml,,,5,Pre-filled pen,,,,,5 Prefilled pens of 3 ml each
+7020,9,ml,,,3,Pre-filled pen,,,,,3 Prefilled pens of 3 ml each
+7021,9,ml,,,3,Pre-filled pen,,,,,3 Prefilled pens of 3 ml each
+5778,9,ml,,,3,Pre-filled pen,,,,,3 Prefilled pens of 3 ml each
+2054,56,Pill,,,,,,,,,56 Pills
+2657,30,Pill,,,,,,,,,30 Pills
+2918,30,Pill,,,,,,,,,30 Pills
+3152,30,Pill,,,,,,,,,30 Pills
+3186,30,Pill,,,,,,,,,30 Pills
+3187,30,Pill,,,,,,,,,30 Pills
+3304,30,Pill,,,,,,,,,30 Pills
+3305,30,Pill,,,,,,,,,30 Pills
+3306,30,Pill,,,,,,,,,30 Pills
+3323,30,Pill,,,,,,,,,30 Pills
+3335,30,Pill,,,,,,,,,30 Pills
+3336,30,Pill,,,,,,,,,30 Pills
+3348,30,Pill,,,,,,,,,30 Pills
+3612,30,Pill,,,,,,,,,30 Pills
+3732,30,Pill,,,,,,,,,30 Pills
+3783,30,Pill,,,,,,,,,30 Pills
+3865,30,Pill,,,,,,,,,30 Pills
+5345,30,Pill,,,,,,,,,30 Pills
+5346,30,Pill,,,,,,,,,30 Pills
+5347,30,Pill,,,,,,,,,30 Pills
+5348,30,Pill,,,,,,,,,30 Pills
+5661,30,Pill,,,,,,,,,30 Pills
+5662,30,Pill,,,,,,,,,30 Pills
+5740,30,Pill,,,,,,,,,30 Pills
+7543,,,,,,,,,,,
+7544,,,,,,,,,,,
+7545,,,,,,,,,,,
+7546,,,,,,,,,,,
+7547,,,,,,,,,,,
+7548,,,,,,,,,,,
+7549,,,,,,,,,,,
+7550,,,,,,,,,,,
+7551,,,,,,,,,,,
+3000,100,Pill,,,,,,,,,100 Pills
+3351,100,Pill,,,,,,,,,100 Pills
+2721,60,Pill,,,,,,,,,60 Pills
+3831,30,Pill,,,,,,,,,30 Pills
+7552,,,,,,,,,,,
+3201,30,Pill,,,,,,,,,30 Pills
+3202,30,Pill,,,,,,,,,30 Pills
+3203,30,Pill,,,,,,,,,30 Pills
+3204,30,Pill,,,,,,,,,30 Pills
+3328,30,Pill,,,,,,,,,30 Pills
+3329,30,Pill,,,,,,,,,30 Pills
+3330,30,Pill,,,,,,,,,30 Pills
+3331,30,Pill,,,,,,,,,30 Pills
+3725,30,Pill,,,,,,,,,30 Pills
+3726,30,Pill,,,,,,,,,30 Pills
+3727,30,Pill,,,,,,,,,30 Pills
+3994,30,Pill,,,,,,,,,30 Pills
+4149,30,Pill,,,,,,,,,30 Pills
+4151,30,Pill,,,,,,,,,30 Pills
+4152,30,Pill,,,,,,,,,30 Pills
+4220,30,Pill,,,,,,,,,30 Pills
+4221,30,Pill,,,,,,,,,30 Pills
+4222,30,Pill,,,,,,,,,30 Pills
+4223,30,Pill,,,,,,,,,30 Pills
+7330,30,Pill,,,,,,,,,30 Pills
+7331,30,Pill,,,,,,,,,30 Pills
+7332,30,Pill,,,,,,,,,30 Pills
+7333,30,Pill,,,,,,,,,30 Pills
+7489,30,Pill,,,,,,,,,30 Pills
+7490,30,Pill,,,,,,,,,30 Pills
+7491,30,Pill,,,,,,,,,30 Pills
+7553,,,,,,,,,,,
+7554,,,,,,,,,,,
+7555,,,,,,,,,,,
+7556,,,,,,,,,,,
+7557,,,,,,,,,,,
+2919,30,Pill,,,,,,,,,30 Pills
+2920,30,Pill,,,,,,,,,30 Pills
+3188,30,Pill,,,,,,,,,30 Pills
+3189,30,Pill,,,,,,,,,30 Pills
+3307,30,Pill,,,,,,,,,30 Pills
+3332,30,Pill,,,,,,,,,30 Pills
+3685,30,Pill,,,,,,,,,30 Pills
+4497,60,Pill,,,,,,,,,60 Pills
+6227,56,Pill,,,,,,,,,56 Pills
+6228,30,Pill,,,,,,,,,30 Pills
+6229,30,Pill,,,,,,,,,30 Pills
+3644,56,Pill,,,,,,,,,56 Pills
+3645,56,Pill,,,,,,,,,56 Pills
+4951,56,Pill,,,,,,,,,56 Pills
+4952,56,Pill,,,,,,,,,56 Pills
+4953,28,Pill,,,,,,,,,28 Pills
+6785,60,Pill,,,,,,,,,60 Pills
+6786,60,Pill,,,,,,,,,60 Pills
+6787,60,Pill,,,,,,,,,60 Pills
+6964,56,Pill,,,,,,,,,56 Pills
+6965,56,Pill,,,,,,,,,56 Pills
+7558,,,,,,,,,,,
+7559,,,,,,,,,,,
+7194,60,Pill,,,,,,,,,60 Pills
+7195,60,Pill,,,,,,,,,60 Pills
+7560,,,,,,,,,,,
+7561,,,,,,,,,,,
+7562,,,,,,,,,,,
+7563,,,,,,,,,,,
+7564,,,,,,,,,,,
+7565,,,,,,,,,,,
+7212,28,Pill,,,,,,,,,28 Pills
+7566,,,,,,,,,,,
+5645,60,Pill,,,,,,,,,60 Pills
+5646,30,Pill,,,,,,,,,30 Pills
+7220,60,Pill,,,,,,,,,60 Pills
+7221,60,Pill,,,,,,,,,60 Pills
+7496,60,Pill,,,,,,,,,60 Pills
+7497,60,Pill,,,,,,,,,60 Pills
+7567,,,,,,,,,,,
+7568,,,,,,,,,,,
+5909,60,Pill,,,,,,,,,60 Pills
+5910,30,Pill,,,,,,,,,30 Pills
+7569,,,,,,,,,,,
+7570,,,,,,,,,,,
+7571,,,,,,,,,,,
+7572,,,,,,,,,,,
+7573,,,,,,,,,,,
+6340,30,Pill,,,,,,,,,30 Pills
+6341,30,Pill,,,,,,,,,30 Pills
+7574,,,,,,,,,,,
+7575,,,,,,,,,,,
+7576,,,,,,,,,,,
+7577,,,,,,,,,,,
+5407,60,Pill,,,,,,,,,60 Pills
+6925,60,Pill,,,,,,,,,60 Pills
+6926,60,Pill,,,,,,,,,60 Pills
+6927,60,Pill,,,,,,,,,60 Pills
+6932,60,Pill,,,,,,,,,60 Pills
+7440,60,Pill,,,,,,,,,60 Pills
+7441,60,Pill,,,,,,,,,60 Pills
+7578,,,,,,,,,,,
+2153,30,Pill,,,,,,,,,30 Pills
+3434,30,Pill,,,,,,,,,30 Pills
+3461,30,Pill,,,,,,,,,30 Pills
+3740,30,Pill,,,,,,,,,30 Pills
+5162,30,Pill,,,,,,,,,30 Pills
+4878,28,Pill,,,,,,,,,28 Pills
+6680,30,Pill,,,,,,,,,30 Pills
+7579,,,,,,,,,,,
+7580,,,,,,,,,,,
+7492,30,Pill,,,,,,,,,30 Pills
+7581,,,,,,,,,,,
+7582,,,,,,,,,,,
+7583,,,,,,,,,,,
+7584,,,,,,,,,,,
+8329,,,,,,,,,,,
+5339,30,Pill,,,,,,,,,30 Pills
+5340,30,Pill,,,,,,,,,30 Pills
+7211,28,Pill,,,,,,,,,28 Pills
+4175,30,Pill,,,,,,,,,30 Pills
+7046,30,Pill,,,,,,,,,30 Pills
+5542,9,ml,,,3,Pre-filled pen,,,,,3 Prefilled pens of 3 ml each
+5005,2,ml,,,4,Pre-filled pen,,,,,4 Prefilled pens of 0.5 ml each
+5006,2,ml,,,4,Pre-filled pen,,,,,4 Prefilled pens of 0.5 ml each
+7367,2,ml,,,4,Pre-filled pen,,,,,4 Prefilled pens of 0.5 ml each
+7436,2,ml,,,4,Pre-filled pen,,,,,4 Prefilled pens of 0.5 ml each
+6543,1.5,ml,,,1,Pre-filled pen,,,,,1 Prefilled pen with 4 disposable needles
+6544,1.5,ml,,,1,Pre-filled pen,,,,,2 Prefilled pen with 4 disposable needles
+6545,3,ml,,,1,Pre-filled pen,,,,,3 Prefilled pens with 4 disposable needles
+5109,28,Pill,,,,,,,,,28 Pills
+7585,,,,,,,,,,,
+7586,,,,,,,,,,,
+7587,,,,,,,,,,,
+7588,,,,,,,,,,,
+5076,30,Pill,,,,,,,,,30 Pills
+5077,30,Pill,,,,,,,,,30 Pills
+7233,30,Pill,,,,,,,,,30 Pills
+7234,30,Pill,,,,,,,,,30 Pills
+2325,30,Pill,,,,,,,,,30 Pills
+2337,30,Pill,,,,,,,,,30 Pills
+2338,30,Pill,,,,,,,,,30 Pills
+5828,90,Pill,,,,,,,,,90 Pills
+5829,90,Pill,,,,,,,,,90 Pills
+5830,90,Pill,,,,,,,,,90 Pills
+8316,,,,,,,,,,,
+8317,,,,,,,,,,,
+8318,,,,,,,,,,,
+8319,,,,,,,,,,,
+8320,,,,,,,,,,,
+8321,,,,,,,,,,,
+4243,30,ml,,,,,,,,,30 ml
+3091,100,ml,,,,,,,,,100 ml
+3103,120,ml,,,,,,,,,120 ml
+7589,,,,,,,,,,,
+7590,,,,,,,,,,,
+2908,30,Pill,,,,,,,,,30 Pills
+4215,100,ml,,,10,Ampule,,,,,10 Ampules of 10 ml each
+3890,30,Pill,,,,,,,,,30 Pills
+7591,,,,,,,,,,,
+7592,,,,,,,,,,,
+7593,,,,,,,,,,,
+7594,,,,,,,,,,,
+7595,,,,,,,,,,,
+7596,,,,,,,,,,,
+3597,50,ml,,,,,,,,,50 ml
+3640,30,Pill,,,,,,,,,30 Pills
+4247,30,Pill,,,,,,,,,30 Pills
+4508,30,Pill,,,,,,,,,30 Pills
+4517,15,ml,,,,,,,,,15 ml
+4571,30,Pill,,,,,,,,,30 Pills
+4600,24,ml,,,,,,,,,24 ml
+4636,10,Pill,,,,,,,,,10 Pills
+4650,,,,,4,Ampule,,,,,4 Ampules
+4693,30,Pill,,,,,,,,,30 Pills
+5429,12,Pill,,,,,,,,,12 Pills
+5748,10,Pill,,,,,,,,,10 Pills
+5759,2,ml,,,1,Ampule,,,,,1 Ampule of 2 ml
+5809,6,ml,,,6,Ampule,,,,,6 Ampules of 1 ml each
+5868,2.5,ml,,,1,Vial,,,,,1 Vial of 2.5 ml
+5912,15,Pill,,,,,,,,,15 Pills
+6021,15,Pill,,,,,,,,,15 Pills
+6063,15,Pill,,,,,,,,,15 Pills
+6107,10,Pill,,,1,Box,,,,,1 Box of 10 Pills
+6108,30,Pill,,,,,,,,,30 Pills
+6143,30,Pill,,,,,,,,,30 Pills
+6273,30,Pill,,,,,,,,,30 Pills
+6274,30,Pill,,,,,,,,,30 Pills
+6275,30,Pill,,,,,,,,,30 Pills
+6315,30,Pill,,,,,,,,,30 Pills
+6317,8,Pill,,,,,,,,,8 Pills
+6635,30,Pill,,,,,,,,,30 Pills
+6703,30,Pill,,,,,,,,,30 Pills
+6726,30,Pill,,,,,,,,,30 Pills
+6992,30,Pill,,,,,,,,,30 Pills
+7117,2,ml,,,1,Ampule,,,,,1 Ampule of 2 ml
+7155,10,Pill,,,,,,,,,10 Pills
+5866,10,ml,,,,,,,,,10 ml
+5952,10,Pill,,,,,,,,,10 Pills
+2151,20,Pill,,,,,,,,,20 Pills
+2152,9,ml,,,3,Ampule,,,,,3 Ampules of 3 ml each
+3622,30,Pill,,,,,,,,,30 Pills
+4698,15,ml,,,5,Ampule,,,,,5 Ampules of 3 ml each
+4750,20,Pill,,,,,,,,,20 Pills
+5427,30,Pill,,,,,,,,,30 Pills
+5819,20,Pill,,,,,,,,,20 Pills
+7280,15,ml,,,5,Ampule,,,,,5 Ampules of 3 ml each
+7597,,,,,,,,,,,
+7598,,,,,,,,,,,
+7599,,,,,,,,,,,
+7600,,,,,,,,,,,
+7601,,,,,,,,,,,
+3092,30,Pill,,,,,,,,,30 Pills
+5018,12,ml,,,12,Ampule,,,,,12 Ampules of 1 ml each
+6131,10,ml,,,5,Ampule,,,,,5 Ampules of 2 ml each
+7602,,,,,,,,,,,
+2163,20,Pill,,,,,,,,,20 Pills
+2208,10,Pill,,,,,,,,,10 Pills
+6138,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+2170,15,Pill,,,,,,,,,15 Pills
+3852,60,Pill,,,,,,,,,60 Pills
+2791,100,ml,,,10,Ampule,,,,,10 Ampules of 10 ml each
+4794,50,ml,,,5,Ampule,,,,,5 Ampules of 10 ml each
+6065,1000,ml,,,100,Ampule,,,,,100 Ampules of 10 ml each
+2364,60,Pill,,,,,,,,,60 Pills
+4637,60,Pill,,,,,,,,,60 Pills
+7345,60,Pill,,,,,,,,,60 Pills
+2285,100,Pill,,,,,,,,,100 Pills
+2286,100,g,,,,,,,,,100 g
+2365,60,Pill,,,,,,,,,60 Pills
+3163,60,Pill,,,,,,,,,60 Pills
+3598,60,Pill,,,,,,,,,60 Pills
+4599,60,Pill,,,,,,,,,60 Pills
+4601,60,Pill,,,,,,,,,60 Pills
+5227,60,Pill,,,,,,,,,60 Pills
+5854,30,Pill,,,,,,,,,30 Pills
+2599,60,Pill,,,,,,,,,60 Pills
+3895,180,g,,,60,Packet,60,Sachet,,,60 packets or sachets of 3 g each
+5236,50,Pill,,,,,,,,,50 Pills
+5821,60,Pill,,,,,,,,,60 Pills
+7603,,,,,,,,,,,
+3287,100,ml,,,10,Ampule,,,,,10 Ampules of 10 ml each
+5323,200,ml,,,20,Ampule,,,,,20 ampules of 10 ml each
+4512,200,ml,,,20,Ampule,,,,,20 ampules of 10 ml each
+6248,,,,,1,vial,,,,,1 Vial
+6641,,,,,1,vial,,,,,1 Vial
+7604,,,,,,,,,,,
+5126,,,,,1,vial,,,,,1 Vial
+5706,100,Pill,,,,,,,,,100 Pills
+3068,20,Pill,,,,,,,,,20 Pills
+2448,50,ml,,,10,vial,,,,,10 vials of 5 ml each
+6440,50,ml,,,10,vial,,,,,10 vials of 5 ml each
+2274,0.8,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.4 ml each
+2275,1.6,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.8 ml each
+2276,1.2,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.6 ml each
+2277,0.4,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.2 ml each
+6458,0.4,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.2 ml each
+6459,0.8,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.4 ml each
+6460,1.2,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.6 ml each
+6461,1.6,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.8 ml each
+7189,4,ml,,,10,Pre-filled syringe,,,,,10 Prefilled syringes of 0.4 ml each
+7605,,,,,,,,,,,
+7606,,,,,,,,,,,
+7607,,,,,,,,,,,
+7608,,,,,,,,,,,
+7609,,,,,,,,,,,
+7610,,,,,,,,,,,
+7611,,,,,,,,,,,
+7612,,,,,,,,,,,
+7613,,,,,,,,,,,
+7614,,,,,,,,,,,
+7615,,,,,,,,,,,
+7616,,,,,,,,,,,
+7617,,,,,,,,,,,
+7618,,,,,,,,,,,
+7619,,,,,,,,,,,
+7620,,,,,,,,,,,
+7621,,,,,,,,,,,
+7622,,,,,,,,,,,
+7623,,,,,,,,,,,
+1980,50,Pill,,,,,,,,,50 Pills
+6513,50,Pill,,,,,,,,,50 Pills
+4105,0.4,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.2 ml each
+4106,0.4,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.2 ml each
+4236,0.4,ml,,,2,Pre-filled syringe,,,,,2 Prefilled syringes of 0.2 ml each
+4237,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+3519,28,Pill,,,,,,,,,28 Pills
+3647,30,Pill,,,,,,,,,30 Pills
+3754,30,Pill,,,,,,,,,30 Pills
+3864,10,Pill,,,,,,,,,10 Pills
+3894,30,Pill,,,,,,,,,30 Pills
+4055,28,Pill,,,,,,,,,28 Pills
+4279,28,Pill,,,,,,,,,28 Pills
+4490,28,Pill,,,,,,,,,28 Pills
+4843,28,Pill,,,,,,,,,28 Pills
+5644,30,Pill,,,,,,,,,30 Pills
+6483,30,Pill,,,,,,,,,30 Pills
+7205,30,Pill,,,,,,,,,30 Pills
+7321,30,Pill,,,,,,,,,30 Pills
+7431,28,Pill,,,,,,,,,28 Pills
+7624,,,,,,,,,,,
+7625,,,,,,,,,,,
+7626,,,,,,,,,,,
+12247,,,,,,,,,,,
+3171,100,Pill,,,,,,,,,100 Pills
+3176,30,Pill,,,,,,,,,30 Pills
+4320,20,Pill,,,,,,,,,20 Pills
+5216,56,Pill,,,,,,,,,56 Pills
+5292,120,Pill,,,,,,,,,120 Pills
+6027,30,Pill,,,,,,,,,30 Pills
+6829,100,Pill,,,,,,,,,100 Pills
+7010,30,Pill,,,,,,,,,30 Pills
+7078,30,Pill,,,,,,,,,30 Pills
+3518,50,ml,,,1,vial,,,,,1 vial of 50 ml
+5004,50,ml,,,1,vial,,,,,1 vial of 50 ml
+4039,56,Pill,,,,,,,,,56 Pills
+7235,60,Pill,,,,,,,,,60 Pills
+7236,60,Pill,,,,,,,,,60 Pills
+7627,,,,,,,,,,,
+7628,,,,,,,,,,,
+6867,60,Pill,,,,,,,,,60 Pills
+6868,60,Pill,,,,,,,,,60 Pills
+6869,60,Pill,,,,,,,,,60 Pills
+6870,60,Pill,,,,,,,,,60 Pills
+6871,60,Pill,,,,,,,,,60 Pills
+6872,60,Pill,,,,,,,,,60 Pills
+6873,60,Pill,,,,,,,,,60 Pills
+6874,140,Pill,,,,,,,,,140 Pills
+7116,60,Pill,,,,,,,,,60 Pills
+2360,100,ml,,,2,vial,,,,,2 vials of 50 ml each
+2356,10,ml,,,1,vial,1,pre-filled syringe,,,1 vial and 1 pre-filled syringe of 10 ml
+3442,60,Pill,,,,,,,,,60 Pills
+3443,30,Pill,,,,,,,,,30 Pills
+3444,60,Pill,,,,,,,,,60 Pills
+3445,30,Pill,,,,,,,,,30 Pills
+4040,60,Pill,,,,,,,,,60 Pills
+7629,,,,,,,,,,,
+7630,,,,,,,,,,,
+7631,,,,,,,,,,,
+3545,10,Pill,,,,,,,,,10 Pills
+4188,28,Pill,,,,,,,,,28 Pills
+4189,28,Pill,,,,,,,,,28 Pills
+4877,56,Pill,,,,,,,,,56 Pills
+6826,30,Pill,,,,,,,,,30 Pills
+6827,30,Pill,,,,,,,,,30 Pills
+6828,10,Pill,,,,,,,,,10 Pills
+6876,30,Pill,,,,,,,,,30 Pills
+6877,30,Pill,,,,,,,,,30 Pills
+6878,10,Pill,,,,,,,,,10 Pills
+7013,30,Pill,,,,,,,,,30 Pills
+7014,30,Pill,,,,,,,,,30 Pills
+7015,10,Pill,,,,,,,,,10 Pills
+7016,60,Pill,,,,,,,,,60 Pills
+7632,,,,,,,,,,,
+7633,,,,,,,,,,,
+7634,,,,,,,,,,,
+7635,,,,,,,,,,,
+7636,,,,,,,,,,,
+7637,,,,,,,,,,,
+7638,,,,,,,,,,,
+6810,60,Pill,,,,,,,,,60 Pills
+6811,60,Pill,,,,,,,,,60 Pills
+7011,60,Pill,,,,,,,,,60 Pills
+7012,60,Pill,,,,,,,,,60 Pills
+7639,,,,,,,,,,,
+7640,,,,,,,,,,,
+5523,5,ml,,,10,Pre-filled syringe,,,,,10 prefilled syringes of 0.5 ml each
+5930,5,ml,,,10,Pre-filled syringe,,,,,10 prefilled syringes of 0.5 ml each
+7495,25,ml,,,5,Ampule,,,,,5 ampules of 5 ml each
+2565,10,ml,,,10,Ampule,,,,,10 Ampules of 1 ml each
+6362,1,ml,,,5,Ampule,,,,,5 ampules of 0.2 ml each
+6879,,,,,1,vial,,,,,1 Vial
+6952,,,,,1,Bottle,,,,,1 bottle of powder with 1 bottle of solvent
+7641,,,,,,,,,,,
+6051,10,ml,,,,,,,,,10 ml
+6052,4,ml,,,,,,,,,4 ml
+6053,2,ml,,,,,,,,,2 ml
+4435,,,,,1,Non stated,,,,,Non Stated
+2557,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+2558,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+2559,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+4944,,,,,1,vial,,,,,1 Vial
+5329,,,,,1,pre-filled syringe,1,pre-filled syringe,,,"1powder vial, 1prefilled syringe, 1butterfly needle, 2alcohol swabs, 1vial adapter"
+5538,,,,,1,vial,1,pre-filled syringe,,,1 vial and 1 prefilled syringe
+5638,2.5,ml,,,1,vial,,,,,1 Vial of 2.5 ml
+5639,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+5640,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+6278,,,,,1,vial,1,Non stated,,,1 vial and 1 solvant
+6834,10,ml,,,1,vial,1,vial,1,applicator,1 vial with a vial of solvent and a bax ject II device
+6835,20,ml,,,1,vial,1,vial,1,applicator,1 vial with a vial of solvent and a bax ject II device
+7358,,,,,1,vial,1,pre-filled syringe,,,"1 vial, 1 prefilled syringe, 1 plunger rod and 1 vial adapter"
+7359,,,,,2,vial,1,pre-filled syringe,,,"2 vial, 1 prefilled syringe, 1 plunger rod and 1 vial adapter"
+4053,5,ml,,,1,vial,1,vial,,,1 vial with a vial of water
+4290,,,,,1,vial,1,vial,,,1 vial with a vial of water
+6755,,,,,1,vial,1,pre-filled syringe,,,"1 vial, 1 prefilled syringe"
+6756,,,,,1,vial,1,pre-filled syringe,,,"1 vial, 1 prefilled syringe"
+6757,,,,,1,vial,1,pre-filled syringe,,,"1 vial, 1 prefilled syringe"
+6778,,,,,1,vial,1,pre-filled syringe,1,kit,"1 vial, 1 prefilled syringe and 1 kit"
+5147,,,,,1,vial,1,vial,,,1 vial and 1 vial of solvent
+5635,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+5636,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+5637,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3541,,,,,1,vial,1,pre-filled syringe,,,1 vial and 1 prefilled syringe
+3542,,,,,1,vial,1,pre-filled syringe,,,1 vial and 1 prefilled syringe
+3543,,,,,1,vial,1,pre-filled syringe,,,1 vial and 1 prefilled syringe
+6277,,,,,1,vial,1,vial,,,1 vial and 1 vial of solvent
+6577,,,,,1,vial,1,vial,,,1 vial and 1 vial of solvent
+2138,8,ml,,,1,Ampule,,,,,1 Ampule of 8 ml
+6323,20,Pill,,,,,,,,,20 Pills
+4658,,,,,1,vial,,,,,1 Vial
+7642,,,,,,,,,,,
+7643,,,,,,,,,,,
+6413,0.4,ml,,,1,vial,,,,,1 Vial of 0.4 ml
+6414,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+6415,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+6416,0.7,ml,,,1,vial,,,,,1 Vial of 0.7 ml
+3458,100,ml,,,,,,,,,100 ml
+6028,60,Pill,,,,,,,,,60 Pills
+7644,,,,,,,,,,,
+3432,50,ml,,,,,,,,,50 ml
+4241,100,ml,,,,,,,,,100 ml
+4161,30,ml,,,,,,,,,30 ml
+3284,150,ml,,,10,Bottle,,,,,10 bottles of 15 ml each
+3381,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+3877,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+4330,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+4941,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+5441,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+5442,25,ml,,,5,Ampule,,,,,5 Ampules of 5 ml each
+6664,25,ml,,,5,vial,,,,,5 vials of 5 ml each
+3321,30,Pill,,,,,,,,,30 Pills
+5391,30,Pill,,,,,,,,,30 Pills
+5769,30,Pill,,,,,,,,,30 Pills
+2320,30,Pill,,,,,,,,,30 Pills
+4124,60,Pill,,,,,,,,,60 Pills
+5770,150,ml,,,,,,,,,150 ml
+5771,30,ml,,,,,,,,,30 ml
+8314,,,,,,,,,,,
+8315,,,,,,,,,,,
+2664,200,ml,,,,Ampule,,,,,20 ampules of 10 ml each
+2316,30,Pill,,,,,,,,,30 Pills
+7085,5,ml,,,5,Ampule,,,,,5 ampules of 1 ml each
+7390,5,ml,,,5,Ampule,,,,,5 ampules of 1 ml each
+4211,8,ml,,,8,Ampule,,,,,8 ampules of 1 ml each
+6074,2,ml,,,2,Ampule,,,,,2 ampules of 1 ml each
+3014,50,Pill,,,,,,,,,50 Pills
+4125,60,Pill,,,,,,,,,60 Pills
+5042,50,Pill,,,,,,,,,50 Pills
+2093,2,ml,,,1,ampule,1,ampule,,,1 ampule and 1 ampule of solvent
+2094,1,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of solvent
+2178,10,ml,,,10,vial,,,,,10 vials of 1 ml each
+2179,10,ml,,,10,vial,,,,,10 vials of 1 ml each
+3858,50,ml,,,25,ampule,25,ampule,,,25 ampules and 25 ampules of solvent
+3957,6,ml,,,6,Pre-filled syringe,,,,,6 prefilled syringes of 1 ml each
+3958,6,ml,,,6,Pre-filled syringe,,,,,6 prefilled syringes of 1 ml each
+3959,6,ml,,,6,Pre-filled syringe,,,,,6 prefilled syringes of 1 ml each
+3998,,,,,1,Non stated,,,,,Non Stated
+4198,1,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 1 ml each
+6344,,,,,1,vial,,,,,1 Vial
+6934,2.4,ml,,,6,Pre-filled syringe,,,,,6 prefilled syringes of 0.4 ml each
+6935,6,ml,,,6,Pre-filled syringe,,,,,6 prefilled syringes of 1 ml each
+6936,1,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 1 ml each
+7226,,,,,5,vial,,,,,5 Vials
+7227,,,,,1,vial,,,,,1 Vial
+7383,,,,,1,vial,1,ampule,,,1 vial and 1 ampule of solvent
+7384,,,,,1,vial,1,ampule,,,1 vial and 1 ampule of solvent
+7645,,,,,,,,,,,
+7646,,,,,,,,,,,
+7647,,,,,,,,,,,
+7648,,,,,,,,,,,
+7649,,,,,,,,,,,
+7650,,,,,,,,,,,
+7651,,,,,,,,,,,
+4444,1000,ml,,,1,Bag,,,,,1000ml PVC Bags 2 entries
+4445,1000,ml,,,1,Bag,,,,,1000ml PVC Bags 2 entries
+5949,250,ml,,,1,Bag,,,,,250ml PVC Bags 2 entries
+7652,,,,,,,,,,,
+7653,,,,,,,,,,,
+2552,50,ml,,,1,Non stated,,,,,1 Non stated of 50 ml
+2594,100,ml,,,,,,,,,100 ml
+2596,50,ml,,,,,,,,,50 ml
+2636,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+2770,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+3556,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+5231,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+5641,50,ml,,,,,,,,,50 ml
+6136,50,ml,,,,,,,,,50 ml
+6295,5000,ml,,,10,Non stated,,,,,"10 non stated, of 500 ml each"
+2459,500,ml,,,,,,,,,500 ml
+2417,500,ml,,,,,,,,,500 ml
+4214,100,ml,,,1,Non stated,,,,,1 Non stated of 100 ml
+5217,500,ml,,,,,,,,,500 ml
+4213,250,ml,,,,,,,,,250 ml
+7654,,,,,,,,,,,
+4392,2000,ml,,,,,,,,,in 3 compartments (400 ml + 800 ml + 800 ml)
+4398,1500,ml,,,,,,,,,in 3 compartments (300 ml + 600 ml + 600 ml)
+5001,1477,ml,,,,,,,,,1477 ml
+5002,1448,ml,,,,,,,,,1448 ml
+2825,250,ml,,,,,,,,,250 ml
+2826,500,ml,,,1,Bag,,,,,Viaflex bag
+2827,1000,ml,,,1,Bag,,,,,Viaflex bag
+2833,250,ml,,,,,,,,,250 ml
+2834,500,ml,,,1,Bag,,,,,Viaflex bag
+2835,1000,ml,,,1,Bag,,,,,Viaflex bag
+3228,1000,ml,,,,,,,,,1000 ml
+3229,500,ml,,,,,,,,,500 ml
+3230,250,ml,,,,,,,,,250 ml
+3238,1000,ml,,,,,,,,,1000 ml
+3239,500,ml,,,,,,,,,500 ml
+3240,250,ml,,,,,,,,,250 ml
+5947,1000,ml,,,1,Bag,,,,,Non PVC bag
+5948,500,ml,,,1,Bag,,,,,Non PVC bag
+6118,500,ml,,,,,,,,,500 ml
+6119,1000,ml,,,,,,,,,1000 ml
+6122,1000,ml,,,1,Bag,,,,,Viaflex bag
+6236,1000,ml,,,1,Bag,,,,,Non PVC bag
+6237,1000,ml,,,1,Bag,,,,,Viaflex bag
+6299,1000,ml,,,,,,,,,1000 ml
+6408,500,ml,,,1,Bag,,,,,Viaflex bag
+6503,500,ml,,,,,,,,,500 ml
+6618,1000,ml,,,,,,,,,1000 ml
+6619,1000,ml,,,,,,,,,1000 ml
+2810,1000,ml,,,,,,,,,1000 ml
+2811,250,ml,,,1,Bag,,,,,Viaflex bag
+2812,500,ml,,,1,Bag,,,,,Viaflex bag
+2813,1000,ml,,,1,Bag,,,,,Viaflex bag
+2814,1000,ml,,,1,Bag,,,,,Viaflex bag
+2815,500,ml,,,1,Bag,,,,,Viaflex bag
+2816,500,ml,,,1,Bag,,,,,Viaflex bag
+2817,250,ml,,,1,Bag,,,,,Viaflex bag
+2818,500,ml,,,1,Bag,,,,,Viaflex bag
+2819,1000,ml,,,1,Bag,,,,,Viaflex bag
+2820,1000,ml,,,1,Bag,,,,,Viaflex bag
+2821,500,ml,,,1,Bag,,,,,Viaflex bag
+2822,1000,ml,,,1,Bag,,,,,Viaflex bag
+2823,500,ml,,,,,,,,,500 ml
+2824,500,ml,,,,,,,,,500 ml
+2828,500,ml,,,,,,,,,500 ml
+3217,1000,ml,,,,,,,,,1000 ml
+3218,500,ml,,,,,,,,,500 ml
+3219,250,ml,,,,,,,,,250 ml
+3220,1000,ml,,,,,,,,,1000 ml
+3221,500,ml,,,,,,,,,500 ml
+3222,250,ml,,,,,,,,,250 ml
+3223,1000,ml,,,,,,,,,1000 ml
+3224,500,ml,,,,,,,,,500 ml
+3225,250,ml,,,,,,,,,250 ml
+3226,500,ml,,,1,Bag,,,,,PVC flexible container
+3227,500,ml,,,,,,,,,500 ml
+3231,500,ml,,,1,Bag,,,,,PVC flexible container
+3232,500,ml,,,1,Bag,,,,,PVC flexible container
+5941,500,ml,,,1,Bag,,,,,Viaflex bag
+5942,1000,ml,,,1,Bag,,,,,Viaflex bag
+5943,500,ml,,,1,Bag,,,,,Non PVC bag
+5944,1000,ml,,,1,Bag,,,,,Non PVC bag
+6030,1000,ml,,,,,,,,,1000 ml
+6031,500,ml,,,,,,,,,500 ml
+6099,1000,ml,,,,,,,,,1000 ml
+6100,500,ml,,,,,,,,,500 ml
+6232,500,ml,,,1,Bag,,,,,Viaflex bag
+6233,500,ml,,,1,Bag,,,,,Non PVC bag
+6234,1000,ml,,,1,Bag,,,,,Non PVC bag
+6235,1000,ml,,,1,Bag,,,,,Viaflex bag
+6570,1000,ml,,,,,,,,,1000 ml
+6571,1000,ml,,,1,Bag,,,,,Non PVC bag
+6572,500,ml,,,,,,,,,500 ml
+6620,500,ml,,,1,Bag,,,,,Non PVC bag
+7072,1000,ml,,,,,,,,,1000 ml
+7073,1000,ml,,,,,,,,,1000 ml
+7074,1000,ml,,,,,,,,,1000 ml
+7655,,,,,,,,,,,
+7656,,,,,,,,,,,
+7657,,,,,,,,,,,
+7658,,,,,,,,,,,
+2831,250,ml,,,1,Bag,,,,,Viaflex bag
+2832,500,ml,,,1,Bag,,,,,Viaflex bag
+2836,250,ml,,,1,Bag,,,,,Viaflex bag
+2837,500,ml,,,1,Bag,,,,,Viaflex bag
+3234,500,ml,,,,,,,,,500 ml
+3235,250,ml,,,,,,,,,250 ml
+3236,500,ml,,,,,,,,,500 ml
+3237,250,ml,,,,,,,,,250 ml
+6092,500,ml,,,1,Bag,,,,,Viaflex bag
+6121,500,ml,,,1,Bag,,,,,PVC bags
+6300,500,ml,,,1,Bag,,,,,Non PVC bag
+6394,500,ml,,,,,,,,,500 ml
+7385,500,ml,,,,,,,,,500 ml
+7659,,,,,,,,,,,
+2443,1000,ml,,,20,ampule,,,,,20 ampules of 50 ml each
+2444,1000,ml,,,50,ampule,,,,,50 ampules of 20 ml each
+2797,200,ml,,,10,ampule,,,,,10 ampules of 20 ml each
+2798,200,ml,,,10,Non stated,,,,,"10 Non stated, of 20 ml each"
+2799,500,ml,,,1,Bag,,,,,Viaflex bag
+2800,500,ml,,,1,Bag,,,,,Viaflex bag
+2801,500,ml,,,1,Bag,,,,,Viaflex bag
+2802,250,ml,,,1,Bag,,,,,Viaflex bag
+2803,500,ml,,,1,Bag,,,,,Viaflex bag
+2804,1000,ml,,,1,Bag,,,,,Viaflex bag
+2805,50,ml,,,1,Bag,,,,,Viaflex bag
+2806,100,ml,,,1,Bag,,,,,Viaflex bag
+2807,250,ml,,,1,Bag,,,,,Viaflex bag
+2808,500,ml,,,1,Bag,,,,,Viaflex bag
+2809,1000,ml,,,1,Bag,,,,,Viaflex bag
+3210,500,ml,,,,,,,,,500 ml
+3211,250,ml,,,,,,,,,250 ml
+3212,1000,ml,,,,,,,,,1000 ml
+3213,500,ml,,,,,,,,,500 ml
+3214,250,ml,,,,,,,,,250 ml
+3215,500,ml,,,,,,,,,500 ml
+3216,250,ml,,,,,,,,,250 ml
+3233,1000,ml,,,,,,,,,1000 ml
+3244,500,ml,,,,,,,,,500 ml
+3251,250,ml,,,,,,,,,250 ml
+3257,100,ml,,,,,,,,,100 ml
+3258,50,ml,,,,,,,,,50 ml
+3259,1000,ml,,,,,,,,,1000 ml
+3372,500,ml,,,,,,,,,500 ml
+5950,100,ml,,,1,Bag,,,,,Viaflex bag
+6095,100,ml,,,1,Bag,,,,,Non PVC bag
+6096,50,ml,,,1,Bag,,,,,Non PVC bag
+6120,500,ml,,,1,Bag,,,,,Non PVC bag
+6230,1000,ml,,,1,Bag,,,,,Non PVC bag
+6287,50,ml,,,1,Bag,,,,,Viaflex bag
+6288,250,ml,,,1,Bag,,,,,Non PVC bag
+6305,100,ml,,,1,Bag,,,,,Viaflex bag
+6306,250,ml,,,1,Bag,,,,,Viaflex bag
+6307,500,ml,,,1,Bag,,,,,Viaflex bag
+6308,1000,ml,,,1,Bag,,,,,Viaflex bag
+6463,100,ml,,,1,Bag,,,,,Non PVC bag
+6464,50,ml,,,,,,,,,50 ml
+6465,50,ml,,,1,Bag,,,,,Non PVC bag
+6466,500,ml,,,,,,,,,500 ml
+6467,100,ml,,,,,,,,,100 ml
+6468,500,ml,,,1,Bag,,,,,Non PVC bag
+6504,1000,ml,,,1,Bag,,,,,Non PVC bag
+6505,1000,ml,,,,,,,,,1000 ml
+7027,100,ml,,,,,,,,,100 ml
+7028,250,ml,,,,,,,,,250 ml
+7029,500,ml,,,,,,,,,500 ml
+7030,1000,ml,,,,,,,,,1000 ml
+7075,1000,ml,,,,,,,,,1000 ml
+7076,250,ml,,,,,,,,,250 ml
+7077,500,ml,,,,,,,,,500 ml
+7660,,,,,,,,,,,
+7661,,,,,,,,,,,
+7662,,,,,,,,,,,
+7663,,,,,,,,,,,
+7664,,,,,,,,,,,
+7665,,,,,,,,,,,
+7666,,,,,,,,,,,
+7667,,,,,,,,,,,
+7668,,,,,,,,,,,
+7669,,,,,,,,,,,
+2838,3000,ml,,,,,,,,,3000 ml
+2839,3000,ml,,,,,,,,,3000 ml
+3362,2,ml,,,,,,,,,"2,000 ml"
+3363,5,ml,,,,,,,,,"5,000 ml"
+3364,2,ml,,,,,,,,,"2,000 ml"
+3365,5,ml,,,,,,,,,"5,000 ml"
+3366,2,ml,,,,,,,,,"2,000 ml"
+3367,2,ml,,,,,,,,,"2,000 ml"
+2632,2,ml,,,,,,,,,"2,000 ml"
+2633,2,ml,,,,,,,,,"2,000 ml"
+6372,2,ml,,,,,,,,,"2,000 ml"
+6374,5,ml,,,,,,,,,"5,000 ml"
+6375,5,ml,,,,,,,,,"5,000 ml"
+6376,2,ml,,,,,,,,,"2,000 ml"
+6378,5,ml,,,,,,,,,"5,000 ml"
+6380,2,ml,,,,,,,,,"2,000 ml"
+4145,100,ml,,,10,vial,,,,,10 vials of 10 ml each
+1958,500,ml,,,50,ampule,,,,,50 ampules of 10 ml each
+2380,100,ml,,,10,Non stated,,,,,"10 Non stated, of 10 ml each"
+2381,100,ml,,,10,ampule,,,,,10 Ampules of 10 ml each
+2840,1000,ml,,,100,Non stated,,,,,"100 Non stated, of 10 ml each"
+2841,200,ml,,,10,Non stated,,,,,"10 Non stated, of 20 ml each"
+2842,1000,ml,,,100,Non stated,,,,,"100 Non stated, of 10 ml each"
+2843,1000,ml,,,100,Non stated,,,,,"100 Non stated, of 10 ml each"
+2844,,,,,,,,,,,
+2845,,,,,,,,,,,
+2846,,,,,,,,,,,
+2847,,,,,,,,,,,
+1959,500,ml,,,50,ampule,,,,,50 ampules of 10 ml each
+1960,400,ml,,,20,ampule,,,,,20 ampules of 20 ml each
+2383,1000,ml,,,100,ampule,,,,,100 Ampules of 10 ml each
+2848,,,,,,,,,,,
+2849,,,,,,,,,,,
+2850,,,,,,,,,,,
+2851,,,,,,,,,,,
+2852,,,,,,,,,,,
+2853,,,,,,,,,,,
+2854,,,,,,,,,,,
+2855,,,,,,,,,,,
+2857,,,,,,,,,,,
+2858,,,,,,,,,,,
+2859,500,ml,,,1,Bag,,,,,Viaflex bag
+2860,1000,ml,,,1,Bag,,,,,Viaflex bag
+2861,250,ml,,,1,Bag,,,,,Viaflex bag
+2862,500,ml,,,1,Bag,,,,,Viaflex bag
+2863,1000,ml,,,1,Bag,,,,,Viaflex bag
+3241,1000,ml,,,,,,,,,1000 ml
+3242,500,ml,,,,,,,,,500 ml
+3243,250,ml,,,,,,,,,250 ml
+3245,1000,ml,,,,,,,,,1000 ml
+3246,500,ml,,,,,,,,,500 ml
+3247,250,ml,,,,,,,,,250 ml
+3248,100,ml,,,,,,,,,100 ml
+3249,50,ml,,,,,,,,,50 ml
+3263,2000,ml,,,100,Non stated,,,,,"100 non stated, of 20 ml each"
+5796,1000,ml,,,1,Bag,,,,,Viaflex bag
+5797,500,ml,,,1,Bag,,,,,Viaflex bag
+5945,500,ml,,,1,Bag,,,,,Non PVC bag
+5946,1000,ml,,,1,Bag,,,,,Non PVC bag
+5951,500,ml,,,1,Bottle,,,,,Bottle of 500 ml
+6093,100,ml,,,1,Bag,,,,,Non PVC bag
+6094,50,ml,,,1,Bag,,,,,Non PVC bag
+6097,1000,ml,,,,,,,,,1000 ml
+6098,500,ml,,,,,,,,,500 ml
+6101,1000,ml,,,,,,,,,1000 ml
+6102,500,ml,,,,,,,,,500 ml
+6231,250,ml,,,1,Bag,,,,,Non PVC bag
+6289,1000,ml,,,1,Bag,,,,,Non PVC bag
+6290,500,ml,,,1,Bag,,,,,Non PVC bag
+6301,250,ml,,,,,,,,,250 ml
+6302,250,ml,,,1,Bag,,,,,Non PVC bag
+6303,100,ml,,,,,,,,,100 ml
+6304,100,ml,,,1,Bag,,,,,Non PVC bag
+6392,50,ml,,,,,,,,,50 ml
+6393,50,ml,,,1,Bag,,,,,Non PVC bag
+6403,100,ml,,,1,Bag,,,,,Viaflex bag
+6404,500,ml,,,1,Bag,,,,,Viaflex bag
+6405,1000,ml,,,1,Bag,,,,,Viaflex bag
+6406,50,ml,,,1,Bag,,,,,Viaflex bag
+6407,250,ml,,,1,Bag,,,,,Viaflex bag
+7031,100,ml,,,,,,,,,100 ml
+7032,500,ml,,,,,,,,,500 ml
+7033,1000,ml,,,,,,,,,1000 ml
+7034,3000,ml,,,,,,,,,3000 ml
+7035,1000,ml,,,,,,,,,1000 ml
+7036,250,ml,,,,,,,,,250 ml
+7670,,,,,,,,,,,
+7671,,,,,,,,,,,
+7672,,,,,,,,,,,
+7673,,,,,,,,,,,
+7674,,,,,,,,,,,
+7675,,,,,,,,,,,
+7676,,,,,,,,,,,
+7677,,,,,,,,,,,
+2478,100,ml,,,10,ampule,,,,,10 Ampules of 10 ml each
+2600,500,ml,,,50,ampule,,,,,50 ampules of 10 ml each
+2829,40,ml,,,10,Non stated,,,,,"10 non stated, of 4 ml each"
+2830,1000,ml,,,100,Non stated,,,,,"100 non stated, of 10 ml each"
+5466,100,ml,,,10,Non stated,,,,,10 non stated of 10 ml each
+2790,1000,ml,,,100,Non stated,,,,,"100 non stated, of 10 ml each"
+5517,100,ml,,,10,ampule,,,,,10 Ampules of 10 ml each
+7161,200,ml,,,20,Non stated,,,,,"20 non stated, of 10 ml each"
+2723,100,ml,,,1,Non stated,,,,,1 non stated of 100 ml
+2792,7.5,L,,,,,,,,,7.5 L
+2793,7.5,L,,,,,,,,,7.5 L
+2794,7.5,L,,,,,,,,,7.5 L
+2795,5,L,,,,,,,,,5 L
+2796,7.5,L,,,,,,,,,7.5 L
+3250,10,L,,,,,,,,,10 L
+3252,10,L,,,,,,,,,10 L
+3253,10,L,,,,,,,,,10 L
+3254,10,L,,,,,,,,,10 L
+3255,10,L,,,,,,,,,10 L
+3256,10,L,,,,,,,,,10 L
+3264,7.5,L,,,,,,,,,7.5 L
+3265,7.5,L,,,,,,,,,7.5 L
+3266,7.5,L,,,,,,,,,7.5 L
+7087,2,ml,,,1,vial,1,syringe,,,"1 vial, 1 syringe and 2 needles"
+7678,,,,,,,,,,,
+7679,,,,,,,,,,,
+4646,60,ml,,,,,,,,,60 ml
+4647,100,Pill,,,,,,,,,100 Pills
+3424,50,Pill,,,,,,,,,50 Pills
+3425,50,Pill,,,,,,,,,50 Pills
+2359,30,Pill,,,,,,,,,30 Pills
+6020,30,Pill,,,,,,,,,30 Pills
+7266,30,Pill,,,,,,,,,30 Pills
+7267,30,Pill,,,,,,,,,30 Pills
+2508,30,Pill,,,,,,,,,30 Pills
+2509,18,ml,,,6,ampule,,,,,6 ampules of 3 ml each
+7680,,,,,,,,,,,
+7277,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+2493,40,ml,,,10,ampule,,,,,10 ampules of 4 ml each
+3383,40,ml,,,10,ampule,,,,,10 ampules of 4 ml each
+5355,40,ml,,,10,ampule,,,,,10 ampules of 4 ml each
+6604,40,ml,,,10,ampule,,,,,10 ampules of 4 ml each
+7681,,,,,,,,,,,
+7682,,,,,,,,,,,
+2453,50,ml,,,10,Non stated,,,,,10 non stated of 5 ml each
+2609,50,ml,,,10,ampule,,,,,10 ampules of 5 ml each
+4828,10,ml,,,10,vial,,,,,10 vials of 1 ml each
+5579,50,ml,,,10,ampule,,,,,10 ampules of 5 ml each
+7475,10,ml,,,10,Pre-filled syringe,,,,,10 prefilled syringes of 1 ml each
+2607,200,ml,,,10,Bottle,,,,,10 bottles of 20 ml each
+2344,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+4837,5,ml,,,5,ampule,,,,,5 ampules on 1 ml each
+7474,,,,,10,Pre-filled syringe,,,,,10 prefilled syringes
+7683,,,,,,,,,,,
+1954,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+2377,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+7684,,,,,,,,,,,
+5313,100,ml,,,10,ampule,,,,,10 Ampules of 10 ml each
+4089,,,,,10,non stated,,,,,10 Non Stated
+5226,50,ml,,,5,vial,,,,,5 vials of 10 ml each
+6432,50,ml,,,1,Bottle,,,,,1 bottle of 50 ml
+7685,,,,,,,,,,,
+3119,30,Pill,,,,,,,,,30 Pills
+7686,,,,,,,,,,,
+3494,30,Pill,,,,,,,,,30 Pills
+3495,30,Pill,,,,,,,,,30 Pills
+6010,30,Pill,,,,,,,,,30 Pills
+6011,90,Pill,,,,,,,,,90 Pills
+6012,30,Pill,,,,,,,,,30 Pills
+7687,,,,,,,,,,,
+5672,30,Pill,,,,,,,,,30 Pills
+5673,30,Pill,,,,,,,,,30 Pills
+7688,,,,,,,,,,,
+7689,,,,,,,,,,,
+1974,5,ml,,,5,ampule,,,,,5 ampules of 1 ml each
+6350,,,,,1,vial,,,,,1 vial
+2694,60,Pill,,,,,,,,,60 Pills
+7690,,,,,,,,,,,
+3478,56,Pill,,,,,,,,,56 Pills
+3479,56,Pill,,,,,,,,,56 Pills
+7151,56,Pill,,,,,,,,,56 Pills
+7152,56,Pill,,,,,,,,,56 Pills
+7691,,,,,,,,,,,
+7692,,,,,,,,,,,
+5022,60,Pill,,,,,,,,,60 Pills
+5023,60,Pill,,,,,,,,,60 Pills
+5024,60,Pill,,,,,,,,,60 Pills
+5595,30,Pill,,,,,,,,,30 Pills
+2921,30,Pill,,,,,,,,,30 Pills
+2929,30,Pill,,,,,,,,,30 Pills
+7217,30,Pill,,,,,,,,,30 Pills
+7218,30,Pill,,,,,,,,,30 Pills
+7219,30,Pill,,,,,,,,,30 Pills
+4349,20,Pill,,,,,,,,,20 Pills
+4474,20,Pill,,,,,,,,,20 Pills
+7693,,,,,,,,,,,
+5060,25,ml,,,5,ampule,,,,,5 Ampules of 5 ml each
+3520,56,Pill,,,,,,,,,56 Pills
+3521,56,Pill,,,,,,,,,56 Pills
+5532,60,Pill,,,,,,,,,60 Pills
+5533,60,Pill,,,,,,,,,60 Pills
+6016,56,Pill,,,,,,,,,56 Pills
+6017,56,Pill,,,,,,,,,56 Pills
+7167,56,Pill,,,,,,,,,56 Pills
+7168,56,Pill,,,,,,,,,56 Pills
+7694,,,,,,,,,,,
+7695,,,,,,,,,,,
+5572,30,Pill,,,,,,,,,30 Pills
+3036,30,Pill,,,,,,,,,30 Pills
+3044,20,Pill,,,,,,,,,20 Pills
+3052,20,Pill,,,,,,,,,20 Pills
+2433,30,Pill,,,,,,,,,30 Pills
+5823,30,Pill,,,,,,,,,30 Pills
+2068,100,Pill,,,,,,,,,100 Pills
+2245,24,Pill,,,,,,,,,24 Pills
+2438,20,ml,,,10,non stated,,,,,10 non stated of 2 ml each
+3208,30,Pill,,,,,,,,,30 Pills
+3441,250,ml,,,10,ampule,,,,,10 ampules of 25 ml each
+5046,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5085,200,ml,,,100,vial,,,,,100 vials of 2 ml each
+5105,50,ml,,,50,ampule,,,,,50 ampules of 1 ml each
+5755,100,ml,,,100,ampule,,,,,100 ampules of 1 ml each
+6089,125,ml,,,5,vial,,,,,5 vials of 25 ml each
+7242,30,Pill,,,,,,,,,30 Pills
+7328,20,Pill,,,,,,,,,20 Pills
+7329,20,Pill,,,,,,,,,20 Pills
+7696,,,,,,,,,,,
+6672,20,Pill,,,,,,,,,20 Pills
+6689,20,Pill,,,,,,,,,20 Pills
+5494,20,Pill,,,,,,,,,20 Pills
+6861,10,Pill,,,,,,,,,10 Pills
+4372,30,Pill,,,,,,,,,30 Pills
+4373,30,Pill,,,,,,,,,30 Pills
+5674,30,Pill,,,,,,,,,30 Pills
+5675,30,Pill,,,,,,,,,30 Pills
+5707,30,Pill,,,,,,,,,30 Pills
+5708,30,Pill,,,,,,,,,30 Pills
+6409,30,Pill,,,,,,,,,30 Pills
+6410,30,Pill,,,,,,,,,30 Pills
+7697,,,,,,,,,,,
+7698,,,,,,,,,,,
+2893,30,Pill,,,,,,,,,30 Pills
+7699,,,,,,,,,,,
+3997,20,Pill,,,,,,,,,20 Pills
+7700,,,,,,,,,,,
+4770,20,g,,,,,,,,,20 g
+6296,6,Pill,,,,,,,,,6 Pills
+6768,10,Pill,,,,,,,,,10 Pills
+6769,15,g,,,,,,,,,15 g
+5744,30,g,,,,,,,,,30 g
+6713,30,g,,,,,,,,,30 g
+6889,10,Pill,,,,,,,,,10 Pills
+6724,10,Pill,,,,,,,,,10 Pills
+8323,,,,,,,,,,,
+2119,20,g,,,,,,,,,20 g
+3557,50,g,,,,,,,,,50 g
+5917,10,ml,,,5,ampule,,,,,6 Ampules of 2 ml each
+5918,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5919,10,ml,,,5,ampule,,,,,5 Ampules of 2 ml each
+5052,60,Pill,,,,,,,,,60 Pills
+5053,30,Pill,,,,,,,,,30 Pills
+7701,,,,,,,,,,,
+7702,,,,,,,,,,,
+2584,30,Pill,,,,,,,,,30 Pills
+4275,15,Pill,,,,,,,,,15 Pills
+3696,60,Pill,,,,,,,,,60 Pills
+6140,60,g,,,,,,,,,60 g
+2398,30,Pill,,,,,,,,,30 Pills
+5133,60,Pill,,,,,,,,,60 Pills
+5987,30,Pill,,,,,,,,,30 Pills
+5562,30,Pill,,,,,,,,,30 Pills
+2546,30,Pill,,,,,,,,,30 Pills
+4979,90,Pill,,,,,,,,,90 Pills
+6644,40,Pill,,,,,,,,,40 Pills
+7417,30,Pill,,,,,,,,,30 Pills
+7418,90,Pill,,,,,,,,,90 Pills
+2071,100,Pill,,,,,,,,,100 Pills
+2072,100,Pill,,,,,,,,,100 Pills
+2239,60,Pill,,,,,,,,,60 Pills
+2240,60,Pill,,,,,,,,,60 Pills
+3268,50,Pill,,,,,,,,,50 Pills
+3269,50,Pill,,,,,,,,,50 Pills
+6621,30,Pill,,,,,,,,,30 Pills
+6663,30,Pill,,,,,,,,,30 Pills
+4038,30,Pill,,,,,,,,,30 Pills
+4685,14,Pill,,,,,,,,,14 Pills
+7703,,,,,,,,,,,
+7704,,,,,,,,,,,
+1976,30,Pill,,,,,,,,,30 Pills
+1977,30,Pill,,,,,,,,,30 Pills
+2066,30,Pill,,,,,,,,,30 Pills
+2878,30,Pill,,,,,,,,,30 Pills
+2886,30,Pill,,,,,,,,,30 Pills
+7705,,,,,,,,,,,
+7706,,,,,,,,,,,
+7707,,,,,,,,,,,
+7419,30,Pill,,,,,,,,,30 Pills
+7420,30,Pill,,,,,,,,,30 Pills
+7494,28,Pill,,,,,,,,,28 Pills
+2778,30,Pill,,,,,,,,,30 Pills
+2779,30,Pill,,,,,,,,,30 Pills
+3180,30,Pill,,,,,,,,,30 Pills
+3181,30,Pill,,,,,,,,,30 Pills
+3182,30,Pill,,,,,,,,,30 Pills
+3277,30,Pill,,,,,,,,,30 Pills
+3279,30,Pill,,,,,,,,,30 Pills
+3358,30,Pill,,,,,,,,,30 Pills
+3368,30,Pill,,,,,,,,,30 Pills
+3528,30,Pill,,,,,,,,,30 Pills
+3529,30,Pill,,,,,,,,,30 Pills
+3735,100,Pill,,,,,,,,,100 Pills
+3738,30,Pill,,,,,,,,,30 Pills
+3917,30,Pill,,,,,,,,,30 Pills
+3918,30,Pill,,,,,,,,,30 Pills
+4851,28,Pill,,,,,,,,,28 Pills
+5474,30,Pill,,,,,,,,,30 Pills
+5475,30,Pill,,,,,,,,,30 Pills
+7708,,,,,,,,,,,
+7709,,,,,,,,,,,
+7710,,,,,,,,,,,
+7711,,,,,,,,,,,
+7712,,,,,,,,,,,
+7713,,,,,,,,,,,
+7714,,,,,,,,,,,
+7715,,,,,,,,,,,
+7716,,,,,,,,,,,
+2658,30,Pill,,,,,,,,,30 Pills
+7230,30,Pill,,,,,,,,,30 Pills
+7422,30,Pill,,,,,,,,,30 Pills
+7479,30,Pill,,,,,,,,,30 Pills
+6412,20,ml,,,1,vial,,,,,1 vial of 20 ml
+6013,28,Pill,,,,,,,,,28 Pills
+6014,28,Pill,,,,,,,,,28 Pills
+6015,28,Pill,,,,,,,,,28 Pills
+6364,30,Pill,,,,,,,,,30 Pills
+6477,30,Pill,,,,,,,,,30 Pills
+2894,30,Pill,,,,,,,,,30 Pills
+2895,30,Pill,,,,,,,,,30 Pills
+7717,,,,,,,,,,,
+3183,30,Pill,,,,,,,,,30 Pills
+3184,30,Pill,,,,,,,,,30 Pills
+3484,30,Pill,,,,,,,,,30 Pills
+4156,30,Pill,,,,,,,,,30 Pills
+5476,30,Pill,,,,,,,,,30 Pills
+3936,30,Pill,,,,,,,,,30 Pills
+3937,30,Pill,,,,,,,,,30 Pills
+2936,30,Pill,,,,,,,,,30 Pills
+3531,30,Pill,,,,,,,,,30 Pills
+3532,30,Pill,,,,,,,,,30 Pills
+2311,28,Pill,,,,,,,,,28 Pills
+2606,30,Pill,,,,,,,,,30 Pills
+3295,30,Pill,,,,,,,,,30 Pills
+3412,30,Pill,,,,,,,,,30 Pills
+3564,28,Pill,,,,,,,,,28 Pills
+3565,28,Pill,,,,,,,,,28 Pills
+3614,30,Pill,,,,,,,,,30 Pills
+3981,30,Pill,,,,,,,,,30 Pills
+4019,30,Pill,,,,,,,,,30 Pills
+4465,30,Pill,,,,,,,,,30 Pills
+4485,30,Pill,,,,,,,,,30 Pills
+4486,30,Pill,,,,,,,,,30 Pills
+4524,30,Pill,,,,,,,,,30 Pills
+4525,30,Pill,,,,,,,,,30 Pills
+4538,30,Pill,,,,,,,,,30 Pills
+4800,50,Pill,,,,,,,,,50 Pills
+5338,30,Pill,,,,,,,,,30 Pills
+7231,30,Pill,,,,,,,,,30 Pills
+7232,30,Pill,,,,,,,,,30 Pills
+7718,,,,,,,,,,,
+7719,,,,,,,,,,,
+7720,,,,,,,,,,,
+7721,,,,,,,,,,,
+7286,100,ml,,,10,ampule,,,,,10 Ampules of 10 ml each
+4138,30,Pill,,,,,,,,,30 Pills
+4139,30,Pill,,,,,,,,,30 Pills
+4416,30,Pill,,,,,,,,,30 Pills
+7225,30,ml,,,,,,,,,30 ml
+2461,30,Pill,,,1,Box,,,,,1 box of 30 pills
+2667,28,Pill,,,,,,,,,28 Pills
+2926,30,Pill,,,,,,,,,30 Pills
+2927,30,Pill,,,,,,,,,30 Pills
+3426,20,Pill,,,,,,,,,20 Pills
+3427,20,Pill,,,,,,,,,20 Pills
+6749,28,Pill,,,,,,,,,28 Pills
+6750,28,Pill,,,,,,,,,28 Pills
+2520,28,Pill,,,,,,,,,28 Pills
+2524,28,Pill,,,,,,,,,28 Pills
+2879,30,Pill,,,,,,,,,30 Pills
+2880,30,Pill,,,,,,,,,30 Pills
+2881,30,Pill,,,,,,,,,30 Pills
+2882,30,Pill,,,,,,,,,30 Pills
+7722,,,,,,,,,,,
+2688,100,Pill,,,,,,,,,100 Pills
+2689,100,Pill,,,,,,,,,100 Pills
+2899,30,Pill,,,,,,,,,30 Pills
+2900,30,Pill,,,,,,,,,30 Pills
+3093,1,Pill,,,,,,,,,"1,000 Pills"
+3350,30,Pill,,,,,,,,,30 Pills
+3352,30,Pill,,,,,,,,,30 Pills
+4155,30,Pill,,,,,,,,,30 Pills
+1963,30,Pill,,,,,,,,,30 Pills
+7723,,,,,,,,,,,
+7724,,,,,,,,,,,
+7725,,,,,,,,,,,
+7726,,,,,,,,,,,
+7727,,,,,,,,,,,
+3391,30,Pill,,,,,,,,,30 Pills
+3395,30,Pill,,,,,,,,,30 Pills
+2889,30,Pill,,,,,,,,,30 Pills
+2890,30,Pill,,,,,,,,,30 Pills
+2891,30,Pill,,,,,,,,,30 Pills
+2892,30,Pill,,,,,,,,,30 Pills
+3599,30,Pill,,,,,,,,,30 Pills
+3600,30,Pill,,,,,,,,,30 Pills
+3938,30,Pill,,,,,,,,,30 Pills
+4025,28,Pill,,,,,,,,,28 Pills
+4026,28,Pill,,,,,,,,,28 Pills
+4420,30,Pill,,,,,,,,,30 Pills
+4421,30,Pill,,,,,,,,,30 Pills
+4466,28,Pill,,,,,,,,,28 Pills
+4776,28,Pill,,,,,,,,,28 Pills
+4777,28,Pill,,,,,,,,,28 Pills
+4778,28,Pill,,,,,,,,,28 Pills
+7334,28,Pill,,,,,,,,,28 Pills
+7335,28,Pill,,,,,,,,,28 Pills
+7336,28,Pill,,,,,,,,,28 Pills
+2902,30,Pill,,,,,,,,,30 Pills
+2605,28,Pill,,,,,,,,,28 Pills
+7728,,,,,,,,,,,
+3580,30,Pill,,,,,,,,,30 Pills
+3581,30,Pill,,,,,,,,,30 Pills
+3891,30,Pill,,,,,,,,,30 Pills
+3560,30,Pill,,,,,,,,,30 Pills
+3561,30,Pill,,,,,,,,,30 Pills
+3628,30,Pill,,,,,,,,,30 Pills
+3629,30,Pill,,,,,,,,,30 Pills
+3698,30,Pill,,,,,,,,,30 Pills
+3699,30,Pill,,,,,,,,,30 Pills
+3701,30,Pill,,,,,,,,,30 Pills
+7729,,,,,,,,,,,
+7730,,,,,,,,,,,
+7731,,,,,,,,,,,
+4219,30,Pill,,,,,,,,,30 Pills
+6628,30,Pill,,,,,,,,,30 Pills
+6629,30,Pill,,,,,,,,,30 Pills
+6630,30,Pill,,,,,,,,,30 Pills
+6631,30,Pill,,,,,,,,,30 Pills
+5037,30,Pill,,,,,,,,,30 Pills
+5039,30,Pill,,,,,,,,,30 Pills
+5040,30,Pill,,,,,,,,,30 Pills
+6202,30,Pill,,,,,,,,,30 Pills
+6203,30,Pill,,,,,,,,,30 Pills
+3209,30,Pill,,,,,,,,,30 Pills
+3402,30,Pill,,,,,,,,,30 Pills
+3450,30,Pill,,,,,,,,,30 Pills
+4226,28,Pill,,,,,,,,,28 Pills
+4227,28,Pill,,,,,,,,,28 Pills
+4422,30,Pill,,,,,,,,,30 Pills
+7392,30,Pill,,,,,,,,,30 Pills
+7393,30,Pill,,,,,,,,,30 Pills
+4023,30,Pill,,,,,,,,,30 Pills
+4234,30,Pill,,,,,,,,,30 Pills
+4345,30,Pill,,,,,,,,,30 Pills
+4346,30,Pill,,,,,,,,,30 Pills
+4360,30,Pill,,,,,,,,,30 Pills
+4362,30,Pill,,,,,,,,,30 Pills
+4886,30,Pill,,,,,,,,,30 Pills
+4887,30,Pill,,,,,,,,,30 Pills
+4888,30,Pill,,,,,,,,,30 Pills
+4914,28,Pill,,,,,,,,,28 Pills
+4939,30,Pill,,,,,,,,,30 Pills
+7732,,,,,,,,,,,
+7733,,,,,,,,,,,
+7734,,,,,,,,,,,
+7735,,,,,,,,,,,
+7736,,,,,,,,,,,
+7737,,,,,,,,,,,
+3867,30,Pill,,,,,,,,,30 Pills
+3868,30,Pill,,,,,,,,,30 Pills
+4527,30,Pill,,,,,,,,,30 Pills
+4529,30,Pill,,,,,,,,,30 Pills
+4575,28,Pill,,,,,,,,,28 Pills
+4576,28,Pill,,,,,,,,,28 Pills
+4702,30,Pill,,,,,,,,,30 Pills
+4756,30,Pill,,,,,,,,,30 Pills
+5710,30,Pill,,,,,,,,,30 Pills
+5711,30,Pill,,,,,,,,,30 Pills
+5881,30,Pill,,,,,,,,,30 Pills
+5882,30,Pill,,,,,,,,,30 Pills
+7047,30,Pill,,,,,,,,,30 Pills
+7048,30,Pill,,,,,,,,,30 Pills
+7322,28,Pill,,,,,,,,,28 Pills
+7323,28,Pill,,,,,,,,,28 Pills
+2166,28,Pill,,,,,,,,,28 Pills
+2167,28,Pill,,,,,,,,,28 Pills
+4209,30,Pill,,,,,,,,,30 Pills
+4210,30,Pill,,,,,,,,,30 Pills
+6599,30,Pill,,,,,,,,,30 Pills
+6600,30,Pill,,,,,,,,,30 Pills
+6601,30,Pill,,,,,,,,,30 Pills
+7738,,,,,,,,,,,
+7739,,,,,,,,,,,
+7740,,,,,,,,,,,
+7741,,,,,,,,,,,
+2369,28,Pill,,,,,,,,,28 Pills
+2389,28,Pill,,,,,,,,,28 Pills
+3298,30,Pill,,,,,,,,,30 Pills
+3299,30,Pill,,,,,,,,,30 Pills
+6123,28,Pill,,,,,,,,,28 Pills
+7742,,,,,,,,,,,
+7743,,,,,,,,,,,
+4070,28,Pill,,,,,,,,,28 Pills
+4071,28,Pill,,,,,,,,,28 Pills
+4072,28,Pill,,,,,,,,,28 Pills
+4181,28,Pill,,,,,,,,,28 Pills
+4182,28,Pill,,,,,,,,,28 Pills
+4183,28,Pill,,,,,,,,,28 Pills
+6309,28,Pill,,,,,,,,,28 Pills
+6310,28,Pill,,,,,,,,,28 Pills
+6311,28,Pill,,,,,,,,,28 Pills
+7744,,,,,,,,,,,
+7745,,,,,,,,,,,
+7746,,,,,,,,,,,
+7747,,,,,,,,,,,
+12264,,,,,,,,,,,
+3155,30,Pill,,,,,,,,,30 Pills
+3508,30,Pill,,,,,,,,,30 Pills
+4228,30,Pill,,,,,,,,,30 Pills
+4229,28,Pill,,,,,,,,,28 Pills
+4423,30,Pill,,,,,,,,,30 Pills
+5876,30,Pill,,,,,,,,,30 Pills
+5877,30,Pill,,,,,,,,,30 Pills
+7394,30,Pill,,,,,,,,,30 Pills
+7395,30,Pill,,,,,,,,,30 Pills
+4024,30,Pill,,,,,,,,,30 Pills
+4068,30,Pill,,,,,,,,,30 Pills
+4233,30,Pill,,,,,,,,,30 Pills
+4889,30,Pill,,,,,,,,,30 Pills
+4890,30,Pill,,,,,,,,,30 Pills
+4891,30,Pill,,,,,,,,,30 Pills
+4892,30,Pill,,,,,,,,,30 Pills
+4893,30,Pill,,,,,,,,,30 Pills
+4915,28,Pill,,,,,,,,,28 Pills
+5178,30,Pill,,,,,,,,,30 Pills
+7748,,,,,,,,,,,
+7749,,,,,,,,,,,
+7750,,,,,,,,,,,
+3869,30,Pill,,,,,,,,,30 Pills
+3870,30,Pill,,,,,,,,,30 Pills
+4572,28,Pill,,,,,,,,,28 Pills
+4573,28,Pill,,,,,,,,,28 Pills
+4574,28,Pill,,,,,,,,,28 Pills
+4703,30,Pill,,,,,,,,,30 Pills
+4755,30,Pill,,,,,,,,,30 Pills
+4757,30,Pill,,,,,,,,,30 Pills
+5297,30,Pill,,,,,,,,,30 Pills
+5298,30,Pill,,,,,,,,,30 Pills
+5299,30,Pill,,,,,,,,,30 Pills
+6990,30,Pill,,,,,,,,,30 Pills
+6991,30,Pill,,,,,,,,,30 Pills
+7049,30,Pill,,,,,,,,,30 Pills
+7050,30,Pill,,,,,,,,,30 Pills
+7051,30,Pill,,,,,,,,,30 Pills
+7324,28,Pill,,,,,,,,,28 Pills
+7325,28,Pill,,,,,,,,,28 Pills
+3774,28,Pill,,,,,,,,,28 Pills
+3775,28,Pill,,,,,,,,,28 Pills
+6602,30,Pill,,,,,,,,,30 Pills
+6603,30,Pill,,,,,,,,,30 Pills
+7751,,,,,,,,,,,
+7752,,,,,,,,,,,
+2391,28,Pill,,,,,,,,,28 Pills
+3671,30,Pill,,,,,,,,,30 Pills
+4591,28,Pill,,,,,,,,,28 Pills
+4592,28,Pill,,,,,,,,,28 Pills
+4593,28,Pill,,,,,,,,,28 Pills
+4594,28,Pill,,,,,,,,,28 Pills
+7753,,,,,,,,,,,
+7754,,,,,,,,,,,
+7755,,,,,,,,,,,
+7756,,,,,,,,,,,
+7757,,,,,,,,,,,
+7758,,,,,,,,,,,
+4510,30,Pill,,,,,,,,,30 Pills
+4511,30,Pill,,,,,,,,,30 Pills
+4980,30,Pill,,,,,,,,,30 Pills
+4981,30,Pill,,,,,,,,,30 Pills
+5349,30,Pill,,,,,,,,,30 Pills
+6316,30,Pill,,,,,,,,,30 Pills
+6708,30,Pill,,,,,,,,,30 Pills
+6816,30,Pill,,,,,,,,,30 Pills
+6817,30,Pill,,,,,,,,,30 Pills
+7759,,,,,,,,,,,
+7760,,,,,,,,,,,
+12227,,,,,,,,,,,
+12228,,,,,,,,,,,
+12229,,,,,,,,,,,
+4588,28,Pill,,,,,,,,,28 Pills
+4589,28,Pill,,,,,,,,,28 Pills
+4590,28,Pill,,,,,,,,,28 Pills
+6470,28,Pill,,,,,,,,,28 Pills
+6471,28,Pill,,,,,,,,,28 Pills
+6472,28,Pill,,,,,,,,,28 Pills
+7761,,,,,,,,,,,
+7762,,,,,,,,,,,
+4009,28,Pill,,,,,,,,,28 Pills
+4010,28,Pill,,,,,,,,,28 Pills
+7763,,,,,,,,,,,
+7764,,,,,,,,,,,
+4207,30,Pill,,,,,,,,,30 Pills
+4208,30,Pill,,,,,,,,,30 Pills
+6721,30,Pill,,,,,,,,,30 Pills
+6722,30,Pill,,,,,,,,,30 Pills
+6723,30,Pill,,,,,,,,,30 Pills
+4454,30,Pill,,,,,,,,,30 Pills
+4455,30,Pill,,,,,,,,,30 Pills
+7765,,,,,,,,,,,
+7766,,,,,,,,,,,
+7767,,,,,,,,,,,
+7768,,,,,,,,,,,
+7769,,,,,,,,,,,
+7770,,,,,,,,,,,
+7771,,,,,,,,,,,
+7772,,,,,,,,,,,
+7773,,,,,,,,,,,
+7774,,,,,,,,,,,
+7775,,,,,,,,,,,
+7776,,,,,,,,,,,
+7777,,,,,,,,,,,
+4809,28,Pill,,,,,,,,,28 Pills
+4810,28,Pill,,,,,,,,,28 Pills
+4811,28,Pill,,,,,,,,,28 Pills
+4812,28,Pill,,,,,,,,,28 Pills
+4813,28,Pill,,,,,,,,,28 Pills
+7778,,,,,,,,,,,
+7779,,,,,,,,,,,
+7780,,,,,,,,,,,
+7781,,,,,,,,,,,
+7782,,,,,,,,,,,
+5242,28,Pill,,,,,,,,,28 Pills
+5243,28,Pill,,,,,,,,,28 Pills
+5244,56,Pill,,,,,,,,,56 Pills
+2710,28,Pill,,,,,,,,,28 Pills
+2711,28,Pill,,,,,,,,,28 Pills
+2712,28,Pill,,,,,,,,,28 Pills
+2964,30,Pill,,,,,,,,,30 Pills
+2965,30,Pill,,,,,,,,,30 Pills
+2966,30,Pill,,,,,,,,,30 Pills
+3172,30,Pill,,,,,,,,,30 Pills
+3173,30,Pill,,,,,,,,,30 Pills
+3174,30,Pill,,,,,,,,,30 Pills
+4163,30,Pill,,,,,,,,,30 Pills
+4164,30,Pill,,,,,,,,,30 Pills
+4165,30,Pill,,,,,,,,,30 Pills
+4418,30,Pill,,,,,,,,,30 Pills
+4419,30,Pill,,,,,,,,,30 Pills
+7783,,,,,,,,,,,
+2616,30,Pill,,,,,,,,,30 Pills
+2621,30,Pill,,,,,,,,,30 Pills
+2947,30,Pill,,,,,,,,,30 Pills
+2948,30,Pill,,,,,,,,,30 Pills
+2949,30,Pill,,,,,,,,,30 Pills
+5655,28,Pill,,,,,,,,,28 Pills
+5656,28,Pill,,,,,,,,,28 Pills
+2613,30,Pill,,,,,,,,,30 Pills
+2614,30,Pill,,,,,,,,,30 Pills
+2708,30,Pill,,,,,,,,,30 Pills
+2709,30,Pill,,,,,,,,,30 Pills
+3195,30,Pill,,,,,,,,,30 Pills
+3196,30,Pill,,,,,,,,,30 Pills
+3197,30,Pill,,,,,,,,,30 Pills
+3296,30,Pill,,,,,,,,,30 Pills
+3297,30,Pill,,,,,,,,,30 Pills
+3388,30,Pill,,,,,,,,,30 Pills
+3389,30,Pill,,,,,,,,,30 Pills
+3390,30,Pill,,,,,,,,,30 Pills
+3413,30,Pill,,,,,,,,,30 Pills
+3414,30,Pill,,,,,,,,,30 Pills
+3415,30,Pill,,,,,,,,,30 Pills
+3516,30,Pill,,,,,,,,,30 Pills
+3517,30,Pill,,,,,,,,,30 Pills
+3566,30,Pill,,,,,,,,,30 Pills
+3567,30,Pill,,,,,,,,,30 Pills
+3692,30,Pill,,,,,,,,,30 Pills
+3760,30,Pill,,,,,,,,,30 Pills
+3803,30,Pill,,,,,,,,,30 Pills
+3804,30,Pill,,,,,,,,,30 Pills
+3805,30,Pill,,,,,,,,,30 Pills
+3828,30,Pill,,,,,,,,,30 Pills
+3829,30,Pill,,,,,,,,,30 Pills
+3830,30,Pill,,,,,,,,,30 Pills
+3850,30,Pill,,,,,,,,,30 Pills
+3947,30,Pill,,,,,,,,,30 Pills
+3948,30,Pill,,,,,,,,,30 Pills
+3949,30,Pill,,,,,,,,,30 Pills
+4383,30,Pill,,,,,,,,,30 Pills
+4384,30,Pill,,,,,,,,,30 Pills
+4425,30,Pill,,,,,,,,,30 Pills
+4634,30,Pill,,,,,,,,,30 Pills
+4659,30,Pill,,,,,,,,,30 Pills
+4660,30,Pill,,,,,,,,,30 Pills
+4682,30,Pill,,,,,,,,,30 Pills
+5141,30,Pill,,,,,,,,,30 Pills
+5277,30,Pill,,,,,,,,,30 Pills
+5278,30,Pill,,,,,,,,,30 Pills
+5295,30,Pill,,,,,,,,,30 Pills
+5296,30,Pill,,,,,,,,,30 Pills
+5395,30,Pill,,,,,,,,,30 Pills
+5801,30,Pill,,,,,,,,,30 Pills
+5802,30,Pill,,,,,,,,,30 Pills
+5827,30,Pill,,,,,,,,,30 Pills
+6660,30,Pill,,,,,,,,,30 Pills
+6661,30,Pill,,,,,,,,,30 Pills
+6947,30,Pill,,,,,,,,,30 Pills
+7037,30,Pill,,,,,,,,,30 Pills
+7038,30,Pill,,,,,,,,,30 Pills
+7039,30,Pill,,,,,,,,,30 Pills
+7040,30,Pill,,,,,,,,,30 Pills
+7784,,,,,,,,,,,
+7785,,,,,,,,,,,
+7786,,,,,,,,,,,
+7787,,,,,,,,,,,
+7788,,,,,,,,,,,
+7789,,,,,,,,,,,
+7790,,,,,,,,,,,
+2258,28,Pill,,,,,,,,,28 Pills
+2259,28,Pill,,,,,,,,,28 Pills
+2260,28,Pill,,,,,,,,,28 Pills
+2751,30,Pill,,,,,,,,,30 Pills
+2785,30,Pill,,,,,,,,,30 Pills
+3514,30,Pill,,,,,,,,,30 Pills
+3515,30,Pill,,,,,,,,,30 Pills
+3555,28,Pill,,,,,,,,,28 Pills
+3638,30,Pill,,,,,,,,,30 Pills
+3910,30,Pill,,,,,,,,,30 Pills
+3911,30,Pill,,,,,,,,,30 Pills
+3912,30,Pill,,,,,,,,,30 Pills
+3939,30,Pill,,,,,,,,,30 Pills
+3940,30,Pill,,,,,,,,,30 Pills
+4339,30,Pill,,,,,,,,,30 Pills
+4340,30,Pill,,,,,,,,,30 Pills
+4570,30,Pill,,,,,,,,,30 Pills
+4640,30,Pill,,,,,,,,,30 Pills
+4641,30,Pill,,,,,,,,,30 Pills
+4642,30,Pill,,,,,,,,,30 Pills
+4784,30,Pill,,,,,,,,,30 Pills
+4814,28,Pill,,,,,,,,,28 Pills
+4815,28,Pill,,,,,,,,,28 Pills
+4816,28,Pill,,,,,,,,,28 Pills
+4869,30,Pill,,,,,,,,,30 Pills
+4870,30,Pill,,,,,,,,,30 Pills
+5030,30,Pill,,,,,,,,,30 Pills
+5031,30,Pill,,,,,,,,,30 Pills
+5256,30,Pill,,,,,,,,,30 Pills
+6141,30,Pill,,,,,,,,,30 Pills
+6142,30,Pill,,,,,,,,,30 Pills
+7791,,,,,,,,,,,
+7792,,,,,,,,,,,
+7793,,,,,,,,,,,
+7794,,,,,,,,,,,
+7795,,,,,,,,,,,
+7796,,,,,,,,,,,
+12250,,,,,,,,,,,
+12251,,,,,,,,,,,
+3810,28,Pill,,,,,,,,,28 Pills
+3811,28,Pill,,,,,,,,,28 Pills
+6261,30,Pill,,,,,,,,,30 Pills
+6824,30,Pill,,,,,,,,,30 Pills
+3473,30,Pill,,,,,,,,,30 Pills
+5211,30,Pill,,,,,,,,,30 Pills
+2567,30,Pill,,,,,,,,,30 Pills
+3670,30,Pill,,,,,,,,,30 Pills
+3688,30,Pill,,,,,,,,,30 Pills
+4430,30,Pill,,,,,,,,,30 Pills
+4786,30,Pill,,,,,,,,,30 Pills
+7009,30,Pill,,,,,,,,,30 Pills
+7041,30,Pill,,,,,,,,,30 Pills
+7797,,,,,,,,,,,
+5239,50,ml,,,,,,,,,50 ml
+5924,120,Pill,,,,,,,,,120 Pills
+3406,30,Pill,,,,,,,,,30 Pills
+3422,30,Pill,,,,,,,,,30 Pills
+5703,28,Pill,,,,,,,,,28 Pills
+7265,30,Pill,,,,,,,,,30 Pills
+5320,2,ml,,,2,Pre-filled pen,,,,,2 prefilled pen of 1 ml each
+5704,28,Pill,,,,,,,,,28 Pills
+5705,28,Pill,,,,,,,,,28 Pills
+4649,30,Pill,,,,,,,,,30 Pills
+5773,30,Pill,,,,,,,,,30 Pills
+5774,30,Pill,,,,,,,,,30 Pills
+4922,28,Pill,,,,,,,,,28 Pills
+5144,30,Pill,,,,,,,,,30 Pills
+5145,30,Pill,,,,,,,,,30 Pills
+6676,30,Pill,,,,,,,,,30 Pills
+6677,30,Pill,,,,,,,,,30 Pills
+6678,30,Pill,,,,,,,,,30 Pills
+7798,,,,,,,,,,,
+7799,,,,,,,,,,,
+7800,,,,,,,,,,,
+7096,30,Pill,,,,,,,,,30 Pills
+7097,30,Pill,,,,,,,,,30 Pills
+7801,,,,,,,,,,,
+7802,,,,,,,,,,,
+7803,,,,,,,,,,,
+4982,30,Pill,,,,,,,,,30 Pills
+4983,30,Pill,,,,,,,,,30 Pills
+5435,28,Pill,,,,,,,,,28 Pills
+5436,28,Pill,,,,,,,,,28 Pills
+5437,28,Pill,,,,,,,,,28 Pills
+4788,20,ml,,,,,,,,,20 ml
+4876,20,g,,,,,,,,,20 g
+3156,30,g,,,,,,,,,30 g
+7804,,,,,,,,,,,
+4526,30,g,,,,,,,,,30 g
+6042,100,ml,,,,,,,,,100 ml
+2928,30,g,,,,,,,,,30 g
+2494,30,g,,,,,,,,,30 g
+2713,3,ml,,,,,,,,,3 ml
+2774,30,g,,,,,,,,,30 g
+7805,,,,,,,,,,,
+2958,15,g,,,,,,,,,15 g
+3193,15,g,,,,,,,,,15 g
+3965,15,ml,,,,,,,,,15 ml
+4411,15,g,,,,,,,,,15 g
+6611,15,g,,,,,,,,,15 g
+6687,15,ml,,,,,,,,,15 ml
+2714,2.5,ml,,,,,,,,,2.5 ml
+5772,2.5,ml,,,,,,,,,2.5 ml
+2473,30,g,,,,,,,,,30 g
+7806,,,,,,,,,,,
+3001,20,Pill,,,,,,,,,20 Pills
+2045,14,Pill,,,,,,,,,14 Pills
+2957,14,Pill,,,,,,,,,14 Pills
+3194,14,Pill,,,,,,,,,14 Pills
+3568,30,Pill,,,,,,,,,30 Pills
+4410,7,Pill,,,,,,,,,7 Pills
+5166,15,Pill,,,,,,,,,15 Pills
+3085,20,g,,,,,,,,,20 g
+3151,15,g,,,,,,,,,15 g
+3122,30,g,,,,,,,,,30 g
+3133,10,g,,,,,,,,,10 g
+4678,14,ml,,,,,,,,,14 ml
+6654,40,g,,,,,,,,,40 g
+1953,100,ml,,,,,,,,,100 ml
+3045,60,ml,,,,,,,,,60 ml
+2196,30,g,,,,,,,,,30 g
+2752,30,g,,,,,,,,,30 g
+4448,30,g,,,,,,,,,30 g
+4670,30,g,,,,,,,,,30 g
+3382,15,g,,,,,,,,,15 g
+3866,30,Pill,,,,,,,,,30 Pills
+6610,30,g,,,,,,,,,30 g
+5690,35,g,,,,,,,,,35 g
+6418,25,g,,,,,,,,,25 g
+7807,,,,,,,,,,,
+1947,15,ml,,,,,,,,,15 ml
+6355,50,ml,,,,,,,,,50 ml
+3038,120,ml,,,,,,,,,120 ml
+3084,20,g,,,,,,,,,20 g
+3115,15,g,,,,,,,,,15 g
+5003,30,g,,,,,,,,,30 g
+4244,30,g,,,,,,,,,30 g
+3059,20,g,,,,,,,,,20 g
+3144,15,g,,,,,,,,,15 g
+2472,20,g,,,,,,,,,20 g
+3130,15,g,,,,,,,,,15 g
+4518,150,ml,,,,,,,,,150 ml
+7808,,,,,,,,,,,
+2091,15,g,,,,,,,,,15 g
+2092,15,g,,,,,,,,,15 g
+2180,15,g,,,,,,,,,15 g
+2207,15,g,,,,,,,,,15 g
+2984,15,g,,,,,,,,,15 g
+3524,30,g,,,,,,,,,30 g
+3525,30,g,,,,,,,,,30 g
+4663,30,g,,,,,,,,,30 g
+5068,20,g,,,,,,,,,20 g
+5069,20,g,,,,,,,,,20 g
+7809,,,,,,,,,,,
+7810,,,,,,,,,,,
+5994,15,g,,,,,,,,,15 g
+5501,15,g,,,,,,,,,15 g
+5788,500,g,,,,,,,,,500 g
+5789,50,g,,,,,,,,,50 g
+2981,20,g,,,,,,,,,20 g
+3142,12,g,,,,,,,,,12 g
+6430,12,g,,,,,,,,,12 g
+2029,60,g,,,,,,,,,60 g
+2030,,,,,10,Non stated,,,,,10 non stated
+5895,,g,,,50,,,,,,50 g
+7811,,,,,,,,,,,
+2906,,g,,,2,,,,,,2 g
+3433,,g,,,10,,,,,,10 g
+3652,,,,,12,Packet / Sachet,,,,,"12 packets / sachets, of 250 mg each"
+6208,,g,,,5,,,,,,5 g
+12279,,,,,,,,,,,
+5553,,g,,,5,,,,,,5 g
+2662,,g,,,30,,,,,,30 g
+4680,,g,,,30,,,,,,30 g
+3007,,g,,,15,,,,,,15 g
+5601,,g,,,30,,,,,,30 g
+5602,,g,,,30,,,,,,30 g
+5603,,g,,,30,,,,,,30 g
+5647,,ml,,,30,,,,,,30 ml
+1982,,ml,,,30,,,,,,30 ml
+2009,,g,,,30,,,,,,30 g
+2010,,g,,,30,,,,,,30 g
+3178,,g,,,15,,,,,,15 g
+5331,,g,,,30,,,,,,30 g
+2995,,g,,,15,,,,,,15 g
+2610,,g,,,30,,,,,,30 g
+3779,,g,,,30,,,,,,30 g
+4261,,g,,,15,,,,,,15 g
+4669,,g,,,30,,,,,,30 g
+4894,,ml,,,60,,,,,,60 ml
+5853,,ml,,,30,,,,,,30 ml
+6069,,ml,,,30,,,,,,30 ml
+6625,,g,,,30,,,,,,30 g
+7416,,g,,,30,,,,,,30 g
+4973,,g,,,20,,,,,,20 g
+6830,,g,,,20,,,,,,20 g
+6831,,g,,,20,,,,,,20 g
+4988,,g,,,30,,,,,,30 g
+3270,,g,,,15,,,,,,15 g
+4146,,g,,,40,,,,,,40 g
+4147,,g,,,40,,,,,,40 g
+5922,,g,,,30,,,,,,30 g
+5923,,g,,,30,,,,,,30 g
+6953,,g,,,40,,,,,,40 g
+6954,,g,,,40,,,,,,40 g
+3050,,g,,,15,,,,,,15 g
+3125,,g,,,30,,,,,,30 g
+2202,,g,,,15,,,,,,15 g
+4937,,g,,,30,,,,,,30 g
+2090,,g,,,15,,,,,,15 g
+3179,,g,,,15,,,,,,15 g
+3773,,g,,,15,,,,,,15 g
+4664,,g,,,15,,,,,,15 g
+5070,,g,,,20,,,,,,20 g
+7812,,,,,,,,,,,
+4764,,g,,,30,,,,,,30 g
+8308,,,,,,,,,,,
+2990,,g,,,20,,,,,,20 g
+3527,,g,,,40,,,,,,40 g
+5051,,g,,,30,,,,,,30 g
+5334,,g,,,30,,,,,,30 g
+2603,,g,,,30,,,,,,30 g
+3398,,g,,,30,,,,,,30 g
+2024,,g,,,20,,,,,,20 g
+6833,,g,,,20,,,,,,20 g
+3271,,ml,,,250,,,,,,250 ml
+3272,,ml,,,500,,,,,,500 ml
+3040,,ml,,,120,,,,,,120 ml
+3105,,ml,,,75,,,,,,75 ml
+3106,,ml,,,75,,,,,,75 ml
+3107,,ml,,,75,,,,,,75 ml
+3109,,ml,,,75,,,,,,75 ml
+2581,,g,,,30,,,,,,30 g
+2960,,ml,,,50,,,,,,50 ml
+2961,,ml,,,50,,,,,,50 ml
+2962,,ml,,,50,,,,,,50 ml
+4638,,g,,,30,,,,,,30 g
+5815,,g,,,30,,,,,,30 g
+7813,,,,,,,,,,,
+2582,,g,,,30,,,,,,30 g
+5387,,g,,,30,,,,,,30 g
+7387,,g,,,30,,,,,,30 g
+7388,,g,,,30,,,,,,30 g
+5599,,g,,,30,,,,,,30 g
+7814,,,,,,,,,,,
+3035,,g,,,40,,,,,,40 g
+3315,,g,,,30,,,,,,30 g
+4744,,g,,,30,,,,,,30 g
+4745,,g,,,30,,,,,,30 g
+7815,,,,,,,,,,,
+7816,,,,,,,,,,,
+5702,,g,,,30,,,,,,30 g
+7129,,g,,,30,,,,,,30 g
+2660,,g,,,60,,,,,,60 g
+2661,,g,,,60,,,,,,60 g
+3394,,g,,,30,,,,,,30 g
+3934,,ml,,,30,,,,,,30 ml
+2476,,ml,,,100,,,,,,100 ml
+2992,,ml,,,120,,,,,,120 ml
+3013,,ml,,,60,,,,,,60 ml
+4880,,g,,,30,,,,,,30 g
+7817,,,,,,,,,,,
+3975,,g,,,25,,,,,,25 g
+5905,,g,,,30,,,,,,30 g
+7818,,,,,,,,,,,
+6832,,g,,,30,,,,,,30 g
+2742,,Pill,,,30,,,,,,30 Pills
+2743,,Pill,,,30,,,,,,30 Pills
+2744,,Pill,,,30,,,,,,30 Pills
+2777,,Pill,,,30,,,,,,30 Pills
+3322,,Pill,,,30,,,,,,30 Pills
+5356,,Pill,,,30,,,,,,30 Pills
+5438,,Pill,,,30,,,,,,30 Pills
+5439,,Pill,,,30,,,,,,30 Pills
+6915,,Pill,,,30,,,,,,30 Pills
+6916,,Pill,,,30,,,,,,30 Pills
+6917,,Pill,,,30,,,,,,30 Pills
+6918,,Pill,,,30,,,,,,30 Pills
+5667,,g,,,30,,,,,,30 g
+5904,,g,,,30,,,,,,30 g
+4720,,g,,,15,,,,,,15 g
+6729,,,,,,Pre-filled syringe,,,,,2 prefilled syringes
+7084,,,,,,Pre-filled syringe,,,,,2 prefilled syringes
+7820,,,,,,,,,,,
+7821,,,,,,,,,,,
+6799,,g,,,40,,,,,,40 g
+2475,,ml,,,60,,,,,,60 ml
+3376,,ml,,,60,,,,,,60 ml
+3807,,ml,,,180,Bottle,,,,,3 bottles of 60 ml each
+3834,,ml,,,50,,,,,,50 ml
+3977,,ml,,,180,Bottle,,,,,3 bottles of 60 ml each
+5122,,g,,,60,pack,,,,,1 pack of 60 g
+5123,,g,,,180,pack,,,,,3 packs of 60 g each
+6584,,ml,,,100,,,,,,100 ml
+8304,,,,,,,,,,,
+4768,,g,,,30,,,,,,30 g
+4709,,g,,,50,,,,,,50 g
+5219,,g,,,50,,,,,,50 g
+6209,,ml,,,30,,,,,,30 ml
+5970,,g,,,30,,,,,,30 g
+5971,,g,,,15,,,,,,15 g
+6761,,Pill,,,3,,,,,,3 Pills
+2663,,Pill,,,6,,,,,,6 Pills
+6284,,Pill,,,10,,,,,,10 Pills
+3848,,Pill,,,6,,,,,,6 Pills
+7822,,,,,,,,,,,
+2440,10,Pill,,,,,,,,,10 Pills
+4460,6,Pill,,,,,,,,,6 Pills
+5017,6,Pill,,,,,,,,,6 Pills
+7303,1,Pill,,,,,,,,,1 Pill
+7823,,,,,,,,,,,
+2184,7,Pill,,,,,,,,,7 Pills
+2185,3,Pill,,,,,,,,,3 Pills
+7824,,,,,,,,,,,
+2553,6,Pill,,,,,,,,,6 Pills
+4808,3,Pill,,,,,,,,,3 Pills
+6760,6,Pill,,,,,,,,,6 Pills
+7825,,,,,,,,,,,
+2931,3,Pill,,,,,,,,,3 Pills
+2932,1,Pill,,,,,,,,,1 Pill
+2934,1,Pill,,,,,,,,,1 Pill
+7484,,Pill,,,6,,,,,,6 Pills
+3294,,Pill,,,6,,,,,,6 Pills
+3860,,ml,,,100,Bottle,,,,,20 bottles of 5 ml each
+3988,,ml,,,50,Bottle,,,,,10 bottles of 5 ml each
+3989,,Pill,,,12,,,,,,12 Pills
+5715,,,,,,Packet / Sachet,,,,,10 Packets / Sachets
+7826,,,,,,,,,,,
+3334,,Pill,,,6,,,,,,6 Pills
+4429,,Pill,,,1,,,,,,1 Pill
+2501,,ml,,,10,Non stated,,,,,"10 non stated, of 1 ml each"
+5343,,ml,,,10,Non stated,,,,,"10 non stated, of 1 ml each"
+7289,,ml,,,6,ampule,,,,,6 ampules of 1 ml each
+7290,,ml,,,3,Non stated,,,,,6 non stated of 0.5 ml each
+2500,,,,,1,Packet / Sachet,,,,,1 Packet / Sachet
+7827,,,,,,,,,,,
+2145,,Pill,,,2,,,,,,2 Pills
+2146,,Pill,,,8,,,,,,8 Pills
+4846,,Pill,,,2,,,,,,2 Pills
+4847,,Pill,,,8,,,,,,8 Pills
+7828,,,,,,,,,,,
+7829,,,,,,,,,,,
+2578,,ml,,,0.9,,,,,,0.9 ml
+2579,,ml,,,5,,,,,,5 ml
+2496,,Pill,,,21,,,,,,21 Pills
+1997,,Pill,,,21,,,,,,21 Pills
+3900,,Pill,,,28,,,,,,21 pills (3 mg) and 7 pills (20 mcg)
+1946,,Pill,,,21,,,,,,21 Pills
+4974,,,,,1,Non stated,,,,,1 non stated
+2722,28,Pill,,,,,,,,,28 Pills
+4863,1,Pill,,,,,,,,,1 Pill
+4060,1,Pill,,,,,,,,,1 Pill
+1996,1,ml,,,1,ampule,,,,,1 Ampule of 1 ml
+5119,20,Pill,,,,,,,,,20 Pills
+2340,28,Pill,,,,,,,,,28 Pills
+4177,18,Pill,,,,,,,,,18 Pills
+5086,80,g,,,,,,,,,80 g equal to 64 doses
+5469,25,g,,,,,,,,,25 g
+6003,80,g,,,,,,,,,80 g
+2073,6,Pill,,,,,,,,,6 Pills
+2495,28,Pill,,,,,,,,,28 Pills
+5120,1,ml,,,1,ampule,,,,,1 Ampule of 1 ml
+1943,30,Pill,,,,,,,,,30 Pills
+2061,30,Pill,,,,,,,,,30 Pills
+2062,15,Pill,,,,,,,,,15 Pills
+3453,,,,,15,Applicator,,,,,15 prefilled applicators
+3570,15,Pill,,,,,,,,,15 Pills
+3757,80,g,,,,,,,,,80 g
+4167,80,g,,,,,,,,,80 g
+4168,15,Pill,,,,,,,,,15 Pills
+4184,21,Pill,,,,,,,,,21 Pills
+4364,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+4472,15,Pill,,,,,,,,,15 Pills
+4516,30,Pill,,,,,,,,,30 Pills
+5087,15,Pill,,,,,,,,,15 Pills
+5368,30,Pill,,,,,,,,,30 Pills
+5600,30,Pill,,,,,,,,,30 Pills
+5743,80,g,,,,,,,,,80 g
+5886,,,,,7,vial,,,,,7 vials
+7830,,,,,,,,,,,
+2542,20,Pill,,,,,,,,,20 Pills
+4128,28,Pill,,,,,,,,,28 Pills
+6529,30,Pill,,,,,,,,,30 Pills
+5118,21,Pill,,,,,,,,,21 Pills
+4985,,,,,3,vial,3,ampule,,,3 vials and 3 ampules of solvent
+3577,,,,,10,ampule,10,ampule,,,10 ampules and 10 ampules of solvent
+4426,,,,,1,vial,1,pre-filled syringe,9,syringe,"1Vial, 1 prefilled syringe with solvent for reconstitution, 1 needle for reconstitution, 9 alcohol pads and 9 disposable syringes"
+4427,,,,,1,vial,2,pre-filled syringe,18,syringe,"1Vial, 2 prefilled syringes with solvent for reconstitution, 1 needle for reconstitution, 18 alcohol pads and 18 disposable syringes"
+5861,,,,,1,ampule,1,ampule,,,1 ampule and 1 ampule of solvent
+5862,,,,,1,ampule,1,ampule,,,1 ampule and 1 ampule of solvent
+5927,,,,,10,vial,10,ampule,,,10 vials and 10 ampules of solvent
+5928,,,,,10,ampule,10,ampule,,,10 ampules and 10 ampules of solvent
+2715,10,ml,,,10,vial,10,ampule,,,10 vials and 10 ampules of solvent of 10 ml
+2716,10,ml,,,10,vial,10,ampule,,,10 vials and 10 ampules of solvent of 10 ml
+2765,1.5,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 1.5 ml with 20 needles
+3454,1.5,ml,,,2,Pre-filled pen,,,,,2 prefilled pens of 0.75 ml each with 12 needles
+3571,4,dose,,,1,pre-filled pen,1,needle,,,1 prefilled pen of 4 doses with 8 needles
+6580,1.5,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 1.5 ml
+6581,0.75,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 0.75 ml
+5581,0.72,ml,,,1,Cartridge,,,,,1 cartridge and 3 pen needles of 0.72 ml
+5582,0.36,ml,,,1,Cartridge,,,,,1 cartridge and 3 pen needles of 0.36 ml
+6970,0.72,ml,,,1,Cartridge,,,,,1 cartridge and 3 pen needles of 0.72 ml
+6971,0.36,ml,,,1,Cartridge,,,,,1 cartridge and 3 pen needles of 0.36 ml
+7424,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+7470,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml with 1 needle
+7471,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml with 1 needle
+4018,,,,,1,vial,,,,,1 vial
+5134,5,Pill,,,,,,,,,5 Pills
+7831,,,,,,,,,,,
+7832,,,,,,,,,,,
+1945,21,Pill,,,,,,,,,21 Pills
+3111,30,Pill,,,,,,,,,30 Pills
+5739,28,Pill,,,,,,,,,28 Pills
+3945,,,,,30,Packet / Sachet,,,,,30 Packets / Sachets
+6632,280,g,,,,,,,,,280 g
+2877,30,Pill,,,,,,,,,30 Pills
+3660,28,Pill,,,,,,,,,28 Pills
+3751,28,Pill,,,,,,,,,28 Pills
+6596,28,Pill,,,,,,,,,28 Pills
+6937,56,Pill,,,,,,,,,56 Pills
+7833,,,,,,,,,,,
+7834,,,,,,,,,,,
+2746,30,Pill,,,,,,,,,30 Pills
+2747,30,Pill,,,,,,,,,30 Pills
+5682,30,Pill,,,,,,,,,30 Pills
+5683,30,Pill,,,,,,,,,30 Pills
+6803,30,Pill,,,,,,,,,30 Pills
+6804,30,Pill,,,,,,,,,30 Pills
+7153,30,Pill,,,,,,,,,30 Pills
+7154,30,Pill,,,,,,,,,30 Pills
+7287,30,Pill,,,,,,,,,30 Pills
+7288,30,Pill,,,,,,,,,30 Pills
+7835,,,,,,,,,,,
+7836,,,,,,,,,,,
+3976,50,Pill,,,,,,,,,50 Pills
+8327,,,,,,,,,,,
+4792,30,Pill,,,,,,,,,30 Pills
+2755,4,Pill,,,,,,,,,4 Pills
+4630,4,g,,,,,,,,,4 g
+4668,4,Pill,,,,,,,,,4 Pills
+5315,4,Pill,,,,,,,,,4 Pills
+5316,1,Pill,,,,,,,,,1 Pill
+5766,6,Pill,,,,,,,,,6 Pills
+5957,4,Pill,,,,,,,,,4 Pills
+6252,24,Pill,,,,,,,,,4 Pills
+6515,4,Pill,,,,,,,,,4 Pills
+6516,4,Pill,,,,,,,,,4 Pills
+7069,4,Pill,,,,,,,,,4 Pills
+7837,,,,,,,,,,,
+7838,,,,,,,,,,,
+7839,,,,,,,,,,,
+3175,4,Pill,,,,,,,,,4 Pills
+3344,4,Pill,,,,,,,,,4 Pills
+3563,2,Pill,,,,,,,,,2 Pills
+3750,4,Pill,,,,,,,,,4 Pills
+3843,28,Pill,,,,,,,,,28 Pills
+4059,30,Pill,,,,,,,,,30 Pills
+4700,30,Pill,,,,,,,,,30 Pills
+4769,4,Pill,,,,,,,,,4 Pills
+4806,4,Pill,,,,,,,,,4 Pills
+4835,4,Pill,,,,,,,,,4 Pills
+4984,1,Pill,,,,,,,,,1 Pill
+5419,4,Pill,,,,,,,,,4 Pills
+5453,30,Pill,,,,,,,,,30 Pills
+5837,30,Pill,,,,,,,,,30 Pills
+5851,1,Pill,,,,,,,,,1 Pill
+5852,1,Pill,,,,,,,,,1 Pill
+5911,30,Pill,,,,,,,,,30 Pills
+5984,28,Pill,,,,,,,,,28 Pills
+6083,30,Pill,,,,,,,,,30 Pills
+6501,30,Pill,,,,,,,,,30 Pills
+6674,1,Pill,,,,,,,,,1 Pill
+6805,,,,,4,non stated,,,,,4 Non Stated
+6821,4,Pill,,,,,,,,,4 Pills
+6893,,,,,4,non stated,,,,,4 Non Stated
+7023,4,Pill,,,,,,,,,4 Pills
+7024,4,Pill,,,,,,,,,4 Pills
+7061,4,Pill,,,,,,,,,4 Pills
+7249,4,Pill,,,,,,,,,4 Pills
+7250,28,Pill,,,,,,,,,28 Pills
+7296,,,,,14,non stated,,,,,14 Non Stated
+7840,,,,,,,,,,,
+7841,,,,,,,,,,,
+7842,,,,,,,,,,,
+7843,,,,,,,,,,,
+12274,,,,,,,,,,,
+12275,,,,,,,,,,,
+12276,,,,,,,,,,,
+2465,4,Pill,,,,,,,,,4 Pills
+7068,4,Pill,,,,,,,,,4 Pills
+7844,,,,,,,,,,,
+3121,30,Pill,,,,,,,,,30 Pills
+2126,30,Pill,,,,,,,,,30 Pills
+4498,3,Pill,,,,,,,,,3 Pills
+4499,3,Pill,,,,,,,,,3 Pills
+5480,4,Pill,,,,,,,,,4 Pills
+2534,30,Pill,,,,,,,,,30 Pills
+3755,100,Pill,,,,,,,,,100 Pills
+5140,30,Pill,,,,,,,,,30 Pills
+5322,30,Pill,,,,,,,,,30 Pills
+5986,60,Pill,,,,,,,,,60 Pills
+7845,,,,,,,,,,,
+3308,30,Pill,,,,,,,,,30 Pills
+3507,30,Pill,,,,,,,,,30 Pills
+3781,30,Pill,,,,,,,,,30 Pills
+4513,30,Pill,,,,,,,,,30 Pills
+5354,30,Pill,,,,,,,,,30 Pills
+5712,30,Pill,,,,,,,,,30 Pills
+3941,30,Pill,,,,,,,,,30 Pills
+3942,30,Pill,,,,,,,,,30 Pills
+7397,30,Pill,,,,,,,,,30 Pills
+7398,30,Pill,,,,,,,,,30 Pills
+7846,,,,,,,,,,,
+7847,,,,,,,,,,,
+7363,30,Pill,,,,,,,,,30 Pills
+7848,,,,,,,,,,,
+5894,30,Pill,,,,,,,,,30 Pills
+3547,30,Pill,,,,,,,,,30 Pills
+3548,30,Pill,,,,,,,,,30 Pills
+3589,28,Pill,,,,,,,,,28 Pills
+5000,28,Pill,,,,,,,,,28 Pills
+5353,28,Pill,,,,,,,,,28 Pills
+5714,28,Pill,,,,,,,,,28 Pills
+5893,28,Pill,,,,,,,,,28 Pills
+7849,,,,,,,,,,,
+5975,30,Pill,,,,,,,,,30 Pills
+6667,30,Pill,,,,,,,,,30 Pills
+7150,30,Pill,,,,,,,,,30 Pills
+5128,,,,,2,vial,,,,,2 Vials
+2327,1.5,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 1.5 ml
+2328,1.5,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 1.5 ml
+3361,7.5,ml,,,5,Cartridge,,,,,5 cartridges of 1.5 ml each
+4336,7.5,ml,,,5,Cartridge,,,,,5 cartridges of 1.5 ml each
+5962,1.15,ml,,,1,Cartridge,,,,,"Cartrige of 1.15 ml, two compartments"
+6351,1,ml,,,1,Pre-filled pen,,,,,1 prefilled pen of 1 ml
+7314,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+7850,,,,,,,,,,,
+7851,,,,,,,,,,,
+4266,30,Pill,,,,,,,,,30 Pills
+4267,30,Pill,,,,,,,,,30 Pills
+6690,15,ml,,,,,,,,,15 ml
+4074,5,ml,,,5,vial,,,,,5 vials of 1 ml each
+7203,,,,,5,Pre-filled syringe,,,,,5 Pre-Filled Syringes
+2044,5,ml,,,5,ampule,,,,,5 Ampules of 1 ml each
+3686,,,,,1,vial,,,,,1 Vial
+3687,,,,,1,vial,,,,,1 Vial
+4405,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+4406,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7852,,,,,,,,,,,
+7853,,,,,,,,,,,
+7854,,,,,,,,,,,
+5241,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+7488,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+1990,1,ml,,,1,vial,,,,,1 vial of 1 ml
+1991,7,ml,,,7,vial,7,pre-filled syringe,,,7 vials and 7 prefilled syringes of 1 ml each
+7855,,,,,,,,,,,
+7856,,,,,,,,,,,
+5335,2,ml,,,1,Ampule,,,,,1 Ampule of 2 ml
+2702,200,ml,,,100,ampule,,,,,100 ampules of 2 ml each
+2910,100,ml,,,,,,,,,100 ml
+2911,30,Pill,,,,,,,,,30 Pills
+4413,100,ml,,,,,,,,,100 ml
+5125,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+5664,,,,,10,ampule,,,,,10 Ampules
+5879,200,ml,,,100,vial,,,,,100 ampules of 2 ml each
+6215,50,ml,,,50,ampule,,,,,50 ampules of 1 ml each
+6216,2,ml,,,1,Ampule,,,,,1 Ampule of 2 ml
+6691,200,ml,,,100,ampule,,,,,100 ampules of 2 ml each
+1968,1,ml,,,1,non stated,,,,,1 non stated of 1 ml
+1969,2,ml,,,1,non stated,,,,,1 non stated of 2 ml
+1971,1,ml,,,1,non stated,,,,,1 non stated of 1 ml
+1972,8,ml,,,1,non stated,,,,,1 non stated of 8 ml
+1973,16,ml,,,1,non stated,,,,,1 non stated of 16 ml
+3522,,,,,1,vial,,,,,1 vial
+3523,,,,,1,vial,,,,,1 vial
+4260,,,,,1,vial,,,,,1 vial
+4587,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+4875,,,,,10,vial,,,,,10 Vials
+5456,2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 2 ml
+5972,,,,,1,vial,,,,,1 vial
+6395,,,,,10,vial,,,,,10 Vials
+6396,,,,,10,vial,,,,,10 Vials
+7857,,,,,,,,,,,
+3780,100,ml,,,,,,,,,100 ml
+4341,120,ml,,,,,,,,,120 ml
+6250,100,ml,,,,,,,,,100 ml
+7858,,,,,,,,,,,
+8322,,,,,,,,,,,
+3028,30,Pill,,,,,,,,,30 Pills
+3029,40,Pill,,,,,,,,,40 Pills
+3030,20,Pill,,,,,,,,,20 Pills
+3031,20,Pill,,,,,,,,,20 Pills
+3167,40,Pill,,,,,,,,,40 Pills
+3168,20,Pill,,,,,,,,,20 Pills
+3169,30,Pill,,,,,,,,,30 Pills
+3170,20,Pill,,,,,,,,,20 Pills
+4369,3,ml,,,3,vial,,,,,3 vials of 1 ml each
+1970,2,ml,,,1,non stated,,,,,1 non stated of 2 ml
+2454,25,Pill,,,,,,,,,25 Pills
+6247,,,,,10,vial,,,,,10 Vials
+7500,,,,,1,vial,,,,,1 vial
+5032,20,Pill,,,,,,,,,20 Pills
+5033,10,Pill,,,,,,,,,10 Pills
+7206,90,ml,,,,,,,,,90 ml
+2147,100,Pill,,,,,,,,,100 Pills
+2148,100,Pill,,,,,,,,,100 Pills
+2149,100,Pill,,,,,,,,,100 Pills
+2150,100,Pill,,,,,,,,,100 Pills
+4521,100,Pill,,,,,,,,,100 Pills
+3192,30,Pill,,,,,,,,,30 Pills
+5576,30,Pill,,,,,,,,,30 Pills
+5577,30,Pill,,,,,,,,,30 Pills
+2335,2,ml,,,,,,,,,2 ml
+3634,28,dose,,,1,Pre-filled pen,,,,,1 prefilled pen of 28 doses
+6793,28,dose,,,1,Pre-filled pen,,,,,1 prefilled pen of 28 doses
+7317,,,,,30,Pre-filled syringe,,,,,30 Pre-Filled Syringes
+6481,1,ml,,,,,,,,,1 ml
+6530,5,ml,,,1,ampule,,,,,1 ampule of 5 ml
+7859,,,,,,,,,,,
+7860,,,,,,,,,,,
+7861,,,,,,,,,,,
+2246,10,Pill,,,,,,,,,10 Pills
+2426,14,Pill,,,,,,,,,14 Pills
+2477,15,Pill,,,,,,,,,15 Pills
+3034,10,Pill,,,,,,,,,10 Pills
+4289,28,Pill,,,,,,,,,28 Pills
+6448,10,Pill,,,,,,,,,10 Pills
+7862,,,,,,,,,,,
+4492,28,Pill,,,,,,,,,28 Pills
+3077,1,Pill,,,,,,,,,"1,000 Pills"
+3079,300,Pill,,,,,,,,,300 Pills
+4412,20,Pill,,,,,,,,,20 Pills
+12309,,,,,,,,,,,
+12310,,,,,,,,,,,
+12311,,,,,,,,,,,
+4844,,,,,1,vial,,,,,1 Vial
+7863,,,,,,,,,,,
+3094,12,Pill,,,,,,,,,12 Pills
+3095,60,ml,,,,,,,,,60 ml
+2348,,,,,25,vial,,,,,25 Vials
+2349,,,,,25,vial,,,,,25 Vials
+3088,20,Pill,,,,,,,,,20 Pills
+3089,60,ml,,,,,,,,,60 ml
+3090,60,ml,,,,,,,,,60 ml
+3147,60,ml,,,,,,,,,60 ml
+3153,60,ml,,,,,,,,,60 ml
+3154,16,Pill,,,,,,,,,16 Pills
+2053,500,Pill,,,50,non stated,,,,,50 non stated of 10 pills each
+2055,1,Pill,,,10,non stated,,,,,10 non stated of 100 pills each
+2347,,,,,25,vial,,,,,25 Vials
+2499,100,ml,,,,,,,,,100 ml
+2700,500,Pill,,,,,,,,,500 Pills
+3051,60,ml,,,,,,,,,60 ml
+3057,60,ml,,,,,,,,,60 ml
+3118,60,ml,,,,,,,,,60 ml
+3127,20,Pill,,,,,,,,,20 Pills
+3137,100,ml,,,,,,,,,100 ml
+3282,,,,,10,vial,,,,,10 Vials
+4699,,,,,10,vial,,,,,10 Vials
+5761,16,Pill,,,,,,,,,16 Pills
+5762,16,Pill,,,,,,,,,16 Pills
+7864,,,,,,,,,,,
+7865,,,,,,,,,,,
+7866,,,,,,,,,,,
+5380,,,,,25,vial,,,,,25 Vials
+2018,20,Pill,,,,,,,,,20 Pills
+2034,14,Pill,,,,,,,,,14 Pills
+2041,70,ml,,,,,,,,,70 ml
+2097,14,Pill,,,,,,,,,14 Pills
+2098,70,ml,,,,,,,,,70 ml
+2099,70,ml,,,,,,,,,70 ml
+2104,100,ml,,,,,,,,,100 ml
+2105,100,ml,,,,,,,,,100 ml
+2106,20,Pill,,,,,,,,,20 Pills
+2107,15,Pill,,,,,,,,,15 Pills
+2187,20,Pill,,,,,,,,,20 Pills
+2308,100,ml,,,,,,,,,100 ml
+2309,14,Pill,,,,,,,,,14 Pills
+2729,,,,,100,vial,,,,,100 Vials
+3314,70,ml,,,,,,,,,70 ml
+3477,75,ml,,,,,,,,,75 ml
+3546,12,Pill,,,,,,,,,12 Pills
+3884,100,ml,,,,,,,,,100 ml
+3944,14,Pill,,,,,,,,,14 Pills
+4006,20,Pill,,,,,,,,,20 Pills
+4310,70,ml,,,,,,,,,70 ml
+4331,100,ml,,,,,,,,,100 ml
+5154,20,Pill,,,,,,,,,20 Pills
+5220,,,,,1,vial,,,,,1 Vial
+5512,14,Pill,,,,,,,,,14 Pills
+5528,18,Pill,,,,,,,,,18 Pills
+5590,14,Pill,,,,,,,,,14 Pills
+5938,70,ml,,,,,,,,,70 ml
+6360,20,Pill,,,,,,,,,20 Pills
+6742,100,ml,,,,,,,,,100 ml
+6743,100,ml,,,,,,,,,100 ml
+6751,70,ml,,,,,,,,,70 ml
+6885,,,,,50,vial,,,,,50 Vials
+7311,100,ml,,,,,,,,,100 ml
+7371,,,,,12,Packet / Sachet,,,,,12 Packets / Sachets
+7867,,,,,,,,,,,
+7868,,,,,,,,,,,
+7869,,,,,,,,,,,
+8328,,,,,,,,,,,
+3832,,,,,1,vial,,,,,1 Vial
+3903,,,,,1,vial,,,,,1 Vial
+4022,,,,,10,vial,,,,,10 Vials
+4192,,,,,1,vial,,,,,1 Vial
+4193,,,,,1,vial,,,,,1 Vial
+5365,,,,,1,Vial,,,,,1 Vial
+5423,,,,,1,vial,,,,,1 Vial
+6490,,,,,1,vial,,,,,1 Vial
+6886,40,ml,,,1,vial,,,,,1 vial of 40 ml
+7870,,,,,,,,,,,
+7871,,,,,,,,,,,
+7872,,,,,,,,,,,
+7873,,,,,,,,,,,
+7874,,,,,,,,,,,
+7875,,,,,,,,,,,
+2248,16,Pill,,,,,,,,,16 Pills
+4091,60,ml,,,,,,,,,60 ml
+4092,12,Pill,,,,,,,,,12 Pills
+2368,,,,,25,vial,,,,,25 Vials
+2728,,,,,100,vial,,,,,100 Vials
+3899,,,,,1,vial,,,,,1 Vial
+8305,,,,,,,,,,,
+2195,100,ml,,,,,,,,,100 ml
+2197,20,Pill,,,,,,,,,20 Pills
+2241,12,Pill,,,,,,,,,12 Pills
+2242,60,ml,,,,,,,,,60 ml
+5370,12,Pill,,,,,,,,,12 Pills
+5371,12,Pill,,,,,,,,,12 Pills
+2172,,,,,1,vial,,,,,1 Vial
+2173,10,Pill,,,,,,,,,10 Pills
+2300,,,,,1,vial,,,,,1 Vial
+2374,,,,,25,vial,,,,,25 Vials
+2393,,,,,1,vial,,,,,1 Vial
+3475,14,Pill,,,,,,,,,14 Pills
+3646,10,Pill,,,,,,,,,10 Pills
+3731,10,Pill,,,,,,,,,10 Pills
+3743,,,,,10,vial,,,,,10 Vials
+4157,10,Pill,,,,,,,,,10 Pills
+5833,,,,,1,vial,,,,,1 Vial
+6163,,,,,10,vial,,,,,10 Vials
+6164,,,,,10,vial,,,,,10 Vials
+7877,,,,,,,,,,,
+7878,,,,,,,,,,,
+2292,75,ml,,,,,,,,,75 ml
+4044,60,ml,,,,,,,,,60 ml
+4045,60,ml,,,,,,,,,60 ml
+4093,10,Pill,,,,,,,,,10 Pills
+4094,10,Pill,,,,,,,,,10 Pills
+3990,50,ml,,,,,,,,,50 ml
+4464,100,ml,,,,,,,,,100 ml
+2243,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+2370,,,,,25,Bottle,,,,,25 Bottles
+2564,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+5754,,,,,50,vial,,,,,50 Vials
+3624,,,,,10,vial,,,,,10 Vials
+4035,,,,,10,vial,,,,,10 Vials
+5752,,,,,50,vial,,,,,50 Vials
+2023,,,,,10,vial,,,,,10 Vials
+2217,10,ml,,,1,vial,,,,,1 vial of 10 ml
+2218,3.5,ml,,,1,vial,,,,,1 vial of 3.5 ml
+2229,,,,,1,vial,,,,,1 Vial
+2230,2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 2 ml
+2373,,,,,25,Bottle,,,,,25 Bottles
+2392,10,ml,,,1,vial,,,,,1 vial of 10 ml
+2550,3.5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.5 ml
+3374,,,,,1,vial,,,,,1 Vial
+3375,,,,,1,vial,,,,,1 Vial
+3623,,,,,10,vial,,,,,10 Vials
+4194,10,ml,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 10ml solvent WFI + 1 syringe + 2 needles+ swab+ banadage
+4195,3.5,ml,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 3.5ml solvent lidocaine + 1 syringe + 2 needles+ swab+ bandage
+4196,,,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 2ml solvent lidocaine + 1 syringe + 2 needles+ swab+ bandage
+4197,,,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 5ml solvent WFI + 1 syringe + 2 needles+ swab+ bandage
+4254,,,,,10,vial,,,,,10 Vials
+4255,,,,,10,vial,,,,,10 Vials
+4265,,,,,50,vial,,,,,50 Vials
+4713,10,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 10 ml
+4714,5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 5 ml
+4826,10,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 10 ml
+4841,3.5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.5 ml
+4842,2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 2 ml
+4907,3.5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.5 ml
+5750,,,,,50,vial,,,,,50 Vials
+5760,10,ml,,,1,vial,1,non stated,,,1 vial and 1 non stated of 10 ml of solvent
+6218,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+6219,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+6569,3.5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.5 ml
+7377,3.5,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.5 ml
+7378,,,,,1,non stated,,,,,1 non stated
+7379,,,,,10,vial,,,,,10 Vials
+7380,10,ml,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 10ml solvent WFI + 1 syringe + 2 needles+ swab+ banadage
+7381,3.5,ml,,,1,Opat kit,,,,,Opat kit:1 Vial of sterile powder + 1 ampoule of 3.5ml solvent lidocaine + 1 syringe + 2 needles+ swab+ bandage
+7483,2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 2 ml
+7879,,,,,,,,,,,
+7880,,,,,,,,,,,
+7881,,,,,,,,,,,
+7882,,,,,,,,,,,
+7883,,,,,,,,,,,
+7884,,,,,,,,,,,
+7885,,,,,,,,,,,
+7886,,,,,,,,,,,
+5555,10,ml,,,1,vial,,,,,1 vial of 10 ml
+2021,30,ml,,,,,,,,,30 ml
+2022,60,ml,,,,,,,,,60 ml
+2084,30,ml,,,,,,,,,30 ml
+2101,6,Pill,,,,,,,,,6 Pills
+2102,6,Pill,,,,,,,,,6 Pills
+2103,60,ml,,,,,,,,,60 ml
+2251,30,ml,,,,,,,,,30 ml
+2265,60,ml,,,,,,,,,60 ml
+2266,5,Pill,,,,,,,,,5 Pills
+2623,6,Pill,,,,,,,,,6 Pills
+2624,60,ml,,,,,,,,,60 ml
+3403,30,ml,,,,,,,,,30 ml
+3615,6,Pill,,,,,,,,,6 Pills
+3616,8,Pill,,,,,,,,,8 Pills
+3639,10,Pill,,,,,,,,,10 Pills
+3822,60,ml,,,,,,,,,60 ml
+4036,120,ml,,,,,,,,,120 ml
+4232,5,Pill,,,,,,,,,5 Pills
+4758,5,Pill,,,,,,,,,5 Pills
+4850,14,Pill,,,,,,,,,14 Pills
+5556,6,Pill,,,,,,,,,6 Pills
+5557,30,ml,,,,,,,,,30 ml
+5558,60,ml,,,,,,,,,60 ml
+5685,8,Pill,,,,,,,,,8 Pills
+7105,60,ml,,,,,,,,,60 ml
+7887,,,,,,,,,,,
+8306,,,,,,,,,,,
+2025,10,Pill,,,,,,,,,10 Pills
+2026,50,ml,,,,,,,,,50 ml
+2497,10,Pill,,,,,,,,,10 Pills
+2498,100,ml,,,,,,,,,100 ml
+2679,50,ml,,,,,,,,,50 ml
+2750,10,Pill,,,,,,,,,10 Pills
+5369,10,Pill,,,,,,,,,10 Pills
+7888,,,,,,,,,,,
+2611,40,ml,,,,,,,,,40 ml
+2612,80,ml,,,,,,,,,80 ml
+2696,10,Pill,,,,,,,,,10 Pills
+4899,100,ml,,,,,,,,,100 ml
+5088,50,ml,,,,,,,,,50 ml
+5165,10,Pill,,,,,,,,,10 Pills
+5529,10,Pill,,,,,,,,,10 Pills
+5530,80,ml,,,,,,,,,80 ml
+5531,40,ml,,,,,,,,,40 ml
+7889,,,,,,,,,,,
+7890,,,,,,,,,,,
+6135,,,,,10,vial,,,,,10 Vials
+3421,10,ml,,,1,vial,1,non stated,,,1 vial and 1 non stated of 10 ml of solvent
+3593,,,,,1,vial,,,,,1 vial
+3594,,,,,1,vial,,,,,1 vial
+5011,,,,,10,vial,,,,,10 Vials
+5907,,,,,1,vial,,,,,1 vial
+7891,,,,,,,,,,,
+4037,,,,,1,vial,,,,,1 Vial
+4054,,,,,10,vial,,,,,10 Vials
+4256,,,,,1,vial,,,,,1 vial
+4257,,,,,1,vial,,,,,1 vial
+4315,,,,,10,Bottle,,,,,10 Bottles
+4329,,,,,1,vial,,,,,1 Vial
+4440,,,,,10,vial,,,,,10 Vials
+5043,,,,,10,vial,,,,,10 Vials
+5044,,,,,10,vial,,,,,10 Vials
+6591,,,,,3,vial,,,,,3 Vials
+6673,300,ml,,,10,vial,,,,,10 vials of 30 ml each
+6675,200,ml,,,10,vial,,,,,10 vials of 20 ml each
+7353,,,,,1,vial,,,,,1 vial
+7354,,,,,1,vial,,,,,1 vial
+7375,,,,,1,vial,,,,,1 vial
+7376,,,,,1,vial,,,,,1 vial
+7892,,,,,,,,,,,
+7893,,,,,,,,,,,
+7894,,,,,,,,,,,
+5062,,,,,1,vial,,,,,1 Vial
+7443,,,,,1,vial,,,,,1 Vial
+7895,,,,,,,,,,,
+3586,,,,,1,vial,,,,,1 Vial
+3887,,,,,10,vial,,,,,10 Vials
+4190,,,,,10,vial,,,,,10 Vials
+6397,,,,,5,vial,,,,,5 Vials
+7896,,,,,,,,,,,
+7897,,,,,,,,,,,
+6590,,,,,10,vial,,,,,10 Vials
+6566,,,,,10,vial,,,,,10 Vials
+5585,,,,,10,vial,,,,,10 Vials
+3099,1,Pill,,,,,,,,,"1,000 Pills"
+3100,20,Pill,,,,,,,,,20 Pills
+3126,100,ml,,,,,,,,,100 ml
+7898,,,,,,,,,,,
+2278,10,Pill,,,,,,,,,10 Pills
+2279,16,Pill,,,,,,,,,16 Pills
+2214,14,Pill,,,,,,,,,14 Pills
+2313,14,Pill,,,,,,,,,14 Pills
+2314,14,Pill,,,,,,,,,14 Pills
+2976,14,Pill,,,,,,,,,14 Pills
+3452,14,Pill,,,,,,,,,14 Pills
+3744,60,ml,,,,,,,,,60 ml
+3784,100,ml,,,,,,,,,100 ml
+3984,14,Pill,,,,,,,,,14 Pills
+4417,14,Pill,,,,,,,,,14 Pills
+6112,15,ml,,,1,vial,,,,,1 vial of 15 ml
+6113,14,Pill,,,,,,,,,14 Pills
+6114,7,Pill,,,,,,,,,7 Pills
+6115,60,ml,,,,,,,,,60 ml
+6116,100,ml,,,,,,,,,100 ml
+2042,6,Pill,,,,,,,,,6 Pills
+2161,15,ml,,,,,,,,,15 ml
+2162,6,Pill,,,,,,,,,6 Pills
+2261,6,Pill,,,,,,,,,6 Pills
+2262,15,ml,,,,,,,,,15 ml
+2296,6,Pill,,,,,,,,,6 Pills
+2884,6,Pill,,,,,,,,,6 Pills
+3377,6,Pill,,,,,,,,,6 Pills
+3378,15,ml,,,,,,,,,15 ml
+3569,15,ml,,,,,,,,,15 ml
+3582,6,Pill,,,,,,,,,6 Pills
+3753,6,Pill,,,,,,,,,6 Pills
+4286,6,Pill,,,,,,,,,6 Pills
+4399,22.5,ml,,,,,,,,,22.5 ml
+4548,6,Pill,,,,,,,,,6 Pills
+4549,3,Pill,,,,,,,,,3 Pills
+4610,3,Pill,,,,,,,,,3 Pills
+6057,6,Pill,,,,,,,,,6 Pills
+6058,3,Pill,,,,,,,,,3 Pills
+6127,3,Pill,,,,,,,,,3 Pills
+7899,,,,,,,,,,,
+1966,16,Pill,,,,,,,,,16 Pills
+1967,16,Pill,,,,,,,,,16 Pills
+3978,,,,,1,ampule,,,,,1 Ampule
+5192,16,Pill,,,,,,,,,16 Pills
+5461,40,ml,,,10,ampule,,,,,10 ampules of 4 ml each
+2503,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+7900,,,,,,,,,,,
+7901,,,,,,,,,,,
+2471,2,ml,,,1,vial,,,,,1 vial of 2 ml
+3846,2,ml,,,1,vial,,,,,1 vial of 2 ml
+5209,2,ml,,,1,vial,,,,,1 vial of 2 ml
+5457,,,,,6,ampule,,,,,6 Ampules
+7304,10,ml,,,5,vial,,,,,5 vials of 2 ml each
+2627,10,Pill,,,,,,,,,10 Pills
+3019,10,Pill,,,,,,,,,10 Pills
+2031,10,Pill,,,,,,,,,10 Pills
+2110,10,Pill,,,,,,,,,10 Pills
+2244,10,Pill,,,,,,,,,10 Pills
+2291,10,Pill,,,,,,,,,10 Pills
+2299,12,Pill,,,,,,,,,12 Pills
+2388,10,Pill,,,1,Box,,,,,1 box of 10 pills
+2590,10,Pill,,,,,,,,,10 Pills
+2726,100,ml,,,,,,,,,100 ml
+2733,10,Pill,,,,,,,,,10 Pills
+3438,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+3728,100,ml,,,1,vial,,,,,1 vial of 100 ml
+3729,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+3916,10,Pill,,,,,,,,,10 Pills
+4375,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+4376,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+4895,5000,ml,,,50,Bag,,,,,50 bags of 100 ml each
+4926,14,Pill,,,,,,,,,14 Pills
+5643,10,Pill,,,,,,,,,10 Pills
+5964,100,ml,,,1,non stated,,,,,1 non stated of 100 ml
+6427,200,ml,,,1,Bag,,,,,1 bag of 200 ml
+7902,,,,,,,,,,,
+7903,,,,,,,,,,,
+2941,14,Pill,,,,,,,,,14 Pills
+2507,5,Pill,,,,,,,,,5 Pills
+3009,7,Pill,,,,,,,,,7 Pills
+3416,7,Pill,,,,,,,,,7 Pills
+3417,5,Pill,,,,,,,,,5 Pills
+3613,2000,ml,,,20,Bag,,,,,20 bags of 100 ml each
+3791,7,Pill,,,,,,,,,7 Pills
+3833,5,Pill,,,,,,,,,5 Pills
+4437,7,Pill,,,,,,,,,7 Pills
+4438,7,Pill,,,,,,,,,7 Pills
+4447,100,ml,,,1,Bottle,,,,,1 bottle of 100 ml
+4458,7,Pill,,,,,,,,,7 Pills
+4502,7,Pill,,,,,,,,,7 Pills
+4583,100,ml,,,1,vial,,,,,1 vial of 100 ml
+4859,5,Pill,,,,,,,,,5 Pills
+5451,7,Pill,,,,,,,,,7 Pills
+5822,7,Pill,,,,,,,,,7 Pills
+5981,100,ml,,,1,Bag,,,,,1 bag of 100 ml
+6106,100,ml,,,1,vial,,,,,1 vial of 100 ml
+7199,5,Pill,,,,,,,,,5 Pills
+7200,5,Pill,,,,,,,,,5 Pills
+7201,7,Pill,,,,,,,,,7 Pills
+7326,7,Pill,,,,,,,,,7 Pills
+7327,100,ml,,,1,Bottle,,,,,1 bottle of 100 ml
+7904,,,,,,,,,,,
+7905,,,,,,,,,,,
+7906,,,,,,,,,,,
+2354,5,Pill,,,,,,,,,5 Pills
+2355,7,Pill,,,,,,,,,7 Pills
+3386,1250,ml,,,5,Non-stated,,,,,5 non stated of 250 ml each
+4268,5,Pill,,,,,,,,,5 Pills
+5820,7,Pill,,,,,,,,,7 Pills
+6182,250,ml,,,1,Bag,,,,,1 bag of 250 ml
+6191,7,Pill,,,,,,,,,7 Pills
+7907,,,,,,,,,,,
+7908,,,,,,,,,,,
+4020,5,Pill,,,,,,,,,5 Pills
+7909,,,,,,,,,,,
+7910,,,,,,,,,,,
+2956,20,Pill,,,,,,,,,20 Pills
+4967,10,Pill,,,,,,,,,10 Pills
+5207,20,Pill,,,,,,,,,20 Pills
+2232,,,,,1,vial,,,,,1 Vial
+3472,,,,,1,vial,,,,,1 Vial
+3927,,,,,1,vial,,,,,1 Vial
+3980,,,,,1,vial,,,,,1 Vial
+4469,,,,,1,vial,,,,,1 Vial
+4712,,,,,1,vial,,,,,1 Vial
+5478,,,,,10,vial,,,,,10 Vials
+6194,,,,,1,vial,,,,,1 Vial
+6617,,,,,10,vial,,,,,10 Vials
+7911,,,,,,,,,,,
+2547,3,ml,,,1,vial,,,,,1 vial of 3 ml
+3619,3,ml,,,1,vial,,,,,1 vial of 3 ml
+4946,3.2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.2 ml
+4947,3.2,ml,,,1,vial,1,ampule,,,1 vial and 1 ampule of 3.2 ml
+5825,,,,,1,vial,,,,,1 Vial
+5965,,,,,1,vial,,,,,1 Vial
+6171,,,,,10,vial,,,,,10 Vials
+7301,,,,,30,vial,,,,,30 Vials
+7912,,,,,,,,,,,
+3371,4,Pill,,,,,,,,,4 Pills
+4694,20,Pill,,,,,,,,,20 Pills
+7913,,,,,,,,,,,
+3722,,,,,1,Packet / Sachet,,,,,1 Packet / Sachet
+7914,,,,,,,,,,,
+4008,300,ml,,,,,,,,,300 ml
+4225,20,Pill,,,,,,,,,20 Pills
+5973,10,Pill,,,,,,,,,10 Pills
+7915,,,,,,,,,,,
+7916,,,,,,,,,,,
+7917,,,,,,,,,,,
+7918,,,,,,,,,,,
+6493,,,,,1,vial,,,,,1 Vial
+2317,1,Pill,,,,,,,,,1 Pill
+2622,7,Pill,,,,,,,,,7 Pills
+2938,10,Pill,,,,,,,,,10 Pills
+2939,1,Pill,,,,,,,,,1 Pill
+2940,35,ml,,,,,,,,,35 ml
+3205,10,Pill,,,,,,,,,10 Pills
+3206,1,Pill,,,,,,,,,1 Pill
+3207,35,ml,,,,,,,,,35 ml
+3339,1,Pill,,,,,,,,,1 Pill
+3437,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+3474,1,Pill,,,,,,,,,1 Pill
+3758,7,Pill,,,,,,,,,7 Pills
+3782,1,Pill,,,,,,,,,1 Pill
+4400,1,Pill,,,,,,,,,1 Pill
+4446,2,Pill,,,,,,,,,2 Pills
+4494,2,Pill,,,,,,,,,2 Pills
+4495,10,Pill,,,,,,,,,10 Pills
+5367,2,Pill,,,,,,,,,2 Pills
+5727,1,Pill,,,,,,,,,1 Pill
+5728,7,Pill,,,,,,,,,7 Pills
+5963,100,ml,,,1,vial,,,,,1 vial of 100 ml
+6292,100,ml,,,1,Bag,,,,,1 bag of 100 ml
+7008,1,Pill,,,,,,,,,1 Pill
+7022,10,Pill,,,,,,,,,10 Pills
+7128,1,Pill,,,,,,,,,1 Pill
+7919,,,,,,,,,,,
+2997,16,Pill,,,,,,,,,16 Pills
+2998,4,Pill,,,,,,,,,4 Pills
+4271,15,Pill,,,,,,,,,15 Pills
+4442,4,Pill,,,,,,,,,4 Pills
+4443,15,Pill,,,,,,,,,15 Pills
+6987,,,,,1,vial,,,,,1 Vial
+7360,30,Pill,,,,,,,,,30 Pills
+7920,,,,,,,,,,,
+7921,,,,,,,,,,,
+7922,,,,,,,,,,,
+7923,,,,,,,,,,,
+6332,24,Pill,,,,,,,,,24 Pills
+6978,14,Pill,,,,,,,,,14 Pills
+6979,,,,,1,vial,,,,,1 Vial
+4293,,,,,1,vial,,,,,1 Vial
+4294,,,,,1,vial,,,,,1 Vial
+7924,,,,,,,,,,,
+7925,,,,,,,,,,,
+7926,,,,,,,,,,,
+7927,,,,,,,,,,,
+6606,,,,,1,non stated,,,,,1 Non Stated
+7434,,,,,1,vial,,,,,1 Vial
+7435,,,,,1,vial,,,,,1 Vial
+7056,,,,,1,vial,,,,,1 Vial
+1984,125,ml,,,,,,,,,125 ml
+2017,,,,,5,non stated,,,,,5 Non Stated
+2904,30,Pill,,,,,,,,,30 Pills
+2905,40,Pill,,,,,,,,,40 Pills
+2988,25,Pill,,,,,,,,,25 Pills
+6022,40,Pill,,,,,,,,,40 Pills
+6023,40,Pill,,,,,,,,,40 Pills
+7928,,,,,,,,,,,
+7929,,,,,,,,,,,
+6728,,,,,1,vial,,,,,1 Vial
+3429,50,Pill,,,,,,,,,50 Pills
+4388,10,Pill,,,,,,,,,10 Pills
+5470,10,Pill,,,,,,,,,10 Pills
+5660,42,Pill,,,,,,,,,42 Pills
+5817,10,Pill,,,,,,,,,10 Pills
+5818,42,Pill,,,,,,,,,42 Pills
+5709,60,Pill,,,,,,,,,60 Pills
+6334,60,Pill,,,,,,,,,60 Pills
+7930,,,,,,,,,,,
+7224,,,,,1,vial,,,,,1 Vial
+4533,60,Pill,,,,,,,,,60 Pills
+4534,60,Pill,,,,,,,,,60 Pills
+6541,60,Pill,,,,,,,,,60 Pills
+6568,30,Pill,,,,,,,,,30 Pills
+3431,30,Pill,,,,,,,,,30 Pills
+6336,30,Pill,,,,,,,,,30 Pills
+6444,30,Pill,,,,,,,,,30 Pills
+6594,30,Pill,,,,,,,,,30 Pills
+7052,30,Pill,,,,,,,,,30 Pills
+6622,30,Pill,,,,,,,,,30 Pills
+6623,30,Pill,,,,,,,,,30 Pills
+6819,30,Pill,,,,,,,,,30 Pills
+6820,30,Pill,,,,,,,,,30 Pills
+7094,30,Pill,,,,,,,,,30 Pills
+7095,30,Pill,,,,,,,,,30 Pills
+7146,30,Pill,,,,,,,,,30 Pills
+7147,30,Pill,,,,,,,,,30 Pills
+7165,30,Pill,,,,,,,,,30 Pills
+7166,30,Pill,,,,,,,,,30 Pills
+7273,30,Pill,,,,,,,,,30 Pills
+5902,30,Pill,,,,,,,,,30 Pills
+4530,60,Pill,,,,,,,,,60 Pills
+4540,30,Pill,,,,,,,,,30 Pills
+6646,30,Pill,,,,,,,,,30 Pills
+2226,10,Pill,,,,,,,,,10 Pills
+3177,10,Pill,,,,,,,,,10 Pills
+3504,10,Pill,,,,,,,,,10 Pills
+6845,10,Pill,,,,,,,,,10 Pills
+5897,28,Pill,,,,,,,,,28 Pills
+6446,28,Pill,,,,,,,,,28 Pills
+6445,28,Pill,,,,,,,,,28 Pills
+4532,60,Pill,,,,,,,,,60 Pills
+6521,60,Pill,,,,,,,,,60 Pills
+4531,30,Pill,,,,,,,,,30 Pills
+6441,30,Pill,,,,,,,,,30 Pills
+6818,30,Pill,,,,,,,,,30 Pills
+4997,60,Pill,,,,,,,,,60 Pills
+4535,30,Pill,,,,,,,,,30 Pills
+5780,30,Pill,,,,,,,,,30 Pills
+6442,30,Pill,,,,,,,,,30 Pills
+6411,30,Pill,,,,,,,,,30 Pills
+6647,30,Pill,,,,,,,,,30 Pills
+7931,,,,,,,,,,,
+5139,30,Pill,,,,,,,,,30 Pills
+6739,28,Pill,,,,,,,,,28 Pills
+6774,28,Pill,,,,,,,,,28 Pills
+7101,,,,,1,vial,,,,,1 Vial
+2554,50,ml,,,,,,,,,50 ml
+2555,100,ml,,,,,,,,,100 ml
+2556,200,ml,,,,,,,,,200 ml
+3908,50,ml,,,,,,,,,50 ml
+4108,50,ml,,,,,,,,,50 ml
+4109,100,ml,,,,,,,,,100 ml
+4264,100,ml,,,,,,,,,100 ml
+4366,200,ml,,,,,,,,,200 ml
+4367,100,ml,,,,,,,,,100 ml
+4515,50,ml,,,,,,,,,50 ml
+5793,50,ml,,,,,,,,,50 ml
+5794,25,ml,,,,,,,,,25 ml
+5795,100,ml,,,,,,,,,100 ml
+6238,5,ml,,,1,vial,,,,,1 vial of 5 ml
+6239,10,ml,,,1,vial,,,,,1 vial of 10 ml
+6240,20,ml,,,1,vial,,,,,1 vial of 20 ml
+6558,200,ml,,,,,,,,,200 ml
+6559,50,ml,,,,,,,,,50 ml
+6560,100,ml,,,,,,,,,100 ml
+6561,20,ml,,,1,vial,,,,,1 vial of 20 ml
+6941,20,ml,,,1,vial,,,,,1 vial of 20 ml
+6942,40,ml,,,1,vial,,,,,1 vial of 40 ml
+2767,2,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 2 ml
+4160,1,ml,,,1,vial,,,,,1 vial of 1 ml
+4240,2,ml,,,1,Ampule,,,,,1 Ampule of 2 ml
+4491,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+5634,1,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 1 ml
+5677,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+5678,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7932,,,,,,,,,,,
+7933,,,,,,,,,,,
+7934,,,,,,,,,,,
+7935,,,,,,,,,,,
+4075,0.5,ml,,,1,vial,,,,,1 vial of 0.5 ml
+7936,,,,,,,,,,,
+7937,,,,,,,,,,,
+4002,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml and 2 needles
+5536,0.5,ml,,,1,syringe,,,,,1 syringe of 0.5 ml
+3767,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml and 1 needle
+6781,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+7337,0.5,ml,,,1,non stated,,,,,1 non stated of 0.5 ml
+7938,,,,,,,,,,,
+7939,,,,,,,,,,,
+6960,0.5,ml,,,1,syringe,,,,,1 syringe of 0.5 ml
+7399,0.5,ml,,,1,vial,,,,,1 vial of 0.5 ml
+2139,30,Pill,,,,,,,,,30 Pills
+4014,30,Pill,,,,,,,,,30 Pills
+4015,30,Pill,,,,,,,,,30 Pills
+6324,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml and 1 needle
+6748,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+2544,0.5,ml,,,1,non stated,,,,,1 non stated of 0.5 ml
+1930,1,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.8 ml each
+5247,0.5,ml,,,1,non stated,,,,,1 non stated of 0.5 ml
+7045,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+1927,1,ml,,,1,vial,,,,,1 vial of 1 ml
+1931,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+3603,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+5713,0.5,ml,,,1,vial,,,,,1 vial of 0.5 ml
+7505,0.5,ml,,,1,non stated,,,,,1 non stated of 0.5 ml
+7940,,,,,,,,,,,
+2731,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+5249,0.5,ml,,,,,,,,,0.5 ml
+6650,5,ml - ml,,,10,vial,10,vial,,,10 vials of 0.5 ml each and 10 vials of 0.7 ml each
+5654,0.5,ml,,,1,non stated,,,,,1 non stated of 0.5 ml
+7941,,,,,,,,,,,
+3734,2,ml,,,1,Tube,,,,,1 tube of 2ml
+4110,1.5,ml,,,,,,,,,1.5 ml
+7349,2.5,ml,,,,,,,,,2.5 ml
+7942,,,,,,,,,,,
+5609,0.5,ml - ml,,,1,vial,1,vial,,,1 vial of 0.5 ml and 1 vial of 0.7 ml
+7943,,,,,,,,,,,
+5449,0.5,ml,,,1,syringe,,,,,1 syringe of 0.5 ml
+3333,18,ml,,,,,,,,,18 ml
+3630,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+1932,0.5,ml,,,,,,,,,0.5 ml
+6961,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+3482,0.5,ml,,,1,vial,1,pre-filled syringe,,,1 vial and 1 pre-filled syringe of 0.5 ml
+5406,0.5,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.5 ml
+5248,0.5,ml,,,,,,,,,0.5 ml
+1985,,,,,1,vial,,,,,1 Vial
+1987,,,,,1,vial,,,,,1 Vial
+4692,,,,,1,vial,,,,,1 Vial
+5606,50,ml,,,5,vial,,,,,5 vials of 10 ml each
+5607,250,ml,,,5,vial,,,,,5 vials of 50 ml each
+5730,,,,,1,vial,,,,,1 Vial
+5731,,,,,5,vial,,,,,5 Vials
+5908,,,,,1,vial,,,,,1 Vial
+7944,,,,,,,,,,,
+7945,,,,,,,,,,,
+7237,,,,,1,vial,,,,,1 Vial
+5430,5,Pill,,,1,Packet / Sachet,,,,,1 Packet / Sachet of 5 pills
+5431,5,Pill,,,1,Packet / Sachet,,,,,1 Packet / Sachet of 5 pills
+5432,5,Pill,,,1,Packet / Sachet,,,,,1 Packet / Sachet of 5 pills
+5696,5,Pill,,,,,,,,,5 Pills
+5697,5,Pill,,,,,,,,,5 Pills
+5698,5,Pill,,,,,,,,,5 Pills
+5699,5,Pill,,,,,,,,,5 Pills
+6117,5,Pill,,,,,,,,,5 Pills
+6734,5,Pill,,,,,,,,,5 Pills
+6735,5,Pill,,,,,,,,,5 Pills
+7946,,,,,,,,,,,
+7947,,,,,,,,,,,
+7948,,,,,,,,,,,
+7949,,,,,,,,,,,
+4872,,,,,10,vial,,,,,10 Vials
+4874,,,,,1,vial,,,,,1 Vial
+3856,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+6280,,,,,1,vial,,,,,1 Vial
+5993,,,,,1,vial,,,,,1 Vial
+6957,,,,,1,vial,,,,,1 Vial
+6958,,,,,1,vial,,,,,1 Vial
+7438,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+7439,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+7444,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+7456,,,,,1,vial,,,,,1 Vial
+7458,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+7950,,,,,,,,,,,
+7951,,,,,,,,,,,
+7952,,,,,,,,,,,
+7953,,,,,,,,,,,
+7954,,,,,,,,,,,
+4291,25,Pill,,,,,,,,,25 Pills
+4061,,,,,5,vial,,,,,5 Vials
+4363,,,,,1,vial,,,,,1 Vial
+7426,1,Pill,,,,,,,,,1 Pill
+3604,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+7461,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+4480,,,,,1,vial,,,,,1 Vial
+2566,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+3449,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+5445,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+5506,20,g,,,,,,,,,20 g
+3312,,,,,1,vial,,,,,1 Vial
+3313,,,,,1,vial,,,,,1 Vial
+3649,,,,,1,vial,,,,,1 Vial
+3663,,,,,1,vial,,,,,1 Vial
+4350,,,,,1,vial,,,,,1 Vial
+4351,,,,,1,vial,,,,,1 Vial
+4614,26.3,ml,,,1,vial,,,,,1 Vial of 26.3 ml
+7404,,,,,1,vial,,,,,1 Vial
+7423,,,,,1,vial,,,,,1 Vial
+7459,,,,,1,vial,,,,,1 Vial
+7460,,,,,1,vial,,,,,1 Vial
+7955,,,,,,,,,,,
+7956,,,,,,,,,,,
+3641,60,Pill,,,,,,,,,60 Pills
+4972,120,Pill,,,,,,,,,120 Pills
+5271,120,Pill,,,,,,,,,120 Pills
+5901,120,Pill,,,,,,,,,120 Pills
+7957,,,,,,,,,,,
+7958,,,,,,,,,,,
+7959,,,,,,,,,,,
+7960,,,,,,,,,,,
+7961,,,,,,,,,,,
+6640,,,,,1,vial,,,,,1 Vial
+7141,,,,,1,vial,,,,,1 Vial
+7369,,,,,1,vial,,,,,1 Vial
+7962,,,,,,,,,,,
+7963,,,,,,,,,,,
+7964,,,,,,,,,,,
+12239,,,,,,,,,,,
+4034,,,,,1,vial,,,,,1 Vial
+7965,,,,,,,,,,,
+5694,20,Pill,,,,,,,,,20 Pills
+5695,20,Pill,,,,,,,,,20 Pills
+4618,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+2484,1,Pill,,,,,,,,,1 Pill
+2488,1,Pill,,,,,,,,,1 Pill
+3342,5,ml,,,1,vial,,,,,1 vial of 5 ml
+2428,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4191,5,ml,,,1,vial,,,,,1 vial of 5 ml
+2619,25,ml,,,1,vial,,,,,1 Vial of 25 ml
+4117,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4118,16.7,ml,,,1,vial,,,,,1 Vial of 16.7 ml
+4119,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+4556,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4557,16.7,ml,,,1,vial,,,,,1 Vial of 16.7 ml
+4558,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+7113,25,ml,,,1,vial,,,,,1 Vial of 25 ml
+7114,16.7,ml,,,1,vial,,,,,1 Vial of 16.7 ml
+7115,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+7408,25,ml,,,1,vial,,,,,1 Vial of 25 ml
+7409,,,,,1,vial,,,,,1 Vial
+7450,,,,,1,vial,,,,,1 Vial
+7966,,,,,,,,,,,
+2268,8,ml,,,1,vial,1,vial,,,1 vial and 1 vial of 8 ml
+2282,8,ml,,,1,vial,,,,,1 Vial of 8 ml
+2283,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+2618,2,ml,,,1,vial,1,vial,,,1 vial and 1 vial of 2 ml
+3693,8,ml,,,1,vial,,,,,1 Vial of 8 ml
+3694,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+5446,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+5447,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+7967,,,,,,,,,,,
+7968,,,,,,,,,,,
+7969,,,,,,,,,,,
+5420,1.5,ml,,,1,vial,1,vial,,,1 vial and 1 vial of 1.5 ml
+7130,6,ml,,,1,vial,,,,,6 Vials of 6 ml each
+8311,,,,,,,,,,,
+5547,,,,,5,vial,,,,,5 Vials
+7970,,,,,,,,,,,
+2269,5,ml,,,1,vial,,,,,5 Vials of 5 ml each
+3369,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4011,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+4012,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4262,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+6701,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+6702,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+7112,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+7169,,,,,1,vial,,,,,1 Vial
+2419,25,,,,1,vial,,,,,1 Vial
+2420,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+4785,25,,,,1,vial,,,,,1 Vial
+7142,25,,,,1,Bottle,,,,,1 Bottle
+7469,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+7445,,,,,10,vial,,,,,10 Vials
+4120,5,ml,,,1,vial,,,,,5 Vials of 5 ml each
+4121,25,ml,,,1,vial,,,,,25 Vials of 2 ml each
+7971,,,,,,,,,,,
+2732,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+4674,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+2768,60,Pill,,,,,,,,,60 Pills
+4500,30,Pill,,,,,,,,,30 Pills
+4501,60,Pill,,,,,,,,,60 Pills
+4507,120,Pill,,,,,,,,,120 Pills
+4580,30,Pill,,,,,,,,,30 Pills
+4581,30,Pill,,,,,,,,,30 Pills
+4635,60,Pill,,,,,,,,,60 Pills
+4885,30,Pill,,,,,,,,,30 Pills
+5078,30,Pill,,,,,,,,,30 Pills
+7400,180,Pill,,,,,,,,,180 Pills
+7401,30,Pill,,,,,,,,,30 Pills
+7405,30,Pill,,,,,,,,,30 Pills
+7406,60,Pill,,,,,,,,,60 Pills
+7407,30,Pill,,,,,,,,,30 Pills
+7972,,,,,,,,,,,
+7973,,,,,,,,,,,
+2759,60,Pill,,,,,,,,,60 Pills
+2760,60,Pill,,,,,,,,,60 Pills
+7410,60,Pill,,,,,,,,,60 Pills
+7411,30,Pill,,,,,,,,,30 Pills
+7412,60,Pill,,,,,,,,,60 Pills
+7413,60,Pill,,,,,,,,,60 Pills
+7414,60,Pill,,,,,,,,,60 Pills
+7453,60,Pill,,,,,,,,,60 Pills
+7454,60,Pill,,,,,,,,,60 Pills
+7455,60,Pill,,,,,,,,,60 Pills
+7974,,,,,,,,,,,
+7975,,,,,,,,,,,
+7976,,,,,,,,,,,
+7977,,,,,,,,,,,
+7978,,,,,,,,,,,
+7979,,,,,,,,,,,
+3326,112,Pill,,,,,,,,,112 Pills
+3857,112,Pill,,,,,,,,,112 Pills
+6421,28,Pill,,,,,,,,,28 Pills
+6422,28,Pill,,,,,,,,,28 Pills
+6423,28,Pill,,,,,,,,,28 Pills
+7980,,,,,,,,,,,
+7981,,,,,,,,,,,
+3876,30,Pill,,,,,,,,,30 Pills
+6624,30,Pill,,,,,,,,,30 Pills
+7182,30,Pill,,,,,,,,,30 Pills
+7274,30,Pill,,,,,,,,,30 Pills
+6533,30,Pill,,,,,,,,,30 Pills
+6534,30,Pill,,,,,,,,,30 Pills
+7025,30,Pill,,,,,,,,,30 Pills
+7026,30,Pill,,,,,,,,,30 Pills
+7271,30,Pill,,,,,,,,,30 Pills
+7272,30,Pill,,,,,,,,,30 Pills
+5527,30,Pill,,,,,,,,,30 Pills
+4287,56,Pill,,,,,,,,,56 Pills
+6245,60,Pill,,,,,,,,,60 Pills
+6246,60,Pill,,,,,,,,,60 Pills
+6007,224,Pill,,,,,,,,,224 Pills
+6906,28,Pill,,,,,,,,,28 Pills
+6907,28,Pill,,,,,,,,,28 Pills
+6908,28,Pill,,,,,,,,,28 Pills
+6537,30,Pill,,,,,,,,,30 Pills
+6538,30,Pill,,,,,,,,,30 Pills
+5305,21,Pill,,,,,,,,,21 Pills
+5306,21,Pill,,,,,,,,,21 Pills
+5307,21,Pill,,,,,,,,,21 Pills
+7121,21,Pill,,,,,,,,,21 Pills
+7122,21,Pill,,,,,,,,,21 Pills
+7123,21,Pill,,,,,,,,,21 Pills
+7982,,,,,,,,,,,
+7983,,,,,,,,,,,
+7984,,,,,,,,,,,
+7985,,,,,,,,,,,
+7986,,,,,,,,,,,
+7987,,,,,,,,,,,
+6198,14,Pill,,,,,,,,,14 Pills
+6199,14,Pill,,,,,,,,,14 Pills
+6200,14,Pill,,,,,,,,,14 Pills
+3708,30,Pill,,,,,,,,,30 Pills
+4276,30,Pill,,,,,,,,,30 Pills
+6944,30,Pill,,,,,,,,,30 Pills
+6945,30,Pill,,,,,,,,,30 Pills
+6946,30,Pill,,,,,,,,,30 Pills
+7988,,,,,,,,,,,
+7989,,,,,,,,,,,
+7990,,,,,,,,,,,
+7275,70,Pill,,,,,,,,,70 Pills
+7991,,,,,,,,,,,
+7992,,,,,,,,,,,
+7993,,,,,,,,,,,
+7994,,,,,,,,,,,
+7995,,,,,,,,,,,
+7996,,,,,,,,,,,
+6788,56,Pill,,,,,,,,,56 Pills
+6789,56,Pill,,,,,,,,,56 Pills
+7057,30,Pill,,,,,,,,,30 Pills
+7058,30,Pill,,,,,,,,,30 Pills
+7997,,,,,,,,,,,
+7451,56,Pill,,,,,,,,,56 Pills
+7452,56,Pill,,,,,,,,,28 pills (50 mg) and 28 pills (200 mg)
+7463,28,Pill,,,,,,,,,28 Pills
+6949,30,Pill,,,,,,,,,30 Pills
+6950,30,Pill,,,,,,,,,30 Pills
+6951,30,Pill,,,,,,,,,30 Pills
+7162,30,Pill,,,,,,,,,30 Pills
+7163,30,Pill,,,,,,,,,30 Pills
+7998,,,,,,,,,,,
+7999,,,,,,,,,,,
+8000,,,,,,,,,,,
+3446,60,Pill,,,,,,,,,60 Pills
+5491,30,Pill,,,,,,,,,30 Pills
+5492,30,Pill,,,,,,,,,30 Pills
+6511,84,Pill,,,3,Bottle,,,,,Pack with 3 bottles of 28 pills each
+6160,30,Pill,,,,,,,,,30 Pills
+6161,30,Pill,,,,,,,,,30 Pills
+6162,30,Pill,,,,,,,,,30 Pills
+5433,30,Pill,,,,,,,,,30 Pills
+5434,30,Pill,,,,,,,,,30 Pills
+5308,60,Pill,,,,,,,,,60 Pills
+5309,60,Pill,,,,,,,,,60 Pills
+6185,112,Pill,,,4,pack,,,,,4 packs of 28 pills each
+6764,56,Pill,,,2,pack,,,,,2 packs of 28 pills each
+3558,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+3559,20,ml,,,2,vial,,,,,2 vials of 10 ml each
+5953,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+5954,20,ml,,,2,vial,,,,,2 vials of 10 ml each
+5955,100,ml,,,2,vial,,,,,2 vials of 50 ml each
+6531,20,ml,,,2,vial,,,,,2 vials of 10 ml each
+6532,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+7131,20,ml,,,2,vial,,,,,2 vials of 10 ml each
+7132,20,ml,,,2,vial,,,,,2 vials of 10 ml each
+7260,100,ml,,,2,vial,,,,,2 vials of 50 ml each
+7261,100,ml,,,2,vial,,,,,2 vials of 50 ml each
+8001,,,,,,,,,,,
+8002,,,,,,,,,,,
+8003,,,,,,,,,,,
+8004,,,,,,,,,,,
+8005,,,,,,,,,,,
+8006,,,,,,,,,,,
+5074,40,ml,,,1,vial,,,,,1 Vial of 40 ml
+6210,,,,,1,vial,,,,,1 Vial
+5573,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+7355,,,,,1,vial,,,,,1 Vial
+4989,,,,,1,vial,,,,,1 Vial
+5961,,,,,1,vial,1,vial,,,1Vial of trastuzumab for injection + 1Vial of bacteriostatic water for injection (multi-dose)
+6006,,,,,1,vial,,,,,1 Vial
+6546,,,,,1,vial,,,,,1 Vial
+6696,,,,,1,vial,,,,,1 Vial
+6697,,,,,1,vial,,,,,1 Vial
+6796,,,,,1,vial,,,,,1 Vial
+6797,,,,,1,vial,,,,,1 Vial
+7110,,,,,1,vial,,,,,1 Vial
+7111,,,,,1,vial,1,vial,,,1 vial and 1 vial
+8007,,,,,,,,,,,
+8008,,,,,,,,,,,
+4719,,,,,1,vial,,,,,1 Vial
+4804,,,,,1,vial,,,,,1 Vial
+4805,,,,,1,vial,,,,,1 Vial
+3526,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+4461,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+4462,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+5160,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5161,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+5097,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+6535,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+6536,2.4,ml,,,1,vial,,,,,1 Vial of 2.4 ml
+8009,,,,,,,,,,,
+8010,,,,,,,,,,,
+6825,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5575,,,,,1,vial,,,,,1 Vial
+6846,,,,,1,vial,,,,,1 Vial
+3551,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+3552,16,ml,,,1,vial,,,,,1 Vial of 16 ml
+3815,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+3816,16,ml,,,1,vial,,,,,1 Vial of 16 ml
+6725,16,ml,,,1,vial,,,,,1 Vial of 16 ml
+6758,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+6794,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+6795,16,ml,,,1,vial,,,,,1 Vial of 16 ml
+6981,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+6982,16,ml,,,1,vial,,,,,1 Vial of 16 ml
+7245,32,ml,,,2,vial,,,,,2 vials of 16 ml each
+7246,8,ml,,,2,vial,,,,,2 vials of 4 ml each
+8011,,,,,,,,,,,
+8012,,,,,,,,,,,
+8013,,,,,,,,,,,
+8014,,,,,,,,,,,
+5283,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5284,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+6711,,,,,1,vial,,,,,1 Vial
+4917,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+4938,,,,,1,vial,,,,,1 Vial
+5287,,,,,1,vial,,,,,1 Vial
+4122,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+4123,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+2366,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+3979,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+4017,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+4259,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+4753,15,ml,,,1,vial,,,,,1 Vial of 15 ml
+3340,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+3930,,,,,1,vial,,,,,1 Vial
+3963,,,,,1,vial,,,,,1 Vial
+3964,,,,,1,vial,,,,,1 Vial
+5279,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5280,20,ml,,,1,vial,,,,,1 Vial of 20 ml
+7118,,,,,1,vial,,,,,1 Vial
+7119,,,,,1,vial,,,,,1 Vial
+7402,,,,,1,vial,,,,,1 Vial
+7403,,,,,1,vial,,,,,1 Vial
+8015,,,,,,,,,,,
+5956,,,,,1,vial,,,,,1 Vial
+6024,,,,,1,vial,,,,,1 Vial
+6044,,,,,1,vial,,,,,1 Vial
+6798,,,,,1,vial,,,,,1 Vial
+7059,,,,,1,vial,,,,,1 Vial
+7145,,,,,1,vial,,,,,1 Vial
+7270,,,,,1,vial,,,,,1 Vial
+8016,,,,,,,,,,,
+8017,,,,,,,,,,,
+5288,,,,,1,vial,,,,,1 Vial
+5783,3,Pill,,,3,pack,,,,,3 packs of 1 pill each
+5784,3,Pill,,,4,pack,,,,,3 packs of 1 pill each
+5785,3,Pill,,,5,pack,,,,,3 packs of 1 pill each
+5163,28,Pill,,,,,,,,,28 Pills
+6838,56,Pill,,,,,,,,,56 Pills
+6839,56,Pill,,,,,,,,,56 Pills
+6345,30,Pill,,,,,,,,,30 Pills
+6346,30,Pill,,,,,,,,,30 Pills
+5887,,,,,1,vial,,,,,1 Vial
+8018,,,,,,,,,,,
+2415,100,Pill,,,,,,,,,100 Pills
+4639,30,Pill,,,,,,,,,30 Pills
+8019,,,,,,,,,,,
+7044,,,,,1,vial,,,,,1 Vial
+7007,100,Pill,,,,,,,,,100 Pills
+5906,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+4691,4,ml,,,1,vial,,,,,1 Vial of 4 ml
+4726,8,ml,,,1,vial,,,,,1 Vial of 8 ml
+8020,,,,,,,,,,,
+8021,,,,,,,,,,,
+5767,7,Pill,,,,,,,,,7 Pills
+5768,14,Pill,,,,,,,,,14 Pills
+5786,120,Pill,,,1,Bottle,,,,,1 Bottle of 120 pills
+5787,42,Pill,,,,,,,,,"14 pills (10 mg), 7 pills (50 mg), 7 pills (100 mg) and 14 pills (100 mg)"
+8022,,,,,,,,,,,
+8023,,,,,,,,,,,
+2238,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+3578,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+2485,7,ml,,,7,Bottle,,,,,7 bottles of 1 ml each
+2486,1,ml,,,1,non stated,,,,,1 Non Stated of 1 ml
+2487,1,ml,,,1,non stated,,,,,1 Non Stated of 1 ml
+3575,,,,,7,Pre-filled syringe,,,,,7 Pre-Filled Syringes
+3576,,,,,1,syringe,1,syringe,,,1 syringe and 1 syringe
+6914,30,Pill,,,,,,,,,30 Pills
+8024,,,,,,,,,,,
+8025,,,,,,,,,,,
+4239,,,,,2,Pre-filled syringe,,,,,2 Prefilled syringes with 2 safety needles
+6913,,,,,2,Pre-filled syringe,,,,,2 prefilled syringes
+7437,10,ml,,,2,Pre-filled syringe,,,,,2 prefilled syringes of 5 ml each
+3345,30,Pill,,,,,,,,,30 Pills
+3704,28,Pill,,,,,,,,,28 Pills
+5559,28,Pill,,,,,,,,,28 Pills
+7465,30,Pill,,,,,,,,,30 Pills
+8026,,,,,,,,,,,
+8027,,,,,,,,,,,
+8028,,,,,,,,,,,
+4930,113,Pill,,,,,,,,,113 Pills
+8029,,,,,,,,,,,
+6157,120,Pill,,,,,,,,,120 Pills
+8030,,,,,,,,,,,
+7103,112,Pill,,,,,,,,,112 Pills
+3579,30,Pill,,,,,,,,,30 Pills
+4737,30,Pill,,,,,,,,,30 Pills
+5314,28,Pill,,,,,,,,,28 Pills
+7366,28,Pill,,,,,,,,,28 Pills
+7466,30,Pill,,,,,,,,,30 Pills
+8031,,,,,,,,,,,
+2052,30,Pill,,,,,,,,,30 Pills
+3874,30,Pill,,,,,,,,,30 Pills
+4482,30,Pill,,,,,,,,,30 Pills
+4505,30,Pill,,,,,,,,,30 Pills
+4514,30,Pill,,,,,,,,,30 Pills
+4767,30,Pill,,,,,,,,,30 Pills
+7462,30,Pill,,,,,,,,,30 Pills
+7468,30,Pill,,,,,,,,,30 Pills
+12280,,,,,,,,,,,
+4612,30,Pill,,,,,,,,,30 Pills
+4765,30,Pill,,,,,,,,,30 Pills
+5631,30,Pill,,,,,,,,,30 Pills
+7060,30,Pill,,,,,,,,,30 Pills
+8032,,,,,,,,,,,
+3871,,,,,1,vial,1,pre-filled syringe,,,1Vial with 80mg degarelix (powder) + 1 prefilled Syringe with 4.2ml solvent +1plunger rod +1vial adaptor +1injection needle
+3872,,,,,2,vial,2,pre-filled syringe,,,2Vials with 120mg degarelix (powder) + 2 prefilled Syringes with 3ml solvent +2plunger rods +2vial adaptors +2injection needles
+5936,60,Pill,,,,,,,,,60 Pills
+7247,120,Pill,,,,,,,,,120 Pills
+7415,120,Pill,,,,,,,,,120 Pills
+7442,120,Pill,,,,,,,,,120 Pills
+8033,,,,,,,,,,,
+8034,,,,,,,,,,,
+8035,,,,,,,,,,,
+2095,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+3459,1,ml,,,,,,,,,1 ml
+3914,2.5,ml,,,5,Pre-filled syringe,,,,,5 pre-filled syringes of 0.5 ml each
+4933,0.5,ml,,,1,vial,,,,,1 Vial of 0.5 ml
+7229,2.5,ml,,,5,Pre-filled syringe,,,,,5 pre-filled syringes of 0.5 ml each
+8036,,,,,,,,,,,
+4934,0.6,ml,,,1,Pre-filled syringe,,,,,1 prefilled syringe of 0.6 ml
+6912,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe
+8037,,,,,,,,,,,
+2583,6,ml,,,12,Pre-filled syringe,,,,,12 prefilled syringes of 0.5 ml each
+6578,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6582,6,ml,,,12,Pre-filled syringe,,,,,12 prefilled syringes of 0.5 ml each
+7318,,,,,12,Pre-filled syringe,,,,,12 Pre-Filled Syringes
+7319,,,,,12,Pre-filled syringe,,,,,12 prefilled syringes
+8038,,,,,,,,,,,
+8039,,,,,,,,,,,
+8040,,,,,,,,,,,
+4487,,,,,1,vial,,,,,1 Vial
+5691,1,ml,,,1,vial,,,,,1 Vial of 1 ml
+5864,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+4481,,,,,1,vial,,,,,1 Vial
+8041,,,,,,,,,,,
+6428,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+2717,100,Pill,,,,,,,,,100 Pills
+2718,50,Pill,,,,,,,,,50 Pills
+3311,50,Pill,,,,,,,,,50 Pills
+4732,56,Pill,,,,,,,,,56 Pills
+6980,120,Pill,,,,,,,,,120 Pills
+4539,100,Pill,,,,,,,,,100 Pills
+8042,,,,,,,,,,,
+2350,30,Pill,,,,,,,,,30 Pills
+2351,30,Pill,,,,,,,,,30 Pills
+6962,30,Pill,,,,,,,,,30 Pills
+6963,30,Pill,,,,,,,,,30 Pills
+3324,60,Pill,,,,,,,,,60 Pills
+3325,60,Pill,,,,,,,,,60 Pills
+7185,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+3915,28,Pill,,,,,,,,,28 Pills
+6298,30,Pill,,,,,,,,,30 Pills
+6840,28,Pill,,,,,,,,,28 Pills
+8044,,,,,,,,,,,
+5566,30,Pill,,,,,,,,,30 Pills
+8045,,,,,,,,,,,
+8046,,,,,,,,,,,
+12315,,,,,,,,,,,
+4860,28,Pill,,,,,,,,,28 Pills
+7493,30,Pill,,,,,,,,,30 Pills
+8047,,,,,,,,,,,
+7002,56,Pill,,,,,,,,,56 Pills
+7003,27,Pill,,,,,,,,,"4 pills (10 mg), 4 pills (20 mg) and 19 pills (30 mg)"
+8048,,,,,,,,,,,
+8049,,,,,,,,,,,
+5208,,,,,1,vial,,,,,1 Vial
+7088,,,,,2,Pre-filled pen,,,,,2 Pre-Filled Pens
+7089,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+6087,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+5968,28,Pill,,,,,,,,,28 Pills
+5969,28,Pill,,,,,,,,,28 Pills
+7090,12,Pill,,,,,,,,,12 Pills
+7091,120,Pill,,,,,,,,,120 Pills
+7092,28,Pill,,,,,,,,,28 Pills
+6841,30,Pill,,,,,,,,,30 Pills
+7135,,,,,1,Pre-filled pen,,,,,1 Pre-Filled Pen
+6270,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6271,,,,,4,Pre-filled pen,,,,,4 Pre-Filled Pens
+6272,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6844,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6862,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6863,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+6864,,,,,4,Pre-filled pen,,,,,4 Pre-Filled Pens
+6875,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+8050,,,,,,,,,,,
+8051,,,,,,,,,,,
+2766,,,,,1,vial,,,,,1 Vial
+6370,,,,,1,vial,,,,,1 Vial
+6738,,,,,1,vial,,,,,1 Vial
+8052,,,,,,,,,,,
+8053,,,,,,,,,,,
+8054,,,,,,,,,,,
+8055,,,,,,,,,,,
+8056,,,,,,,,,,,
+8057,,,,,,,,,,,
+6129,0.8,ml,,,2,Pre-filled pen,,,,,2 prefilled pens of 0.4 ml each
+6264,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+6265,,,,,2,Pre-filled pen,,,,,2 Pre-Filled Pens
+6579,1.6,ml,,,2,Pre-filled syringe,,,,,2 prefilled syringes of 0.8 ml each
+8058,,,,,,,,,,,
+8059,,,,,,,,,,,
+8060,,,,,,,,,,,
+6752,,,,,1,Pre-filled pen,,,,,1 Smartject
+6753,,,,,1,Pre-filled pen,,,,,1 Smartject
+4665,,,,,1,vial,1,ampule,,,1 vial and 1 ampule
+4520,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+5488,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+5765,,,,,1,vial,,,,,1 Vial
+3709,,,,,1,vial,,,,,1 Vial
+3710,,,,,1,vial,,,,,1 Vial
+3711,,,,,1,vial,,,,,1 Vial
+5075,,,,,4,Pre-filled syringe,,,,,4 Pre-Filled Syringes
+5237,,,,,2,Pre-filled pen,,,,,2 Pre-Filled Pens
+5608,1,dose,,,1,prefilled autoinjector,,,,,1 Prefilled Autoinjector of 1 dose
+6088,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7086,,,,,1,Pre-filled pen,,,,,1 Pre-Filled Pen
+6681,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+8061,,,,,,,,,,,
+2043,50,ml,,,10,ampule,,,,,10 ampules of 5 ml each
+2046,50,Pill,,,,,,,,,50 Pills
+2047,50,Pill,,,,,,,,,50 Pills
+2048,50,Pill,,,,,,,,,50 Pills
+2049,50,ml,,,,,,,,,50 ml
+4385,100,Pill,,,,,,,,,100 Pills
+4386,100,Pill,,,,,,,,,100 Pills
+4387,100,Pill,,,,,,,,,100 Pills
+4727,100,Pill,,,,,,,,,100 Pills
+4728,100,Pill,,,,,,,,,100 Pills
+4729,100,Pill,,,,,,,,,100 Pills
+4730,100,Pill,,,,,,,,,100 Pills
+5071,100,Pill,,,,,,,,,100 Pills
+5072,100,Pill,,,,,,,,,100 Pills
+5073,100,Pill,,,,,,,,,100 Pills
+6320,100,Pill,,,,,,,,,100 Pills
+6321,100,Pill,,,,,,,,,100 Pills
+6322,100,Pill,,,,,,,,,100 Pills
+4645,100,Pill,,,,,,,,,100 Pills
+4585,28,Pill,,,,,,,,,28 Pills
+8062,,,,,,,,,,,
+3572,50,Pill,,,,,,,,,50 Pills
+3574,1.5,ml,,,1,Pre-filled syringe,,,,,1 Pre-filled syringe of 1.5 ml
+4993,0.2,ml,,,1,Pre-filled syringe,,,,,1 Pre-filled syringe of 0.2 ml
+4994,0.3,ml,,,1,Pre-filled syringe,,,,,1 Pre-filled syringe of 0.3 ml
+4995,0.4,ml,,,1,Pre-filled syringe,,,,,1 Pre-filled syringe of 0.4 ml
+4996,0.5,ml,,,1,Pre-filled syringe,,,,,1 Pre-filled syringe of 0.5 ml
+3787,21,Pill,,,,,,,,,21 Pills
+3788,21,Pill,,,,,,,,,21 Pills
+3789,21,Pill,,,,,,,,,21 Pills
+3790,21,Pill,,,,,,,,,21 Pills
+6668,21,Pill,,,,,,,,,21 Pills
+6669,21,Pill,,,,,,,,,21 Pills
+6670,21,Pill,,,,,,,,,21 Pills
+6671,21,Pill,,,,,,,,,21 Pills
+7179,21,Pill,,,,,,,,,21 Pills
+7180,21,Pill,,,,,,,,,21 Pills
+7181,21,Pill,,,,,,,,,21 Pills
+7446,21,Pill,,,,,,,,,21 Pills
+7447,21,Pill,,,,,,,,,21 Pills
+7448,21,Pill,,,,,,,,,21 Pills
+7449,21,Pill,,,,,,,,,21 Pills
+7501,21,Pill,,,,,,,,,21 Pills
+7502,21,Pill,,,,,,,,,21 Pills
+7503,21,Pill,,,,,,,,,21 Pills
+7504,21,Pill,,,,,,,,,21 Pills
+8063,,,,,,,,,,,
+8064,,,,,,,,,,,
+8065,,,,,,,,,,,
+8066,,,,,,,,,,,
+8067,,,,,,,,,,,
+8068,,,,,,,,,,,
+7482,100,Pill,,,,,,,,,100 Pills
+8069,,,,,,,,,,,
+8070,,,,,,,,,,,
+8071,,,,,,,,,,,
+8072,,,,,,,,,,,
+8073,,,,,,,,,,,
+2923,10,Pill,,,,,,,,,10 Pills
+3116,30,Pill,,,,,,,,,30 Pills
+3117,10,Pill,,,,,,,,,10 Pills
+1938,15,ml,,,5,ampule,,,,,5 ampules of 3 ml each
+1994,30,Pill,,,,,,,,,30 Pills
+2028,10,mg,,,,,,,,,10 mg
+2036,20,Pill,,,,,,,,,20 Pills
+2174,15,ml,,,5,ampule,,,,,5 ampules of 3 ml each
+2194,20,Pill,,,,,,,,,20 Pills
+2290,10,Pill,,,,,,,,,10 Pills
+2293,20,Pill,,,,,,,,,20 Pills
+2294,10,Pill,,,,,,,,,10 Pills
+2593,20,Pill,,,,,,,,,20 Pills
+2753,20,Pill,,,,,,,,,20 Pills
+2986,20,Pill,,,,,,,,,20 Pills
+3110,30,Pill,,,,,,,,,30 Pills
+3357,30,Pill,,,,,,,,,30 Pills
+3926,20,Pill,,,,,,,,,20 Pills
+4695,10,ml,,,5,ampule,,,,,5 ampules of 2 ml each
+4696,20,Pill,,,,,,,,,20 Pills
+4748,20,Pill,,,,,,,,,20 Pills
+4749,30,Pill,,,,,,,,,30 Pills
+5366,15,ml,,,5,ampule,,,,,5 ampules of 3 ml each
+5424,30,ml,,,10,ampule,,,,,10 ampules of 3 ml each
+5878,30,ml,,,10,ampule,,,,,10 ampules of 3 ml each
+6026,30,Pill,,,,,,,,,30 Pills
+6400,15,ml,,,5,ampule,,,,,5 ampules of 3 ml each
+6585,20,Pill,,,,,,,,,20 Pills
+6887,12,Pill,,,,,,,,,12 Pills
+7297,12,Pill,,,,,,,,,12 Pills
+8074,,,,,,,,,,,
+8075,,,,,,,,,,,
+8076,,,,,,,,,,,
+8077,,,,,,,,,,,
+8078,,,,,,,,,,,
+8079,,,,,,,,,,,
+8080,,,,,,,,,,,
+12260,,,,,,,,,,,
+12261,,,,,,,,,,,
+2270,20,Pill,,,,,,,,,20 Pills
+2271,10,ml,,,5,ampule,,,,,5 ampules of 2 ml each
+6732,5,ml,,,5,ampule,,,,,5 ampules of 1 ml each
+8081,,,,,,,,,,,
+1978,20,Pill,,,,,,,,,20 Pills
+5855,20,Pill,,,,,,,,,20 Pills
+5985,60,Pill,,,,,,,,,60 Pills
+3384,15,Pill,,,,,,,,,15 Pills
+3447,30,Pill,,,,,,,,,30 Pills
+4716,18,ml,,,6,ampule,,,,,6 Ampules of 3ml each
+4743,,,,,5,ampule,,,,,5 Ampules
+5925,15,Pill,,,,,,,,,15 Pills
+5976,,,,,6,ampule,,,,,6 Ampules
+7310,,,,,6,ampule,,,,,6 Ampules
+8082,,,,,,,,,,,
+2120,20,Pill,,,,,,,,,20 Pills
+3027,30,Pill,,,,,,,,,30 Pills
+5440,10,ml,,,,,,,,,10 ml
+8083,,,,,,,,,,,
+4667,20,Pill,,,,,,,,,20 Pills
+6082,,,,,3,vial,3,ampule,,,3 vials and 3 ampules
+4771,10,Pill,,,,,,,,,10 Pills
+2586,24,Pill,,,,,,,,,24 Pills
+2670,40,Pill,,,,,,,,,40 Pills
+3025,100,ml,,,,,,,,,100 ml
+3112,125,ml,,,,,,,,,125 ml
+3631,30,Pill,,,,,,,,,30 Pills
+3632,30,Pill,,,,,,,,,30 Pills
+3720,12,Pill,,,,,,,,,12 Pills
+3919,20,Pill,,,,,,,,,20 Pills
+4522,100,ml,,,,,,,,,100 ml
+6064,24,Pill,,,,,,,,,24 Pills
+6426,,,,,12,Packet / Sachet,,,,,12 Packets / Sachets
+6765,30,Pill,,,,,,,,,30 Pills
+6766,110,ml,,,,,,,,,110 ml
+7339,100,ml,,,,,,,,,100 ml
+7341,32,Pill,,,,,,,,,32 Pills
+7342,50,Pill,,,,,,,,,50 Pills
+7364,100,ml,,,,,,,,,100 ml
+8084,,,,,,,,,,,
+8085,,,,,,,,,,,
+8086,,,,,,,,,,,
+8087,,,,,,,,,,,
+8088,,,,,,,,,,,
+8089,,,,,,,,,,,
+8090,,,,,,,,,,,
+8091,,,,,,,,,,,
+2109,10,Pill,,,,,,,,,10 Pills
+4903,20,Pill,,,,,,,,,20 Pills
+4904,20,Pill,,,,,,,,,20 Pills
+6338,16,Pill,,,,,,,,,16 Pills
+6679,10,Pill,,,,,,,,,10 Pills
+2441,12,Pill,,,,,,,,,12 Pills
+2532,30,Pill,,,,,,,,,30 Pills
+3882,20,Pill,,,,,,,,,20 Pills
+3885,20,Pill,,,,,,,,,20 Pills
+5816,,,,,1,Bag,,,,,1 Bag
+6567,,,,,30,Packet / Sachet,,,,,30 Packets / Sachets
+8092,,,,,,,,,,,
+8093,,,,,,,,,,,
+2648,20,Pill,,,,,,,,,20 Pills
+4185,,,,,5,ampule,,,,,5 Ampules
+5294,20,Pill,,,,,,,,,20 Pills
+7120,20,Pill,,,,,,,,,20 Pills
+8094,,,,,,,,,,,
+8095,,,,,,,,,,,
+8096,,,,,,,,,,,
+8097,,,,,,,,,,,
+2205,20,Pill,,,,,,,,,20 Pills
+4536,20,Pill,,,,,,,,,20 Pills
+4596,20,Pill,,,,,,,,,20 Pills
+5991,10,Pill,,,,,,,,,10 Pills
+6514,20,Pill,,,,,,,,,20 Pills
+7338,10,Pill,,,,,,,,,10 Pills
+2629,50,Pill,,,,,,,,,50 Pills
+5083,20,Pill,,,,,,,,,20 Pills
+4424,10,Pill,,,,,,,,,10 Pills
+4467,10,Pill,,,,,,,,,10 Pills
+5232,20,Pill,,,,,,,,,20 Pills
+5257,30,Pill,,,,,,,,,30 Pills
+5258,30,Pill,,,,,,,,,30 Pills
+5310,30,Pill,,,,,,,,,30 Pills
+6891,30,Pill,,,,,,,,,30 Pills
+8098,,,,,,,,,,,
+8099,,,,,,,,,,,
+8100,,,,,,,,,,,
+12300,,,,,,,,,,,
+5724,7,Pill,,,,,,,,,7 Pills
+5725,10,Pill,,,,,,,,,10 Pills
+5726,10,Pill,,,,,,,,,10 Pills
+5871,30,Pill,,,,,,,,,30 Pills
+5872,30,Pill,,,,,,,,,30 Pills
+5873,7,Pill,,,,,,,,,7 Pills
+6519,7,Pill,,,,,,,,,7 Pills
+6527,7,Pill,,,,,,,,,7 Pills
+6528,28,Pill,,,,,,,,,28 Pills
+6565,28,Pill,,,,,,,,,28 Pills
+6607,10,Pill,,,,,,,,,10 Pills
+6608,10,Pill,,,,,,,,,10 Pills
+6698,30,Pill,,,,,,,,,30 Pills
+6699,30,Pill,,,,,,,,,30 Pills
+6815,10,Pill,,,,,,,,,10 Pills
+6943,10,Pill,,,,,,,,,10 Pills
+6967,28,Pill,,,,,,,,,28 Pills
+6968,28,Pill,,,,,,,,,28 Pills
+6969,7,Pill,,,,,,,,,7 Pills
+7124,7,Pill,,,,,,,,,7 Pills
+7125,30,Pill,,,,,,,,,30 Pills
+7126,30,Pill,,,,,,,,,30 Pills
+8101,,,,,,,,,,,
+8102,,,,,,,,,,,
+3493,20,Pill,,,,,,,,,20 Pills
+8103,,,,,,,,,,,
+2003,60,g,,,,,,,,,60 g
+3165,30,g,,,,,,,,,30 g
+2655,50,g,,,,,,,,,50 g
+8104,,,,,,,,,,,
+12225,,,,,,,,,,,
+8105,,,,,,,,,,,
+2027,,,,,5,non stated,,,,,5 Non Stated
+2175,50,g,,,,,,,,,50 g
+2264,50,g,,,,,,,,,50 g
+2295,30,g,,,,,,,,,30 g
+4998,50,g,,,,,,,,,50 g
+5255,30,g,,,,,,,,,30 g
+6167,50,g,,,,,,,,,50 g
+6685,100,g,,,,,,,,,100 g
+6686,50,g,,,,,,,,,50 g
+8106,,,,,,,,,,,
+3786,20,Pill,,,,,,,,,20 Pills
+5552,40,Pill,,,,,,,,,40 Pills
+6352,,,,,7,non stated,,,,,7 Non Stated
+6353,,,,,7,non stated,,,,,7 Non Stated
+2492,50,ml,,,10,vial,,,,,10 vials of 5 ml each
+8107,,,,,,,,,,,
+8324,,,,,,,,,,,
+6036,50,ml,,,5,ampule,,,,,5 ampules of 10 ml each
+6281,50,ml,,,5,ampule,,,,,5 ampules of 10 ml each
+1964,,,,,1,vial,,,,,1 Vial
+2642,,,,,2,vial,,,,,2 Vials
+4115,,,,,1,vial,,,,,1 Vial
+4734,,,,,1,vial,,,,,1 Vial
+4927,,,,,1,vial,,,,,1 Vial
+4928,,,,,1,vial,,,,,1 Vial
+5404,,,,,1,vial,,,,,1 Vial
+5405,,,,,1,vial,,,,,1 Vial
+8108,,,,,,,,,,,
+5513,20,Pill,,,,,,,,,20 Pills
+7251,50,Pill,,,,,,,,,50 Pills
+4795,20,Pill,,,,,,,,,20 Pills
+6642,50,Pill,,,,,,,,,50 Pills
+6792,20,Pill,,,,,,,,,20 Pills
+3149,12,Pill,,,,,,,,,12 Pills
+4104,30,Pill,,,,,,,,,30 Pills
+4408,30,Pill,,,,,,,,,30 Pills
+3161,20,Pill,,,,,,,,,20 Pills
+3162,20,Pill,,,,,,,,,20 Pills
+4701,30,Pill,,,,,,,,,30 Pills
+5341,30,Pill,,,,,,,,,30 Pills
+4504,20,Pill,,,,,,,,,20 Pills
+6574,50,Pill,,,,,,,,,50 Pills
+6575,50,Pill,,,,,,,,,50 Pills
+4132,30,Pill,,,,,,,,,30 Pills
+4133,30,Pill,,,,,,,,,30 Pills
+3607,30,Pill,,,,,,,,,30 Pills
+8109,,,,,,,,,,,
+8110,,,,,,,,,,,
+2064,100,Pill,,,,,,,,,100 Pills
+2065,100,Pill,,,,,,,,,100 Pills
+3200,30,Pill,,,,,,,,,30 Pills
+5686,28,Pill,,,,,,,,,28 Pills
+5687,50,Pill,,,,,,,,,50 Pills
+8111,,,,,,,,,,,
+8112,,,,,,,,,,,
+8113,,,,,,,,,,,
+6124,28,Pill,,,,,,,,,28 Pills
+6134,28,Pill,,,,,,,,,28 Pills
+6592,28,Pill,,,,,,,,,28 Pills
+6593,28,Pill,,,,,,,,,28 Pills
+6649,28,Pill,,,,,,,,,28 Pills
+7136,30,Pill,,,,,,,,,30 Pills
+7137,30,Pill,,,,,,,,,30 Pills
+7138,30,Pill,,,,,,,,,30 Pills
+7148,28,Pill,,,,,,,,,28 Pills
+7149,28,Pill,,,,,,,,,28 Pills
+7372,30,Pill,,,,,,,,,30 Pills
+7373,30,Pill,,,,,,,,,30 Pills
+5185,40,Pill,,,,,,,,,40 Pills
+5418,20,Pill,,,,,,,,,20 Pills
+7244,30,Pill,,,,,,,,,30 Pills
+3022,4,Pill,,,,,,,,,4 Pills
+3407,8,Pill,,,,,,,,,8 Pills
+3505,4,Pill,,,,,,,,,4 Pills
+3544,4,Pill,,,,,,,,,4 Pills
+5079,4,Pill,,,,,,,,,4 Pills
+6368,4,Pill,,,,,,,,,4 Pills
+6573,4,Pill,,,,,,,,,4 Pills
+4057,1,Pill,,,,,,,,,1 Pill
+6478,1,Pill,,,,,,,,,1 Pill
+6479,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+6480,,,,,1,vial,,,,,1 Vial
+6643,1,Pill,,,,,,,,,1 Pills
+3659,4,Pill,,,,,,,,,4 Pills
+4415,4,Pill,,,,,,,,,4 Pills
+4436,4,Pill,,,,,,,,,4 Pills
+4686,1,Pill,,,,,,,,,1 Pill
+5059,4,Pill,,,,,,,,,4 Pills
+5485,1,Pill,,,,,,,,,1 Pill
+5658,4,Pill,,,,,,,,,4 Pills
+2756,,,,,1,vial,,,,,1 Vial
+4971,,,,,1,vial,,,,,1 Vial
+5270,5,ml,,,1,vial,,,,,1 Vial of 5 ml
+5311,,,,,1,vial,,,,,1 Vial
+5596,,,,,1,vial,,,,,1 Vial
+6333,,,,,1,vial,,,,,1 Vial
+7276,100,ml,,,1,vial,,,,,1 Vial of 100 ml
+8114,,,,,,,,,,,
+3648,4,Pill,,,,,,,,,4 Pills
+6283,4,Pill,,,,,,,,,4 Pills
+2321,40,Pill,,,,,,,,,40 Pills
+5592,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+6249,,,,,1,vial,,,,,1 Vial
+7083,,,,,2,Pre-filled syringe,,,,,2 Pre-Filled Syringes
+2468,30,Pill,,,,,,,,,30 Pills
+2000,2,ml,,,1,Pre-filled syringe,,,,,Pre-filled syringe of 2 ml
+12230,,,,,,,,,,,
+12231,,,,,,,,,,,
+12232,,,,,,,,,,,
+12233,,,,,,,,,,,
+12234,,,,,,,,,,,
+12235,,,,,,,,,,,
+12236,,,,,,,,,,,
+12237,,,,,,,,,,,
+12238,,,,,,,,,,,
+12240,,,,,,,,,,,
+12241,,,,,,,,,,,
+12242,,,,,,,,,,,
+12243,,,,,,,,,,,
+12244,,,,,,,,,,,
+12245,,,,,,,,,,,
+12246,,,,,,,,,,,
+12248,,,,,,,,,,,
+12249,,,,,,,,,,,
+12257,,,,,,,,,,,
+12258,,,,,,,,,,,
+12262,,,,,,,,,,,
+12263,,,,,,,,,,,
+12265,,,,,,,,,,,
+12266,,,,,,,,,,,
+12268,,,,,,,,,,,
+12269,,,,,,,,,,,
+12270,,,,,,,,,,,
+12271,,,,,,,,,,,
+12272,,,,,,,,,,,
+12277,,,,,,,,,,,
+12278,,,,,,,,,,,
+12281,,,,,,,,,,,
+12282,,,,,,,,,,,
+12283,,,,,,,,,,,
+12284,,,,,,,,,,,
+12285,,,,,,,,,,,
+12286,,,,,,,,,,,
+12287,,,,,,,,,,,
+12289,,,,,,,,,,,
+12290,,,,,,,,,,,
+12291,,,,,,,,,,,
+12292,,,,,,,,,,,
+12293,,,,,,,,,,,
+12294,,,,,,,,,,,
+12295,,,,,,,,,,,
+12296,,,,,,,,,,,
+12297,,,,,,,,,,,
+12298,,,,,,,,,,,
+12299,,,,,,,,,,,
+12301,,,,,,,,,,,
+12302,,,,,,,,,,,
+12303,,,,,,,,,,,
+12304,,,,,,,,,,,
+12306,,,,,,,,,,,
+12307,,,,,,,,,,,
+12308,,,,,,,,,,,
+12312,,,,,,,,,,,
+12313,,,,,,,,,,,
+12314,,,,,,,,,,,
+12316,,,,,,,,,,,
+12317,,,,,,,,,,,
+12318,,,,,,,,,,,
+12319,,,,,,,,,,,
+12353,,,,,,,,,,,
+12354,,,,,,,,,,,
+12355,,,,,,,,,,,
+12356,,,,,,,,,,,
+12357,,,,,,,,,,,
+12358,,,,,,,,,,,
+12359,,,,,,,,,,,
+12360,,,,,,,,,,,
+12361,,,,,,,,,,,
+12362,,,,,,,,,,,
+12363,,,,,,,,,,,
+12364,,,,,,,,,,,
+12365,,,,,,,,,,,
+12366,,,,,,,,,,,
+12367,,,,,,,,,,,
+12368,,,,,,,,,,,
+12369,,,,,,,,,,,
+12370,,,,,,,,,,,
+12371,,,,,,,,,,,
+12372,,,,,,,,,,,
+12373,,,,,,,,,,,
+12374,,,,,,,,,,,
+12375,,,,,,,,,,,
+12376,,,,,,,,,,,
+12377,,,,,,,,,,,
+12378,,,,,,,,,,,
+12379,,,,,,,,,,,
+12380,,,,,,,,,,,
+12381,,,,,,,,,,,
+12382,,,,,,,,,,,
+12383,,,,,,,,,,,
+12384,,,,,,,,,,,
+12385,,,,,,,,,,,
+3601,100,ml,,,,,,,,,100 ml
+6948,240,ml,,,,,,,,,240 ml
+6111,250,ml,,,,,,,,,250 ml
+2604,,,,,25,vial,,,,,25 Vials
+5543,100,ml,,,10,ampule,,,,,10 ampules of 10 ml each
+5544,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+5550,100,ml,,,10,ampule,,,,,10 ampules of 10 ml each
+5593,100,ml,,,10,ampule,,,,,10 ampules of 10 ml each
+3741,50,ml,,,10,ampule,,,,,10 ampules of 5 ml each
+3742,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+5020,,,,,5,vial,,,,,5 Vials
+5021,,,,,5,vial,,,,,5 Vials
+5979,,,,,5,vial,,,,,5 Vials
+5980,,,,,5,vial,,,,,5 Vials
+5381,25,ml,,,5,ampule,,,,,5 ampules of 5 ml each
+4051,100,ml,,,5,ampule,,,,,5 ampules of 20 ml each
+4205,100,ml,,,5,vial,,,,,5 vials of 20 ml each
+6598,100,ml,,,5,ampule,,,,,5 ampules of 20 ml each
+2763,200,ml,,,10,vial,,,,,10 vials of 20 ml each
+2764,200,ml,,,10,vial,,,,,10 vials of 20 ml each
+7209,20,ml,,,5,ampule,,,,,5 ampules of 4 ml each
+8115,,,,,,,,,,,
+2469,1250,ml,,,25,vial,,,,,25 vials of 50 ml each
+2470,50,ml,,,10,ampule,,,,,10 ampules of 5 ml each
+4796,50,ml,,,,,,,,,50 ml
+5396,200,ml,,,50,ampule,,,,,50 ampules of 4 ml each
+5397,175,ml,,,50,ampule,,,,,50 ampules of 3.5 ml each
+5398,100,ml,,,50,ampule,,,,,50 ampules of 2 ml each
+6153,1000,ml,,,20,vial,,,,,20 vials of 50 ml each
+6154,1000,ml,,,20,vial,,,,,20 vials of 50 ml each
+6391,50,ml,,,1,vial,,,,,1 Vial of 50 ml
+8116,,,,,,,,,,,
+5455,90,ml,,,50,Cartridge,,,,,50 cartridges of 1.8 ml each
+6211,,,,,50,Cartridge,,,,,50 cartridges
+4382,50,ml,,,5,ampule,,,,,5 ampules of 10 ml each
+4332,170,ml,,,100,Cartridge,,,,,100 cartridges of 1.7 ml each
+4733,90,ml,,,50,Cartridge,,,,,50 cartridges of 1.8 ml each
+4797,25,g,,,5,Tube,,,,,5 tubes with 5 g in each
+6367,25,g,,,5,Tube,,,,,5 tubes with 5 g in each
+2001,90,ml,,,50,Cartridge,,,,,50 cartridges of 1.8 ml each
+5824,,,,,50,Cartridge,,,,,50 cartridges
+6512,,,,,50,Cartridge,,,,,50 cartridges
+7389,,,,,50,Cartridge,,,,,50 cartridges
+2378,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+2644,60,Pill,,,,,,,,,60 Pills
+2645,60,Pill,,,,,,,,,60 Pills
+2646,60,Pill,,,,,,,,,60 Pills
+5958,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+8117,,,,,,,,,,,
+8118,,,,,,,,,,,
+4919,56,Pill,,,,,,,,,56 Pills
+4920,56,Pill,,,,,,,,,56 Pills
+4921,56,Pill,,,,,,,,,56 Pills
+5026,10,ml,,,5,ampule,,,,,5 ampules of 2 ml each
+8119,,,,,,,,,,,
+3069,5,Pill,,,,,,,,,5 Pills
+5807,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+3535,,,,,5,non stated,,,,,5 Non Stated
+3595,,,,,5,non stated,,,,,5 Non Stated
+3596,,,,,5,non stated,,,,,5 Non Stated
+5700,10,Pill,,,,,,,,,10 Pills
+5701,10,Pill,,,,,,,,,10 Pills
+6506,1.55,ml,,,1,Bottle,,,,,Bottle of 1.55 ml
+6507,1.55,ml,,,1,Bottle,,,,,Bottle of 1.55 ml
+3285,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+1951,16,Pill,,,,,,,,,16 Pills
+4028,32,Pill,,,,,,,,,32 Pills
+6865,16,Pill,,,,,,,,,16 Pills
+7309,10,Pill,,,,,,,,,10 Pills
+7346,30,Pill,,,,,,,,,30 Pills
+3960,20,Pill,,,,,,,,,20 Pills
+4251,20,Pill,,,,,,,,,20 Pills
+4901,20,Pill,,,,,,,,,20 Pills
+6220,20,Pill,,,,,,,,,20 Pills
+6540,20,Pill,,,,,,,,,20 Pills
+2004,10,ml,,,5,non stated,,,,,5 non stated of 2 ml each
+3281,,,,,5,ampule,,,,,5 Ampules
+4902,30,Pill,,,,,,,,,30 Pills
+4923,10,Pill,,,,,,,,,10 Pills
+4924,10,Pill,,,,,,,,,10 Pills
+4925,10,Pill,,,,,,,,,10 Pills
+4968,10,ml,,,5,ampule,,,,,5 ampules of 2 ml each
+4969,30,Pill,,,,,,,,,30 Pills
+6522,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+7362,10,Pill,,,,,,,,,10 Pills
+4724,30,Pill,,,,,,,,,30 Pills
+4775,10,Pill,,,,,,,,,10 Pills
+7308,20,Pill,,,,,,,,,20 Pills
+1950,16,Pill,,,,,,,,,16 Pills
+2154,135,ml,,,,,,,,,135 ml
+2568,10,Pill,,,,,,,,,10 Pills
+2585,10,Pill,,,,,,,,,10 Pills
+2587,10,Pill,,,,,,,,,10 Pills
+2669,24,Pill,,,,,,,,,24 Pills
+3024,60,ml,,,,,,,,,60 ml
+3063,20,Pill,,,,,,,,,20 Pills
+3064,60,ml,,,,,,,,,60 ml
+3065,500,Pill,,,,,,,,,500 Pills
+3128,60,ml,,,,,,,,,60 ml
+3129,20,Pill,,,,,,,,,20 Pills
+3139,10,Pill,,,,,,,,,10 Pills
+3140,10,Pill,,,,,,,,,10 Pills
+3642,1000,ml,,,10,Packet / Sachet,,,,,10 packets / sachets of 100 ml each
+3643,500,ml,,,10,Bag,,,,,10 bags of 50 ml each
+3713,5000,ml,,,50,Bag,,,,,50 bags of 100 ml each
+3943,8,Pill,,,,,,,,,8 Pills
+3971,10,Pill,,,,,,,,,10 Pills
+3972,10,Pill,,,,,,,,,10 Pills
+3973,10,Pill,,,,,,,,,10 Pills
+4112,1000,ml,,,10,Packet / Sachet,,,,,10 packets / sachets of 100 ml each
+4506,24,Pill,,,,,,,,,24 Pills
+4608,16,Pill,,,,,,,,,16 Pills
+4711,1000,ml,,,10,vials,,,,,10 vials of 100 ml each
+5012,100,ml,,,1,Bottle,,,,,Bottle of 100 ml
+5187,5000,ml,,,50,Bag,,,,,50 bags of 100 ml each
+5386,100,ml,,,,,,,,,100 ml
+5390,24,Pill,,,,,,,,,24 Pills
+5393,10,Pill,,,,,,,,,10 Pills
+5394,10,Pill,,,,,,,,,10 Pills
+5940,3000,ml,,,30,Bottle,,,,,30 bottles of 100 ml each
+6417,90,ml,,,,,,,,,90 ml
+6451,96,Pill,,,,,,,,,96 Pills
+6454,24,Pill,,,,,,,,,24 Pills
+6455,100,ml,,,,,,,,,100 ml
+6456,72,Pill,,,,,,,,,72 Pills
+6457,20,Pill,,,,,,,,,20 Pills
+6615,8,Pill,,,,,,,,,8 Pills
+6616,8,Pill,,,,,,,,,8 Pills
+6683,1000,Pill,,,,,,,,,1000 Pills
+6684,100,Pill,,,,,,,,,100 Pills
+6905,60,Pill,,,,,,,,,60 Pills
+7017,40,Pill,,,,,,,,,40 Pills
+7127,100,Pill,,,,,,,,,100 Pills
+7204,72,Pill,,,,,,,,,72 Pills
+7208,1200,ml,,,12,vial,,,,,12 vials of 100 ml each
+7248,60,Pill,,,,,,,,,60 Pills
+8120,,,,,,,,,,,
+8121,,,,,,,,,,,
+8122,,,,,,,,,,,
+8123,,,,,,,,,,,
+8124,,,,,,,,,,,
+8125,,,,,,,,,,,
+8126,,,,,,,,,,,
+8127,,,,,,,,,,,
+8128,,,,,,,,,,,
+8129,,,,,,,,,,,
+8130,,,,,,,,,,,
+8131,,,,,,,,,,,
+8132,,,,,,,,,,,
+8133,,,,,,,,,,,
+8134,,,,,,,,,,,
+8135,,,,,,,,,,,
+2113,24,Pill,,,,,,,,,24 Pills
+2256,24,Pill,,,,,,,,,24 Pills
+3012,10,Pill,,,,,,,,,10 Pills
+3087,10,Pill,,,,,,,,,10 Pills
+4428,24,Pill,,,,,,,,,24 Pills
+4595,,,,,10,Packet / Sachet,,,,,10 Packets / Sachets
+4708,20,Pill,,,,,,,,,20 Pills
+5388,24,Pill,,,,,,,,,24 Pills
+5389,24,Pill,,,,,,,,,24 Pills
+5412,15,Pill,,,,,,,,,15 Pills
+5428,30,Pill,,,,,,,,,30 Pills
+6452,48,Pill,,,,,,,,,48 Pills
+6453,24,Pill,,,,,,,,,24 Pills
+6741,24,Pill,,,,,,,,,24 Pills
+6775,24,Pill,,,,,,,,,16 Day tablets and 8 Night tablets
+6902,24,Pill,,,,,,,,,24 Pills
+7006,20,Pill,,,,,,,,,20 Pills
+7320,30,Pill,,,,,,,,,30 Pills
+8136,,,,,,,,,,,
+8137,,,,,,,,,,,
+8138,,,,,,,,,,,
+8139,,,,,,,,,,,
+8140,,,,,,,,,,,
+8141,,,,,,,,,,,
+8142,,,,,,,,,,,
+8143,,,,,,,,,,,
+8144,,,,,,,,,,,
+8325,,,,,,,,,,,
+3136,10,Pill,,,,,,,,,10 Pills
+3792,,,,,5,non stated,,,,,5 Non Stated
+6213,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+7202,,,,,1,non stated,,,,,1 Non Stated
+6225,2,Pill,,,,,,,,,2 Pills
+6226,2,Pill,,,,,,,,,2 Pills
+4787,12,Pill,,,,,,,,,12 Pills
+5863,6,Pill,,,,,,,,,6 Pills
+6080,12,Pill,,,,,,,,,12 Pills
+6434,3,Pill,,,,,,,,,3 Pills
+6989,6,Pill,,,,,,,,,6 Pills
+6347,,,,,1,Pre-filled pen,,,,,1 Pre-Filled Pen
+6433,,,,,1,Pre-filled pen,,,,,1 Pre-Filled Pen
+6038,100,ml,,,,,,,,,100 ml
+6548,20,Pill,,,,,,,,,20 Pills
+1942,100,Pill,,,,,,,,,100 Pills
+5892,25,ml,,,5,ampule,,,,,5 ampules of 5 ml each
+8145,,,,,,,,,,,
+8146,,,,,,,,,,,
+8147,,,,,,,,,,,
+1933,50,Pill,,,,,,,,,50 Pills
+1995,50,Pill,,,,,,,,,50 Pills
+2067,100,Pill,,,,,,,,,100 Pills
+4288,250,ml,,,,,,,,,250 ml
+6609,30,Pill,,,,,,,,,30 Pills
+1935,100,ml,,,,,,,,,100 ml
+1992,50,Pill,,,,,,,,,50 Pills
+1993,100,ml,,,,,,,,,100 ml
+2510,40,Pill,,,,,,,,,40 Pills
+2512,40,Pill,,,,,,,,,40 Pills
+2513,40,ml,,,,,,,,,40 ml
+2514,150,ml,,,,,,,,,150 ml
+2515,4,ml,,,1,bottle,1,ampule,,,1 bottle and 1 ampule of 4 ml
+2516,30,Pill,,,,,,,,,30 Pills
+5041,25,ml,,,5,ampule,,,,,5 ampules of 5 ml each
+5054,30,Pill,,,,,,,,,30 Pills
+5749,30,Pill,,,,,,,,,30 Pills
+2551,60,Pill,,,,,,,,,60 Pills
+3008,30,Pill,,,,,,,,,30 Pills
+3674,42,Pill,,,,,,,,,42 Pills
+3675,56,Pill,,,,,,,,,56 Pills
+3730,30,Pill,,,,,,,,,30 Pills
+4041,30,Pill,,,,,,,,,30 Pills
+4042,30,Pill,,,,,,,,,30 Pills
+4043,30,Pill,,,,,,,,,30 Pills
+5471,30,Pill,,,,,,,,,30 Pills
+5472,30,Pill,,,,,,,,,30 Pills
+5473,30,Pill,,,,,,,,,30 Pills
+6325,30,Pill,,,,,,,,,30 Pills
+7000,30,Pill,,,,,,,,,30 Pills
+7001,30,Pill,,,,,,,,,30 Pills
+8148,,,,,,,,,,,
+3355,60,Pill,,,,,,,,,60 Pills
+3897,60,Pill,,,,,,,,,60 Pills
+3898,60,Pill,,,,,,,,,60 Pills
+3951,60,Pill,,,,,,,,,60 Pills
+4321,60,Pill,,,,,,,,,60 Pills
+4322,60,Pill,,,,,,,,,60 Pills
+6919,60,Pill,,,,,,,,,60 Pills
+6920,60,Pill,,,,,,,,,60 Pills
+6972,60,Pill,,,,,,,,,60 Pills
+3920,48,Pill,,,,,,,,,48 Pills
+3921,48,Pill,,,,,,,,,48 Pills
+3929,50,Pill,,,,,,,,,50 Pills
+3932,50,Pill,,,,,,,,,50 Pills
+4063,50,Pill,,,,,,,,,50 Pills
+4064,50,Pill,,,,,,,,,50 Pills
+4101,20,Pill,,,,,,,,,20 Pills
+4102,50,Pill,,,,,,,,,50 Pills
+4103,50,Pill,,,,,,,,,50 Pills
+4111,100,Pill,,,,,,,,,100 Pills
+4141,30,Pill,,,,,,,,,30 Pills
+5421,90,Pill,,,,,,,,,90 Pills
+5422,90,Pill,,,,,,,,,90 Pills
+6313,60,Pill,,,,,,,,,60 Pills
+6314,60,Pill,,,,,,,,,60 Pills
+8149,,,,,,,,,,,
+4158,60,Pill,,,,,,,,,60 Pills
+4159,60,Pill,,,,,,,,,60 Pills
+4252,120,ml,,,,,,,,,120 ml
+4270,100,Pill,,,,,,,,,100 Pills
+4541,100,Pill,,,,,,,,,100 Pills
+5273,60,Pill,,,,,,,,,60 Pills
+5274,60,Pill,,,,,,,,,60 Pills
+5275,60,Pill,,,,,,,,,60 Pills
+5332,100,Pill,,,,,,,,,100 Pills
+5333,100,Pill,,,,,,,,,100 Pills
+5502,60,Pill,,,,,,,,,60 Pills
+5503,60,Pill,,,,,,,,,60 Pills
+5504,60,Pill,,,,,,,,,60 Pills
+6061,100,ml,,,1,Packet / Sachet,,,,,1 Packet / Sachet of 100 ml
+6062,100,ml,,,1,Packet / Sachet,,,,,1 Packet / Sachet of 100 ml
+6165,50,ml,,,10,vial,,,,,10 vials of 5 ml each
+6337,150,ml,,,,,,,,,150 ml
+6637,150,ml,,,,,,,,,150 ml
+6997,100,Pill,,,,,,,,,100 Pills
+6998,100,Pill,,,,,,,,,100 Pills
+6999,100,Pill,,,,,,,,,100 Pills
+7241,60,Pill,,,,,,,,,60 Pills
+8150,,,,,,,,,,,
+8151,,,,,,,,,,,
+8152,,,,,,,,,,,
+8312,,,,,,,,,,,
+8313,,,,,,,,,,,
+3470,30,Pill,,,,,,,,,30 Pills
+3471,30,Pill,,,,,,,,,30 Pills
+3480,30,Pill,,,,,,,,,30 Pills
+3539,30,Pill,,,,,,,,,30 Pills
+3540,30,Pill,,,,,,,,,30 Pills
+3769,56,Pill,,,,,,,,,56 Pills
+3770,14,Pill,,,,,,,,,14 Pills
+3844,30,Pill,,,,,,,,,30 Pills
+4245,30,Pill,,,,,,,,,30 Pills
+4246,14,Pill,,,,,,,,,14 Pills
+4537,30,Pill,,,,,,,,,30 Pills
+4791,20,Pill,,,,,,,,,20 Pills
+4867,20,Pill,,,,,,,,,20 Pills
+4868,60,Pill,,,,,,,,,60 Pills
+5084,56,Pill,,,,,,,,,56 Pills
+5201,30,Pill,,,,,,,,,30 Pills
+5202,60,Pill,,,,,,,,,60 Pills
+5203,60,Pill,,,,,,,,,60 Pills
+5450,10,Pill,,,,,,,,,10 Pills
+5561,14,Pill,,,,,,,,,14 Pills
+5884,14,Pill,,,,,,,,,14 Pills
+6144,30,Pill,,,,,,,,,30 Pills
+6145,30,Pill,,,,,,,,,30 Pills
+6146,30,Pill,,,,,,,,,30 Pills
+6147,30,Pill,,,,,,,,,30 Pills
+6189,30,Pill,,,,,,,,,30 Pills
+6190,30,Pill,,,,,,,,,30 Pills
+8153,,,,,,,,,,,
+4621,14,Pill,,,,,,,,,14 Pills
+4622,56,Pill,,,,,,,,,56 Pills
+4623,56,Pill,,,,,,,,,56 Pills
+4624,56,Pill,,,,,,,,,56 Pills
+4772,100,ml,,,5,non stated,,,,,5 non stated of 20 ml each
+4773,,,,,,,,,,,
+4774,200,ml,,,,,,,,,200 ml
+7298,14,Pill,,,,,,,,,14 Pills
+7299,56,Pill,,,,,,,,,56 Pills
+7300,56,Pill,,,,,,,,,56 Pills
+12305,,,,,,,,,,,
+5171,7,Pill,,,,,,,,,7 Pills
+5172,28,Pill,,,,,,,,,28 Pills
+5173,28,Pill,,,,,,,,,28 Pills
+5174,28,Pill,,,,,,,,,28 Pills
+5175,28,Pill,,,,,,,,,28 Pills
+6357,56,Pill,,,,,,,,,56 Pills
+6358,56,Pill,,,,,,,,,56 Pills
+6359,300,ml,,,,,,,,,300 ml
+2968,100,Pill,,,,,,,,,100 Pills
+2946,20,Pill,,,,,,,,,20 Pills
+4456,100,Pill,,,,,,,,,100 Pills
+7239,100,Pill,,,,,,,,,100 Pills
+7240,20,Pill,,,,,,,,,20 Pills
+5745,50,Pill,,,,,,,,,50 Pills
+5746,50,Pill,,,,,,,,,50 Pills
+5747,50,Pill,,,,,,,,,50 Pills
+2118,100,Pill,,,,,,,,,100 Pills
+3074,20,Pill,,,,,,,,,20 Pills
+2399,30,Pill,,,,,,,,,30 Pills
+2400,30,Pill,,,,,,,,,30 Pills
+3666,30,Pill,,,,,,,,,30 Pills
+3667,30,Pill,,,,,,,,,30 Pills
+3668,30,Pill,,,,,,,,,30 Pills
+8154,,,,,,,,,,,
+8155,,,,,,,,,,,
+5835,15,ml,,,5,Cartridge,,,,,5 cartridges of 3 ml each
+7427,100,ml,,,5,vial,,,,,5 vials of 20 ml each
+5998,,,,,28,non stated,,,,,28 Non Stated
+5999,,,,,28,non stated,,,,,28 Non Stated
+6000,,,,,28,non stated,,,,,28 Non Stated
+6001,,,,,28,non stated,,,,,28 Non Stated
+6282,30,Pill,,,,,,,,,30 Pills
+6800,30,Pill,,,,,,,,,30 Pills
+6801,30,Pill,,,,,,,,,30 Pills
+3096,50,Pill,,,,,,,,,50 Pills
+8156,,,,,,,,,,,
+2996,20,Pill,,,,,,,,,20 Pills
+3026,40,Pill,,,,,,,,,40 Pills
+3002,30,Pill,,,,,,,,,30 Pills
+3003,30,Pill,,,,,,,,,30 Pills
+3004,30,Pill,,,,,,,,,30 Pills
+3005,30,Pill,,,,,,,,,30 Pills
+6382,25,Pill,,,,,,,,,25 Pills
+6424,1,ml,,,1,ampule,,,,,1 Ampule of 1 ml
+8157,,,,,,,,,,,
+8158,,,,,,,,,,,
+8159,,,,,,,,,,,
+8160,,,,,,,,,,,
+8161,,,,,,,,,,,
+8162,,,,,,,,,,,
+2134,1,ml,,,1,ampule,,,,,1 Ampule of 1 ml
+2135,2,ml,,,1,non stated,,,,,1 Non Stated of 2 ml
+5484,20,Pill,,,,,,,,,20 Pills
+3436,30,Pill,,,,,,,,,30 Pills
+4766,60,Pill,,,,,,,,,60 Pills
+6366,50,Pill,,,,,,,,,50 Pills
+3418,30,Pill,,,,,,,,,30 Pills
+3455,30,Pill,,,,,,,,,30 Pills
+3549,30,Pill,,,,,,,,,30 Pills
+3550,30,Pill,,,,,,,,,30 Pills
+3653,30,Pill,,,,,,,,,30 Pills
+3654,30,Pill,,,,,,,,,30 Pills
+3906,28,Pill,,,,,,,,,28 Pills
+3907,28,Pill,,,,,,,,,28 Pills
+4277,14,Pill,,,,,,,,,14 Pills
+4278,14,Pill,,,,,,,,,14 Pills
+4552,30,Pill,,,,,,,,,30 Pills
+4553,30,Pill,,,,,,,,,30 Pills
+4578,30,Pill,,,,,,,,,30 Pills
+4579,30,Pill,,,,,,,,,30 Pills
+4761,30,Pill,,,,,,,,,30 Pills
+5521,28,Pill,,,,,,,,,28 Pills
+5522,28,Pill,,,,,,,,,28 Pills
+5648,30,Pill,,,,,,,,,30 Pills
+5649,30,Pill,,,,,,,,,30 Pills
+5869,30,Pill,,,,,,,,,30 Pills
+5870,30,Pill,,,,,,,,,30 Pills
+6059,30,Pill,,,,,,,,,30 Pills
+6060,30,Pill,,,,,,,,,30 Pills
+6079,28,Pill,,,,,,,,,28 Pills
+8163,,,,,,,,,,,
+8164,,,,,,,,,,,
+4865,30,Pill,,,,,,,,,30 Pills
+4866,30,Pill,,,,,,,,,30 Pills
+4945,30,Pill,,,,,,,,,30 Pills
+5100,60,Pill,,,,,,,,,60 Pills
+5101,60,Pill,,,,,,,,,60 Pills
+5102,60,Pill,,,,,,,,,60 Pills
+5103,30,Pill,,,,,,,,,30 Pills
+5195,30,Pill,,,,,,,,,30 Pills
+5196,60,Pill,,,,,,,,,30 Pills
+5197,30,Pill,,,,,,,,,30 Pills
+5198,60,Pill,,,,,,,,,60 Pills
+5199,30,Pill,,,,,,,,,30 Pills
+5200,60,Pill,,,,,,,,,60 Pills
+5300,100,Pill,,,,,,,,,100 Pills
+5301,100,Pill,,,,,,,,,100 Pills
+7144,60,Pill,,,,,,,,,60 Pills
+7158,60,Pill,,,,,,,,,60 Pills
+7159,60,Pill,,,,,,,,,60 Pills
+7160,60,Pill,,,,,,,,,60 Pills
+8165,,,,,,,,,,,
+8166,,,,,,,,,,,
+8167,,,,,,,,,,,
+2530,30,Pill,,,,,,,,,30 Pills
+4690,30,Pill,,,,,,,,,30 Pills
+5342,20,Pill,,,,,,,,,20 Pills
+7350,100,Pill,,,,,,,,,100 Pills
+2456,20,Pill,,,,,,,,,20 Pills
+2460,100,ml,,,,,,,,,100 ml
+2775,20,Pill,,,,,,,,,20 Pills
+2776,20,Pill,,,,,,,,,20 Pills
+2982,20,Pill,,,,,,,,,20 Pills
+2983,20,Pill,,,,,,,,,20 Pills
+3278,20,Pill,,,,,,,,,20 Pills
+3280,20,Pill,,,,,,,,,20 Pills
+3534,100,ml,,,,,,,,,100 ml
+3536,30,ml,,,,,,,,,30 ml
+3537,60,Pill,,,,,,,,,60 Pills
+3538,60,Pill,,,,,,,,,60 Pills
+3665,60,Pill,,,,,,,,,60 Pills
+3739,20,Pill,,,,,,,,,20 Pills
+5114,30,Pill,,,,,,,,,30 Pills
+5115,30,Pill,,,,,,,,,30 Pills
+5116,30,Pill,,,,,,,,,30 Pills
+5117,30,Pill,,,,,,,,,30 Pills
+6390,100,ml,,,,,,,,,100 ml
+6983,20,Pill,,,,,,,,,20 Pills
+6984,20,Pill,,,,,,,,,20 Pills
+6985,20,Pill,,,,,,,,,20 Pills
+8168,,,,,,,,,,,
+8169,,,,,,,,,,,
+8170,,,,,,,,,,,
+4735,30,Pill,,,,,,,,,30 Pills
+4736,30,Pill,,,,,,,,,30 Pills
+5900,2,ml,,,1,vial,1,vial,,,1 vial and 1 vial of 2 ml
+6174,30,Pill,,,,,,,,,30 Pills
+6175,30,Pill,,,,,,,,,30 Pills
+6176,30,Pill,,,,,,,,,30 Pills
+6177,30,Pill,,,,,,,,,30 Pills
+6894,30,Pill,,,,,,,,,30 Pills
+7156,30,Pill,,,,,,,,,30 Pills
+7157,30,Pill,,,,,,,,,30 Pills
+8171,,,,,,,,,,,
+8172,,,,,,,,,,,
+8173,,,,,,,,,,,
+8174,,,,,,,,,,,
+8175,,,,,,,,,,,
+8176,,,,,,,,,,,
+8177,,,,,,,,,,,
+4199,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+4200,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+4201,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+4202,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+5568,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+5569,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+5570,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+5571,,,,,1,Pre-filled syringe,,,,,1 prefilled syringe with 2 needles
+5775,28,Pill,,,,,,,,,28 Pills
+5776,28,Pill,,,,,,,,,28 Pills
+5777,28,Pill,,,,,,,,,28 Pills
+7291,28,Pill,,,,,,,,,28 Pills
+7292,28,Pill,,,,,,,,,28 Pills
+7293,28,Pill,,,,,,,,,28 Pills
+7294,28,Pill,,,,,,,,,28 Pills
+6895,28,Pill,,,,,,,,,28 Pills
+6896,28,Pill,,,,,,,,,28 Pills
+6897,28,Pill,,,,,,,,,28 Pills
+6898,28,Pill,,,,,,,,,28 Pills
+2411,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+6040,20,ml,,,10,ampule,,,,,10 ampules of 2 ml each
+8178,,,,,,,,,,,
+3135,30,Pill,,,,,,,,,30 Pills
+3010,40,Pill,,,,,,,,,40 Pills
+3011,40,Pill,,,,,,,,,40 Pills
+2959,20,Pill,,,,,,,,,20 Pills
+7070,30,Pill,,,,,,,,,30 Pills
+7071,30,Pill,,,,,,,,,30 Pills
+7396,30,Pill,,,,,,,,,30 Pills
+2397,60,Pill,,,,,,,,,60 Pills
+2871,30,Pill,,,,,,,,,30 Pills
+2943,30,Pill,,,,,,,,,30 Pills
+5014,30,Pill,,,,,,,,,30 Pills
+5015,30,Pill,,,,,,,,,30 Pills
+5493,30,Pill,,,,,,,,,30 Pills
+8179,,,,,,,,,,,
+8180,,,,,,,,,,,
+6595,60,Pill,,,,,,,,,60 Pills
+2002,50,ml,,,10,non stated,,,,,10 non stated of 5 ml each
+2719,10,ml,,,10,non stated,,,,,10 non stated of 1 ml each
+4231,50,ml,,,10,non stated,,,,,10 non stated of 5 ml each
+4314,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+5352,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+5548,25,ml,,,5,ampule,,,,,5 ampules of 5 ml each
+5549,5,ml,,,5,ampule,,,,,5 ampules of 1 ml each
+7295,14,Pill,,,,,,,,,14 Pills
+3490,30,Pill,,,,,,,,,30 Pills
+3491,30,Pill,,,,,,,,,30 Pills
+2569,50,ml,,,25,vial,,,,,25 vials of 2 ml each
+6525,20,ml,,,5,vial,,,,,5 vials of 4 ml each
+6526,10,ml,,,5,ampule,,,,,5 ampules of 2 ml each
+7368,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+2985,40,Pill,,,,,,,,,40 Pills
+3082,60,Pill,,,,,,,,,60 Pills
+3083,50,Pill,,,,,,,,,50 Pills
+2874,100,Pill,,,,,,,,,100 Pills
+2875,30,Pill,,,,,,,,,30 Pills
+2987,50,Pill,,,,,,,,,50 Pills
+2989,50,Pill,,,,,,,,,50 Pills
+3055,50,Pill,,,,,,,,,50 Pills
+3056,30,Pill,,,,,,,,,30 Pills
+3058,20,Pill,,,,,,,,,20 Pills
+2203,28,Pill,,,,,,,,,28 Pills
+2310,20,Pill,,,,,,,,,20 Pills
+2888,14,Pill,,,,,,,,,14 Pills
+3033,14,Pill,,,,,,,,,14 Pills
+3419,30,Pill,,,,,,,,,30 Pills
+8181,,,,,,,,,,,
+8182,,,,,,,,,,,
+2136,28,Pill,,,,,,,,,28 Pills
+3968,30,Pill,,,,,,,,,30 Pills
+4258,30,Pill,,,,,,,,,30 Pills
+3387,30,Pill,,,,,,,,,30 Pills
+3766,30,Pill,,,,,,,,,30 Pills
+3768,30,Pill,,,,,,,,,30 Pills
+4052,30,Pill,,,,,,,,,30 Pills
+4095,30,Pill,,,,,,,,,30 Pills
+4096,30,Pill,,,,,,,,,30 Pills
+4097,30,Pill,,,,,,,,,30 Pills
+4249,30,Pill,,,,,,,,,30 Pills
+4250,30,Pill,,,,,,,,,30 Pills
+4633,30,Pill,,,,,,,,,30 Pills
+2955,15,Pill,,,,,,,,,15 Pills
+3428,15,Pill,,,,,,,,,15 Pills
+3456,20,Pill,,,,,,,,,20 Pills
+3506,30,Pill,,,,,,,,,30 Pills
+3602,15,Pill,,,,,,,,,15 Pills
+3745,30,Pill,,,,,,,,,30 Pills
+4559,30,Pill,,,,,,,,,30 Pills
+5190,30,Pill,,,,,,,,,30 Pills
+6790,15,Pill,,,,,,,,,15 Pills
+7472,28,Pill,,,,,,,,,28 Pills
+7473,7,Pill,,,,,,,,,7 Pills
+8183,,,,,,,,,,,
+8184,,,,,,,,,,,
+2543,30,Pill,,,,,,,,,30 Pills
+2133,28,Pill,,,,,,,,,28 Pills
+3343,28,Pill,,,,,,,,,28 Pills
+3672,28,Pill,,,,,,,,,28 Pills
+3889,30,Pill,,,,,,,,,30 Pills
+3950,30,Pill,,,,,,,,,30 Pills
+4333,28,Pill,,,,,,,,,28 Pills
+4451,30,Pill,,,,,,,,,30 Pills
+4452,30,Pill,,,,,,,,,30 Pills
+4453,30,Pill,,,,,,,,,30 Pills
+4706,30,Pill,,,,,,,,,30 Pills
+5261,30,Pill,,,,,,,,,30 Pills
+5262,30,Pill,,,,,,,,,30 Pills
+5263,30,Pill,,,,,,,,,30 Pills
+5264,30,Pill,,,,,,,,,30 Pills
+5462,30,Pill,,,,,,,,,30 Pills
+5463,30,Pill,,,,,,,,,30 Pills
+7262,28,Pill,,,,,,,,,28 Pills
+7263,28,Pill,,,,,,,,,28 Pills
+7264,28,Pill,,,,,,,,,28 Pills
+8185,,,,,,,,,,,
+8186,,,,,,,,,,,
+8187,,,,,,,,,,,
+8188,,,,,,,,,,,
+2522,30,Pill,,,,,,,,,30 Pills
+5328,30,Pill,,,,,,,,,30 Pills
+3309,20,Pill,,,,,,,,,20 Pills
+3310,20,Pill,,,,,,,,,20 Pills
+3404,20,Pill,,,,,,,,,20 Pills
+3695,14,Pill,,,,,,,,,14 Pills
+5135,30,Pill,,,,,,,,,30 Pills
+5136,30,Pill,,,,,,,,,30 Pills
+5514,14,Pill,,,,,,,,,14 Pills
+5515,14,Pill,,,,,,,,,14 Pills
+5518,30,Pill,,,,,,,,,30 Pills
+5519,30,Pill,,,,,,,,,30 Pills
+5520,30,Pill,,,,,,,,,30 Pills
+7054,50,Pill,,,,,,,,,50 Pills
+7055,30,Pill,,,,,,,,,30 Pills
+8189,,,,,,,,,,,
+8190,,,,,,,,,,,
+8191,,,,,,,,,,,
+8192,,,,,,,,,,,
+4831,30,Pill,,,,,,,,,30 Pills
+4832,30,Pill,,,,,,,,,30 Pills
+5167,30,Pill,,,,,,,,,30 Pills
+5168,30,Pill,,,,,,,,,30 Pills
+5564,28,Pill,,,,,,,,,28 Pills
+5565,28,Pill,,,,,,,,,28 Pills
+6045,30,Pill,,,,,,,,,30 Pills
+6046,30,Pill,,,,,,,,,30 Pills
+4956,28,Pill,,,,,,,,,28 Pills
+4957,28,Pill,,,,,,,,,28 Pills
+4958,28,Pill,,,,,,,,,28 Pills
+8193,,,,,,,,,,,
+8194,,,,,,,,,,,
+8195,,,,,,,,,,,
+6986,1,mg,,,1,applicator,,,,,1 Applicator of 1 mg
+8196,,,,,,,,,,,
+2050,30,Pill,,,,,,,,,30 Pills
+6928,30,Pill,,,,,,,,,30 Pills
+6929,30,Pill,,,,,,,,,30 Pills
+6930,30,Pill,,,,,,,,,30 Pills
+6931,30,Pill,,,,,,,,,30 Pills
+5657,30,Pill,,,,,,,,,30 Pills
+4653,30,Pill,,,,,,,,,30 Pills
+4654,30,Pill,,,,,,,,,30 Pills
+4655,30,Pill,,,,,,,,,30 Pills
+4657,30,Pill,,,,,,,,,30 Pills
+8197,,,,,,,,,,,
+8198,,,,,,,,,,,
+8199,,,,,,,,,,,
+8200,,,,,,,,,,,
+7306,30,Pill,,,,,,,,,30 Pills
+3853,20,ml,,,5,non stated,,,,,5 non stated of 4 ml each
+5055,60,ml,,,6,Packet / Sachet,,,,,6 Packets / Sachets of 10 ml each
+8201,,,,,,,,,,,
+8307,,,,,,,,,,,
+4679,100,Pill,,,,,,,,,100 Pills
+4882,100,Pill,,,,,,,,,100 Pills
+5803,90,Pill,,,,,,,,,90 Pills
+3801,30,Pill,,,,,,,,,30 Pills
+3802,30,Pill,,,,,,,,,30 Pills
+4550,30,Pill,,,,,,,,,30 Pills
+4551,30,Pill,,,,,,,,,30 Pills
+5016,28,Pill,,,,,,,,,28 Pills
+5061,28,Pill,,,,,,,,,28 Pills
+5259,30,Pill,,,,,,,,,30 Pills
+5260,30,Pill,,,,,,,,,30 Pills
+5619,28,Pill,,,,,,,,,28 Pills
+5620,28,Pill,,,,,,,,,28 Pills
+6883,28,Pill,,,,,,,,,28 Pills
+6884,28,Pill,,,,,,,,,28 Pills
+7464,28,Pill,,,,,,,,,28 Pills
+7467,28,Pill,,,,,,,,,28 Pills
+8202,,,,,,,,,,,
+8203,,,,,,,,,,,
+3620,,,,,30,non stated,,,,,30 Non Stated
+3621,,,,,30,non stated,,,,,30 Non Stated
+5282,,,,,30,non stated,,,,,30 Non Stated
+5611,28,Pill,,,,,,,,,28 Pills
+5612,28,Pill,,,,,,,,,28 Pills
+5613,28,Pill,,,,,,,,,28 Pills
+6880,28,Pill,,,,,,,,,28 Pills
+6881,28,Pill,,,,,,,,,28 Pills
+6882,28,Pill,,,,,,,,,28 Pills
+7477,30,Pill,,,,,,,,,30 Pills
+7478,30,Pill,,,,,,,,,30 Pills
+8204,,,,,,,,,,,
+8205,,,,,,,,,,,
+2132,28,Pill,,,,,,,,,28 Pills
+3664,28,Pill,,,,,,,,,28 Pills
+4389,30,Pill,,,,,,,,,30 Pills
+5224,30,Pill,,,,,,,,,30 Pills
+5225,30,Pill,,,,,,,,,30 Pills
+5495,28,Pill,,,,,,,,,28 Pills
+5496,56,Pill,,,,,,,,,56 Pills
+5874,56,Pill,,,,,,,,,56 Pills
+5875,28,Pill,,,,,,,,,28 Pills
+2491,10,ml,,,10,ampule,,,,,10 ampules of 1 ml each
+5344,,,,,10,ampule,,,,,10 Ampules
+5253,150,Pill,,,,,,,,,150 Pills
+5933,180,Pill,,,,,,,,,180 Pills
+3608,7,Pill,,,,,,,,,7 Pills
+3609,7,Pill,,,,,,,,,7 Pills
+7170,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7171,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7172,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7173,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7174,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7175,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7176,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+8206,,,,,,,,,,,
+6090,28,Pill,,,1,Box,,,,,Box of 28 Pill
+6091,28,Pill,,,1,Box,,,,,Box of 28 Pill
+6221,28,Pill,,,1,Box,,,,,Box of 28 Pill
+2967,60,Pill,,,,,,,,,60 Pills
+3198,100,Pill,,,,,,,,,100 Pills
+3199,60,Pill,,,,,,,,,60 Pills
+3354,60,Pill,,,,,,,,,60 Pills
+3509,30,Pill,,,,,,,,,30 Pills
+3746,30,Pill,,,,,,,,,30 Pills
+3966,20,Pill,,,,,,,,,20 Pills
+6993,60,Pill,,,,,,,,,60 Pills
+8207,,,,,,,,,,,
+2975,30,Pill,,,,,,,,,30 Pills
+3097,20,Pill,,,,,,,,,20 Pills
+2396,20,Pill,,,,,,,,,20 Pills
+2786,25,ml,,,5,ampule,,,,,5 ampules of 5 ml each
+2787,50,ml,,,5,ampule,,,,,5 ampules of 10 ml each
+2560,56,Pill,,,,,,,,,56 Pills
+8208,,,,,,,,,,,
+4370,56,Pill,,,4,Bottle,,,,,4 bottles of 14 pills each
+8209,,,,,,,,,,,
+6712,30,Pill,,,,,,,,,30 Pills
+2059,100,ml,,,,,,,,,100 ml
+2122,100,ml,,,1,Bottle,,,,,Ecoflac Plus Bottles 100ml
+2252,20,Pill,,,,,,,,,20 Pills
+2253,24,Pill,,,,,,,,,24 Pills
+2272,20,Pill,,,,,,,,,20 Pills
+2273,14,Pill,,,,,,,,,14 Pills
+2458,1000,ml,,,10,non stated,,,,,10 non stated of 100 ml each
+2592,30,Pill,,,,,,,,,30 Pills
+2951,100,ml,,,,,,,,,100 ml
+3123,1,Pill,,,,,,,,,"1,000 Pills"
+3131,120,ml,,,,,,,,,120 ml
+3678,100,ml,,,,,,,,,100 ml
+4154,20,Pill,,,,,,,,,20 Pills
+5210,1000,ml,,,10,vial,,,,,10 vials of 100 ml each
+6110,120,ml,,,,,,,,,120 ml
+8210,,,,,,,,,,,
+8211,,,,,,,,,,,
+8212,,,,,,,,,,,
+8213,,,,,,,,,,,
+8326,,,,,,,,,,,
+3385,,,,,1,Packet / Sachet,,,,,1 Packet / Sachet
+8214,,,,,,,,,,,
+8215,,,,,,,,,,,
+4496,30,Pill,,,,,,,,,30 Pills
+6842,30,Pill,,,,,,,,,30 Pills
+5967,1,Pill,,,,,,,,,1 Pill
+6384,6,Pill,,,,,,,,,6 Pills
+6385,30,ml,,,,,,,,,30 ml
+2157,2,Pill,,,,,,,,,2 Pills
+2158,20,ml,,,,,,,,,20 ml
+3993,1,Pill,,,,,,,,,1 Pill
+8216,,,,,,,,,,,
+3086,45,ml,,,,,,,,,45 ml
+3132,50,ml,,,,,,,,,50 ml
+6911,4,Pill,,,,,,,,,4 Pills
+6976,10,Pill,,,,,,,,,10 Pills
+6977,6,Pill,,,,,,,,,6 Pills
+8217,,,,,,,,,,,
+3075,4,Pill,,,,,,,,,4 Pills
+3143,4,Pill,,,,,,,,,4 Pills
+3113,120,ml,,,,,,,,,120 ml
+3114,120,ml,,,,,,,,,120 ml
+6552,120,ml,,,,,,,,,120 ml
+3070,120,ml,,,,,,,,,120 ml
+5238,15,ml,,,,,,,,,15 ml
+2125,15,ml,,,,,,,,,15 ml
+6562,10,ml,,,,,,,,,10 ml
+6563,10,ml,,,,,,,,,10 ml
+6564,10,ml,,,,,,,,,10 ml
+6612,10,ml,,,,,,,,,10 ml
+6762,10,ml,,,,,,,,,10 ml
+7109,10,ml,,,,,,,,,10 ml
+8218,,,,,,,,,,,
+8219,,,,,,,,,,,
+8220,,,,,,,,,,,
+4162,15,ml,,,,,,,,,15 ml
+5628,10,ml,,,,,,,,,10 ml
+5629,10,ml,,,,,,,,,10 ml
+6639,12,ml,,,,,,,,,12 ml
+7344,10,ml,,,,,,,,,10 ml
+3721,200,dose,,,,,,,,,200 doses
+4881,10,ml,,,,,,,,,10 ml
+2597,120,dose,,,,,,,,,120 doses
+4212,120,dose,,,1,Bottle,,,,,1 Bottle of 120 dose
+7343,120,dose,,,,,,,,,120 doses
+3584,100,dose,,,,,,,,,100 doses
+4180,120,dose,,,,,,,,,120 doses
+4217,120,dose,,,,,,,,,120 doses
+4836,120,dose,,,,,,,,,120 doses
+5181,120,dose,,,,,,,,,120 doses
+6132,120,dose,,,,,,,,,120 puffs
+8221,,,,,,,,,,,
+2284,120,dose,,,,,,,,,120 doses
+3393,120,dose,,,,,,,,,120 puffs
+8222,,,,,,,,,,,
+3752,120,dose,,,,,,,,,120 doses
+8223,,,,,,,,,,,
+8224,,,,,,,,,,,
+3120,30,ml,,,,,,,,,30 ml
+6070,120,dose,,,,,,,,,120 doses
+3697,16,Pill,,,,,,,,,12 Tablets and 4 Capsules
+5977,30,Pill,,,,,,,,,30 Pills
+6727,10,Pill,,,,,,,,,10 Pills
+2896,100,ml,,,,,,,,,100 ml
+2439,10,ml,,,,,,,,,10 ml
+5045,20,Pill,,,,,,,,,20 Pills
+5591,15,Pill,,,,,,,,,15 Pills
+8225,,,,,,,,,,,
+8226,,,,,,,,,,,
+4798,40,Pill,,,,,,,,,40 Pills
+2450,30,g,,,,,,,,,30 g
+2695,20,Pill,,,,,,,,,20 Pills
+2008,20,ml,,,,,,,,,20 ml
+2168,120,ml,,,,,,,,,120 ml
+2169,200,dose,,,,,,,,,200 doses
+2954,100,Pill,,,,,,,,,100 Pills
+3164,150,ml,,,,,,,,,150 ml
+3733,50,ml,,,20,applicator,,,,,20 applicators of 2.5 ml each
+5668,200,dose,,,,,,,,,200 doses
+6354,200,dose,,,,,,,,,200 doses
+3705,30,Pill,,,,,,,,,30 Pills
+3463,120,dose,,,,,,,,,120 doses
+3464,120,dose,,,,,,,,,120 doses
+5839,60,Pill,,,,,,,,,60 hard capsules and 1 inhaler
+5840,60,Pill,,,,,,,,,60 hard capsules and 1 inhaler
+5841,60,Pill,,,,,,,,,60 hard capsules and 1 inhaler
+7254,60,dose,,,,,,,,,60 doses
+7255,60,dose,,,,,,,,,60 doses
+7256,60,dose,,,,,,,,,60 doses
+7348,120,dose,,,,,,,,,120 doses
+8227,,,,,,,,,,,
+8228,,,,,,,,,,,
+8229,,,,,,,,,,,
+8230,,,,,,,,,,,
+2225,120,dose,,,,,,,,,120 doses
+3405,60,dose,,,,,,,,,60 doses
+3756,60,dose,,,,,,,,,60 doses
+8231,,,,,,,,,,,
+8232,,,,,,,,,,,
+8233,,,,,,,,,,,
+8234,,,,,,,,,,,
+8235,,,,,,,,,,,
+3797,120,dose,,,,,,,,,120 doses
+6605,120,dose,,,,,,,,,120 doses
+4896,30,pre-dispensed dose,,,,,,,,,30 pre-dispensed doses
+4897,30,pre-dispensed dose,,,,,,,,,30 pre-dispensed doses
+6192,60,Pill,,,,,,,,,60 Pills
+6193,60,Pill,,,,,,,,,60 Pills
+4021,200,dose,,,,,,,,,200 doses
+4615,200,dose,,,,,,,,,200 doses
+2362,10,ml,,,,,,,,,10 ml
+3808,50,ml,,,20,non stated,,,,,20 non stated of 2.5 ml each
+5233,50,ml,,,20,non stated,,,,,20 non stated of 2.5 ml each
+8236,,,,,,,,,,,
+6634,30,dose,,,,,,,,,30 doses
+4949,30,Pill,,,,,,,,,30 Pills
+5321,60,dose,,,,,,,,,60 puffs
+8237,,,,,,,,,,,
+8238,,,,,,,,,,,
+2121,200,dose,,,,,,,,,200 doses
+7347,200,dose,,,,,,,,,200 doses
+3327,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+3840,200,dose,,,,,,,,,200 doses
+3863,,,,,20,non stated,,,,,20 Non Stated
+5483,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+5497,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+5831,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+5832,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+6648,200,dose,,,,,,,,,200 puffs
+8239,,,,,,,,,,,
+6597,120,dose,,,,,,,,,120metered actuations
+6665,60,dose,,,,,,,,,60 metered actuations
+6666,60,dose,,,,,,,,,60 metered actuations
+2323,40,ml,,,,,,,,,20 non stated of 2 ml each
+2324,40,ml,,,,,,,,,20 non stated of 2 ml each
+2361,2000,ml,,,200,non stated,,,,,200 meterd doses with 10 ml each
+3820,40,ml,,,20,non stated,,,,,20 non stated of 2 ml each
+5189,20,ml,,,10,non stated,,,,,10 non stated of 2 ml each
+2401,30,Pill,,,,,,,,,30 Pills
+3585,15,Pill,,,,,,,,,15 Pills
+3587,60,dose,,,,,,,,,60 doses
+5838,30,Pill,,,2,Bottle,,,,,2 bottles of 15 capsules each and 1 zephir inhaler
+4666,30,Pill,,,,,,,,,30 Hard capsules with inhaler
+7313,7,dose,,,,,,,,,7Unit dose Vials & inhalation solution
+3080,240,ml,,,,,,,,,240 ml
+3146,120,ml,,,,,,,,,120 ml
+2346,100,ml,,,10,ampule,,,,,10 ampules of 10 ml each
+2994,100,Pill,,,,,,,,,100 Pills
+3098,10,Pill,,,,,,,,,10 Pills
+3108,10,Pill,,,,,,,,,10 Pills
+4789,200,ml,,,,,,,,,200 ml
+4790,20,Pill,,,,,,,,,20 Pills
+2952,8,Pill,,,,,,,,,8 Pills
+2953,8,Pill,,,,,,,,,8 Pills
+8240,,,,,,,,,,,
+8241,,,,,,,,,,,
+3148,20,Pill,,,,,,,,,20 Pills
+2082,28,Pill,,,,,,,,,28 Pills
+2083,28,Pill,,,,,,,,,28 Pills
+2780,28,Pill,,,,,,,,,28 Pills
+3347,30,Pill,,,,,,,,,30 Pills
+3747,30,Pill,,,,,,,,,30 Pills
+3748,30,Pill,,,,,,,,,30 Pills
+3881,30,Pill,,,,,,,,,30 Pills
+3905,30,Pill,,,,,,,,,30 Pills
+4281,28,Pill,,,,,,,,,28 Pills
+4282,28,Pill,,,,,,,,,28 Pills
+4283,28,Pill,,,,,,,,,28 Pills
+4311,30,Pill,,,,,,,,,30 Pills
+4312,30,Pill,,,,,,,,,30 Pills
+4347,30,Pill,,,,,,,,,30 Pills
+4631,30,Pill,,,,,,,,,30 Pills
+4632,30,Pill,,,,,,,,,30 Pills
+4817,28,Pill,,,,,,,,,28 Pills
+4818,28,Pill,,,,,,,,,28 Pills
+4819,28,Pill,,,,,,,,,28 Pills
+4871,30,Pill,,,,,,,,,30 Pills
+5215,,,,,28,Packet / Sachet,,,,,28 Packets / Sachets
+8242,,,,,,,,,,,
+8243,,,,,,,,,,,
+8244,,,,,,,,,,,
+8245,,,,,,,,,,,
+8246,,,,,,,,,,,
+8247,,,,,,,,,,,
+12226,,,,,,,,,,,
+3370,2,ml,,,1,vial,,,,,1 Vial of 2 ml
+7268,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+7216,,,,,1,Pre-filled pen,,,,,1 Pre-Filled Pen
+6888,10,Pill,,,,,,,,,10 Pills
+7102,120,ml,,,,,,,,,120 ml
+7222,10,Pill,,,,,,,,,10 Pills
+3067,120,ml,,,,,,,,,120 ml
+3138,120,ml,,,,,,,,,120 ml
+6075,100,ml,,,,,,,,,100 ml
+4577,20,Pill,,,,,,,,,20 Pills
+5229,100,ml,,,,,,,,,100 ml
+5535,100,ml,,,,,,,,,100 ml
+5614,20,Pill,,,,,,,,,20 Pills
+5929,,,,,,,,,,,
+6002,100,ml,,,,,,,,,100 ml
+6050,120,ml,,,,,,,,,120 ml
+6371,100,ml,,,,,,,,,100 ml
+7107,10,Pill,,,,,,,,,10 Pills
+8248,,,,,,,,,,,
+8310,,,,,,,,,,,
+2385,,,,,30,Packet / Sachet,,,,,30 Packets / Sachets
+3337,10,Pill,,,,,,,,,10 Pills
+3718,10,Pill,,,,,,,,,10 Pills
+3719,150,ml,,,,,,,,,150 ml
+5806,20,dose,,,,,,,,,20 doses
+2972,90,ml,,,,,,,,,90 ml
+3158,150,ml,,,,,,,,,150 ml
+3159,150,ml,,,,,,,,,150 ml
+2130,200,ml,,,,,,,,,200 ml
+2598,100,ml,,,,,,,,,100 ml
+3689,100,ml,,,,,,,,,100 ml
+4662,200,ml,,,,,,,,,200 ml
+5960,10,Pill,,,,,,,,,10 Pills
+6255,100,ml,,,,,,,,,100 ml
+8249,,,,,,,,,,,
+8250,,,,,,,,,,,
+6517,100,ml,,,,,,,,,100 ml
+3785,,,,,30,ampule,,,,,30 Ampules
+2909,20,Pill,,,,,,,,,20 Pills
+2914,100,ml,,,,,,,,,100 ml
+4493,200,ml,,,,,,,,,200 ml
+7139,100,ml,,,,,,,,,100 ml
+2963,200,ml,,,,,,,,,200 ml
+4218,100,ml,,,,,,,,,100 ml
+4898,200,ml,,,,,,,,,200 ml
+6613,20,ml,,,,,,,,,20 ml
+6614,200,ml,,,,,,,,,200 ml
+6155,100,ml,,,,,,,,,100 ml
+2386,20,Pill,,,,,,,,,20 Pills
+8251,,,,,,,,,,,
+6767,10,Pill,,,1,Box,,,,,1 Box of 10 Pills
+2625,150,ml,,,,,,,,,150 ml
+2912,100,ml,,,,,,,,,100 ml
+2913,100,ml,,,,,,,,,100 ml
+2979,16,Pill,,,,,,,,,16 Pills
+2980,90,ml,,,,,,,,,90 ml
+3081,20,Pill,,,,,,,,,20 Pills
+3102,100,ml,,,,,,,,,100 ml
+3160,150,ml,,,,,,,,,150 ml
+3273,200,ml,,,,,,,,,200 ml
+3650,100,ml,,,,,,,,,100 ml
+5425,90,ml,,,,,,,,,90 ml
+5426,16,Pill,,,,,,,,,16 Pills
+6496,,,,,8,Packet / Sachet,,,,,8 Packets / Sachets
+6497,,,,,8,Packet / Sachet,,,,,8 Packets / Sachets
+6498,,,,,8,Packet / Sachet,,,,,8 Packets / Sachets
+6499,,,,,8,Packet / Sachet,,,,,8 Packets / Sachets
+6627,120,ml,,,,,,,,,120 ml
+7207,16,Pill,,,,,,,,,16 Pills
+6207,10,ml,,,10,vial,,,,,10 vials of 1 ml each
+2159,120,ml,,,,,,,,,120 ml
+3066,120,ml,,,,,,,,,120 ml
+3400,150,ml,,,,,,,,,150 ml
+4179,125,ml,,,,,,,,,125 ml
+7316,25,Pill,,,,,,,,,25 Pills
+5460,30,g,,,,,,,,,30 g
+3006,90,ml,,,,,,,,,90 ml
+6438,28,Pill,,,,,,,,,28 Pills
+3104,20,Pill,,,,,,,,,20 Pills
+3817,16,Pill,,,,,,,,,16 Pills
+4142,150,ml,,,,,,,,,150 ml
+3032,120,ml,,,,,,,,,120 ml
+3134,20,Pill,,,,,,,,,20 Pills
+8252,,,,,,,,,,,
+8253,,,,,,,,,,,
+2431,125,ml,,,,,,,,,125 ml
+3101,100,ml,,,,,,,,,100 ml
+8254,,,,,,,,,,,
+2306,10,Pill,,,,,,,,,10 Pills
+2697,20,Pill,,,,,,,,,20 Pills
+2698,100,ml,,,,,,,,,100 ml
+2973,20,Pill,,,,,,,,,20 Pills
+2974,125,ml,,,,,,,,,125 ml
+3772,10,Pill,,,,,,,,,10 Pills
+5127,20,ml,,,,,,,,,20 ml
+5374,10,ml,,,,,,,,,10 ml
+5375,20,Pill,,,,,,,,,20 Pills
+5376,75,ml,,,,,,,,,75 ml
+4449,200,ml,,,,,,,,,200 ml
+4450,28,Pill,,,,,,,,,28 Pills
+5524,30,Pill,,,,,,,,,30 Pills
+7243,30,Pill,,,,,,,,,30 Pills
+8255,,,,,,,,,,,
+8256,,,,,,,,,,,
+8257,,,,,,,,,,,
+2907,114,ml,,,,,,,,,114 ml
+3591,60,ml,,,,,,,,,60 ml
+3592,10,Pill,,,,,,,,,10 Pills
+4906,10,Pill,,,,,,,,,10 Pills
+5212,14,Pill,,,,,,,,,14 Pills
+5799,60,ml,,,,,,,,,60 ml
+6073,90,ml,,,,,,,,,90 ml
+6551,90,ml,,,,,,,,,90 ml
+7196,60,ml,,,,,,,,,60 ml
+7485,60,ml,,,,,,,,,60 ml
+7486,150,ml,,,,,,,,,150 ml
+7487,60,ml,,,,,,,,,60 ml
+2942,20,Pill,,,,,,,,,20 Pills
+2039,20,Pill,,,,,,,,,20 Pills
+2040,100,ml,,,,,,,,,100 ml
+2190,20,Pill,,,,,,,,,20 Pills
+2615,30,Pill,,,,,,,,,30 Pills
+2734,10,Pill,,,,,,,,,10 Pills
+2735,100,ml,,,,,,,,,100 ml
+3611,10,Pill,,,,,,,,,10 Pills
+5213,120,ml,,,,,,,,,120 ml
+5214,10,Pill,,,,,,,,,10 Pills
+6183,30,Pill,,,,,,,,,30 Pills
+1979,20,Pill,,,,,,,,,20 Pills
+6662,30,Pill,,,,,,,,,30 Pills
+3430,15,Pill,,,,,,,,,15 Pills
+3759,15,Pill,,,,,,,,,15 Pills
+8258,,,,,,,,,,,
+8259,,,,,,,,,,,
+3346,30,Pill,,,,,,,,,30 Pills
+3359,150,ml,,,,,,,,,150 ml
+3533,120,ml,,,,,,,,,120 ml
+3875,30,Pill,,,,,,,,,30 Pills
+3967,10,Pill,,,,,,,,,10 Pills
+4309,125,ml,,,,,,,,,125 ml
+4503,20,Pill,,,,,,,,,20 Pills
+4611,150,ml,,,,,,,,,150 ml
+4648,30,Pill,,,,,,,,,30 Pills
+4681,30,Pill,,,,,,,,,30 Pills
+4991,30,Pill,,,,,,,,,30 Pills
+5159,150,ml,,,,,,,,,150 ml
+6262,100,ml,,,,,,,,,100 ml
+6263,10,Pill,,,,,,,,,10 Pills
+7197,30,Pill,,,,,,,,,30 Pills
+7198,120,ml,,,,,,,,,120 ml
+7351,150,ml,,,,,,,,,150 ml
+8260,,,,,,,,,,,
+8261,,,,,,,,,,,
+12259,,,,,,,,,,,
+6071,30,Pill,,,,,,,,,30 Pills
+4473,20,Pill,,,,,,,,,20 Pills
+6450,120,ml,,,,,,,,,120 ml
+4644,8,ml,,,1,Vial,,,,,1 Vial of 8 ml
+5250,6,ml,,,1,vial,,,,,1 vial of 6 ml
+5251,3,ml,,,1,vial,,,,,1 Vial of 3 ml
+2773,8,ml,,,1,Vial,,,,,1 Vial of 8 ml
+3145,3.5,g,,,,,,,,,3.5 g
+4746,5,ml,,,,,,,,,5 ml
+7252,5,g,,,,,,,,,5 g
+8262,,,,,,,,,,,
+5155,5,g,,,,,,,,,5 g
+6705,5,g,,,,,,,,,5 g
+4852,5,ml,,,,,,,,,5 ml
+5616,5,g,,,,,,,,,5 g
+8263,,,,,,,,,,,
+4355,5,g,,,,,,,,,5 g
+2570,5,ml,,,,,,,,,5 ml
+2738,5,ml,,,,,,,,,5 ml
+4912,10,ml,,,,,,,,,10 ml
+6429,10,ml,,,,,,,,,10 ml
+8264,,,,,,,,,,,
+7481,10,ml,,,,,,,,,10 ml
+6186,5,ml,,,,,,,,,5 ml
+3399,5,ml,,,,,,,,,5 ml
+6241,5,ml,,,,,,,,,5 ml
+6343,5,ml,,,,,,,,,5 ml
+8265,,,,,,,,,,,
+4144,12,ml,,,30,non stated,,,,,30 unidoses of 0.4 ml each
+4313,,,,,1,non stated,,,,,1 Non Stated
+8266,,,,,,,,,,,
+8267,,,,,,,,,,,
+1965,5,ml,,,,,,,,,5 ml
+8268,,,,,,,,,,,
+3469,5,ml,,,,,,,,,5 ml
+6279,,,,,1,non stated,,,,,1 Non Stated
+2413,5,ml,,,,,,,,,5 ml
+4661,30,dose,,,,,,,,,30 doses
+6802,5,ml,,,,,,,,,5 ml
+8269,,,,,,,,,,,
+2602,5,ml,,,,,,,,,5 ml
+3952,5,ml,,,,,,,,,5 ml
+4172,5,ml,,,,,,,,,5 ml
+5182,5,g,,,,,,,,,5 g
+5916,5,g,,,,,,,,,5 g
+8270,,,,,,,,,,,
+2737,5,ml,,,,,,,,,5 ml
+2788,5,ml,,,,,,,,,5 ml
+4409,5,ml,,,,,,,,,5 ml
+6583,5,ml,,,,,,,,,5 ml
+7282,7.5,ml,,,,,,,,,7.5 ml
+8271,,,,,,,,,,,
+8272,,,,,,,,,,,
+8273,,,,,,,,,,,
+8274,,,,,,,,,,,
+2668,18,ml,,,12,non stated,,,,,12 non stated of 1.5 ml each
+6520,12,ml,,,6,ampule,6,ampule,,,6 ampules and 6 ampules of 12 ml
+8275,,,,,,,,,,,
+7421,5,ml,,,,,,,,,5 ml
+8276,,,,,,,,,,,
+6187,5,ml,,,,,,,,,5 ml
+6243,5,ml,,,,,,,,,5 ml
+2006,2.5,ml,,,,,,,,,2.5 ml
+2736,5,ml,,,,,,,,,5 ml
+2789,5,ml,,,,,,,,,5 ml
+3320,3,ml,,,,,,,,,3 ml
+6184,2.5,ml,,,,,,,,,2.5 ml
+6335,5,ml,,,,,,,,,5 ml
+6557,2.5,ml,,,,,,,,,2.5 ml
+7391,5,ml,,,,,,,,,5 ml
+8277,,,,,,,,,,,
+8278,,,,,,,,,,,
+8279,,,,,,,,,,,
+8280,,,,,,,,,,,
+8281,,,,,,,,,,,
+8309,,,,,,,,,,,
+2144,2.5,ml,,,,,,,,,2.5 ml
+6312,30,dose,,,,,,,,,30 doses
+7004,2.5,ml,,,,,,,,,2.5 ml
+3849,3,ml,,,,,,,,,3 ml
+8282,,,,,,,,,,,
+6242,2.5,ml,,,,,,,,,2.5 ml
+8283,,,,,,,,,,,
+7283,5,ml,,,,,,,,,5 ml
+4913,5,ml,,,,,,,,,5 ml
+4929,10,ml,,,,,,,,,10 ml
+8284,,,,,,,,,,,
+5693,10,ml,,,,,,,,,10 ml
+8285,,,,,,,,,,,
+6518,10,ml,,,,,,,,,10 ml
+2529,15,ml,,,,,,,,,15 ml
+2430,5,ml,,,,,,,,,5 ml
+4948,6,ml,,,,,,,,,6 ml
+4131,10,ml,,,20,non stated,,,,,20 unidose of 0.5 ml each
+5289,5,ml,,,,,,,,,5 ml
+6188,5,ml,,,,,,,,,5 ml
+6201,5,ml,,,,,,,,,5 ml
+8286,,,,,,,,,,,
+8287,,,,,,,,,,,
+4677,10,ml,,,,,,,,,10 ml
+3373,5,ml,,,1,ampule,,,,,1 ampule of 5 ml
+3380,0.23,ml,,,1,vial,,,,,1 vial of 0.23 ml
+4598,,,,,1,vial,,,,,1 Vial
+6900,,,,,1,Pre-filled syringe,,,,,1 Pre-Filled Syringe
+8288,,,,,,,,,,,
+6733,12,ml,,,30,non stated,,,,,30 single doses of 0.4 ml each
+8289,,,,,,,,,,,
+8290,,,,,,,,,,,
+2549,15,ml,,,,,,,,,15 ml
+7307,12,ml,,,30,non stated,,,,,30 single doses of 0.4 ml each
+2680,10,ml,,,,,,,,,10 ml
+5791,20,dose,,,,,,,,,20 doses
+3020,5,ml,,,,,,,,,5 ml
+2876,15,ml,,,,,,,,,15 ml
+4174,10,ml,,,,,,,,,10 ml
+3054,7.5,ml,,,,,,,,,7.5 ml
+3283,10,ml,,,,,,,,,10 ml
+5312,10,ml,,,,Ampule,,,,,1 ampule of 10 ml solvant with powder
+6139,10.5,ml,,,,,,,,,10.5 ml
+4990,10,ml,,,,,,,,,10 ml
+2376,10,ml,,,,,,,,,10 ml
+1948,16,g,,,,,,,,,16 g
+3627,10,ml,,,,,,,,,10 ml
+4173,10,ml,,,,,,,,,10 ml
+3141,10,ml,,,,,,,,,10 ml
+3124,10,ml,,,,,,,,,10 ml
+2684,20,ml,,,2,Bottle,,,,,2 bottles of 10 ml each
+2685,10,ml,,,1,Bottle,,,,,1 bottle of 10 ml
+3690,30,ml,,,3,Bottle,,,,,3 bottles of 10 ml each
+3691,20,ml,,,2,Bottle,,,,,2 bottles of 10 ml each
+7062,9,ml,,,1,vial,,,,,1 vial D of 9 ml
+7063,9,ml,,,2,vial,,,,,2 vials D-D of 9 ml
+7064,3,ml - ml,,,3,vial,,,,,3 vials C-D-D of 3 ml and 9 ml
+7065,3,ml - ml,,,2,vial,,,,,2 vials C-D of 3 ml and 9 ml
+8291,,,,,,,,,,,
+2060,50,ml,,,10,ampule,,,,,10 of 0.8 ml each
+5050,20,ml,,,10,vial,,,,,10 of 0.8 ml each
+5541,100,ml,,,2,vial,,,,,2 vials of 50 ml each
+5890,28,Pill,,,,,,,,,28 Pills
+6056,30,Pill,,,,,,,,,30 Pills
+7164,28,Pill,,,,,,,,,28 Pills
+8292,,,,,,,,,,,
+8293,,,,,,,,,,,
+8294,,,,,,,,,,,
+8295,,,,,,,,,,,
+8296,,,,,,,,,,,
+8297,,,,,,,,,,,
+12254,,,,,,,,,,,
+12255,,,,,,,,,,,
+12256,,,,,,,,,,,
+2114,300,g,,,,,,,,,300 g
+5939,400,g,,,,,,,,,400 g
+4479,180,Pill,,,,,,,,,180 Pills
+4509,10,Pill,,,,,,,,,10 Pills
+5063,180,Pill,,,,,,,,,180 Pills
+6297,180,Pill,,,,,,,,,180 Pills
+6586,90,g,,,,,,,,,90 g
+7428,90,Pill,,,2,Bottle,,,,,2 bottles of 45 pills each
+7429,90,Pill,,,6,Bottle,,,,,6 bottles of 15 pills each
+4697,60,Pill,,,,,,,,,60 Pills
+1988,60,ml,,,15,ampule,,,,,15 ampules of 4 ml each
+5290,10,ml,,,1,vial,,,,,1 Vial of 10 ml
+8298,,,,,,,,,,,
+8299,,,,,,,,,,,
+12267,,,,,,,,,,,
+3851,100,Pill,,,,,,,,,100 Pills
+1955,250,ml,,,50,Ampule,,,,,50 ampules of 5 ml each
+1956,500,ml,,,50,Ampule,,,,,50 ampules of 10 ml each
+1957,400,ml,,,20,Ampule,,,,,20 ampules of 20 ml each
+2422,50,ml,,,10,Ampule,,,,,10 ampules of 5 ml each
+2423,1000,ml,,,100,Ampule,,,,,100 ampules of 10 ml each
+2864,500,ml,,,1,Bag,,,,,Vialflex bag
+2865,1,ml,,,1,Bag,,,,,Vialflex bag
+2866,1,ml,,,,,,,,,"1,000 ml"
+2867,500,ml,,,100,non stated,,,,,100 non stated of 5 ml each
+2869,1000,ml,,,100,non stated,,,,,100 non stated of 10 ml each
+2870,2000,ml,,,100,non stated,,,,,100 non stated of 20 ml each
+5684,250,ml,,,50,Ampule,,,,,50 ampules of 5 ml each
+7223,1,ml,,,,,,,,,"1,000 ml"
+8300,,,,,,,,,,,
+8301,,,,,,,,,,,
+8302,,,,,,,,,,,
+8303,,,,,,,,,,,
