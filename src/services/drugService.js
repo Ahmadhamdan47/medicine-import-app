@@ -1198,12 +1198,19 @@ const cleanNumber = (value) => {
 if (dp) {
   if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${dp.UnitType1}`);
   if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${dp.UnitType2}`);
-  if (dp.PackageQuantity1 && dp.PackageType1) presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${dp.PackageType1}`);
-  if (dp.PackageQuantity2 && dp.PackageType2) presentationParts.push(`${cleanNumber(dp.PackageQuantity2)} ${dp.PackageType2}`);
-  if (dp.PackageQuantity3 && dp.PackageType3) presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${dp.PackageType3}`);
+  if (dp.PackageQuantity1 && dp.PackageType1) {
+    const type = Number(dp.PackageQuantity1) > 1 ? `${dp.PackageType1}s` : dp.PackageType1;
+    presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${type}`);
+  }
+  if (dp.PackageQuantity2 && dp.PackageType2) {
+    const type = Number(dp.PackageQuantity2) > 1 ? `${dp.PackageType2}s` : dp.PackageType2;
+    presentationParts.push(`${cleanNumber(dp.PackageQuantity2)} ${type}`);
+  }
+  if (dp.PackageQuantity3 && dp.PackageType3) {
+    const type = Number(dp.PackageQuantity3) > 1 ? `${dp.PackageType3}s` : dp.PackageType3;
+    presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${type}`);
+  }
 }
-
-const presentationString = presentationParts.join(', ');
 
 
       return {
