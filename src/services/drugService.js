@@ -1188,16 +1188,23 @@ const fetchDrugDataFromServer = async () => {
         : null;
 
       // Build presentation string
-      let presentationParts = [];
-      const dp = drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0] : null;
-      if (dp) {
-        if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${dp.UnitQuantity1}${dp.UnitType1}`);
-        if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${dp.UnitQuantity2}${dp.UnitType2}`);
-        if (dp.PackageQuantity1 && dp.PackageType1) presentationParts.push(`${dp.PackageQuantity1}${dp.PackageType1}`);
-        if (dp.PackageQuantity2 && dp.PackageType2) presentationParts.push(`${dp.PackageQuantity2}${dp.PackageType2}`);
-        if (dp.PackageQuantity3 && dp.PackageType3) presentationParts.push(`${dp.PackageQuantity3}${dp.PackageType3}`);
-      }
-      const presentationString = presentationParts.join(', ');
+let presentationParts = [];
+const dp = drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0] : null;
+
+const cleanNumber = (value) => {
+  return Number(value).toString(); // Converts 15.000 → "15", 0.5000 → "0.5"
+};
+
+if (dp) {
+  if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${dp.UnitType1}`);
+  if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${dp.UnitType2}`);
+  if (dp.PackageQuantity1 && dp.PackageType1) presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${dp.PackageType1}`);
+  if (dp.PackageQuantity2 && dp.PackageType2) presentationParts.push(`${cleanNumber(dp.PackageQuantity2)} ${dp.PackageType2}`);
+  if (dp.PackageQuantity3 && dp.PackageType3) presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${dp.PackageType3}`);
+}
+
+const presentationString = presentationParts.join(', ');
+
 
       return {
         drugId: drug.DrugID,
