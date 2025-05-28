@@ -1196,8 +1196,18 @@ const cleanNumber = (value) => {
 };
 
 if (dp) {
-  if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${dp.UnitType1}`);
-  if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${dp.UnitType2}`);
+  // Helper to pluralize unit types if needed
+  const pluralizeIfNeeded = (qty, type) => {
+    if (!type) return type;
+    const pillTypes = ["pill", "PILL", "Pill", "dosage", "Dosage", "DOSAGE"];
+    if (Number(qty) > 1 && pillTypes.includes(type)) {
+      return type + "s";
+    }
+    return type;
+  };
+
+  if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${pluralizeIfNeeded(dp.UnitQuantity1, dp.UnitType1)}`);
+  if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${pluralizeIfNeeded(dp.UnitQuantity2, dp.UnitType2)}`);
   if (dp.PackageQuantity1 && dp.PackageType1) {
     const type = Number(dp.PackageQuantity1) > 1 ? `${dp.PackageType1}s` : dp.PackageType1;
     presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${type}`);
