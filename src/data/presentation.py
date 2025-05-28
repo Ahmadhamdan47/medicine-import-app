@@ -43,7 +43,7 @@ def main():
 
             # 1) Check if there's already a presentation
             cursor.execute(
-                "SELECT * FROM drugPresentation WHERE DrugId = %s",
+                "SELECT * FROM drugpresentation WHERE DrugId = %s",
                 (drug_id,)
             )
             existing = cursor.fetchone()
@@ -62,7 +62,7 @@ def main():
                 if changes:
                     set_clause = ', '.join(f"`{c}` = %s" for c in changes)
                     vals = list(changes.values()) + [drug_id]
-                    sql = f"UPDATE drugPresentation SET {set_clause} WHERE DrugId = %s"
+                    sql = f"UPDATE drugpresentation SET {set_clause} WHERE DrugId = %s"
                     cursor.execute(sql, vals)
                     updates += 1
 
@@ -72,7 +72,7 @@ def main():
                 col_list   = ', '.join(f"`{c}`" for c in cols)
                 placeholders = ', '.join(['%s'] * len(cols))
                 vals = [row[c].strip() for c in pres_cols] + [drug_id]
-                sql = f"INSERT INTO drugPresentation ({col_list}) VALUES ({placeholders})"
+                sql = f"INSERT INTO drugpresentation ({col_list}) VALUES ({placeholders})"
                 cursor.execute(sql, vals)
                 inserts += 1
 
