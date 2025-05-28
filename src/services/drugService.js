@@ -1187,6 +1187,18 @@ const fetchDrugDataFromServer = async () => {
           }).replace(/\//g, '-')
         : null;
 
+      // Build presentation string
+      let presentationParts = [];
+      const dp = drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0] : null;
+      if (dp) {
+        if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${dp.UnitQuantity1}+${dp.UnitType1}`);
+        if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${dp.UnitQuantity2}+${dp.UnitType2}`);
+        if (dp.PackageQuantity1 && dp.PackageType1) presentationParts.push(`${dp.PackageQuantity1}+${dp.PackageType1}`);
+        if (dp.PackageQuantity2 && dp.PackageType2) presentationParts.push(`${dp.PackageQuantity2}+${dp.PackageType2}`);
+        if (dp.PackageQuantity3 && dp.PackageType3) presentationParts.push(`${dp.PackageQuantity3}+${dp.PackageType3}`);
+      }
+      const presentationString = presentationParts.join(', ');
+
       return {
         drugId: drug.DrugID,
         drugName: drug.DrugName,
@@ -1208,17 +1220,17 @@ const fetchDrugDataFromServer = async () => {
         dosage: drug.Dosage,
         form: drug.Form,
         route: drug.Route,
-        presentation: drug.Presentation,
-        presentationQuantity1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitQuantity1 : null,
-        presentationUnitType1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitType1 : null,
-        presentationQuantity2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitQuantity2 : null,
-        presentationUnitType2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].UnitType2 : null,
-        presentationPackageQuantity1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity1 : null,
-        presentationPackageType1: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType1 : null,
-        presentationPackageQuantity2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity2 : null,
-        presentationPackageType2: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType2 : null,
-        presentationPackageQuantity3: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageQuantity3 : null,
-        presentationPackageType3: drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0].PackageType3 : null,
+        presentation: presentationString,
+        presentationQuantity1: dp ? dp.UnitQuantity1 : null,
+        presentationUnitType1: dp ? dp.UnitType1 : null,
+        presentationQuantity2: dp ? dp.UnitQuantity2 : null,
+        presentationUnitType2: dp ? dp.UnitType2 : null,
+        presentationPackageQuantity1: dp ? dp.PackageQuantity1 : null,
+        presentationPackageType1: dp ? dp.PackageType1 : null,
+        presentationPackageQuantity2: dp ? dp.PackageQuantity2 : null,
+        presentationPackageType2: dp ? dp.PackageType2 : null,
+        presentationPackageQuantity3: dp ? dp.PackageQuantity3 : null,
+        presentationPackageType3: dp ? dp.PackageType3 : null,
         dfSequence: drug.DFSequence,
         agent: drug.Agent,
         manufacturer: drug.Manufacturer,
