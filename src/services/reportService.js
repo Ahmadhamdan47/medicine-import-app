@@ -5,7 +5,7 @@ const abuseService = require('./abuseService');
 async function reportDrug({
   GTIN, BatchNumber, SerialNumber, ExpiryDate,
   drugNameByGTIN, userDrugName, description, photo, uuid,
-  username, email, password
+  username, email
 }) {
   // Abuse prevention: block/limit by uuid
   if (abuseService.isBlocked(uuid)) {
@@ -17,13 +17,13 @@ async function reportDrug({
   return await DrugReport.create({
     GTIN, BatchNumber, SerialNumber, ExpiryDate,
     drugNameByGTIN, userDrugName, description, photo, uuid,
-    username, email, password
+    username, email
   });
 }
 
 async function reportHospital({
   hospitalName, hospitalInfo, description, photo, uuid,
-  username, email, password
+  username, email
 }) {
   // Abuse prevention: block/limit by uuid
   if (abuseService.isBlocked(uuid)) {
@@ -34,7 +34,7 @@ async function reportHospital({
   }
   return await HospitalReport.create({
     hospitalName, hospitalInfo, description, photo, uuid,
-    username, email, password
+    username, email
   });
 }
 

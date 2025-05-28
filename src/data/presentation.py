@@ -10,11 +10,28 @@ DB_CONFIG = {
     'database': 'ommal_medapiv2',
 }
 
+# Columns that should be numeric/decimal in the DB
+NUMERIC_COLS = [
+    'UnitQuantity1', 'UnitQuantity2', 'PackageQuantity1', 'PackageQuantity2', 'PackageQuantity3'
+]
+
 def read_csv(path):
     df = pd.read_csv(path, dtype=str, encoding='utf-8').fillna('')
     # Ensure DrugId is an int
     df['DrugId'] = pd.to_numeric(df['DrugId'].str.strip(), errors='coerce').fillna(0).astype(int)
     return df.to_dict(orient='records')
+
+def clean_row(row):
+    for col in NUMERIC_COLS:
+        val = row.get(col, '').strip()
+        if val == '':
+            row[col] = None
+        else:
+            try:
+                row[col] = float(val)
+            except ValueError:
+                row[col] = None
+    return row
 
 def get_db_connection():
     try:
@@ -40,7 +57,7 @@ def main():
             drug_id = row['DrugId']
             if not drug_id:
                 continue
-
+            row = clean_row(row)
             # 1) Check if there's already a presentation
             cursor.execute(
                 "SELECT * FROM drugpresentation WHERE DrugId = %s",
@@ -54,8 +71,17 @@ def main():
                 # 2a) UPDATE path: only if values differ
                 changes = {}
                 for col in pres_cols:
-                    file_val = row[col].strip()
-                    db_val   = str(existing.get(col, '') or '')
+                    file_val = row[col]
+                    db_val   = existing.get(col, None)
+                    # For numeric columns, compare as float or None
+                    if col in NUMERIC_COLS:
+                        try:
+                            db_val = float(db_val) if db_val is not None and db_val != '' else None
+                        except ValueError:
+                            db_val = None
+                    else:
+                        db_val = str(db_val or '')
+                        file_val = str(file_val or '')
                     if file_val != db_val:
                         changes[col] = file_val
 
@@ -71,7 +97,7 @@ def main():
                 cols       = pres_cols + ['DrugId']
                 col_list   = ', '.join(f"`{c}`" for c in cols)
                 placeholders = ', '.join(['%s'] * len(cols))
-                vals = [row[c].strip() for c in pres_cols] + [drug_id]
+                vals = [row[c] for c in pres_cols] + [drug_id]
                 sql = f"INSERT INTO drugpresentation ({col_list}) VALUES ({placeholders})"
                 cursor.execute(sql, vals)
                 inserts += 1

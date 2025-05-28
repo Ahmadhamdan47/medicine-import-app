@@ -10,7 +10,7 @@ const HospitalReport = sequelize.define('HospitalReport', {
   uuid: { type: DataTypes.UUID },
   username: { type: DataTypes.STRING },
   email: { type: DataTypes.STRING },
-  password: { type: DataTypes.STRING },
+
   createdAt: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
 }, {
   tableName: 'hospitalreports',
