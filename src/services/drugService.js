@@ -210,7 +210,7 @@ const getDrugById = async (DrugIDs) => {
       },
       attributes: [
         "DrugID", "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "ImagesPath",
-        "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum"
+        "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum", "GTIN"
       ],
     });
 
@@ -234,15 +234,22 @@ const getDrugById = async (DrugIDs) => {
       const unitPrice = amount > 0 ? drugPlainData.Price / amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
 
+      // Format GTIN with visible leading zeros (as string, left-padded to 14 chars)
+      let visibleGTIN = drugPlainData.GTIN == null ? '' : String(drugPlainData.GTIN).trim();
+      if (visibleGTIN && visibleGTIN.length < 14) {
+        visibleGTIN = visibleGTIN.padStart(14, '0');
+      }
+
       return {
         ...drugPlainData,
         ATC,
         priceInLBP,
         unitPrice,
         unitPriceInLBP,
-        AgentName: drugPlainData.Manufacturer ,
+        AgentName: drugPlainData.Manufacturer,
         usdRate: formattedRate,
-        priceUpdateDate: price_update_date
+        priceUpdateDate: price_update_date,
+        GTIN: visibleGTIN
       };
     }));
 
@@ -1223,11 +1230,14 @@ const fetchDrugDataFromServer = async () => {
       }
       const presentationString = presentationParts.join(', ');
 
-      // Pad GTIN with zeros on the left if length > 1 and < 14
-      let paddedGTIN = drug.GTIN;
-      if (typeof paddedGTIN === 'string' && paddedGTIN.length > 1 && paddedGTIN.length < 14) {
-        paddedGTIN = paddedGTIN.padStart(14, '0');
-      }
+      // Show GTIN with visible leading zeros (as a string, left-padded to 14 chars, but do not change the stored value)
+// --- inside your mapper ---
+let visibleGTIN = drug.GTIN == null ? '' : String(drug.GTIN).trim();   // ← force string
+
+if (visibleGTIN && visibleGTIN.length < 14) {
+  visibleGTIN = visibleGTIN.padStart(14, '0');                         // now it pads with '0'
+}
+
 
       return {
         drugId: drug.DrugID,
@@ -1270,7 +1280,7 @@ const fetchDrugDataFromServer = async () => {
         priceInLBP: drug.Price * 89500,
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
-        GTIN: paddedGTIN,
+        GTIN: visibleGTIN,
         priceUpdateDate: formattedPriceUpdateDate,
         usdRate: formattedRate,
       };
