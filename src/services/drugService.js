@@ -1188,41 +1188,46 @@ const fetchDrugDataFromServer = async () => {
         : null;
 
       // Build presentation string
-let presentationParts = [];
-const dp = drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0] : null;
+      let presentationParts = [];
+      const dp = drug.DrugPresentations && drug.DrugPresentations.length > 0 ? drug.DrugPresentations[0] : null;
 
-const cleanNumber = (value) => {
-  return Number(value).toString(); // Converts 15.000 → "15", 0.5000 → "0.5"
-};
+      const cleanNumber = (value) => {
+        return Number(value).toString(); // Converts 15.000 → "15", 0.5000 → "0.5"
+      };
 
-if (dp) {
-  // Helper to pluralize unit types if needed
-  const pluralizeIfNeeded = (qty, type) => {
-    if (!type) return type;
-    const pillTypes = ["pill", "PILL", "Pill", "dosage", "Dosage", "DOSAGE"];
-    if (Number(qty) > 1 && pillTypes.includes(type)) {
-      return type + "s";
-    }
-    return type;
-  };
+      if (dp) {
+        // Helper to pluralize unit types if needed
+        const pluralizeIfNeeded = (qty, type) => {
+          if (!type) return type;
+          const pillTypes = ["pill", "PILL", "Pill", "dosage", "Dosage", "DOSAGE"];
+          if (Number(qty) > 1 && pillTypes.includes(type)) {
+            return type + "s";
+          }
+          return type;
+        };
 
-  if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${pluralizeIfNeeded(dp.UnitQuantity1, dp.UnitType1)}`);
-  if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${pluralizeIfNeeded(dp.UnitQuantity2, dp.UnitType2)}`);
-  if (dp.PackageQuantity1 && dp.PackageType1) {
-    const type = Number(dp.PackageQuantity1) > 1 ? `${dp.PackageType1}s` : dp.PackageType1;
-    presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${type}`);
-  }
-  if (dp.PackageQuantity2 && dp.PackageType2) {
-    const type = Number(dp.PackageQuantity2) > 1 ? `${dp.PackageType2}s` : dp.PackageType2;
-    presentationParts.push(`${cleanNumber(dp.PackageQuantity2)} ${type}`);
-  }
-  if (dp.PackageQuantity3 && dp.PackageType3) {
-    const type = Number(dp.PackageQuantity3) > 1 ? `${dp.PackageType3}s` : dp.PackageType3;
-    presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${type}`);
-  }
-}
-const presentationString = presentationParts.join(', ');
+        if (dp.UnitQuantity1 && dp.UnitType1) presentationParts.push(`${cleanNumber(dp.UnitQuantity1)} ${pluralizeIfNeeded(dp.UnitQuantity1, dp.UnitType1)}`);
+        if (dp.UnitQuantity2 && dp.UnitType2) presentationParts.push(`${cleanNumber(dp.UnitQuantity2)}${pluralizeIfNeeded(dp.UnitQuantity2, dp.UnitType2)}`);
+        if (dp.PackageQuantity1 && dp.PackageType1) {
+          const type = Number(dp.PackageQuantity1) > 1 ? `${dp.PackageType1}s` : dp.PackageType1;
+          presentationParts.push(`${cleanNumber(dp.PackageQuantity1)} ${type}`);
+        }
+        if (dp.PackageQuantity2 && dp.PackageType2) {
+          const type = Number(dp.PackageQuantity2) > 1 ? `${dp.PackageType2}s` : dp.PackageType2;
+          presentationParts.push(`${cleanNumber(dp.PackageQuantity2)} ${type}`);
+        }
+        if (dp.PackageQuantity3 && dp.PackageType3) {
+          const type = Number(dp.PackageQuantity3) > 1 ? `${dp.PackageType3}s` : dp.PackageType3;
+          presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${type}`);
+        }
+      }
+      const presentationString = presentationParts.join(', ');
 
+      // Pad GTIN with zeros on the left if length > 1 and < 14
+      let paddedGTIN = drug.GTIN;
+      if (typeof paddedGTIN === 'string' && paddedGTIN.length > 1 && paddedGTIN.length < 14) {
+        paddedGTIN = paddedGTIN.padStart(14, '0');
+      }
 
       return {
         drugId: drug.DrugID,
@@ -1265,7 +1270,7 @@ const presentationString = presentationParts.join(', ');
         priceInLBP: drug.Price * 89500,
         unitPrice: unitPrice,
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
-        GTIN: drug.GTIN,
+        GTIN: paddedGTIN,
         priceUpdateDate: formattedPriceUpdateDate,
         usdRate: formattedRate,
       };
