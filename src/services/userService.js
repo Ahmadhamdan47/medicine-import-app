@@ -8,6 +8,10 @@ const Recipient = require('../models/recipient');
 const OTP = require('../models/otp');
 const emailService = require('./emailService');
 const crypto = require('crypto');
+const { Op } = require('sequelize');
+
+// Import associations to ensure relationships are defined
+require('../models/associations/associations');
 
 
 
@@ -206,6 +210,229 @@ static async recipientSignup(recipientData, username, password, email) {
     // OTP is valid, delete the record
     await OTP.destroy({ where: { email, otp } });
     return true;
+  }
+
+  // Get user profile by ID
+  static async getUserProfile(userId) {
+    try {
+      const user = await UserAccounts.findByPk(userId, {
+        include: [
+          {
+            model: Roles,
+            as: 'role'
+          },
+          {
+            model: Agent,
+            as: 'agent',
+            required: false
+          },
+          {
+            model: Donor,
+            as: 'donor',
+            required: false
+          },
+          {
+            model: Recipient,
+            as: 'recipient',
+            required: false
+          }
+        ]
+      });
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Remove sensitive information
+      const userProfile = {
+        id: user.UserId,
+        username: user.Username,
+        email: user.Email,
+        role: user.role ? user.role.RoleName : null,
+        agentId: user.AgentId,
+        donorId: user.DonorId,
+        recipientId: user.RecipientId,
+        agent: user.agent,
+        donor: user.donor,
+        recipient: user.recipient,
+        createdDate: user.createdDate,
+        lastLogin: user.lastLogin
+      };
+
+      return userProfile;
+    } catch (error) {
+      throw new Error(`Error fetching user profile: ${error.message}`);
+    }
+  }
+
+  // Update user profile
+  static async updateUserProfile(userId, updateData) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      const updatedUser = await user.update(updateData);
+      return await this.getUserProfile(userId);
+    } catch (error) {
+      throw new Error(`Error updating user profile: ${error.message}`);
+    }
+  }
+
+  // Change user password
+  static async changePassword(userId, currentPassword, newPassword) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Verify current password
+      const isMatch = await bcrypt.compare(currentPassword, user.PasswordHash);
+      if (!isMatch) {
+        throw new Error('Current password is incorrect');
+      }
+
+      // Hash new password
+      const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+      await user.update({ PasswordHash: hashedNewPassword });
+
+      return { message: 'Password changed successfully' };
+    } catch (error) {
+      throw new Error(`Error changing password: ${error.message}`);
+    }
+  }
+
+  // Get all users with filtering and pagination (admin)
+  static async getAllUsers(filters = {}, pagination = {}) {
+    try {
+      const { page = 1, limit = 10 } = pagination;
+      const whereClause = {};
+
+      if (filters.role) {
+        // Need to join with roles table for filtering
+      }
+      if (filters.isActive !== undefined) {
+        whereClause.isActive = filters.isActive;
+      }
+
+      const offset = (page - 1) * limit;
+
+      const result = await UserAccounts.findAndCountAll({
+        where: whereClause,
+        limit: parseInt(limit),
+        offset: offset,
+        order: [['UserId', 'DESC']],
+        include: [
+          {
+            model: Roles,
+            as: 'role'
+          }
+        ],
+        attributes: { exclude: ['PasswordHash'] } // Don't return password hash
+      });
+
+      return {
+        users: result.rows,
+        totalCount: result.count,
+        currentPage: page,
+        totalPages: Math.ceil(result.count / limit)
+      };
+    } catch (error) {
+      throw new Error(`Error retrieving users: ${error.message}`);
+    }
+  }
+
+  // Create new user (admin)
+  static async createUser(userData, createdBy) {
+    try {
+      const { username, email, password, roleId, ...otherData } = userData;
+
+      // Check if username or email already exists
+      const existingUser = await UserAccounts.findOne({
+        where: {
+          [Op.or]: [
+            { Username: username },
+            { Email: email }
+          ]
+        }
+      });
+
+      if (existingUser) {
+        throw new Error('Username or email already exists');
+      }
+
+      // Hash password
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      const newUser = await UserAccounts.create({
+        Username: username,
+        Email: email,
+        PasswordHash: hashedPassword,
+        RoleId: roleId,
+        ...otherData,
+        createdBy
+      });
+
+      return await this.getUserProfile(newUser.UserId);
+    } catch (error) {
+      throw new Error(`Error creating user: ${error.message}`);
+    }
+  }
+
+  // Update user (admin)
+  static async updateUser(userId, updateData, updatedBy) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      // Remove password hash from update data if present
+      delete updateData.PasswordHash;
+
+      const updatedUser = await user.update({
+        ...updateData,
+        updatedBy
+      });
+
+      return await this.getUserProfile(userId);
+    } catch (error) {
+      throw new Error(`Error updating user: ${error.message}`);
+    }
+  }
+
+  // Delete user (admin)
+  static async deleteUser(userId) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      await user.destroy();
+      return { message: 'User deleted successfully' };
+    } catch (error) {
+      throw new Error(`Error deleting user: ${error.message}`);
+    }
+  }
+
+  // Reset user password (admin)
+  static async resetUserPassword(userId, newPassword) {
+    try {
+      const user = await UserAccounts.findByPk(userId);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      await user.update({ PasswordHash: hashedPassword });
+
+      return { message: 'Password reset successfully' };
+    } catch (error) {
+      throw new Error(`Error resetting password: ${error.message}`);
+    }
   }
 }
 

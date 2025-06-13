@@ -6,8 +6,20 @@ const bodyParser = require("body-parser");
 const logger = require("./config/logger");
 const path = require("path");
 const sequelize = require("./config/databasePharmacy");
+// Load model associations
+require('./src/models/associations/associations');
 // Remove the built-in cors package usage
 // const cors = require("cors");
+
+// --- Import new route modules ---
+const authRoutes = require('./src/routes/authRoutes');
+const importationRequestRoutes = require('./src/routes/importationRequestRoutes');
+const rfdRequestRoutes = require('./src/routes/rfdRequestRoutes');
+const proformaRequestRoutes = require('./src/routes/proformaRequestRoutes');
+const swiftPaymentRoutes = require('./src/routes/swiftPaymentRoutes');
+const importationAnnouncementRoutes = require('./src/routes/importationAnnouncementRoutes');
+const fileStorageRoutes = require('./src/routes/fileStorageRoutes');
+const userProfileRoutes = require('./src/routes/userProfileRoutes');
 
 // Routers
 const drugRouter = require("./src/routes/drugRoutes");
@@ -104,6 +116,23 @@ app.use((req, res, next) => {
 // --- End Custom CORS Middleware ---
 
 // --- API Routers ---
+
+// Authentication
+app.use("/auth", authRoutes);
+
+// User Management
+app.use("/users", userProfileRoutes); // Enhanced user management
+app.use("/users", userRoutes); // Keep existing user routes for compatibility
+
+// Importation Module APIs
+app.use("/importation-requests", importationRequestRoutes);
+app.use("/rfd-requests", rfdRequestRoutes);
+app.use("/proforma-requests", proformaRequestRoutes);
+app.use("/swift-payments", swiftPaymentRoutes);
+app.use("/importation-announcements", importationAnnouncementRoutes);
+app.use("/files", fileStorageRoutes);
+
+// Existing APIs
 app.use("/drugs", drugRouter);
 app.use("/submittedOrders", submittedOrderRoutes);
 app.use("/rfi", rfiRoutes);
@@ -126,7 +155,6 @@ app.use("/agent", agentRoutes);
 app.use("/containerType", containerTypeRoutes);
 app.use("/dispensingCategory", dispensingCategoryRoutes);
 app.use("/hospitalization", hospitalizationRoutes);
-app.use("/users", userRoutes);
 app.use("/batchLots", batchLotRoutes);
 app.use("/roles", roleRoutes);
 app.use("/boxes", boxRoutes);
@@ -143,7 +171,7 @@ app.use("/drugsUnderProcess", drugsUnderProcessRoutes);
 app.use("/alfa", alfaRoutes);
 app.use("/touch", touchRoutes);
 app.use("/report", reportRoutes);
-app.use("/dashboard", dashboardRoutes); // <-- new dashboard route
+app.use("/dashboard", dashboardRoutes);
 app.use("/img", express.static("img"));
 
 // --- Serve React Static Files ---
