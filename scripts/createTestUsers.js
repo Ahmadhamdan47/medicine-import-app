@@ -101,7 +101,8 @@ async function createTestUsers() {
                         IsManufacturer: false,
                         IsActive: true,
                         CreatedDate: new Date(),
-                        UpdatedDate: new Date()
+                        UpdatedDate: new Date(),
+                        esignature: '' // Ensure esignature is always set
                     });
                     
                     additionalData.AgentId = agentRecord.AgentID;
