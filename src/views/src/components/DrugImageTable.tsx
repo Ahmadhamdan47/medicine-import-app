@@ -6,7 +6,7 @@ import {
   useMantineReactTable,
   type MRT_ColumnDef,
 } from 'mantine-react-table';
-import { Button, Menu } from '@mantine/core';
+import { Button } from '@mantine/core';
 
 const DrugImageTable: React.FC = () => {
   const [tableData, setTableData] = useState<any[]>([]);
@@ -54,9 +54,21 @@ const DrugImageTable: React.FC = () => {
       // Get current images from state
       const currentDrug = tableData.find(drug => drug.DrugID === drugID);
       const currentImages = currentDrug?.ImagePath === 'No Image' ? '' : currentDrug?.ImagePath || '';
-      const updatedImagePath = currentImages 
-        ? `${currentImages},${newImagePath}`
-        : newImagePath;
+      
+      let updatedImagePath;
+      if (currentImages.includes('drug.jpg') || currentImages === 'drug.jpg') {
+        // Replace drugp.jpg with new image
+        const imageArray = currentImages.split(',').map((path: string) => path.trim());
+        const filteredImages = imageArray.filter((path: string) => path !== 'drug.jpg');
+        updatedImagePath = filteredImages.length > 0 
+          ? `${filteredImages.join(',')},${newImagePath}`
+          : newImagePath;
+      } else {
+        // Add to existing images
+        updatedImagePath = currentImages 
+          ? `${currentImages},${newImagePath}`
+          : newImagePath;
+      }
 
       // Update backend with complete image path list
       await axios.put(`/drugs/${drugID}/images`, {
@@ -76,7 +88,34 @@ const DrugImageTable: React.FC = () => {
       console.error('Error uploading image:', error);
     }
   };
-  
+
+  const handleDeleteImage = async (drugID: number, imageToDelete: string) => {
+    try {
+      const currentDrug = tableData.find(drug => drug.DrugID === drugID);
+      const currentImages = currentDrug?.ImagePath || '';
+      
+      const imageArray = currentImages.split(',').map((path: string) => path.trim());
+      const updatedImageArray = imageArray.filter((path: string) => path !== imageToDelete);
+      const updatedImagePath = updatedImageArray.length > 0 ? updatedImageArray.join(',') : 'No Image';
+
+      // Update backend
+      await axios.put(`/drugs/${drugID}/images`, {
+        imagePath: updatedImagePath
+      });
+
+      // Update local state
+      setTableData((prevData) =>
+        prevData.map((drug) => {
+          if (drug.DrugID === drugID) {
+            return { ...drug, ImagePath: updatedImagePath };
+          }
+          return drug;
+        })
+      );
+    } catch (error) {
+      console.error('Error deleting image:', error);
+    }
+  };
 
   const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>, drugID: number) => {
     const file = event.target.files?.[0];
@@ -97,8 +136,10 @@ const DrugImageTable: React.FC = () => {
         accessorKey: 'ImagePath',
         header: 'Image Path',
         size: 300,
-        Cell: ({ cell }) => {
+        Cell: ({ cell, row }) => {
           const imagePath = cell.getValue<string>();
+          const drugID = row.original.DrugID;
+          
           if (imagePath === 'No Image') {
             return <span>No Image</span>;
           }
@@ -108,12 +149,19 @@ const DrugImageTable: React.FC = () => {
           return (
             <div>
               {imagePathArray.map((path, index) => (
-                <span key={index}>
-                  <a href={`/img/${path}`} target="_blank" rel="noopener noreferrer">
+                <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                  <a href={`/img/${path}`} target="_blank" rel="noopener noreferrer" style={{ marginRight: '8px' }}>
                     {path}
                   </a>
-                  {index < imagePathArray.length - 1 && ', '}
-                </span>
+                  <Button
+                    size="xs"
+                    color="red"
+                    variant="outline"
+                    onClick={() => handleDeleteImage(drugID, path)}
+                  >
+                    Delete
+                  </Button>
+                </div>
               ))}
             </div>
           );
