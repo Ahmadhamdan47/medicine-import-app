@@ -55,9 +55,9 @@ const DrugImageTable: React.FC = () => {
       const currentDrug = tableData.find(drug => drug.DrugID === drugID);
       const currentImages = currentDrug?.ImagePath === 'No Image' ? '' : currentDrug?.ImagePath || '';
       
-      let updatedImagePath;
+      let updatedImagePath: string;
       if (currentImages.includes('drug.jpg') || currentImages === 'drug.jpg') {
-        // Replace drugp.jpg with new image
+        // Replace drug.jpg with new image
         const imageArray = currentImages.split(',').map((path: string) => path.trim());
         const filteredImages = imageArray.filter((path: string) => path !== 'drug.jpg');
         updatedImagePath = filteredImages.length > 0 
