@@ -41,70 +41,59 @@ const DrugImageTable: React.FC = () => {
   const handleUploadImage = async (drugID: number, file: File) => {
     const formData = new FormData();
     formData.append('image', file);
-  
-    try {
-      const response = await axios.post(`/drugs/upload/${drugID}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-  
-      const newImagePath = response.data.imagePath;
-      
-      // Get current images from state
-      const currentDrug = tableData.find(drug => drug.DrugID === drugID);
-      const currentImages = currentDrug?.ImagePath === 'No Image' ? '' : currentDrug?.ImagePath || '';
-      
-      // Always append new image to existing images (never replace)
-      const updatedImagePath: string = currentImages 
-        ? `${currentImages},${newImagePath}`
-        : newImagePath;
 
-      // Update backend with complete image path list
-      await axios.put(`/drugs/${drugID}/images`, {
-        imagePath: updatedImagePath
+    try {
+      // 1️⃣  Upload the file – the API responds with its relative path
+      const { data } = await axios.post(`/drugs/upload/${drugID}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
-  
-      // Update the table data locally for real-time preview
-      setTableData((prevData) =>
-        prevData.map((drug) => {
-          if (drug.DrugID === drugID) {
-            return { ...drug, ImagePath: updatedImagePath };
-          }
-          return drug;
-        })
-      );
-    } catch (error) {
-      console.error('Error uploading image:', error);
+      const newImagePath: string = data.imagePath;            // e.g. "17497-front.png"
+
+      // 2️⃣  Get the *freshest* copy of this row from state
+      setTableData(prev => {
+        const next = prev.map(drug => {
+          if (drug.DrugID !== drugID) return drug;
+
+          // Current CSV (if any) – treat “No Image” or empty the same
+          const currentCSV = drug.ImagePath === 'No Image' ? '' : drug.ImagePath;
+          const appendedCSV = currentCSV
+            ? `${currentCSV},${newImagePath}`
+            : newImagePath;
+
+          // 3️⃣  Persist the full CSV back to the DB
+          axios.put(`/drugs/${drugID}/images`, {
+            ImagesPath: appendedCSV,          // 🟢 use correct column name
+          }).catch(console.error);
+
+          // 4️⃣  Optimistically update UI
+          return { ...drug, ImagePath: appendedCSV };
+        });
+
+        return next;
+      });
+    } catch (err) {
+      console.error('Error uploading image:', err);
     }
   };
 
   const handleDeleteImage = async (drugID: number, imageToDelete: string) => {
-    try {
-      const currentDrug = tableData.find(drug => drug.DrugID === drugID);
-      const currentImages = currentDrug?.ImagePath || '';
-      
-      const imageArray = currentImages.split(',').map((path: string) => path.trim());
-      const updatedImageArray = imageArray.filter((path: string) => path !== imageToDelete);
-      const updatedImagePath = updatedImageArray.length > 0 ? updatedImageArray.join(',') : 'No Image';
+    setTableData(prev => {
+      const next = prev.map(drug => {
+        if (drug.DrugID !== drugID) return drug;
 
-      // Update backend
-      await axios.put(`/drugs/${drugID}/images`, {
-        imagePath: updatedImagePath
+        const csv          = drug.ImagePath === 'No Image' ? '' : drug.ImagePath;
+        const newArray     = csv.split(',').filter((p: string) => p.trim() !== imageToDelete);
+        const updatedCSV   = newArray.length ? newArray.join(',') : 'No Image';
+
+        // Persist change (fire & forget to keep UI snappy)
+        axios.put(`/drugs/${drugID}/images`, { ImagesPath: updatedCSV })
+             .catch(console.error);
+
+        return { ...drug, ImagePath: updatedCSV };
       });
 
-      // Update local state
-      setTableData((prevData) =>
-        prevData.map((drug) => {
-          if (drug.DrugID === drugID) {
-            return { ...drug, ImagePath: updatedImagePath };
-          }
-          return drug;
-        })
-      );
-    } catch (error) {
-      console.error('Error deleting image:', error);
-    }
+      return next;
+    });
   };
 
   const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>, drugID: number) => {
