@@ -55,27 +55,17 @@ const DrugImageTable: React.FC = () => {
       const currentDrug = tableData.find(drug => drug.DrugID === drugID);
       const currentImages = currentDrug?.ImagePath === 'No Image' ? '' : currentDrug?.ImagePath || '';
       
-      let updatedImagePath: string;
-      if (currentImages.includes('drug.jpg') || currentImages === 'drug.jpg') {
-        // Replace drug.jpg with new image
-        const imageArray = currentImages.split(',').map((path: string) => path.trim());
-        const filteredImages = imageArray.filter((path: string) => path !== 'drug.jpg');
-        updatedImagePath = filteredImages.length > 0 
-          ? `${filteredImages.join(',')},${newImagePath}`
-          : newImagePath;
-      } else {
-        // Add to existing images
-        updatedImagePath = currentImages 
-          ? `${currentImages},${newImagePath}`
-          : newImagePath;
-      }
+      // Always append new image to existing images (never replace)
+      const updatedImagePath: string = currentImages 
+        ? `${currentImages},${newImagePath}`
+        : newImagePath;
 
       // Update backend with complete image path list
       await axios.put(`/drugs/${drugID}/images`, {
         imagePath: updatedImagePath
       });
   
-      // Update the table data locally
+      // Update the table data locally for real-time preview
       setTableData((prevData) =>
         prevData.map((drug) => {
           if (drug.DrugID === drugID) {
