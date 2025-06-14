@@ -47,13 +47,20 @@ const DrugImageTable: React.FC = () => {
         },
       });
   
-      const updatedImagePath = response.data.imagePath;
+      const newImagePath = response.data.imagePath;
   
-      // Update the table data locally
+      // Update the table data locally - append to existing images
       setTableData((prevData) =>
-        prevData.map((drug) =>
-          drug.DrugID === drugID ? { ...drug, ImagePath: updatedImagePath } : drug
-        )
+        prevData.map((drug) => {
+          if (drug.DrugID === drugID) {
+            const currentImages = drug.ImagePath === 'No Image' ? '' : drug.ImagePath;
+            const updatedImagePath = currentImages 
+              ? `${currentImages},${newImagePath}`
+              : newImagePath;
+            return { ...drug, ImagePath: updatedImagePath };
+          }
+          return drug;
+        })
       );
     } catch (error) {
       console.error('Error uploading image:', error);
@@ -77,12 +84,23 @@ const DrugImageTable: React.FC = () => {
         size: 300,
         Cell: ({ cell }) => {
           const imagePath = cell.getValue<string>();
-          return imagePath === 'No Image' ? (
-            <span>No Image</span>
-          ) : (
-            <a href={`/img/${imagePath}`} target="_blank" rel="noopener noreferrer">
-              {imagePath}
-            </a>
+          if (imagePath === 'No Image') {
+            return <span>No Image</span>;
+          }
+          
+          // Split by comma and create links for each image
+          const imagePathArray = imagePath.split(',').map(path => path.trim());
+          return (
+            <div>
+              {imagePathArray.map((path, index) => (
+                <span key={index}>
+                  <a href={`/img/${path}`} target="_blank" rel="noopener noreferrer">
+                    {path}
+                  </a>
+                  {index < imagePathArray.length - 1 && ', '}
+                </span>
+              ))}
+            </div>
           );
         },
       },
