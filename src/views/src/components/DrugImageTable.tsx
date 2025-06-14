@@ -25,6 +25,8 @@ const DrugImageTable: React.FC = () => {
       const formattedData = drugs.map((drug: any) => ({
         DrugID: drug.DrugID || 'N/A',
         DrugName: drug.DrugName || 'N/A',
+        Dosage: drug.Dosage || '',
+        DrugNameWithDosage: `${drug.DrugName || 'N/A'}${drug.Dosage ? ` - ${drug.Dosage}` : ''}`,
         ImagePath: drug.ImagesPath || 'No Image',
       }));
 
@@ -77,7 +79,12 @@ const DrugImageTable: React.FC = () => {
 
   const columns = React.useMemo<MRT_ColumnDef<any>[]>(
     () => [
-      { accessorKey: 'DrugName', header: 'Drug Name', size: 150 },
+      { 
+        accessorKey: 'DrugNameWithDosage', 
+        header: 'Drug Name + Dosage', 
+        size: 200,
+        enableGlobalFilter: true,
+      },
       {
         accessorKey: 'ImagePath',
         header: 'Image Path',
@@ -141,6 +148,8 @@ const DrugImageTable: React.FC = () => {
     enableColumnResizing: true,
     enableStickyHeader: true,
     enablePagination: true,
+    enableGlobalFilter: true,
+    enableColumnFilters: true,
   });
 
   return (
