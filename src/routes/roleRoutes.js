@@ -18,4 +18,10 @@ router.put('/roles/:id', RoleController.updateRole);
 // Delete a role
 router.delete('/roles/:id', RoleController.deleteRole);
 
+// Get a role by name
+router.get('/roles/name/:name', RoleController.getRoleByName);
+
+// Get categorized roles
+router.get('/roles/categorized', RoleController.getCategorizedRoles);
+
 module.exports = router;

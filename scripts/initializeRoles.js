@@ -20,7 +20,9 @@ async function initializeRoles() {
             { RoleName: 'Inspector' },
             { RoleName: 'Admin' },
             { RoleName: 'Donor' },
-            { RoleName: 'Recipient' }
+            { RoleName: 'Recipient' },
+            { RoleName: 'Quality Study Committee' },
+            { RoleName: 'Pricing Committee' }
         ];
 
         // Create roles if they don't exist

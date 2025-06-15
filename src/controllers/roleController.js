@@ -31,6 +31,26 @@ class RoleController {
         }
     }
 
+    // Get role by name
+    async getRoleByName(req, res) {
+        try {
+            const role = await RoleService.getRoleByName(req.params.name);
+            res.status(200).json(role);
+        } catch (error) {
+            res.status(404).json({ error: error.message });
+        }
+    }
+
+    // Get categorized roles
+    async getCategorizedRoles(req, res) {
+        try {
+            const categorizedRoles = await RoleService.getRolesByCategory();
+            res.status(200).json(categorizedRoles);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    }
+
     // Update a role
     async updateRole(req, res) {
         try {

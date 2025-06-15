@@ -34,7 +34,9 @@ const authenticateToken = async (req, res, next) => {
                 'Import/Export': 'import_export', 
                 'Head Pharmacy': 'head_pharmacy',
                 'Inspector': 'inspector',
-                'Admin': 'admin'
+                'Admin': 'admin',
+                'Quality Study Committee': 'quality_study_committee',
+                'Pricing Committee': 'pricing_committee'
             };
             roleName = roleMapping[user.role.RoleName] || user.role.RoleName.toLowerCase();
         }

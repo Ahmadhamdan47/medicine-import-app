@@ -60,7 +60,9 @@ async function setupRoles() {
         const requiredRoles = [
             { id: 4, name: 'Import/Export' },
             { id: 5, name: 'Head Pharmacy' },
-            { id: 6, name: 'Inspector' }
+            { id: 6, name: 'Inspector' },
+            { id: 8, name: 'Quality Study Committee' },
+            { id: 9, name: 'Pricing Committee' }
         ];
 
         // Add missing roles

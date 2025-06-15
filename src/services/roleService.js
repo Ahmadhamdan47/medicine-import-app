@@ -61,6 +61,36 @@ class RoleService {
             throw new Error(`Could not delete role: ${error.message}`);
         }
     }
+
+    // Get role by name (helper method for new roles)
+    async getRoleByName(roleName) {
+        try {
+            const role = await Role.findOne({ where: { RoleName: roleName } });
+            if (!role) {
+                throw new Error(`Role '${roleName}' not found`);
+            }
+            return role;
+        } catch (error) {
+            throw new Error(`Could not retrieve role: ${error.message}`);
+        }
+    }
+
+    // Get roles by category (helper for grouping)
+    async getRolesByCategory() {
+        try {
+            const roles = await Role.findAll({ order: [['RoleId', 'ASC']] });
+            
+            const categorized = {
+                core: roles.filter(r => ['Agent', 'Import/Export', 'Head Pharmacy', 'Inspector', 'Admin'].includes(r.RoleName)),
+                committees: roles.filter(r => ['Quality Study Committee', 'Pricing Committee'].includes(r.RoleName)),
+                others: roles.filter(r => ['Donor', 'Recipient'].includes(r.RoleName))
+            };
+            
+            return categorized;
+        } catch (error) {
+            throw new Error(`Could not categorize roles: ${error.message}`);
+        }
+    }
 }
 
 module.exports = new RoleService();
