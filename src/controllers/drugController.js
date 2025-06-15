@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const DrugService = require("../services/drugService");
-
+const Drug = require('../models/pharmacyDrug'); // or wherever your Drug model is located
 const addPharmacyDrug = async (req, res) => {
   const drugData = req.body;
 
