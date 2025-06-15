@@ -81,7 +81,7 @@ class RoleService {
             const roles = await Role.findAll({ order: [['RoleId', 'ASC']] });
             
             const categorized = {
-                core: roles.filter(r => ['Agent', 'Import/Export', 'Head Pharmacy', 'Inspector', 'Admin'].includes(r.RoleName)),
+                core: roles.filter(r => ['Agent', 'Import/Export', 'Head Pharmacy', 'Inspector', 'Admin', 'Pharmacy Service'].includes(r.RoleName)),
                 committees: roles.filter(r => ['Quality Study Committee', 'Pricing Committee'].includes(r.RoleName)),
                 others: roles.filter(r => ['Donor', 'Recipient'].includes(r.RoleName))
             };

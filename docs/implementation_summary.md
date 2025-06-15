@@ -120,6 +120,7 @@ The implementation includes comprehensive role-based access control:
 - **import_export** - Internal staff managing workflow
 - **head_pharmacy** - Authorizes Swift payments
 - **inspector** - Warehouse/customs inspectors
+- **pharmacy_service** - Pharmacy service staff managing drug operations
 - **admin** - Technical/IT admin
 
 ### Middleware

@@ -15,6 +15,7 @@
      - 'Import/Export' → 'import_export'  
      - 'Head Pharmacy' → 'head_pharmacy'
      - 'Inspector' → 'inspector'
+     - 'Pharmacy Service' → 'pharmacy_service'
      - 'Admin' → 'admin'
 
 2. **All Importation Routes Protected** 🔐
@@ -31,6 +32,7 @@
    - Import/Export can manage all requests
    - Head Pharmacy can approve swift payments
    - Inspectors can perform inspections
+   - Pharmacy Service can manage drug operations
    - Admins have full access
 
 ## Integration with Your Existing System ✅

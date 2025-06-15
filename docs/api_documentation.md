@@ -18,6 +18,7 @@ Authorization: Bearer <jwt_token>
 | **import_export** | Manage all requests, approve RFDs, update shipping |
 | **head_pharmacy** | Approve swift payments, view all requests |
 | **inspector** | Perform inspections, update inspection status |
+| **pharmacy_service** | Manage pharmacy operations, drug inventory, coordinate with pharmacy departments |
 | **admin** | Full access to all operations |
 
 ## Base URL

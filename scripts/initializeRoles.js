@@ -21,6 +21,7 @@ async function initializeRoles() {
             { RoleName: 'Admin' },
             { RoleName: 'Donor' },
             { RoleName: 'Recipient' },
+            { RoleName: 'Pharmacy Service' },
             { RoleName: 'Quality Study Committee' },
             { RoleName: 'Pricing Committee' }
         ];

@@ -20,6 +20,7 @@ Below is the canonical list of **user roles** used in the UI together with a sho
 | **import_export** | Internal Import / Export department staff who review requests, approve quantities, and manage RFD & Pro-forma workflow. | • Full CRUD on **all** requests<br/>• Change status & add remarks<br/>• See / download all attachments |
 | **head_pharmacy** | Head of Pharmacy who authorises Swift payments and gives final sign-off. | • Read-only on previous steps<br/>• Approve / reject Swift payment<br/>• Update shipping & border-crossing info |
 | **inspector** | Warehouse / customs inspector who performs the final quality check. | • Read-only on requests<br/>• Update inspection outcome & batch details |
+| **pharmacy_service** | Pharmacy service staff who manage drug-related operations and coordinate with pharmacy departments. | • Manage drug inventory<br/>• Coordinate with pharmacy operations<br/>• View and update pharmacy-related requests |
 | **admin** *(new)* | Technical / IT admin for user & reference-data management. | • Manage users & roles<br/>• Manage reference tables (ATC codes, warehouses…) |
 
 Service accounts (non-human):

@@ -8,7 +8,7 @@ The test user management system creates standardized test users with different r
 
 ## Test Users
 
-The system creates 7 test users with different roles:
+The system creates test users with different roles:
 
 | Username | Role | Description |
 |----------|------|-------------|
@@ -17,6 +17,7 @@ The system creates 7 test users with different roles:
 | `head_pharmacy_test` | Head Pharmacy | Can approve swift payments and final approvals |
 | `inspector_test` | Inspector | Can inspect shipments and manage quality control |
 | `admin_test` | Admin | Full system access including user management |
+| `pharmacy_service_test` | Pharmacy Service | Can manage pharmacy-related services and operations |
 | `quality_committee_test` | Quality Study Committee | Can review and approve quality studies |
 | `pricing_committee_test` | Pricing Committee | Can review and approve pricing decisions |
 

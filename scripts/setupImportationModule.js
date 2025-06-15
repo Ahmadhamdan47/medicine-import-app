@@ -61,6 +61,7 @@ async function setupRoles() {
             { id: 4, name: 'Import/Export' },
             { id: 5, name: 'Head Pharmacy' },
             { id: 6, name: 'Inspector' },
+            { id: 7, name: 'Pharmacy Service' },
             { id: 8, name: 'Quality Study Committee' },
             { id: 9, name: 'Pricing Committee' }
         ];

@@ -25,12 +25,14 @@ Content-Type: application/json
 | **import_export** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅** | ❌ |
 | **head_pharmacy** | ❌ | ✅ | ✅ | ❌ | ❌ | ✅*** | ❌ |
 | **inspector** | ❌ | ✅ | ✅ | ✅**** | ❌ | ❌ | ❌ |
+| **pharmacy_service** | ✅***** | ✅ | ✅ | ✅***** | ❌ | ❌ | ❌ |
 | **admin** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 *Only own pending requests  
 **RFDs and proformas  
 ***Swift payments only  
 ****Inspection-related only
+*****Pharmacy-related operations
 
 ---
 
