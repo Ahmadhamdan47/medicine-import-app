@@ -96,12 +96,23 @@ const DrugImageTable: React.FC = () => {
     });
   };
 
-  const handleFileInputChange = (event: React.ChangeEvent<HTMLInputElement>, drugID: number) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      handleUploadImage(drugID, file);
-    }
-  };
+/* -------------------- 2. handle several files at once -------------------- */
+const handleFileInputChange = (
+  event: React.ChangeEvent<HTMLInputElement>,
+  drugID: number,
+) => {
+  const fileList = event.target.files;
+  if (!fileList?.length) return;
+
+  // Make a true array so we can iterate easily
+  const files: File[] = Array.from(fileList);
+
+  // 🚀 run all uploads in parallel; drop await if you prefer sequential
+  Promise.all(files.map((f) => handleUploadImage(drugID, f))).catch(console.error);
+
+  // (optional) reset the input so selecting the same files again re-fires onChange
+  event.target.value = '';
+};
 
   const columns = React.useMemo<MRT_ColumnDef<any>[]>(
     () => [
@@ -157,6 +168,7 @@ const DrugImageTable: React.FC = () => {
               <input
                 type="file"
                 accept="image/*"
+                multiple
                 id={`upload-${drugID}`}
                 style={{ display: 'none' }}
                 onChange={(e) => handleFileInputChange(e, drugID)}
