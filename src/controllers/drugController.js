@@ -331,22 +331,32 @@ const uploadDrugImage = async (req, res) => {
   const { DrugID } = req.params;
 
   try {
-    if (!req.files || !Array.isArray(req.files) || req.files.length === 0) {
+    // Handle both single file and multiple files
+    const files = req.files || (req.file ? [req.file] : []);
+    
+    if (!files || files.length === 0) {
       return res.status(400).json({ error: "No files uploaded" });
     }
 
-    // Collect all image paths
-    const imagePaths = req.files.map(file => path.join(file.filename));
-
-    // Update the drug's ImagesPath (store as array or comma-separated string as per your DB schema)
-    const updatedDrug = await DrugService.updateDrug(DrugID, { ImagesPath: imagePaths });
-
-    res.status(200).json({
-      success: true,
-      message: "Images uploaded successfully",
-      imagePaths,
-      drug: updatedDrug,
-    });
+    // For single file upload, return just the filename
+    if (files.length === 1) {
+      const imagePath = files[0].filename;
+      
+      res.status(200).json({
+        success: true,
+        message: "Image uploaded successfully",
+        imagePath, // This matches what the frontend expects
+      });
+    } else {
+      // For multiple files, return array of paths
+      const imagePaths = files.map(file => file.filename);
+      
+      res.status(200).json({
+        success: true,
+        message: "Images uploaded successfully",
+        imagePaths,
+      });
+    }
   } catch (error) {
     console.error("Error in uploadDrugImage:", error);
     res.status(500).json({ error: "Failed to upload images" });

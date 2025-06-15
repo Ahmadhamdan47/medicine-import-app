@@ -711,7 +711,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post("/upload/:DrugID", upload.single("image"), drugController.uploadDrugImage);
+router.post("/upload/:DrugID", upload.array("image", 10), drugController.uploadDrugImage);
 
 
 
