@@ -380,6 +380,45 @@ const setPriceUpdateDate = async (req, res) => {
     res.status(500).json({ error: "Failed to set price update date" });
   }
 };
+const updateDrugImages = async (req, res) => {
+  try {
+    const { drugId } = req.params;
+    const { ImagesPath } = req.body;
+
+    // Validate input
+    if (!drugId) {
+      return res.status(400).json({ 
+        error: 'Drug ID is required' 
+      });
+    }
+
+    // Update the drug's image paths in the database
+    // Assuming you have a Drug model/service
+    const updatedDrug = await Drug.update(
+      { ImagesPath: ImagesPath || 'No Image' },
+      { where: { DrugID: drugId } }
+    );
+
+    if (updatedDrug[0] === 0) {
+      return res.status(404).json({ 
+        error: 'Drug not found' 
+      });
+    }
+
+    res.status(200).json({
+      message: 'Drug images updated successfully',
+      drugId: drugId,
+      imagesPath: ImagesPath
+    });
+
+  } catch (error) {
+    console.error('Error updating drug images:', error);
+    res.status(500).json({ 
+      error: 'Failed to update drug images',
+      details: error.message 
+    });
+  }
+};
 
 module.exports = {
   searchDrugByATCName,
@@ -415,5 +454,6 @@ module.exports = {
   checkForUpdates,
   uploadDrugImage,
   setPriceUpdateDate,
+  updateDrugImages
 
 };

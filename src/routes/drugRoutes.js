@@ -713,6 +713,40 @@ const upload = multer({ storage });
 
 router.post("/upload/:DrugID", upload.array("image", 10), drugController.uploadDrugImage);
 
-
+/**
+ * @swagger
+ * /drugs/{drugId}/images:
+ *   put:
+ *     summary: Update drug images
+ *     description: Update the image paths for a specific drug
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: path
+ *         name: drugId
+ *         required: true
+ *         description: The ID of the drug to update images for
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               ImagesPath:
+ *                 type: string
+ *                 description: Comma-separated list of image paths
+ *             example:
+ *               ImagesPath: "image1.jpg,image2.jpg,image3.jpg"
+ *     responses:
+ *       '200':
+ *         description: OK. Drug images updated successfully.
+ *       '404':
+ *         description: Not Found. Drug not found for the specified ID.
+ *       '500':
+ *         description: Internal Server Error. Failed to update drug images.
+ */
+router.put("/:drugId/images", drugController.updateDrugImages);
 
 module.exports = router;
