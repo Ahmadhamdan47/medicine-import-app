@@ -77,13 +77,15 @@ const sendPushNotification = async (notificationId) => {
         const tokens = await FirebaseToken.findAll();
         const tokenList = tokens.map((token) => token.Token);
 
-        if (tokenList.length === 0) throw new Error('No Firebase tokens available');
-
-        // Prepare the Firebase message
+        if (tokenList.length === 0) throw new Error('No Firebase tokens available');        // Prepare the Firebase message
         const message = {
             notification: {
                 title: notification.Title,
                 body: notification.Message,
+            },
+            data: {
+                notificationId: notificationId.toString(),
+                ...(notification.Url && { url: notification.Url })
             },
             tokens: tokenList, // Send to all tokens
         };

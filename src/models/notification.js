@@ -9,9 +9,12 @@ const Notification = sequelize.define('notification', {
     },
     Title: {
         type: DataTypes.STRING(255),
-    },
-    Message: {
+    },    Message: {
         type: DataTypes.TEXT,
+    },
+    Url: {
+        type: DataTypes.STRING(500),
+        allowNull: true,
     },
     IsRead: {
         type: DataTypes.BOOLEAN,

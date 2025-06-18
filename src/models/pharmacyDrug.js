@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 const DrugPresentation = require('./drugPresentation');
 const Dosage = require('./dosage');
-
+const NSSFPricing = require('./nssfPricing');
 const NewDrug = sequelize.define('drug', {
     DrugID: {
         type: DataTypes.INTEGER,
@@ -298,5 +298,10 @@ NewDrug.hasMany(DrugPresentation, { foreignKey: 'DrugId' }); // Drug can have ma
 DrugPresentation.belongsTo(NewDrug, { foreignKey: 'DrugId' }); // Each presentation belongs to a drug
 NewDrug.hasMany(Dosage, { foreignKey: 'DrugId' }); // Drug can have many presentations
 Dosage.belongsTo(NewDrug, { foreignKey: 'DrugId' }); // Each presentation belongs to a drug
+
+// Add NSSF Pricing relationship
+
+NewDrug.hasMany(NSSFPricing, { foreignKey: 'drug_id', as: 'nssfPricing' });
+NSSFPricing.belongsTo(NewDrug, { foreignKey: 'drug_id', as: 'drug' });
 
 module.exports = NewDrug;
