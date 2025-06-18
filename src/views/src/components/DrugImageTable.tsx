@@ -83,12 +83,20 @@ const handleFileInputChange = async (
 
     setTableData(prev => {
       const next = prev.map(row => {
-        if (row.DrugID !== drugID) return row;
+        if (row.DrugID !== drugID) return row;        const combined = [...splitCSV(row.ImagePath), ...newPaths];
 
-        const combined = [...splitCSV(row.ImagePath), ...newPaths];
-        const updatedCSV = joinCSV(combined);
+        // Sort combined paths based on the number before .png
+        const sorted = combined.sort((a, b) => {
+          const extractNumber = (s: string) => {
+            const match = s.match(/(\d+)(?=\.png$)/);
+            return match ? parseInt(match[1]) : 0;
+          };
+          return extractNumber(a) - extractNumber(b);
+        });
 
-        // persist **once** for the whole batch
+        const updatedCSV = joinCSV(sorted);
+
+        // persist **once** for the whole batch in correct order
         axios
           .put(`/drugs/${drugID}/images`, { ImagesPath: updatedCSV })
           .catch(console.error);
@@ -135,10 +143,16 @@ const handleFileInputChange = async (
     {
       accessorKey: "ImagePath",
       header: "Image Path",
-      size: 320,
-      Cell: ({ cell, row }) => {
-        const paths = splitCSV(cell.getValue<string>());
+      size: 320,      Cell: ({ cell, row }) => {
         const drugID = row.original.DrugID;
+
+        const paths = splitCSV(cell.getValue<string>()).sort((a, b) => {
+          const extractNumber = (s: string) => {
+            const match = s.match(/(\d+)(?=\.png$)/);
+            return match ? parseInt(match[1]) : 0;
+          };
+          return extractNumber(a) - extractNumber(b);
+        });
 
         return paths.length
           ? (
