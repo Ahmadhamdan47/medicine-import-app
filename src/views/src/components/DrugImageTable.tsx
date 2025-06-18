@@ -11,6 +11,7 @@ import { Button } from "@mantine/core";
 interface DrugRow {
   DrugID: number;
   DrugName: string;
+  Manufacturer: string;
   Dosage: string;
   DrugNameWithDosage: string;
   ImagePath: string;             // CSV string or the literal “No Image”
@@ -29,6 +30,7 @@ const DrugImageTable: React.FC = () => {
         const formatted: DrugRow[] = data.drugs.map((d: any) => ({
           DrugID: d.DrugID,
           DrugName: d.DrugName || "N/A",
+          Manufacturer: d.Manufacturer || "N/A",
           Dosage: d.Dosage || "",
           DrugNameWithDosage:
             `${d.DrugName || "N/A"}${d.Dosage ? ` - ${d.Dosage}` : ""}`,
@@ -63,39 +65,44 @@ const DrugImageTable: React.FC = () => {
   const joinCSV  = (arr: string[]) => arr.length ? arr.join(",") : "No Image";
 
   /* ---------------------- 3. multi-file upload flow --------------------- */
-  const handleFileInputChange = async (
-    e: ChangeEvent<HTMLInputElement>,
-    drugID: number,
-  ) => {
-    const files = Array.from(e.target.files ?? []);
-    if (!files.length) return;
+const handleFileInputChange = async (
+  e: ChangeEvent<HTMLInputElement>,
+  drugID: number,
+) => {
+  const files = Array.from(e.target.files ?? []);
+  if (!files.length) return;
 
-    try {
-      const newPaths = await Promise.all(files.map(f => uploadOne(drugID, f)));
+  try {
+    const newPaths: string[] = [];
 
-      setTableData(prev => {
-        const next = prev.map(row => {
-          if (row.DrugID !== drugID) return row;
-
-          const combined = [...splitCSV(row.ImagePath), ...newPaths];
-          const updatedCSV = joinCSV(combined);
-
-          // persist **once** for the whole batch
-          axios
-            .put(`/drugs/${drugID}/images`, { ImagesPath: updatedCSV })
-            .catch(console.error);
-
-          return { ...row, ImagePath: updatedCSV };
-        });
-        return next;
-      });
-    } catch (err) {
-      console.error("Error uploading images:", err);
-    } finally {
-      // reset so re-selecting the same files fires onChange again
-      e.target.value = "";
+    for (const file of files) {
+      const path = await uploadOne(drugID, file); // Wait sequentially
+      newPaths.push(path);
     }
-  };
+
+    setTableData(prev => {
+      const next = prev.map(row => {
+        if (row.DrugID !== drugID) return row;
+
+        const combined = [...splitCSV(row.ImagePath), ...newPaths];
+        const updatedCSV = joinCSV(combined);
+
+        // persist **once** for the whole batch
+        axios
+          .put(`/drugs/${drugID}/images`, { ImagesPath: updatedCSV })
+          .catch(console.error);
+
+        return { ...row, ImagePath: updatedCSV };
+      });
+      return next;
+    });
+  } catch (err) {
+    console.error("Error uploading images:", err);
+  } finally {
+    e.target.value = ""; // Reset file input
+  }
+};
+
 
   /* ------------------------- 4. delete image ---------------------------- */
   const handleDeleteImage = (drugID: number, img: string) => {
@@ -119,6 +126,11 @@ const DrugImageTable: React.FC = () => {
       accessorKey: "DrugNameWithDosage",
       header: "Drug Name + Dosage",
       size: 220,
+    },
+    {
+      accessorKey: "Manufacturer",
+      header: "Manufacturer",
+      size: 180,
     },
     {
       accessorKey: "ImagePath",
