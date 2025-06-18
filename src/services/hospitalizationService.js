@@ -4,6 +4,7 @@ const CategoryPricing = require('../models/categoryPricing');
 const OperationShare = require('../models/operationShare');
 const HospitalOperationMapping = require('../models/hospitalOperationMapping');
 const Hospital = require('../models/hospital');
+const NSSFOperationCoverage = require('../models/nssfOperationCoverage');
 
 const OperationSystems = require('../models/opeartionsystems'); // Assuming the model is in the same directory
 const { search } = require('../routes/drugRoutes');
@@ -19,7 +20,6 @@ const searchOperationsBySystemPrivate = async (systemNameOrNameAR) => {
     }
   });
   console.log(operationSystem);
-
   if (!operationSystem) {
     throw new Error('No matching operation system found');
   }
@@ -27,6 +27,14 @@ const searchOperationsBySystemPrivate = async (systemNameOrNameAR) => {
   const operations = await Operation.findAll({
     where: { systemChar: operationSystem.systemChar },
     attributes: ['ID','Name','NameAr','Anesthetic','Description','DescriptionAR','Los', 'Code'],
+    include: [
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
+    ]
   });
 console.log(operations);
   const operationShare = await getOperationSharePrivate();
@@ -71,10 +79,17 @@ const searchOperationsBySystemPublic = async (systemNameOrNameAR) => {
   if (!operationSystem) {
     throw new Error('No matching operation system found');
   }
-
   const operations = await Operation.findAll({
     where: { systemChar: operationSystem.systemChar },
     attributes: ['ID','Name','NameAr','Anesthetic','Description','DescriptionAR','Los', 'Code'],
+    include: [
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
+    ]
   });
 
   const operationShare = await getOperationSharePublic();
@@ -111,6 +126,14 @@ const searchOperationPrivate = async (query) => {
       ]
     },
     attributes: ['ID','Name','NameAr','Anesthetic','Description','DescriptionAR','Los', 'Code'],
+    include: [
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
+    ]
   });
 
   const operationShare = await getOperationSharePrivate();
@@ -147,6 +170,14 @@ const searchOperationPublic = async (query) => {
       ]
     },
     attributes: ['ID','Name','NameAr','Anesthetic','Description', 'Code'],
+    include: [
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
+    ]
   });
 
   const operationShare = await getOperationSharePublic();
@@ -180,7 +211,6 @@ const searchOperationByHospitalName = async (hospitalName) => {
     throw new Error(`Hospital with name ${hospitalName} not found`);
   }
 
-
   const operations = await Operation.findAll({
     include: [
       {
@@ -188,6 +218,12 @@ const searchOperationByHospitalName = async (hospitalName) => {
         where: { HospitalId: hospital.ID },
         attributes: ['OperationId'],
       },
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
     ],
   });
 
@@ -230,7 +266,12 @@ const getOperationById = async (operationId) => {
       {
         model: CategoryPricing,
       },
-     
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
     ],
   });
 
@@ -330,7 +371,16 @@ const getAllHospitals = async () => {
 };
 
 const getAllOperations = async () => {
-  const operations = await Operation.findAll();
+  const operations = await Operation.findAll({
+    include: [
+      {
+        model: NSSFOperationCoverage,
+        as: 'nssfCoverage',
+        where: { is_active: true },
+        required: false
+      }
+    ]
+  });
   if (!operations) {
     throw new Error('No operations found');
   }
@@ -430,7 +480,6 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
       isPrivate = false;
     }
   }
-
   // Filter by hospital name or isPrivate if specified
   includeConditions.push({
     model: HospitalOperationMapping,
@@ -445,6 +494,14 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
         },
       },
     ],
+  });
+
+  // Add NSSF coverage
+  includeConditions.push({
+    model: NSSFOperationCoverage,
+    as: 'nssfCoverage',
+    where: { is_active: true },
+    required: false
   });
 
   console.log("Hospital filter conditions:", includeConditions);

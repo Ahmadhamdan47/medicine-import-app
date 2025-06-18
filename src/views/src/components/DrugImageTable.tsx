@@ -13,8 +13,9 @@ interface DrugRow {
   DrugName: string;
   Manufacturer: string;
   Dosage: string;
+  Presentation: string;
   DrugNameWithDosage: string;
-  ImagePath: string;             // CSV string or the literal “No Image”
+  ImagePath: string;             // CSV string or the literal "No Image"
 }
 
 const DrugImageTable: React.FC = () => {
@@ -32,8 +33,8 @@ const DrugImageTable: React.FC = () => {
           DrugName: d.DrugName || "N/A",
           Manufacturer: d.Manufacturer || "N/A",
           Dosage: d.Dosage || "",
-          DrugNameWithDosage:
-            `${d.DrugName || "N/A"}${d.Dosage ? ` - ${d.Dosage}` : ""}`,
+          Presentation: d.Presentation || "",          DrugNameWithDosage:
+            `${d.DrugName || "N/A"}${d.Dosage ? ` - ${d.Dosage}` : ""}${d.Presentation ? ` - ${d.Presentation}` : ""}`,
           ImagePath: d.ImagesPath || "No Image",
         }));
         setTableData(formatted);
@@ -121,11 +122,10 @@ const handleFileInputChange = async (
   };
 
   /* --------------------------- 5. columns ------------------------------- */
-  const columns = useMemo<MRT_ColumnDef<DrugRow>[]>(() => [
-    {
+  const columns = useMemo<MRT_ColumnDef<DrugRow>[]>(() => [    {
       accessorKey: "DrugNameWithDosage",
-      header: "Drug Name + Dosage",
-      size: 220,
+      header: "Drug Name + Dosage + Presentation",
+      size: 280,
     },
     {
       accessorKey: "Manufacturer",
