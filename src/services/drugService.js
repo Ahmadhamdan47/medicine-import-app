@@ -37,8 +37,6 @@ const rate = 89500;
 const formattedRate = formatNumberWithCommas(rate); 
 
 const getDrugByDiseaseCategory = async (categoryName) => {
-  // Import NSSFPricing model
-  const NSSFPricing = require('../models/nssfPricing');
 
   const diseaseCategory = await DiseaseCategory.findOne({ where: { CategoryName: categoryName } });
   const diseaseCategoryId = diseaseCategory.DiseaseCategoryId;
@@ -68,26 +66,6 @@ const drugs = await Drug.findAll({
     'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
     'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
   ],
-  include: [
-    {
-      model: NSSFPricing,
-      as: 'nssfPricing',
-      where: {
-        is_active: true
-      },
-      required: false, // Left join - include drugs even if they don't have NSSF pricing
-      attributes: [
-        'effective_date',
-        'public_price_lbp',
-        'nssf_price_lbp',
-        'nssf_coverage_percentage',
-        'nssf_coverage_amount_lbp',
-        'real_nssf_coverage_percentage'
-      ],
-      order: [['effective_date', 'DESC']], // Get the most recent pricing
-      limit: 1 // Only get the most recent active pricing record
-    }
-  ]
 });
 
 const drugsWithDosageAndRoute = drugs.map(drug => {
@@ -101,11 +79,6 @@ const drugsWithDosageAndRoute = drugs.map(drug => {
   const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
   const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
 
-  // Get the most recent NSSF pricing data
-  const nssfData = drug.dataValues.nssfPricing && drug.dataValues.nssfPricing.length > 0 
-    ? drug.dataValues.nssfPricing[0] 
-    : null;
-
   return {
     ...drug.dataValues,
     dosage,
@@ -116,8 +89,7 @@ const drugsWithDosageAndRoute = drugs.map(drug => {
     CountryName,
     priceInLBP,
     unitPrice,
-    unitPriceInLBP,
-    nssfPricing: nssfData
+    unitPriceInLBP
   };
 });
 return drugsWithDosageAndRoute;
@@ -128,9 +100,6 @@ return drugsWithDosageAndRoute;
 
 const searchDrugByATCName = async (atcName) => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     console.log("🔍 Searching for drugs with ATC Name:", atcName);
 
     // 1️⃣ Find the ATC code based on the ATC name
@@ -156,26 +125,6 @@ const searchDrugByATCName = async (atcName) => {
         'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
         'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode'
       ],
-      include: [
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        }
-      ]
     });
 
     if (!drugs.length) {
@@ -183,23 +132,19 @@ const searchDrugByATCName = async (atcName) => {
       return [];
     }
 
-    console.log("✅ Found Drugs:", drugs);    // 3️⃣ Process drug data (Convert price, add extra fields)
+    console.log("✅ Found Drugs:", drugs);
+
+    // 3️⃣ Process drug data (Convert price, add extra fields)
     const drugsWithDosageAndRoute = drugs.map(drug => {
       const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.Amount ? drug.Price / drug.Amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
 
-      // Get the most recent NSSF pricing data
-      const nssfData = drug.dataValues.nssfPricing && drug.dataValues.nssfPricing.length > 0 
-        ? drug.dataValues.nssfPricing[0] 
-        : null;
-
       return {
         ...drug.dataValues,
         priceInLBP,
         unitPrice,
-        unitPriceInLBP,
-        nssfPricing: nssfData
+        unitPriceInLBP
       };
     });
 
@@ -211,9 +156,6 @@ const searchDrugByATCName = async (atcName) => {
 };
 const searchDrugByName = async (query) => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     const drugs = await Drug.findAll({
       where: {
         DrugName: { [Op.like]: `%${query}%` },
@@ -226,27 +168,8 @@ const searchDrugByName = async (query) => {
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
         'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode',
       ],
-      include: [
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        }
-      ]
-    });  
+    });
+  
     const drugsWithDosageAndRoute = drugs.map(drug => {
       const dosage = drug.Dosage;
       const route = drug.Route; // Assuming 'Form' corresponds to 'route'
@@ -257,11 +180,6 @@ const searchDrugByName = async (query) => {
       const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
-
-      // Get the most recent NSSF pricing data
-      const nssfData = drug.dataValues.nssfPricing && drug.dataValues.nssfPricing.length > 0 
-        ? drug.dataValues.nssfPricing[0] 
-        : null;
   
       return {
         ...drug.dataValues,
@@ -273,8 +191,7 @@ const searchDrugByName = async (query) => {
         CountryName,
         priceInLBP,
         unitPrice,
-        unitPriceInLBP,
-        nssfPricing: nssfData
+        unitPriceInLBP
       };
     });
     return drugsWithDosageAndRoute;
@@ -285,9 +202,6 @@ const searchDrugByName = async (query) => {
 };
 const getDrugById = async (DrugIDs) => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     const drugIdArray = DrugIDs.split(',').map(id => id.trim()); // Split and trim the DrugIDs
 
     const drugs = await Drug.findAll({
@@ -298,26 +212,6 @@ const getDrugById = async (DrugIDs) => {
         "DrugID", "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "ImagesPath",
         "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum", "GTIN"
       ],
-      include: [
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        }
-      ]
     });
 
     if (!drugs.length) {
@@ -338,16 +232,13 @@ const getDrugById = async (DrugIDs) => {
       const priceInLBP = drugPlainData.Price * 89500;
       const amount = drugPlainData.Amount;
       const unitPrice = amount > 0 ? drugPlainData.Price / amount : null;
-      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;      // Format GTIN with visible leading zeros (as string, left-padded to 14 chars)
+      const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
+
+      // Format GTIN with visible leading zeros (as string, left-padded to 14 chars)
       let visibleGTIN = drugPlainData.GTIN == null ? '' : String(drugPlainData.GTIN).trim();
       if (visibleGTIN && visibleGTIN.length < 14) {
         visibleGTIN = visibleGTIN.padStart(14, '0');
       }
-
-      // Get the most recent NSSF pricing data
-      const nssfData = drugPlainData.nssfPricing && drugPlainData.nssfPricing.length > 0 
-        ? drugPlainData.nssfPricing[0] 
-        : null;
 
       return {
         ...drugPlainData,
@@ -358,8 +249,7 @@ const getDrugById = async (DrugIDs) => {
         AgentName: drugPlainData.Manufacturer,
         usdRate: formattedRate,
         priceUpdateDate: price_update_date,
-        GTIN: visibleGTIN,
-        nssfPricing: nssfData
+        GTIN: visibleGTIN
       };
     }));
 
@@ -428,10 +318,7 @@ const addPharmacyDrug = async (drugData) => {
 
 const getAllDrugs = async () => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
-    // Fetch all drugs with associated presentations, dosages, and NSSF pricing, excluding NotMarketed drugs
+    // Fetch all drugs with associated presentations and dosages, excluding NotMarketed drugs
     const drugs = await Drug.findAll({
       where: {
         NotMarketed: {
@@ -472,24 +359,6 @@ const getAllDrugs = async () => {
             'Denominator3Unit',
           ],
         },
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        },
       ],
     });
 
@@ -503,15 +372,12 @@ const getAllDrugs = async () => {
 
 const getAllDrugsPaginated = async (page = 1, limit = 500) => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     // Ensure page is at least 1
     page = Math.max(page, 1);
 
     const offset = (page - 1) * limit;
 
-    // Fetch drugs with associated presentations, dosages, and NSSF pricing, excluding NotMarketed drugs
+    // Fetch drugs with associated presentations and dosages, excluding NotMarketed drugs
     const { rows, count } = await Drug.findAndCountAll({
       where: {
         NotMarketed: {
@@ -554,24 +420,6 @@ const getAllDrugsPaginated = async (page = 1, limit = 500) => {
             'Denominator3Unit',
           ],
         },
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        },
       ],
     });
 
@@ -606,9 +454,6 @@ const getAllDrugsPaginatedByATC = async (page = 1, limit = 500) => {
 };
 const smartSearch = async (query) => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     console.log("Query:", query); // Log the query
 
     // Include GTIN in the attributes
@@ -618,26 +463,6 @@ const smartSearch = async (query) => {
         'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
         'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
       ],
-      include: [
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        }
-      ]
     });
     
     const options = {
@@ -675,7 +500,9 @@ const smartSearch = async (query) => {
       if (amount && amount > 0) {
         unitPrice = price / amount;
         unitPriceInLBP = unitPrice * 89500;
-      }      // Fetch the additional data from getDrugById
+      }
+
+      // Fetch the additional data from getDrugById
       let ATC;
       let stratum;
       try {
@@ -685,11 +512,6 @@ const smartSearch = async (query) => {
         ATC = null;
         stratum = null;
       }
-
-      // Get the most recent NSSF pricing data
-      const nssfData = drug.dataValues && drug.dataValues.nssfPricing && drug.dataValues.nssfPricing.length > 0 
-        ? drug.dataValues.nssfPricing[0] 
-        : null;
 
       return { 
         ...drug.get({ plain: true }),
@@ -705,8 +527,7 @@ const smartSearch = async (query) => {
         ATC, // Include ATC
         stratum, // Include stratum,
         usdRate: formattedRate,
-        priceUpdateDate: price_update_date,
-        nssfPricing: nssfData
+        priceUpdateDate: price_update_date
       };
     }));
 
@@ -715,9 +536,11 @@ const smartSearch = async (query) => {
         const substitutes = await Substitute.findAll({
           where: { Drug: drugId },
           attributes: ['Substitute'],
-        });        if (substitutes.length > 0) {
+        });
+
+        if (substitutes.length > 0) {
           console.log("Substitutes found:", substitutes); // Log the substitutes found
-          
+
           const substituteDrugs = await Drug.findAll({
             where: {
               DrugID: substitutes.map(sub => sub.Substitute)
@@ -727,26 +550,6 @@ const smartSearch = async (query) => {
               'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
               'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
             ],
-            include: [
-              {
-                model: NSSFPricing,
-                as: 'nssfPricing',
-                where: {
-                  is_active: true
-                },
-                required: false, // Left join - include drugs even if they don't have NSSF pricing
-                attributes: [
-                  'effective_date',
-                  'public_price_lbp',
-                  'nssf_price_lbp',
-                  'nssf_coverage_percentage',
-                  'nssf_coverage_amount_lbp',
-                  'real_nssf_coverage_percentage'
-                ],
-                order: [['effective_date', 'DESC']], // Get the most recent pricing
-                limit: 1 // Only get the most recent active pricing record
-              }
-            ]
           });
 
           const substitutesWithDosageAndRoute = await Promise.all(substituteDrugs.map(async (substituteDrug) => {
@@ -767,7 +570,9 @@ const smartSearch = async (query) => {
             if (amount && amount > 0) {
               unitPrice = price / amount;
               unitPriceInLBP = unitPrice * 89500;
-            }            // Fetch the additional data from getDrugById for substitutes
+            }
+
+            // Fetch the additional data from getDrugById for substitutes
             let ATC;
             let stratum;
             try {
@@ -777,11 +582,6 @@ const smartSearch = async (query) => {
               ATC = null;
               stratum = null;
             }
-
-            // Get the most recent NSSF pricing data for substitutes
-            const nssfData = substituteDrug.dataValues && substituteDrug.dataValues.nssfPricing && substituteDrug.dataValues.nssfPricing.length > 0 
-              ? substituteDrug.dataValues.nssfPricing[0] 
-              : null;
 
             return { 
               ...substituteDrug.get({ plain: true }),
@@ -795,8 +595,7 @@ const smartSearch = async (query) => {
               ManufacturerName, 
               CountryName,
               ATC, // Include ATC for substitutes
-              stratum, // Include stratum for substitutes
-              nssfPricing: nssfData
+              stratum // Include stratum for substitutes
             };
           }));
 
@@ -1122,9 +921,6 @@ const checkMate = async ({ GTIN, BatchNumber, SerialNumber, ExpiryDate }) => {
 
 const getOTCDrugs = async () => {
   try {
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
     const drugs = await Drug.findAll({
       where: {
         isOTC: true,
@@ -1137,27 +933,9 @@ const getOTCDrugs = async () => {
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
         'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
       ],
-      include: [
-        {
-          model: NSSFPricing,
-          as: 'nssfPricing',
-          where: {
-            is_active: true
-          },
-          required: false, // Left join - include drugs even if they don't have NSSF pricing
-          attributes: [
-            'effective_date',
-            'public_price_lbp',
-            'nssf_price_lbp',
-            'nssf_coverage_percentage',
-            'nssf_coverage_amount_lbp',
-            'real_nssf_coverage_percentage'
-          ],
-          order: [['effective_date', 'DESC']], // Get the most recent pricing
-          limit: 1 // Only get the most recent active pricing record
-        }
-      ]
-    });    const drugsWithDosageAndRoute = drugs.map(drug => {
+    });
+
+    const drugsWithDosageAndRoute = drugs.map(drug => {
       const dosage = drug.Dosage;
       const route = drug.Route; // Assuming 'Form' corresponds to 'route'
       const form = drug.Form;
@@ -1167,11 +945,6 @@ const getOTCDrugs = async () => {
       const priceInLBP = drug.Price * 89500;
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
       const unitPriceInLBP = unitPrice ? unitPrice * 89500 : null;
-
-      // Get the most recent NSSF pricing data
-      const nssfData = drug.dataValues.nssfPricing && drug.dataValues.nssfPricing.length > 0 
-        ? drug.dataValues.nssfPricing[0] 
-        : null;
   
       return {
         ...drug.dataValues,
@@ -1186,7 +959,6 @@ const getOTCDrugs = async () => {
         unitPriceInLBP,
         usdRate: formattedRate,
         priceUpdateDate: price_update_date,
-        nssfPricing: nssfData
       };
     });
 
@@ -1383,12 +1155,7 @@ const setPriceUpdateDate = (date) => {
 };
 const fetchDrugDataFromServer = async () => {
   try {
-    console.log('🚀 Fetching all drug data for mobile app...');
-    
-    // Import NSSFPricing model
-    const NSSFPricing = require('../models/nssfPricing');
-    
-    // First, fetch all drugs WITHOUT NSSF data to avoid packet size issues
+    // Fetch drug data from the server, excluding NotMarketed drugs
     const drugs = await Drug.findAll({
       where: {
         NotMarketed: {
@@ -1414,37 +1181,8 @@ const fetchDrugDataFromServer = async () => {
       ]
     });
 
-    console.log(`✅ Fetched ${drugs.length} drugs. Now getting NSSF data...`);
-
-    // Fetch ALL NSSF data separately to avoid large packet issues
-    const allNssfData = await NSSFPricing.findAll({
-      where: {
-        is_active: true
-      },
-      attributes: [
-        'drug_id',
-        'effective_date',
-        'public_price_lbp',
-        'nssf_price_lbp',
-        'nssf_coverage_percentage',
-        'nssf_coverage_amount_lbp',
-        'real_nssf_coverage_percentage'
-      ],
-      order: [['drug_id', 'ASC'], ['effective_date', 'DESC']]
-    });
-
-    // Create a map of NSSF data by drug_id (most recent record for each drug)
-    const nssfMap = new Map();
-    allNssfData.forEach(nssf => {
-      if (!nssfMap.has(nssf.drug_id)) {
-        nssfMap.set(nssf.drug_id, nssf);
-      }
-    });
-
-    console.log(`📊 Found NSSF data for ${nssfMap.size} drugs out of ${drugs.length} total drugs.`);
-
     // Manually map database columns to camelCase fields
-    const mappedDrugs = drugs.map(drug => {
+    return drugs.map(drug => {
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
 
       // Format the priceUpdateDate to "DD-MM-YYYY"
@@ -1490,15 +1228,16 @@ const fetchDrugDataFromServer = async () => {
           presentationParts.push(`${cleanNumber(dp.PackageQuantity3)} ${type}`);
         }
       }
-      const presentationString = presentationParts.join(', ');      // Show GTIN with visible leading zeros (as a string, left-padded to 14 chars, but do not change the stored value)
-      let visibleGTIN = drug.GTIN == null ? '' : String(drug.GTIN).trim();   // ← force string
+      const presentationString = presentationParts.join(', ');
 
-      if (visibleGTIN && visibleGTIN.length < 14) {
-        visibleGTIN = visibleGTIN.padStart(14, '0');                         // now it pads with '0'
-      }
+      // Show GTIN with visible leading zeros (as a string, left-padded to 14 chars, but do not change the stored value)
+// --- inside your mapper ---
+let visibleGTIN = drug.GTIN == null ? '' : String(drug.GTIN).trim();   // ← force string
 
-      // Get the NSSF pricing data from our map
-      const nssfData = nssfMap.get(drug.DrugID) || null;
+if (visibleGTIN && visibleGTIN.length < 14) {
+  visibleGTIN = visibleGTIN.padStart(14, '0');                         // now it pads with '0'
+}
+
 
       return {
         drugId: drug.DrugID,
@@ -1543,14 +1282,9 @@ const fetchDrugDataFromServer = async () => {
         unitPriceInLBP: unitPrice ? unitPrice * 89500 : null,
         GTIN: visibleGTIN,
         priceUpdateDate: formattedPriceUpdateDate,
-        usdRate: formattedRate,        nssfPricing: nssfData
+        usdRate: formattedRate,
       };
     });
-
-    console.log(`🎉 Successfully mapped ${mappedDrugs.length} drugs with NSSF data for mobile app`);
-    console.log(`📊 NSSF coverage: ${mappedDrugs.filter(d => d.nssfPricing).length}/${mappedDrugs.length} drugs have NSSF pricing`);
-    
-    return mappedDrugs;
   } catch (error) {
     console.error('Error fetching drug data from server:', error);
     throw new Error('Error fetching drug data from server');
@@ -1671,103 +1405,6 @@ const updateDrugImage = async (DrugID, imagePath) => {
   }
 };
 
-// NSSF Pricing functions
-const addOrUpdateNSSFPricing = async (drugId, pricingData) => {
-  try {
-    const NSSFPricing = require('../models/nssfPricing');
-    
-    const {
-      effectiveDate = new Date(),
-      publicPriceLbp,
-      nssfPriceLbp,
-      nssfCoveragePercentage,
-      nssfCoverageAmountLbp,
-      isActive = true
-    } = pricingData;
-
-    // Check if there's already an active pricing for this drug
-    const existingPricing = await NSSFPricing.findOne({
-      where: {
-        drug_id: drugId,
-        is_active: true
-      }
-    });
-
-    if (existingPricing) {
-      // Deactivate the existing pricing
-      await existingPricing.update({ is_active: false });
-    }
-
-    // Create new pricing record
-    const newPricing = await NSSFPricing.create({
-      drug_id: drugId,
-      effective_date: effectiveDate,
-      public_price_lbp: publicPriceLbp,
-      nssf_price_lbp: nssfPriceLbp,
-      nssf_coverage_percentage: nssfCoveragePercentage,
-      nssf_coverage_amount_lbp: nssfCoverageAmountLbp,
-      is_active: isActive
-    });
-
-    return newPricing;
-  } catch (error) {
-    console.error('Error adding/updating NSSF pricing:', error);
-    throw new Error('Failed to add/update NSSF pricing');
-  }
-};
-
-const getNSSFPricingByDrugId = async (drugId) => {
-  try {
-    const NSSFPricing = require('../models/nssfPricing');
-    
-    const pricing = await NSSFPricing.findOne({
-      where: {
-        drug_id: drugId,
-        is_active: true
-      },
-      order: [['effective_date', 'DESC']]
-    });
-
-    return pricing;
-  } catch (error) {
-    console.error('Error fetching NSSF pricing:', error);
-    throw new Error('Failed to fetch NSSF pricing');
-  }
-};
-
-const getAllNSSFPricing = async (page = 1, limit = 100) => {
-  try {
-    const NSSFPricing = require('../models/nssfPricing');
-    
-    const offset = (page - 1) * limit;
-    
-    const { rows, count } = await NSSFPricing.findAndCountAll({
-      where: {
-        is_active: true
-      },
-      include: [
-        {
-          model: Drug,
-          as: 'drug',
-          attributes: ['DrugID', 'DrugName', 'Manufacturer']
-        }
-      ],
-      order: [['effective_date', 'DESC']],
-      offset,
-      limit
-    });
-
-    return {
-      pricing: rows,
-      totalPages: Math.ceil(count / limit),
-      totalRecords: count
-    };
-  } catch (error) {
-    console.error('Error fetching all NSSF pricing:', error);
-    throw new Error('Failed to fetch all NSSF pricing');
-  }
-};
-
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -1801,8 +1438,5 @@ module.exports = {
   checkForDrugUpdates,
   updateDrugImage,
   setPriceUpdateDate,
-  // NSSF Pricing functions
-  addOrUpdateNSSFPricing,
-  getNSSFPricingByDrugId,
-  getAllNSSFPricing,
+  
 };
