@@ -94,4 +94,57 @@ router.put('/:id', DrugsUnderProcessController.updateDrugUnderProcess);
  */
 router.delete('/:id', DrugsUnderProcessController.deleteDrugUnderProcess);
 
+/**
+ * @swagger
+ * /drugsUnderProcess/{id}/complete-step:
+ *   post:
+ *     summary: Complete a workflow step for a drug
+ *     tags: [DrugsUnderProcess]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               stepNumber:
+ *                 type: integer
+ *               comments:
+ *                 type: string
+ *               userId:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Step completed successfully
+ *       403:
+ *         description: Permission denied
+ */
+router.post('/:id/complete-step', DrugsUnderProcessController.completeStep);
+
+/**
+ * @swagger
+ * /drugsUnderProcess/{id}/workflow:
+ *   get:
+ *     summary: Get workflow state for a drug
+ *     tags: [DrugsUnderProcess]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Workflow state retrieved successfully
+ *       404:
+ *         description: Workflow not found
+ */
+router.get('/:id/workflow', DrugsUnderProcessController.getWorkflow);
+
 module.exports = router;

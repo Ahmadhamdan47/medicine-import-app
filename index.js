@@ -62,6 +62,10 @@ const alfaRoutes = require("./src/routes/alfaRoutes");
 const touchRoutes = require("./src/routes/touchRoutes");
 const reportRoutes = require("./src/routes/reportRoutes");
 
+// Add workflow routes
+const workflowRoutes = require("./src/routes/workflowRoutes");
+const workflowNotificationRoutes = require("./src/routes/workflowNotificationRoutes");
+
 // Add dashboard routes
 const dashboardRoutes = require("./src/routes/dashboardRoutes");
 
@@ -168,6 +172,8 @@ app.use("/responsibleParty", responsiblPartyRoutes);
 app.use("/bannedDrugs", bannedDrugsRoutes);
 app.use("/stratum", stratumRoutes);
 app.use("/drugsUnderProcess", drugsUnderProcessRoutes);
+app.use("/workflow", workflowRoutes);
+app.use("/notifications", workflowNotificationRoutes);
 app.use("/alfa", alfaRoutes);
 app.use("/touch", touchRoutes);
 app.use("/report", reportRoutes);
