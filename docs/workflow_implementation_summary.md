@@ -94,29 +94,29 @@ roles (
 
 ### Workflow Management
 ```http
-GET    /api/workflow/:drugId           # Get workflow state
-PUT    /api/workflow/:drugId           # Update workflow state  
-POST   /api/workflow                   # Create new workflow
-POST   /api/workflow/:drugId/complete-step   # Complete workflow step
-POST   /api/workflow/:drugId/approve-step    # Approve workflow step
-POST   /api/workflow/:drugId/reject-step     # Reject workflow step
-GET    /api/workflows                  # Get all workflows (role-filtered)
+GET    /workflow/:drugId               # Get workflow state
+PUT    /workflow/:drugId               # Update workflow state  
+POST   /workflow                       # Create new workflow
+POST   /workflow/:drugId/complete-step # Complete workflow step
+POST   /workflow/:drugId/approve-step  # Approve workflow step
+POST   /workflow/:drugId/reject-step   # Reject workflow step
+GET    /workflow                       # Get all workflows (role-filtered) - use /workflows in query
 ```
 
 ### Workflow Notifications
 ```http
-GET    /api/workflow-notifications     # Get pending notifications
-POST   /api/workflow-notifications/acknowledge  # Acknowledge notifications
-GET    /api/workflow-notifications/stats        # Get notification statistics
+GET    /notifications                  # Get pending notifications
+POST   /notifications/acknowledge     # Acknowledge notifications
+GET    /notifications/stats           # Get notification statistics
 ```
 
 ### Enhanced Drug Management (Updated)
 ```http
-GET    /api/drugsUnderProcess          # Role-based filtering implemented
-POST   /api/drugsUnderProcess          # Auto-creates workflow state
-PUT    /api/drugsUnderProcess/:id      # Permission checking integrated
-POST   /api/drugsUnderProcess/:id/complete-step  # Workflow step completion
-GET    /api/drugsUnderProcess/:id/workflow       # Get workflow state
+GET    /drugsUnderProcess             # Role-based filtering implemented
+POST   /drugsUnderProcess             # Auto-creates workflow state
+PUT    /drugsUnderProcess/:id         # Permission checking integrated
+POST   /drugsUnderProcess/:id/complete-step  # Workflow step completion
+GET    /drugsUnderProcess/:id/workflow        # Get workflow state
 ```
 
 ## Role-Based Access Control (Implemented)
@@ -271,7 +271,7 @@ UPDATE useraccounts SET WorkflowRole = 'agent' WHERE WorkflowRole IS NULL;
 ### 3. API Testing Examples
 ```javascript
 // Create drug with workflow
-POST /api/drugsUnderProcess
+POST /drugsUnderProcess
 {
   "drugName": "Aspirin",
   "manufacturer": "PharmaCorp",
@@ -279,7 +279,7 @@ POST /api/drugsUnderProcess
 }
 
 // Complete workflow step
-POST /api/drugsUnderProcess/{drugId}/complete-step
+POST /drugsUnderProcess/{drugId}/complete-step
 {
   "stepNumber": 5,
   "comments": "All documentation complete",
@@ -287,7 +287,21 @@ POST /api/drugsUnderProcess/{drugId}/complete-step
 }
 
 // Check notifications
-GET /api/workflow-notifications?userId=import_user&userRole=import_export
+GET /notifications?userId=import_user&userRole=import_export
+
+// Get workflow state
+GET /workflow/{drugId}
+
+// Approve workflow step
+POST /workflow/{drugId}/approve-step
+{
+  "stepNumber": 5,
+  "comments": "Approved for import/export review",
+  "userId": "import_user"
+}
+
+// Get notification statistics
+GET /notifications/stats?userId=admin_user&userRole=admin
 ```
 
 ## Security & Performance ✅
@@ -526,3 +540,182 @@ For issues or questions about the workflow system implementation, please refer t
 - API documentation at `/api-docs`
 - Database documentation in `docs/database_documentation.md`
 - Original requirements in `docs/backend_workflow_requirements.md`
+
+## Quick Setup Guide 🚀
+
+### Step-by-Step Installation & Testing
+
+Follow these commands in order to set up and test the complete workflow environment:
+
+#### 1. Create Workflow Tables
+```bash
+# Create all workflow database tables
+node scripts/createWorkflowTables.js
+```
+**Expected Output:**
+```
+✓ workflow_states table created
+✓ step_completions table created
+✓ quality_reviews table created
+✓ pricing_reviews table created
+✓ workflow_notifications table created
+✓ WorkflowRole column already exists in useraccounts table
+✓ Workflow roles added to roles table
+✅ All workflow tables created successfully!
+```
+
+#### 2. Initialize System Roles (if needed)
+```bash
+# Add all required roles for the system
+node scripts/initializeRoles.js
+```
+**Expected Output:**
+```
+✅ Created role: Agent (ID: 1)
+✅ Created role: Import/Export (ID: 4)
+✅ Created role: Quality Study Committee (ID: 8)
+✅ Created role: Pricing Committee (ID: 9)
+🎉 Role initialization completed successfully!
+```
+
+#### 3. Add Importation-Specific Roles
+```bash
+# Add specialized importation roles
+node scripts/addImportationRoles.js
+```
+**Expected Output:**
+```
+✅ Created role: Import/Export with RoleId: 4
+✅ Created role: Head Pharmacy with RoleId: 5
+✅ Created role: Inspector with RoleId: 6
+🎉 Importation roles setup completed successfully!
+```
+
+#### 4. Create Test User Accounts
+```bash
+# Create test users with different workflow roles
+node scripts/create-test-accounts.js
+```
+**Expected Output:**
+```
+✅ Created test user: quality_committee_test
+✅ Created test user: pricing_committee_test
+✅ Created test user: import_export_test
+✅ Created test user: workflow_admin_test
+🎉 Test accounts created successfully!
+```
+
+#### 5. Test Workflow System
+```bash
+# Validate all workflow components
+node scripts/testWorkflowSystem.js
+```
+**Expected Output:**
+```
+🧪 Testing Workflow System...
+✓ Found 2 workflow tables: workflow_notifications, workflow_states
+✓ WorkflowRole column exists in useraccounts table
+✓ Found 1 workflow-related roles: Import/Export
+✓ UserAccounts table accessible, 52 users found
+✓ UserRoleService.getUserWorkflowRole() works
+✓ Can insert into workflow_states table
+✓ Can insert into step_completions table
+✓ Test data cleaned up
+✓ Notification stats format working
+✅ Workflow System Test Complete!
+```
+
+#### 6. Start the Server
+```bash
+# Start the application server
+node index.js
+```
+**Expected Output:**
+```
+info: Connection to the database PharmacyService has been established successfully.
+info: Database models synchronized successfully.
+Server is running on port 8066
+🚀 API Documentation available at: http://localhost:8066/api-docs
+```
+
+### Alternative: Run All Setup Scripts at Once
+```bash
+# Complete setup in one command (Windows PowerShell)
+node scripts/createWorkflowTables.js && node scripts/initializeRoles.js && node scripts/addImportationRoles.js && node scripts/create-test-accounts.js && node scripts/testWorkflowSystem.js
+
+# Complete setup in one command (Command Prompt)
+node scripts/createWorkflowTables.js & node scripts/initializeRoles.js & node scripts/addImportationRoles.js & node scripts/create-test-accounts.js & node scripts/testWorkflowSystem.js
+```
+
+### Troubleshooting Commands
+
+#### Check Database Connection
+```bash
+# Test database connectivity
+node -e "const seq = require('./config/databasePharmacy'); seq.authenticate().then(() => console.log('✅ DB Connected')).catch(e => console.error('❌ DB Error:', e.message))"
+```
+
+#### Verify Tables Exist
+```bash
+# List all workflow tables
+node -e "const seq = require('./config/databasePharmacy'); seq.query('SHOW TABLES LIKE \"workflow_%\"').then(([results]) => console.log('Workflow tables:', results))"
+```
+
+#### Check User Roles
+```bash
+# Display all roles in database
+node -e "const Role = require('./src/models/roles'); const seq = require('./config/databasePharmacy'); seq.sync().then(() => Role.findAll()).then(roles => { console.log('Roles:'); roles.forEach(r => console.log(`- ${r.RoleName} (ID: ${r.RoleId})`)); process.exit(0); })"
+```
+
+#### Reset Workflow Tables (if needed)
+```bash
+# WARNING: This will delete all workflow data
+node -e "const seq = require('./config/databasePharmacy'); const tables = ['workflow_notifications', 'step_completions', 'quality_reviews', 'pricing_reviews', 'workflow_states']; Promise.all(tables.map(t => seq.query('DROP TABLE IF EXISTS ' + t))).then(() => console.log('✅ Workflow tables dropped')).then(() => process.exit(0))"
+```
+
+### Production Deployment Commands
+
+#### 1. Environment Setup
+```bash
+# Set production environment
+set NODE_ENV=production
+
+# Or for PowerShell
+$env:NODE_ENV = "production"
+```
+
+#### 2. Database Migration (Production)
+```bash
+# Run migration with production database
+node scripts/createWorkflowTables.js
+```
+
+#### 3. Assign User Roles (Production)
+```bash
+# Create script to assign real user roles
+node -e "
+const UserAccounts = require('./src/models/userAccounts');
+const seq = require('./config/databasePharmacy');
+
+async function assignRoles() {
+  await seq.sync();
+  
+  // Example: Assign admin role to specific user
+  await UserAccounts.update(
+    { WorkflowRole: 'admin' }, 
+    { where: { Email: 'admin@yourcompany.com' } }
+  );
+  
+  // Assign default agent role to users without workflow role
+  await UserAccounts.update(
+    { WorkflowRole: 'agent' }, 
+    { where: { WorkflowRole: null } }
+  );
+  
+  console.log('✅ Production roles assigned');
+  process.exit(0);
+}
+
+assignRoles().catch(console.error);
+"
+```
