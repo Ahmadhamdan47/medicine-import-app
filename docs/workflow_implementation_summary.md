@@ -8,8 +8,8 @@ The backend workflow system has been successfully implemented and tested to supp
 - **User Integration**: Works with existing `userAccounts` table (52 users found)
 - **Role System**: Integrated with existing `roles` table + workflow roles added
 - **API Endpoints**: All workflow endpoints implemented and tested
-- **Server**: Running successfully on http://localhost:8066
-- **Documentation**: Available at http://localhost:8066/api-docs
+- **Server**: Running successfully on https://apiv2.medleb.org
+- **Documentation**: Available at https://apiv2.medleb.org/api-docs
 
 ## Database Schema (Implemented)
 
@@ -221,7 +221,7 @@ graph TD
 - **Services**: ✅ Business logic tested and working
 - **API Endpoints**: ✅ All routes registered and accessible
 - **Role Integration**: ✅ Works with existing user system
-- **Server**: ✅ Running on http://localhost:8066
+- **Server**: ✅ Running on https://apiv2.medleb.org
 
 ## User Integration (Real Implementation)
 
@@ -304,6 +304,43 @@ POST /workflow/{drugId}/approve-step
 GET /notifications/stats?userId=admin_user&userRole=admin
 ```
 
+## ✅ **Updated Documentation - Route Corrections**
+
+### **Actual API Endpoints:**
+Based on the route registration in `index.js`:
+
+```javascript
+app.use("/workflow", workflowRoutes);               // Workflow management
+app.use("/notifications", workflowNotificationRoutes); // Notifications  
+app.use("/drugsUnderProcess", drugsUnderProcessRoutes); // Enhanced drugs
+```
+
+### **Complete Endpoint URLs:**
+- **Server Base**: `https://apiv2.medleb.org`
+- **API Documentation**: `https://apiv2.medleb.org/api-docs`
+- **Workflow Routes**: `https://apiv2.medleb.org/workflow/*`
+- **Notifications**: `https://apiv2.medleb.org/notifications/*`
+- **Drugs**: `https://apiv2.medleb.org/drugsUnderProcess/*`
+
+### **Example API Calls:**
+```bash
+# Get workflow state
+curl https://apiv2.medleb.org/workflow/drug123
+
+# Get notifications  
+curl "https://apiv2.medleb.org/notifications?userId=user123&userRole=agent"
+
+# Create drug
+curl -X POST https://apiv2.medleb.org/drugsUnderProcess \
+  -H "Content-Type: application/json" \
+  -d '{"drugName":"Aspirin","manufacturer":"PharmaCorp","userId":"user123"}'
+
+# Complete workflow step
+curl -X POST https://apiv2.medleb.org/workflow/drug123/complete-step \
+  -H "Content-Type: application/json" \
+  -d '{"stepNumber":5,"comments":"Step completed","userId":"user123"}'
+```
+
 ## Security & Performance ✅
 
 ### Implemented Features
@@ -330,7 +367,7 @@ The system includes comprehensive error handling:
 
 ## Support & Documentation
 
-- **API Documentation**: http://localhost:8066/api-docs
+- **API Documentation**: https://apiv2.medleb.org/api-docs
 - **Database Schema**: All tables documented above
 - **Test Scripts**: `scripts/testWorkflowSystem.js`
 - **Migration Scripts**: `scripts/createWorkflowTables.js`
@@ -635,7 +672,7 @@ node index.js
 info: Connection to the database PharmacyService has been established successfully.
 info: Database models synchronized successfully.
 Server is running on port 8066
-🚀 API Documentation available at: http://localhost:8066/api-docs
+🚀 API Documentation available at: https://apiv2.medleb.org/api-docs
 ```
 
 ### Alternative: Run All Setup Scripts at Once
