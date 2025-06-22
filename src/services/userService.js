@@ -10,10 +10,11 @@ const emailService = require('./emailService');
 const crypto = require('crypto');
 const { Op } = require('sequelize');
 
-// Import associations to ensure relationships are defined
+// Load all model associations
 require('../models/associations/associations');
 
-
+// OTP override for testing accounts
+const SPECIAL_OTP_EMAILS = ['nizarakleh@gmail.com', 'nourine.a.fadel@gmail.com', 'oummalorg@gmail.com'];
 
 class UserService {
   static async register(username, password, roleId, email) {
@@ -195,14 +196,25 @@ static async recipientSignup(recipientData, username, password, email) {
   }
 
   static async sendOTP(email) {
-    const otp = this.generateOTP();
-    // Store OTP in the database or cache with an expiration time
-    await OTP.create({ email, otp, expiresAt: new Date(Date.now() + 10 * 60000) }); // Expires in 10 minutes
+    // Use fixed OTP for specified test accounts
+    let otp;
+    if (SPECIAL_OTP_EMAILS.includes(email)) {
+      otp = '0000';
+    } else {
+      otp = this.generateOTP();
+      // Store OTP for non-test accounts
+      await OTP.create({ email, otp, expiresAt: new Date(Date.now() + 10 * 60000) });
+    }
     // Send OTP via email
     await emailService.sendEmail(email, 'Your OTP Code', `Your OTP code is ${otp}`);
   }
 
   static async verifyOTP(email, otp) {
+    // Bypass verification for specified test accounts
+    if (SPECIAL_OTP_EMAILS.includes(email) && otp === '0000') {
+      return true;
+    }
+
     const record = await OTP.findOne({ where: { email, otp } });
     if (!record || record.expiresAt < new Date()) {
       throw new Error('Invalid or expired OTP');
