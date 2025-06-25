@@ -127,8 +127,11 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
         
         try {
             console.log(`📝 Processing: ${agentName}`);
+            console.log(`   🔍 Generated username: ${username}`);
+            console.log(`   🔍 Generated email: ${email}`);
             
             // Check if agent already exists
+            console.log(`   🔍 Checking if agent exists...`);
             const existingAgent = await Agent.findOne({ 
                 where: { AgentName: agentName } 
             });
@@ -141,8 +144,10 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
                 });
                 continue;
             }
+            console.log(`   ✅ Agent doesn't exist, proceeding...`);
             
             // Check if username already exists
+            console.log(`   🔍 Checking if username exists...`);
             const existingUser = await UserAccounts.findOne({
                 where: { Username: username }
             });
@@ -155,8 +160,10 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
                 });
                 continue;
             }
+            console.log(`   ✅ Username is unique, proceeding...`);
             
-            // Create agent record
+            // Create agent record FIRST
+            console.log(`   📝 Creating agent record...`);
             const agentRecord = await Agent.create({
                 AgentName: agentName,
                 AgentType: 'Distributor', // Default type
@@ -170,7 +177,15 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
             
             console.log(`   📋 Created agent record (ID: ${agentRecord.AgentID})`);
             
-            // Create user account
+            // Verify agent was created
+            const verifyAgent = await Agent.findByPk(agentRecord.AgentID);
+            if (!verifyAgent) {
+                throw new Error('Agent creation failed - record not found after creation');
+            }
+            console.log(`   ✅ Agent record verified in database`);
+            
+            // Create user account AFTER agent
+            console.log(`   👤 Creating user account...`);
             const userAccount = await UserAccounts.create({
                 Username: username,
                 Email: email,
@@ -181,6 +196,14 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
             });
             
             console.log(`   👤 Created user account (ID: ${userAccount.UserId})`);
+            
+            // Verify user was created
+            const verifyUser = await UserAccounts.findByPk(userAccount.UserId);
+            if (!verifyUser) {
+                throw new Error('User creation failed - record not found after creation');
+            }
+            console.log(`   ✅ User account verified in database`);
+            
             console.log(`   🔑 Username: ${username}`);
             console.log(`   📧 Email: ${email}`);
             console.log(`   ✅ Success!\n`);
@@ -194,7 +217,8 @@ async function createAgentsAndAccounts(agentNames, agentRole) {
             });
             
         } catch (error) {
-            console.log(`   ❌ Error: ${error.message}\n`);
+            console.log(`   ❌ Error: ${error.message}`);
+            console.log(`   🔍 Full error:`, error);
             results.errors.push({
                 agentName,
                 error: error.message
@@ -266,11 +290,33 @@ async function main() {
         await sequelize.authenticate();
         console.log('✅ Database connection established\n');
         
+        // Debug: Test if we can access the tables
+        console.log('🔍 Testing database access...');
+        try {
+            const agentCount = await Agent.count();
+            const userCount = await UserAccounts.count();
+            const roleCount = await Roles.count();
+            console.log(`📊 Current counts - Agents: ${agentCount}, Users: ${userCount}, Roles: ${roleCount}`);
+        } catch (dbError) {
+            console.error('❌ Database access error:', dbError.message);
+            throw dbError;
+        }
+        
         // Read agent names from CSV
+        console.log('\n📄 Reading CSV file...');
         const agentNames = readAgentCSV();
+        console.log(`✅ CSV parsed successfully: ${agentNames.length} agents found`);
+        
+        // Debug: Show first few agent names
+        console.log('📋 First 5 agents from CSV:');
+        agentNames.slice(0, 5).forEach((name, index) => {
+            console.log(`   ${index + 1}. "${name}"`);
+        });
         
         // Ensure Agent role exists
+        console.log('\n👤 Checking Agent role...');
         const agentRole = await ensureAgentRole();
+        console.log(`✅ Agent role confirmed - ID: ${agentRole.RoleId}`);
         
         // Create agents and accounts
         const results = await createAgentsAndAccounts(agentNames, agentRole);
