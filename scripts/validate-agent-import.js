@@ -125,13 +125,13 @@ async function checkDataIntegrity() {
         const agentsWithoutUsers = await Agent.findAll({
             include: [{
                 model: UserAccounts,
-                as: 'users',
+                as: 'UserAccounts',
                 required: false
             }]
         });
         
         const orphanedAgents = agentsWithoutUsers.filter(agent => 
-            !agent.users || agent.users.length === 0
+            !agent.UserAccounts || agent.UserAccounts.length === 0
         );
         
         return {
@@ -163,7 +163,7 @@ async function getRecentImports() {
             },
             include: [{
                 model: UserAccounts,
-                as: 'users',
+                as: 'UserAccounts',
                 required: false
             }]
         });
@@ -172,9 +172,9 @@ async function getRecentImports() {
             agentId: agent.AgentID,
             agentName: agent.AgentName,
             createdDate: agent.CreatedDate,
-            hasUser: agent.users && agent.users.length > 0,
-            userCount: agent.users ? agent.users.length : 0,
-            usernames: agent.users ? agent.users.map(u => u.Username) : []
+            hasUser: agent.UserAccounts && agent.UserAccounts.length > 0,
+            userCount: agent.UserAccounts ? agent.UserAccounts.length : 0,
+            usernames: agent.UserAccounts ? agent.UserAccounts.map(u => u.Username) : []
         }));
     } catch (error) {
         throw new Error(`Failed to get recent imports: ${error.message}`);
