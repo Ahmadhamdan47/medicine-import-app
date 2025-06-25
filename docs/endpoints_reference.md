@@ -543,152 +543,122 @@ POST /users/:id/reset-password
 
 ---
 
-# 8. SYSTEM ENDPOINTS
+# 8. NSSF OPERATIONS
 
-## Health Check
+## Overview
+NSSF (National Social Security Fund) operation endpoints provide access to medical operations coverage information for both private and public hospitals. These endpoints return operation details including pricing, coverage rates, and patient share calculations.
 
-### System Health
-```http
-GET /health
-```
-**Roles**: None (public)  
-**Response**: 200 OK with system status
-
-### Database Health
-```http
-GET /health/database
-```
-**Roles**: admin  
-**Response**: 200 OK with DB connection status
-
-## Statistics
-
-### Dashboard Stats
-```http
-GET /stats/dashboard
-```
-**Roles**: All authenticated  
-**Response**: 200 OK with role-specific statistics
-
-### System Metrics
-```http
-GET /stats/system
-```
-**Roles**: admin  
-**Response**: 200 OK with system metrics
+## Base Routes
+All NSSF operation endpoints are prefixed with `/nssf-operations`
 
 ---
 
-# URL Patterns & Examples
+## System-Based Search
 
-## Request ID Patterns
-- Importation Request: `/importation-requests/456`
-- RFD Request: `/rfd-requests/123`
-- Proforma Request: `/proforma-requests/234`
-- Swift Payment: `/swift-payments/345`
-- Announcement: `/importation-announcements/567`
-- File: `/files/uuid-file-id`
-- User: `/users/789`
+### Search Operations by System (Private Hospitals)
+```http
+GET /nssf-operations/private/system/{system}
+```
+**Roles**: All authenticated users  
+**Parameters**: 
+- `system` (path): System name or Arabic name  
+**Response**: Array of NSSF operations for private hospitals  
+**Status Codes**: 200 OK, 500 Server Error
 
-## Query Parameter Examples
-
-### Pagination
+### Search Operations by System (Public Hospitals)
+```http
+GET /nssf-operations/public/system/{system}
 ```
-?page=2&limit=20
-```
-
-### Filtering
-```
-?status=pending&urgencyLevel=high&agentId=789
-```
-
-### Date Ranges
-```
-?startDate=2025-06-01&endDate=2025-06-30
-```
-
-### Search
-```
-?search=paracetamol&drugName=aspirin
-```
-
-### Multiple Filters
-```
-?status=pending,under_review&urgencyLevel=high&page=1&limit=50
-```
-
-## Response Code Quick Reference
-
-| Code | Meaning | When Used |
-|------|---------|-----------|
-| 200 | OK | GET, PUT, PATCH success |
-| 201 | Created | POST success |
-| 204 | No Content | DELETE success |
-| 400 | Bad Request | Invalid data |
-| 401 | Unauthorized | Missing/invalid token |
-| 403 | Forbidden | No permission |
-| 404 | Not Found | Resource doesn't exist |
-| 409 | Conflict | Duplicate/conflict |
-| 422 | Unprocessable | Validation errors |
-| 500 | Server Error | Internal error |
+**Roles**: All authenticated users  
+**Parameters**: 
+- `system` (path): System name or Arabic name  
+**Response**: Array of NSSF operations for public hospitals  
+**Status Codes**: 200 OK, 500 Server Error
 
 ---
 
-# Testing Examples
+## General Search
 
-## Using cURL
-
-### Create Importation Request
-```bash
-curl -X POST https://api.example.com/importation-requests \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "drugName": "Paracetamol",
-    "brandName": "Panadol",
-    "quantityRequested": 1000,
-    "urgencyLevel": "medium"
-  }'
+### Search Operations (Private Hospitals)
+```http
+GET /nssf-operations/private/search/{query}
 ```
+**Roles**: All authenticated users  
+**Parameters**: 
+- `query` (path): Search query for operation name  
+**Response**: Array of matching NSSF operations for private hospitals  
+**Status Codes**: 200 OK, 500 Server Error
 
-### Upload RFD Document
-```bash
-curl -X POST https://api.example.com/rfd-requests \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -F "importationRequestId=456" \
-  -F "file=@document.pdf"
+### Search Operations (Public Hospitals)
+```http
+GET /nssf-operations/public/search/{query}
 ```
+**Roles**: All authenticated users  
+**Parameters**: 
+- `query` (path): Search query for operation name  
+**Response**: Array of matching NSSF operations for public hospitals  
+**Status Codes**: 200 OK, 500 Server Error
 
-### Get All Requests with Filters
-```bash
-curl -X GET "https://api.example.com/importation-requests?status=pending&page=1&limit=10" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
+---
+
+## Individual Operations
+
+### Get Operation by ID
+```http
+GET /nssf-operations/{operationId}
 ```
+**Roles**: All authenticated users  
+**Parameters**: 
+- `operationId` (path): Operation ID (integer)
+- `hospitalType` (query): Hospital type (`private` or `public`, default: `private`)  
+**Response**: NSSF operation details  
+**Status Codes**: 200 OK, 404 Not Found, 500 Server Error
 
-## Using JavaScript (Fetch)
-
-### Get User Profile
-```javascript
-const response = await fetch('/users/profile', {
-  headers: {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
-  }
-});
-const profile = await response.json();
+### Get All Operations
+```http
+GET /nssf-operations
 ```
+**Roles**: All authenticated users  
+**Parameters**: 
+- `hospitalType` (query): Hospital type (`private` or `public`, default: `private`)  
+**Response**: Array of all NSSF operations  
+**Status Codes**: 200 OK, 500 Server Error
 
-### Update Request Status
-```javascript
-const response = await fetch(`/importation-requests/${requestId}/status`, {
-  method: 'PATCH',
-  headers: {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+---
+
+## Response Structure
+All NSSF operation endpoints return data in the following structure:
+
+```json
+{
+  "id": 123,
+  "name": "Operation Name",
+  "nameAR": "اسم العملية",
+  "description": "Operation description",
+  "categoryPricing": {
+    "price": 100.00,
+    "currency": "USD"
   },
-  body: JSON.stringify({
-    status: 'under_review',
-    comments: 'Moving to review phase'
-  })
-});
+  "nssfCoverage": {
+    "coverageRate": 0.8,
+    "maxCoverage": 500.00
+  },
+  "patientShare": {
+    "percentage": 0.2,
+    "amount": 20.00
+  },
+  "operationSystem": {
+    "systemName": "Cardiovascular",
+    "systemCode": "CVS"
+  }
+}
 ```
+
+---
+
+# 9. WORKFLOW SYSTEM
+
+## Overview
+The workflow system manages the approval process for importation requests through different stages and role-based permissions.
+
+---
