@@ -173,7 +173,7 @@ const { authenticateToken, authorizeRoles, authorizeOwnerOrAdmin } = require('..
  *                     $ref: '#/components/schemas/ImportationRequest'
  *                 totalCount:
  *                   type: integer
- *                 currentPage:
+*                 currentPage:
  *                   type: integer
  *                 totalPages:
  *                   type: integer

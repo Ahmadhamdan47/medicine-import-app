@@ -12,6 +12,9 @@ const OperationSystems = sequelize.define('operationsystems', {
   NameAR: {
     type: DataTypes.STRING,
   },
+    systemIcon: {
+    type: DataTypes.STRING,
+  },
 }, {
   sequelize,
   tableName: 'operationsystems',
