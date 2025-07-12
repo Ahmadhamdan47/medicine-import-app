@@ -20,6 +20,50 @@ const Hospital = sequelize.define('hospital', {
     type: DataTypes.BOOLEAN,
     allowNull: false,
   },
+  region: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  municipality: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  town: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  phoneNumber: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  cellular: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  whatsapp: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  website: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  contactPerson: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  contactNumber: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  contactEmail: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   sequelize,
   tableName: 'hospital',
