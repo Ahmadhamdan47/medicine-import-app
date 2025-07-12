@@ -18,7 +18,7 @@ def get_db_config(js_path=None):
         'database': 'ommal_medapiv2'
     }
 
-CSV_FILE = './src/data/hospitals.csv'
+CSV_FILE = './hospitals.csv'
 
 # --- MAIN SCRIPT ---
 def main():
