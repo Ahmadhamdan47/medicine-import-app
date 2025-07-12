@@ -1,3 +1,8 @@
+# --- Helper to parse decimal fields ---
+def parse_decimal(val):
+    if pd.isna(val) or str(val).strip() in ('', '-'):  # treat empty or dash as None
+        return None
+    return val
 import pandas as pd
 import mysql.connector
 import re
@@ -73,15 +78,15 @@ def main():
                 (
                     operation_id,
                     nssf_code,
-                    row.get('Surgeon') or None,
-                    row.get('Anesthetist') or None,
-                    row.get('2 Consultants') or None,
-                    row.get('Hospital I') or None,
-                    row.get('Hospital II') or None,
-                    row.get('Hospital III') or None,
-                    row.get('Total I') or None,
-                    row.get('Total II') or None,
-                    row.get('Total III') or None,
+                    parse_decimal(row.get('Surgeon')),
+                    parse_decimal(row.get('Anesthetist')),
+                    parse_decimal(row.get('2 Consultants')),
+                    parse_decimal(row.get('Hospital I')),
+                    parse_decimal(row.get('Hospital II')),
+                    parse_decimal(row.get('Hospital III')),
+                    parse_decimal(row.get('Total I')),
+                    parse_decimal(row.get('Total II')),
+                    parse_decimal(row.get('Total III')),
                     row.get('Notes') or None
                 )
             )
