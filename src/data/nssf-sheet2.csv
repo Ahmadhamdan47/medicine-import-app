@@ -1,0 +1,95 @@
+NSSF CODES,Operation,LOS,Surgeon,Anesthetist,2 Consultants,Hospital I,Hospital II,Hospital III,Total I,Total II,Total III,Notes
+11770,Excision of pilonidal  cyst or sinus,1,9500000,3000000,4000000,25000000,20000000,17000000,41500000,36500000,33500000,
+13160,"Secondary closure  of surgical  wound or
+dehiscence  extensive  or complicated",1,15000000,6000000,4000000,33000000,29000000,26000000,58000000,54000000,51000000,
+14000,"Adjacent tissue  transfer or rearrangement:
+defect up to 10 sq cm",1,15000000,6000000,4000000,33000000,29000000,26000000,58000000,54000000,51000000,
+14001,"Adjacent tissue  transfer or rearrangement:
+defect 11 to 30 sq cm",1,15000000,6000000,4000000,33000000,29000000,26000000,58000000,54000000,51000000,
+14300,"Adjacent tissue  transfer or rearrangement:
+defect more  than 30 sq cm",1,15000000,6000000,4000000,33000000,29000000,26000000,58000000,54000000,51000000,
+15732 E,"Muscle, myocutaneous, or fasciocutaneous",1,26500000,9000000,4000000,56000000,51000000,45000000,95500000,90500000,84500000,
+15770 E,Graft: derma-fat fascia ,1,26500000,9000000,4000000,56000000,51000000,45000000,95500000,90500000,84500000,
+15920,"Excision decubitus  ulcer, coccygeal, with
+coccygectomy: with primary suture",1,15000000,6000000,4000000,27000000,24000000,21000000,52000000,49000000,46000000,
+15922,"Excision decubitus  ulcer, coccygeal, with
+coccygectomy: with flap cl osure",1,15000000,6000000,4000000,27000000,24000000,21000000,52000000,49000000,46000000,
+15933,"Excision decubitus  ulcer, sacral, ischial, or
+trocha nteri c,  wi th or wi thout os tectomy",1,15000000,6000000,4000000,27000000,24000000,21000000,52000000,49000000,46000000,
+16010,"Dressings  and/or debridement, initial  or
+subsequent: under general  anesthesia, up to 9% of total  body surface  area",2,9500000,5000000,4000000,23000000,20000000,17000000,41500000,38500000,35500000,
+16015,"Dressings  and/or debridement, initial  or
+subsequent: under general  anesthesia, fa ce or hand, or over 9% of total  body surface  area",2,15000000,5000000,4000000,27000000,24000000,21000000,51000000,48000000,45000000,
+19160,"Mastectomy, partial, for excision of cyst or
+tumor",1,12000000,4500000,4000000,26000000,23000000,20000000,46500000,43500000,40500000,
+19162,"Mastectomy, partial: with axillary
+lymphadenectomy",1,37000000,12000000,4000000,96000000,86000000,73500000,149000000,139000000,126500000,
+19180,"Mastectomy, simple, complete",1,22000000,7500000,4000000,35000000,28000000,23000000,68500000,61500000,56500000,
+19240,"Mastectomy, modified radical, including axillary lymph nodes  with or without
+pectoralis  minor muscle, but excluding
+pectoralis  major muscle ",5,37000000,12000000,4000000,116000000,104000000,92000000,169000000,157000000,145000000,
+19200,"Mastectomy, radical, including pectoral 
+muscles, axillary lymph nodes",5,37000000,12000000,4000000,116000000,104000000,92000000,169000000,157000000,145000000,
+20525,"Removal  of foreign body in muscle  or tendon
+sheath: deep or complicated",1,11000000,3500000,4000000,29000000,24000000,20000000,47500000,42500000,38500000,
+21015,"Radical  resection of tumor (eg, malignant
+neoplasm) of soft tissues  of face  or scalp ",2,11500000,3500000,4000000,29000000,24000000,20000000,48000000,43000000,39000000,
+21501,"Incision and drainage  of deep abscess  or
+hematoma  of soft tissues  of neck or thorax",1,11500000,3500000,4000000,23500000,18500000,14500000,42500000,37500000,33500000,
+21556,"Excision of tumor of soft  tissue  of neck or
+thorax: deep, subfascial, or intramuscular ",1,11500000,3500000,4000000,23500000,18500000,14500000,42500000,37500000,33500000,
+21557,"Radical  resection of tumor (eg, malignant
+neoplasm) of soft tissue  of neck or thorax",3,28000000,9500000,4000000,44000000,35000000,28500000,85500000,76500000,70000000,
+21930,"Excision, tumor, soft tissue  of back or flank",3,9500000,3000000,4000000,15500000,13500000,12000000,32000000,30000000,28500000,
+21935,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of back or flank",3,37000000,12000000,4000000,46000000,36000000,29000000,99000000,89000000,82000000,
+22326,"Open treatment of vertebral  fracture  and/or
+dislocation: cervical, thoracic or lumbar, each",8,45000000,14000000,4000000,120000000,108000000,96000000,183000000,171000000,159000000,
+22840,"Spinal  instrumentation, posterior: without
+segmental  fixation (eg, single  Harrington rod technique)",5,45000000,14000000,4000000,120000000,108000000,96000000,183000000,171000000,159000000,
+22842,"Spinal  instrumentation, posterior: segmental 
+fixation (eg, pedicle  fixation, dual  rods  with multiple  hooks  and sublaminal  wires)",5,52000000,17000000,4000000,120000000,108000000,96000000,193000000,181000000,169000000,
+23030,"Incision and drainage, shoulder area: deep
+abscess  or hematoma  or infected bursa",1,7500000,4500000,4000000,16000000,13500000,12000000,32000000,29500000,28000000,
+23076,"Excision, tumor, shoulder area: deep,
+subfascial  or intramuscular ",1,15000000,5500000,4000000,45000000,36000000,30000000,69500000,60500000,54500000,
+23077,"Radical  resection of tumor (eg, malignant
+neoplasm) of soft tissues  of shoulder area",1,28500000,10000000,4000000,57000000,46000000,38000000,99500000,88500000,80500000,
+23331,"Removal  of foreign body, shoulder: deep (eg,
+Neer prosthesis  removal)",1,16500000,6500000,4000000,24000000,18000000,14500000,51000000,45000000,41500000,
+23415,"Coracoacromial  ligament release, with or
+without acromioplasty",5,20500000,7000000,4000000,51000000,43000000,36000000,82500000,74500000,67500000,
+23420,"Repair of complete  shoulder (rotator) cuff
+avulsion, chronic (includes  acromioplasty)",5,31500000,11000000,4000000,59000000,47000000,38500000,105500000,93500000,85000000,
+23430,Tenodesis  for rupture  of long tendon of,5,20500000,7000000,4000000,45000000,38000000,32000000,76500000,69500000,63500000,
+23450,"Capsulorrhaphy for recurrent dislocation of shoulder, anterior or posterior, any method,
+any type",3,31500000,11000000,4000000,51000000,43000000,36000000,97500000,89500000,82500000,
+23515,"Open treatment of clavicular fracture, with or
+without internal  or external  skeletal  fixation",1,15000000,5500000,4000000,43000000,38000000,34000000,67500000,62500000,58500000,
+23615,"Open treatment of proximal  humeral  (surgical or anatomical  neck) fracture, with or without
+internal  or external  fixation, with/without
+repair of tuberosity(ies)",3,20500000,7000000,4000000,89000000,79000000,72500000,120500000,110500000,104000000,
+23650,"Closed treatment of shoulder dislocation,
+with manipulation",1,7500000,2500000,4000000,27000000,21000000,16500000,41000000,35000000,30500000,
+23670,"Open treatment of shoulder dislocation, with fracture  of grea ter tuberos i ty, wi th or wi thout
+internal  or external  fixation",1,20500000,7000000,4000000,45000000,38000000,32000000,76500000,69500000,63500000,
+23680,"Open treatment of shoulder dislocation, with surgical  or anatomical  neck fracture, with or
+without internal  or external  fixation",1,20500000,7000000,4000000,45000000,38000000,32000000,76500000,69500000,63500000,
+24077,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of upper arm or elbow area",1,21000000,7000000,4000000,35000000,27000000,21000000,67000000,59000000,53000000,
+24160,Implant removal: elbow joint or radial head,1,13500000,6000000,4000000,23500000,18500000,14500000,47000000,42000000,38000000,
+24201,"Removal  of foreign body, upper arm or elbow
+area: deep",1,13500000,6000000,4000000,23500000,18500000,14500000,47000000,42000000,38000000,
+24516,"Open treatment of humeral  shaft fracture, with insertion of intramedullary implant,
+with or without cerclage  and/or locking screws",4,26000000,9000000,4000000,89000000,79000000,72500000,128000000,118000000,111500000,
+24545,"Open treatment of humeral  supracondylar or transcondylar fracture, with or without
+internal  fixation: without intercondylar 
+extension",2,26000000,9000000,4000000,55000000,50000000,44000000,94000000,89000000,83000000,
+24546,"Open treatment of humeral  supracondylar or transcondylar fracture, with or without
+internal  fixation: with intercondylar extension",2,37500000,12500000,4000000,55000000,50000000,44000000,109000000,104000000,98000000,
+25000,"Tendon sheath incision: at radial  styloid , eg
+for de  Quervain's  disease",1,9500000,4500000,4000000,18000000,14500000,11500000,36000000,32500000,29500000,
+25005,"Tendon sheath incision: at wrist for
+stenosing tenosynovitis, with synovectomy",1,9500000,4500000,4000000,18000000,14500000,11500000,36000000,32500000,29500000,
+25028,"Incision and drainage, forearm and/or wrist:
+deep abscess  or hematoma  or infected bursa",1,9500000,4500000,4000000,18000000,14500000,11500000,36000000,32500000,29500000,

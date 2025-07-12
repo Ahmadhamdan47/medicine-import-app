@@ -1,3 +1,25 @@
+const nssfOperationCoverageService = require('./nssfOperationCoverageService');
+/**
+ * Get operation info and NSSF coverage for a specific operation
+ * @param {number} operationId
+ * @returns {Promise<Object>} { operation, nssfCoverage }
+ */
+const getOperationWithNSSF = async (operationId) => {
+  // Get operation info (basic fields)
+  const operation = await Operation.findOne({
+    where: { ID: operationId },
+    attributes: ['ID','Name','NameAr','Anesthetic','Description','DescriptionAR','Los', 'Code']
+  });
+  if (!operation) throw new Error(`Operation with ID ${operationId} not found`);
+
+  // Get NSSF coverage using the dedicated service
+  const nssfCoverage = await nssfOperationCoverageService.getNSSFOperationCoverageByOperationId(operationId);
+
+  return {
+    operation,
+    nssfCoverage
+  };
+};
 const { Op } = require('sequelize');
 const Operation = require('../models/operation');
 const CategoryPricing = require('../models/categoryPricing');
@@ -296,12 +318,26 @@ const getOperationById = async (operationId) => {
   operation.dataValues.patientSharePublicCategory2 = categoryPricingPublic[0].FirstCategory2 * operationSharePublic[0].Share/100;
   operation.dataValues.patientSharePublicCategory3 = categoryPricingPublic[0].FirstCategory3 * operationSharePublic[0].Share/100;
 
- if (operation.dataValues.Anesthetic === 'G') {
-      operation.dataValues.Anesthetic = 'Global Anesthesia';
-    } else if (operation.dataValues.Anesthetic === 'L') {
-      operation.dataValues.Anesthetic = 'Local Anesthesia';
-    }
+  // Map nssfCoverage to a structure similar to categoryPricing if present
+  if (operation.dataValues.nssfCoverage && Array.isArray(operation.dataValues.nssfCoverage) && operation.dataValues.nssfCoverage.length > 0) {
+    const nssf = operation.dataValues.nssfCoverage[0];
+    operation.dataValues.nssfCoverageStructured = {
+      nssf_code: nssf.nssf_code,
+      category1_price_lbp: nssf.category1_price_lbp,
+      category2_price_lbp: nssf.category2_price_lbp,
+      category3_price_lbp: nssf.category3_price_lbp,
+      effective_date: nssf.effective_date,
+      notes: nssf.notes
+    };
+  } else {
+    operation.dataValues.nssfCoverageStructured = null;
+  }
 
+  if (operation.dataValues.Anesthetic === 'G') {
+    operation.dataValues.Anesthetic = 'Global Anesthesia';
+  } else if (operation.dataValues.Anesthetic === 'L') {
+    operation.dataValues.Anesthetic = 'Local Anesthesia';
+  }
 
   return operation;
 };
@@ -560,6 +596,7 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
 
 
 module.exports = {
+  getOperationWithNSSF,
   searchOperationsBySystemPrivate,
   searchOperationsBySystemPublic,
   searchOperationPrivate,
