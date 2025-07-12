@@ -1,3 +1,4 @@
+
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJSDoc = require("swagger-jsdoc");
@@ -62,7 +63,7 @@ const drugsUnderProcessRoutes = require("./src/routes/drugsUnderProcessRoutes");
 const alfaRoutes = require("./src/routes/alfaRoutes");
 const touchRoutes = require("./src/routes/touchRoutes");
 const reportRoutes = require("./src/routes/reportRoutes");
-
+const hospitalRoutes = require('./src/routes/hospitalRoutes');
 // Add workflow routes
 const workflowRoutes = require("./src/routes/workflowRoutes");
 const workflowNotificationRoutes = require("./src/routes/workflowNotificationRoutes");
@@ -180,6 +181,7 @@ app.use("/alfa", alfaRoutes);
 app.use("/touch", touchRoutes);
 app.use("/report", reportRoutes);
 app.use("/dashboard", dashboardRoutes);
+app.use('/hospitals', hospitalRoutes);
 app.use("/img", express.static("img"));
 
 // --- Serve React Static Files ---
