@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
+
 const NSSFOperationCoverage = sequelize.define('nssf_operation_coverage', {
     id: {
         type: DataTypes.INTEGER,
@@ -15,78 +16,65 @@ const NSSFOperationCoverage = sequelize.define('nssf_operation_coverage', {
             key: 'ID'
         }
     },
-    effective_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
+    nssf_code: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+        comment: 'NSSF Code for the operation'
     },
-    // Private Hospital Coverage
-    private_operation_cost_lbp: {
+    surgeon: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'Private Operation Cost in LBP'
+        comment: 'Surgeon fee in LBP'
     },
-    private_nssf_coverage_percentage: {
-        type: DataTypes.DECIMAL(5, 2),
-        allowNull: true,
-        comment: 'NSSF Coverage Percentage for Private Operations (e.g., 80.00 for 80%)'
-    },
-    private_nssf_coverage_amount_lbp: {
+    anesthetist: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'NSSF Coverage Amount for Private Operations in LBP'
+        comment: 'Anesthetist fee in LBP'
     },
-    private_patient_share_lbp: {
+    consultants: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'Patient Share for Private Operations in LBP (calculated as private_operation_cost_lbp - private_nssf_coverage_amount_lbp)'
+        comment: 'Consultants fee in LBP'
     },
-    // Public Hospital Coverage
-    public_operation_cost_lbp: {
+    hospital1: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'Public Operation Cost in LBP'
+        comment: 'Hospital Category 1 fee in LBP'
     },
-    public_nssf_coverage_percentage: {
-        type: DataTypes.DECIMAL(5, 2),
-        allowNull: true,
-        comment: 'NSSF Coverage Percentage for Public Operations (e.g., 90.00 for 90%)'
-    },
-    public_nssf_coverage_amount_lbp: {
+    hospital2: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'NSSF Coverage Amount for Public Operations in LBP'
+        comment: 'Hospital Category 2 fee in LBP'
     },
-    public_patient_share_lbp: {
+    hospital3: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'Patient Share for Public Operations in LBP (calculated as public_operation_cost_lbp - public_nssf_coverage_amount_lbp)'
+        comment: 'Hospital Category 3 fee in LBP'
     },
-    // Category-specific pricing for different patient categories
-    category1_nssf_coverage_lbp: {
+    total1: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'NSSF Coverage for Category 1 patients in LBP'
+        comment: 'Total for Category 1 in LBP'
     },
-    category2_nssf_coverage_lbp: {
+    total2: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'NSSF Coverage for Category 2 patients in LBP'
+        comment: 'Total for Category 2 in LBP'
     },
-    category3_nssf_coverage_lbp: {
+    total3: {
         type: DataTypes.DECIMAL(12, 2),
         allowNull: true,
-        comment: 'NSSF Coverage for Category 3 patients in LBP'
-    },
-    is_active: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: true,
-        comment: 'Whether this coverage record is active'
+        comment: 'Total for Category 3 in LBP'
     },
     notes: {
         type: DataTypes.TEXT,
         allowNull: true,
         comment: 'Additional notes about the coverage'
+    },
+    is_active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+        comment: 'Whether this coverage record is active'
     }
 }, {
     sequelize,
@@ -105,25 +93,7 @@ const NSSFOperationCoverage = sequelize.define('nssf_operation_coverage', {
             unique: false,
             fields: ['is_active']
         }
-    ],
-    // Add hooks to calculate patient shares automatically
-    hooks: {
-        beforeSave: (nssfOperationCoverage, options) => {
-            // Calculate private patient share
-            if (nssfOperationCoverage.private_operation_cost_lbp && nssfOperationCoverage.private_nssf_coverage_amount_lbp) {
-                nssfOperationCoverage.private_patient_share_lbp = 
-                    parseFloat(nssfOperationCoverage.private_operation_cost_lbp) - 
-                    parseFloat(nssfOperationCoverage.private_nssf_coverage_amount_lbp);
-            }
-            
-            // Calculate public patient share
-            if (nssfOperationCoverage.public_operation_cost_lbp && nssfOperationCoverage.public_nssf_coverage_amount_lbp) {
-                nssfOperationCoverage.public_patient_share_lbp = 
-                    parseFloat(nssfOperationCoverage.public_operation_cost_lbp) - 
-                    parseFloat(nssfOperationCoverage.public_nssf_coverage_amount_lbp);
-            }
-        }
-    }
+    ]
 });
 
 module.exports = NSSFOperationCoverage;

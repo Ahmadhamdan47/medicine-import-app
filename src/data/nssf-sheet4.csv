@@ -1,0 +1,82 @@
+NSSF CODES,Operation,LOS,Surgeon,Anesthetist,2 Consultants,Hospital I,Hospital II,Hospital III,Total I,Total II,Total III,Notes
+52332,"Cystourethroscopy, with insertion of
+indwelling ureteral  stent (eg, Gibbons  or double-J type) (separate  procedure)",1,10500000,6000000,4000000,26000000,22000000,18000000,46500000,42500000,38500000,
+52334,"Cystourethroscopy, with insertion of ureteral guide  wire  through kidney to establish a
+percutaneous  nephrostomy, retrograde
+(separate  procedure)",1,13125000,5625000,4000000,46000000,41000000,36000000,68750000,63750000,58750000,
+52335,"Cystourethroscopy, with ureteroscopy and/or pyeloscopy (includes  dilation of the  ureter
+and or pyeloureteral  junction by any method) with or without lithotripsy or removal  of
+calculus  (separate  procedure)",1,15000000,5625000,4000000,31000000,27500000,24000000,55625000,52125000,48625000,
+52340,"Cystourethroscopy, with incision, fulguration or resection of bladder neck, and/or
+posterior urethra   (congenital  valves,
+obstructive  hypertrophic mucosal    folds)",1,22500000,7500000,4000000,57000000,46500000,39000000,91000000,80500000,73000000,
+52612,Transurethral  resection of prostate,4,22500000,7500000,4000000,57000000,50500000,45000000,91000000,84500000,79000000,
+54162,Revision of circumcision in operating room,1,11250000,4500000,4000000,21000000,17500000,13500000,40750000,37250000,33250000,
+54304,"Plastic operation on penis  for correction of chordee  or for hypospadias  repair with or
+without transplantation of prepuce  and/or",1,22500000,7500000,4000000,31000000,23500000,18000000,65000000,57500000,52000000,
+54322,"One  stage  distal  hypospadias  repair (with or without chordee  or circumcision): with s imple meatal  advancement (eg, Magpi, V-flap) or
+with urethroplasty by local  skin flaps",1,31875000,10875000,4000000,61000000,55000000,49000000,107750000,101750000,95750000,
+54530,"Orchiectomy, radical, for tumor: any approach",3,22500000,7500000,4000000,57000000,47500000,38500000,91000000,81500000,72500000,
+54600,"Reduction of torsion of testis, surgical, with
+or without fixation of contralateral  testis ",1,16875000,6000000,4000000,28000000,21000000,16500000,54875000,47875000,43375000,
+54640,"Orchiopexy, any type, with or without hernia
+repair ",1,22500000,7500000,4000000,45000000,40500000,35500000,79000000,74500000,69500000,
+55040,Excision of hydrocele: unilateral ,1,11250000,3750000,4000000,29000000,26000000,23000000,48000000,45000000,42000000,
+55530,"Excision of varicocele  or ligation of spermatic 
+veins  for varicocele: (separate  procedure)",3,11250000,5250000,4000000,29000000,26000000,23000000,49500000,46500000,43500000,
+55535,"Excision of varicocele  or ligation of spermatic 
+veins  for varicocele: abdominal  approach",3,18750000,6750000,4000000,31000000,23500000,18000000,60500000,53000000,47500000,
+55810,"Prostatectomy, radical, with or without
+lymphadenectomy",5,54000000,18000000,4000000,134500000,112000000,93000000,210500000,188000000,169000000,
+56300,"Laparoscopy (peritoneoscopy), diagnostic
+(separate  procedure)",1,11250000,5625000,4000000,21500000,17500000,14000000,42375000,38375000,34875000,
+56303,"Laparoscopy (peritoneoscopy), surgical: with fulguration or excision of lesion of the  ovary, pelvic viscera, or peritoneal  surface  by any
+method",1,16875000,6750000,4000000,41000000,34000000,29000000,68625000,61625000,56625000,
+56304,"Laparoscopy (peritoneoscopy), surgical: with
+lysis  of adhesions",1,16875000,6750000,4000000,41000000,33500000,28500000,68625000,61125000,56125000,
+56305,"Laparoscopy (peritoneoscopy), surgical: with
+biopsy (single  or multiple)",1,11250000,5625000,4000000,33500000,26000000,20500000,54375000,46875000,41375000,
+56307,"Laparoscopy (peritoneoscopy), surgical: with removal  of adnexal  structures  (partial  or total 
+oophorectomy and/or salpingectomy)",2,20625000,6750000,4000000,45000000,36000000,29000000,76375000,67375000,60375000,
+56308,"Laparoscopy (peritoneoscopy), surgical: with vaginal  hysterectomy with or without removal of tube(s), with or without removal  of ovary(s)
+(laparoscopic assisted vaginal  hysterectomy)",3,35500000,12500000,4000000,111500000,97500000,88000000,163500000,149500000,140000000,
+56309,"Laparoscopy (peritoneoscopy), surgical: with removal  of leiomyomata, subserosal  (single 
+or multiple)",1,20625000,6750000,4000000,38500000,29500000,24000000,69875000,60875000,55375000,
+56350,"Hysteroscopy, diagnostic (separate
+procedure) or therapeutic",1,9375000,4875000,4000000,22000000,17500000,14000000,40250000,35750000,32250000,
+56351,"Hysteroscopy, surgical: with biopsy of
+endometrium and/or polypectomy, with or wi thout D & C",1,9375000,4875000,4000000,22000000,17500000,14000000,40250000,35750000,32250000,
+56740,Excision of Bartholin's  gland or cyst,1,9375000,4875000,4000000,22000000,17500000,14000000,40250000,35750000,32250000,
+57240,"Anterior colporrhaphy, repair of cystocele with or without repair of urethrocele
+(separate  procedure)",1,15000000,6000000,4000000,32500000,25000000,19500000,57500000,50000000,44500000,
+57250,"Posterior colporrhaphy, repair of rectocele with or without perineorrhaphy (separate
+procedure)",1,13125000,5625000,4000000,32500000,25000000,19500000,55250000,47750000,42250000,
+57265,"Combined anteroposterior colporrhaphy: with or without enterocele  repair (separate
+procedure)",1,20625000,5625000,4000000,43000000,34500000,28000000,73250000,64750000,58250000,
+57288,"Sling operation for stress  incontinence  (eg,
+fascia  or synthetic) (separate  procedure)",1,30000000,9750000,4000000,43000000,34500000,28000000,86750000,78250000,71750000,
+58120,"Dilation and curettage, diagnostic and/or therapaeutic (non obstetrical) (separate
+procedure)",1,7500000,2625000,4000000,30000000,27000000,24000000,44125000,41125000,38125000,
+58140,"Myomectomy, single  or multiple  (separate
+procedure): any approach",4,18750000,6000000,4000000,63500000,56000000,50000000,92250000,84750000,78750000,
+58150,"Total  abdominal  hysterectomy (corpus  and cervix), with or without removal  of tube(s),
+with or without removal  of ovary(ies)",6,26500000,9500000,4000000,71000000,59500000,50500000,111000000,99500000,90500000,
+58152,"Total  abdominal  hysterectomy (corpus  and cervix), with or without removal  of tube(s), with or without removal  of ovary(ies): with
+colpo-urethrocystopexy",6,30000000,10125000,4000000,91000000,81000000,73000000,135125000,125125000,117125000,
+58200,"Total  abdominal  hysterectomy, including partial  vaginectomy, with para-aortic and
+pelvic lymph node  sampling, with or without
+removal  of tube(s), with or without removal  of ovary(ies)",6,41250000,13500000,4000000,107000000,97000000,86000000,165750000,155750000,144750000,
+58262,"Vaginal  hysterectomy: with or without
+removal  of tube(s) and/or ovary(ies)",4,26500000,9500000,4000000,75000000,60000000,48000000,115000000,100000000,88000000,
+58267,"Vaginal  hysterectomy: with colpo-
+urethrocystopexy (Marshall-Marchetti-Krantz or Pereyra  type, with/without endoscopic
+control)",6,37500000,12375000,4000000,91000000,81000000,73000000,144875000,134875000,126875000,
+58270,"Vaginal  hysterectomy: with or without
+removal  of tube(s) and/or ovary(ies)",6,37500000,12375000,4000000,91000000,81000000,73000000,144875000,134875000,126875000,
+58275,"Vaginal  hysterectomy, with total  or partial 
+col pectomy",6,41250000,13500000,4000000,91000000,81000000,73000000,149750000,139750000,131750000,
+58940,"Oophorectomy, partial  or total, unilateral  or
+bilateral ",1,22500000,7500000,4000000,35500000,28500000,22500000,69500000,62500000,56500000,
+58943,"Oophorectomy, unilateral  or bilateral: for ovarian malignancy, with or without para- aortic and pelvic lymph node  biopsies,
+peritoneal  washings/biopsies,
+diaphragmatic assessments,",1,39375000,13875000,4000000,64500000,49500000,38500000,121750000,106750000,95750000,

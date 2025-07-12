@@ -1,0 +1,247 @@
+NSSF CODES,Operation,LOS,Surgeon,Anesthetist,2 Consultants,Hospital I,Hospital II,Hospital III,Total I,Total II,Total III,Notes
+25076,"Excision, tumor , forearm and/or wrist area: 
+deep, subfascial  or intramuscular ",1,10500000,6000000,4000000,21500000,17500000,14000000,42000000,38000000,34500000,
+25077,"Radical  resection of tumor (eg, malignant neoplasm), soft tissue  of forearm and/or
+wrist area",1,14500000,6500000,4000000,35000000,27000000,21000000,60000000,52000000,46000000,
+25110,"Excision, lesion of tendon sheath, forearm
+and/or wrist",1,10500000,6000000,4000000,18000000,14500000,11500000,38500000,35000000,32000000,
+25111,"Excision of ganglion, wrist (dorsal  or volar)",1,10500000,6000000,4000000,18000000,14500000,11500000,38500000,35000000,32000000,
+25260,"Repair, tendon or muscle, flexor, forearm
+and/or wrist: primary or secondary, single, each tendon or muscle",1,13000000,4500000,4000000,31000000,28000000,25000000,52500000,49500000,46500000,
+25270,"Repair, tendon or muscle, extensor, forearm and/or wrist: primary or secondary, single,
+each tendon or muscle",1,13000000,4500000,4000000,31000000,28000000,25000000,52500000,49500000,46500000,
+25515,"Open treatment of radial  shaft fracture:
+with/without internal  or external  fixation",1,22500000,7500000,4000000,35000000,27500000,21500000,69000000,61500000,55500000,
+25520,"Closed treatment of radial  shaft fracture, with dislocation of distal  radioulnar joint
+(Galeazzi  fracture/dislocation)",1,13000000,5500000,4000000,22000000,17500000,13500000,44500000,40000000,36000000,
+25526,"Open treatment of radial  shaft fracture, with internal  and/or external  fixation, with or
+without internal  or external  fixation of distal radioulnar joint, includes  repair of triangular cartilage, with or without percutaneous
+skeletal  fixation",1,22500000,7500000,4000000,75500000,58000000,45500000,109500000,92000000,79500000,
+25545,"Open treatment of ulnar shaft fracture:
+with/without internal  or external  fixation",1,22500000,7500000,4000000,35000000,27500000,21500000,69000000,61500000,55500000,
+25574,"Open treatment of radial  and ulnar shaft
+fractures, with internal  or external  fixation of radius  or ulna",1,13000000,5500000,4000000,30500000,24000000,18500000,53000000,46500000,41000000,
+25575,"Open treatment of radial  and ulnar shaft
+fractures, with internal  or external  fixation: of radius  and ulna",3,22500000,7500000,4000000,65000000,58000000,52000000,99000000,92000000,86000000,
+25605,"Closed treatment of distal  radial  fracture (Colles  or Smith type) or epiphyseal 
+separation, with or without fracture  of ulnar
+styloid: with manipulation",1,13000000,4500000,4000000,37000000,33000000,29000000,58500000,54500000,50500000,
+25611,"Percutaneous  skeletal  fixation of distal 
+radial  fracture  or epiphyseal  separation, with or without fracture  of ulnar styloid, requiring manipulation, with or without external ",1,13000000,4500000,4000000,37000000,33000000,29000000,58500000,54500000,50500000,
+25620,"Open treatment of distal  radial  fracture, or epiphyseal  separation, with or without
+fracture  of ulnar styloid, with or without
+internal  or external  fixation",3,22500000,7500000,4000000,52000000,45000000,40000000,86000000,79000000,74000000,
+26116,"Excision, tumor or vascular malformation,
+hand or finger: deep, subfascial  intramuscular",1,16500000,6500000,4000000,19500000,16000000,13000000,46500000,43000000,40000000,
+26117,"Radical  resection of tumor (eg, malignant
+neoplasm) of soft tissues  of hand or finger",1,16500000,6500000,4000000,25500000,20500000,16000000,52500000,47500000,43000000,
+26130,"Synovectomy, carpometacarpal  joint",1,16500000,6500000,4000000,25500000,20500000,16000000,52500000,47500000,43000000,
+26160,"Excision of lesion of tendon sheath or
+capsule  (eg, cyst or ganglion), hand or finger",1,10500000,6000000,4000000,25500000,20500000,16000000,46000000,41000000,36500000,
+26615,"Open treatment of metacarpal  fracture,
+single, with or without internal  or external fixation, each bone",1,15000000,5500000,4000000,41000000,36500000,32000000,65500000,61000000,56500000,
+26990,"Incision and drainage, pelvis  or hip joint
+area: deep abscess  or hematoma  or infected",1,12500000,6000000,4000000,30500000,24500000,19500000,16,47000000,42000000,
+27049,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of pelvis  and hip area",1,29000000,10000000,4000000,44000000,34500000,27000000,87000000,77500000,70000000,
+27087,"Removal  of foreign body, pelvis  or hip, deep",1,12500000,6000000,4000000,28000000,22500000,18000000,50500000,45000000,40500000,
+27125,"Partial  hip replacement, prosthesis  (eg,
+femoral  stem prosthesis, bipolar arthroplasty)",4,39500000,13500000,4000000,77000000,61000000,48500000,134000000,118000000,105500000,
+27130,"Arthroplasty, acetabular and proximal 
+femoral  prosthetic replacement (total  hip replacement), wi th or wi thout autogra ft or allograft",4,54500000,18000000,4000000,98000000,77500000,62000000,174500000,154000000,138500000,
+27134,"Revision of total  hip arthroplasty: both components, with or without autograft or
+allograft",4,60000000,20000000,4000000,102000000,78000000,61000000,186000000,162000000,145000000,
+27137,"Revision of total  hip arthroplasty: acetabular or femoral  component only, with or without
+autograft or allograft",4,43500000,15000000,4000000,92000000,74000000,60000000,154500000,136500000,122500000,
+27222,"Closed treatment of acetabulum (hip socket) fracture(s): with manipulation with or without
+skeletal  traction",3,17000000,6000000,4000000,32000000,26000000,21000000,59000000,53000000,48000000,
+27228,"Open treatment of acetabular fracture(s) involving anterior and posterior (two)
+columns, includes  T-fracture  and both column fracture  with complete  articular detachment, or s ingle  column or transverse  fracture  with
+associated acetabular wall  fracture  with
+internal  fixation",6,35500000,12000000,4000000,98500000,84000000,71000000,150000000,135500000,122500000,
+27236,"Open treatment of femoral  fracture, proximal end, neck, internal  fixation or prosthetic
+replacement (direct fracture  exposure)",6,28500000,10000000,4000000,98500000,84000000,71000000,141000000,126500000,113500000,
+27244,"Open trea tment of intertrocha nteri c,
+pertrochanteric, or subtrochanteric femoral fracture: with plate/screw type  implant, with or without cerclage",4,35500000,12000000,4000000,112000000,95000000,80500000,163500000,146500000,132000000,
+27245,"Open trea tment of intertrocha nteri c,
+pertrochanteric or subtrochanteric femoral fracture: with intramedullary implant, with or without interlocking screws  and/or cerclage",4,35500000,12000000,4000000,112000000,95000000,80500000,163500000,146500000,132000000,
+27248,"Open trea tment of grea ter trocha nteri c
+fracture, with or without internal  or external fixation",2,18500000,6000000,4000000,32000000,26000000,21000000,60500000,54500000,49500000,
+27254,"Open treatment of hip dislocation, traumatic, with acetabular wall  and femoral  head 
+fracture, with or without internal  or external 
+fixation",6,28500000,10000000,4000000,102000000,86000000,73000000,144500000,128500000,115500000,
+27301,"Incision and drainage  of deep abscess  or bone  cortex, infected bursa, or hematoma,
+thigh, femur or knee  region",1,13000000,4500000,4000000,21500000,16000000,13000000,43000000,37500000,34500000,
+27328,"Excision, tumor, thigh or knee  area: deep,
+subfascial, or intramuscular ",1,13000000,4500000,4000000,25000000,19500000,16000000,46500000,41000000,37500000,
+27329,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of thigh or knee  area",1,23000000,7500000,4000000,41000000,32000000,25500000,75500000,66500000,60000000,
+27365,"Radical  resection for tumor, femur or knee,
+bone  or knee",1,31500000,11000000,4000000,46000000,35500000,28000000,92500000,82000000,74500000,
+27372,"Removal  of foreign body, deep, thigh region
+or knee  area",1,13000000,4500000,4000000,23000000,18000000,14500000,44500000,39500000,36000000,
+27393,Lengthening of hamstring tendon: s ingle,1,13000000,4500000,4000000,23000000,18000000,14500000,44500000,39500000,36000000,
+27394,"Lengthening of hamstring tendon: multiple,
+one  leg",1,20500000,6500000,4000000,31000000,24000000,18500000,62000000,55000000,49500000,
+27395,"Lengthening of hamstring tendon: multiple,
+bilateral ",1,22500000,7500000,4000000,33000000,25500000,20000000,67000000,59500000,54000000,
+27447,"Arthroplasty, knee condyle and plateau: medial AND lateral compartments with or without patella resurfacing (""total knee
+replacement"")",5,43500000,15000000,4000000,92000000,74000000,60000000,154500000,136500000,122500000,
+27506,"Open trea tment of femoral  shaft fracture, with or without external  fixation, with
+insertion of intramedullary implant, with or without cerclage  and/or locking screws, with
+or wi thout pla te/s crews   wi th or wi thout",5,35500000,12000000,4000000,112000000,95000000,80500000,163500000,146500000,132000000,
+27514,"Open treatment of femoral  fracture, distal end, medial  or lateral  condyle, with or
+without internal  or external  fixation",6,35000000,12000000,4000000,100500000,85000000,72000000,151500000,136000000,123000000,
+27524,"Open treatment of patellar fracture, with
+internal  fixation and/or partial  or complete patellectomy and soft tissue  repair ",3,22500000,7500000,4000000,67000000,60000000,53000000,101000000,94000000,87000000,
+27535,"Open treatment of tibial  fracture, proximal 
+(plateau): unicondylar, with internal  fixation",5,22500000,7500000,4000000,67000000,60000000,53000000,101000000,94000000,87000000,
+27536,"Open treatment of tibial  fracture, proximal 
+(plateau), bicondylar, with or without internal or external  fixation",5,22500000,7500000,4000000,112000000,95000000,80500000,146000000,129000000,114500000,
+27566,"Open treatment of patellar dislocation, with
+or without partial  or total  patellectomy",5,22500000,7500000,4000000,51500000,43000000,36500000,85500000,77000000,70500000,
+27591,"Amputation, thigh, through femur, any level: with or without immediate  fi tting technique
+including first cast",5,22500000,7500000,4000000,51500000,43000000,36500000,85500000,77000000,70500000,
+27598,Disarticulation at knee,5,22500000,7500000,4000000,51500000,43000000,36500000,85500000,77000000,70500000,
+27603,"Incision and drainage, leg or ankle: deep
+abscess, hematoma, infected bursa",1,9500000,4500000,4000000,18000000,14500000,11500000,36000000,32500000,29500000,
+27610,"Arthrotomy, ankle, for infection, with
+exploration, drainage  or removal  of foreign body",1,16500000,6500000,4000000,51000000,40000000,32000000,78000000,67000000,59000000,
+27615,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of leg or ankle  area",1,25000000,8500000,4000000,40000000,31000000,25000000,77500000,68500000,62500000,
+27619,"Excision, tumor, leg or ankle  area: deep,
+subfascial  or intramuscular ",1,16500000,6500000,4000000,31000000,25000000,20500000,58000000,52000000,47500000,
+27630,"Excision of lesion of tendon, sheath or
+capsule  (eg, cyst or ganglion), leg and/or",1,16500000,6500000,4000000,28500000,22500000,18000000,55500000,49500000,45000000,
+27645,"Resection for tumor, radical: tibia, fibula, 
+talus  or calcaneus",1,25000000,8500000,4000000,36000000,28000000,22000000,73500000,65500000,59500000,
+27686,"Lengthening or shortening of tendon, leg or ankle: single  or multiple  (through same
+incision)",1,15000000,9375000,4000000,26500000,19500000,15000000,54875000,47875000,43375000,
+27758,"Open treatment of tibial shaft fracture (w ith or w ithout fibular fracture), w ith
+plate/screw s, w ith or w ithout cerclage",5,22500000,7500000,4000000,67000000,60000000,53000000,101000000,94000000,87000000,
+27759,"Open treatment of tibial  shaft fracture, (with or without fibular fracture) by intramedullary implant, with or without interlocking screws
+and/or cerclage",5,28000000,9500000,4000000,101000000,81500000,66000000,142500000,123000000,107500000,
+27784,"Open treatment of proximal  or distal  fibula  or shaft  fracture, with or without internal  or
+external  fixation",6,15000000,5500000,4000000,65500000,60000000,54000000,90000000,84500000,78500000,
+27822,"Open treatment of bimalleolar or
+trimalleolar ankle  fracture, with internal  or external  fixation, medial  and/or lateral 
+malleolus: without fixation of posterior lip ",6,22500000,7500000,4000000,85500000,78000000,70500000,119500000,112000000,104500000,
+27823,"Open treatment of trimalleolar ankle 
+fracture, with internal  or external  fixation, medial  and/or lateral  malleolus: with
+fixation of posterior lip ",6,28000000,9500000,4000000,87000000,79500000,72000000,128500000,121000000,113500000,
+27881,"Amputation leg, through tibia  and fibula:
+with or without immediate  fi tting technique including application of first cast",5,22500000,7500000,4000000,79000000,71000000,63000000,113000000,105000000,97000000,
+28001,"Incision and drainage, infected bursa, foot",1,10500000,6000000,4000000,20000000,16500000,13500000,40500000,37000000,34000000,
+28005,"Incision, deep, with opening of bone  cortex
+(eg, for osteomyelitis  or bone  abscess), foot",1,13000000,4500000,4000000,30000000,25000000,22000000,51500000,46500000,43500000,
+28020,"Arthrotomy, with exploration, drainage  or
+removal  of loose  or foreign body: intertarsal or tarsometatarsal  joint or
+metatarsophalangeal  joint or",1,13000000,4500000,4000000,30000000,25000000,22000000,51500000,46500000,43500000,
+28046,"Radical  resection of tumor (eg, malignant
+neoplasm), soft tissue  of foot",1,18500000,6000000,4000000,34500000,29500000,24000000,63000000,58000000,52500000,
+28080,"Excision of interdigital  (Morton) neuroma, 
+single, each",1,11000000,4500000,4000000,21000000,17500000,14500000,40500000,37000000,34000000,
+28192,"Removal  of foreign body, foot: deep",1,13000000,4500000,4000000,25000000,19500000,15000000,46500000,41000000,36500000,
+28296,"Hallux valgus  (bunion) correction: with or wi thout meta ta rsal  os teotomy or tendon
+transfer",1,20500000,6500000,4000000,34500000,27000000,21000000,65500000,58000000,52000000,
+28485,"Open trea tment of meta ta rsal  fracture,
+with/without internal  or external  fixation",1,13000000,4500000,4000000,38000000,29500000,23000000,59500000,51000000,44500000,
+28800,"Amputation, foot: midtarsal  or",5,18500000,6000000,4000000,31000000,28500000,24000000,59500000,57000000,52500000,
+28810,"Amputation, metatarsal, with toe, single ",5,15000000,5000000,4000000,28000000,24000000,21000000,52000000,48000000,45000000,
+28820,"Amputation, toe: metatarsophalangeal  joint",5,10000000,4500000,4000000,28000000,24000000,21000000,46500000,42500000,39500000,
+29819,"Arthroscopy, shoulder, surgical: with complete  synovectomy, extensive
+debridement, decompression of subacromial space  with partial  acromioplasty with or
+without coracoacromial  release",1,27500000,9500000,4000000,41500000,32000000,25000000,82500000,73000000,66000000,
+29876,"Arthroscopy, knee, surgical: for major
+s ynovectomy (2 or more  compartments), abrasion arthroplasty (includes
+chondroplasty where  necessary), medial  OR lateral  meniscectomy, lysis  of adhesions, or
+drilling for intact osteochondritis  dissecans",1,27500000,9500000,4000000,41500000,32000000,25000000,82500000,73000000,66000000,
+29880,"Arthroscopy, knee, surgical: with
+meniscectomy (medial  AND lateral, including any meniscal  shaving), or meniscus  repair (medial  OR lateral) ",1,27500000,9500000,4000000,41500000,32000000,25000000,82500000,73000000,66000000,
+29883,"Arthroscopy, knee, surgical: with meniscus
+repair (medial  AND lateral) ",1,35000000,12000000,4000000,47500000,35500000,27000000,98500000,86500000,78000000,
+29888,"Arthroscopically aided anterior OR posterior cruciate  ligament repair/augmentation or
+reconstruction",1,35000000,12000000,4000000,47500000,35500000,27000000,98500000,86500000,78000000,
+30920,"Ligation arteries: ethmoidal  or internal 
+maxillary artery, transantral ",1,20500000,7000000,4000000,36000000,28500000,23500000,67500000,60000000,55000000,
+31030,"Sinusotomy maxillary (antrotomy): radical (Caldwell-Luc), with or without removal  of
+antrochoanal  polyps",2,15000000,6000000,4000000,35500000,29000000,24500000,60500000,54000000,49500000,
+31237,"Nasal/sinus  endoscopy, surgical: with biopsy, polypectomy, debridement, control  of
+epistaxis  or concha  bullosa  resection
+(separate  procedure)",1,11250000,4500000,4000000,30500000,23500000,18500000,50250000,43250000,38250000,
+31540,"Laryngoscopy, direct, operative, with excision of vocal  cord nodule(s) or polyp(s) and or
+stripping of vocal  cords, with or without
+operating microscope",1,16500000,6500000,4000000,32000000,25500000,20500000,59000000,52500000,47500000,
+31600,"Tracheostomy, (separate  procedure)",4,11000000,3500000,4000000,35000000,28000000,22500000,53500000,46500000,41000000,
+33000,"Cardiopulmonary bypass  (extracorporeal 
+circulation): add to primary procedure  i f performed",0,19500000,7000000,-,72000000,68000000,62000000,98500000,94500000,88500000,
+33208,"Insertion or replacement of permanent
+pacemaker with transvenous  electrode(s): atrial  and ventricular ",1,18500000,,4000000,40000000,36000000,30000000,62500000,58500000,52500000,
+33245,"Implantation of automatic implantable cardioverter-defibrillator pads  with or
+without sensing electrodes",1,18500000,,4000000,39000000,35000000,29000000,61500000,57500000,51500000,
+33250,"Operative  ablation of supraventricular 
+arrhythmogenic focus  or pathway (eg, Wolff- Parkinson-White, A-V node  re-entry), tract(s), and or focus  (foci)",7,80000000,30000000,4000000,320000000,290000000,275000000,434000000,404000000,389000000,
+33400,"Valvuloplasty, aortic valve, open",5,99000000,52000000,4000000,470000000,420000000,365000000,625000000,575000000,520000000,
+33411,"Replacement, aortic valve: with or without
+aortic annulus  enlargement, noncoronary cusp",7,99000000,52000000,4000000,507000000,450000000,393500000,662000000,605000000,548500000,
+33417,Aortoplasty (gusset) for supravalvular ,5,99000000,52000000,4000000,380000000,321000000,266500000,535000000,476000000,421500000,
+33430,"Replacement, mitral  valve",7,99000000,46000000,4000000,517000000,463000000,408500000,666000000,612000000,557500000,
+33468,"Tricuspid   valve  replacement  or
+repositioning and plication for Ebstein",7,99000000,46000000,4000000,380000000,321000000,266500000,529000000,470000000,415500000,
+33510,"Coronary artery bypass, s ingle  coronary graft,
+vein or artery, (includes  obtaining graft)",5,99000000,52000000,4000000,526500000,474500000,428000000,681500000,629500000,583000000,
+33511,"Coronary artery bypass, double  coronary graft, vein or artery, (includes  obtaining grafts),
+wi th or wi thout endarterectomy",5,99000000,52000000,4000000,526500000,474500000,428000000,681500000,629500000,583000000,
+33512,"Coronary artery bypass, triple  coronary graft, vein or artery, (includes  obtaining grafts),
+wi th or wi thout endarterectomy",5,99000000,52000000,4000000,526500000,474500000,428000000,681500000,629500000,583000000,
+33513,"Coronary artery bypass, four or more  coronary grafts, vein or artery, (includes  obtaining
+grafts ), wi th or wi thout endarterectomy",5,99000000,52000000,4000000,526500000,474500000,428000000,681500000,629500000,583000000,
+33720,Repair sinus  of Valsalva  aneurysm,6,67500000,35000000,4000000,255000000,212500000,175000000,361500000,319000000,281500000,
+33860,"Ascending aorta  graft, with or without valve suspension, with or without coronary
+recons tructi on, wi th or wi thout aorti c root
+replacement",5,94000000,52000000,4000000,255000000,212500000,175000000,405000000,362500000,325000000,
+35001,"Direct repair of aneurysm, false  aneurysm, or excision and graft insertion,  with or without patch graft  for aneurysm, ruptured aneurysm, or occlusive   disease:  carotid,  subclavian,
+innominate,  vertebral, or  axillary- brachial 
+artery",5,80000000,35000000,4000000,220000000,190000000,170000000,339000000,309000000,289000000,
+35045,"Direct repair of aneurysm,false  aneurysm, or excision and graft insertion, with or without patch graft: for aneurysm, false  aneurysm, or occlusive  disease, abdominal  aorta, visceral 
+artery  iliac artery",1,56000000,25000000,4000000,112000000,100000000,89000000,197000000,185000000,174000000,
+35082,"Direct repair of aneurysm, false  aneurysm, or excision and graft insertion, with or without patch graft: for ruptured aneurysm,
+abdominal  aorta  involving visceral  vessels ",5,94000000,52000000,4000000,220000000,190000000,170000000,370000000,340000000,320000000,
+35470,"Transluminal  balloon angioplasty,
+percutaneous: any vessel",1,20500000,0,4000000,35000000,31000000,28500000,59500000,55500000,53000000,
+35583,"In-situ or reversed   vein bypass: femoral-
+popliteal, or femoral-tibial ",5,41250000,13500000,4000000,112000000,100000000,89000000,170750000,158750000,147750000,
+35681,"Bypass  graft, composite",5,22500000,15000000,4000000,112000000,100000000,89000000,153500000,141500000,130500000,
+35875,"Thrombectomy and/or repair of arterial  or
+venous  graft",1,25000000,8500000,4000000,46000000,41000000,37500000,83500000,78500000,75000000,
+35901,Excision of infected graft,1,25000000,8500000,4000000,46000000,41000000,37500000,83500000,78500000,75000000,
+36215,"Selective  catheter placement, arterial  system:
+any s i te  (separate  procedure)",1,13500000,0,4000000,25500000,19500000,15500000,43000000,37000000,33000000,
+36531,"Insertion or revision of implantable 
+intravenous  pump, chamber, or Broviac catheter, open procedure",1,15000000,6000000,4000000,25500000,19500000,15500000,50500000,44500000,40500000,
+36533,"Removal  of implantable  pediatric 
+intravenous  infusion pump or Broviac catheter (separate  procedure)",1,11250000,4500000,4000000,18000000,16000000,14000000,37750000,35750000,33750000,
+36821,"Arterio-venous  anastomosis, direct, any site",1,22500000,7500000,4000000,43000000,38000000,34000000,77000000,72000000,68000000,
+36825,Creation of arteriovenous  fistula:  any graft,1,22500000,7500000,4000000,43000000,38000000,34000000,77000000,72000000,68000000,
+36832,"Revision of an arteriovenous  fistula, with or without thrombectomy, autogenous  or non-
+autogenous  graft",1,22500000,7500000,4000000,46000000,41000000,37500000,80000000,75000000,71500000,
+37205,"Transcatheter placement of an intravascular stent, (non coronary vessel), percutaneous  or
+open: initial  vessel",1,22500000,7500000,4000000,46000000,41000000,37500000,80000000,75000000,71500000,
+37206,"Transcatheter placement of an intravascular stent, (non coronary vessel), percutaneous  or
+open: each additional  vessel",1,11250000,6000000,4000000,25500000,19500000,15500000,46750000,40750000,36750000,
+37735,"Ligation,division and complete  stripping,
+long or short saphenous  veins, and radical with excision of ulcer,and skin graft,
+interruption of communicating veins, and
+excision of deep fascia   open or endoscopic",2,22500000,7500000,4000000,67000000,60000000,54000000,101000000,94000000,88000000,
+37760,"Ligation of perforators, subfascial, radical 
+(Linton type), with or without skin graft, open or endoscopic",2,22500000,7500000,4000000,67000000,60000000,54000000,101000000,94000000,88000000,
+42821,"Tosillectomy and adenoidectomy, including
+treatment of postoperative  complications: any age",1,13000000,5000000,4000000,31000000,28500000,24000000,53000000,50500000,46000000,
+42830,"Adenoidectomy (separate  procedure): primary
+or secondary",1,7500000,3500000,4000000,31000000,28500000,24000000,46000000,43500000,39000000,
+43264,"Endoscopic retrograde
+cholangiopancreatography (ERCP) therapeutic (separate  procedure)",1,24000000,8000000,4000000,54000000,48000000,43000000,90000000,84000000,79000000,
+43324 E,"Fundoplication for gastroesophageal  reflux
+or hiatus  hernia  eg. Nissen, Belsey IV, or Hill procedure, (any approach)",3,37500000,12500000,4000000,95000000,86000000,76000000,149000000,140000000,130000000,
+43621,"Gastrectomy, total: with repair by intestinal 
+transplant, with lymphadenectomy",8,60000000,20000000,4000000,148000000,129000000,113500000,232000000,213000000,197500000,
