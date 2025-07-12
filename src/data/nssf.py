@@ -11,7 +11,7 @@ def get_db_config(js_path=None):
     return {
         'host': 'localhost',
         'user': 'ommal_ahmad',
-        'password': '',
+        'password': 'fISfGr^8q!_gUPMY',
         'database': 'ommal_medapiv2'
     }
 
