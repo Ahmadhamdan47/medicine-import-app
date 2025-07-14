@@ -479,11 +479,11 @@ const addOperation= async (operationData, categoryPricingData) => {
   }
 };
 
-const filterOperations = async ({ system, name, hospitalCategoryType, hospitalName }) => {
+const filterOperations = async ({ system, name, hospitalCategoryType, hospitalName, nssf }) => {
   const whereConditions = {};
   const includeConditions = [];
 
-  console.log("Filter parameters received:", { system, name, hospitalCategoryType, hospitalName });
+  console.log("Filter parameters received:", { system, name, hospitalCategoryType, hospitalName, nssf });
 
   // Filter by system
   if (system) {
@@ -584,6 +584,21 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
           categoryPricingPublic[0].FirstCategory2 * publicShare / 100;
         operation.dataValues.patientSharePublicCategory3 =
           categoryPricingPublic[0].FirstCategory3 * publicShare / 100;
+      }
+
+      // If nssf param is passed, add nssfCoverageStructured to the response
+      if (nssf && operation.dataValues.nssfCoverage && Array.isArray(operation.dataValues.nssfCoverage) && operation.dataValues.nssfCoverage.length > 0) {
+        const nssfCov = operation.dataValues.nssfCoverage[0];
+        operation.dataValues.nssfCoverageStructured = {
+          nssf_code: nssfCov.nssf_code,
+          category1_price_lbp: nssfCov.category1_price_lbp,
+          category2_price_lbp: nssfCov.category2_price_lbp,
+          category3_price_lbp: nssfCov.category3_price_lbp,
+          effective_date: nssfCov.effective_date,
+          notes: nssfCov.notes
+        };
+      } else {
+        operation.dataValues.nssfCoverageStructured = null;
       }
     }
 
