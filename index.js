@@ -71,6 +71,9 @@ const workflowNotificationRoutes = require("./src/routes/workflowNotificationRou
 // Add dashboard routes
 const dashboardRoutes = require("./src/routes/dashboardRoutes");
 
+// Mobile Donation route
+const mobileDonationRoutes = require("./src/routes/mobileDonationRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -180,9 +183,13 @@ app.use("/notifications", workflowNotificationRoutes);
 app.use("/alfa", alfaRoutes);
 app.use("/touch", touchRoutes);
 app.use("/report", reportRoutes);
+
 app.use("/dashboard", dashboardRoutes);
 app.use('/hospitals', hospitalRoutes);
 app.use("/img", express.static("img"));
+
+// Register mobile donation API
+app.use("/mobile-donation", mobileDonationRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
