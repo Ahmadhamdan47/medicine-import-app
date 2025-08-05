@@ -2,7 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const UserProfileController = require('../controllers/userProfileController');
+const SubAccountController = require('../controllers/subAccountController');
 const { authenticateToken, authorizeRoles } = require('../middlewares/auth');
+const { requireMainDonorAccount, requireDonorAccess } = require('../middlewares/donorPermissions');
 
 /**
  * @swagger
@@ -154,6 +156,188 @@ router.patch('/me', authenticateToken, UserProfileController.updateCurrentUserPr
  *         description: Bad request - invalid current password or missing fields
  */
 router.post('/me/change-password', authenticateToken, UserProfileController.changePassword);
+
+// Donor Sub-Account Management Routes
+
+/**
+ * @swagger
+ * /users/donor-subaccounts:
+ *   post:
+ *     summary: Create sub-account for donor
+ *     description: Allow main donor to create sub-accounts with specific permissions
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - Username
+ *               - Password
+ *               - Email
+ *             properties:
+ *               Username:
+ *                 type: string
+ *                 description: Username for the sub-account
+ *               Password:
+ *                 type: string
+ *                 description: Password for the sub-account
+ *               Email:
+ *                 type: string
+ *                 format: email
+ *                 description: Email for the sub-account
+ *               Permissions:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   enum: [view_donations, add_donations, edit_donations]
+ *                 default: [view_donations]
+ *                 description: Permissions to grant to the sub-account
+ *     responses:
+ *       201:
+ *         description: Sub-account created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     UserId:
+ *                       type: integer
+ *                     Username:
+ *                       type: string
+ *                     Email:
+ *                       type: string
+ *                     Permissions:
+ *                       type: array
+ *                       items:
+ *                         type: string
+ *       400:
+ *         description: Bad request
+ *       403:
+ *         description: Access denied - only main donor accounts can create sub-accounts
+ *   get:
+ *     summary: Get all sub-accounts for logged-in donor
+ *     description: Retrieve all sub-accounts created by the main donor account
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Sub-accounts retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       UserId:
+ *                         type: integer
+ *                       Username:
+ *                         type: string
+ *                       Email:
+ *                         type: string
+ *                       Permissions:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *       403:
+ *         description: Access denied
+ */
+router.post('/donor-subaccounts', authenticateToken, requireMainDonorAccount, SubAccountController.createDonorSubAccount);
+router.get('/donor-subaccounts', authenticateToken, requireMainDonorAccount, SubAccountController.getDonorSubAccounts);
+
+/**
+ * @swagger
+ * /users/donor-subaccounts/{userId}:
+ *   get:
+ *     summary: Get sub-account details
+ *     description: Get details of a specific sub-account
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Sub-account details retrieved successfully
+ *       403:
+ *         description: Access denied
+ *       404:
+ *         description: Sub-account not found
+ *   put:
+ *     summary: Update sub-account permissions
+ *     description: Update permissions for a specific sub-account
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - permissions
+ *             properties:
+ *               permissions:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   enum: [view_donations, add_donations, edit_donations]
+ *     responses:
+ *       200:
+ *         description: Permissions updated successfully
+ *       400:
+ *         description: Bad request
+ *       403:
+ *         description: Access denied
+ *   delete:
+ *     summary: Deactivate sub-account
+ *     description: Deactivate a specific sub-account
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Sub-account deactivated successfully
+ *       403:
+ *         description: Access denied
+ *       404:
+ *         description: Sub-account not found
+ */
+router.get('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.getSubAccountDetails);
+router.put('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.updateSubAccountPermissions);
+router.delete('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.deactivateSubAccount);
 
 // Admin routes for user management
 

@@ -60,7 +60,7 @@ router.post("/add", recipientController.addRecipient);
  *         description: Internal Server Error. Failed to retrieve recipients.
  */
 router.get("/all", recipientController.getAllRecipients);
-router.put("/:recipientId", recipientController.editRecipient);
+router.put("/:recipientId", recipientController.editRecipient);;
 router.delete("/:recipientId", recipientController.deleteRecipient);
 router.get("/:recipientId", recipientController.getRecipientById)
 module.exports = router;

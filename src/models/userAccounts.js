@@ -67,6 +67,32 @@ const UserAccounts = sequelize.define('UserAccounts', {
         type: DataTypes.STRING,
         allowNull: true,
         unique: true
+    },
+    IsMainAccount: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
+    ParentUserId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'useraccounts',
+            key: 'UserId'
+        }
+    },
+    Permissions: {
+        type: DataTypes.JSON,
+        allowNull: true,
+        defaultValue: ['view_donations', 'add_donations']
+    },
+    CreatedBy: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+            model: 'useraccounts', 
+            key: 'UserId'
+        }
     }
 }, {
     tableName: 'useraccounts',

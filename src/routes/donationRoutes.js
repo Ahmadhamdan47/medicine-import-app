@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const donationController = require("../controllers/donationController");
+const { authenticateToken } = require("../middlewares/auth");
+const { checkDonorPermission, requireDonorAccess } = require("../middlewares/donorPermissions");
 
 /**
  * @swagger
@@ -43,7 +45,7 @@ const donationController = require("../controllers/donationController");
  *       '500':
  *         description: Internal Server Error. Failed to add donation.
  */
-router.post("/add", donationController.addDonation);
+router.post("/add", authenticateToken, checkDonorPermission('add_donations'), donationController.addDonation);
 
 /**
  * @swagger
@@ -58,7 +60,7 @@ router.post("/add", donationController.addDonation);
  *       '500':
  *         description: Internal Server Error. Failed to retrieve donation.
  */
-router.get("/all", donationController.getAllDonations);
+router.get("/all", authenticateToken, requireDonorAccess, donationController.getAllDonations);
 /**
     * @swagger
     * /donation/{id}:
@@ -81,17 +83,16 @@ router.get("/all", donationController.getAllDonations);
     *       '500':
     *         description: Internal Server Error. Failed to retrieve donation.
     */
-router.get('/filtered', donationController.getFilteredDonations);
+router.get('/filtered', authenticateToken, requireDonorAccess, donationController.getFilteredDonations);
 
-router.get("/:DonationId", donationController.getDonationById);
+router.get("/:DonationId", authenticateToken, checkDonorPermission('view_donations'), donationController.getDonationById);
 
+router.put('/:DonationId', authenticateToken, checkDonorPermission('edit_donations'), donationController.editDonation);
 
-router.put('/:DonationId', donationController.editDonation);
+router.post('/batchlot', authenticateToken, checkDonorPermission('add_donations'), donationController.createBatchLot);
 
-router.post('/batchlot', donationController.createBatchLot);
+router.get('/byDonor/:donorId', authenticateToken, checkDonorPermission('view_donations'), donationController.getDonationsByDonor);
 
-router.get('/byDonor/:donorId', donationController.getDonationsByDonor);
-
-router.get('/byRecipient/:recipientId', donationController.getDonationsByRecipient);
+router.get('/byRecipient/:recipientId', authenticateToken, requireDonorAccess, donationController.getDonationsByRecipient);
 
 module.exports = router;
