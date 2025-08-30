@@ -48,7 +48,7 @@ class NSSFCoverageService {
                 include: [{
                     model: NewDrug,
                     as: 'drug',
-                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ScientificName']
+                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Form', 'Presentation']
                 }],
                 limit: parseInt(limit),
                 offset: parseInt(offset),
@@ -91,7 +91,7 @@ class NSSFCoverageService {
                 include: [{
                     model: NewDrug,
                     as: 'drug',
-                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ScientificName']
+                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Form', 'Presentation']
                 }],
                 attributes: {
                     include: [
@@ -134,7 +134,7 @@ class NSSFCoverageService {
                 include: [{
                     model: NewDrug,
                     as: 'drug',
-                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ScientificName']
+                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Form', 'Presentation']
                 }],
                 order: [['effective_date', 'DESC']],
                 attributes: {
@@ -173,7 +173,7 @@ class NSSFCoverageService {
                 include: [{
                     model: NewDrug,
                     as: 'drug',
-                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ScientificName']
+                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Form', 'Presentation']
                 }],
                 order: [['effective_date', 'DESC']],
                 attributes: {
@@ -307,10 +307,11 @@ class NSSFCoverageService {
                         [Op.or]: [
                             { DrugName: { [Op.like]: `%${drugName}%` } },
                             { DrugNameAR: { [Op.like]: `%${drugName}%` } },
-                            { ScientificName: { [Op.like]: `%${drugName}%` } }
+                            { ATC_Code: { [Op.like]: `%${drugName}%` } },
+                            { Form: { [Op.like]: `%${drugName}%` } }
                         ]
                     },
-                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ScientificName']
+                    attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Form', 'Presentation']
                 }],
                 where: {
                     is_active: true
