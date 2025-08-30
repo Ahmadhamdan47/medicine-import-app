@@ -197,7 +197,7 @@ app.use("/img", express.static("img"));
 app.use("/mobile-donation", mobileDonationRoutes);
 
 // Register bank donation API
-app.use("/api/bank-donations", bankDonationRoutes);
+app.use("/bank-donations", bankDonationRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
