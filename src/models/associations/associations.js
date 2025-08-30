@@ -8,7 +8,8 @@ const UserAccounts = require('../userAccounts');
 const Role = require('../roles'); // Add Role import
 const Agent = require('../agent'); // Add Agent import
 const DrugPresentation = require('../drugPresentation');
-const Drug = require('../pharmacyDrug');
+const NewDrug = require('../pharmacyDrug');
+const NSSFCoverage = require('../nssfCoverage');
 
 // Import importation models
 const ImportationRequest = require('../importationRequest');
@@ -109,6 +110,17 @@ DrugsUnderProcess.hasOne(WorkflowState, {
 });
 
 WorkflowState.belongsTo(DrugsUnderProcess, {
+    foreignKey: 'drug_id',
+    as: 'drug'
+});
+
+// Drug and NSSF Coverage associations
+NewDrug.hasMany(NSSFCoverage, {
+    foreignKey: 'drug_id',
+    as: 'nssfCoverages'
+});
+
+NSSFCoverage.belongsTo(NewDrug, {
     foreignKey: 'drug_id',
     as: 'drug'
 });

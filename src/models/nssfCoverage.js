@@ -45,6 +45,11 @@ const NSSFCoverage = sequelize.define('nssf_coverage', {
         allowNull: true,
         comment: 'Real NSSF Coverage Percentage per public price (MoPH) - calculated as (nssf_coverage_amount_lbp / public_price_lbp) * 100'
     },
+    real_nssf_coverage: {
+        type: DataTypes.DECIMAL(12, 2),
+        allowNull: true,
+        comment: 'Real NSSF Coverage Amount (non-percentage) in LBP'
+    },
     is_active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
@@ -59,7 +64,7 @@ const NSSFCoverage = sequelize.define('nssf_coverage', {
         defaultValue: DataTypes.NOW
     }
 }, {
-    tableName: 'nssf_coverage',
+    tableName: 'nssf_pricing',
     timestamps: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
