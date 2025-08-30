@@ -75,6 +75,9 @@ const dashboardRoutes = require("./src/routes/dashboardRoutes");
 // Mobile Donation route
 const mobileDonationRoutes = require("./src/routes/mobileDonationRoutes");
 
+// Bank Donation route
+const bankDonationRoutes = require("./src/routes/bankDonationRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -192,6 +195,9 @@ app.use("/img", express.static("img"));
 
 // Register mobile donation API
 app.use("/mobile-donation", mobileDonationRoutes);
+
+// Register bank donation API
+app.use("/api/bank-donations", bankDonationRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
