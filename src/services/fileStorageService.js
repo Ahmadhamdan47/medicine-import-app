@@ -149,6 +149,16 @@ class FileStorageService {
         return path.join(this.uploadDir, matchingFile);
     }
 
+    // Check if file exists
+    async fileExists(fileId) {
+        try {
+            await this.getFilePath(fileId);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
     // Generate file URL
     generateFileUrl(fileId) {
         return `/files/${fileId}`;

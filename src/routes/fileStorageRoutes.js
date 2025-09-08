@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require('multer');
 const FileStorageController = require('../controllers/fileStorageController');
 const { authenticateToken, authorizeRoles } = require('../middlewares/auth');
+const { registrationUploadRateLimit } = require('../middlewares/rateLimiter');
 
 // Configure multer for file uploads
 const storage = multer.memoryStorage(); // Store files in memory for processing
@@ -84,6 +85,86 @@ const upload = multer({
  */
 router.post('/', authenticateToken, upload.single('file'), FileStorageController.uploadFile);
 router.post('/upload', authenticateToken, upload.single('file'), FileStorageController.uploadFile); // Alternative upload endpoint
+
+/**
+ * @swagger
+ * /files/registration/upload:
+ *   post:
+ *     summary: Upload file for registration (Public)
+ *     description: Upload a file for account registration purposes - no authentication required
+ *     tags: [File Storage]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *                 description: The file to upload (documents for registration)
+ *               metadata:
+ *                 type: string
+ *                 description: JSON string containing file metadata
+ *               registrationType:
+ *                 type: string
+ *                 enum: [profile_picture, license, certificate, identity_document, company_registration]
+ *                 description: Type of registration document being uploaded
+ *     responses:
+ *       201:
+ *         description: File uploaded successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/FileUploadResponse'
+ *       400:
+ *         description: Bad request - no file provided or invalid file
+ *       413:
+ *         description: File too large
+ */
+router.post('/registration/upload', registrationUploadRateLimit, upload.single('file'), FileStorageController.uploadRegistrationFile);
+
+/**
+ * @swagger
+ * /files/registration/{fileId}/access:
+ *   get:
+ *     summary: Get signed URL for registration file (Public)
+ *     description: Generate a temporary signed URL to access a registration file - no authentication required
+ *     tags: [File Storage]
+ *     parameters:
+ *       - in: path
+ *         name: fileId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The file ID
+ *       - in: query
+ *         name: expiresIn
+ *         schema:
+ *           type: integer
+ *           default: 1800
+ *         description: URL expiration time in seconds (max 30 minutes for registration files)
+ *     responses:
+ *       200:
+ *         description: Signed URL generated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 signedUrl:
+ *                   type: string
+ *                 expiresAt:
+ *                   type: string
+ *       404:
+ *         description: File not found or not a registration file
+ *       400:
+ *         description: Invalid expiration time
+ */
+router.get('/registration/:fileId/access', registrationUploadRateLimit, FileStorageController.getRegistrationFileAccess);
 
 /**
  * @swagger
