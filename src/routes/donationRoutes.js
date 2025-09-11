@@ -3,6 +3,7 @@ const router = express.Router();
 const donationController = require("../controllers/donationController");
 const { authenticateToken } = require("../middlewares/auth");
 const { checkDonorPermission, requireDonorAccess } = require("../middlewares/donorPermissions");
+const { checkRecipientOwnership } = require("../middlewares/recipientPermissions");
 
 /**
  * @swagger
@@ -93,6 +94,6 @@ router.post('/batchlot', authenticateToken, checkDonorPermission('add_donations'
 
 router.get('/byDonor/:donorId', authenticateToken, checkDonorPermission('view_donations'), donationController.getDonationsByDonor);
 
-router.get('/byRecipient/:recipientId', authenticateToken, requireDonorAccess, donationController.getDonationsByRecipient);
+router.get('/byRecipient/:recipientId', authenticateToken, checkRecipientOwnership, donationController.getDonationsByRecipient);
 
 module.exports = router;
