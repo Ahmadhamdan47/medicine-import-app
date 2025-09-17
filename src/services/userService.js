@@ -113,7 +113,7 @@ static async donorSignup(donorData, username, password, roleId, email) {
   });
 }
 static async recipientSignup(recipientData, username, password, email) {
-  const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive } = recipientData;
+  const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive, Email } = recipientData;
   
   const recipientRole = await Roles.findOne({ where: { RoleName: 'Recipient' } });
   if (!recipientRole) {
@@ -133,12 +133,15 @@ static async recipientSignup(recipientData, username, password, email) {
     UpdatedDate: new Date()
   });
 
+  // Use the email parameter if provided, otherwise fall back to recipientData.Email
+  const finalEmail = email || Email;
+
   await UserAccounts.create({
     Username: username,
     PasswordHash: await bcrypt.hash(password, 10),
     RoleId: recipientRole.RoleId,
     RecipientId: recipient.RecipientId,
-    Email: email // Add this line
+    Email: finalEmail
   });
 }
   static async getDonorDetailsByUserId(userId) {
