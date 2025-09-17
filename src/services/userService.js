@@ -80,12 +80,13 @@ class UserService {
 
 static async donorSignup(donorData, username, password, roleId, email) {
   const { DonorName, DonorType, Address, PhoneNumber, Email, DonorCountry, IsActive } = donorData;
-  
+
   const donorRole = await Roles.findOne({ where: { RoleName: 'Donor' } });
   if (!donorRole) {
     throw new Error('Role not found');
   }
 
+  // Create Donor record first
   const donor = await Donor.create({
     DonorName,
     DonorType,
@@ -98,7 +99,18 @@ static async donorSignup(donorData, username, password, roleId, email) {
     UpdatedDate: new Date()
   });
 
-  await this.register(username, password, donorRole.RoleId, donor.DonorId, email); // Add email parameter
+  // Ensure we use a valid email; prefer explicit email, fallback to donorData.Email
+  const finalEmail = email || Email;
+
+  // Create the UserAccount and link DonorId, store the correct email
+  const hashedPassword = await bcrypt.hash(password, 10);
+  await UserAccounts.create({
+    Username: username,
+    PasswordHash: hashedPassword,
+    RoleId: donorRole.RoleId,
+    DonorId: donor.DonorId,
+    Email: finalEmail
+  });
 }
 static async recipientSignup(recipientData, username, password, email) {
   const { RecipientName, RecipientType, Address, City, Country, ContactPerson, ContactNumber, IsActive } = recipientData;
