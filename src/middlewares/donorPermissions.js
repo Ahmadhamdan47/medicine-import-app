@@ -9,6 +9,10 @@ const checkDonorPermission = (requiredPermission) => {
     return async (req, res, next) => {
         try {
             const userId = req.user.id;
+            // Admins bypass donor permission checks
+            if (req.user && req.user.role === 'admin') {
+                return next();
+            }
             
             const user = await UserAccounts.findByPk(userId);
             if (!user || !user.DonorId) {
@@ -75,6 +79,10 @@ const requireMainDonorAccount = async (req, res, next) => {
 const requireDonorAccess = async (req, res, next) => {
     try {
         const userId = req.user.id;
+        // Allow admins to access donor routes
+        if (req.user && req.user.role === 'admin') {
+            return next();
+        }
         
         const user = await UserAccounts.findByPk(userId);
         if (!user || !user.DonorId) {
