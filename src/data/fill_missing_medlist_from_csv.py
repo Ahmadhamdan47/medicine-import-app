@@ -341,7 +341,13 @@ def main():
 
         # Apply updates in a transaction
         if USING_MYSQL_CONNECTOR:
-            conn.start_transaction()
+            # Check if autocommit is already disabled (transaction in progress)
+            try:
+                conn.start_transaction()
+            except mysql.connector.errors.ProgrammingError as e:
+                if "Transaction already in progress" not in str(e):
+                    raise
+                # Transaction already started, continue
         else:
             # autocommit is False by default for PyMySQL connection
             pass
