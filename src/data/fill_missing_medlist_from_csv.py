@@ -61,12 +61,14 @@ DB_CONFIG = {
 
 def connect_db():
     if USING_MYSQL_CONNECTOR:
-        return mysql.connector.connect(
+        conn = mysql.connector.connect(
             host=DB_CONFIG["host"],
             user=DB_CONFIG["user"],
             password=DB_CONFIG["password"],
             database=DB_CONFIG["database"],
+            autocommit=True,  # Enable autocommit to avoid transaction issues
         )
+        return conn
     else:
         return pymysql.connect(  # type: ignore[name-defined]
             host=DB_CONFIG["host"],
@@ -341,13 +343,8 @@ def main():
 
         # Apply updates in a transaction
         if USING_MYSQL_CONNECTOR:
-            # Check if autocommit is already disabled (transaction in progress)
-            try:
-                conn.start_transaction()
-            except mysql.connector.errors.ProgrammingError as e:
-                if "Transaction already in progress" not in str(e):
-                    raise
-                # Transaction already started, continue
+            # Disable autocommit for transaction
+            conn.autocommit = False
         else:
             # autocommit is False by default for PyMySQL connection
             pass
