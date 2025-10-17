@@ -20,7 +20,7 @@ Edge cases handled (based on existing repo scripts):
 
 Usage examples:
   python fill_missing_drugs_from_csv.py --csv TBFMED.csv           # dry run
-  python fill_missing_drugs_from_csv.py --csv TBFMED.csv --commit  # apply
+  python3 fill_missing_drugs_from_csv.py --csv TBFMED.csv --commit  # apply
   python fill_missing_drugs_from_csv.py --csv TBFMED.csv --limit 50 --verbose
   python fill_missing_drugs_from_csv.py --csv TBFMED.csv --commit --price-divisor 89500
 """

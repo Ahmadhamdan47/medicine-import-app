@@ -7,8 +7,8 @@ def get_db_connection():
     try:
         return mysql.connector.connect(
             host='localhost',
-            user='root',
-            password='',
+            user='ommal_ahmad',
+            password='fISfGr^8q!_gUPMY',
             database='ommal_medapiv2'
         )
     except Error as e:
