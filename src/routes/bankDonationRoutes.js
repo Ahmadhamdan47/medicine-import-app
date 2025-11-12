@@ -102,7 +102,7 @@ const updateStatusValidation = [
 
 /**
  * @swagger
- * /api/bank-donations:
+ * /bank-donations:
  *   post:
  *     summary: Create a new bank donation
  *     tags: [Bank Donations]
@@ -124,7 +124,7 @@ router.post('/', createBankDonationValidation, BankDonationController.createBank
 
 /**
  * @swagger
- * /api/bank-donations:
+ * /bank-donations:
  *   get:
  *     summary: Get all bank donations with pagination and filters
  *     tags: [Bank Donations]
@@ -171,7 +171,7 @@ router.get('/', BankDonationController.getAllBankDonations);
 
 /**
  * @swagger
- * /api/bank-donations/statistics:
+ * /bank-donations/statistics:
  *   get:
  *     summary: Get donation statistics
  *     tags: [Bank Donations]
@@ -185,7 +185,7 @@ router.get('/statistics', BankDonationController.getDonationStatistics);
 
 /**
  * @swagger
- * /api/bank-donations/search:
+ * /bank-donations/search:
  *   get:
  *     summary: Search donations by donor information
  *     tags: [Bank Donations]
@@ -218,7 +218,7 @@ router.get('/search', BankDonationController.searchDonations);
 
 /**
  * @swagger
- * /api/bank-donations/{id}:
+ * /bank-donations/{id}:
  *   get:
  *     summary: Get bank donation by ID
  *     tags: [Bank Donations]
@@ -240,7 +240,7 @@ router.get('/:id', BankDonationController.getBankDonationById);
 
 /**
  * @swagger
- * /api/bank-donations/{id}/status:
+ * /bank-donations/{id}/status:
  *   put:
  *     summary: Update bank donation status
  *     tags: [Bank Donations]
@@ -278,7 +278,7 @@ router.put('/:id/status', updateStatusValidation, BankDonationController.updateB
 
 /**
  * @swagger
- * /api/bank-donations/{id}/resend-notification:
+ * /bank-donations/{id}/resend-notification:
  *   post:
  *     summary: Resend bank notification email
  *     tags: [Bank Donations]
