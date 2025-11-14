@@ -21,9 +21,11 @@ const swiftPaymentRoutes = require('./src/routes/swiftPaymentRoutes');
 const importationAnnouncementRoutes = require('./src/routes/importationAnnouncementRoutes');
 const fileStorageRoutes = require('./src/routes/fileStorageRoutes');
 const userProfileRoutes = require('./src/routes/userProfileRoutes');
+const drugImportRoutes = require('./src/routes/drugImportRoutes'); // New interactive mapping routes
 
 // Routers
 const drugRouter = require("./src/routes/drugRoutes");
+const drugUpdateRoutes = require("./src/routes/drugUpdateRoutes");
 const submittedOrderRoutes = require("./src/routes/submittedOrderRoutes");
 const rfiRoutes = require("./src/routes/rfiRoutes");
 const piRoutes = require("./src/routes/piRoutes");
@@ -147,6 +149,8 @@ app.use("/files", fileStorageRoutes);
 
 // Existing APIs
 app.use("/drugs", drugRouter);
+app.use("/drug-update", drugUpdateRoutes);
+app.use("/drug-import", drugImportRoutes); // New interactive mapping API
 app.use("/submittedOrders", submittedOrderRoutes);
 app.use("/rfi", rfiRoutes);
 app.use("/pi", piRoutes);

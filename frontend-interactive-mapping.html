@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Import - Interactive Column Mapping</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .step {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .upload-area {
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            border-color: #764ba2;
+            background-color: #f8f9ff;
+        }
+
+        .upload-area.dragover {
+            border-color: #764ba2;
+            background-color: #f0f2ff;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+        }
+
+        .btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+
+        .btn-success {
+            background: #48bb78;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+        }
+
+        .btn-danger {
+            background: #f56565;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+
+        .mapping-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .column-list {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .column-item {
+            background: white;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .column-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .mapping-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .mapping-arrow {
+            font-size: 1.2em;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .preview-table th,
+        .preview-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .preview-table th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: #fed7e2;
+            color: #97266d;
+        }
+
+        .status-completed {
+            background: #c6f6d5;
+            color: #276749;
+        }
+
+        .status-active {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid #f6ad55;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .success-box {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .mapping-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 Drug Import System</h1>
+            <p>Interactive Column Mapping & Data Import</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Step 1: Upload File -->
+        <div class="step" id="step1">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Upload CSV/TSV File</div>
+                <div class="status-badge status-active" id="step1Status">Active</div>
+            </div>
+            
+            <div class="upload-area" id="uploadArea">
+                <p>📁 Drop your CSV or TSV file here, or <strong>click to browse</strong></p>
+                <p style="margin-top: 10px; color: #666;">Supported formats: .csv, .tsv (Max 50MB)</p>
+                <input type="file" id="fileInput" accept=".csv,.tsv" style="display: none;">
+            </div>
+            
+            <div id="fileInfo" class="info-box hidden">
+                <h4>📄 File Information</h4>
+                <div id="fileDetails"></div>
+            </div>
+        </div>
+
+        <!-- Step 2: Column Mapping -->
+        <div class="step hidden" id="step2">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Map Columns to Database Fields</div>
+                <div class="status-badge status-pending" id="step2Status">Pending</div>
+            </div>
+            
+            <div class="info-box">
+                <h4>🗺️ Column Mapping Instructions</h4>
+                <ul>
+                    <li>Map your CSV columns to the corresponding database fields</li>
+                    <li><strong>MoPHCode</strong> is required for identifying drugs</li>
+                    <li>Price columns ending with "LL" will be converted from LBP to USD automatically</li>
+                    <li>Unmapped columns will be ignored during import</li>
+                </ul>
+            </div>
+
+            <div class="mapping-container">
+                <div>
+                    <h3>📋 Your CSV Columns</h3>
+                    <div class="column-list" id="csvColumns">
+                        <!-- CSV columns will be populated here -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>🗄️ Available Database Fields</h3>
+                    <div class="column-list" id="dbColumns">
+                        <!-- Database columns will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="mappingSetup" class="hidden">
+                <h4>🔗 Column Mapping</h4>
+                <div id="mappingList">
+                    <!-- Mapping controls will be populated here -->
+                </div>
+                <button class="btn" onclick="setMapping()">Set Mapping</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Preview Changes -->
+        <div class="step hidden" id="step3">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Preview Changes</div>
+                <div class="status-badge status-pending" id="step3Status">Pending</div>
+            </div>
+            
+            <div id="previewSummary">
+                <!-- Preview summary will be shown here -->
+            </div>
+            
+            <div id="previewDetails" class="hidden">
+                <h4>📊 Change Details</h4>
+                <table class="preview-table" id="previewTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>MoPH Code</th>
+                            <th>Field</th>
+                            <th>Current Value</th>
+                            <th>New Value</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+            <button class="btn" onclick="applyChanges()">Apply Changes</button>
+        </div>
+
+        <!-- Step 4: Apply Changes -->
+        <div class="step hidden" id="step4">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Apply Changes</div>
+                <div class="status-badge status-pending" id="step4Status">Pending</div>
+            </div>
+            
+            <div id="applyResults">
+                <!-- Apply results will be shown here -->
+            </div>
+            
+            <button class="btn" onclick="getFinalChanges()">Review Final Changes</button>
+        </div>
+
+        <!-- Step 5: Final Review -->
+        <div class="step hidden" id="step5">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Final Review</div>
+                <div class="status-badge status-pending" id="step5Status">Pending</div>
+            </div>
+            
+            <div id="finalReview">
+                <!-- Final review will be shown here -->
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button class="btn btn-success" onclick="commitChanges()" style="margin-right: 10px;">
+                    ✅ Commit Changes
+                </button>
+                <button class="btn btn-danger" onclick="rollbackChanges()">
+                    ❌ Rollback
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 6: Completion -->
+        <div class="step hidden" id="step6">
+            <div class="step-header">
+                <div class="step-number">✅</div>
+                <div class="step-title">Import Complete</div>
+                <div class="status-badge status-completed" id="step6Status">Completed</div>
+            </div>
+            
+            <div class="success-box">
+                <h4>🎉 Import Successful!</h4>
+                <p>Your drug data has been successfully imported into the database.</p>
+            </div>
+            
+            <button class="btn" onclick="startOver()">Import Another File</button>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let sessionId = null;
+        let csvHeaders = [];
+        let dbColumns = [];
+        let currentStep = 1;
+        let analysisData = null;
+
+        // API base URL (adjust as needed)
+        const API_BASE = '/api/drug-import';
+
+        // Initialize the interface
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            loadAvailableColumns();
+        });
+
+        function setupEventListeners() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+
+            // File upload events
+            uploadArea.addEventListener('click', () => fileInput.click());
+            uploadArea.addEventListener('dragover', handleDragOver);
+            uploadArea.addEventListener('dragleave', handleDragLeave);
+            uploadArea.addEventListener('drop', handleFileDrop);
+            fileInput.addEventListener('change', handleFileSelect);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+        }
+
+        function handleFileDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        }
+
+        function handleFileSelect(e) {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        }
+
+        async function handleFile(file) {
+            try {
+                // Validate file type
+                const validTypes = ['text/csv', 'text/tab-separated-values'];
+                const validExtensions = ['.csv', '.tsv'];
+                
+                if (!validTypes.includes(file.type) && !validExtensions.some(ext => file.name.endsWith(ext))) {
+                    alert('Please upload a CSV or TSV file.');
+                    return;
+                }
+
+                // Show file info
+                document.getElementById('fileDetails').innerHTML = `
+                    <p><strong>Name:</strong> ${file.name}</p>
+                    <p><strong>Size:</strong> ${(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                    <p><strong>Type:</strong> ${file.type || 'Unknown'}</p>
+                `;
+                document.getElementById('fileInfo').classList.remove('hidden');
+
+                // Upload and analyze
+                await uploadAndAnalyze(file);
+                
+            } catch (error) {
+                console.error('Error handling file:', error);
+                alert('Error processing file: ' + error.message);
+            }
+        }
+
+        async function uploadAndAnalyze(file) {
+            try {
+                const formData = new FormData();
+                formData.append('csvFile', file);
+
+                const response = await fetch(`${API_BASE}/upload-analyze`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                sessionId = result.sessionId;
+                analysisData = result.analysis;
+                
+                // Update UI
+                completeStep(1);
+                showStep(2);
+                populateColumnMapping();
+                updateProgress(33);
+
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file: ' + error.message);
+            }
+        }
+
+        async function loadAvailableColumns() {
+            try {
+                const response = await fetch(`${API_BASE}/available-columns`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    dbColumns = result.availableColumns;
+                }
+            } catch (error) {
+                console.error('Error loading available columns:', error);
+            }
+        }
+
+        function populateColumnMapping() {
+            if (!analysisData) return;
+
+            // Show CSV columns
+            const csvColumnsDiv = document.getElementById('csvColumns');
+            csvColumnsDiv.innerHTML = '';
+            
+            analysisData.headers.forEach(header => {
+                const div = document.createElement('div');
+                div.className = 'column-item';
+                div.innerHTML = `<strong>${header}</strong>`;
+                csvColumnsDiv.appendChild(div);
+            });
+
+            // Show database columns
+            const dbColumnsDiv = document.getElementById('dbColumns');
+            dbColumnsDiv.innerHTML = '';
+            
+            dbColumns.forEach(column => {
+                const div = document.createElement('div');
+                div.className = 'column-item';
+                div.innerHTML = `<strong>${column}</strong>`;
+                dbColumnsDiv.appendChild(div);
+            });
+
+            // Create mapping interface
+            createMappingInterface();
+        }
+
+        function createMappingInterface() {
+            const mappingList = document.getElementById('mappingList');
+            mappingList.innerHTML = '';
+
+            analysisData.headers.forEach(csvColumn => {
+                const div = document.createElement('div');
+                div.className = 'mapping-item';
+                
+                const suggestedMapping = analysisData.suggestedMappings[csvColumn] || '';
+                
+                div.innerHTML = `
+                    <span><strong>${csvColumn}</strong></span>
+                    <span class="mapping-arrow">→</span>
+                    <select id="mapping_${csvColumn.replace(/\s+/g, '_')}">
+                        <option value="">-- No Mapping --</option>
+                        ${dbColumns.map(col => 
+                            `<option value="${col}" ${col === suggestedMapping ? 'selected' : ''}>${col}</option>`
+                        ).join('')}
+                    </select>
+                `;
+                
+                mappingList.appendChild(div);
+            });
+
+            document.getElementById('mappingSetup').classList.remove('hidden');
+        }
+
+        async function setMapping() {
+            try {
+                const mapping = {};
+                
+                analysisData.headers.forEach(csvColumn => {
+                    const selectId = `mapping_${csvColumn.replace(/\s+/g, '_')}`;
+                    const select = document.getElementById(selectId);
+                    if (select && select.value) {
+                        mapping[csvColumn] = select.value;
+                    }
+                });
+
+                // Validate that MoPHCode is mapped
+                const hasMoPHCode = Object.values(mapping).includes('MoPHCode');
+                if (!hasMoPHCode) {
+                    alert('Please map at least one column to MoPHCode (required for identifying drugs).');
+                    return;
+                }
+
+                const response = await fetch(`${API_BASE}/set-mapping`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        sessionId: sessionId,
+                        columnMapping: mapping
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                completeStep(2);
+                showStep(3);
+                await previewChanges();
+                updateProgress(50);
+
+            } catch (error) {
+                console.error('Error setting mapping:', error);
+                alert('Error setting mapping: ' + error.message);
+            }
+        }
+
+        async function previewChanges() {
+            try {
+                const response = await fetch(`${API_BASE}/preview/${sessionId}`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                const summary = result.preview.summary;
+                
+                document.getElementById('previewSummary').innerHTML = `
+                    <div class="info-box">
+                        <h4>📊 Preview Summary</h4>
+                        <p><strong>Total rows:</strong> ${summary.totalRows}</p>
+                        <p><strong>Updates:</strong> ${summary.updates}</p>
+                        <p><strong>Inserts:</strong> ${summary.inserts}</p>
+                        <p><strong>Errors:</strong> ${summary.errors}</p>
+                        ${summary.skippedColumns.length > 0 ? 
+                            `<p><strong>Skipped columns:</strong> ${summary.skippedColumns.join(', ')}</p>` : 
+                            ''
+                        }
+                    </div>
+                `;
+
+                // Show sample changes
+                if (result.preview.details.updates.length > 0) {
+                    populatePreviewTable(result.preview.details);
+                    document.getElementById('previewDetails').classList.remove('hidden');
+                }
+
+            } catch (error) {
+                console.error('Error previewing changes:', error);
+                alert('Error previewing changes: ' + error.message);
+            }
+        }
+
+        function populatePreviewTable(details) {
+            const tbody = document.querySelector('#previewTable tbody');
+            tbody.innerHTML = '';
+
+            // Show sample updates
+            details.updates.slice(0, 10).forEach(update => {
+                Object.keys(update.changes).forEach(field => {
+                    const change = update.changes[field];
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>UPDATE</td>
+                        <td>${update.MoPHCode}</td>
+                        <td>${field}</td>
+                        <td>${change.from}</td>
+                        <td>${change.to}</td>
+                    `;
+                });
+            });
+
+            // Show sample inserts
+            details.inserts.slice(0, 5).forEach(insert => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>INSERT</td>
+                    <td>${insert.MoPHCode}</td>
+                    <td colspan="3">New record will be created</td>
+                `;
+            });
+        }
+
+        async function applyChanges() {
+            try {
+                const response = await fetch(`${API_BASE}/apply/${sessionId}`, {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                document.getElementById('applyResults').innerHTML = `
+                    <div class="success-box">
+                        <h4>✅ Changes Applied Successfully</h4>
+                        <p><strong>Updated:</strong> ${result.result.updatedCount} records</p>
+                        <p><strong>Inserted:</strong> ${result.result.insertedCount} records</p>
+                        <p><strong>Total processed:</strong> ${result.result.totalProcessed}</p>
+                    </div>
+                `;
+
+                completeStep(3);
+                completeStep(4);
+                showStep(5);
+                updateProgress(83);
+
+            } catch (error) {
+                console.error('Error applying changes:', error);
+                alert('Error applying changes: ' + error.message);
+            }
+        }
+
+        async function getFinalChanges() {
+            try {
+                const response = await fetch(`${API_BASE}/final-changes/${sessionId}`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                document.getElementById('finalReview').innerHTML = `
+                    <div class="info-box">
+                        <h4>🔍 Final Review</h4>
+                        <p><strong>Total changes:</strong> ${result.changeCount}</p>
+                        <p>Review the changes below and decide whether to commit or rollback.</p>
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('Error getting final changes:', error);
+                alert('Error getting final changes: ' + error.message);
+            }
+        }
+
+        async function commitChanges() {
+            if (!confirm('Are you sure you want to commit these changes? This action cannot be undone.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/commit/${sessionId}`, {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                completeStep(5);
+                showStep(6);
+                updateProgress(100);
+
+            } catch (error) {
+                console.error('Error committing changes:', error);
+                alert('Error committing changes: ' + error.message);
+            }
+        }
+
+        async function rollbackChanges() {
+            if (!confirm('Are you sure you want to rollback all changes?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/rollback/${sessionId}`, {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error);
+                }
+
+                alert('Changes have been rolled back successfully.');
+                startOver();
+
+            } catch (error) {
+                console.error('Error rolling back changes:', error);
+                alert('Error rolling back changes: ' + error.message);
+            }
+        }
+
+        function completeStep(stepNumber) {
+            const status = document.getElementById(`step${stepNumber}Status`);
+            status.textContent = 'Completed';
+            status.className = 'status-badge status-completed';
+        }
+
+        function showStep(stepNumber) {
+            // Hide all steps
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`step${i}`).classList.add('hidden');
+            }
+            
+            // Show current step
+            document.getElementById(`step${stepNumber}`).classList.remove('hidden');
+            
+            // Update status
+            const status = document.getElementById(`step${stepNumber}Status`);
+            status.textContent = 'Active';
+            status.className = 'status-badge status-active';
+            
+            currentStep = stepNumber;
+        }
+
+        function updateProgress(percentage) {
+            document.getElementById('progressFill').style.width = percentage + '%';
+        }
+
+        function startOver() {
+            sessionId = null;
+            analysisData = null;
+            currentStep = 1;
+            
+            // Reset UI
+            document.getElementById('fileInfo').classList.add('hidden');
+            document.getElementById('mappingSetup').classList.add('hidden');
+            document.getElementById('previewDetails').classList.add('hidden');
+            
+            // Reset all step statuses
+            for (let i = 1; i <= 6; i++) {
+                const status = document.getElementById(`step${i}Status`);
+                status.textContent = i === 1 ? 'Active' : 'Pending';
+                status.className = `status-badge ${i === 1 ? 'status-active' : 'status-pending'}`;
+            }
+            
+            showStep(1);
+            updateProgress(0);
+        }
+    </script>
+</body>
+</html>

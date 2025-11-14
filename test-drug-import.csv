@@ -1,0 +1,5 @@
+Code	Registration number	Brand name	Strength	Presentation	Form	Agent	Manufacturer	Country	Public Price LL	Pharmacist Margin	Stratum
+12345	REG/2024/001	Paracetamol Tablets	500mg	Box of 20 tablets	Tablet	Local Pharma	PharmaCorp Lebanon	Lebanon	179000	15%	A
+23456	REG/2024/002	Amoxicillin Capsules	250mg	Box of 12 capsules	Capsule	Import Agent	Euro Pharma	Germany	895000	12%	B
+34567	REG/2024/003	Insulin Pen	100 units/ml	1 pen	Injectable	Diabetes Care	Novo Nordisk	Denmark	3580000	10%	C
+45678	REG/2024/004	Cough Syrup	100ml	1 bottle	Syrup	Cough Relief Co	Local Meds	Lebanon	268500	18%	A
