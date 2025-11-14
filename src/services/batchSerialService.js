@@ -1,5 +1,5 @@
 const BatchSerialNumber = require('../models/batchserialnumber');
-const BatchLotTracking = require('../models/batchLot');
+const BatchLotTracking = require('../models/batchlot');
 const  Donation  = require('../models/donation');  // Import Donation model
 const Donor  = require('../models/donor');  // Import Donor model
 const  Recipient  = require('../models/recipient');  //

@@ -62,7 +62,7 @@ var DrugStratum = require('../models/drugStratum');
 
 var Fuse = require('fuse.js');
 
-var BatchLotTracking = require('../models/BatchLot');
+var BatchLotTracking = require('../models/batchlot');
 
 var BatchSerialNumber = require('../models/batchserialnumber');
 

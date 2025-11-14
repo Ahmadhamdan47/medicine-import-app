@@ -2,7 +2,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const { Op } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
-const BatchLotTracking = require('../models/BatchLot');
+const BatchLotTracking = require('../models/batchlot');
 const BatchSerialNumber = require('../models/batchserialnumber'); // Import the BatchSerialNumber model
 
 const deleteNonExistentDrugs = async () => {

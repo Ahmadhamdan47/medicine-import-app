@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 const sequelize = require('../../config/databasePharmacy');
-const BatchLotTracking = require("../models/batchLot");
+const BatchLotTracking = require("../models/batchlot");
 const BatchSerialNumber = require("../models/batchserialnumber");
 
 /**
