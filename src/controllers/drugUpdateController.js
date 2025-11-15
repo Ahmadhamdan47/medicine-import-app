@@ -102,6 +102,73 @@ class DrugUpdateController {
     }
 
     /**
+     * Set column mapping for the session (optional - uses default if not provided)
+     */
+    static async setMapping(req, res) {
+        try {
+            const { sessionId } = req.params;
+            const { columnMapping } = req.body;
+
+            const service = activeSessions.get(sessionId);
+            if (!service) {
+                return res.status(404).json({
+                    success: false,
+                    error: 'Session not found or expired'
+                });
+            }
+
+            let finalMapping;
+            let mappingType;
+            let result;
+
+            if (columnMapping && Object.keys(columnMapping).length > 0) {
+                // Custom mapping provided - validate it
+                const validation = await service.validateColumnMapping(columnMapping);
+                
+                if (!validation.valid) {
+                    return res.status(400).json({
+                        success: false,
+                        error: 'Invalid column mapping',
+                        validationErrors: validation.errors,
+                        warnings: validation.warnings
+                    });
+                }
+
+                // Set the custom mapping
+                result = service.setColumnMapping(columnMapping);
+                finalMapping = columnMapping;
+                mappingType = 'custom';
+            } else {
+                // No custom mapping provided - use default mapping
+                // Don't call setColumnMapping to keep userColumnMapping as null
+                // so getCurrentMapping() will return the default mapping
+                finalMapping = service.getCurrentMapping();
+                mappingType = 'default';
+                result = {
+                    mappingCount: Object.keys(finalMapping).length,
+                    mapping: finalMapping
+                };
+            }
+
+            res.json({
+                success: true,
+                message: `Column mapping ${mappingType === 'custom' ? 'set' : 'using default'} successfully`,
+                mappingType: mappingType,
+                mappingCount: result.mappingCount,
+                mapping: finalMapping,
+                nextStep: `Preview changes using /api/drug-update/session/${sessionId}/preview`
+            });
+
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Failed to set column mapping',
+                error: error.message
+            });
+        }
+    }
+
+    /**
      * Create backup of current drug table
      */
     static async createBackup(req, res) {

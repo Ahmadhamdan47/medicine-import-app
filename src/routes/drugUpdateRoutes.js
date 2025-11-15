@@ -147,6 +147,67 @@ router.get('/sessions', DrugUpdateController.listActiveSessions);
  */
 router.post('/session/:sessionId/upload', upload.single('file'), DrugUpdateController.uploadCsv);
 
+/**
+ * @swagger
+ * /api/drug-update/session/{sessionId}/set-mapping:
+ *   post:
+ *     summary: Set column mapping for the session (optional - uses default if not provided)
+ *     tags: [Drug Update]
+ *     parameters:
+ *       - in: path
+ *         name: sessionId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               columnMapping:
+ *                 type: object
+ *                 description: Optional mapping of CSV columns to database fields. If not provided, uses default mapping.
+ *                 example:
+ *                   "Agent": "Agent"
+ *                   "Manufacturer": "Manufacturer"
+ *                   "Dosage": "Dosage"
+ *                   "DrugName": "DrugName"
+ *                   "Form": "Form"
+ *                   "MoPHCode": "MoPHCode"
+ *                   "Presentation": "Presentation"
+ *                   "RegistrationNumber": "RegistrationNumber"
+ *     responses:
+ *       200:
+ *         description: Column mapping set successfully (custom or default)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 mappingType:
+ *                   type: string
+ *                   enum: [custom, default]
+ *                 mappingCount:
+ *                   type: number
+ *                 mapping:
+ *                   type: object
+ *                 nextStep:
+ *                   type: string
+ *       400:
+ *         description: Invalid mapping
+ *       404:
+ *         description: Session not found
+ *       500:
+ *         description: Failed to set mapping
+ */
+router.post('/session/:sessionId/set-mapping', DrugUpdateController.setMapping);
+
 // Database Operations Routes
 /**
  * @swagger
