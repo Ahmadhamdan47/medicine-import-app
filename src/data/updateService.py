@@ -33,7 +33,9 @@ def read_tsv(file_path):
         if 'MoPHCode' in df.columns:
             df['MoPHCode'] = pd.to_numeric(df['MoPHCode'].str.strip(), errors='coerce').fillna(0).astype(int)
         if 'PublicPrice' in df.columns:
-            df['PublicPrice'] = pd.to_numeric(df['PublicPrice'].str.strip(), errors='coerce').fillna(0.0).astype(float)
+            # Convert from LBP to USD: divide by 89500 and round to 6 decimal places
+            df['PublicPrice'] = pd.to_numeric(df['PublicPrice'].str.strip(), errors='coerce').fillna(0.0)
+            df['PublicPrice'] = (df['PublicPrice'] / 89500.0).round(6)
         
         # Clean string fields
         for col in ['Agent', 'Manufacturer', 'Country']:
@@ -105,7 +107,10 @@ def main():
         
         if tsv_data:
             sample_code = list(tsv_data.keys())[0]
-            print(f"  TSV sample columns: {list(tsv_data[sample_code].keys())}")
+            sample_data = tsv_data[sample_code]
+            print(f"  TSV sample columns: {list(sample_data.keys())}")
+            if 'PublicPrice' in sample_data:
+                print(f"  Sample price conversion: LBP price converted to USD = {sample_data['PublicPrice']} USD")
         
         # Track all changes
         all_changes = []
@@ -120,9 +125,9 @@ def main():
                 
                 # Check PublicPrice changes
                 if 'PublicPrice' in details:
-                    current_price = float(current_row['PublicPrice'] or 0)
-                    new_price = details['PublicPrice']
-                    if round(current_price, 6) != round(new_price, 6):
+                    current_price = round(float(current_row['PublicPrice'] or 0), 6)
+                    new_price = round(details['PublicPrice'], 6)
+                    if current_price != new_price:
                         row_changes.append({
                             'MoPHCode': code,
                             'Field': 'PublicPrice',
