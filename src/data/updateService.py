@@ -81,7 +81,7 @@ def format_change_log(changes):
     return '\n'.join(log_lines)
 
 def main():
-    tsv_data = read_tsv('./oct.tsv')
+    tsv_data = read_tsv('./nov.tsv')
 
     conn = get_db_connection()
     if conn is None:
