@@ -28,7 +28,7 @@ def get_db_connection():
         return None
 
 def main():
-    tsv_moph_codes = read_tsv('./march.tsv')
+    tsv_moph_codes = read_tsv('./sep.tsv')
 
     conn = get_db_connection()
     if conn is None:
