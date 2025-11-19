@@ -13,10 +13,15 @@ def read_tsv(file_path):
         # Map TSV columns to database columns
         column_mapping = {
             'code': 'MoPHCode',
-            'public_price': 'PublicPrice', 
+            'MoPHCode': 'MoPHCode',  # Direct mapping
+            'public_price': 'PublicPrice',
+            'PublicPrice': 'PublicPrice',  # Direct mapping
             'agent': 'Agent',
+            'Agent': 'Agent',  # Direct mapping
             'manufacturer': 'Manufacturer',
-            'country': 'Country'
+            'Manufacturer': 'Manufacturer',  # Direct mapping
+            'country': 'Country',
+            'Country': 'Country'  # Direct mapping
         }
         
         # Rename columns based on mapping
@@ -93,10 +98,21 @@ def main():
         """)
         current_data = {row['MoPHCode']: row for row in cursor.fetchall()}
 
+        # Debug information
+        print(f"📊 Data loaded:")
+        print(f"  TSV records: {len(tsv_data)}")
+        print(f"  Database records: {len(current_data)}")
+        
+        if tsv_data:
+            sample_code = list(tsv_data.keys())[0]
+            print(f"  TSV sample columns: {list(tsv_data[sample_code].keys())}")
+        
         # Track all changes
         all_changes = []
         update_operations = []
+        tsv_moph_codes = set(tsv_data.keys())
 
+        # Process drugs that exist in TSV file (should be NotMarketed = 0)
         for code, details in tsv_data.items():
             if code in current_data:
                 current_row = current_data[code]
@@ -154,8 +170,9 @@ def main():
                             'UpdateType': 'country'
                         })
                 
-                # Check NotMarketed changes
-                if int(current_row['NotMarketed']) == 1:
+                # Check NotMarketed changes - if in TSV file, should be NotMarketed = 0
+                current_not_marketed = current_row.get('NotMarketed')
+                if current_not_marketed is not None and int(current_not_marketed) == 1:
                     row_changes.append({
                         'MoPHCode': code,
                         'Field': 'NotMarketed',
@@ -167,6 +184,21 @@ def main():
                 # Add changes to tracking lists
                 all_changes.extend(row_changes)
                 for change in row_changes:
+                    update_operations.append(change)
+
+        # Process drugs NOT in TSV file (should be NotMarketed = 1)
+        for db_code, db_row in current_data.items():
+            if db_code not in tsv_moph_codes:
+                current_not_marketed = db_row.get('NotMarketed')
+                if current_not_marketed is not None and int(current_not_marketed) == 0:
+                    change = {
+                        'MoPHCode': db_code,
+                        'Field': 'NotMarketed',
+                        'OldValue': 0,
+                        'NewValue': 1,
+                        'UpdateType': 'not_marketed'
+                    }
+                    all_changes.append(change)
                     update_operations.append(change)
 
         # Group changes by type for display
