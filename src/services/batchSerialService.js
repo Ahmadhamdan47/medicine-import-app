@@ -241,6 +241,7 @@ const getSerialNumbersByBoxId = async (boxId) => {
         BatchSerialNumberId: serialNumber.BatchSerialNumberId,
         SerialNumber: serialNumber.SerialNumber,
         Inspection: serialNumber.Inspection,
+        lastUpdated: serialNumber.lastUpdated,
         BatchLotId: serialNumber.BatchId,
         DrugName: batchLot ? batchLot.DrugName : null,
         GTIN: batchLot ? batchLot.GTIN : null,
