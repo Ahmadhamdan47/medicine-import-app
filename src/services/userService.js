@@ -14,7 +14,7 @@ const { Op } = require('sequelize');
 require('../models/associations/associations');
 
 // OTP override for testing accounts
-const SPECIAL_OTP_EMAILS = ['nizarakleh@gmail.com', 'nourine.a.fadel@gmail.com', 'oummalorg@gmail.com'];
+const SPECIAL_OTP_EMAILS = ['nizarakleh@gmail.com', 'nourine.a.fadel@gmail.com', 'oummalorg@gmail.com', 'work.samihaddad@gmail.com'];
 
 class UserService {
   static async register(username, password, roleId, email) {
