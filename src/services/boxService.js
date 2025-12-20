@@ -1,6 +1,7 @@
 // src/services/boxService.js
 const Box = require('../models/box');
 const Donation = require('../models/donation');
+const BatchSerialNumber = require('../models/batchserialnumber');
 const { Sequelize } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
@@ -106,18 +107,22 @@ const updateBox = async (boxId, updateData) => {
 };
 const getBoxesByDonation = async (donationId) => {
     try {
-        // Only return boxes that have at least one pack in batchserialnumber table
-        const boxes = await sequelize.query(`
-            SELECT DISTINCT b.*
-            FROM box b
-            INNER JOIN batchserialnumber bsn ON b.BoxId = bsn.BoxId
-            WHERE b.DonationId = :donationId
-            ORDER BY b.BoxId
-        `, {
-            replacements: { donationId },
-            type: Sequelize.QueryTypes.SELECT,
-            model: Box,
-            mapToModel: true
+        // Get all boxes with their actual pack count from batchserialnumber table
+        const boxes = await Box.findAll({
+            where: {
+                DonationId: donationId
+            },
+            attributes: [
+                'BoxId',
+                'DonationId',
+                'BoxLabel',
+                'inspected',
+                // Calculate actual NumberOfPacks from batchserialnumber count
+                [sequelize.literal('(SELECT COUNT(*) FROM batchserialnumber WHERE batchserialnumber.BoxId = Box.BoxId)'), 'NumberOfPacks']
+            ],
+            having: sequelize.literal('(SELECT COUNT(*) FROM batchserialnumber WHERE batchserialnumber.BoxId = Box.BoxId) > 0'),
+            order: [['BoxId', 'ASC']],
+            raw: true
         });
         
         return boxes;
