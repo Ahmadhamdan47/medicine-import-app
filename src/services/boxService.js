@@ -1,6 +1,8 @@
 // src/services/boxService.js
 const Box = require('../models/box');
 const Donation = require('../models/donation');
+const { Sequelize } = require('sequelize');
+const sequelize = require('../../config/databasePharmacy');
 
 
 /**
@@ -104,11 +106,20 @@ const updateBox = async (boxId, updateData) => {
 };
 const getBoxesByDonation = async (donationId) => {
     try {
-        const boxes = await Box.findAll({
-            where: {
-                DonationId: donationId
-            }
+        // Only return boxes that have at least one pack in batchserialnumber table
+        const boxes = await sequelize.query(`
+            SELECT DISTINCT b.*
+            FROM box b
+            INNER JOIN batchserialnumber bsn ON b.BoxId = bsn.BoxId
+            WHERE b.DonationId = :donationId
+            ORDER BY b.BoxId
+        `, {
+            replacements: { donationId },
+            type: Sequelize.QueryTypes.SELECT,
+            model: Box,
+            mapToModel: true
         });
+        
         return boxes;
     } catch (error) {
         console.error('Error fetching boxes by donation ID:', error);
