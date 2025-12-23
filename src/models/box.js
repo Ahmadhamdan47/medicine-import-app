@@ -28,7 +28,13 @@ const Box = sequelize.define('Box', {
     inspected: {
         type: DataTypes.ENUM('inspected', 'not_inspected', 'rejected'),
         defaultValue: 'not_inspected'
-      }
+    },
+    CreatedDate: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: DataTypes.NOW,
+        comment: 'Date when the box was created'
+    }
 }, {
     tableName: 'box',
     timestamps: false,

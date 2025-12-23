@@ -15,11 +15,16 @@ const createBox = async (req, res) => {
 
 /**
  * Handle request to delete a box.
+ * Optionally accepts deletedBy and deletionReason from request body or authenticated user.
  */
 const deleteBox = async (req, res) => {
   try {
-    await boxService.deleteBox(req.params.boxId);
-    res.status(200).json({ message: 'Box deleted successfully.' });
+    // Extract optional metadata from body or authenticated user
+    const deletedBy = req.body.deletedBy || req.user?.username || req.user?.email || null;
+    const deletionReason = req.body.deletionReason || null;
+    
+    const result = await boxService.deleteBox(req.params.boxId, deletedBy, deletionReason);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

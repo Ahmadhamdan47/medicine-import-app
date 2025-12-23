@@ -1,5 +1,6 @@
 // src/services/boxService.js
 const Box = require('../models/box');
+const DeletedBox = require('../models/deletedBox');
 const Donation = require('../models/donation');
 const BatchSerialNumber = require('../models/batchserialnumber');
 const { Sequelize } = require('sequelize');
@@ -17,7 +18,8 @@ const createBox = async (boxData) => {
     const {
       DonationId,
       BoxLabel,
-      NumberOfPacks
+      NumberOfPacks,
+      CreatedDate
     } = boxData;
   
     // Create the box record
@@ -25,6 +27,7 @@ const createBox = async (boxData) => {
       DonationId: DonationId,
       BoxLabel: BoxLabel,
       NumberOfPacks: NumberOfPacks || 0,  // Initialize NumberOfPacks
+      CreatedDate: CreatedDate || new Date(),  // Use provided date or current date
 
     });
   
@@ -41,17 +44,63 @@ const createBox = async (boxData) => {
 
 /**
  * Delete a box by ID.
+ * Moves the box data to deleted_boxes table before removing it from box table.
  * @param {number} boxId - ID of the box to delete.
+ * @param {string} deletedBy - Optional: User who is deleting the box.
+ * @param {string} deletionReason - Optional: Reason for deletion.
  * @returns {Promise} A promise that resolves when the box is deleted.
  */
-const deleteBox = async (boxId) => {
+const deleteBox = async (boxId, deletedBy = null, deletionReason = null) => {
+  const transaction = await sequelize.transaction();
+  
   try {
-    await Box.destroy({
-      where: {
-        BoxId: boxId
-      }
+    // First, fetch the box data
+    const box = await Box.findOne({
+      where: { BoxId: boxId },
+      transaction
     });
+
+    if (!box) {
+      await transaction.rollback();
+      throw new Error(`Box not found with ID: ${boxId}`);
+    }
+
+    // Save to deleted_boxes table
+    await DeletedBox.create({
+      OriginalBoxId: box.BoxId,
+      DonationId: box.DonationId,
+      BoxLabel: box.BoxLabel,
+      NumberOfPacks: box.NumberOfPacks,
+      inspected: box.inspected,
+      CreatedDate: box.CreatedDate,
+      DeletedBy: deletedBy,
+      DeletionReason: deletionReason,
+      DeletedAt: new Date()
+    }, { transaction });
+
+    // Update the NumberOfBoxes in the Donation model (decrement)
+    if (box.DonationId) {
+      await Donation.decrement('NumberOfBoxes', {
+        where: { DonationId: box.DonationId },
+        transaction
+      });
+    }
+
+    // Delete from box table
+    await Box.destroy({
+      where: { BoxId: boxId },
+      transaction
+    });
+
+    await transaction.commit();
+    
+    return {
+      success: true,
+      message: 'Box deleted and archived successfully',
+      deletedBoxId: boxId
+    };
   } catch (error) {
+    await transaction.rollback();
     console.error("Error deleting box:", error);
     throw new Error(`Failed to delete box: ${error.message}`);
   }
