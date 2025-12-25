@@ -1217,7 +1217,7 @@ const fetchDrugDataFromServer = async () => {
     });
 
     // Manually map database columns to camelCase fields
-    return drugs.map(drug => {
+    const mappedDrugs = drugs.map(drug => {
       const unitPrice = drug.dataValues.Amount ? drug.Price / drug.dataValues.Amount : null;
 
       // Format the priceUpdateDate to "DD-MM-YYYY"
@@ -1273,6 +1273,10 @@ if (visibleGTIN && visibleGTIN.length < 14) {
   visibleGTIN = visibleGTIN.padStart(14, '0');                         // now it pads with '0'
 }
 
+      // Calculate FirstLetter
+      const drugName = drug.DrugName || '';
+      const firstChar = drugName.charAt(0).toUpperCase();
+      const FirstLetter = /[A-Z]/.test(firstChar) ? firstChar : /[0-9]/.test(firstChar) ? firstChar : '#';
 
       return {
         drugId: drug.DrugID,
@@ -1318,8 +1322,21 @@ if (visibleGTIN && visibleGTIN.length < 14) {
         GTIN: visibleGTIN,
         priceUpdateDate: formattedPriceUpdateDate,
         usdRate: formattedRate,
+        FirstLetter,
       };
     });
+
+    // Create index mapping
+    const index = {};
+    mappedDrugs.forEach(drug => {
+      const letter = drug.FirstLetter;
+      if (!index[letter]) {
+        index[letter] = [];
+      }
+      index[letter].push(drug.drugId);
+    });
+
+    return { drugs: mappedDrugs, index };
   } catch (error) {
     console.error('Error fetching drug data from server:', error);
     throw new Error('Error fetching drug data from server');
