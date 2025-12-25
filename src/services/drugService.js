@@ -362,7 +362,27 @@ const getAllDrugs = async () => {
       ],
     });
 
-    return { drugs };
+    // Create index mapping and add FirstLetter to each drug
+    const index = {};
+    const drugsWithFirstLetter = drugs.map(drug => {
+      const plainDrug = drug.get({ plain: true });
+      const drugName = plainDrug.DrugName || '';
+      const firstChar = drugName.charAt(0).toUpperCase();
+      const FirstLetter = /[A-Z]/.test(firstChar) ? firstChar : /[0-9]/.test(firstChar) ? firstChar : '#';
+      
+      // Build index
+      if (!index[FirstLetter]) {
+        index[FirstLetter] = [];
+      }
+      index[FirstLetter].push(plainDrug.DrugID);
+      
+      return {
+        ...plainDrug,
+        FirstLetter
+      };
+    });
+
+    return { drugs: drugsWithFirstLetter, index };
   } catch (error) {
     console.error('Error fetching all drugs with details:', error);
     throw new Error('Failed to fetch all drugs with details');
@@ -423,15 +443,30 @@ const getAllDrugsPaginated = async (page = 1, limit = 500) => {
       ],
     });
 
-    // Format the data for easier consumption
-    const formattedDrugs = rows.map((drug) => ({
-      ...drug.get({ plain: true }),
-      priceInLBP: drug.Price * 89500,
-      unitPrice: drug.Amount ? drug.Price / drug.Amount : null,
-      unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null,
-    }));
+    // Create index mapping and format the data
+    const index = {};
+    const formattedDrugs = rows.map((drug) => {
+      const plainDrug = drug.get({ plain: true });
+      const drugName = plainDrug.DrugName || '';
+      const firstChar = drugName.charAt(0).toUpperCase();
+      const FirstLetter = /[A-Z]/.test(firstChar) ? firstChar : /[0-9]/.test(firstChar) ? firstChar : '#';
+      
+      // Build index
+      if (!index[FirstLetter]) {
+        index[FirstLetter] = [];
+      }
+      index[FirstLetter].push(plainDrug.DrugID);
+      
+      return {
+        ...plainDrug,
+        FirstLetter,
+        priceInLBP: drug.Price * 89500,
+        unitPrice: drug.Amount ? drug.Price / drug.Amount : null,
+        unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null,
+      };
+    });
 
-    return { drugs: formattedDrugs, totalPages: Math.ceil(count / limit) };
+    return { drugs: formattedDrugs, totalPages: Math.ceil(count / limit), index };
   } catch (error) {
     console.error('Error fetching paginated drugs with details:', error);
     throw new Error('Failed to fetch paginated drugs with details');
