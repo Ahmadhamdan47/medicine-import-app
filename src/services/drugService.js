@@ -1326,23 +1326,45 @@ if (visibleGTIN && visibleGTIN.length < 14) {
       };
     });
 
-    // Create index mapping
-    const index = {};
-    mappedDrugs.forEach(drug => {
-      const letter = drug.FirstLetter;
-      if (!index[letter]) {
-        index[letter] = [];
-      }
-      index[letter].push(drug.drugId);
-    });
-
-    return { drugs: mappedDrugs, index };
+    return mappedDrugs;
   } catch (error) {
     console.error('Error fetching drug data from server:', error);
     throw new Error('Error fetching drug data from server');
   }
 };
 
+
+const returnLetterIndex = async () => {
+  try {
+    // Fetch all drugs, excluding NotMarketed drugs
+    const drugs = await Drug.findAll({
+      where: {
+        NotMarketed: {
+          [Op.ne]: true
+        }
+      },
+      attributes: ['DrugID', 'DrugName']
+    });
+
+    // Create index mapping
+    const index = {};
+    drugs.forEach(drug => {
+      const drugName = drug.DrugName || '';
+      const firstChar = drugName.charAt(0).toUpperCase();
+      const FirstLetter = /[A-Z]/.test(firstChar) ? firstChar : /[0-9]/.test(firstChar) ? firstChar : '#';
+      
+      if (!index[FirstLetter]) {
+        index[FirstLetter] = [];
+      }
+      index[FirstLetter].push(drug.DrugID);
+    });
+
+    return index;
+  } catch (error) {
+    console.error('Error fetching letter index:', error);
+    throw new Error('Error fetching letter index');
+  }
+};
 
 const fetchAndUpdateDrugs = async (updateDrugIds) => {
   try {
@@ -1487,6 +1509,7 @@ module.exports = {
   getAllDrugsPaginatedByATC,
   fetchAndUpdateDrugs,
   fetchDrugDataFromServer,
+  returnLetterIndex,
   checkForDrugUpdates,
   updateDrugImage,
   setPriceUpdateDate,

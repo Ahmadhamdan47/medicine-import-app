@@ -420,6 +420,19 @@ const updateDrugImages = async (req, res) => {
   }
 };
 
+const returnLetterIndex = async (req, res) => {
+  try {
+    const index = await DrugService.returnLetterIndex();
+    res.status(200).json(index);
+  } catch (error) {
+    console.error('Error fetching letter index:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch letter index',
+      details: error.message 
+    });
+  }
+};
+
 module.exports = {
   searchDrugByATCName,
   searchDrugByName,
@@ -454,6 +467,7 @@ module.exports = {
   checkForUpdates,
   uploadDrugImage,
   setPriceUpdateDate,
-  updateDrugImages
+  updateDrugImages,
+  returnLetterIndex
 
 };

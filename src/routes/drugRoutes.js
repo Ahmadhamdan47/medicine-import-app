@@ -645,6 +645,33 @@ router.get("/fetch", drugController.fetchDrugData);
 
 /**
  * @swagger
+ * /drugs/letter-index:
+ *   get:
+ *     summary: Get drug letter index
+ *     description: Retrieve an index of all drugs grouped by their first letter (A-Z, 0-9, or #).
+ *     tags: [Drug]
+ *     responses:
+ *       '200':
+ *         description: OK. Letter index retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               additionalProperties:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               example:
+ *                 A: ["drug-id-1", "drug-id-2"]
+ *                 B: ["drug-id-3"]
+ *                 C: ["drug-id-4", "drug-id-5"]
+ *       '500':
+ *         description: Internal Server Error. Failed to fetch letter index.
+ */
+router.get("/letter-index", drugController.returnLetterIndex);
+
+/**
+ * @swagger
  * /drugs/checkUpdates:
  *   get:
  *     summary: Check for drug updates
