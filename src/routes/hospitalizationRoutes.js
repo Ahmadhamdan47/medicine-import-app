@@ -222,7 +222,7 @@ router.get('/operations', hospitalizationController.getAllOperations);
  *                   items:
  *                     $ref: '#/components/schemas/Operation'
  */
-router.get('/operations/fetch', hospitalizationController.fetchOperations);
+router.get('/fetch', hospitalizationController.fetchOperations);
 /**
  * @swagger
  * /systems:
