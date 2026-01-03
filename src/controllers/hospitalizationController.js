@@ -103,6 +103,15 @@ const getAllOperations = async (req, res) => {
   }
 };
 
+const fetchOperations = async (req, res) => {
+  try {
+    const payload = await hospitalizationService.fetchOperations();
+    res.status(200).json(payload);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getAllOperationSystems = async (req, res) => {
   try {
     const operationSystems = await hospitalizationService.getAllOperationSystems();
@@ -144,6 +153,7 @@ module.exports = {
   getOperationSharePublic,
   getAllHospitals,
   getAllOperations,
+  fetchOperations,
   getAllOperationSystems,
   addOperation,
   filterOperations

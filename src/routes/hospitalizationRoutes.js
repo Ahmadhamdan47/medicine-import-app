@@ -206,6 +206,25 @@ router.get('/hospitals', hospitalizationController.getAllHospitals);
 router.get('/operations', hospitalizationController.getAllOperations);
 /**
  * @swagger
+ * /operations/fetch:
+ *   get:
+ *     summary: Retrieve all operation systems with their operations, pricing, shares, and NSSF coverage
+ *     responses:
+ *       200:
+ *         description: Aggregated operations grouped by system with pricing and NSSF data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 systems:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Operation'
+ */
+router.get('/operations/fetch', hospitalizationController.fetchOperations);
+/**
+ * @swagger
  * /systems:
  *   get:
  *     summary: Retrieve a list of operation systems

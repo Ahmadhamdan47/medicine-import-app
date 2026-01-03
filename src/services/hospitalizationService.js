@@ -1,4 +1,20 @@
 const nssfOperationCoverageService = require('./nssfOperationCoverageService');
+const { Op } = require('sequelize');
+const Operation = require('../models/operation');
+const CategoryPricing = require('../models/categoryPricing');
+const OperationShare = require('../models/operationShare');
+const HospitalOperationMapping = require('../models/hospitalOperationMapping');
+const Hospital = require('../models/hospital');
+const NSSFOperationCoverage = require('../models/nssfOperationCoverage');
+const OperationSystems = require('../models/opeartionsystems');
+const { search } = require('../routes/drugRoutes');
+
+const formatAnesthetic = (value) => {
+  if (value === 'G') return 'Global Anesthesia';
+  if (value === 'L') return 'Local Anesthesia';
+  return value;
+};
+
 /**
  * Get operation info and NSSF coverage for a specific operation
  * @param {number} operationId
@@ -20,16 +36,6 @@ const getOperationWithNSSF = async (operationId) => {
     nssfCoverage
   };
 };
-const { Op } = require('sequelize');
-const Operation = require('../models/operation');
-const CategoryPricing = require('../models/categoryPricing');
-const OperationShare = require('../models/operationShare');
-const HospitalOperationMapping = require('../models/hospitalOperationMapping');
-const Hospital = require('../models/hospital');
-const NSSFOperationCoverage = require('../models/nssfOperationCoverage');
-
-const OperationSystems = require('../models/opeartionsystems'); // Assuming the model is in the same directory
-const { search } = require('../routes/drugRoutes');
 
 const searchOperationsBySystemPrivate = async (systemNameOrNameAR) => {
   // Find the corresponding systemChar from the operationsystems table
@@ -609,6 +615,85 @@ const filterOperations = async ({ system, name, hospitalCategoryType, hospitalNa
   }
 };
 
+/**
+ * Fetch all operation systems with their operations, pricing (public/private), shares, and NSSF coverage.
+ * Returns both an array of systems with nested operations and a quick lookup index keyed by systemChar.
+ */
+const fetchOperations = async () => {
+  const [systems, operations, categoryPricings, nssfCoverages, privateShares, publicShares] = await Promise.all([
+    OperationSystems.findAll({ order: [['systemName', 'ASC']] }),
+    Operation.findAll({
+      attributes: ['ID','Name','NameAR','Code','systemChar','Anesthetic','Los','Description','DescriptionAR'],
+    }),
+    CategoryPricing.findAll(),
+    NSSFOperationCoverage.findAll({ where: { is_active: true } }),
+    getOperationSharePrivate(),
+    getOperationSharePublic()
+  ]);
+
+  const privateShare = privateShares?.[0]?.Share ?? null;
+  const publicShare = publicShares?.[0]?.Share ?? null;
+
+  const categoryPricingByOperation = categoryPricings.reduce((acc, pricingRow) => {
+    const pricing = pricingRow.get({ plain: true });
+    if (!acc[pricing.OperationId]) acc[pricing.OperationId] = [];
+    acc[pricing.OperationId].push(pricing);
+    return acc;
+  }, {});
+
+  const nssfByOperation = nssfCoverages.reduce((acc, coverageRow) => {
+    const coverage = coverageRow.get({ plain: true });
+    if (!acc[coverage.operation_id]) acc[coverage.operation_id] = [];
+    acc[coverage.operation_id].push(coverage);
+    return acc;
+  }, {});
+
+  const operationsPayload = operations.map((operationRow) => {
+    const operation = operationRow.get({ plain: true });
+    const pricing = categoryPricingByOperation[operation.ID] || [];
+
+    operation.categoryPricing = pricing;
+    operation.nssfCoverage = nssfByOperation[operation.ID] || [];
+    operation.anestheticLabel = formatAnesthetic(operation.Anesthetic);
+
+    if (pricing.length) {
+      const firstPricing = pricing[0];
+      if (privateShare !== null) {
+        operation.patientSharePrivateCategory1 = firstPricing.FirstCategory1 * privateShare / 100;
+        operation.patientSharePrivateCategory2 = firstPricing.FirstCategory2 * privateShare / 100;
+        operation.patientSharePrivateCategory3 = firstPricing.FirstCategory3 * privateShare / 100;
+      }
+
+      if (publicShare !== null) {
+        operation.patientSharePublicCategory1 = firstPricing.FirstCategory1 * publicShare / 100;
+        operation.patientSharePublicCategory2 = firstPricing.FirstCategory2 * publicShare / 100;
+        operation.patientSharePublicCategory3 = firstPricing.FirstCategory3 * publicShare / 100;
+      }
+    }
+
+    return operation;
+  });
+
+  const systemsPayload = systems.map((systemRow) => {
+    const system = systemRow.get({ plain: true });
+    system.operations = operationsPayload.filter((op) => op.systemChar === system.systemChar);
+    return system;
+  });
+
+  const operationsBySystem = systemsPayload.reduce((acc, system) => {
+    acc[system.systemChar] = system.operations;
+    return acc;
+  }, {});
+
+  const unmappedOperations = operationsPayload.filter((op) => !operationsBySystem[op.systemChar]);
+
+  return {
+    systems: systemsPayload,
+    operationsBySystem,
+    unmappedOperations
+  };
+};
+
 
 module.exports = {
   getOperationWithNSSF,
@@ -626,5 +711,6 @@ module.exports = {
   getAllOperations,
   getAllOperationSystems,
   addOperation,
-  filterOperations
+  filterOperations,
+  fetchOperations
 };
