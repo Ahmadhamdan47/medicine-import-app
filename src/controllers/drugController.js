@@ -102,6 +102,36 @@ const getAllDrugsPaginatedByATC = async (req, res, next) => {
     next(error);
   }
 };
+
+const getAllDrugsPaginatedFiltered = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 100, ...filters } = req.query;
+    
+    // Parse the filters from query params
+    const parsedFilters = {};
+    
+    Object.keys(filters).forEach((key) => {
+      const value = filters[key];
+      
+      // Handle comma-separated values as arrays
+      if (typeof value === 'string' && value.includes(',')) {
+        parsedFilters[key] = value.split(',').map(v => v.trim());
+      } else {
+        parsedFilters[key] = value;
+      }
+    });
+
+    const result = await DrugService.getAllDrugsPaginatedFiltered(
+      Math.max(parseInt(page, 10), 1),
+      parseInt(limit, 10),
+      parsedFilters
+    );
+    
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
 const smartSearch = async (req, res) => {
   const searchTerm = req.params.query;
 
@@ -462,6 +492,7 @@ module.exports = {
   deletePresentationsByDrugId,
   getAllDrugsPaginated,
   getAllDrugsPaginatedByATC,
+  getAllDrugsPaginatedFiltered,
   fetchDrugData,
   fetchAndApplyUpdates,
   checkForUpdates,

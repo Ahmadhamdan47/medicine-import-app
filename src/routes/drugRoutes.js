@@ -613,6 +613,149 @@ router.get("/paginatedByATC", drugController.getAllDrugsPaginatedByATC);
 
 /**
  * @swagger
+ * /drugs/paginated-filtered:
+ *   get:
+ *     summary: Get paginated drugs with flexible column filtering
+ *     description: |
+ *       Retrieve drugs with pagination and dynamic filtering by any column.
+ *       Supports various filter types: exact match, partial match, numeric comparisons, boolean values, and array of values.
+ *       
+ *       **Filter Syntax:**
+ *       - **Exact match**: `?DrugName=Aspirin`
+ *       - **Partial match** (LIKE): `?DrugName=Asp*` or `?DrugName=%Asp%`
+ *       - **Numeric comparison**: `?Price=>10`, `?Price=<=100`, `?Price=>=50`
+ *       - **Boolean**: `?isOTC=true`, `?NotMarketed=false`
+ *       - **Multiple values** (IN): `?Form=Tablet,Capsule` or `?ProductType=Brand,Generic`
+ *       
+ *       **Examples:**
+ *       - Filter by OTC drugs: `/drugs/paginated-filtered?isOTC=true&page=1&limit=50`
+ *       - Filter by form: `/drugs/paginated-filtered?Form=Tablet&page=1`
+ *       - Filter by price range: `/drugs/paginated-filtered?Price=>=10&Price=<=100`
+ *       - Filter by manufacturer: `/drugs/paginated-filtered?Manufacturer=Pfizer`
+ *       - Filter by multiple forms: `/drugs/paginated-filtered?Form=Tablet,Capsule`
+ *       - Complex filter: `/drugs/paginated-filtered?isOTC=true&Form=Tablet&Price=<=50&page=1&limit=100`
+ *     tags: [Drug]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number (starts from 1)
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 100
+ *         description: Number of items per page
+ *       - in: query
+ *         name: DrugName
+ *         schema:
+ *           type: string
+ *         description: Filter by drug name (supports wildcards with * or %)
+ *       - in: query
+ *         name: DrugNameAR
+ *         schema:
+ *           type: string
+ *         description: Filter by Arabic drug name
+ *       - in: query
+ *         name: isOTC
+ *         schema:
+ *           type: boolean
+ *         description: Filter by OTC status (true/false)
+ *       - in: query
+ *         name: Form
+ *         schema:
+ *           type: string
+ *         description: Filter by drug form (comma-separated for multiple values)
+ *       - in: query
+ *         name: Route
+ *         schema:
+ *           type: string
+ *         description: Filter by administration route
+ *       - in: query
+ *         name: Agent
+ *         schema:
+ *           type: string
+ *         description: Filter by agent/active ingredient
+ *       - in: query
+ *         name: Manufacturer
+ *         schema:
+ *           type: string
+ *         description: Filter by manufacturer name
+ *       - in: query
+ *         name: Country
+ *         schema:
+ *           type: string
+ *         description: Filter by country
+ *       - in: query
+ *         name: ProductType
+ *         schema:
+ *           type: string
+ *         description: Filter by product type
+ *       - in: query
+ *         name: Price
+ *         schema:
+ *           type: string
+ *         description: Filter by price (supports operators >, <, >=, <=, =)
+ *       - in: query
+ *         name: SubsidyPercentage
+ *         schema:
+ *           type: string
+ *         description: Filter by subsidy percentage
+ *       - in: query
+ *         name: Substitutable
+ *         schema:
+ *           type: boolean
+ *         description: Filter by substitutability (true/false)
+ *       - in: query
+ *         name: RegistrationNumber
+ *         schema:
+ *           type: string
+ *         description: Filter by registration number
+ *       - in: query
+ *         name: MoPHCode
+ *         schema:
+ *           type: integer
+ *         description: Filter by MoPH code
+ *       - in: query
+ *         name: ATC_Code
+ *         schema:
+ *           type: string
+ *         description: Filter by ATC code
+ *       - in: query
+ *         name: GTIN
+ *         schema:
+ *           type: string
+ *         description: Filter by GTIN barcode
+ *     responses:
+ *       '200':
+ *         description: OK. Filtered drugs retrieved successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 drugs:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                 totalPages:
+ *                   type: integer
+ *                 totalCount:
+ *                   type: integer
+ *                 currentPage:
+ *                   type: integer
+ *                 filters:
+ *                   type: object
+ *                   description: Applied filters
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve drugs.
+ */
+router.get("/paginated-filtered", drugController.getAllDrugsPaginatedFiltered);
+
+/**
+ * @swagger
  * /drugs/fetch:
  *   get:
  *     summary: Fetch drug data from server

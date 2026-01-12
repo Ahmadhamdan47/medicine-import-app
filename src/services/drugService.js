@@ -487,6 +487,143 @@ const getAllDrugsPaginatedByATC = async (page = 1, limit = 500) => {
     throw new Error("Failed to fetch paginated drugs by ATC");
   }
 };
+
+const getAllDrugsPaginatedFiltered = async (page = 1, limit = 100, filters = {}) => {
+  try {
+    // Ensure page is at least 1
+    page = Math.max(page, 1);
+    const offset = (page - 1) * limit;
+
+    // Build where clause dynamically based on filters
+    const whereClause = {};
+    
+    // Exclude NotMarketed drugs by default
+    whereClause.NotMarketed = {
+      [Op.ne]: true,
+    };
+
+    // Add filters for each column
+    Object.keys(filters).forEach((key) => {
+      if (filters[key] !== undefined && filters[key] !== null && filters[key] !== '') {
+        // Handle different types of filters
+        const value = filters[key];
+        
+        // Handle boolean values
+        if (value === 'true' || value === true) {
+          whereClause[key] = true;
+        } else if (value === 'false' || value === false) {
+          whereClause[key] = false;
+        }
+        // Handle numeric comparisons (e.g., ">=10", "<=100", ">5", "<50")
+        else if (typeof value === 'string' && /^(>=|<=|>|<|=)\d+(\.\d+)?$/.test(value)) {
+          const operator = value.match(/^(>=|<=|>|<|=)/)[0];
+          const numValue = parseFloat(value.replace(operator, ''));
+          
+          switch (operator) {
+            case '>=':
+              whereClause[key] = { [Op.gte]: numValue };
+              break;
+            case '<=':
+              whereClause[key] = { [Op.lte]: numValue };
+              break;
+            case '>':
+              whereClause[key] = { [Op.gt]: numValue };
+              break;
+            case '<':
+              whereClause[key] = { [Op.lt]: numValue };
+              break;
+            case '=':
+              whereClause[key] = numValue;
+              break;
+          }
+        }
+        // Handle array of values (IN operator)
+        else if (Array.isArray(value)) {
+          whereClause[key] = { [Op.in]: value };
+        }
+        // Handle string matching (LIKE operator for partial matches)
+        else if (typeof value === 'string') {
+          // If it contains wildcards, use LIKE
+          if (value.includes('%') || value.includes('*')) {
+            whereClause[key] = { [Op.like]: value.replace(/\*/g, '%') };
+          } else {
+            // Exact match for strings without wildcards
+            whereClause[key] = value;
+          }
+        }
+        // Handle numeric exact match
+        else if (typeof value === 'number') {
+          whereClause[key] = value;
+        }
+      }
+    });
+
+    // Fetch drugs with filters
+    const { rows, count } = await Drug.findAndCountAll({
+      where: whereClause,
+      offset,
+      limit,
+      include: [
+        {
+          model: DrugPresentation,
+          attributes: [
+            'UnitQuantity1',
+            'UnitType1',
+            'UnitQuantity2',
+            'UnitType2',
+            'PackageQuantity1',
+            'PackageType1',
+            'PackageQuantity2',
+            'PackageType2',
+            'PackageQuantity3',
+            'PackageType3',
+            'Description',
+          ],
+        },
+        {
+          model: Dosage,
+          attributes: [
+            'Numerator1',
+            'Numerator1Unit',
+            'Denominator1',
+            'Denominator1Unit',
+            'Numerator2',
+            'Numerator2Unit',
+            'Denominator2',
+            'Denominator2Unit',
+            'Numerator3',
+            'Numerator3Unit',
+            'Denominator3',
+            'Denominator3Unit',
+          ],
+        },
+      ],
+    });
+
+    // Format the data
+    const formattedDrugs = rows.map((drug) => {
+      const plainDrug = drug.get({ plain: true });
+      
+      return {
+        ...plainDrug,
+        priceInLBP: drug.Price * 89500,
+        unitPrice: drug.Amount ? drug.Price / drug.Amount : null,
+        unitPriceInLBP: drug.Amount ? (drug.Price / drug.Amount) * 89500 : null,
+      };
+    });
+
+    return { 
+      drugs: formattedDrugs, 
+      totalPages: Math.ceil(count / limit),
+      totalCount: count,
+      currentPage: page,
+      filters: filters
+    };
+  } catch (error) {
+    console.error('Error fetching filtered paginated drugs:', error);
+    throw new Error('Failed to fetch filtered paginated drugs');
+  }
+};
 const smartSearch = async (query) => {
   try {
     console.log("Query:", query); // Log the query
@@ -1507,6 +1644,7 @@ module.exports = {
   deletePresentationsByDrugId,
   getAllDrugsPaginated,
   getAllDrugsPaginatedByATC,
+  getAllDrugsPaginatedFiltered,
   fetchAndUpdateDrugs,
   fetchDrugDataFromServer,
   returnLetterIndex,
