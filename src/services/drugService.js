@@ -504,12 +504,20 @@ const getAllDrugsPaginatedFiltered = async (page = 1, limit = 100, filters = {})
 
     // Add filters for each column
     Object.keys(filters).forEach((key) => {
-      if (filters[key] !== undefined && filters[key] !== null && filters[key] !== '') {
+      if (filters[key] !== undefined && filters[key] !== '') {
         // Handle different types of filters
         const value = filters[key];
         
+        // Handle explicit NULL filtering (string "null" or actual null)
+        if (value === 'null' || value === null) {
+          whereClause[key] = { [Op.is]: null };
+        }
+        // Handle explicit NOT NULL filtering
+        else if (value === 'not null' || value === 'notnull') {
+          whereClause[key] = { [Op.not]: null };
+        }
         // Handle boolean values
-        if (value === 'true' || value === true) {
+        else if (value === 'true' || value === true) {
           whereClause[key] = true;
         } else if (value === 'false' || value === false) {
           whereClause[key] = false;
