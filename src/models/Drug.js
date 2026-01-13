@@ -177,6 +177,9 @@ const NewDrug = sequelize.define('drug', {
     CargoShippingTerms: {
         type: DataTypes.STRING(255)
     },
+    PrescriptionDispensingCondition: {
+        type: DataTypes.STRING(255)
+    },
     ProductType: {
         type: DataTypes.STRING(255)
     },

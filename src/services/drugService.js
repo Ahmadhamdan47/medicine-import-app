@@ -64,7 +64,7 @@ const drugs = await Drug.findAll({
   attributes: [
     'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
     'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-    'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
+    'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode', 'PrescriptionDispensingCondition'
   ],
 });
 
@@ -123,7 +123,7 @@ const searchDrugByATCName = async (atcName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode'
+        'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'MoPHCode', 'PrescriptionDispensingCondition'
       ],
     });
 
@@ -166,7 +166,7 @@ const searchDrugByName = async (query) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode',
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode', 'PrescriptionDispensingCondition'
       ],
     });
   
@@ -210,7 +210,7 @@ const getDrugById = async (DrugIDs) => {
       },
       attributes: [
         "DrugID", "DrugName", "DrugNameAr", "isOTC", "ATCRelatedIngredient", "ProductType", "SubsidyPercentage", "MoPHCode", "Price", "ImagesPath",
-        "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum", "GTIN"
+        "ManufacturerID", "RegistrationNumber", "NotMarketed", "Amount", "Dosage", "Form", "Presentation", "Agent", "Manufacturer", "Country", "Route", "Stratum", "GTIN", "PrescriptionDispensingCondition"
       ],
     });
 
@@ -633,7 +633,7 @@ const smartSearch = async (query) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed', 'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN', 'PrescriptionDispensingCondition'
       ],
     });
     
@@ -720,7 +720,7 @@ const smartSearch = async (query) => {
             attributes: [
               'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
               'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN'
+              'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route', 'MoPHCode', 'GTIN', 'PrescriptionDispensingCondition'
             ],
           });
 
@@ -811,7 +811,7 @@ const getDrugByATCLevel = async (query) => {
       },
       include: [{
         model: Drug,
-        attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','DrugID','isOTC','RegistrationNumber','Substitutable','MoPHCode'],
+        attributes: ['DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 'SubsidyPercentage','NotMarketed','DrugID','isOTC','RegistrationNumber','Substitutable','MoPHCode', 'PrescriptionDispensingCondition'],
       }]
     });
 
@@ -1103,7 +1103,7 @@ const getOTCDrugs = async () => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode'
+        'Dosage', 'Form','Route', 'Presentation', 'Agent', 'Manufacturer', 'Country','MoPHCode', 'PrescriptionDispensingCondition'
       ],
     });
 
@@ -1170,7 +1170,7 @@ const getDrugSubstitutes = async (drugName) => {
       attributes: [
         'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'ImagesPath', 
         'SubsidyPercentage', 'NotMarketed',  'DrugID', 'isOTC', 'RegistrationNumber', 'Substitutable', 'Amount',
-        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode', 'Stratum'
+        'Dosage', 'Form', 'Presentation', 'Agent', 'Manufacturer', 'Country', 'Route','MoPHCode', 'Stratum', 'PrescriptionDispensingCondition'
       ],
     });
 
@@ -1338,7 +1338,7 @@ const fetchDrugDataFromServer = async () => {
         'DrugID', 'DrugName', 'DrugNameAR', 'ATC_Code', 'Stratum', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient','OtherIngredients', 
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
-        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN', 'DFSequence'
+        'Country', 'MoPHCode', 'UpdatedDate', 'GTIN', 'DFSequence', 'PrescriptionDispensingCondition'
       ],
       include: [
         {
@@ -1521,7 +1521,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
         'DrugID', 'DrugName', 'DrugNameAR', 'ManufacturerID', 'ProductType', 'Price', 'ATCRelatedIngredient', 'OtherIngredients',
         'ImagesPath', 'SubsidyPercentage', 'NotMarketed', 'isOTC', 'RegistrationNumber', 
         'Substitutable', 'Amount', 'Dosage', 'Form', 'Route', 'Presentation', 'Agent', 'Manufacturer', 
-        'Country', 'MoPHCode', 'UpdatedDate'
+        'Country', 'MoPHCode', 'UpdatedDate', 'PrescriptionDispensingCondition'
       ]
     });
 
@@ -1552,6 +1552,7 @@ const fetchAndUpdateDrugs = async (updateDrugIds) => {
           Country: updatedDrug.Country,
           MoPHCode: updatedDrug.MoPHCode,
           UpdatedDate: updatedDrug.UpdatedDate,
+          PrescriptionDispensingCondition: updatedDrug.PrescriptionDispensingCondition,
           usdRate: formattedRate,
 
           
