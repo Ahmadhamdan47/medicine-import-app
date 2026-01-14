@@ -83,6 +83,9 @@ const bankDonationRoutes = require("./src/routes/bankDonationRoutes");
 // DF Sequence Mapping route
 const dfSequenceMappingRoutes = require("./src/routes/dfSequenceMappingRoutes");
 
+// Form DF Sequence Mapping route
+const formDFSequenceMappingRoutes = require("./src/routes/formDFSequenceMappingRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -208,6 +211,9 @@ app.use("/bank-donations", bankDonationRoutes);
 
 // Register DF Sequence Mapping API
 app.use("/df-sequence-mapping", dfSequenceMappingRoutes);
+
+// Register Form DF Sequence Mapping API
+app.use("/form-df-sequence-mapping", formDFSequenceMappingRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
