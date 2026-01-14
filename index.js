@@ -207,7 +207,7 @@ app.use("/mobile-donation", mobileDonationRoutes);
 app.use("/bank-donations", bankDonationRoutes);
 
 // Register DF Sequence Mapping API
-app.use("/api/df-sequence-mapping", dfSequenceMappingRoutes);
+app.use("/df-sequence-mapping", dfSequenceMappingRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
