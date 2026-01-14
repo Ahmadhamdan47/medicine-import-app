@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const dfSequenceMappingService = require('../services/dfSequenceMappingService');
-const { authenticateToken } = require('../middleware/auth');
+const { authenticateToken } = require('../middlewares/auth');
 
 /**
  * @swagger
