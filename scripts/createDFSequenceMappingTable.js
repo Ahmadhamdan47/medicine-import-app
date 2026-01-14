@@ -1,8 +1,15 @@
 // Script to create DF Sequence Mapping table and populate it from CSV
-const sequelize = require('../config/database');
+const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const csv = require('csv-parser');
+
+// Create database connection directly (avoiding config file with winston issues)
+const sequelize = new Sequelize("ommal_medapiv2", "ommal_ahmad", "fISfGr^8q!_gUPMY", {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false // Disable logging to avoid winston dependency
+});
 
 async function createDFSequenceMappingTable() {
     try {
