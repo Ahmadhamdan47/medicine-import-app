@@ -80,6 +80,9 @@ const mobileDonationRoutes = require("./src/routes/mobileDonationRoutes");
 // Bank Donation route
 const bankDonationRoutes = require("./src/routes/bankDonationRoutes");
 
+// DF Sequence Mapping route
+const dfSequenceMappingRoutes = require("./src/routes/dfSequenceMappingRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -202,6 +205,9 @@ app.use("/mobile-donation", mobileDonationRoutes);
 
 // Register bank donation API
 app.use("/bank-donations", bankDonationRoutes);
+
+// Register DF Sequence Mapping API
+app.use("/api/df-sequence-mapping", dfSequenceMappingRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));
