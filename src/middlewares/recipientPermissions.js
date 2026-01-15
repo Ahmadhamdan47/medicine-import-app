@@ -6,7 +6,7 @@ const UserAccounts = require('../models/userAccounts');
  */
 const requireRecipientAccess = async (req, res, next) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.UserId;
         
         const user = await UserAccounts.findByPk(userId);
         if (!user || !user.RecipientId) {
@@ -30,7 +30,7 @@ const requireRecipientAccess = async (req, res, next) => {
  */
 const checkRecipientOwnership = async (req, res, next) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.UserId;
         const requestedRecipientId = req.params.recipientId;
         
         const user = await UserAccounts.findByPk(userId);
@@ -41,7 +41,7 @@ const checkRecipientOwnership = async (req, res, next) => {
         }
 
         // Allow admin access
-        if (req.user.role === 'admin') {
+        if (req.user.roleString === 'admin') {
             return next();
         }
 

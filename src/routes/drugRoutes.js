@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const drugController = require("../controllers/drugController");
+const { authenticateToken } = require("../middlewares/auth");
 /**
  * @swagger
  * /drugs/search/atc/{query}:
@@ -607,7 +608,7 @@ router.get('/disease/:categoryName', drugController.getDrugByDiseaseCategoryCont
 router.get('/substitutes/:drugName', drugController.getDrugSubstitutesController);
 router.get('/checkDrugNameInAPI/:drugName', drugController.checkDrugNameInAPI);
 router.delete('/delete/:DrugID', drugController.deleteDrug);
-router.put('/update/:DrugID', drugController.updateDrug);
+router.put('/update/:DrugID', authenticateToken, drugController.updateDrug);
 router.get("/paginated", drugController.getAllDrugsPaginated);
 router.get("/paginatedByATC", drugController.getAllDrugsPaginatedByATC);
 

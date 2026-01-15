@@ -43,11 +43,14 @@ const authenticateToken = async (req, res, next) => {
         }
 
         req.user = {
+            // Support both formats for compatibility
             id: user.UserId,
+            UserId: user.UserId,  // Add this for drugController compatibility
             username: user.Username,
             email: user.Email,
             roleId: user.RoleId,
-            role: roleName,
+            role: user.role,  // Keep the full role object with RoleName
+            roleString: roleName,  // Add mapped string version for other uses
             agentId: user.AgentId,
             donorId: user.DonorId,
             recipientId: user.RecipientId
@@ -66,7 +69,7 @@ const authorizeRoles = (...roles) => {
             return res.status(401).json({ error: 'User not authenticated' });
         }
 
-        if (!roles.includes(req.user.role)) {
+        if (!roles.includes(req.user.roleString)) {
             return res.status(403).json({ error: 'Access denied. Insufficient permissions' });
         }
 
@@ -80,8 +83,8 @@ const authorizeOwnerOrAdmin = (req, res, next) => {
         return res.status(401).json({ error: 'User not authenticated' });
     }
 
-    const isAdmin = req.user.role === 'admin';
-    const isImportExport = req.user.role === 'import_export';
+    const isAdmin = req.user.roleString === 'admin';
+    const isImportExport = req.user.roleString === 'import_export';
     const resourceAgentId = req.params.agentId || req.body.agentId;
     const isOwner = req.user.agentId && req.user.agentId.toString() === resourceAgentId;
 

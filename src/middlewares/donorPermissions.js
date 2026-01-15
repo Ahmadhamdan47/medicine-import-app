@@ -8,9 +8,9 @@ const UserAccounts = require('../models/userAccounts');
 const checkDonorPermission = (requiredPermission) => {
     return async (req, res, next) => {
         try {
-            const userId = req.user.id;
+            const userId = req.user.UserId;
             // Admins bypass donor permission checks
-            if (req.user && req.user.role === 'admin') {
+            if (req.user && req.user.roleString === 'Admin') {
                 return next();
             }
             
@@ -49,7 +49,7 @@ const checkDonorPermission = (requiredPermission) => {
  */
 const requireMainDonorAccount = async (req, res, next) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.UserId;
         
         const user = await UserAccounts.findByPk(userId);
         if (!user || !user.DonorId) {
@@ -78,9 +78,9 @@ const requireMainDonorAccount = async (req, res, next) => {
  */
 const requireDonorAccess = async (req, res, next) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.UserId;
         // Allow admins to access donor routes
-        if (req.user && req.user.role === 'admin') {
+        if (req.user && req.user.roleString === 'Admin') {
             return next();
         }
         
