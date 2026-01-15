@@ -27,13 +27,19 @@ async function addDataEntryRole() {
       return;
     }
 
+    // Get the next available RoleId
+    const [maxRole] = await connection.execute(
+      'SELECT MAX(RoleId) as maxId FROM roles'
+    );
+    const nextRoleId = (maxRole[0].maxId || 0) + 1;
+
     // Create the data-entry role
     const [result] = await connection.execute(
-      'INSERT INTO roles (RoleName) VALUES (?)',
-      ['data-entry']
+      'INSERT INTO roles (RoleId, RoleName) VALUES (?, ?)',
+      [nextRoleId, 'data-entry']
     );
 
-    console.log('✓ Successfully created data-entry role with RoleId:', result.insertId);
+    console.log('✓ Successfully created data-entry role with RoleId:', nextRoleId);
     console.log('\nYou can now assign this role to users who need approval for drug edits.');
     
   } catch (error) {
