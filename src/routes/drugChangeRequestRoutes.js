@@ -2,9 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const DrugChangeRequestController = require('../controllers/drugChangeRequestController');
+const { authenticateToken, authorizeRoles } = require('../middlewares/auth');
 
-// Note: These routes should be protected with authentication middleware
-// Add your authentication middleware here: const { authenticateToken } = require('../middleware/auth');
+// Note: Authentication middleware is now applied to all routes
 
 /**
  * @swagger
@@ -51,7 +51,7 @@ const DrugChangeRequestController = require('../controllers/drugChangeRequestCon
  *       500:
  *         description: Server error
  */
-router.post('/', DrugChangeRequestController.submitChangeRequest);
+router.post('/', authenticateToken, DrugChangeRequestController.submitChangeRequest);
 
 /**
  * @swagger
@@ -84,7 +84,7 @@ router.post('/', DrugChangeRequestController.submitChangeRequest);
  *       500:
  *         description: Server error
  */
-router.get('/', DrugChangeRequestController.getAllRequests);
+router.get('/', authenticateToken, DrugChangeRequestController.getAllRequests);
 
 /**
  * @swagger
@@ -111,7 +111,7 @@ router.get('/', DrugChangeRequestController.getAllRequests);
  *       500:
  *         description: Server error
  */
-router.get('/pending', DrugChangeRequestController.getPendingRequests);
+router.get('/pending', authenticateToken, DrugChangeRequestController.getPendingRequests);
 
 /**
  * @swagger
@@ -127,7 +127,7 @@ router.get('/pending', DrugChangeRequestController.getPendingRequests);
  *       500:
  *         description: Server error
  */
-router.get('/statistics', DrugChangeRequestController.getStatistics);
+router.get('/statistics', authenticateToken, DrugChangeRequestController.getStatistics);
 
 /**
  * @swagger
@@ -152,7 +152,7 @@ router.get('/statistics', DrugChangeRequestController.getStatistics);
  *       500:
  *         description: Server error
  */
-router.get('/drug/:drugId/my-pending', DrugChangeRequestController.getMyPendingChanges);
+router.get('/drug/:drugId/my-pending', authenticateToken, DrugChangeRequestController.getMyPendingChanges);
 
 /**
  * @swagger
@@ -179,7 +179,7 @@ router.get('/drug/:drugId/my-pending', DrugChangeRequestController.getMyPendingC
  *       500:
  *         description: Server error
  */
-router.get('/drug/:drugId/with-pending', DrugChangeRequestController.getDrugWithPendingChanges);
+router.get('/drug/:drugId/with-pending', authenticateToken, DrugChangeRequestController.getDrugWithPendingChanges);
 
 /**
  * @swagger
@@ -210,7 +210,7 @@ router.get('/drug/:drugId/with-pending', DrugChangeRequestController.getDrugWith
  *       500:
  *         description: Server error
  */
-router.get('/history/:drugId', DrugChangeRequestController.getChangeHistory);
+router.get('/history/:drugId', authenticateToken, DrugChangeRequestController.getChangeHistory);
 
 /**
  * @swagger
@@ -235,7 +235,7 @@ router.get('/history/:drugId', DrugChangeRequestController.getChangeHistory);
  *       500:
  *         description: Server error
  */
-router.get('/:id', DrugChangeRequestController.getChangeRequestById);
+router.get('/:id', authenticateToken, DrugChangeRequestController.getChangeRequestById);
 
 /**
  * @swagger
@@ -271,7 +271,7 @@ router.get('/:id', DrugChangeRequestController.getChangeRequestById);
  *       500:
  *         description: Server error
  */
-router.put('/:id/approve', DrugChangeRequestController.approveChangeRequest);
+router.put('/:id/approve', authenticateToken, authorizeRoles('admin'), DrugChangeRequestController.approveChangeRequest);
 
 /**
  * @swagger
@@ -307,7 +307,7 @@ router.put('/:id/approve', DrugChangeRequestController.approveChangeRequest);
  *       500:
  *         description: Server error
  */
-router.put('/:id/reject', DrugChangeRequestController.rejectChangeRequest);
+router.put('/:id/reject', authenticateToken, authorizeRoles('admin'), DrugChangeRequestController.rejectChangeRequest);
 
 /**
  * @swagger
@@ -346,7 +346,7 @@ router.put('/:id/reject', DrugChangeRequestController.rejectChangeRequest);
  *       500:
  *         description: Server error
  */
-router.put('/:id/update', DrugChangeRequestController.updatePendingRequest);
+router.put('/:id/update', authenticateToken, DrugChangeRequestController.updatePendingRequest);
 
 /**
  * @swagger
@@ -373,6 +373,6 @@ router.put('/:id/update', DrugChangeRequestController.updatePendingRequest);
  *       500:
  *         description: Server error
  */
-router.delete('/:id/cancel', DrugChangeRequestController.cancelPendingRequest);
+router.delete('/:id/cancel', authenticateToken, DrugChangeRequestController.cancelPendingRequest);
 
 module.exports = router;
