@@ -108,7 +108,9 @@ app.use((req, res, next) => {
 });
 
 // --- Body Parser Middleware ---
-app.use(bodyParser.json());
+// Use express built-in parsers with increased limits for large filter payloads
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // --- Custom CORS Middleware ---
 // Define the allowed origins.
