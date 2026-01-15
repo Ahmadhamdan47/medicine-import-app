@@ -207,8 +207,13 @@ class DrugChangeRequestService {
       };
 
       // Compare previous values with proposed changes
-      const changes = request.ChangesJSON;
-      const previous = request.PreviousValuesJSON;
+      // Parse JSON if it's a string (Sequelize sometimes returns JSON as string)
+      const changes = typeof request.ChangesJSON === 'string' 
+        ? JSON.parse(request.ChangesJSON) 
+        : request.ChangesJSON;
+      const previous = typeof request.PreviousValuesJSON === 'string'
+        ? JSON.parse(request.PreviousValuesJSON)
+        : request.PreviousValuesJSON;
 
       Object.keys(changes).forEach(field => {
         comparison.changes.push({
@@ -260,8 +265,13 @@ class DrugChangeRequestService {
       }, { transaction });
 
       // Log each field change in history
-      const changes = request.ChangesJSON;
-      const previous = request.PreviousValuesJSON;
+      // Parse JSON if it's a string (Sequelize sometimes returns JSON as string)
+      const changes = typeof request.ChangesJSON === 'string'
+        ? JSON.parse(request.ChangesJSON)
+        : request.ChangesJSON;
+      const previous = typeof request.PreviousValuesJSON === 'string'
+        ? JSON.parse(request.PreviousValuesJSON)
+        : request.PreviousValuesJSON;
 
       for (const field of Object.keys(changes)) {
         await DrugChangeHistory.create({
