@@ -9,8 +9,8 @@ async function addDataEntryRole() {
     // Create connection using the same config as your app
     connection = await mysql.createConnection({
       host: process.env.DB_HOST || 'localhost',
-      user: process.env.DB_USER || 'root',
-      password: process.env.DB_PASSWORD || '',
+    user: process.env.DB_USER || 'ommal_ahmad',
+      password: process.env.DB_PASSWORD || 'fISfGr^8q!_gUPMY',
       database: process.env.DB_NAME || 'ommal_medapiv2'
     });
 
