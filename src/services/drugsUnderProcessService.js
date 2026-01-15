@@ -51,7 +51,7 @@ class DrugsUnderProcessService {
       let drugs = await DrugsUnderProcess.findAll(queryOptions);
 
       // Apply additional filtering based on role and workflow state
-      if (includeWorkflow && userRole !== 'admin') {
+      if (includeWorkflow && userRole !== 'Admin') {
         drugs = drugs.filter(drug => {
           if (!drug.workflowState) return false;
 

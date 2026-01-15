@@ -165,7 +165,7 @@ class DrugChangeRequestController {
       }
 
       // Check if user is admin
-      if (userRole !== 'admin') {
+      if (userRole !== 'Admin') {
         return res.status(403).json({
           success: false,
           message: 'Only administrators can approve change requests'
@@ -230,7 +230,7 @@ class DrugChangeRequestController {
       }
 
       // Check if user is admin
-      if (userRole !== 'admin') {
+      if (userRole !== 'Admin') {
         return res.status(403).json({
           success: false,
           message: 'Only administrators can reject change requests'

@@ -310,7 +310,7 @@ const updateDrug = async (req, res) => {
     const previousValues = currentDrug.toJSON();
 
     // Admin users: Apply changes directly and log to history
-    if (userRole === 'admin') {
+    if (userRole === 'Admin') {
       const drug = await DrugService.updateDrug(DrugID, drugData);
       
       // Log the direct change to history

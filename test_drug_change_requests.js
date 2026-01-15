@@ -24,18 +24,20 @@ async function setup() {
     await sequelize.authenticate();
     console.log('✓ Database connection established');
 
-    // Ensure roles exist
-    const [adminRole] = await Role.findOrCreate({
-      where: { RoleName: 'admin' },
-      defaults: { RoleName: 'admin' }
+    // Find existing roles (they should already exist)
+    const adminRole = await Role.findOne({
+      where: { RoleName: 'Admin' }
     });
 
-    const [dataEntryRole] = await Role.findOrCreate({
-      where: { RoleName: 'data-entry' },
-      defaults: { RoleName: 'data-entry' }
+    const dataEntryRole = await Role.findOne({
+      where: { RoleName: 'data-entry' }
     });
 
-    console.log('✓ Roles verified (admin, data-entry)');
+    if (!adminRole || !dataEntryRole) {
+      throw new Error('Required roles not found. Please run setup script first.');
+    }
+
+    console.log('✓ Roles verified (Admin, data-entry)');
 
     // Create test users
     const adminUser = await UserAccounts.findOne({
