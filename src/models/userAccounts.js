@@ -99,4 +99,25 @@ const UserAccounts = sequelize.define('UserAccounts', {
     timestamps: false
 });
 
+// Define associations
+UserAccounts.associate = (models) => {
+    // Role association
+    UserAccounts.belongsTo(models.Role, {
+        foreignKey: 'RoleId',
+        as: 'role'
+    });
+    
+    // Donor association
+    UserAccounts.belongsTo(models.Donor, {
+        foreignKey: 'DonorId',
+        as: 'donor'
+    });
+    
+    // Recipient association
+    UserAccounts.belongsTo(models.Recipient, {
+        foreignKey: 'RecipientId',
+        as: 'recipient'
+    });
+};
+
 module.exports = UserAccounts;

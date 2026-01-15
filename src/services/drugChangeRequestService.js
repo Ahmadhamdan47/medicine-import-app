@@ -14,6 +14,9 @@ if (DrugChangeRequest.associate && !DrugChangeRequest.associations.requester) {
 if (DrugChangeHistory.associate && !DrugChangeHistory.associations.changer) {
   DrugChangeHistory.associate({ UserAccounts, Drug, DrugChangeRequest, DrugChangeHistory });
 }
+if (UserAccounts.associate && !UserAccounts.associations.role) {
+  UserAccounts.associate({ Role, UserAccounts, Donor: require('../models/donor'), Recipient: require('../models/recipient') });
+}
 
 class DrugChangeRequestService {
   /**
