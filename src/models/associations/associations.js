@@ -10,6 +10,8 @@ const Agent = require('../agent'); // Add Agent import
 const DrugPresentation = require('../drugPresentation');
 const NewDrug = require('../pharmacyDrug');
 const NSSFCoverage = require('../nssfCoverage');
+const DrugChangeRequest = require('../drugChangeRequest');
+const DrugChangeHistory = require('../drugChangeHistory');
 
 // Import importation models
 const ImportationRequest = require('../importationRequest');
@@ -124,3 +126,23 @@ NSSFCoverage.belongsTo(NewDrug, {
     foreignKey: 'drug_id',
     as: 'drug'
 });
+
+// Drug Change Request associations
+DrugChangeRequest.belongsTo(NewDrug, { foreignKey: 'DrugID', as: 'drug' });
+DrugChangeRequest.belongsTo(UserAccounts, { foreignKey: 'RequestedBy', as: 'requester' });
+DrugChangeRequest.belongsTo(UserAccounts, { foreignKey: 'ReviewedBy', as: 'reviewer' });
+
+NewDrug.hasMany(DrugChangeRequest, { foreignKey: 'DrugID', as: 'changeRequests' });
+UserAccounts.hasMany(DrugChangeRequest, { foreignKey: 'RequestedBy', as: 'requestedChanges' });
+UserAccounts.hasMany(DrugChangeRequest, { foreignKey: 'ReviewedBy', as: 'reviewedChanges' });
+
+// Drug Change History associations
+DrugChangeHistory.belongsTo(NewDrug, { foreignKey: 'DrugID', as: 'drug' });
+DrugChangeHistory.belongsTo(DrugChangeRequest, { foreignKey: 'ChangeRequestId', as: 'changeRequest' });
+DrugChangeHistory.belongsTo(UserAccounts, { foreignKey: 'ChangedBy', as: 'changer' });
+DrugChangeHistory.belongsTo(UserAccounts, { foreignKey: 'ApprovedBy', as: 'approver' });
+
+NewDrug.hasMany(DrugChangeHistory, { foreignKey: 'DrugID', as: 'changeHistory' });
+DrugChangeRequest.hasMany(DrugChangeHistory, { foreignKey: 'ChangeRequestId', as: 'historyRecords' });
+UserAccounts.hasMany(DrugChangeHistory, { foreignKey: 'ChangedBy', as: 'changesMade' });
+UserAccounts.hasMany(DrugChangeHistory, { foreignKey: 'ApprovedBy', as: 'changesApproved' });

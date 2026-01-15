@@ -86,6 +86,9 @@ const dfSequenceMappingRoutes = require("./src/routes/dfSequenceMappingRoutes");
 // Form DF Sequence Mapping route
 const formDFSequenceMappingRoutes = require("./src/routes/formDFSequenceMappingRoutes");
 
+// Drug Change Request route
+const drugChangeRequestRoutes = require("./src/routes/drugChangeRequestRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -214,6 +217,9 @@ app.use("/df-sequence-mapping", dfSequenceMappingRoutes);
 
 // Register Form DF Sequence Mapping API
 app.use("/form-df-sequence-mapping", formDFSequenceMappingRoutes);
+
+// Register Drug Change Request API
+app.use("/drug-change-requests", drugChangeRequestRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));

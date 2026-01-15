@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const DrugService = require("../services/drugService");
+const DrugChangeRequestService = require("../services/drugChangeRequestService");
 const Drug = require('../models/pharmacyDrug'); // or wherever your Drug model is located
 const addPharmacyDrug = async (req, res) => {
   const drugData = req.body;
@@ -285,11 +286,83 @@ const deleteDrug = async (req, res) => {
 const updateDrug = async (req, res) => {
   const { DrugID } = req.params;
   const drugData = req.body;
+  const userId = req.user?.UserId;
+  const userRole = req.user?.role?.RoleName;
+
   try {
-    const drug = await DrugService.updateDrug(DrugID, drugData);
-    res.json(drug);
+    // If no user authentication, deny request
+    if (!userId || !userRole) {
+      return res.status(401).json({ 
+        success: false,
+        error: 'User authentication required. Please ensure you are logged in.' 
+      });
+    }
+
+    // Get current drug data for comparison
+    const currentDrug = await Drug.findByPk(DrugID);
+    if (!currentDrug) {
+      return res.status(404).json({ 
+        success: false,
+        error: `Drug with ID ${DrugID} not found` 
+      });
+    }
+
+    const previousValues = currentDrug.toJSON();
+
+    // Admin users: Apply changes directly and log to history
+    if (userRole === 'admin') {
+      const drug = await DrugService.updateDrug(DrugID, drugData);
+      
+      // Log the direct change to history
+      await DrugChangeRequestService.logDirectChange(
+        DrugID,
+        userId,
+        userRole,
+        drugData,
+        previousValues
+      );
+
+      return res.json({ 
+        success: true,
+        message: 'Drug updated successfully',
+        data: drug 
+      });
+    }
+
+    // Data-entry users: Create change request for admin approval
+    if (userRole === 'data-entry') {
+      const changeRequest = await DrugChangeRequestService.createChangeRequest(
+        userId,
+        userRole,
+        DrugID,
+        drugData,
+        previousValues
+      );
+
+      return res.json({
+        success: true,
+        message: 'Change request submitted successfully. Awaiting admin approval.',
+        requiresApproval: true,
+        changeRequest: {
+          id: changeRequest.ChangeRequestId,
+          status: changeRequest.Status,
+          createdAt: changeRequest.CreatedAt
+        }
+      });
+    }
+
+    // Other roles: Deny access
+    return res.status(403).json({ 
+      success: false,
+      error: 'You do not have permission to edit drugs. Only admin and data-entry roles are allowed.' 
+    });
+
   } catch (error) {
-    res.status(500).json({ error: error.toString() });
+    console.error('Error in updateDrug:', error);
+    return res.status(500).json({ 
+      success: false,
+      error: error.toString() 
+    });
   }
 };
 const deleteDosagesByDrugId = async (req, res) => {
