@@ -360,13 +360,24 @@ class DrugChangeRequestService {
             as: 'changeRequest',
             attributes: ['ChangeRequestId', 'Status', 'ReviewComments'],
             required: false
+          },
+          {
+            model: Drug,
+            as: 'drug',
+            attributes: ['DrugID', 'DrugName', 'DrugNameAR', 'MoPHCode', 'RegistrationNumber', 'Form', 'Dosage', 'Presentation']
           }
         ],
         order: [['ChangeTimestamp', 'DESC']],
         limit: limit
       });
 
-      return history;
+      // Filter out records with numeric field names (corrupted old data)
+      const validHistory = history.filter(record => {
+        // Check if FieldName is a number (corrupted data) or starts with a digit
+        return record.FieldName && !/^\d+$/.test(record.FieldName);
+      });
+
+      return validHistory;
     } catch (error) {
       console.error('Error fetching change history:', error);
       throw error;
