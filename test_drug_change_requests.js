@@ -68,6 +68,7 @@ async function setup() {
     // Create or find a test drug
     const testDrug = await Drug.findOne({ where: { DrugName: 'TEST_DRUG_FOR_CHANGE_REQUESTS' } })
       || await Drug.create({
+        MoPHCode: '1111111',
         DrugName: 'TEST_DRUG_FOR_CHANGE_REQUESTS',
         DrugNameAR: 'دواء اختبار',
         Price: 10.00,
