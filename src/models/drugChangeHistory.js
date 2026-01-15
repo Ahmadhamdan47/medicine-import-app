@@ -80,4 +80,31 @@ const DrugChangeHistory = sequelize.define('DrugChangeHistory', {
     ]
 });
 
+// Define associations
+DrugChangeHistory.associate = (models) => {
+    // User who made the change
+    DrugChangeHistory.belongsTo(models.UserAccounts, {
+        foreignKey: 'ChangedBy',
+        as: 'changer'
+    });
+    
+    // Admin who approved
+    DrugChangeHistory.belongsTo(models.UserAccounts, {
+        foreignKey: 'ApprovedBy',
+        as: 'approver'
+    });
+    
+    // Drug association
+    DrugChangeHistory.belongsTo(models.Drug, {
+        foreignKey: 'DrugID',
+        as: 'drug'
+    });
+    
+    // Change request association
+    DrugChangeHistory.belongsTo(models.DrugChangeRequest, {
+        foreignKey: 'ChangeRequestId',
+        as: 'changeRequest'
+    });
+};
+
 module.exports = DrugChangeHistory;

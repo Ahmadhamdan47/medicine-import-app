@@ -81,4 +81,25 @@ const DrugChangeRequest = sequelize.define('DrugChangeRequest', {
     ]
 });
 
+// Define associations
+DrugChangeRequest.associate = (models) => {
+    // Requester association
+    DrugChangeRequest.belongsTo(models.UserAccounts, {
+        foreignKey: 'RequestedBy',
+        as: 'requester'
+    });
+    
+    // Reviewer association
+    DrugChangeRequest.belongsTo(models.UserAccounts, {
+        foreignKey: 'ReviewedBy',
+        as: 'reviewer'
+    });
+    
+    // Drug association
+    DrugChangeRequest.belongsTo(models.Drug, {
+        foreignKey: 'DrugID',
+        as: 'drug'
+    });
+};
+
 module.exports = DrugChangeRequest;

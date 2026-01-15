@@ -7,6 +7,14 @@ const Role = require('../models/roles');
 const { Op } = require('sequelize');
 const sequelize = require('../../config/databasePharmacy');
 
+// Initialize associations if not already done
+if (DrugChangeRequest.associate && !DrugChangeRequest.associations.requester) {
+  DrugChangeRequest.associate({ UserAccounts, Drug, DrugChangeRequest });
+}
+if (DrugChangeHistory.associate && !DrugChangeHistory.associations.changer) {
+  DrugChangeHistory.associate({ UserAccounts, Drug, DrugChangeRequest, DrugChangeHistory });
+}
+
 class DrugChangeRequestService {
   /**
    * Create a new change request for drug edits
