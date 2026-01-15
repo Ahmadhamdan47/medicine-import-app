@@ -106,17 +106,21 @@ const getAllDrugsPaginatedByATC = async (req, res, next) => {
 
 const getAllDrugsPaginatedFiltered = async (req, res, next) => {
   try {
-    const { page = 1, limit = 100, ...filters } = req.query;
+    // Support both GET (query params) and POST (request body)
+    const isPost = req.method === 'POST';
+    const { page = 1, limit = 100, ...filters } = isPost ? req.body : req.query;
     
-    // Parse the filters from query params
+    // Parse the filters
     const parsedFilters = {};
     
     Object.keys(filters).forEach((key) => {
       const value = filters[key];
       
-      // Handle comma-separated values as arrays
-      if (typeof value === 'string' && value.includes(',')) {
+      // For POST, arrays are already parsed. For GET, parse comma-separated strings
+      if (!isPost && typeof value === 'string' && value.includes(',')) {
         parsedFilters[key] = value.split(',').map(v => v.trim());
+      } else if (Array.isArray(value)) {
+        parsedFilters[key] = value;
       } else {
         parsedFilters[key] = value;
       }

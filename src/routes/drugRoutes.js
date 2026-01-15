@@ -757,6 +757,64 @@ router.get("/paginated-filtered", drugController.getAllDrugsPaginatedFiltered);
 
 /**
  * @swagger
+ * /drugs/paginated-filtered:
+ *   post:
+ *     summary: Get paginated drugs with flexible column filtering (POST method for large filters)
+ *     description: |
+ *       Same as GET /drugs/paginated-filtered but accepts filters in request body.
+ *       Use this method when you have large filter arrays (e.g., thousands of drug names)
+ *       that would exceed URL length limits.
+ *       
+ *       **Example request body:**
+ *       ```json
+ *       {
+ *         "page": 1,
+ *         "limit": 100,
+ *         "DrugName": ["Aspirin", "Paracetamol", ...],
+ *         "Form": ["Tablet", "Capsule"],
+ *         "isOTC": true
+ *       }
+ *       ```
+ *     tags: [Drug]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               page:
+ *                 type: integer
+ *                 default: 1
+ *               limit:
+ *                 type: integer
+ *                 default: 100
+ *               DrugName:
+ *                 oneOf:
+ *                   - type: string
+ *                   - type: array
+ *                     items:
+ *                       type: string
+ *               Form:
+ *                 oneOf:
+ *                   - type: string
+ *                   - type: array
+ *                     items:
+ *                       type: string
+ *               isOTC:
+ *                 type: boolean
+ *               Price:
+ *                 type: string
+ *     responses:
+ *       '200':
+ *         description: OK. Filtered drugs retrieved successfully.
+ *       '500':
+ *         description: Internal Server Error.
+ */
+router.post("/paginated-filtered", drugController.getAllDrugsPaginatedFiltered);
+
+/**
+ * @swagger
  * /drugs/fetch:
  *   get:
  *     summary: Fetch drug data from server
