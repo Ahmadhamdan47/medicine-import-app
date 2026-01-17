@@ -12,8 +12,6 @@ def read_tsv(file_path):
         # Clean data entries
         df['code'] = pd.to_numeric(df['code'].str.strip(), errors='coerce').fillna(0).astype(int)
         df['agent'] = df['agent'].str.strip()
-        df['manufacturer'] = df['manufacturer'].str.strip()
-        df['country'] = df['country'].str.strip()
         # Drop ignored columns
         df.drop(['ResponsibleParty', 'ResponsiblePartyCountry'], axis=1, inplace=True, errors='ignore')
         return df.set_index('code').to_dict(orient='index')
@@ -53,18 +51,14 @@ def main():
         cursor = conn.cursor(dictionary=True)
 
         # Get current data from medications table
-        cursor.execute("SELECT code, agent, manufacturer, country FROM medications")
+        cursor.execute("SELECT code, agent FROM medications")
         current_data = {row['code']: row for row in cursor.fetchall()}
 
         # Calculate updates
         update_agent_list = []
-        update_manufacturer_list = []
-        update_country_list = []
 
         # Track changes by field value for detailed preview
         agent_changes = defaultdict(list)
-        manufacturer_changes = defaultdict(list)
-        country_changes = defaultdict(list)
 
         for code, details in tsv_data.items():
             if code in current_data:
@@ -77,26 +71,11 @@ def main():
                     update_agent_list.append((new_agent, code))
                     agent_changes[f"{old_agent} → {new_agent}"].append(code)
 
-                # Check manufacturer changes
-                new_manufacturer = details.get('manufacturer', '')
-                old_manufacturer = current['manufacturer'] or ''
-                if new_manufacturer != old_manufacturer:
-                    update_manufacturer_list.append((new_manufacturer, code))
-                    manufacturer_changes[f"{old_manufacturer} → {new_manufacturer}"].append(code)
-
-                # Check country changes
-                new_country = details.get('country', '')
-                old_country = current['country'] or ''
-                if new_country != old_country:
-                    update_country_list.append((new_country, code))
-                    country_changes[f"{old_country} → {new_country}"].append(code)
-
         # Show detailed preview
         print("\n" + "="*80)
-        print("CHANGES PREVIEW")
+        print("AGENT CHANGES PREVIEW")
         print("="*80)
 
-        # Agent changes
         print(f"\n📋 AGENT UPDATES: {len(update_agent_list)} total changes")
         if agent_changes:
             for change, codes in sorted(agent_changes.items()):
@@ -106,32 +85,10 @@ def main():
         else:
             print("  No agent changes detected.")
 
-        # Manufacturer changes
-        print(f"\n🏭 MANUFACTURER UPDATES: {len(update_manufacturer_list)} total changes")
-        if manufacturer_changes:
-            for change, codes in sorted(manufacturer_changes.items()):
-                print(f"\n  {change}")
-                print(f"    Count: {len(codes)}")
-                print(f"    Codes: {', '.join(map(str, sorted(codes)))}")
-        else:
-            print("  No manufacturer changes detected.")
-
-        # Country changes
-        print(f"\n🌍 COUNTRY UPDATES: {len(update_country_list)} total changes")
-        if country_changes:
-            for change, codes in sorted(country_changes.items()):
-                print(f"\n  {change}")
-                print(f"    Count: {len(codes)}")
-                print(f"    Codes: {', '.join(map(str, sorted(codes)))}")
-        else:
-            print("  No country changes detected.")
-
         print("\n" + "="*80)
-        print(f"TOTAL CHANGES: {len(update_agent_list) + len(update_manufacturer_list) + len(update_country_list)}")
-        print("="*80)
 
         # Confirmation
-        if not (update_agent_list or update_manufacturer_list or update_country_list):
+        if not update_agent_list:
             print("\nNo changes to commit.")
             return
 
@@ -142,28 +99,11 @@ def main():
             return
 
         # Execute updates
-        changes_made = 0
+        update_agent_query = "UPDATE medications SET agent = %s WHERE code = %s"
+        cursor.executemany(update_agent_query, update_agent_list)
         
-        if update_agent_list:
-            update_agent_query = "UPDATE medications SET agent = %s WHERE code = %s"
-            cursor.executemany(update_agent_query, update_agent_list)
-            changes_made += len(update_agent_list)
-            print(f"✓ Updated {len(update_agent_list)} agent records")
-
-        if update_manufacturer_list:
-            update_manufacturer_query = "UPDATE medications SET manufacturer = %s WHERE code = %s"
-            cursor.executemany(update_manufacturer_query, update_manufacturer_list)
-            changes_made += len(update_manufacturer_list)
-            print(f"✓ Updated {len(update_manufacturer_list)} manufacturer records")
-
-        if update_country_list:
-            update_country_query = "UPDATE medications SET country = %s WHERE code = %s"
-            cursor.executemany(update_country_query, update_country_list)
-            changes_made += len(update_country_list)
-            print(f"✓ Updated {len(update_country_list)} country records")
-
         conn.commit()
-        print(f"\n✅ Successfully committed {changes_made} changes to the database!")
+        print(f"\n✅ Successfully committed {len(update_agent_list)} agent changes to the database!")
 
     except Error as e:
         print(f"\n❌ Database error: {e}")
