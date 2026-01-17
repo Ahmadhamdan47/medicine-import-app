@@ -60,12 +60,22 @@ const getAllATC = async (req, res) => {
 const getATCById = async (req, res) => {
     try {
       const atcId = req.params.id;
-      const atcCode = await atcService.getATCById(atcId);
+      const atcCode = await ATCService.getATCById(atcId);
       res.status(200).json(atcCode);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   };
+
+const getATCByCode = async (req, res) => {
+    try {
+        const code = req.params.code;
+        const atcCode = await ATCService.getATCByCode(code);
+        res.status(200).json(atcCode);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 module.exports = {
     getATCByDrugID,
@@ -75,5 +85,6 @@ module.exports = {
     getAllATC,
     addATCMapping,
     getATCById,
+    getATCByCode,
 
 };

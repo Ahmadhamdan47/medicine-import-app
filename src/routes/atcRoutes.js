@@ -232,8 +232,32 @@ const ATCController = require("../controllers/atcController");
  *         description: Internal Server Error. Failed to retrieve ATC codes.
  */
 
+/**
+ * @swagger
+ * /atc/code/{code}:
+ *   get:
+ *     summary: Get ATC by code
+ *     description: Retrieve an Anatomical Therapeutic Chemical (ATC) by its code (e.g., A01AB03).
+ *     tags: [ATC]
+ *     parameters:
+ *       - in: path
+ *         name: code
+ *         required: true
+ *         description: The ATC code to retrieve.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: OK. ATC code retrieved successfully.
+ *       '404':
+ *         description: Not Found. ATC code not found.
+ *       '500':
+ *         description: Internal Server Error. Failed to retrieve ATC code.
+ */
+
 router.get("/atc/:DrugID", ATCController.getATCByDrugID);
 router.get("/all", ATCController.getAllATC);
+router.get("/code/:code", ATCController.getATCByCode);
 router.post("/add", ATCController.addATC);
 router.put("/:atcId", ATCController.editATC);
 router.delete("/:atcId", ATCController.deleteATC);
