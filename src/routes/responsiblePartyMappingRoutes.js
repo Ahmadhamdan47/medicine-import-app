@@ -77,10 +77,10 @@ router.get("/stats", responsiblePartyMappingController.getResponsiblePartyCountr
 
 /**
  * @swagger
- * /responsibleParty-mapping/{responsiblePartyName}/countries:
+ * /responsibleParty-mapping/{responsiblePartyName}:
  *   get:
- *     summary: Get all countries for a specific responsible party
- *     description: Returns all countries associated with a given responsible party, along with drug counts
+ *     summary: Get countries for a specific responsible party
+ *     description: Returns countries associated with a given responsible party
  *     tags: [ResponsiblePartyMapping]
  *     parameters:
  *       - in: path
@@ -91,30 +91,16 @@ router.get("/stats", responsiblePartyMappingController.getResponsiblePartyCountr
  *           type: string
  *     responses:
  *       '200':
- *         description: Successfully retrieved countries for the responsible party
+ *         description: Successfully retrieved countries
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 responsibleParty:
- *                   type: string
- *                 count:
- *                   type: integer
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       ResponsiblePartyCountry:
- *                         type: string
- *                       drugCount:
- *                         type: integer
+ *               type: array
+ *               items:
+ *                 type: string
  *       '500':
  *         description: Server error
  */
-router.get("/:responsiblePartyName/countries", responsiblePartyMappingController.getCountriesForResponsibleParty);
+router.get("/:responsiblePartyName", responsiblePartyMappingController.getCountriesForResponsibleParty);
 
 module.exports = router;

@@ -48,18 +48,10 @@ const getCountriesForResponsibleParty = async (req, res) => {
     try {
         const { responsiblePartyName } = req.params;
         const countries = await responsiblePartyMappingService.getCountriesForResponsibleParty(responsiblePartyName);
-        res.json({
-            success: true,
-            responsibleParty: responsiblePartyName,
-            count: countries.length,
-            data: countries
-        });
+        res.json(countries);
     } catch (error) {
         console.error('Error in getCountriesForResponsibleParty controller:', error);
-        res.status(500).json({ 
-            success: false,
-            error: error.message 
-        });
+        res.status(500).json({ error: error.message });
     }
 };
 

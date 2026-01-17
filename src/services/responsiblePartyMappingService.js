@@ -93,20 +93,18 @@ const getResponsiblePartyCountryStats = async () => {
  */
 const getCountriesForResponsibleParty = async (responsiblePartyName) => {
     try {
-        const countries = await Drug.findAll({
+        const results = await Drug.findAll({
             attributes: [
-                [sequelize.fn('DISTINCT', sequelize.col('ResponsiblePartyCountry')), 'ResponsiblePartyCountry'],
-                [sequelize.fn('COUNT', sequelize.col('DrugID')), 'drugCount']
+                [sequelize.fn('DISTINCT', sequelize.col('ResponsiblePartyCountry')), 'ResponsiblePartyCountry']
             ],
             where: {
                 ResponsibleParty: responsiblePartyName
             },
-            group: ['ResponsiblePartyCountry'],
-            order: [[sequelize.fn('COUNT', sequelize.col('DrugID')), 'DESC']],
+            order: [['ResponsiblePartyCountry', 'ASC']],
             raw: true
         });
 
-        return countries;
+        return results.map(r => r.ResponsiblePartyCountry);
     } catch (error) {
         console.error('Error in getCountriesForResponsibleParty:', error);
         throw new Error('Error fetching countries for responsible party: ' + error.message);
