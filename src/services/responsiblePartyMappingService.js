@@ -1,5 +1,6 @@
 // src/services/responsiblePartyMappingService.js
 const sequelize = require('../../config/databasePharmacy');
+const { Op } = require('sequelize');
 const Drug = require('../models/drug');
 
 /**
@@ -16,8 +17,8 @@ const getResponsiblePartyCountryMapping = async () => {
             ],
             where: {
                 ResponsibleParty: {
-                    [sequelize.Op.ne]: null,
-                    [sequelize.Op.ne]: ''
+                    [Op.ne]: null,
+                    [Op.ne]: ''
                 }
             },
             order: [
@@ -71,8 +72,8 @@ const getResponsiblePartyCountryStats = async () => {
             ],
             where: {
                 ResponsibleParty: {
-                    [sequelize.Op.ne]: null,
-                    [sequelize.Op.ne]: ''
+                    [Op.ne]: null,
+                    [Op.ne]: ''
                 }
             },
             group: ['ResponsibleParty', 'ResponsiblePartyCountry'],
