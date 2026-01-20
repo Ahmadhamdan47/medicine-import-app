@@ -1,34 +1,43 @@
 // scripts/map-responsible-party-country.js
 /**
  * One-time script to map drugs with empty/null/N/A responsible party country
- * to the correct country based on responsible party mapping
+ * to the correct country based on existing responsible party data in the database
  * 
  * Usage: node scripts/map-responsible-party-country.js
  */
 
-const axios = require('axios');
 const sequelize = require('../config/databasePharmacy');
-const { Op, QueryTypes } = require('sequelize');
-
-// Base URL for the API
-const BASE_URL = 'https://apiv2.medleb.org';
+const { QueryTypes } = require('sequelize');
 
 /**
- * Fetch the responsible party to country mapping from the API
+ * Build the responsible party to country mapping from existing drug data
  */
-async function fetchResponsiblePartyMapping() {
+async function buildResponsiblePartyMapping() {
     try {
-        console.log('Fetching responsible party country mapping from API...');
-        const response = await axios.get(`${BASE_URL}/responsibleParty-mapping`);
+        console.log('Building responsible party country mapping from database...');
         
-        if (response.data.success && response.data.data) {
-            console.log(`✓ Successfully fetched ${response.data.count} responsible party mappings`);
-            return response.data.data;
-        } else {
-            throw new Error('Invalid response format from API');
-        }
+        const query = `
+            SELECT DISTINCT 
+                TRIM(ResponsibleParty) as ResponsibleParty,
+                ResponsiblePartyCountry
+            FROM drug
+            WHERE ResponsibleParty IS NOT NULL 
+            AND ResponsibleParty != ''
+            AND ResponsiblePartyCountry IS NOT NULL 
+            AND ResponsiblePartyCountry != ''
+            AND ResponsiblePartyCountry != 'N/A'
+            AND ResponsiblePartyCountry != 'Unknown'
+            ORDER BY ResponsibleParty, ResponsiblePartyCountry
+        `;
+        
+        const results = await sequelize.query(query, {
+            type: QueryTypes.SELECT
+        });
+        
+        console.log(`✓ Found ${results.length} responsible party-country mappings in database`);
+        return results;
     } catch (error) {
-        console.error('Error fetching mapping:', error.message);
+        console.error('Error building mapping:', error.message);
         throw error;
     }
 }
@@ -40,19 +49,44 @@ async function fetchResponsiblePartyMapping() {
  */
 function createLookupMap(mappingData) {
     const lookupMap = {};
+    const stats = {};
     
     mappingData.forEach(item => {
-        // Store with original key
-        const originalKey = item.responsibleParty;
-        const normalizedKey = originalKey.trim().toLowerCase();
+        const party = item.ResponsibleParty.trim();
+        const country = item.ResponsiblePartyCountry;
+        const normalizedKey = party.toLowerCase();
         
-        lookupMap[normalizedKey] = item.primaryCountry;
-        
-        // Also store with original key for exact matches
-        lookupMap[originalKey] = item.primaryCountry;
+        // Track how many times each party-country combo appears
+        if (!stats[normalizedKey]) {
+            stats[normalizedKey] = {};
+        }
+        if (!stats[normalizedKey][country]) {
+            stats[normalizedKey][country] = 0;
+        }
+        stats[normalizedKey][country]++;
     });
     
-    console.log(`✓ Created lookup map with ${Object.keys(lookupMap).length} entries`);
+    // Choose the most common country for each party
+    Object.keys(stats).forEach(normalizedKey => {
+        const countries = stats[normalizedKey];
+        const mostCommonCountry = Object.keys(countries).reduce((a, b) => 
+            countries[a] > countries[b] ? a : b
+        );
+        lookupMap[normalizedKey] = mostCommonCountry;
+    });
+    
+    console.log(`✓ Created lookup map with ${Object.keys(lookupMap).length} unique responsible parties`);
+    
+    // Show some examples
+    const examples = Object.keys(lookupMap).slice(0, 5);
+    if (examples.length > 0) {
+        console.log('\nSample mappings:');
+        examples.forEach(key => {
+            console.log(`  • "${key}" → ${lookupMap[key]}`);
+        });
+        console.log('');
+    }
+    
     return lookupMap;
 }
 
@@ -221,8 +255,7 @@ async function main() {
     console.log('='.repeat(60));
     console.log('RESPONSIBLE PARTY COUNTRY MAPPING SCRIPT');
     console.log('='.repeat(60));
-    console.log(`Started at: ${new Date().toLocaleString()}`);
-    console.log(`Base URL: ${BASE_URL}\n`);
+    console.log(`Started at: ${new Date().toLocaleString()}\n`);
     
     try {
         // Test database connection first
@@ -241,8 +274,13 @@ async function main() {
             process.exit(1);
         }
         
-        // Step 1: Fetch the mapping from API
-        const mappingData = await fetchResponsiblePartyMapping();
+        // Step 1: Build the mapping from existing database data
+        const mappingData = await buildResponsiblePartyMapping();
+        
+        if (mappingData.length === 0) {
+            console.log('\n✗ No mapping data found in database. Cannot proceed.');
+            process.exit(1);
+        }
         
         // Step 2: Create lookup map
         const lookupMap = createLookupMap(mappingData);
