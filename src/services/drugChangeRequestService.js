@@ -254,7 +254,17 @@ class DrugChangeRequestService {
         throw new Error(`Drug with ID ${request.DrugID} not found`);
       }
 
-      await drug.update(request.ChangesJSON, { transaction });
+      // Parse ChangesJSON if it's a string
+      const changesToApply = typeof request.ChangesJSON === 'string'
+        ? JSON.parse(request.ChangesJSON)
+        : request.ChangesJSON;
+
+      console.log('Applying changes to drug:', changesToApply);
+      
+      // Only update if there are actual changes
+      if (changesToApply && Object.keys(changesToApply).length > 0) {
+        await drug.update(changesToApply, { transaction });
+      }
 
       // Update the change request status
       await request.update({
