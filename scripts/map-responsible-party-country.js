@@ -7,7 +7,7 @@
  */
 
 const axios = require('axios');
-const { sequelize } = require('../config/databasePharmacy');
+const sequelize = require('../config/databasePharmacy');
 const { Op, QueryTypes } = require('sequelize');
 
 // Base URL for the API
