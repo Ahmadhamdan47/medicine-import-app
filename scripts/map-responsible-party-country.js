@@ -36,16 +36,44 @@ async function fetchResponsiblePartyMapping() {
 /**
  * Create a lookup map from the mapping data
  * Maps responsible party name to primary country
+ * Handles case-insensitive matching and trimmed names
  */
 function createLookupMap(mappingData) {
     const lookupMap = {};
     
     mappingData.forEach(item => {
-        lookupMap[item.responsibleParty] = item.primaryCountry;
+        // Store with original key
+        const originalKey = item.responsibleParty;
+        const normalizedKey = originalKey.trim().toLowerCase();
+        
+        lookupMap[normalizedKey] = item.primaryCountry;
+        
+        // Also store with original key for exact matches
+        lookupMap[originalKey] = item.primaryCountry;
     });
     
     console.log(`✓ Created lookup map with ${Object.keys(lookupMap).length} entries`);
     return lookupMap;
+}
+
+/**
+ * Get country from lookup map with fuzzy matching
+ */
+function getCountryFromLookup(responsibleParty, lookupMap) {
+    if (!responsibleParty) return null;
+    
+    // Try exact match first
+    if (lookupMap[responsibleParty]) {
+        return lookupMap[responsibleParty];
+    }
+    
+    // Try trimmed and lowercase match
+    const normalized = responsibleParty.trim().toLowerCase();
+    if (lookupMap[normalized]) {
+        return lookupMap[normalized];
+    }
+    
+    return null;
 }
 
 /**
@@ -93,7 +121,7 @@ async function updateDrugsWithMapping(drugs, lookupMap) {
     
     for (const drug of drugs) {
         const responsibleParty = drug.ResponsibleParty;
-        const correctCountry = lookupMap[responsibleParty];
+        const correctCountry = getCountryFromLookup(responsibleParty, lookupMap);
         
         if (correctCountry && correctCountry !== 'Unknown') {
             updates.push({
