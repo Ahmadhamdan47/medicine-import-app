@@ -268,9 +268,6 @@ def main():
         # Apply changes in a transaction
         print("\nApplying changes...")
         
-        if USING_MYSQL_CONNECTOR:
-            conn.start_transaction()
-        
         try:
             if USING_MYSQL_CONNECTOR:
                 cur = conn.cursor()
