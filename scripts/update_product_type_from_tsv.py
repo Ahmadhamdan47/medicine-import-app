@@ -123,7 +123,7 @@ def fetch_drugs_by_moph_codes(conn, moph_codes: List[int]) -> Dict[int, Dict[str
         return {}
     
     placeholders = ", ".join(["%s"] * len(moph_codes))
-    query = f"SELECT DrugID, MoPHCode, ProductType FROM Drugs WHERE MoPHCode IN ({placeholders})"
+    query = f"SELECT DrugID, MoPHCode, ProductType FROM drug WHERE MoPHCode IN ({placeholders})"
     
     if USING_MYSQL_CONNECTOR:
         cur = conn.cursor(dictionary=True)
@@ -280,7 +280,7 @@ def main():
             try:
                 update_count = 0
                 for drug_id, moph_code, old_type, new_type in changes:
-                    sql = "UPDATE Drugs SET ProductType = %s WHERE DrugID = %s"
+                    sql = "UPDATE drug SET ProductType = %s WHERE DrugID = %s"
                     cur.execute(sql, (new_type, drug_id))
                     update_count += 1
                 
