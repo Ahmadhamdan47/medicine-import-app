@@ -150,7 +150,7 @@ async function exportAhllanBatchSerials() {
     // Generate filename with timestamp
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-').split('T')[0];
     const filename = `AHLLAN_Batch_Serials_${timestamp}.xlsx`;
-    const filepath = path.join(__dirname, '..', 'uploads', filename);
+    const filepath = path.join(__dirname, '..', 'src', 'data', filename);
 
     // Save the file
     await workbook.xlsx.writeFile(filepath);
