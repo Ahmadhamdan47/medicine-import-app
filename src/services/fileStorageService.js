@@ -47,6 +47,7 @@ class FileStorageService {
             return {
                 fileId,
                 url: this.generateFileUrl(fileId),
+                downloadUrl: `/files/${fileId}?download=true`,
                 checksum,
                 fileName: file.originalname,
                 fileSize: file.size,
