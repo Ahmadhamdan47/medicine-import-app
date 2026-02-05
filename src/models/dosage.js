@@ -9,46 +9,58 @@ const Dosage = sequelize.define('Dosage', {
         primaryKey: true
     },
     Numerator1: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Numerator1Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     Denominator1: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Denominator1Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     Numerator2: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Numerator2Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     Denominator2: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Denominator2Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     Numerator3: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Numerator3Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     Denominator3: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+        type: DataTypes.DECIMAL(10, 4),
+        allowNull: true,
+        defaultValue: 0
     },
     Denominator3Unit: {
-        type: DataTypes.STRING(50)
+        type: DataTypes.STRING(50),
+        defaultValue: ''
     },
     CreatedDate: {
         type: DataTypes.DATE,
