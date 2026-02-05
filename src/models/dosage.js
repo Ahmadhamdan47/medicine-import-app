@@ -9,7 +9,7 @@ const Dosage = sequelize.define('Dosage', {
         primaryKey: true
     },
     Numerator1: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },
@@ -18,7 +18,7 @@ const Dosage = sequelize.define('Dosage', {
         defaultValue: ''
     },
     Denominator1: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },
@@ -27,7 +27,7 @@ const Dosage = sequelize.define('Dosage', {
         defaultValue: ''
     },
     Numerator2: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },
@@ -36,7 +36,7 @@ const Dosage = sequelize.define('Dosage', {
         defaultValue: ''
     },
     Denominator2: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },
@@ -45,7 +45,7 @@ const Dosage = sequelize.define('Dosage', {
         defaultValue: ''
     },
     Numerator3: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },
@@ -54,7 +54,7 @@ const Dosage = sequelize.define('Dosage', {
         defaultValue: ''
     },
     Denominator3: {
-        type: DataTypes.DECIMAL(10, 4),
+        type: DataTypes.DECIMAL(15, 4),
         allowNull: true,
         defaultValue: 0
     },

@@ -7,14 +7,16 @@ USE ommal_medapiv2;
 -- Backup note: Consider backing up the dosage table before running this migration
 -- Example: CREATE TABLE dosage_backup AS SELECT * FROM dosage;
 
--- Alter numerator and denominator columns to DECIMAL(10,4)
+-- Alter numerator and denominator columns to DECIMAL(15,4)
+-- Using DECIMAL(15,4) to accommodate any existing large INT values
+-- Max value: 99,999,999,999.9999 (11 digits before decimal, 4 after)
 ALTER TABLE `dosage`
-  MODIFY COLUMN `Numerator1` DECIMAL(10,4) DEFAULT NULL,
-  MODIFY COLUMN `Denominator1` DECIMAL(10,4) DEFAULT NULL,
-  MODIFY COLUMN `Numerator2` DECIMAL(10,4) DEFAULT NULL,
-  MODIFY COLUMN `Denominator2` DECIMAL(10,4) DEFAULT NULL,
-  MODIFY COLUMN `Numerator3` DECIMAL(10,4) DEFAULT NULL,
-  MODIFY COLUMN `Denominator3` DECIMAL(10,4) DEFAULT NULL;
+  MODIFY COLUMN `Numerator1` DECIMAL(15,4) DEFAULT NULL,
+  MODIFY COLUMN `Denominator1` DECIMAL(15,4) DEFAULT NULL,
+  MODIFY COLUMN `Numerator2` DECIMAL(15,4) DEFAULT NULL,
+  MODIFY COLUMN `Denominator2` DECIMAL(15,4) DEFAULT NULL,
+  MODIFY COLUMN `Numerator3` DECIMAL(15,4) DEFAULT NULL,
+  MODIFY COLUMN `Denominator3` DECIMAL(15,4) DEFAULT NULL;
 
 -- Verify the changes
 DESCRIBE dosage;
