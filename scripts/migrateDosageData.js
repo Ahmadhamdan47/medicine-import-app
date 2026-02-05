@@ -54,7 +54,7 @@ async function migrateDosageData() {
 
     // Fetch all drugs with non-null Dosage field
     const query = `
-      SELECT DrugID, Dosage, GenericEn 
+      SELECT DrugID, Dosage, DrugName 
       FROM drug 
       WHERE Dosage IS NOT NULL AND Dosage != ''
       ${limit ? `LIMIT ${limit}` : ''}
@@ -85,11 +85,11 @@ async function migrateDosageData() {
     // Process each drug
     for (let i = 0; i < drugs.length; i++) {
       const drug = drugs[i];
-      const { DrugID, Dosage, GenericEn } = drug;
+      const { DrugID, Dosage, DrugName } = drug;
 
       if (verbose) {
         console.log(`\n[${i + 1}/${drugs.length}] Processing Drug ID: ${DrugID}`);
-        console.log(`  Name: ${GenericEn || 'N/A'}`);
+        console.log(`  Name: ${DrugName || 'N/A'}`);
         console.log(`  Dosage String: "${Dosage}"`);
       }
 
@@ -103,7 +103,7 @@ async function migrateDosageData() {
         stats.failed++;
         failedDrugs.push({
           DrugID,
-          GenericEn,
+          DrugName,
           Dosage,
           reason: 'Parser returned empty result'
         });
@@ -119,7 +119,7 @@ async function migrateDosageData() {
         stats.failed++;
         failedDrugs.push({
           DrugID,
-          GenericEn,
+          DrugName,
           Dosage,
           reason: 'Validation failed',
           parsed: parsedDosages
@@ -221,7 +221,7 @@ async function migrateDosageData() {
           stats.failed++;
           failedDrugs.push({
             DrugID,
-            GenericEn,
+            DrugName,
             Dosage,
             reason: `Database error: ${dbError.message}`
           });
@@ -257,7 +257,7 @@ async function migrateDosageData() {
       console.log('-------------------------------------------');
       
       failedDrugs.slice(0, 20).forEach((drug, idx) => {
-        console.log(`${idx + 1}. Drug ID ${drug.DrugID}: "${drug.GenericEn || 'N/A'}"`);
+        console.log(`${idx + 1}. Drug ID ${drug.DrugID}: "${drug.DrugName || 'N/A'}"`);
         console.log(`   Dosage: "${drug.Dosage}"`);
         console.log(`   Reason: ${drug.reason}`);
         if (drug.parsed) {
