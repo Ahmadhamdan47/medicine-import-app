@@ -1,4 +1,5 @@
 const UserAccounts = require('../models/userAccounts');
+const Donor = require('../models/donor');
 const bcrypt = require('bcryptjs');
 
 class SubAccountService {
@@ -129,14 +130,29 @@ class SubAccountService {
                 throw new Error('Sub-account not found or access denied');
             }
 
-            await UserAccounts.update(
-                { IsActive: false },
-                { where: { UserId: subAccountId } }
-            );
+            // Get the DonorId before deleting
+            const donorId = subAccount.DonorId;
 
-            return { success: true, message: 'Sub-account deactivated successfully' };
+            // Delete from UserAccounts table
+            await UserAccounts.destroy({
+                where: { UserId: subAccountId }
+            });
+
+            // If there's an associated donor record, delete it as well
+            if (donorId) {
+                await Donor.destroy({
+                    where: { DonorId: donorId }
+                });
+            }
+
+            return { 
+                success: true, 
+                message: 'Sub-account deleted successfully',
+                deletedUserId: subAccountId,
+                deletedDonorId: donorId || null
+            };
         } catch (error) {
-            throw new Error(`Error deactivating sub-account: ${error.message}`);
+            throw new Error(`Error deleting sub-account: ${error.message}`);
         }
     }
 

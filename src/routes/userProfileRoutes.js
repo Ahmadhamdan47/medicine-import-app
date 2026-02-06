@@ -316,8 +316,8 @@ router.get('/donor-subaccounts', authenticateToken, requireMainDonorAccount, Sub
  *       403:
  *         description: Access denied
  *   delete:
- *     summary: Deactivate sub-account
- *     description: Deactivate a specific sub-account
+ *     summary: Delete sub-account
+ *     description: Permanently delete a specific sub-account from both UserAccounts and Donor tables
  *     tags: [Donor Sub-Accounts]
  *     security:
  *       - bearerAuth: []
@@ -329,7 +329,7 @@ router.get('/donor-subaccounts', authenticateToken, requireMainDonorAccount, Sub
  *           type: integer
  *     responses:
  *       200:
- *         description: Sub-account deactivated successfully
+ *         description: Sub-account deleted successfully
  *       403:
  *         description: Access denied
  *       404:
