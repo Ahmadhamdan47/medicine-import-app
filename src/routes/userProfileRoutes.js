@@ -335,8 +335,48 @@ router.get('/donor-subaccounts', authenticateToken, requireMainDonorAccount, Sub
  *       404:
  *         description: Sub-account not found
  */
+
+/**
+ * @swagger
+ * /users/donor-subaccounts/{userId}/password:
+ *   patch:
+ *     summary: Reset sub-account password
+ *     description: Main donor account can reset password for their sub-accounts
+ *     tags: [Donor Sub-Accounts]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - newPassword
+ *             properties:
+ *               newPassword:
+ *                 type: string
+ *                 minLength: 6
+ *                 description: New password for the sub-account (minimum 6 characters)
+ *     responses:
+ *       200:
+ *         description: Password reset successfully
+ *       400:
+ *         description: Bad request - missing or invalid password
+ *       403:
+ *         description: Access denied
+ *       404:
+ *         description: Sub-account not found
+ */
 router.get('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.getSubAccountDetails);
 router.put('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.updateSubAccountPermissions);
+router.patch('/donor-subaccounts/:userId/password', authenticateToken, requireMainDonorAccount, SubAccountController.resetSubAccountPassword);
 router.delete('/donor-subaccounts/:userId', authenticateToken, requireMainDonorAccount, SubAccountController.deactivateSubAccount);
 
 // Admin routes for user management

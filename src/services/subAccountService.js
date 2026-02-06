@@ -111,6 +111,42 @@ class SubAccountService {
     }
 
     /**
+     * Reset sub-account password
+     * @param {number} subAccountId - Sub-account ID
+     * @param {number} mainUserId - Main account ID (for ownership verification)
+     * @param {string} newPassword - New password
+     * @returns {object} Success response
+     */
+    static async resetSubAccountPassword(subAccountId, mainUserId, newPassword) {
+        try {
+            // Verify ownership
+            const subAccount = await UserAccounts.findOne({
+                where: { 
+                    UserId: subAccountId,
+                    ParentUserId: mainUserId 
+                }
+            });
+
+            if (!subAccount) {
+                throw new Error('Sub-account not found or access denied');
+            }
+
+            // Hash new password
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+            // Update password
+            await UserAccounts.update(
+                { PasswordHash: hashedPassword },
+                { where: { UserId: subAccountId } }
+            );
+
+            return { success: true, message: 'Sub-account password reset successfully' };
+        } catch (error) {
+            throw new Error(`Error resetting sub-account password: ${error.message}`);
+        }
+    }
+
+    /**
      * Deactivate a sub-account
      * @param {number} subAccountId - Sub-account ID
      * @param {number} mainUserId - Main account ID (for ownership verification)

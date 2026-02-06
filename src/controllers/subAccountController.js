@@ -124,6 +124,41 @@ class SubAccountController {
     }
 
     /**
+     * PATCH /users/donor-subaccounts/:userId/password
+     * Reset sub-account password
+     */
+    async resetSubAccountPassword(req, res) {
+        try {
+            const mainUserId = req.user.id;
+            const subAccountId = req.params.userId;
+            const { newPassword } = req.body;
+
+            if (!newPassword) {
+                return res.status(400).json({
+                    error: 'New password is required'
+                });
+            }
+
+            if (newPassword.length < 6) {
+                return res.status(400).json({
+                    error: 'Password must be at least 6 characters long'
+                });
+            }
+
+            const result = await SubAccountService.resetSubAccountPassword(subAccountId, mainUserId, newPassword);
+
+            res.status(200).json({
+                message: result.message,
+                data: result
+            });
+        } catch (error) {
+            res.status(400).json({
+                error: error.message
+            });
+        }
+    }
+
+    /**
      * DELETE /users/donor-subaccounts/:userId
      * Deactivate a sub-account
      */
