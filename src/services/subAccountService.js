@@ -130,26 +130,26 @@ class SubAccountService {
                 throw new Error('Sub-account not found or access denied');
             }
 
-            // Get the DonorId before deleting
-            const donorId = subAccount.DonorId;
+            // Get the sub-account's email before deleting
+            const subAccountEmail = subAccount.Email;
 
             // Delete from UserAccounts table
-            await UserAccounts.destroy({
+            const deletedUserCount = await UserAccounts.destroy({
                 where: { UserId: subAccountId }
             });
 
-            // If there's an associated donor record, delete it as well
-            if (donorId) {
-                await Donor.destroy({
-                    where: { DonorId: donorId }
-                });
-            }
+            // Delete from Donor table by email (sub-account's donor record has the same email)
+            const deletedDonorCount = await Donor.destroy({
+                where: { Email: subAccountEmail }
+            });
 
             return { 
                 success: true, 
-                message: 'Sub-account deleted successfully',
+                message: 'Sub-account deleted successfully from both tables',
                 deletedUserId: subAccountId,
-                deletedDonorId: donorId || null
+                deletedUserRecords: deletedUserCount,
+                deletedDonorRecords: deletedDonorCount,
+                email: subAccountEmail
             };
         } catch (error) {
             throw new Error(`Error deleting sub-account: ${error.message}`);
