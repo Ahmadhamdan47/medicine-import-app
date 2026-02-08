@@ -1,4 +1,4 @@
-const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData,getSerialNumbersByBoxId, reportBatchSerialNumber} = require('../services/batchSerialService');
+const { updateInspectionInspected, updateInspectionRejected, checkDonationStatus, fetchSerialNumberData,getSerialNumbersByBoxId, reportBatchSerialNumber, deleteBatchSerialNumber } = require('../services/batchSerialService');
 
 /**
  * Controller to update inspection status to 'inspected'
@@ -141,11 +141,36 @@ const reportBatchSerialNumberController = async (req, res) => {
   }
 };
 
+/**
+ * Controller to delete a batch serial number
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
+const deleteBatchSerialNumberController = async (req, res) => {
+  const { batchSerialNumberId } = req.params;
+
+  try {
+    const result = await deleteBatchSerialNumber(batchSerialNumberId);
+
+    return res.status(200).json({
+      success: true,
+      message: result.message
+    });
+  } catch (error) {
+    console.error(`Error deleting batch serial number: ${error.message}`);
+    return res.status(404).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
 module.exports = {
   setInspectionInspected,
   setInspectionRejected,
   checkDonationStatusController,
   getSerialNumberData,
   fetchSerialNumbersByBoxId,
-  reportBatchSerialNumberController
+  reportBatchSerialNumberController,
+  deleteBatchSerialNumberController
 };

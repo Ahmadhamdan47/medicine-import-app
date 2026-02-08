@@ -40,7 +40,7 @@ BatchSerialNumber.init({
     type: DataTypes.STRING,
     allowNull: true,
   },
-  lastUpdated: {
+lastUpdated: {
     type: DataTypes.DATE,
     allowNull: true, // Tracks the last time the status was updated
   }

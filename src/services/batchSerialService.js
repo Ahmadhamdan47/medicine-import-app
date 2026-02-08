@@ -339,6 +339,27 @@ const reportBatchSerialNumber = async (batchSerialNumberId) => {
   }
 };
 
+/**
+ * Delete a batch serial number
+ * @param {number} batchSerialNumberId - The ID of the batch serial number to delete
+ * @returns {Promise<Object>} - Resolves with success message
+ */
+const deleteBatchSerialNumber = async (batchSerialNumberId) => {
+  try {
+    const batchSerialNumber = await BatchSerialNumber.findByPk(batchSerialNumberId);
+
+    if (!batchSerialNumber) {
+      throw new Error('Batch serial number not found');
+    }
+
+    // Perform the deletion
+    await batchSerialNumber.destroy();
+
+    return { message: `Batch serial number ${batchSerialNumberId} has been deleted successfully.` };
+  } catch (error) {
+    throw new Error(`Failed to delete batch serial number: ${error.message}`);
+  }
+};
 
 module.exports = {
   updateInspectionInspected,
@@ -346,5 +367,6 @@ module.exports = {
   checkDonationStatus,
   fetchSerialNumberData,
   getSerialNumbersByBoxId,
-  reportBatchSerialNumber
+  reportBatchSerialNumber,
+  deleteBatchSerialNumber
 };
