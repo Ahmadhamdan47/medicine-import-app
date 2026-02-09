@@ -61,8 +61,8 @@ class RecipientAgreementController {
     // Delete a recipient agreement
     static async delete(req, res) {
         try {
-            const { id } = req.params;
-            const result = await RecipientAgreementService.deleteRecipientAgreement(id);
+            const { agreementId } = req.params;
+            const result = await RecipientAgreementService.deleteRecipientAgreement(agreementId);
             res.status(200).json({ success: true, message: result.message });
         } catch (error) {
             res.status(404).json({ success: false, error: error.message });
