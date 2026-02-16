@@ -52,7 +52,7 @@ Both features follow a **preview-commit-rollback** workflow with auto-matching s
 ┌─────────────────────────────────────────────────────┐
 │  Route Cleaning Dashboard                           │
 ├─────────────────────────────────────────────────────┤
-│  Statistics:                                         │
+│  Statistics: (Only marketed drugs, NotMarketed=false)│
 │  ✓ Total Drugs: 15,000                             │
 │  ✓ Drugs with Routes: 12,000 (80%)                 │
 │  ⚠ Drugs without Routes: 3,000 (20%)               │
@@ -63,11 +63,12 @@ Both features follow a **preview-commit-rollback** workflow with auto-matching s
 ```
 
 **API**: `GET /route-cleaning/stats`
+**Note**: All statistics and operations filter for `NotMarketed = false` (marketed drugs only)
 
 #### Step 2: Unique RouteRaw Values Table
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  Unique RouteRaw Values                              [Export] [Help] │
+│  Unique RouteRaw Values (Marketed drugs only)    [Export] [Help]   │
 ├──────────────┬──────────┬─────────────┬──────────────────────────────┤
 │ RouteRaw     │ Count    │ Sample Route│ Action                      │
 ├──────────────┼──────────┼─────────────┼──────────────────────────────┤
@@ -85,6 +86,7 @@ Filters: [Min Count: 1] [Include Empty: ☐]
 **APIs**: 
 - `GET /route-cleaning/unique-values?minCount=1&includeNull=false`
 - `GET /route-cleaning/affected-drugs?routeRaw=O&limit=100`
+**Note**: All queries automatically filter for `NotMarketed = false`
 
 #### Step 3: Mapping Dialog (Auto-Suggest)
 ```
@@ -238,7 +240,7 @@ Filters: [Min Count: 1] [Include Empty: ☐]
 ┌─────────────────────────────────────────────────────┐
 │  Dosage Cleaning Dashboard                          │
 ├─────────────────────────────────────────────────────┤
-│  Statistics:                                         │
+│  Statistics: (Only marketed drugs, NotMarketed=false)│
 │  ✓ Total Drugs: 15,000                             │
 │  ✓ Drugs with Dosage Field: 12,000 (80%)          │
 │  ✓ Drugs with Dosage Records: 11,500 (76.67%)     │
@@ -249,11 +251,12 @@ Filters: [Min Count: 1] [Include Empty: ☐]
 ```
 
 **API**: `GET /dosage-cleaning/stats`
+**Note**: All statistics and operations filter for `NotMarketed = false` (marketed drugs only)
 
 #### Step 2: Filter by Form
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  Select Dosage Form to Clean                                        │
+│  Select Dosage Form to Clean (Marketed drugs only)                 │
 ├──────────────┬──────────┬─────────────────┬───────────────────────┤
 │ Form         │ Count    │ Dosage Option   │ Action                │
 ├──────────────┼──────────┼─────────────────┼───────────────────────┤
@@ -269,6 +272,7 @@ Filters: [Min Count: 1] [Include Empty: ☐]
 ```
 
 **API**: `GET /dosage-cleaning/forms?includeNull=false`
+**Note**: All queries automatically filter for `NotMarketed = false`
 
 #### Step 3: Dosage Records Table (Editable)
 ```
@@ -867,9 +871,743 @@ export default RouteCleaningDashboard;
 
 For detailed API documentation, see: **[docs/route-dosage-cleaning-api.md](./route-dosage-cleaning-api.md)**
 
-### Quick Reference
+---
 
-#### Route Cleaning Endpoints
+## Route Cleaning APIs - Detailed Formats
+
+### 1. GET `/route-cleaning/stats`
+
+**Request:**
+```http
+GET /route-cleaning/stats
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "stats": {
+    "totalDrugs": 15000,
+    "drugsWithRoute": 12000,
+    "drugsWithRouteRaw": 14000,
+    "drugsWithoutRoute": 3000,
+    "uniqueRouteRaws": 150,
+    "cleanPercentage": "80.00"
+  }
+}
+```
+
+**Note**: All statistics count only drugs where `NotMarketed = false` (marketed drugs only).
+
+---
+
+### 2. GET `/route-cleaning/unique-values`
+
+**Request:**
+```http
+GET /route-cleaning/unique-values?includeNull=false&minCount=1
+```
+
+**Query Parameters:**
+- `includeNull` (boolean, optional): Include null/empty RouteRaw values (default: false)
+- `minCount` (integer, optional): Minimum drug count to include (default: 1)
+
+**Response:**
+```json
+{
+  "success": true,
+  "count": 150,
+  "data": [
+    {
+      "routeRaw": "O",
+      "drugCount": 523,
+      "sampleRoute": "Oral"
+    },
+    {
+      "routeRaw": "IV",
+      "drugCount": 287,
+      "sampleRoute": "Intravenous"
+    }
+  ]
+}
+```
+
+**Note**: Only counts drugs where `NotMarketed = false` (marketed drugs only).
+
+---
+
+### 3. POST `/route-cleaning/suggest-matches`
+
+**Request:**
+```json
+{
+  "routeRaw": "O",
+  "limit": 3
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "routeRaw": "O",
+  "suggestions": [
+    {
+      "routeOptionId": 12,
+      "acronym": "O",
+      "route": "Oral",
+      "category": "Enteral",
+      "confidence": 100,
+      "matchType": "exact_acronym"
+    }
+  ]
+}
+```
+
+**Match Types:**
+- `exact_acronym` (score: 100)
+- `exact_route` (score: 95)
+- `starts_acronym` (score: 90)
+- `contains_acronym` (score: 80)
+- `starts_route` (score: 70)
+- `contains_route` (score: 60)
+- `fuzzy_acronym` or `fuzzy_route` (score: 10-50)
+
+---
+
+### 4. GET `/route-cleaning/affected-drugs`
+
+**Request:**
+```http
+GET /route-cleaning/affected-drugs?routeRaw=O&limit=100
+```
+
+**Query Parameters:**
+- `routeRaw` (string, required): RouteRaw value to query
+- `limit` (integer, optional): Maximum records to return (default: 100)
+
+**Response:**
+```json
+{
+  "success": true,
+  "routeRaw": "O",
+  "count": 523,
+  "data": [
+    {
+      "DrugID": 1001,
+      "DrugName": "Paracetamol 500mg",
+      "Route": "Oral",
+      "RouteRaw": "O",
+      "Form": "Tablet",
+      "Dosage": "500mg",
+      "Manufacturer": "XYZ Pharma",
+      "NotMarketed": false
+    }
+  ]
+}
+```
+
+**Note**: Only returns drugs where `NotMarketed = false` (marketed drugs only).
+
+---
+
+### 5. POST `/route-cleaning/preview`
+
+**Request:**
+```json
+{
+  "mappings": [
+    {
+      "routeRaw": "O",
+      "newRoute": "Oral"
+    },
+    {
+      "routeRaw": "IV",
+      "newRoute": "Intravenous"
+    }
+  ]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "preview": {
+    "totalMappings": 2,
+    "totalAffectedDrugs": 810,
+    "mappingDetails": [
+      {
+        "routeRaw": "O",
+        "newRoute": "Oral",
+        "affectedCount": 523,
+        "sampleDrugs": [
+          {
+            "DrugID": 1001,
+            "DrugName": "Paracetamol 500mg",
+            "Route": "Oral",
+            "RouteRaw": "O"
+          }
+        ]
+      },
+      {
+        "routeRaw": "IV",
+        "newRoute": "Intravenous",
+        "affectedCount": 287,
+        "sampleDrugs": [...]
+      }
+    ]
+  }
+}
+```
+
+---
+
+### 6. POST `/route-cleaning/session`
+
+**Request:**
+```json
+{
+  "metadata": {
+    "description": "Cleaning oral and IV routes"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "session": {
+    "sessionId": "route_cleaning_1708123456789_abc123xyz",
+    "type": "route",
+    "status": "initialized",
+    "mappings": [],
+    "backupFile": null,
+    "affectedCount": 0,
+    "userId": 1,
+    "createdAt": "2026-02-16T10:30:00.000Z",
+    "updatedAt": "2026-02-16T10:30:00.000Z",
+    "expiresAt": "2026-02-17T10:30:00.000Z",
+    "metadata": {
+      "description": "Cleaning oral and IV routes"
+    }
+  }
+}
+```
+
+**Session Status Values:**
+- `initialized` - Session created, no mappings yet
+- `mapped` - Mappings defined
+- `previewed` - Preview generated
+- `applied` - Changes applied (backup created)
+- `committed` - Changes finalized
+- `rolled_back` - Changes reverted
+
+---
+
+### 7. POST `/route-cleaning/apply`
+
+**Request:**
+```json
+{
+  "sessionId": "route_cleaning_1708123456789_abc123xyz",
+  "mappings": [
+    {
+      "routeRaw": "O",
+      "newRoute": "Oral"
+    },
+    {
+      "routeRaw": "IV",
+      "newRoute": "Intravenous"
+    }
+  ]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "results": {
+    "totalUpdated": 810,
+    "mappingResults": [
+      {
+        "routeRaw": "O",
+        "newRoute": "Oral",
+        "success": true,
+        "updatedCount": 523
+      },
+      {
+        "routeRaw": "IV",
+        "newRoute": "Intravenous",
+        "success": true,
+        "updatedCount": 287
+      }
+    ]
+  }
+}
+```
+
+---
+
+### 8. POST `/route-cleaning/rollback`
+
+**Request:**
+```json
+{
+  "sessionId": "route_cleaning_1708123456789_abc123xyz"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "result": {
+    "success": true,
+    "restoredCount": 810,
+    "backupFile": "route_cleaning_1708123456789_abc123xyz"
+  }
+}
+```
+
+---
+
+### 9. GET `/route-cleaning/session/:sessionId`
+
+**Request:**
+```http
+GET /route-cleaning/session/route_cleaning_1708123456789_abc123xyz
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "session": {
+    "sessionId": "route_cleaning_1708123456789_abc123xyz",
+    "type": "route",
+    "status": "applied",
+    "mappings": [
+      {"routeRaw": "O", "newRoute": "Oral"},
+      {"routeRaw": "IV", "newRoute": "Intravenous"}
+    ],
+    "backupFile": "/path/to/backup.json",
+    "affectedCount": 810,
+    "userId": 1,
+    "createdAt": "2026-02-16T10:30:00.000Z",
+    "updatedAt": "2026-02-16T10:45:00.000Z",
+    "expiresAt": "2026-02-17T10:30:00.000Z",
+    "metadata": {}
+  }
+}
+```
+
+---
+
+### 10. DELETE `/route-cleaning/session/:sessionId`
+
+**Request:**
+```http
+DELETE /route-cleaning/session/route_cleaning_1708123456789_abc123xyz
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Session cleared successfully"
+}
+```
+
+---
+
+## Dosage Cleaning APIs - Detailed Formats
+
+### 1. GET `/dosage-cleaning/stats`
+
+**Request:**
+```http
+GET /dosage-cleaning/stats
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "stats": {
+    "totalDrugs": 15000,
+    "drugsWithDosage": 12000,
+    "drugsWithoutDosage": 3000,
+    "totalDosageRecords": 11500,
+    "drugsWithDosageRecords": 11500,
+    "drugsWithoutDosageRecords": 3500,
+    "dosageFieldPopulation": "80.00",
+    "structuredDosagePopulation": "76.67"
+  }
+}
+```
+
+**Note**: All statistics count only drugs where `NotMarketed = false` (marketed drugs only).
+
+---
+
+### 2. GET `/dosage-cleaning/forms`
+
+**Request:**
+```http
+GET /dosage-cleaning/forms?includeNull=false
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "count": 45,
+  "data": [
+    {
+      "form": "Tablet",
+      "drugCount": 3500,
+      "matchingDosageOption": {
+        "DosageOptionId": 5,
+        "DosageFormClean": "Tablet",
+        "PhysicalState": "Solid",
+        "SubstitutionRelationship": "S1S2S7"
+      }
+    }
+  ]
+}
+```
+
+**Note**: Only counts drugs where `NotMarketed = false` (marketed drugs only).
+
+---
+
+### 3. GET `/dosage-cleaning/records`
+
+**Request:**
+```http
+GET /dosage-cleaning/records?formFilter=Tablet&limit=100&offset=0
+```
+
+**Query Parameters:**
+- `formFilter` (string, optional): Filter by drug Form
+- `limit` (integer, optional): Maximum records (default: 100)
+- `offset` (integer, optional): Pagination offset (default: 0)
+
+**Note**: Only returns records for drugs where `NotMarketed = false` (marketed drugs only).
+
+**Response:**
+```json
+{
+  "success": true,
+  "records": [
+    {
+      "DosageId": 1001,
+      "DrugId": 5001,
+      "Numerator1": 500,
+      "Numerator1Unit": "mg",
+      "Denominator1": 0,
+      "Denominator1Unit": "",
+      "Numerator2": null,
+      "Numerator2Unit": null,
+      "Denominator2": null,
+      "Denominator2Unit": null,
+      "Numerator3": null,
+      "Numerator3Unit": null,
+      "Denominator3": null,
+      "Denominator3Unit": null,
+      "drug": {
+        "DrugID": 5001,
+        "DrugName": "Paracetamol",
+        "Form": "Tablet",
+        "Dosage": "500mg",
+        "Route": "Oral"
+      },
+      "canReconstruct": true,
+      "reconstructedDosage": "500mg",
+      "currentDrugDosage": "500mg"
+    }
+  ],
+  "total": 3500,
+  "hasMore": true,
+  "limit": 100,
+  "offset": 0
+}
+```
+
+---
+
+### 4. PUT `/dosage-cleaning/record/:dosageId`
+
+**Request:**
+```json
+{
+  "Numerator1": 500,
+  "Numerator1Unit": "mg",
+  "Denominator1": 5,
+  "Denominator1Unit": "ml",
+  "Numerator2": null,
+  "Numerator2Unit": null,
+  "Denominator2": null,
+  "Denominator2Unit": null
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "DosageId": 1001,
+    "DrugId": 5001,
+    "Numerator1": 500,
+    "Numerator1Unit": "mg",
+    "Denominator1": 5,
+    "Denominator1Unit": "ml",
+    "UpdatedBy": 1,
+    "UpdatedDate": "2026-02-16T10:45:00.000Z"
+  }
+}
+```
+
+---
+
+### 5. POST `/dosage-cleaning/reconstruct/:drugId`
+
+**Request:**
+```http
+POST /dosage-cleaning/reconstruct/5001
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "result": {
+    "drugId": 5001,
+    "oldDosage": "500mg",
+    "newDosage": "500mg/5ml",
+    "updated": true
+  }
+}
+```
+
+---
+
+### 6. POST `/dosage-cleaning/bulk-reconstruct`
+
+**Request:**
+```json
+{
+  "sessionId": "dosage_cleaning_1708123456789_xyz789abc",
+  "drugIds": [5001, 5002, 5003]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "results": {
+    "totalProcessed": 3,
+    "successCount": 3,
+    "failureCount": 0,
+    "reconstructions": [
+      {
+        "drugId": 5001,
+        "oldDosage": "500mg",
+        "newDosage": "500mg/5ml",
+        "updated": true,
+        "success": true
+      },
+      {
+        "drugId": 5002,
+        "oldDosage": "200mg",
+        "newDosage": "200mg",
+        "updated": false,
+        "success": true
+      },
+      {
+        "drugId": 5003,
+        "oldDosage": "1g/10ml",
+        "newDosage": "1000mg/10ml",
+        "updated": true,
+        "success": true
+      }
+    ]
+  }
+}
+```
+
+---
+
+### 7. POST `/dosage-cleaning/preview`
+
+**Request:**
+```json
+{
+  "updates": [
+    {
+      "dosageId": 1001,
+      "Numerator1": 500,
+      "Numerator1Unit": "mg",
+      "Denominator1": 5,
+      "Denominator1Unit": "ml"
+    }
+  ]
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "previews": [
+    {
+      "dosageId": 1001,
+      "drugId": 5001,
+      "drugName": "Paracetamol Suspension",
+      "currentDrugDosage": "500mg",
+      "currentReconstructed": "500mg",
+      "newReconstructed": "500mg/5ml",
+      "willChange": true,
+      "canReconstruct": true,
+      "updates": {
+        "Numerator1": 500,
+        "Numerator1Unit": "mg",
+        "Denominator1": 5,
+        "Denominator1Unit": "ml"
+      }
+    }
+  ]
+}
+```
+
+---
+
+### 8. POST `/dosage-cleaning/suggest-form`
+
+**Request:**
+```json
+{
+  "form": "Tab",
+  "limit": 3
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "form": "Tab",
+  "suggestions": [
+    {
+      "DosageOptionId": 5,
+      "DosageFormClean": "Tablet",
+      "PhysicalState": "Solid",
+      "SubstitutionRelationship": "S1S2S7",
+      "confidence": 90
+    }
+  ]
+}
+```
+
+---
+
+### 9. POST `/dosage-cleaning/rollback`
+
+**Request:**
+```json
+{
+  "sessionId": "dosage_cleaning_1708123456789_xyz789abc"
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "result": {
+    "success": true,
+    "restoredCount": 3,
+    "backupFile": "dosage_cleaning_1708123456789_xyz789abc"
+  }
+}
+```
+
+---
+
+### 10. POST `/dosage-cleaning/session`
+
+**Request:**
+```json
+{
+  "metadata": {
+    "task": "Clean tablet dosages"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "session": {
+    "sessionId": "dosage_cleaning_1708123456789_xyz789abc",
+    "type": "dosage",
+    "status": "initialized",
+    "mappings": [],
+    "backupFile": null,
+    "affectedCount": 0,
+    "userId": 1,
+    "createdAt": "2026-02-16T11:00:00.000Z",
+    "updatedAt": "2026-02-16T11:00:00.000Z",
+    "expiresAt": "2026-02-17T11:00:00.000Z",
+    "metadata": {
+      "task": "Clean tablet dosages"
+    }
+  }
+}
+```
+
+---
+
+### 11. GET `/dosage-cleaning/session/:sessionId`
+
+Same format as route cleaning session (see above)
+
+---
+
+### 12. DELETE `/dosage-cleaning/session/:sessionId`
+
+Same format as route cleaning session (see above)
+
+---
+
+## Error Responses
+
+All endpoints return errors in this format:
+
+```json
+{
+  "success": false,
+  "error": "Error message description"
+}
+```
+
+**HTTP Status Codes:**
+- `200` - Success
+- `400` - Bad request (missing/invalid parameters)
+- `404` - Resource not found (session, record)
+- `500` - Server error
+
+---
+
+## Quick Reference Table
+
+### Route Cleaning Endpoints
 
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
@@ -884,7 +1622,7 @@ For detailed API documentation, see: **[docs/route-dosage-cleaning-api.md](./rou
 | POST | `/route-cleaning/rollback` | Rollback changes |
 | DELETE | `/route-cleaning/session/:id` | Clear session |
 
-#### Dosage Cleaning Endpoints
+### Dosage Cleaning Endpoints
 
 | Method | Endpoint | Purpose |
 |--------|----------|---------|

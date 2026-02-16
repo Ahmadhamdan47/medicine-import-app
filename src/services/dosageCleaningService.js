@@ -29,13 +29,22 @@ async function getUniqueDosageForms(options = {}) {
   const { includeNull = false } = options;
 
   try {
-    const whereClause = includeNull ? {} : {
+    const whereClause = includeNull ? {
+      [Op.or]: [
+        { NotMarketed: false },
+        { NotMarketed: null }
+      ]
+    } : {
       Form: {
         [Op.and]: [
           { [Op.ne]: null },
           { [Op.ne]: '' }
         ]
-      }
+      },
+      [Op.or]: [
+        { NotMarketed: false },
+        { NotMarketed: null }
+      ]
     };
 
     // Get unique Form values with counts
@@ -100,7 +109,12 @@ async function getDosageRecordsForCleaning(options = {}) {
   const { formFilter = null, limit = 100, offset = 0 } = options;
 
   try {
-    const whereClause = {};
+    const whereClause = {
+      [Op.or]: [
+        { NotMarketed: false },
+        { NotMarketed: null }
+      ]
+    };
     
     if (formFilter) {
       whereClause.Form = formFilter;
@@ -283,9 +297,15 @@ async function bulkReconstructDosages(drugIds, sessionId) {
   }
 
   try {
-    // Get affected drugs for backup
+    // Get affected drugs for backup (marketed only)
     const affectedDrugs = await Drug.findAll({
-      where: { DrugID: { [Op.in]: drugIds } },
+      where: { 
+        DrugID: { [Op.in]: drugIds },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
+      },
       attributes: ['DrugID', 'DrugName', 'Dosage'],
       raw: true
     });
@@ -361,7 +381,13 @@ async function previewDosageChanges(updates) {
         where: { DosageId: dosageId },
         include: [{
           model: Drug,
-          attributes: ['DrugID', 'DrugName', 'Dosage']
+          attributes: ['DrugID', 'DrugName', 'Dosage'],
+          where: {
+            [Op.or]: [
+              { NotMarketed: false },
+              { NotMarketed: null }
+            ]
+          }
         }],
         raw: false
       });
@@ -538,7 +564,15 @@ async function suggestDosageFormMatch(form, limit = 3) {
  */
 async function getDosageStats() {
   try {
-    const totalDrugs = await Drug.count();
+    // Only count marketed drugs (NotMarketed = false or null)
+    const totalDrugs = await Drug.count({
+      where: {
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
+      }
+    });
     
     const drugsWithDosage = await Drug.count({
       where: {
@@ -547,15 +581,42 @@ async function getDosageStats() {
             { [Op.ne]: null },
             { [Op.ne]: '' }
           ]
-        }
+        },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
       }
     });
 
-    const totalDosageRecords = await Dosage.count();
+    const totalDosageRecords = await Dosage.count({
+      include: [{
+        model: Drug,
+        attributes: [],
+        where: {
+          [Op.or]: [
+            { NotMarketed: false },
+            { NotMarketed: null }
+          ]
+        },
+        required: true
+      }]
+    });
 
     const drugsWithDosageRecords = await Dosage.count({
       distinct: true,
-      col: 'DrugId'
+      col: 'DrugId',
+      include: [{
+        model: Drug,
+        attributes: [],
+        where: {
+          [Op.or]: [
+            { NotMarketed: false },
+            { NotMarketed: null }
+          ]
+        },
+        required: true
+      }]
     });
 
     return {

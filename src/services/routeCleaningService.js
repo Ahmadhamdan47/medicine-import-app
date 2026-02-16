@@ -28,13 +28,22 @@ async function getUniqueRouteRaw(options = {}) {
   const { includeNull = false, minCount = 1 } = options;
 
   try {
-    const whereClause = includeNull ? {} : {
+    const whereClause = includeNull ? {
+      [Op.or]: [
+        { NotMarketed: false },
+        { NotMarketed: null }
+      ]
+    } : {
       RouteRaw: {
         [Op.and]: [
           { [Op.ne]: null },
           { [Op.ne]: '' }
         ]
-      }
+      },
+      [Op.or]: [
+        { NotMarketed: false },
+        { NotMarketed: null }
+      ]
     };
 
     // Query to get unique RouteRaw values with counts
@@ -215,8 +224,14 @@ async function suggestRouteMatch(routeRaw, limit = 3) {
 async function getAffectedDrugs(routeRaw, limit = 100) {
   try {
     const drugs = await Drug.findAll({
-      where: { RouteRaw: routeRaw },
-      attributes: ['DrugID', 'DrugName', 'Route', 'RouteRaw', 'Form', 'Dosage', 'Manufacturer'],
+      where: { 
+        RouteRaw: routeRaw,
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
+      },
+      attributes: ['DrugID', 'DrugName', 'Route', 'RouteRaw', 'Form', 'Dosage', 'Manufacturer', 'NotMarketed'],
       limit,
       raw: true
     });
@@ -256,14 +271,26 @@ async function previewRouteMapping(mappings) {
         continue;
       }
 
-      // Count affected drugs
+      // Count affected drugs (marketed only)
       const count = await Drug.count({
-        where: { RouteRaw: routeRaw }
+        where: { 
+          RouteRaw: routeRaw,
+          [Op.or]: [
+            { NotMarketed: false },
+            { NotMarketed: null }
+          ]
+        }
       });
 
       // Get sample drugs (up to 5)
       const sampleDrugs = await Drug.findAll({
-        where: { RouteRaw: routeRaw },
+        where: { 
+          RouteRaw: routeRaw,
+          [Op.or]: [
+            { NotMarketed: false },
+            { NotMarketed: null }
+          ]
+        },
         attributes: ['DrugID', 'DrugName', 'Route', 'RouteRaw'],
         limit: 5,
         raw: true
@@ -314,7 +341,13 @@ async function applyRouteMappings(mappings, sessionId, userId) {
     
     for (const mapping of mappings) {
       const drugs = await Drug.findAll({
-        where: { RouteRaw: mapping.routeRaw },
+        where: { 
+          RouteRaw: mapping.routeRaw,
+          [Op.or]: [
+            { NotMarketed: false },
+            { NotMarketed: null }
+          ]
+        },
         attributes: ['DrugID', 'DrugName', 'Route', 'RouteRaw'],
         raw: true
       });
@@ -352,7 +385,13 @@ async function applyRouteMappings(mappings, sessionId, userId) {
             UpdatedDate: new Date()
           },
           {
-            where: { RouteRaw: routeRaw },
+            where: { 
+              RouteRaw: routeRaw,
+              [Op.or]: [
+                { NotMarketed: false },
+                { NotMarketed: null }
+              ]
+            },
             transaction
           }
         );
@@ -471,7 +510,15 @@ async function rollbackRouteChanges(sessionId) {
  */
 async function getRouteStats() {
   try {
-    const totalDrugs = await Drug.count();
+    // Only count marketed drugs (NotMarketed = false or null)
+    const totalDrugs = await Drug.count({
+      where: {
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
+      }
+    });
     
     const drugsWithRoute = await Drug.count({
       where: {
@@ -480,7 +527,11 @@ async function getRouteStats() {
             { [Op.ne]: null },
             { [Op.ne]: '' }
           ]
-        }
+        },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
       }
     });
 
@@ -491,7 +542,11 @@ async function getRouteStats() {
             { [Op.ne]: null },
             { [Op.ne]: '' }
           ]
-        }
+        },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
       }
     });
 
@@ -504,7 +559,11 @@ async function getRouteStats() {
             { [Op.ne]: null },
             { [Op.ne]: '' }
           ]
-        }
+        },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
       }
     });
 
