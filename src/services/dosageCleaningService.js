@@ -619,13 +619,49 @@ async function getDosageStats() {
       }]
     });
 
+    // Explicitly count marketed drugs without dosage
+    const drugsWithoutDosage = await Drug.count({
+      where: {
+        [Op.or]: [
+          { Dosage: null },
+          { Dosage: '' }
+        ],
+        [Op.and]: [
+          {
+            [Op.or]: [
+              { NotMarketed: false },
+              { NotMarketed: null }
+            ]
+          }
+        ]
+      }
+    });
+
+    // Explicitly count marketed drugs without dosage records
+    const drugsWithoutDosageRecords = await Drug.count({
+      where: {
+        DrugID: {
+          [Op.notIn]: sequelize.literal(`(
+            SELECT DISTINCT DrugId 
+            FROM dosage d 
+            INNER JOIN drug dr ON d.DrugId = dr.DrugID 
+            WHERE (dr.NotMarketed = 0 OR dr.NotMarketed IS NULL)
+          )`)
+        },
+        [Op.or]: [
+          { NotMarketed: false },
+          { NotMarketed: null }
+        ]
+      }
+    });
+
     return {
       totalDrugs,
       drugsWithDosage,
-      drugsWithoutDosage: totalDrugs - drugsWithDosage,
+      drugsWithoutDosage,
       totalDosageRecords,
       drugsWithDosageRecords,
-      drugsWithoutDosageRecords: totalDrugs - drugsWithDosageRecords,
+      drugsWithoutDosageRecords,
       dosageFieldPopulation: totalDrugs > 0 ? ((drugsWithDosage / totalDrugs) * 100).toFixed(2) : 0,
       structuredDosagePopulation: totalDrugs > 0 ? ((drugsWithDosageRecords / totalDrugs) * 100).toFixed(2) : 0
     };

@@ -567,11 +567,29 @@ async function getRouteStats() {
       }
     });
 
+    // Explicitly count marketed drugs without routes
+    const drugsWithoutRoute = await Drug.count({
+      where: {
+        [Op.or]: [
+          { Route: null },
+          { Route: '' }
+        ],
+        [Op.and]: [
+          {
+            [Op.or]: [
+              { NotMarketed: false },
+              { NotMarketed: null }
+            ]
+          }
+        ]
+      }
+    });
+
     return {
       totalDrugs,
       drugsWithRoute,
       drugsWithRouteRaw,
-      drugsWithoutRoute: totalDrugs - drugsWithRoute,
+      drugsWithoutRoute,
       uniqueRouteRaws,
       cleanPercentage: totalDrugs > 0 ? ((drugsWithRoute / totalDrugs) * 100).toFixed(2) : 0
     };
