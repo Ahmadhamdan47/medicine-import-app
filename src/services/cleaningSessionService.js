@@ -1,7 +1,7 @@
 /**
  * Cleaning Session Service
  * 
- * Manages sessions for route and dosage cleaning operations.
+ * Manages sessions for route, dosage, and form cleaning operations.
  * Uses in-memory storage for lightweight session tracking.
  * Each session tracks mappings, affected records, and backup data.
  * 
@@ -33,14 +33,14 @@ function generateSessionId(type) {
 /**
  * Create a new cleaning session
  * 
- * @param {string} type - Session type: 'route' or 'dosage'
+ * @param {string} type - Session type: 'route', 'dosage', or 'form'
  * @param {number} userId - ID of user creating session
  * @param {Object} metadata - Additional session metadata
  * @returns {Object} Session object with sessionId and details
  */
 function createSession(type, userId, metadata = {}) {
-  if (!['route', 'dosage'].includes(type)) {
-    throw new Error('Session type must be "route" or "dosage"');
+  if (!['route', 'dosage', 'form'].includes(type)) {
+    throw new Error('Session type must be "route", "dosage", or "form"');
   }
 
   const sessionId = generateSessionId(type);

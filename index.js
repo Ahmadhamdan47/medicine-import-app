@@ -94,8 +94,9 @@ const drugChangeRequestRoutes = require("./src/routes/drugChangeRequestRoutes");
 const routeOptionRoutes = require("./src/routes/routeOptionRoutes");
 const dosageOptionRoutes = require("./src/routes/dosageOptionRoutes");
 
-// Route and Dosage Cleaning routes
+// Route, Form, and Dosage Cleaning routes
 const routeCleaningRoutes = require("./src/routes/routeCleaningRoutes");
+const formCleaningRoutes = require("./src/routes/formCleaningRoutes");
 const dosageCleaningRoutes = require("./src/routes/dosageCleaningRoutes");
 
 const app = express();
@@ -237,8 +238,9 @@ app.use("/drug-change-requests", drugChangeRequestRoutes);
 app.use("/routeOptions", routeOptionRoutes);
 app.use("/dosageOptions", dosageOptionRoutes);
 
-// Register Route and Dosage Cleaning APIs
+// Register Route, Form, and Dosage Cleaning APIs
 app.use("/route-cleaning", routeCleaningRoutes);
+app.use("/form-cleaning", formCleaningRoutes);
 app.use("/dosage-cleaning", dosageCleaningRoutes);
 
 // --- Serve React Static Files ---
