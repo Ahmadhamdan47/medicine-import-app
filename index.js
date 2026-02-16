@@ -90,6 +90,14 @@ const formDFSequenceMappingRoutes = require("./src/routes/formDFSequenceMappingR
 // Drug Change Request route
 const drugChangeRequestRoutes = require("./src/routes/drugChangeRequestRoutes");
 
+// Route Options and Dosage Options routes
+const routeOptionRoutes = require("./src/routes/routeOptionRoutes");
+const dosageOptionRoutes = require("./src/routes/dosageOptionRoutes");
+
+// Route and Dosage Cleaning routes
+const routeCleaningRoutes = require("./src/routes/routeCleaningRoutes");
+const dosageCleaningRoutes = require("./src/routes/dosageCleaningRoutes");
+
 const app = express();
 const PORT = process.env.PORT || 8066;
 
@@ -224,6 +232,14 @@ app.use("/form-df-sequence-mapping", formDFSequenceMappingRoutes);
 
 // Register Drug Change Request API
 app.use("/drug-change-requests", drugChangeRequestRoutes);
+
+// Register Route Options and Dosage Options APIs
+app.use("/routeOptions", routeOptionRoutes);
+app.use("/dosageOptions", dosageOptionRoutes);
+
+// Register Route and Dosage Cleaning APIs
+app.use("/route-cleaning", routeCleaningRoutes);
+app.use("/dosage-cleaning", dosageCleaningRoutes);
 
 // --- Serve React Static Files ---
 app.use(express.static(path.join(__dirname, "src/views/build")));

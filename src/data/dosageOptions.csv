@@ -1,0 +1,90 @@
+Dosage-form Clean,Physical State,Substitution Relationship
+Adhesive plaster,Other,O1
+Caplet,Solid,S1S2S7
+"Caplet, coated",Solid,S1S2S7
+"Caplet, film coated",Solid,S1S2S7
+Capsule,Solid,S1S2S7
+"Capsule, coated",Solid,S1S2S7
+"Capsule, controlled release / extended release / modified release / prolonged release / slow release / sustained release",Solid,S22S72
+"Capsule, delayed release / enteric coated / gastro-resistant",Solid,S21S71
+"Capsule, dual release",Solid,S22S722
+"Capsule, hard",Solid,S1S2S7
+"Capsule, inhalation",Solid,S23S53G18G11G12L71L8
+"Capsule, microionized",Solid,S1S2S7
+"Capsule, soft / liquid gel / liquid filled / soft gelatin",Solid,S1S2S7
+Cream,Semi-solid,D1
+Creamgel,Semi-solid,D3
+"Drops, concentrated",Liquid,L1
+"Drops, solution",Liquid,L1
+"Drops, suspension",Liquid,L1
+Elixir,Liquid,L2
+Emulsion,Liquid,L3
+Emulsion Gel,Semi-solid,D3
+Enema,Solid,L4
+Film forming solution,Semi-solid,D2
+"Film, orally soluble",Semi-solid,D2
+"Film, orodispersible",Semi-solid,D2
+Foam,Combination,C1
+Gargle / Mouthwash,Liquid,L5L6
+Gauze,Other,O2
+Gel,Semi-solid,D3
+Granules,Solid,S3S5L8
+Granules for solution,Solid,S3S5L8
+Granules for suspension,Solid,S3S5L8
+"Granules, effervescent",Solid,S3S5L8
+"Granules, gastro-resistant / delayed release",Solid,S31S5L8
+"Granules, prolonged release",Solid,S31S5L8
+Implant,Other,O3
+Injectable concentrate for solution,Combination,C21
+Injectable emulsion,Combination,C21
+Injectable lyophilized / freeze-dried / dry powder,Combination,C221C24
+Injectable solution,Combination,C21
+"Injectable, lyophilized / freeze-dried / dry powder, prolonged release",Combination,C222C24
+"Injectable, powder, for liposomal dispersion",Combination,C223C24
+"Injectable, powder, for solution",Combination,C22C24
+"Injectable, powder, for suspension",Combination,C22C24
+"Injectable, powder, for suspension, prolonged release",Combination,C222C242
+"Injectable, solution",Combination,C23
+"Injectable, solution concentrate",Combination,C23
+Jelly,Semi-solid,D3
+Lipocream,Semi-solid,D12
+Lotion,Semi-solid,D4
+Lozenge,Solid,S4
+Metered dose inhaler,Gas,G14G24
+Metered dose spray,Gas,G14G24
+Ointment,Semi-solid,D5
+Patch,Other,O4
+Pessary,Solid,S6
+Powder,Solid,S3S5L8
+"Powder, effervescent",Solid,S3S5L8
+"Powder, for solution",Solid,S3S5L8
+"Powder, for suspension",Solid,S3S5L8
+"Powder, inhalation",Solid,S23S53G18G11G12L71L8
+Pulvule,Solid,S1S2S7
+Respule,Gas,G15
+Ring,Other,O5
+Rotacaps,Gas,S23S53G18G11G12L71L8
+Shampoo,Semi-solid,D6
+Solution,Liquid,L7
+"Solution, film forming",Liquid,L72
+"Solution, inhalation",Liquid,S23S53G18G11G12L71L8
+Spray,Gas,G2
+Suppository,Solid,S6
+"Suspension, inhalation",Liquid,S23S53G18G11G12L71L8
+Syrup,Liquid,L9
+Tablet,Solid,S1S2S7
+"Tablet, chewable",Solid,S1S2S7
+"Tablet, coated",Solid,S1S2S7
+"Tablet, controlled release / extended release / modified release / prolonged release / slow release / sustained release",Solid,S22S72
+"Tablet, delayed release / enteric coated / gastro-resistant",Solid,S21S71
+"Tablet, dispersible",Solid,S1S2S7
+"Tablet, effervescent",Solid,S1S2S7
+"Tablet, film coated",Solid,S1S2S7
+"Tablet, lyophilised / freeze-dried",Solid,S1S2S7
+"Tablet, microgranules",Solid,S1S2S7
+"Tablet, orally disintegrating / mouth dissolving / orodispersible",Solid,S1S2S7
+"Tablet, repetab",Solid,S1S2S7
+"Tablet, sugar coated",Solid,S1S2S7
+Vaginal delivery system,Solid,S6
+Volatile liquid,Liquid,G17
+"Water, for injection / for irrigation",Liquid,LW

@@ -254,9 +254,141 @@ function isValidParsedDosage(dosage) {
   return true;
 }
 
+/**
+ * Convert dosage table row format to parsed dosage array format
+ * Handles up to 3 dosage components from the dosage table structure
+ * 
+ * @param {Object} dosageRecord - Dosage table record with Numerator1-3, Denominator1-3, etc.
+ * @returns {Array<Object>} Array of parsed dosage objects
+ * 
+ * @example
+ * convertDosageTableRow({
+ *   Numerator1: 100, Numerator1Unit: "mg",
+ *   Denominator1: 5, Denominator1Unit: "ml",
+ *   Numerator2: null, Numerator2Unit: null
+ * })
+ * // => [{numerator: 100, numeratorUnit: "mg", denominator: 5, denominatorUnit: "ml"}]
+ */
+function convertDosageTableRow(dosageRecord) {
+  if (!dosageRecord || typeof dosageRecord !== 'object') {
+    return [];
+  }
+
+  const dosages = [];
+
+  for (let i = 1; i <= 3; i++) {
+    const numKey = `Numerator${i}`;
+    const numUnitKey = `Numerator${i}Unit`;
+    const denomKey = `Denominator${i}`;
+    const denomUnitKey = `Denominator${i}Unit`;
+
+    const numerator = dosageRecord[numKey];
+    const numeratorUnit = dosageRecord[numUnitKey];
+    const denominator = dosageRecord[denomKey];
+    const denominatorUnit = dosageRecord[denomUnitKey];
+
+    // Skip if numerator is missing or invalid
+    if (!numerator || !numeratorUnit) {
+      continue;
+    }
+
+    const parsedNum = typeof numerator === 'number' ? numerator : parseFloat(numerator);
+    const parsedDenom = denominator ? (typeof denominator === 'number' ? denominator : parseFloat(denominator)) : 0;
+
+    if (isNaN(parsedNum) || parsedNum <= 0) {
+      continue;
+    }
+
+    dosages.push({
+      numerator: parsedNum,
+      numeratorUnit: String(numeratorUnit).trim(),
+      denominator: parsedDenom || 0,
+      denominatorUnit: (parsedDenom && denominatorUnit) ? String(denominatorUnit).trim() : ''
+    });
+  }
+
+  return dosages;
+}
+
+/**
+ * Reconstruct drug.Dosage field from dosage table record
+ * This is the reverse operation of parseDosage
+ * 
+ * @param {Object} dosageRecord - Dosage table record
+ * @returns {string} Formatted dosage string for drug.Dosage field
+ * 
+ * @example
+ * reconstructDrugDosageString({
+ *   Numerator1: 500, Numerator1Unit: "mg",
+ *   Denominator1: 0, Denominator1Unit: ""
+ * })
+ * // => "500mg"
+ */
+function reconstructDrugDosageString(dosageRecord) {
+  const dosages = convertDosageTableRow(dosageRecord);
+  return formatDosage(dosages);
+}
+
+/**
+ * Validate if a dosage table record can be reconstructed cleanly
+ * Checks if all populated fields are valid
+ * 
+ * @param {Object} dosageRecord - Dosage table record
+ * @returns {boolean} True if record can be reconstructed
+ */
+function canReconstructDosage(dosageRecord) {
+  if (!dosageRecord || typeof dosageRecord !== 'object') {
+    return false;
+  }
+
+  // Must have at least Numerator1
+  if (!dosageRecord.Numerator1 || !dosageRecord.Numerator1Unit) {
+    return false;
+  }
+
+  const dosages = convertDosageTableRow(dosageRecord);
+  
+  // Must have at least one valid dosage
+  if (dosages.length === 0) {
+    return false;
+  }
+
+  // All converted dosages must be valid
+  return dosages.every(d => isValidParsedDosage(d));
+}
+
+/**
+ * Format multiple dosage records into a single combined string
+ * Used when multiple dosage table records need to be combined
+ * 
+ * @param {Array<Object>} dosageRecords - Array of dosage table records
+ * @returns {string} Combined dosage string
+ */
+function formatMultipleDosages(dosageRecords) {
+  if (!Array.isArray(dosageRecords) || dosageRecords.length === 0) {
+    return '';
+  }
+
+  const allDosages = [];
+  
+  for (const record of dosageRecords) {
+    const dosages = convertDosageTableRow(record);
+    allDosages.push(...dosages);
+  }
+
+  // Limit to 3 components (based on table structure)
+  const limitedDosages = allDosages.slice(0, 3);
+  
+  return formatDosage(limitedDosages);
+}
+
 module.exports = {
   parseDosage,
   formatDosage,
   isValidParsedDosage,
-  parseSingleDosage // Exported for testing
+  parseSingleDosage, // Exported for testing
+  convertDosageTableRow,
+  reconstructDrugDosageString,
+  canReconstructDosage,
+  formatMultipleDosages
 };
