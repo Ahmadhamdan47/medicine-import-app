@@ -642,7 +642,7 @@ async function getDosageStats() {
       where: {
         DrugID: {
           [Op.notIn]: sequelize.literal(`(
-            SELECT DISTINCT DrugId 
+            SELECT DISTINCT d.DrugId 
             FROM dosage d 
             INNER JOIN drug dr ON d.DrugId = dr.DrugID 
             WHERE (dr.NotMarketed = 0 OR dr.NotMarketed IS NULL)
