@@ -51,7 +51,7 @@ def truncate_values(row, column_lengths):
     return row
 
 def main():
-    tsv_data = read_tsv('./mar.tsv')
+    tsv_data = read_tsv('./apr.tsv')
 
     conn = get_db_connection()
     if conn is None:
