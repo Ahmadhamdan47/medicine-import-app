@@ -32,9 +32,9 @@ def get_db_connection():
         return None
 
 def main():
-    tsv_file = input("Enter TSV file path (or press Enter for './May.tsv'): ").strip()
+    tsv_file = input("Enter TSV file path (or press Enter for './may.tsv'): ").strip()
     if not tsv_file:
-        tsv_file = './May.tsv'
+        tsv_file = './may.tsv'
     
     tsv_data = read_tsv(tsv_file)
     if not tsv_data:
