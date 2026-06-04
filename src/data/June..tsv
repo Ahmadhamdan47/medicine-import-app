@@ -694,7 +694,6 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 11016	51722/1	BICALUTAMIDE BIOGARAN	50mg	30	Comprimes pellicules	Commercial and Trading Ressources SAL (CTR)	Synthon Hispania SL	Spain	4315078	B
 11630	111122/1	BICALUTAMIDE GP PHARM	50mg	28	Tablet, film coated	Mediterranean Pharmaceutical Company	GP-Pharm, SA	Argentine	1306215	A2
 5889	222451/08	BICAMIDE	50mg	28	Tablet, film coated	Nobel Pharm Plus SARL	Genepharm SARL	Greece	1451753	B
-9066	175116/1	BICANORM		100	Tablet, gastroresistant	Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland GmbH	Germany	2623181	B
 9900	173218/1	BIKTARVY	50mg/200mg/25mg	30	Tablet, film coated	Khalil Fattal & Fils S.A.L.	Gilead Sciences Ireland UC	Ireland	76569138	E1
 6368	166905/11	BINOCRIT	10,000IU/ml	6 Prefilled syringes	Injectable solution	Khalil Fattal & Fils S.A.L.	IDT Biologika GmbH	Germany	16325433	D
 6370	166903/11	BINOCRIT	4,000IU/0.4ml	6 Prefilled syringes	Injectable solution	Khalil Fattal & Fils S.A.L.	IDT Biologika GmbH	Germany	5582795	C
@@ -884,12 +883,12 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 7729	78214/1	CANESTEN		20ml	Solution	Nouvelle Pharm Drugstore	Kvp Pharma+ Veterinar Produkte GmbH	Germany	368213	A1
 7869	108014/1	CANESTEN		20g	Cream	Nouvelle Pharm Drugstore	GP Grenzach Produktions GmbH	Germany	344024	A1
 8098	154814/1	CANESTEN 	0.1g	6	Vaginal Tablets	Nouvelle Pharm Drugstore	GP Grenzach Produktions GmbH	Germany	408528	A1
-5187	24726/07	CAPD/DPCA 17Solution for peritoneal dialysis sleep safe		5000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	744140	A2
-5186	24725/07	CAPD/DPCA 17Solution for peritoneal dialysis stay safe		2000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	629916	A1
-5189	24693/07	CAPD/DPCA 19Solution for peritoneal dialysis sleep safe		5000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	744140	A2
-5188	24724/07	CAPD/DPCA 19Solution for peritoneal dialysis stay safe		2000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	769337	A2
-5190	24691/07	CAPD/DPCA 2Solution for peritoneal dialysis stay safe		2000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	735741	A2
-5191	24692/07	CAPD/DPCA 3Solution for peritoneal dialysis		2000ml		Fresenius Medical Care Lebanon	Fresenius medical Care  Deutschland	Germany	769337	A2
+5187	24726/07	CAPD/DPCA 17Solution for peritoneal dialysis sleep safe		5000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	744140	A2
+5186	24725/07	CAPD/DPCA 17Solution for peritoneal dialysis stay safe		2000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	629916	A1
+5189	24693/07	CAPD/DPCA 19Solution for peritoneal dialysis sleep safe		5000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	744140	A2
+5188	24724/07	CAPD/DPCA 19Solution for peritoneal dialysis stay safe		2000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	769337	A2
+5190	24691/07	CAPD/DPCA 2Solution for peritoneal dialysis stay safe		2000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	735741	A2
+5191	24692/07	CAPD/DPCA 3Solution for peritoneal dialysis		2000ml		Droguerie de l'Union	Fresenius medical Care  Deutschland	Germany	769337	A2
 8479	133715/1	CAPECITABINE ACCORD	500mg	120	Tablet, film coated	Mediterranean Pharmaceutical Company	Accord Healthcare Limited	UK	10908012	C
 9326	112917/1	CAPECITABINE BIOGARAN	500mg	120	Comprimes pellicules	Commercial and Trading Ressources SAL (CTR)	Remedica Ltd 	Cyprus	12123049	C
 11152	124521/1	CAPECITABINE NEAPOLIS	500mg	120	Tablet, film coated	Medis Pharm Drugstore	Neapolis Pharma	Tunisia	11222829	C
@@ -2263,7 +2262,6 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 12245	67122/1	GAVISCON PEPPERMINT LIQUID		200ml	Oral suspension	Droguerie Columbus	Reckitt Benckiser Healthcare (UK) Ltd	UK	393746	A1
 8201	55715/1	GAZYVA	1000mg/40ml	1Vial	Concentrate for solution for infusion	Omnipharma	Roche Diagnostics  GmbH 	Germany	314437416	E2
 12267	162623/1	GC FLU QUADRIVALENT INFLUENZA VACCINE		1Prefilled syringe 0.5ml 	(split virion inactivated)	Unipharm S.A.L.	GC Biopharma Corp	Korea	791523	A2
-10728	152119/1	GEFITINIB ARROW	250mg	30	Comprimes pellicules	Darapharma S.A.L.	Remedica Ltd 	Cyprus	85330070	E2
 10135	161719/1	GEFITINIB BIOGARAN	250mg	30	Comprimes pellicules	Commercial and Trading Ressources SAL (CTR)	Remedica Ltd 	Cyprus	83306550	E2
 9780	166718/1	GELASPAN	4%	10x500ml	Solution for infusion	Droguerie de l'Union	B. Braun Medical AG	Switzerland	9107572	C
 7444	185971/13	GEMCI-CELL	38mg/ml (1g/Vial)	1Vial x 26.3ml	Injectable concentrate for solution for Infusion	Drugstore 3U S.A.R.L.	Haupt Pharma Wolfratshausen GmbH	Germany	9326123	C
@@ -2290,6 +2288,8 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 7611	185929/13	GENTLE RELIEF		20	Tablet	Ecopharm	Laborate Pharmaceuticals India Ltd	India	184106	A1
 9931	28419/1	GENVOYA	150mg/150mg/200mg/10mg	30	Tablet, film coated	Khalil Fattal & Fils S.A.L.	Gilead Sciences Ireland UC	Ireland	77789650	E2
 7253	96357/11	GESTA 400	400mg	15	Pessaries	Atrissi SARL	Jordan River Pharmaceutical Industries LLC	Jordan	1083137	A2
+12495	92024/1	GESTO-CLAIR	200mg	15	Capsule, soft 	Mediterranean Pharmaceutical Company	Pharminicio SL	Spain	411216	A1
+12496	91924/1	GESTO-CLAIR	100mg	30	Capsule, soft 	Mediterranean Pharmaceutical Company	Pharminicio SL	Spain	368213	A1
 6306	166601/11	GILENYA	0.5mg	28	Capsule hard	Khalil Fattal & Fils S.A.L.	Novartis Pharma Stein AG	Switzerland	74428960	E1
 10968	94221/1	GINKGO BIOGARAN	40mg	30	Comprimes pellicules	Commercial and Trading Ressources SAL (CTR)	Holsten Pharma GmbH	Germany	345368	A1
 10969	94321/1	GINKGO BIOGARAN	40mg	90	Comprimes pellicules	Commercial and Trading Ressources SAL (CTR)	Holsten Pharma GmbH	Germany	985037	A2
@@ -2345,9 +2345,9 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 11434	142722/1	GLYXAMBI	25mg/5mg	30	Tablet, film coated	Mersaco	Rottendorf Pharma GmbH	Germany	4482387	B
 3919	973314/01	GLYZIDE	80mg	60	Tablet	Pharmanet Drugstore S.A.R.L.	Julphar	United Arab Emirates	534849	A1
 7744	187092/13	GOLASEPTINE-LIDOCAINE	5mg/1mg	40	Comprimes a sucer	Pharmamedic S.A.R.L.	SMB Technology SA	Belgium	736426	A2
-4025	24101/06	GONAL-f	900IU/1.5ml (66mcg/1.5ml)	prefilled pen (20needles for administration)	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	29625401	D
-5334	24478/06	GONAL-f	450IU/0.75ml (33mcg/0.75ml)	prefilled pen + 12needles for administration	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	14813959	D
-5595	221166/08	GONAL-f	300IU/0.5ml (22mcg/0.5ml)	prefilled pen + 8 needles for administration	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	10305698	C
+4025	24101/06	GONAL-f	900IU/1.44ml (66mcg/1.44ml)	prefilled pen (20needles for administration)	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	29625401	D
+5334	24478/06	GONAL-f	450IU/0.72ml (33mcg/0.72ml)	prefilled pen + 12needles for administration	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	14813959	D
+5595	221166/08	GONAL-f	300IU/0.48ml (22mcg/0.48ml)	prefilled pen + 8 needles for administration	solution for injection	Food & Drug Corporation FDC	Merck Serono SpA	Italy	10305698	C
 5610	221996/09	GONAPEPTYL	0.1mg	7 prefilled syringes	solution for injection	Sadco	Ferring GmbH	Germany	4637600	B
 5611	221997/09	GONAPEPTYL CR			1syringe powder and 1 syringe solvent for suspension for injection	Sadco	Ferring GmbH	Germany	12095730	C
 8436	120115/1	GRANI-DENK	1mg/ml	5Ampoules of 1ml	Concentrate for solution for infusion or injection	Mediterranean Pharmaceutical Company	Solupharm Pharmazeutische Erzeugnisse GmbH	Germany	893655	A2
@@ -2483,9 +2483,9 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 6848	97889/12	HYZAAR	100/12.5mg	28	Tablet	Droguerie de l'Union	Algorithm S.A.L. under license from Organon LLC 30 Hudson Street, Jersey City, NJ, USA	Lebanon	1740596	B
 771	236879/00	IALUGEN PLUS		60g	Cream	Alisar Pharma Corp	IBSA	Switzerland	1064323	A2
 772	236880/00	IALUGEN PLUS		10	Gauze	Alisar Pharma Corp	IBSA	Switzerland	1463444	B
-8520	1716/1	IBRANCE	75mg	21	Capsule	Droguerie Fattal  S.A.L.	Pfizer Pharmaceuticals LLC	USA	172164216	E2
-8521	1816/1	IBRANCE	100mg	21	Capsule	Droguerie Fattal  S.A.L.	Pfizer Pharmaceuticals LLC	USA	172164216	E2
-8522	1916/1	IBRANCE	125mg	21	Capsule	Droguerie Fattal  S.A.L.	Pfizer Pharmaceuticals LLC	USA	172164216	E2
+8520	1716/1	IBRANCE	75mg	21	Capsule	Droguerie Fattal  S.A.L.	Viatris Pharmaceuticals LLC	USA	172164216	E2
+8521	1816/1	IBRANCE	100mg	21	Capsule	Droguerie Fattal  S.A.L.	Viatris Pharmaceuticals LLC	USA	172164216	E2
+8522	1916/1	IBRANCE	125mg	21	Capsule	Droguerie Fattal  S.A.L.	Viatris Pharmaceuticals LLC	USA	172164216	E2
 10663	98721/1/1	IBRANCE	75mg	21	Tablet, film coated	Droguerie Fattal  S.A.L.	Pfizer Manufacturing Deutschland GmbH 	Germany	172164216	E2
 10664	108521/1	IBRANCE	100mg	21	Tablet, film coated	Droguerie Fattal  S.A.L.	Pfizer Manufacturing Deutschland GmbH 	Germany	172164216	E2
 10665	108421/1	IBRANCE	125mg	21	Tablet, film coated	Droguerie Fattal  S.A.L.	Pfizer Manufacturing Deutschland GmbH 	Germany	172164216	E2
@@ -2634,8 +2634,6 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 11839	34523/1	JAKAVI	20mg	56	Tablet	Khalil Fattal & Fils S.A.L.	Novartis Pharma Stein AG	Switzerland	352121341	E2
 12256	26325/1	JAMP PILOCARPINE	5mg	100	Tablet	Wellpharm	Gracure Pharmaceuticals Limited	India	3668690	B
 11679	151222/1	JAMP-CYCLOBENZAPRINE	10mg	100	Tablet	Bellapharma S.A.R.L.	Fourrts Laboratories Private Limited (Plant II)	India	4031528	B
-5770	219590/09	JANUMET	50mg/1000mg	56	Tablet	Droguerie de l'Union	Patheon Puerto Rico Inc, Manati	Puerto Rico	3093525	B
-5771	219591/09	JANUMET	50mg/500mg	56	Tablet	Droguerie de l'Union	Patheon Puerto Rico Inc, Manati	Puerto Rico	3237317	B
 11236	54622/1	JANUMET	50mg/500mg	56	Tablet	Droguerie de l'Union	MSD International GmbH (Singapore Branch)	Singapore	3237317	B
 11237	54522/1	JANUMET	50mg/1000mg	56	Tablet	Droguerie de l'Union	MSD International GmbH (Singapore Branch)	Singapore	3093525	B
 7991	126314/1	JANUMET XR	50mg/500mg	56	Tablet	Droguerie de l'Union	MSD International GmbH (Puerto Rico Branch) LLC	Puerto Rico	4777360	B
@@ -3791,7 +3789,7 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 9943	50219/1	PANADOL EXTRA WITH OPTIZORB		24	Tablet, film coated	Sadco	GlaxoSmithKline Dungarvan Ltd	Ireland	252642	A1
 8655	13916/1	PANADOL JOINT	665mg	24	Tablet	Sadco	Aspen Pharma Pty Ltd	Australia	291614	A1
 10438	50820/1	PANADOL MIGRAINE		24	Caplet	Sadco	Haleon US Inc. Lincolin	USA	604729	A1
-8654	13816/1	PANADOL NIGHT	500mg	24	Caplet	Sadco	Aspen Pharma Pty Ltd	Australia	315803	A1
+8654	13816/1	PANADOL NIGHT		24	Caplet	Sadco	Aspen Pharma Pty Ltd	Australia	315803	A1
 1157	405961	PANADOL SINUS	500mg	24	Caplet	Sadco	Aspen Pharma Pty Ltd	Australia	228453	A1
 7552	186776/14	PANADOL WOMAN		10	Tablet, coated	Sadco	Delpharm Poznan SA	Poland	436749	A1
 10655	12721/1	PANATAXEL	150mg/25ml	1Vial x  25ml		New Europharm	Laboratorios IMA S.A.I.C.	Argentine	16521761	D
@@ -4084,9 +4082,7 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 1543	208591/03	PROFINAL XP		20	Caplet, film coated	Pharmanet Drugstore S.A.R.L.	Julphar	United Arab Emirates	286238	A1
 12413	94124/1	PROGESING	100mg/2ml	10Ampoules of 2ml	Oily solution for deep IM injection	C. Catafago & Co	Egyptian International Pharmaceutical Industries Co (Eipico)	Egypt	1423129	A2
 968	148389/04	PROGEST	100mg	30	Capsule, soft 	Mediterranean Pharmaceutical Company	Laboratorio Leon Farma SA	Spain	368213	A1
-12496	91924/1	PROGEST	100mg	30	Capsule, soft 	Mediterranean Pharmaceutical Company	Pharminicio SL	Spain	368213	A1
 969	148388/04	PROGEST 200	200mg	15	Capsule, soft 	Mediterranean Pharmaceutical Company	Laboratorio Leon Farma SA	Spain	411216	A1
-12495	92024/1	PROGEST 200	200mg	15	Capsule, soft 	Mediterranean Pharmaceutical Company	Pharminicio SL	Spain	411216	A1
 5986	218137/09	PROGESTOGEL	1%	80g	Gel pour application locale	Droguerie Columbus	Besins Manufacturing Belgium SA	Belgium	542912	A1
 6738	97030/12	PROGESTOGEL	1%	80g	Gel pour application locale	Droguerie Columbus	Laboratoires Besins International	France	542912	A1
 11678	53822/1	PROGLAU	20mg/ml	5ml	eye drops solution	Abela Freres S.A.L.	Laboratorio Edol Produtos Farmaceuticos SA	Portugal	517379	A1
@@ -4925,7 +4921,6 @@ code	reg_number	brand_name	strength	presentation	form	agent	manufacturer	country
 7158	20565/72	TETRAN	250mg	20	Capsule	Pharmadex	Pharmadex	Lebanon	168940	A1
 5733	219564/09	TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactive adsorbe)		1Prefilled syringe x0.5ml	Injectable suspension	Mersaco	Sanofi Pasteur 	France	1628737	B
 11588	92622/1	THALIDOMIDE BMS	50mg	28	Capsule, hard	Droguerie de l'Union	Celgene International 	Switzerland	27387764	D
-7404	186067/13	THALIDOMIDE CELGENE	50mg	28	Capsule, hard	Droguerie de l'Union	Celgene International 	Switzerland	27387764	D
 4636	22585	THEODEX	80mg/15ml	120ml	Elixir	Pharmadex	Pharmadex	Lebanon	156142	A1
 4563	25694	THEOSOL ELIXIR	25mg/5ml	240ml	Elixir	Mephico S.A.L.	Mephico SAL	Lebanon	312283	A1
 3528	194040/05	THIOPENTAL PANPHARMA	500mg	25Vials		Minapharm Halabi	Panpharma	France	8446717	C
