@@ -58,9 +58,9 @@ def main():
     print("="*80)
     
     # Get input file
-    file_path = input("\nEnter file path (or press Enter for './aprv2.csv'): ").strip()
+    file_path = input("\nEnter file path (or press Enter for './mayv2.csv'): ").strip()
     if not file_path:
-        file_path = './aprv2.csv'
+        file_path = './mayv2.csv'
     
     if not os.path.exists(file_path):
         print(f"\n❌ Error: File '{file_path}' not found.")
