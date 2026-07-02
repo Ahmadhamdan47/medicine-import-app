@@ -142,7 +142,7 @@ def load_delimited_records(file_path: str) -> Tuple[List[str], List[Dict[str, st
                 val = row.get(h, "")
                 # Keep raw string; trim whitespace
                 rec[h] = (val if val is not None else "").strip()
-                records.append(rec)
+            records.append(rec)
     return headers, records
 
 
