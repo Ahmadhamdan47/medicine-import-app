@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-Fill missing fields in ommal_medlist.medications from a CSV file by matching on `code`.
+Fill missing fields in ommal_medlist.medications from a CSV/TSV file by matching on `code`.
 
 Rules:
 - Only update DB fields that are currently NULL or empty string ('').
-- CSV columns are used as DB column names (first row header). Columns not present in DB are ignored.
-- `code` is required in the CSV and is used to match rows.
-- Empty/unset CSV values do not overwrite anything.
+- File columns are used as DB column names (first row header). Columns not present in DB are ignored.
+- `code` is required in the input file and is used to match rows.
+- Empty/unset file values do not overwrite anything.
+- `bg` values are normalized so Brand/B map to `B`, Generic/G map to `G`, and any other non-empty value maps to `B`.
 
 Safety:
 - Dry-run by default (no DB writes). Use --commit to apply changes.
@@ -18,11 +19,12 @@ Edge cases handled (based on existing repo scripts):
 - Ignores blank/unnamed CSV header columns.
 - Optional conversion factor for public_price (to match prior JS script behavior) via --price-divisor.
 
-Usage examples:
-  python data/fill_missing_medlist_from_csv.py --csv TBF.csv           # dry run
-  python data/fill_missing_medlist_from_csv.py --csv TBF.csv --commit  # apply
-  python data/fill_missing_medlist_from_csv.py --csv TBF.csv --limit 50 --verbose
-  python data/fill_missing_medlist_from_csv.py --csv TBF.csv --commit --price-divisor 89500
+- Usage examples:
+    python data/fill_missing_medlist_from_csv.py --input TBF.csv               # dry run
+    python data/fill_missing_medlist_from_csv.py --input fill-missing.tsv      # dry run
+    python data/fill_missing_medlist_from_csv.py --input fill-missing.tsv --commit
+    python data/fill_missing_medlist_from_csv.py --input TBF.csv --limit 50 --verbose
+    python data/fill_missing_medlist_from_csv.py --input TBF.csv --commit --price-divisor 89500
 """
 
 from __future__ import annotations
@@ -107,10 +109,17 @@ def fetch_table_columns(conn, table: str) -> List[Dict[str, Any]]:
     return result
 
 
-def load_csv_records(csv_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
-    """Read CSV preserving strings and header; ignore blank header columns."""
-    with open(csv_path, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+def detect_delimiter(file_path: str) -> str:
+    if file_path.lower().endswith(".tsv"):
+        return "\t"
+    return ","
+
+
+def load_delimited_records(file_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
+    """Read CSV/TSV preserving strings and header; ignore blank header columns."""
+    delimiter = detect_delimiter(file_path)
+    with open(file_path, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f, delimiter=delimiter)
         # Clean header: strip spaces and drop blanks/duplicates
         raw_headers = reader.fieldnames or []
         headers: List[str] = []
@@ -133,7 +142,7 @@ def load_csv_records(csv_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
                 val = row.get(h, "")
                 # Keep raw string; trim whitespace
                 rec[h] = (val if val is not None else "").strip()
-            records.append(rec)
+                records.append(rec)
     return headers, records
 
 
@@ -155,6 +164,13 @@ def parse_code(val: str) -> Optional[int]:
 
 def is_empty_db_value(v: Any) -> bool:
     return v is None or (isinstance(v, str) and v.strip() == "")
+
+
+def normalize_bg_value(raw_val: str) -> str:
+    value = str(raw_val).strip().upper()
+    if value in {"G", "GENERIC"}:
+        return "G"
+    return "B"
 
 
 def to_db_typed_value(col_type: str, csv_val: str, *, price_divisor: Optional[float]) -> Any:
@@ -223,6 +239,9 @@ def build_updates_for_row(
         if raw_val is None or str(raw_val).strip() == "":
             continue  # nothing to fill
 
+        if col == "bg":
+            raw_val = normalize_bg_value(raw_val)
+
         # Special case: optional price divisor for public_price
         if price_divisor and col == "public_price":
             try:
@@ -238,27 +257,28 @@ def build_updates_for_row(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fill missing fields in medlist.medications from CSV by code.")
-    parser.add_argument("--csv", required=False, default="TBF.csv", help="Path to CSV file")
+    parser = argparse.ArgumentParser(description="Fill missing fields in medlist.medications from CSV/TSV by code.")
+    parser.add_argument("--input", required=False, default="fill-missing.tsv", help="Path to CSV or TSV file")
+    parser.add_argument("--csv", dest="input", help=argparse.SUPPRESS)
     parser.add_argument("--commit", action="store_true", help="Apply changes to DB; default is dry-run")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of CSV rows to process")
     parser.add_argument("--verbose", action="store_true", help="Verbose logging of per-row updates")
     parser.add_argument("--price-divisor", type=float, default=None, help="Divide CSV public_price by this factor before storing (e.g., 89500)")
 
     args = parser.parse_args()
-    csv_path = args.csv
+    input_path = args.input
     is_commit = args.commit
     limit = args.limit
     verbose = args.verbose
-    price_divisor = args["price_divisor"] if isinstance(args, dict) and "price_divisor" in args else getattr(args, "price_divisor", None)
+    price_divisor = args.price_divisor
 
-    if not os.path.isfile(csv_path):
-        print(f"CSV not found: {csv_path}")
+    if not os.path.isfile(input_path):
+        print(f"Input file not found: {input_path}")
         sys.exit(1)
 
-    headers, records = load_csv_records(csv_path)
+    headers, records = load_delimited_records(input_path)
     if "code" not in headers:
-        print("CSV must include a 'code' column.")
+        print("Input file must include a 'code' column.")
         sys.exit(1)
 
     if limit is not None:
@@ -329,7 +349,7 @@ def main():
                 if verbose:
                     print(f"code={code_val} -> {updates}")
 
-        print(f"CSV rows processed: {total_rows}")
+        print(f"Input rows processed: {total_rows}")
         print(f"Rows needing updates: {rows_with_updates}")
         print(f"Total individual field updates planned: {total_updates}")
 
