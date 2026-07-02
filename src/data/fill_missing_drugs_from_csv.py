@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Fill missing fields in ommal_medapiv2.drug from a CSV file by matching on `MoPHCode`.
+Fill missing fields in ommal_medapiv2.drug from a CSV/TSV file by matching on `MoPHCode`.
 
 Rules:
 - Only update DB fields that are currently NULL or empty string ('').
-- CSV columns are used as DB column names (first row header). Columns not present in DB are ignored.
-- `MoPHCode` is required in the CSV and is used to match rows.
-- Empty/unset CSV values do not overwrite anything.
+- File columns are mapped to DB column names via normalization and aliases (e.g. `ATC` -> `ATC_Code`).
+  Columns not present in DB are ignored.
+- `MoPHCode` is required in the input file and is used to match rows.
+- Empty/unset file values do not overwrite anything.
+- `NA` / `N/A` placeholder values are treated as empty and never written.
 
 Safety:
 - Dry-run by default (no DB writes). Use --commit to apply changes.
@@ -19,9 +21,9 @@ Edge cases handled (based on existing repo scripts):
 - Optional conversion factor for PublicPrice (to match prior scripts) via --price-divisor.
 
 Usage examples:
-  python fill_missing_drugs_from_csv.py --csv TBFMED.csv           # dry run
-  python3 fill_missing_drugs_from_csv.py --csv TBFMED.csv --commit  # apply
-  python fill_missing_drugs_from_csv.py --csv TBFMED.csv --limit 50 --verbose
+  python fill_missing_drugs_from_csv.py                                     # dry run on ./fill-missingv2.csv
+  python fill_missing_drugs_from_csv.py --csv fill-missingv2.csv --commit   # apply
+  python fill_missing_drugs_from_csv.py --csv fill-missingv2.csv --limit 50 --verbose
   python fill_missing_drugs_from_csv.py --csv TBFMED.csv --commit --price-divisor 89500
 """
 
@@ -31,6 +33,7 @@ import argparse
 import csv
 import decimal
 import os
+import re
 import sys
 from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -52,11 +55,20 @@ except Exception:  # noqa: BLE001
 
 DB_CONFIG = {
     "host": "localhost",
-    "user": "ommal_ahmad", 
+    "user": "ommal_ahmad",
     "password": "fISfGr^8q!_gUPMY",
     "database": "ommal_medapiv2",
     "charset": "utf8mb4",
 }
+
+
+HEADER_ALIASES = {
+    "atc": "ATC_Code",
+    "atccode": "ATC_Code",
+}
+
+
+NA_VALUES = {"na", "n/a", "n.a", "n.a.", "none", "null"}
 
 
 def connect_db():
@@ -107,10 +119,34 @@ def fetch_table_columns(conn, table: str) -> List[Dict[str, Any]]:
     return result
 
 
+def detect_delimiter(file_path: str) -> str:
+    if file_path.lower().endswith(".tsv"):
+        return "\t"
+    return ","
+
+
+def normalize_header_name(name: str) -> str:
+    normalized = re.sub(r"[^a-z0-9]+", "_", str(name).strip().lower())
+    return normalized.strip("_")
+
+
+def open_text_with_fallback(file_path: str):
+    """Open text file as UTF-8; fall back to Windows-1252 for legacy exports."""
+    f = open(file_path, "r", encoding="utf-8-sig", newline="")
+    try:
+        f.read()
+        f.seek(0)
+        return f
+    except UnicodeDecodeError:
+        f.close()
+        return open(file_path, "r", encoding="cp1252", newline="")
+
+
 def load_csv_records(csv_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
-    """Read CSV preserving strings and header; ignore blank header columns."""
-    with open(csv_path, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
+    """Read CSV/TSV preserving strings and header; ignore blank header columns."""
+    delimiter = detect_delimiter(csv_path)
+    with open_text_with_fallback(csv_path) as f:
+        reader = csv.DictReader(f, delimiter=delimiter)
         # Clean header: strip spaces and drop blanks/duplicates
         raw_headers = reader.fieldnames or []
         headers: List[str] = []
@@ -135,6 +171,28 @@ def load_csv_records(csv_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
                 rec[h] = (val if val is not None else "").strip()
             records.append(rec)
     return headers, records
+
+
+def map_headers_to_db_columns(headers: List[str], db_columns: Set[str]) -> Dict[str, str]:
+    db_column_lookup = {normalize_header_name(column): column for column in db_columns}
+    mapped_headers: Dict[str, str] = {}
+
+    for header in headers:
+        normalized = normalize_header_name(header)
+        target_column = HEADER_ALIASES.get(normalized) or db_column_lookup.get(normalized)
+        if target_column and target_column in db_columns:
+            mapped_headers[header] = target_column
+
+    return mapped_headers
+
+
+def remap_csv_row(csv_row: Dict[str, str], header_map: Dict[str, str]) -> Dict[str, str]:
+    mapped_row: Dict[str, str] = {}
+    for source_header, target_column in header_map.items():
+        value = csv_row.get(source_header, "")
+        if target_column not in mapped_row or (not mapped_row[target_column] and value):
+            mapped_row[target_column] = value
+    return mapped_row
 
 
 def parse_moph_code(val: str) -> Optional[str]:
@@ -216,6 +274,8 @@ def build_updates_for_row(
         raw_val = csv_row.get(col, "")
         if raw_val is None or str(raw_val).strip() == "":
             continue  # nothing to fill
+        if str(raw_val).strip().lower() in NA_VALUES:
+            continue  # placeholder value, not real data
 
         # Special case: optional price divisor for PublicPrice
         if price_divisor and col == "PublicPrice":
@@ -233,7 +293,7 @@ def build_updates_for_row(
 
 def main():
     parser = argparse.ArgumentParser(description="Fill missing fields in drug table from CSV by MoPHCode.")
-    parser.add_argument("--csv", required=False, default="TBFMED.csv", help="Path to CSV file")
+    parser.add_argument("--csv", required=False, default="./fill-missingv2.csv", help="Path to CSV or TSV file")
     parser.add_argument("--commit", action="store_true", help="Apply changes to DB; default is dry-run")
     parser.add_argument("--limit", type=int, default=None, help="Limit number of CSV rows to process")
     parser.add_argument("--verbose", action="store_true", help="Verbose logging of per-row updates")
@@ -244,17 +304,13 @@ def main():
     is_commit = args.commit
     limit = args.limit
     verbose = args.verbose
-    price_divisor = args["price_divisor"] if isinstance(args, dict) and "price_divisor" in args else getattr(args, "price_divisor", None)
+    price_divisor = args.price_divisor
 
     if not os.path.isfile(csv_path):
         print(f"CSV not found: {csv_path}")
         sys.exit(1)
 
     headers, records = load_csv_records(csv_path)
-    if "MoPHCode" not in headers:
-        print("CSV must include a 'MoPHCode' column.")
-        sys.exit(1)
-
     if limit is not None:
         records = records[:limit]
 
@@ -269,8 +325,15 @@ def main():
         cols_meta = fetch_table_columns(conn, "drug")
         col_types = {c["name"]: c["data_type"] for c in cols_meta}
 
+        header_map = map_headers_to_db_columns(headers, set(col_types.keys()))
+        if "MoPHCode" not in header_map.values():
+            print("Input file must include a 'MoPHCode' column or supported alias.")
+            sys.exit(1)
+
+        mapped_records = [remap_csv_row(rec, header_map) for rec in records]
+
         # Only consider columns that exist in DB and are present in CSV
-        candidate_cols = [h for h in headers if h in col_types]
+        candidate_cols = [column for column in header_map.values() if column in col_types]
 
         # Fetch existing rows by MoPHCode into a dict
         col_list = ["MoPHCode"] + [c for c in candidate_cols if c != "MoPHCode"]
@@ -306,7 +369,7 @@ def main():
 
         updatable_cols = {c: col_types[c] for c in candidate_cols}
 
-        for rec in records:
+        for rec in mapped_records:
             moph_code = parse_moph_code(rec.get("MoPHCode", ""))
             if moph_code is None:
                 continue
