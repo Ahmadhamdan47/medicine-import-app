@@ -8,7 +8,8 @@ Rules:
   Columns not present in DB are ignored.
 - `MoPHCode` is required in the input file and is used to match rows.
 - Empty/unset file values do not overwrite anything.
-- `NA` / `N/A` placeholder values are treated as empty and never written.
+- `NA` / `N/A` placeholder values are treated as empty and never written,
+  except for `Dosage` where the literal `NA` is a legitimate final value and is stored as-is.
 
 Safety:
 - Dry-run by default (no DB writes). Use --commit to apply changes.
@@ -271,7 +272,11 @@ def build_updates_for_row(
         if col == "MoPHCode":
             continue
         db_val = db_row.get(col)
-        if not is_empty_db_value(db_val):
+        if col == "Dosage":
+            # NA is a legitimate final value for Dosage; only truly empty counts as missing
+            if not (db_val is None or (isinstance(db_val, str) and db_val.strip() == "")):
+                continue
+        elif not is_empty_db_value(db_val):
             continue  # skip already-filled fields
 
         if col not in csv_row:
@@ -280,7 +285,10 @@ def build_updates_for_row(
         if raw_val is None or str(raw_val).strip() == "":
             continue  # nothing to fill
         if str(raw_val).strip().lower() in NA_VALUES:
-            continue  # placeholder value, not real data
+            if col == "Dosage":
+                raw_val = "NA"  # store the placeholder itself
+            else:
+                continue  # placeholder value, not real data
 
         # Special case: optional price divisor for PublicPrice
         if price_divisor and col == "PublicPrice":

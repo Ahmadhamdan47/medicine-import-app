@@ -40,6 +40,20 @@ def _is_na_or_na_string(value):
     return False
 
 
+def _is_truly_empty(value):
+    """Treat only NaN/empty as missing; a literal NA string counts as filled."""
+    if isinstance(value, str):
+        return value.strip() == ""
+    return pd.isna(value)
+
+
+def _is_missing_required(field, value):
+    # Dosage stores the literal "NA" as a final value, so only empty counts as missing
+    if field == "Dosage":
+        return _is_truly_empty(value)
+    return _is_na_or_na_string(value)
+
+
 def _ensure_columns(df, columns):
     for col in columns:
         if col not in df.columns:
@@ -217,7 +231,7 @@ def export_drugtable_from_api(api_url=DRUGS_API_URL, output_folder="exports"):
     ]
 
     mask_any_empty = default_only_df[required_fields].apply(
-        lambda col: col.map(_is_na_or_na_string)
+        lambda col: col.map(lambda v: _is_missing_required(col.name, v))
     ).any(axis=1)
     filtered_df = default_only_df[mask_any_empty]
 
