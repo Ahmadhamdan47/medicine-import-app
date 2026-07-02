@@ -206,7 +206,12 @@ def parse_moph_code(val: str) -> Optional[str]:
 
 
 def is_empty_db_value(v: Any) -> bool:
-    return v is None or (isinstance(v, str) and v.strip() == "")
+    if v is None:
+        return True
+    if isinstance(v, str):
+        s = v.strip()
+        return s == "" or s.lower() in NA_VALUES
+    return False
 
 
 def to_db_typed_value(col_type: str, csv_val: str, *, price_divisor: Optional[float]) -> Any:
