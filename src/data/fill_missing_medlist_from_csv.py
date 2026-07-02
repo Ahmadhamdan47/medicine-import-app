@@ -33,6 +33,7 @@ import argparse
 import csv
 import decimal
 import os
+import re
 import sys
 from typing import Any, Dict, List, Optional, Set, Tuple
 
@@ -58,6 +59,17 @@ DB_CONFIG = {
     "password": "dMR2id57dviMJJnc",
     "database": "ommal_medlist",
     "charset": "utf8mb4",
+}
+
+
+HEADER_ALIASES = {
+    "registrationnumber": "reg_number",
+    "registration_number": "reg_number",
+    "regnumber": "reg_number",
+    "routelndi": "route_lndi",
+    "route": "route_lndi",
+    "formlndi": "form_lndi",
+    "presentationlndi": "presentation_lndi",
 }
 
 
@@ -115,6 +127,11 @@ def detect_delimiter(file_path: str) -> str:
     return ","
 
 
+def normalize_header_name(name: str) -> str:
+    normalized = re.sub(r"[^a-z0-9]+", "_", str(name).strip().lower())
+    return normalized.strip("_")
+
+
 def load_delimited_records(file_path: str) -> Tuple[List[str], List[Dict[str, str]]]:
     """Read CSV/TSV preserving strings and header; ignore blank header columns."""
     delimiter = detect_delimiter(file_path)
@@ -144,6 +161,28 @@ def load_delimited_records(file_path: str) -> Tuple[List[str], List[Dict[str, st
                 rec[h] = (val if val is not None else "").strip()
             records.append(rec)
     return headers, records
+
+
+def map_headers_to_db_columns(headers: List[str], db_columns: Set[str]) -> Dict[str, str]:
+    db_column_lookup = {normalize_header_name(column): column for column in db_columns}
+    mapped_headers: Dict[str, str] = {}
+
+    for header in headers:
+        normalized = normalize_header_name(header)
+        target_column = HEADER_ALIASES.get(normalized) or db_column_lookup.get(normalized)
+        if target_column:
+            mapped_headers[header] = target_column
+
+    return mapped_headers
+
+
+def remap_csv_row(csv_row: Dict[str, str], header_map: Dict[str, str]) -> Dict[str, str]:
+    mapped_row: Dict[str, str] = {}
+    for source_header, target_column in header_map.items():
+        value = csv_row.get(source_header, "")
+        if target_column not in mapped_row or (not mapped_row[target_column] and value):
+            mapped_row[target_column] = value
+    return mapped_row
 
 
 def parse_code(val: str) -> Optional[int]:
@@ -277,10 +316,6 @@ def main():
         sys.exit(1)
 
     headers, records = load_delimited_records(input_path)
-    if "code" not in headers:
-        print("Input file must include a 'code' column.")
-        sys.exit(1)
-
     if limit is not None:
         records = records[:limit]
 
@@ -295,8 +330,15 @@ def main():
         cols_meta = fetch_table_columns(conn, "medications")
         col_types = {c["name"]: c["data_type"] for c in cols_meta}
 
+        header_map = map_headers_to_db_columns(headers, set(col_types.keys()))
+        if "code" not in header_map.values():
+            print("Input file must include a 'code' column or supported alias.")
+            sys.exit(1)
+
+        mapped_records = [remap_csv_row(rec, header_map) for rec in records]
+
         # Only consider columns that exist in DB and are present in CSV
-        candidate_cols = [h for h in headers if h in col_types]
+        candidate_cols = [column for column in header_map.values() if column in col_types]
 
         # Fetch existing rows by code into a dict
         col_list = ["code"] + [c for c in candidate_cols if c != "code"]
@@ -332,7 +374,7 @@ def main():
 
         updatable_cols = {c: col_types[c] for c in candidate_cols}
 
-        for rec in records:
+        for rec in mapped_records:
             code_val = parse_code(rec.get("code", ""))
             if code_val is None:
                 continue
