@@ -31,7 +31,7 @@ def get_db_connection():
         return None
 
 def main():
-    tsv_data = read_tsv('./June30.tsv')
+    tsv_data = read_tsv('./July.tsv')
 
     conn = get_db_connection()
     if conn is None:

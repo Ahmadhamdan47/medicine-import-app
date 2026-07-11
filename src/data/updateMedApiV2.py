@@ -4,6 +4,8 @@ from mysql.connector import Error
 import pandas as pd
 from collections import defaultdict
 import os
+import json
+from datetime import datetime
 
 def read_file(file_path):
     """Read CSV or TSV file and return data dictionary"""
@@ -48,15 +50,48 @@ def get_db_connection():
         print(f"Error: {e}")
         return None
 
+
+def safe_str(value):
+    """Convert None to empty string"""
+    return str(value) if value is not None else ''
+
+
+def build_template_row(record):
+    """Build a template-aligned row using available data and placeholders for unavailable columns."""
+    return {
+        "MoPHCode": str(record.get("MoPHCode", "")),
+        "BrandName": record.get("DrugName", "") or "",
+        "Ingredients": "",
+        "ATC": "",
+        "Strength": record.get("Dosage", "") or "",
+        "DosageForm": record.get("Form", "") or "",
+        "Route": "",
+        "Presentation": record.get("Presentation", "") or "",
+        "ProductType": "",
+        "Stratum": record.get("Stratum", "") or "",
+        "Agent": record.get("Agent", "") or "",
+        "Manufacturer": record.get("Manufacturer", "") or ""
+    }
+
+
+def write_report_payload(report_payload, source_file):
+    """Persist report payload JSON for the MedLeb DB update template workflow."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f"medleb_db_update_payload_updateMedApiV2_{timestamp}.json"
+    output_path = os.path.join(os.path.dirname(source_file), output_file)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(report_payload, f, ensure_ascii=False, indent=2)
+    return output_path
+
 def main():
     print("\n" + "="*80)
     print("MedAPI v2 Database Update Script")
     print("="*80)
     
     # Get input file
-    file_path = input("\nEnter file path (or press Enter for './June30v2.csv'): ").strip()
+    file_path = input("\nEnter file path (or press Enter for './JulyV2.csv'): ").strip()
     if not file_path:
-        file_path = './June30v2.csv'
+        file_path = './JulyV2.csv'
     
     if not os.path.exists(file_path):
         print(f"\n❌ Error: File '{file_path}' not found.")
@@ -98,6 +133,8 @@ def main():
         # Prepare update lists
         update_drug_list = []
         update_not_marketed_list = []
+        modification_entries = []
+        newly_not_marketed_rows = []
         
         # Track changes by type
         field_changes = {
@@ -124,9 +161,6 @@ def main():
                 changes = {}
                 
                 # Helper function to safely compare values (handles None)
-                def safe_str(value):
-                    return str(value) if value is not None else ''
-                
                 # Check each field for changes
                 db_drug_name = safe_str(db_record['DrugName'])
                 file_drug_name = file_record.get('DrugName', '')
@@ -190,6 +224,38 @@ def main():
                     field_changes['Stratum'][f"{db_stratum} → {file_stratum}"].append(moph_code)
                 
                 if changes:
+                    old_row = {
+                        "MoPHCode": moph_code,
+                        "DrugName": safe_str(db_record['DrugName']),
+                        "Dosage": safe_str(db_record['Dosage']),
+                        "Presentation": safe_str(db_record['Presentation']),
+                        "Form": safe_str(db_record['Form']),
+                        "Agent": safe_str(db_record['Agent']),
+                        "Manufacturer": safe_str(db_record['Manufacturer']),
+                        "Stratum": safe_str(db_record['Stratum']),
+                        "PublicPrice": float(db_record['PublicPrice'] or 0)
+                    }
+                    new_row = {
+                        "MoPHCode": moph_code,
+                        "DrugName": changes.get('DrugName', safe_str(db_record['DrugName'])),
+                        "Dosage": changes.get('Dosage', safe_str(db_record['Dosage'])),
+                        "Presentation": changes.get('Presentation', safe_str(db_record['Presentation'])),
+                        "Form": changes.get('Form', safe_str(db_record['Form'])),
+                        "Agent": changes.get('Agent', safe_str(db_record['Agent'])),
+                        "Manufacturer": changes.get('Manufacturer', safe_str(db_record['Manufacturer'])),
+                        "Stratum": changes.get('Stratum', safe_str(db_record['Stratum'])),
+                        "PublicPrice": changes.get('PublicPrice', float(db_record['PublicPrice'] or 0))
+                    }
+                    modification_entries.append({
+                        "MoPHCode": str(moph_code),
+                        "BrandName": new_row["DrugName"],
+                        "changedFields": sorted(list(changes.keys())),
+                        "old": old_row,
+                        "new": new_row,
+                        "oldTemplateRow": build_template_row(old_row),
+                        "newTemplateRow": build_template_row(new_row)
+                    })
+
                     update_drug_list.append((
                         changes.get('DrugName', safe_str(db_record['DrugName'])),
                         changes.get('RegistrationNumber', safe_str(db_record['RegistrationNumber'])),
@@ -209,6 +275,9 @@ def main():
             if moph_code not in file_moph_codes and int(db_record['NotMarketed'] or 0) == 0:
                 update_not_marketed_list.append(moph_code)
                 field_changes['NotMarketed']['0 → 1 (Not in file)'].append(moph_code)
+                db_row = dict(db_record)
+                db_row["MoPHCode"] = moph_code
+                newly_not_marketed_rows.append(build_template_row(db_row))
 
         # Display preview
         print("\n" + "="*80)
@@ -264,9 +333,80 @@ def main():
             cursor.executemany(update_not_marketed_query, [(code,) for code in update_not_marketed_list])
             print(f"✅ Marked {len(update_not_marketed_list)} drugs as NotMarketed")
 
+        agent_changes = [
+            {
+                "BrandName": entry["BrandName"],
+                "old": entry["old"].get("Agent", ""),
+                "new": entry["new"].get("Agent", ""),
+                "details": entry
+            }
+            for entry in modification_entries
+            if "Agent" in entry["changedFields"]
+        ]
+
+        manufacturer_changes = [
+            {
+                "BrandName": entry["BrandName"],
+                "old": entry["old"].get("Manufacturer", ""),
+                "new": entry["new"].get("Manufacturer", ""),
+                "details": entry
+            }
+            for entry in modification_entries
+            if "Manufacturer" in entry["changedFields"]
+        ]
+
+        price_stratum_changes = [
+            {
+                "BrandName": entry["BrandName"],
+                "oldPrice": entry["old"].get("PublicPrice", ""),
+                "newPrice": entry["new"].get("PublicPrice", ""),
+                "oldStratum": entry["old"].get("Stratum", ""),
+                "newStratum": entry["new"].get("Stratum", ""),
+                "details": entry
+            }
+            for entry in modification_entries
+            if "PublicPrice" in entry["changedFields"] or "Stratum" in entry["changedFields"]
+        ]
+
+        other_or_several_modifications = [
+            entry
+            for entry in modification_entries
+            if len(entry["changedFields"]) > 1
+            or not any(field in entry["changedFields"] for field in ["Agent", "Manufacturer", "PublicPrice", "Stratum"])
+        ]
+
+        report_payload = {
+            "generatedAt": datetime.now().isoformat(),
+            "sourceFile": os.path.abspath(file_path),
+            "addedMoPHCodes": [],
+            "notMarketedTrue": [str(code) for code in update_not_marketed_list],
+            "modifiedMoPHCodes": [entry["MoPHCode"] for entry in modification_entries],
+            "templateReport": {
+                "section1_newly_marketed": {
+                    "total_newly_marketed_drugs": 0,
+                    "total_atc_codes_newly_marketed_drugs": 0,
+                    "rows": []
+                },
+                "section2_newly_not_marketed": {
+                    "total_newly_unmarketed_drugs": len(newly_not_marketed_rows),
+                    "total_atc_codes_newly_unmarketed_drugs": len({row["ATC"] for row in newly_not_marketed_rows if row["ATC"]}),
+                    "rows": newly_not_marketed_rows
+                },
+                "section3_modifications": {
+                    "atc_code_changes": modification_entries,
+                    "agent_changes": agent_changes,
+                    "manufacturer_changes": manufacturer_changes,
+                    "price_stratum_changes": price_stratum_changes,
+                    "other_or_several_modifications": other_or_several_modifications
+                }
+            }
+        }
+        report_path = write_report_payload(report_payload, file_path)
+
         conn.commit()
         print(f"\n🎉 Successfully committed all changes to the database!")
         print(f"📊 Total records affected: {total_changes}")
+        print(f"🗂️  Template-ready report payload saved to: {report_path}")
 
     except Error as e:
         print(f"\n❌ Database error: {e}")

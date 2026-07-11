@@ -4,6 +4,8 @@ from mysql.connector import Error
 import pandas as pd
 from collections import defaultdict
 import os
+import json
+from datetime import datetime
 
 def read_file(file_path):
     """Read CSV or TSV file and return data dictionary"""
@@ -48,15 +50,43 @@ def get_db_connection():
         print(f"Error: {e}")
         return None
 
+
+def build_template_row(record):
+    """Build a template-aligned row using available data and placeholders for unavailable columns."""
+    return {
+        "MoPHCode": str(record.get("MoPHCode", "")),
+        "BrandName": record.get("DrugName", "") or "",
+        "Ingredients": "",
+        "ATC": "",
+        "Strength": record.get("Dosage", "") or "",
+        "DosageForm": record.get("Form", "") or "",
+        "Route": "",
+        "Presentation": record.get("Presentation", "") or "",
+        "ProductType": "",
+        "Stratum": record.get("Stratum", "") or "",
+        "Agent": record.get("Agent", "") or "",
+        "Manufacturer": record.get("Manufacturer", "") or ""
+    }
+
+
+def write_report_payload(report_payload, source_file):
+    """Persist report payload JSON for the MedLeb DB update template workflow."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f"medleb_db_update_payload_nm_insert_{timestamp}.json"
+    output_path = os.path.join(os.path.dirname(source_file), output_file)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(report_payload, f, ensure_ascii=False, indent=2)
+    return output_path
+
 def main():
     print("\n" + "="*80)
     print("MedAPI v2 - NotMarketed & Insert New Drugs Script")
     print("="*80)
     
     # Get input file
-    file_path = input("\nEnter file path (or press Enter for './June30v2.csv'): ").strip()
+    file_path = input("\nEnter file path (or press Enter for './JulyV2.csv'): ").strip()
     if not file_path:
-        file_path = './June30v2.csv'
+        file_path = './JulyV2.csv'
     
     if not os.path.exists(file_path):
         print(f"\n❌ Error: File '{file_path}' not found.")
@@ -87,7 +117,12 @@ def main():
 
         # Get current MoPHCodes and NotMarketed status from database
         print("\n📊 Fetching drug codes from database...")
-        cursor.execute("SELECT MoPHCode, NotMarketed FROM drug")
+        cursor.execute(
+            """
+            SELECT MoPHCode, DrugName, Dosage, Presentation, Form, Agent, Manufacturer, Stratum, NotMarketed
+            FROM drug
+            """
+        )
         db_records = cursor.fetchall()
         current_data = {row['MoPHCode']: row for row in db_records}
         print(f"✅ Fetched {len(current_data)} records from database")
@@ -95,6 +130,8 @@ def main():
         # Prepare lists
         update_not_marketed_list = []
         insert_drug_list = []
+        newly_not_marketed_rows = []
+        newly_marketed_rows = []
         
         file_moph_codes = set(file_data.keys())
         db_moph_codes = set(current_data.keys())
@@ -105,12 +142,18 @@ def main():
             if moph_code not in file_moph_codes:
                 if int(current_data[moph_code]['NotMarketed'] or 0) == 0:
                     update_not_marketed_list.append(moph_code)
+                    db_row = dict(current_data[moph_code])
+                    db_row["MoPHCode"] = moph_code
+                    newly_not_marketed_rows.append(build_template_row(db_row))
 
         # Find new drugs to insert (in file but not in DB)
         print("🔍 Checking for new drugs to insert...")
         for moph_code in file_moph_codes:
             if moph_code not in db_moph_codes:
                 record = file_data[moph_code]
+                record_with_code = dict(record)
+                record_with_code["MoPHCode"] = moph_code
+                newly_marketed_rows.append(build_template_row(record_with_code))
                 insert_drug_list.append((
                     moph_code,
                     record.get('RegistrationNumber', ''),
@@ -185,9 +228,37 @@ def main():
             cursor.executemany(insert_drug_query, insert_drug_list)
             print(f"✅ Inserted {len(insert_drug_list)} new drugs")
 
+        report_payload = {
+            "generatedAt": datetime.now().isoformat(),
+            "sourceFile": os.path.abspath(file_path),
+            "addedMoPHCodes": [str(code) for code, *_ in insert_drug_list],
+            "notMarketedTrue": [str(code) for code in update_not_marketed_list],
+            "templateReport": {
+                "section1_newly_marketed": {
+                    "total_newly_marketed_drugs": len(newly_marketed_rows),
+                    "total_atc_codes_newly_marketed_drugs": len({row["ATC"] for row in newly_marketed_rows if row["ATC"]}),
+                    "rows": newly_marketed_rows
+                },
+                "section2_newly_not_marketed": {
+                    "total_newly_unmarketed_drugs": len(newly_not_marketed_rows),
+                    "total_atc_codes_newly_unmarketed_drugs": len({row["ATC"] for row in newly_not_marketed_rows if row["ATC"]}),
+                    "rows": newly_not_marketed_rows
+                },
+                "section3_modifications": {
+                    "atc_code_changes": [],
+                    "agent_changes": [],
+                    "manufacturer_changes": [],
+                    "price_stratum_changes": [],
+                    "other_or_several_modifications": []
+                }
+            }
+        }
+        report_path = write_report_payload(report_payload, file_path)
+
         conn.commit()
         print(f"\n🎉 Successfully committed all changes to the database!")
         print(f"📊 Total records affected: {total_changes}")
+        print(f"🗂️  Template-ready report payload saved to: {report_path}")
 
     except Error as e:
         print(f"\n❌ Database error: {e}")
