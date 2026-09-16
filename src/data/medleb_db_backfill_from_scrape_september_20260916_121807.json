@@ -1,0 +1,7602 @@
+{
+  "generatedAt": "2026-09-16T12:18:07.778237",
+  "sourceFile": "/home/ommal/web/apiv2.medleb.org/public_html/medicine-import-app/src/data/drugs_full_september.csv",
+  "scope": "marketed drugs only",
+  "rule": "only NULL/empty cells were written; nothing overwritten",
+  "totalCellsFilled": 1756,
+  "cellsPerColumn": {
+    "ATC_Code": 199,
+    "OtherIngredients": 199,
+    "RouteRaw": 199,
+    "ProductType": 199,
+    "Form": 250,
+    "Presentation": 37,
+    "Dosage": 0,
+    "ResponsibleParty": 673
+  },
+  "skippedTooLong": {},
+  "drugs": [
+    {
+      "MoPHCode": "33",
+      "DrugName": "HAVRIX JUNIOR 720",
+      "filled": {
+        "Presentation": "1 x 0.5ml"
+      }
+    },
+    {
+      "MoPHCode": "34",
+      "DrugName": "INFANRIX IPV + HIB",
+      "filled": {
+        "Form": "Injectable dry powder+suspension",
+        "Presentation": "1 x 0.5ml"
+      }
+    },
+    {
+      "MoPHCode": "579",
+      "DrugName": "XALACOM",
+      "filled": {
+        "ResponsibleParty": "Upjohn SRL"
+      }
+    },
+    {
+      "MoPHCode": "1292",
+      "DrugName": "XALATAN",
+      "filled": {
+        "ResponsibleParty": "Upjohn SRL"
+      }
+    },
+    {
+      "MoPHCode": "1384",
+      "DrugName": "BUTALIN",
+      "filled": {
+        "ResponsibleParty": "Julphar"
+      }
+    },
+    {
+      "MoPHCode": "1677",
+      "DrugName": "LIBROCOL",
+      "filled": {
+        "ResponsibleParty": "Lagap SA"
+      }
+    },
+    {
+      "MoPHCode": "1735",
+      "DrugName": "KETOLAC",
+      "filled": {
+        "ResponsibleParty": "Amriya Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "1736",
+      "DrugName": "KETOLAC",
+      "filled": {
+        "ResponsibleParty": "Amriya Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "1800",
+      "DrugName": "DECALCIT",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "1801",
+      "DrugName": "DECALCIT",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "1809",
+      "DrugName": "FAMODAR 40",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "1812",
+      "DrugName": "DICLOGESIC 12.5 CHILDREN",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "1822",
+      "DrugName": "DICLOGESIC",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "1823",
+      "DrugName": "DICLOGESIC RETARD",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "1832",
+      "DrugName": "DICLOGESIC",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "2017",
+      "DrugName": "NOVORAPID FLEXPEN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "2028",
+      "DrugName": "GLUCAGEN",
+      "filled": {
+        "Presentation": "1 x 2ml"
+      }
+    },
+    {
+      "MoPHCode": "2139",
+      "DrugName": "AMPICILLINE PANPHARMA",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "2217",
+      "DrugName": "METALYSE",
+      "filled": {
+        "ResponsibleParty": "Boehringer Ingelheim International GmbH"
+      }
+    },
+    {
+      "MoPHCode": "2248",
+      "DrugName": "CALPEROS",
+      "filled": {
+        "ResponsibleParty": "Bouchara Recordati"
+      }
+    },
+    {
+      "MoPHCode": "2249",
+      "DrugName": "CALPEROS D3 A SUCER",
+      "filled": {
+        "ResponsibleParty": "Bouchara Recordati"
+      }
+    },
+    {
+      "MoPHCode": "2332",
+      "DrugName": "VERACOL",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "2634",
+      "DrugName": "HEXASPRAY COLLUTOIRE PRESSURISE",
+      "filled": {
+        "ResponsibleParty": "Bouchara Recordati"
+      }
+    },
+    {
+      "MoPHCode": "2810",
+      "DrugName": "DECAPEPTYL SR",
+      "filled": {
+        "Presentation": "1 x 1ml"
+      }
+    },
+    {
+      "MoPHCode": "2811",
+      "DrugName": "DECAPEPTYL SR",
+      "filled": {
+        "Presentation": "1 x 1ml"
+      }
+    },
+    {
+      "MoPHCode": "2942",
+      "DrugName": "GENTAMICINE PANPHARMA",
+      "filled": {
+        "ResponsibleParty": "Panpharma"
+      }
+    },
+    {
+      "MoPHCode": "2975",
+      "DrugName": "CORDARONE",
+      "filled": {
+        "ResponsibleParty": "Sanofi Aventis France"
+      }
+    },
+    {
+      "MoPHCode": "3168",
+      "DrugName": "DUPHALAC",
+      "filled": {
+        "Form": "Solution"
+      }
+    },
+    {
+      "MoPHCode": "3487",
+      "DrugName": "ALBUTEIN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "3489",
+      "DrugName": "ALBUTEIN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "3528",
+      "DrugName": "THIOPENTAL PANPHARMA",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "3577",
+      "DrugName": "EBETAXEL",
+      "filled": {
+        "Form": "Injectable concentrated solution"
+      }
+    },
+    {
+      "MoPHCode": "3885",
+      "DrugName": "DEXAMED",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "3949",
+      "DrugName": "FLUOXONE DIVULE",
+      "filled": {
+        "ResponsibleParty": "Laboratoires SMB, SA"
+      }
+    },
+    {
+      "MoPHCode": "3951",
+      "DrugName": "PRIORIX",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "3960",
+      "DrugName": "CLARA",
+      "filled": {
+        "Presentation": "100ml"
+      }
+    },
+    {
+      "MoPHCode": "4227",
+      "DrugName": "STERILE WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4229",
+      "DrugName": "STERILE WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4231",
+      "DrugName": "STERILE WATER FOR IRRIGATION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4235",
+      "DrugName": "WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4237",
+      "DrugName": "WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4238",
+      "DrugName": "WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "4747",
+      "DrugName": "DEXTROSE 7.5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4748",
+      "DrugName": "DEXTROSE 7.5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4752",
+      "DrugName": "DEXTROSE 20% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4753",
+      "DrugName": "DEXTROSE 20% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4754",
+      "DrugName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4755",
+      "DrugName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4756",
+      "DrugName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4764",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4765",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4766",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4767",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4769",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4770",
+      "DrugName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4772",
+      "DrugName": "HI-SODIUM WITHOUT POTASSIUM INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4774",
+      "DrugName": "LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4775",
+      "DrugName": "LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4776",
+      "DrugName": "LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4777",
+      "DrugName": "LO-SODIUM WITHOUT POTASSIUM INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4778",
+      "DrugName": "LO-SODIUM WITH POTASSIUM INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4779",
+      "DrugName": "DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4780",
+      "DrugName": "MANNITOL 10% USP INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4781",
+      "DrugName": "MANNITOL 10% USP INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4782",
+      "DrugName": "MANNITOL 20% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4783",
+      "DrugName": "MANNITOL 20% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4784",
+      "DrugName": "RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4785",
+      "DrugName": "RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4786",
+      "DrugName": "RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4787",
+      "DrugName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4788",
+      "DrugName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4789",
+      "DrugName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4790",
+      "DrugName": "DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4792",
+      "DrugName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4793",
+      "DrugName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4794",
+      "DrugName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4795",
+      "DrugName": "SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4796",
+      "DrugName": "SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4801",
+      "DrugName": "DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4808",
+      "DrugName": "DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4809",
+      "DrugName": "DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "4810",
+      "DrugName": "DEXTROSE 7.5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5043",
+      "DrugName": "MABRON",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5046",
+      "DrugName": "FERPLEX",
+      "filled": {
+        "Form": "Solution"
+      }
+    },
+    {
+      "MoPHCode": "5153",
+      "DrugName": "EBERELBIN",
+      "filled": {
+        "Form": "Injectable concentrated solution"
+      }
+    },
+    {
+      "MoPHCode": "5186",
+      "DrugName": "CAPD/DPCA 17Solution for peritoneal dialysis stay safe",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5187",
+      "DrugName": "CAPD/DPCA 17Solution for peritoneal dialysis sleep safe",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5188",
+      "DrugName": "CAPD/DPCA 19Solution for peritoneal dialysis stay safe",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5189",
+      "DrugName": "CAPD/DPCA 19Solution for peritoneal dialysis sleep safe",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5190",
+      "DrugName": "CAPD/DPCA 2Solution for peritoneal dialysis stay safe",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5191",
+      "DrugName": "CAPD/DPCA 3Solution for peritoneal dialysis",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5567",
+      "DrugName": "UMAN ALBUMIN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5611",
+      "DrugName": "GONAPEPTYL CR",
+      "filled": {
+        "Presentation": "1 x 1"
+      }
+    },
+    {
+      "MoPHCode": "5679",
+      "DrugName": "FLUDARABIN EBEWE",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5866",
+      "DrugName": "DOCETAXEL EBEWE",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5867",
+      "DrugName": "DOCETAXEL EBEWE",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "5950",
+      "DrugName": "ROTATEQ ROTAVIRUS VACCINE, LIVE, ORAL, PENTAVALENT",
+      "filled": {
+        "Form": "Suspension"
+      }
+    },
+    {
+      "MoPHCode": "6269",
+      "DrugName": "UROKIT",
+      "filled": {
+        "Form": "Powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "6322",
+      "DrugName": "VANCOMYCIN HIKMA",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "6442",
+      "DrugName": "EPOTEX 4000 BENTA",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "6460",
+      "DrugName": "ZYVOX IV",
+      "filled": {
+        "Presentation": "300ml"
+      }
+    },
+    {
+      "MoPHCode": "6497",
+      "DrugName": "DACOGEN",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "6584",
+      "DrugName": "MENACTRA MENINGOCOCCAL POLYSACCHARIDE DIPHTERIA TOXOID CONJUGATE VACCINE",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "6764",
+      "DrugName": "VOTUM",
+      "filled": {
+        "Presentation": "28"
+      }
+    },
+    {
+      "MoPHCode": "6765",
+      "DrugName": "VOTUM",
+      "filled": {
+        "Presentation": "28"
+      }
+    },
+    {
+      "MoPHCode": "6909",
+      "DrugName": "ARAGAM",
+      "filled": {
+        "Presentation": "1 x 100ml"
+      }
+    },
+    {
+      "MoPHCode": "6995",
+      "DrugName": "HIKMA MIDAZOLAM",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "7069",
+      "DrugName": "BIOGEST",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "7193",
+      "DrugName": "OCTAPLEX",
+      "filled": {
+        "Form": "Injectable powder for solution+diluent",
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "7234",
+      "DrugName": "RESICAL",
+      "filled": {
+        "ResponsibleParty": "Jordan River Pharmaceutical Industries LLC"
+      }
+    },
+    {
+      "MoPHCode": "7402",
+      "DrugName": "LEVOFLOXACIN COOPER",
+      "filled": {
+        "ResponsibleParty": "Cooper SA"
+      }
+    },
+    {
+      "MoPHCode": "7502",
+      "DrugName": "SURFACTANTE B RICHET",
+      "filled": {
+        "Form": "Suspension"
+      }
+    },
+    {
+      "MoPHCode": "7707",
+      "DrugName": "VIMPAT",
+      "filled": {
+        "ResponsibleParty": "UCB Pharma SA"
+      }
+    },
+    {
+      "MoPHCode": "7824",
+      "DrugName": "TAGIX",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "7882",
+      "DrugName": "FERRICURE",
+      "filled": {
+        "ResponsibleParty": "SA Laboratoires Pharmaceutiques Trenker"
+      }
+    },
+    {
+      "MoPHCode": "7898",
+      "DrugName": "ESTECINA 200MG",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "7912",
+      "DrugName": "MYORA",
+      "filled": {
+        "ResponsibleParty": "The Arab Pharmaceutical Manufacturing PSC"
+      }
+    },
+    {
+      "MoPHCode": "7966",
+      "DrugName": "NEULASTIM",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8048",
+      "DrugName": "CHORIOMON",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "8053",
+      "DrugName": "HERCEPTIN",
+      "filled": {
+        "Form": "Injectable concentrated powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "8087",
+      "DrugName": "NOVORAPID FLEXPEN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8106",
+      "DrugName": "RELAXINE TRENKER",
+      "filled": {
+        "ResponsibleParty": "SA Laboratoires Pharmaceutiques Trenker"
+      }
+    },
+    {
+      "MoPHCode": "8113",
+      "DrugName": "NOVORAPID FLEXPEN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8239",
+      "DrugName": "KEYTRUDA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8279",
+      "DrugName": "DEXAMED",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8285",
+      "DrugName": "THYROGEN",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "8402",
+      "DrugName": "METRONIDAZOLE PANPHARMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8421",
+      "DrugName": "NITROJECT INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8443",
+      "DrugName": "UTABON",
+      "filled": {
+        "Presentation": "15ml"
+      }
+    },
+    {
+      "MoPHCode": "8453",
+      "DrugName": "HEPATITIS-B VACCINE (r DNA) PAEDIATRIC",
+      "filled": {
+        "Form": "Injectable suspension"
+      }
+    },
+    {
+      "MoPHCode": "8454",
+      "DrugName": "DIPHTHERIA, TETANUS,PERTUSSIS, HEPATITIS B AND HAEMOPHILUS INFLUENZAE TYPE B CONJUGATE VACCINE",
+      "filled": {
+        "Form": "Injectable suspension"
+      }
+    },
+    {
+      "MoPHCode": "8610",
+      "DrugName": "VOTREX",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8640",
+      "DrugName": "PENICILLINE G PANPHARMA",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "8641",
+      "DrugName": "KETAMINE PANPHARMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8701",
+      "DrugName": "JEVTANA INJECTION",
+      "filled": {
+        "Form": "Injectable dry powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "8848",
+      "DrugName": "PNEUMOVAX 23",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8862",
+      "DrugName": "HYCAMTIN IV",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "8884",
+      "DrugName": "YASNAL Q-TAB",
+      "filled": {
+        "ResponsibleParty": "KrKa Sverige AB"
+      }
+    },
+    {
+      "MoPHCode": "8885",
+      "DrugName": "YASNAL Q-TAB",
+      "filled": {
+        "ResponsibleParty": "KrKa Sverige AB"
+      }
+    },
+    {
+      "MoPHCode": "8920",
+      "DrugName": "CHLORASEPTIC TOTAL SORE THROAT + COUGH LOZENGES WILD CHERRY",
+      "filled": {
+        "Form": "Lozenge"
+      }
+    },
+    {
+      "MoPHCode": "8947",
+      "DrugName": "VARIVAX",
+      "filled": {
+        "Form": "Injectable powder for suspension+diluent"
+      }
+    },
+    {
+      "MoPHCode": "8958",
+      "DrugName": "ONDANSETRON HIKMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8959",
+      "DrugName": "ONDANSETRON HIKMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "8982",
+      "DrugName": "TETAGAM P",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9106",
+      "DrugName": "ELEVIT PRONATAL",
+      "filled": {
+        "ResponsibleParty": "Bayer Consumer Care AG"
+      }
+    },
+    {
+      "MoPHCode": "9116",
+      "DrugName": "ZOFRAN INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9117",
+      "DrugName": "ZOFRAN INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9127",
+      "DrugName": "ROCICARE",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9128",
+      "DrugName": "LOZICARE",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9129",
+      "DrugName": "FORTECARE",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9130",
+      "DrugName": "AMANAM 500",
+      "filled": {
+        "Form": "Injectable powder for solution",
+        "ResponsibleParty": "Swiss Parenterals Ltd"
+      }
+    },
+    {
+      "MoPHCode": "9132",
+      "DrugName": "CLAFOCARE",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9134",
+      "DrugName": "MERO CARE",
+      "filled": {
+        "Form": "Injectable powder for solution",
+        "ResponsibleParty": "Swiss Parenterals Ltd"
+      }
+    },
+    {
+      "MoPHCode": "9178",
+      "DrugName": "RUCORON",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "9315",
+      "DrugName": "PHENTOLEP INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9358",
+      "DrugName": "PROSPAN COUGH LIQUID",
+      "filled": {
+        "Form": "Liquid"
+      }
+    },
+    {
+      "MoPHCode": "9454",
+      "DrugName": "LIBLAB COUGH SYRUP",
+      "filled": {
+        "Form": "Syrup"
+      }
+    },
+    {
+      "MoPHCode": "9458",
+      "DrugName": "HERCEPTIN",
+      "filled": {
+        "Form": "Injectable concentrated powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "9483",
+      "DrugName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9484",
+      "DrugName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9526",
+      "DrugName": "10% W/V CALCIUM GLUCONATE INJECTION BP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9537",
+      "DrugName": "ASPECTON COUGH SYRUP",
+      "filled": {
+        "Form": "Syrup"
+      }
+    },
+    {
+      "MoPHCode": "9560",
+      "DrugName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9561",
+      "DrugName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9562",
+      "DrugName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9563",
+      "DrugName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9564",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9565",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9584",
+      "DrugName": "SOLUFLEX LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9585",
+      "DrugName": "SOLUFLEX LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9696",
+      "DrugName": "AXONE 1G IM",
+      "filled": {
+        "Form": "Injectable powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "9697",
+      "DrugName": "AXONE 500MG IM",
+      "filled": {
+        "Form": "Injectable powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "9733",
+      "DrugName": "VOMICARE INJECTION BP IM/IV",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9764",
+      "DrugName": "ILUVIEN",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "9784",
+      "DrugName": "SERUFLEX LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9785",
+      "DrugName": "SOLUFLEX MANNITOL 20% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9786",
+      "DrugName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9787",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9788",
+      "DrugName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9789",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9829",
+      "DrugName": "MOXITEC",
+      "filled": {
+        "Presentation": "5ml"
+      }
+    },
+    {
+      "MoPHCode": "9881",
+      "DrugName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9882",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9883",
+      "DrugName": "SERUFLEX MANNITOL 20% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9884",
+      "DrugName": "METHYLPREDNISOLONE ORBUCELL INJ.",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9885",
+      "DrugName": "METHYLPREDNISOLONE ORBUCELL INJ.",
+      "filled": {
+        "Form": "Injectable powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "9887",
+      "DrugName": "PARA-DENK 125 SUPPOS.",
+      "filled": {
+        "ResponsibleParty": "Denk Pharma GmbH & Co, KG"
+      }
+    },
+    {
+      "MoPHCode": "9888",
+      "DrugName": "PARA-DENK 250 SUPPOS.",
+      "filled": {
+        "ResponsibleParty": "Denk Pharma GmbH & Co, KG"
+      }
+    },
+    {
+      "MoPHCode": "9901",
+      "DrugName": "LABETALOL HYDROCHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9954",
+      "DrugName": "SOLUFLEX DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9955",
+      "DrugName": "SERUFLEX DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9956",
+      "DrugName": "SOLUFLEX DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9957",
+      "DrugName": "SERUFLEX DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9958",
+      "DrugName": "SERUFLEX DEXTROSE 5% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9959",
+      "DrugName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9973",
+      "DrugName": "MIACALCIC 200 UI/ACTUATION",
+      "filled": {
+        "Presentation": "1ml"
+      }
+    },
+    {
+      "MoPHCode": "9997",
+      "DrugName": "SERUFLEX LACTATED RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9998",
+      "DrugName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "9999",
+      "DrugName": "SERUFLEX DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10076",
+      "DrugName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10077",
+      "DrugName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10078",
+      "DrugName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10085",
+      "DrugName": "CINNORA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10116",
+      "DrugName": "MYCAMINE",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "10129",
+      "DrugName": "SOLUFLEX RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10130",
+      "DrugName": "SERUFLEX RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10131",
+      "DrugName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10168",
+      "DrugName": "REPARIL GEL-N",
+      "filled": {
+        "Presentation": "40g"
+      }
+    },
+    {
+      "MoPHCode": "10206",
+      "DrugName": "DEXASINA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10236",
+      "DrugName": "DILTIGEL",
+      "filled": {
+        "Presentation": "30g"
+      }
+    },
+    {
+      "MoPHCode": "10275",
+      "DrugName": "ROPIVACAINE B. BRAUN",
+      "filled": {
+        "ResponsibleParty": "B. Braun Melsungen AG"
+      }
+    },
+    {
+      "MoPHCode": "10323",
+      "DrugName": "CINNOPAR",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10325",
+      "DrugName": "STIVANT",
+      "filled": {
+        "Presentation": "1x16ml"
+      }
+    },
+    {
+      "MoPHCode": "10447",
+      "DrugName": "IVERMECTINE BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "10541",
+      "DrugName": "OTEZLA",
+      "filled": {
+        "Presentation": "4x10mg- 4x20mg- 19x30mg"
+      }
+    },
+    {
+      "MoPHCode": "10566",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10567",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10568",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10569",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10570",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10571",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10572",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10573",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10574",
+      "DrugName": "0.45% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10575",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10611",
+      "DrugName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10612",
+      "DrugName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10613",
+      "DrugName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10614",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10615",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10616",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10655",
+      "DrugName": "PANATAXEL",
+      "filled": {
+        "Form": "Injectable concentrated solution"
+      }
+    },
+    {
+      "MoPHCode": "10681",
+      "DrugName": "ALGOMIEL COUGH SYRUP",
+      "filled": {
+        "Form": "Syrup"
+      }
+    },
+    {
+      "MoPHCode": "10748",
+      "DrugName": "PENTHROX INHALER",
+      "filled": {
+        "Form": "Inhalation"
+      }
+    },
+    {
+      "MoPHCode": "10771",
+      "DrugName": "STERILE WATER FOR INJECTION USP",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "10862",
+      "DrugName": "YUPELRI",
+      "filled": {
+        "Form": "Inhalation solution"
+      }
+    },
+    {
+      "MoPHCode": "10886",
+      "DrugName": "PNEUMOSIL (10-VALENT)",
+      "filled": {
+        "Form": "Injectable suspension"
+      }
+    },
+    {
+      "MoPHCode": "10898",
+      "DrugName": "CYVAX",
+      "filled": {
+        "Presentation": "120doses"
+      }
+    },
+    {
+      "MoPHCode": "10915",
+      "DrugName": "RESINCALCIO",
+      "filled": {
+        "ResponsibleParty": "Laboratorios Rubio SA."
+      }
+    },
+    {
+      "MoPHCode": "10917",
+      "DrugName": "CALQUENCE",
+      "filled": {
+        "ResponsibleParty": "AstraZeneca UK Ltd"
+      }
+    },
+    {
+      "MoPHCode": "10929",
+      "DrugName": "LEBACEF",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "10936",
+      "DrugName": "MANNITOL 20% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "10950",
+      "DrugName": "TYPHIBEV TYPHOID CONJUGATED VACCINE (MONOVALENT)",
+      "filled": {
+        "Form": "Injectable suspension"
+      }
+    },
+    {
+      "MoPHCode": "10960",
+      "DrugName": "PACLITAXEL NEAPOLIS",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "10995",
+      "DrugName": "PEMETREXED NEAPOLIS",
+      "filled": {
+        "Form": "Injectable powder"
+      }
+    },
+    {
+      "MoPHCode": "11009",
+      "DrugName": "PEMETREXED NEAPOLIS",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11062",
+      "DrugName": "BENDAFOLIN",
+      "filled": {
+        "Form": "Injectable solution",
+        "Presentation": "1x20ml"
+      }
+    },
+    {
+      "MoPHCode": "11070",
+      "DrugName": "NEXIUM",
+      "filled": {
+        "Form": "Granules, gastroresistant, for suspension"
+      }
+    },
+    {
+      "MoPHCode": "11081",
+      "DrugName": "BBDOL-OR",
+      "filled": {
+        "Form": "Syrup"
+      }
+    },
+    {
+      "MoPHCode": "11129",
+      "DrugName": "UNIDREA",
+      "filled": {
+        "Form": "Capsule, hard"
+      }
+    },
+    {
+      "MoPHCode": "11135",
+      "DrugName": "0.45% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11136",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11137",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11138",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11139",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11140",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11141",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11142",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11143",
+      "DrugName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11144",
+      "DrugName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11145",
+      "DrugName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11146",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11147",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11148",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11149",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11150",
+      "DrugName": "MANNITOL 20% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11151",
+      "DrugName": "STERILE WATER FOR INJECTION USP",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "11168",
+      "DrugName": "VARICELLA VACCINE LIVE",
+      "filled": {
+        "Form": "Injectable suspension"
+      }
+    },
+    {
+      "MoPHCode": "11177",
+      "DrugName": "AZACITIDINE EVER PHARMA",
+      "filled": {
+        "Presentation": "100ml"
+      }
+    },
+    {
+      "MoPHCode": "11397",
+      "DrugName": "MAGNEVIE B6",
+      "filled": {
+        "ATC_Code": "A12CC",
+        "OtherIngredients": "Pyridoxine HCl - 10mg, Magnesium lactate dihydrate - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Opella Healthcare France SAS"
+      }
+    },
+    {
+      "MoPHCode": "11424",
+      "DrugName": "SOLUFLEX POTASSIUM CHLORIDE 40meq/l SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11425",
+      "DrugName": "SOLUFLEX POTASSIUM CHLORIDE 20meq/l SODIUM CHLORIDE 0.9% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11428",
+      "DrugName": "KIDOL-OR",
+      "filled": {
+        "Form": "Elixir"
+      }
+    },
+    {
+      "MoPHCode": "11496",
+      "DrugName": "AZOX 250",
+      "filled": {
+        "ResponsibleParty": "The Jordanian Pharmaceutical Manufacturing Company (JPM)"
+      }
+    },
+    {
+      "MoPHCode": "11520",
+      "DrugName": "HYCAMTIN IV",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "11521",
+      "DrugName": "EBETAXEL",
+      "filled": {
+        "Form": "Injectable concentrated solution"
+      }
+    },
+    {
+      "MoPHCode": "11531",
+      "DrugName": "EPOTEX 4000 BENTA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11542",
+      "DrugName": "DACOGEN",
+      "filled": {
+        "Form": "Injectable lyophilised powder for solution"
+      }
+    },
+    {
+      "MoPHCode": "11613",
+      "DrugName": "GENTAMICINE PANPHARMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11614",
+      "DrugName": "GENTAMICINE PANPHARMA",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11650",
+      "DrugName": "STERILE WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "11663",
+      "DrugName": "MICOTER GYNO OVULE",
+      "filled": {
+        "Form": "Pessary"
+      }
+    },
+    {
+      "MoPHCode": "11696",
+      "DrugName": "α 2% LIDOCAINE HCL USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11710",
+      "DrugName": "OXYCODONE RENAUDIN",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "11832",
+      "DrugName": "MIRENA 20mcg/24h Levonorgestrel",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "11865",
+      "DrugName": "JEVTANA INJECTION",
+      "filled": {
+        "Form": "Injectable dry powder for solution+diluent"
+      }
+    },
+    {
+      "MoPHCode": "11898",
+      "DrugName": "LEVOKEY 500",
+      "filled": {
+        "ResponsibleParty": "Emcure Pharmaceuticals Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11899",
+      "DrugName": "BYANNLI",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "11900",
+      "DrugName": "BYANNLI",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "11901",
+      "DrugName": "APROVEL",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "11902",
+      "DrugName": "APROVEL",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "11903",
+      "DrugName": "CO APROVEL",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "11904",
+      "DrugName": "CO APROVEL",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "11905",
+      "DrugName": "MERIONAL HG",
+      "filled": {
+        "ResponsibleParty": "IBSA Institut Biochimique SA"
+      }
+    },
+    {
+      "MoPHCode": "11906",
+      "DrugName": "LOCOID",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11907",
+      "DrugName": "LOCOID CRELO 0.1%",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11908",
+      "DrugName": "LOCOID",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11909",
+      "DrugName": "LOCOID",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11910",
+      "DrugName": "XEVANEER",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11911",
+      "DrugName": "XEVANEER",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11912",
+      "DrugName": "XEVANEER",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11914",
+      "DrugName": "ZYPREXA VELOTAB",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Registration GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11915",
+      "DrugName": "ZYPREXA",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Registration GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11916",
+      "DrugName": "ZYPREXA",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Registration GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11917",
+      "DrugName": "DIENOSIS",
+      "filled": {
+        "ResponsibleParty": "Naari Pharma Private Limited"
+      }
+    },
+    {
+      "MoPHCode": "11918",
+      "DrugName": "DESARROL",
+      "filled": {
+        "ResponsibleParty": "Faes Farma SA"
+      }
+    },
+    {
+      "MoPHCode": "11919",
+      "DrugName": "TOPOTU",
+      "filled": {
+        "Presentation": "1x4ml",
+        "ResponsibleParty": "Onko Ilac Sanayi Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "11921",
+      "DrugName": "CARPLATU",
+      "filled": {
+        "Presentation": "1x15ml",
+        "ResponsibleParty": "Onko Ilac Sanayi Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "11924",
+      "DrugName": "ANTROLIN",
+      "filled": {
+        "ResponsibleParty": "Neopharmed Gentili SpA"
+      }
+    },
+    {
+      "MoPHCode": "11925",
+      "DrugName": "NIMBEX",
+      "filled": {
+        "ResponsibleParty": "Aspen Pharma Trading Limited"
+      }
+    },
+    {
+      "MoPHCode": "11926",
+      "DrugName": "AMLOR",
+      "filled": {
+        "ResponsibleParty": "Pfizer PFE"
+      }
+    },
+    {
+      "MoPHCode": "11927",
+      "DrugName": "HI DEE",
+      "filled": {
+        "ResponsibleParty": "The United Pharmaceutical Manufacturing Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11928",
+      "DrugName": "FINGOLIMOD ZENTIVA",
+      "filled": {
+        "ResponsibleParty": "Zentiva Pharma UK Limited"
+      }
+    },
+    {
+      "MoPHCode": "11929",
+      "DrugName": "CIPRO",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "11930",
+      "DrugName": "ONDANSETRON MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "11931",
+      "DrugName": "NICARDIPINE MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "11932",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11933",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11934",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11935",
+      "DrugName": "ATORVASTATINE ARROW GENERIQUES",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11936",
+      "DrugName": "ATORVASTATINE ARROW GENERIQUES",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11937",
+      "DrugName": "BETAHISTINE ARROW GENERIQUES",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "11938",
+      "DrugName": "TRONDAMET",
+      "filled": {
+        "ResponsibleParty": "Pharmathen SA"
+      }
+    },
+    {
+      "MoPHCode": "11939",
+      "DrugName": "EVOXIL HELLAS",
+      "filled": {
+        "ResponsibleParty": "Pharmathen SA"
+      }
+    },
+    {
+      "MoPHCode": "11940",
+      "DrugName": "FOSFOKEY",
+      "filled": {
+        "ResponsibleParty": "Lagap SA"
+      }
+    },
+    {
+      "MoPHCode": "11941",
+      "DrugName": "AVITAR 400",
+      "filled": {
+        "ResponsibleParty": "The Jordanian Pharmaceutical Manufacturing & Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11942",
+      "DrugName": "AVITAR 400",
+      "filled": {
+        "ResponsibleParty": "The Jordanian Pharmaceutical Manufacturing & Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "11943",
+      "DrugName": "DERIL",
+      "filled": {
+        "ResponsibleParty": "Lanova Farmaceutici SRL"
+      }
+    },
+    {
+      "MoPHCode": "11944",
+      "DrugName": "SUMAREX",
+      "filled": {
+        "ResponsibleParty": "Jamjoom Pharmaceuticals Co"
+      }
+    },
+    {
+      "MoPHCode": "11945",
+      "DrugName": "OPTILONE",
+      "filled": {
+        "ResponsibleParty": "Jamjoom Pharmaceuticals Co"
+      }
+    },
+    {
+      "MoPHCode": "11947",
+      "DrugName": "AUBAGIO",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "11956",
+      "DrugName": "NORMODEX",
+      "filled": {
+        "ResponsibleParty": "Normon SA"
+      }
+    },
+    {
+      "MoPHCode": "11957",
+      "DrugName": "PARANOR",
+      "filled": {
+        "ResponsibleParty": "Normon SA"
+      }
+    },
+    {
+      "MoPHCode": "11959",
+      "DrugName": "DORIXINA B1B6B12",
+      "filled": {
+        "ResponsibleParty": "Roemmers S.A.I.C.F."
+      }
+    },
+    {
+      "MoPHCode": "11971",
+      "DrugName": "TECENTRIQ",
+      "filled": {
+        "Presentation": "1"
+      }
+    },
+    {
+      "MoPHCode": "11992",
+      "DrugName": "AROX",
+      "filled": {
+        "ResponsibleParty": "Jamjoom Pharmaceuticals Co"
+      }
+    },
+    {
+      "MoPHCode": "11993",
+      "DrugName": "ATACAND PLUS",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11994",
+      "DrugName": "ATACAND",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11995",
+      "DrugName": "ATACAND",
+      "filled": {
+        "ResponsibleParty": "Cheplapharm Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "11996",
+      "DrugName": "ATOR MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "11997",
+      "DrugName": "ATOR MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "11998",
+      "DrugName": "ATOR MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "11999",
+      "DrugName": "PIDOGREL MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12000",
+      "DrugName": "MEROPENEM MEDIS",
+      "filled": {
+        "ResponsibleParty": "Shenzhen Haibin Pharmaceutical Co. Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12001",
+      "DrugName": "BETA-CAL",
+      "filled": {
+        "ResponsibleParty": "Jerash Pharmaceuticals Ltd. Co"
+      }
+    },
+    {
+      "MoPHCode": "12002",
+      "DrugName": "BETA-CAL",
+      "filled": {
+        "ResponsibleParty": "Jerash Pharmaceuticals Ltd. Co"
+      }
+    },
+    {
+      "MoPHCode": "12004",
+      "DrugName": "PAROL CHILDREN",
+      "filled": {
+        "Form": "Elixir"
+      }
+    },
+    {
+      "MoPHCode": "12005",
+      "DrugName": "PAROL INFANTS",
+      "filled": {
+        "Form": "Syrup"
+      }
+    },
+    {
+      "MoPHCode": "12008",
+      "DrugName": "α HYOSCINE BUTYLBROMIDE",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12009",
+      "DrugName": "α ONDANSETRON USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12017",
+      "DrugName": "PALBOMED",
+      "filled": {
+        "ResponsibleParty": "Medicamen Biotech Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12018",
+      "DrugName": "PALBOMED",
+      "filled": {
+        "ResponsibleParty": "Medicamen Biotech Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12019",
+      "DrugName": "MEDIPREX",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12020",
+      "DrugName": "ART",
+      "filled": {
+        "ResponsibleParty": "Ethyx Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12021",
+      "DrugName": "REBLOZYL",
+      "filled": {
+        "ResponsibleParty": "Bristol-Myers Squibb Pharma EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12022",
+      "DrugName": "REBLOZYL",
+      "filled": {
+        "ResponsibleParty": "Bristol-Myers Squibb Pharma EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12023",
+      "DrugName": "ALFA-AMYLASE BGR CONSEIL",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12024",
+      "DrugName": "ALFA-AMYLASE BGR CONSEIL",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12025",
+      "DrugName": "FERAPPLIC",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12026",
+      "DrugName": "PROPIONATE DE FLUTICASONE/ SALMETEROL ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12027",
+      "DrugName": "ESOMEPRAZOLE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12028",
+      "DrugName": "ESOMEPRAZOLE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12029",
+      "DrugName": "NAJAT",
+      "filled": {
+        "ResponsibleParty": "Naari Pharma Private Limited"
+      }
+    },
+    {
+      "MoPHCode": "12030",
+      "DrugName": "ARTINIBSA 4% WITH EPINEPHRINE 1/100000",
+      "filled": {
+        "ResponsibleParty": "Laboratorios Inibsa SA"
+      }
+    },
+    {
+      "MoPHCode": "12031",
+      "DrugName": "SCANDINIBSA",
+      "filled": {
+        "ResponsibleParty": "Laboratorios Inibsa SA"
+      }
+    },
+    {
+      "MoPHCode": "12033",
+      "DrugName": "POLIVY",
+      "filled": {
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12034",
+      "DrugName": "EVOLTU ONKO",
+      "filled": {
+        "Presentation": "1x20ml",
+        "ResponsibleParty": "Onko Ilac Sanayi Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12035",
+      "DrugName": "SPRAVATO",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12036",
+      "DrugName": "DEXAMETHASONE SODIUM PHOSPHATE USP - EIPICO",
+      "filled": {
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12037",
+      "DrugName": "HEDERAL",
+      "filled": {
+        "ResponsibleParty": "Delass Natural Products Company"
+      }
+    },
+    {
+      "MoPHCode": "12038",
+      "DrugName": "EVRYSDI",
+      "filled": {
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12039",
+      "DrugName": "GLUFIX",
+      "filled": {
+        "ResponsibleParty": "Teriak SA"
+      }
+    },
+    {
+      "MoPHCode": "12040",
+      "DrugName": "TRILLERG",
+      "filled": {
+        "ResponsibleParty": "Orchidia Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12041",
+      "DrugName": "TRAVONORM",
+      "filled": {
+        "ResponsibleParty": "Orchidia Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12044",
+      "DrugName": "SITAVITAE PLUS",
+      "filled": {
+        "ResponsibleParty": "Galenicum Health SL"
+      }
+    },
+    {
+      "MoPHCode": "12045",
+      "DrugName": "SITAVITAE PLUS",
+      "filled": {
+        "ResponsibleParty": "Galenicum Health SL"
+      }
+    },
+    {
+      "MoPHCode": "12046",
+      "DrugName": "CIPINTU",
+      "filled": {
+        "ResponsibleParty": "Kocsel Ilac Sanayi ve Ticaret A.S."
+      }
+    },
+    {
+      "MoPHCode": "12047",
+      "DrugName": "CYTU",
+      "filled": {
+        "ResponsibleParty": "Onko Ilac Sanayi Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12048",
+      "DrugName": "5-FROTU",
+      "filled": {
+        "ResponsibleParty": "Onko Ilac Sanayi Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12052",
+      "DrugName": "0.9% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12064",
+      "DrugName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12065",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12066",
+      "DrugName": "LEVIDOR",
+      "filled": {
+        "ResponsibleParty": "Humble Healthcare Limited"
+      }
+    },
+    {
+      "MoPHCode": "12067",
+      "DrugName": "NEOOPRAZOLE",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12068",
+      "DrugName": "VICTEVE",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12069",
+      "DrugName": "SIMVAKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12070",
+      "DrugName": "OSTEODYN VITAMINE D3",
+      "filled": {
+        "ResponsibleParty": "Quimica Montpellier SA (Quimica Montpellier SA is a Bago Group Company)"
+      }
+    },
+    {
+      "MoPHCode": "12071",
+      "DrugName": "ESSIUM",
+      "filled": {
+        "ResponsibleParty": "Polifarma Ilaç San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12072",
+      "DrugName": "POLGYL",
+      "filled": {
+        "ResponsibleParty": "Polifarma Ilaç San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12073",
+      "DrugName": "PEDITRACE",
+      "filled": {
+        "ResponsibleParty": "Fresenius Kabi AB"
+      }
+    },
+    {
+      "MoPHCode": "12074",
+      "DrugName": "ADDAVEN",
+      "filled": {
+        "Presentation": "20x 10ml",
+        "ResponsibleParty": "Fresenius Kabi Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12076",
+      "DrugName": "AERONIDE",
+      "filled": {
+        "ResponsibleParty": "Teriak SA"
+      }
+    },
+    {
+      "MoPHCode": "12077",
+      "DrugName": "AERONIDE",
+      "filled": {
+        "ResponsibleParty": "Teriak SA"
+      }
+    },
+    {
+      "MoPHCode": "12078",
+      "DrugName": "DRYFREE",
+      "filled": {
+        "ResponsibleParty": "Optus Pharmaceutical Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12079",
+      "DrugName": "BISOPROLOL QUIVER LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12080",
+      "DrugName": "BISOPROLOL QUIVER LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12081",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12082",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12083",
+      "DrugName": "METFORMINE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12084",
+      "DrugName": "MUKORAL",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12085",
+      "DrugName": "GAROPRIDE",
+      "filled": {
+        "ResponsibleParty": "EVA Pharma for Pharmaceuticals and Medical Appliances"
+      }
+    },
+    {
+      "MoPHCode": "12086",
+      "DrugName": "DEXATOBRIN",
+      "filled": {
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12087",
+      "DrugName": "SOLEZOL",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12088",
+      "DrugName": "VANCOTEN",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12089",
+      "DrugName": "VLOFINOX",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12090",
+      "DrugName": "PALONAN",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12091",
+      "DrugName": "LENALIDOMIDE STRAGEN",
+      "filled": {
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12092",
+      "DrugName": "LENALIDOMIDE STRAGEN",
+      "filled": {
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12093",
+      "DrugName": "LENALIDOMIDE STRAGEN",
+      "filled": {
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12094",
+      "DrugName": "LENALIDOMIDE STRAGEN",
+      "filled": {
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12095",
+      "DrugName": "XULTOPHY",
+      "filled": {
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12096",
+      "DrugName": "ESOMEPRAZOLE BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12097",
+      "DrugName": "ESOMEPRAZOLE BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12098",
+      "DrugName": "TADALAFIL BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12099",
+      "DrugName": "DIOSMINE BIOGARAN CONSEIL",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12105",
+      "DrugName": "IMMUNOREL",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12106",
+      "DrugName": "IMMUNOREL",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12110",
+      "DrugName": "TOLVAR",
+      "filled": {
+        "ResponsibleParty": "Laboratorios Bago SA"
+      }
+    },
+    {
+      "MoPHCode": "12111",
+      "DrugName": "ABRYSVO",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12112",
+      "DrugName": "FINJUVE",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12113",
+      "DrugName": "NEOSET",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12114",
+      "DrugName": "ZOLMITRIPTAN BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12115",
+      "DrugName": "OXALIPLATINO PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12116",
+      "DrugName": "OXALIPLATINO PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12117",
+      "DrugName": "BLEOCIN",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12118",
+      "DrugName": "IRINOTECAN PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12119",
+      "DrugName": "GEMCITABINE PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12120",
+      "DrugName": "GEMCITABINE PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12121",
+      "DrugName": "WELIREG",
+      "filled": {
+        "ResponsibleParty": "Merck Sharp & Dohme (UK) Limited"
+      }
+    },
+    {
+      "MoPHCode": "12122",
+      "DrugName": "BATRAMYCIN",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12123",
+      "DrugName": "MEDIMOX-CV",
+      "filled": {
+        "ResponsibleParty": "Medicef Pharma"
+      }
+    },
+    {
+      "MoPHCode": "12124",
+      "DrugName": "VITA-FERIN C",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12125",
+      "DrugName": "ASPRIVIT",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12126",
+      "DrugName": "DEGRA",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12127",
+      "DrugName": "7.5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12128",
+      "DrugName": "5% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12133",
+      "DrugName": "GANVIR",
+      "filled": {
+        "ResponsibleParty": "Orchidia Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12134",
+      "DrugName": "TEGADIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12135",
+      "DrugName": "CARIBAN",
+      "filled": {
+        "ResponsibleParty": "Italfarmaco SA"
+      }
+    },
+    {
+      "MoPHCode": "12136",
+      "DrugName": "ADEX",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12137",
+      "DrugName": "ATOZET",
+      "filled": {
+        "ResponsibleParty": "N.V. Organon"
+      }
+    },
+    {
+      "MoPHCode": "12138",
+      "DrugName": "ATOZET",
+      "filled": {
+        "ResponsibleParty": "N.V. Organon"
+      }
+    },
+    {
+      "MoPHCode": "12139",
+      "DrugName": "ATOZET",
+      "filled": {
+        "ResponsibleParty": "N.V. Organon"
+      }
+    },
+    {
+      "MoPHCode": "12140",
+      "DrugName": "XIMACOL",
+      "filled": {
+        "ResponsibleParty": "SAJA- Saudi Arabian Japanese Pharmaceutical Co"
+      }
+    },
+    {
+      "MoPHCode": "12141",
+      "DrugName": "TAFLUPRO",
+      "filled": {
+        "ResponsibleParty": "Orchidia Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12142",
+      "DrugName": "NOSTIFIX",
+      "filled": {
+        "ResponsibleParty": "Jazeera Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12143",
+      "DrugName": "NOSTIFIX",
+      "filled": {
+        "ResponsibleParty": "Jazeera Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12145",
+      "DrugName": "TERMINUS",
+      "filled": {
+        "ResponsibleParty": "Recordati Ilac San. ve Tic. A.S"
+      }
+    },
+    {
+      "MoPHCode": "12146",
+      "DrugName": "TOBRIN",
+      "filled": {
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12147",
+      "DrugName": "DEPOJOY",
+      "filled": {
+        "ResponsibleParty": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      }
+    },
+    {
+      "MoPHCode": "12148",
+      "DrugName": "DEPOJOY",
+      "filled": {
+        "ResponsibleParty": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      }
+    },
+    {
+      "MoPHCode": "12150",
+      "DrugName": "RYBREVANT",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12151",
+      "DrugName": "TECVAYLI",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12152",
+      "DrugName": "TECVAYLI",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12153",
+      "DrugName": "PLIBADEX",
+      "filled": {
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12154",
+      "DrugName": "PLIBADEX",
+      "filled": {
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12155",
+      "DrugName": "TEROPROS",
+      "filled": {
+        "ResponsibleParty": "Sandoz Pharmaceuticals AG"
+      }
+    },
+    {
+      "MoPHCode": "12156",
+      "DrugName": "FULVESTRANT ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12157",
+      "DrugName": "α METOCLOPRAMIDE INJECTION USP",
+      "filled": {
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12158",
+      "DrugName": "STELARA",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12159",
+      "DrugName": "STELARA",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12160",
+      "DrugName": "HYRIMOZ",
+      "filled": {
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12161",
+      "DrugName": "HYRIMOZ",
+      "filled": {
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12162",
+      "DrugName": "EYLEA",
+      "filled": {
+        "ResponsibleParty": "Bayer AG"
+      }
+    },
+    {
+      "MoPHCode": "12163",
+      "DrugName": "α 1% LIDOCAINE HCL USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12166",
+      "DrugName": "XELJANZ XR",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12167",
+      "DrugName": "EPANUTIN",
+      "filled": {
+        "ResponsibleParty": "Viatris AB"
+      }
+    },
+    {
+      "MoPHCode": "12168",
+      "DrugName": "LYRICA",
+      "filled": {
+        "ResponsibleParty": "Upjohn US 2 LLC"
+      }
+    },
+    {
+      "MoPHCode": "12169",
+      "DrugName": "LYRICA",
+      "filled": {
+        "ResponsibleParty": "Upjohn US 2 LLC"
+      }
+    },
+    {
+      "MoPHCode": "12170",
+      "DrugName": "LYRICA",
+      "filled": {
+        "ResponsibleParty": "Upjohn US 2 LLC"
+      }
+    },
+    {
+      "MoPHCode": "12171",
+      "DrugName": "ECINQ",
+      "filled": {
+        "ResponsibleParty": "Aspen Healthcare Malta Limited"
+      }
+    },
+    {
+      "MoPHCode": "12172",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12173",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12174",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12175",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12176",
+      "DrugName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12177",
+      "DrugName": "MANNITOL 20% INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12178",
+      "DrugName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12179",
+      "DrugName": "0.45% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12180",
+      "DrugName": "10% DEXTROSE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12181",
+      "DrugName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12182",
+      "DrugName": "0.45% SODIUM CHLORIDE INJECTION USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12183",
+      "DrugName": "ALBUREL HUMAN ALBUMIN BP",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12184",
+      "DrugName": "ALBUREL HUMAN ALBUMIN BP",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12185",
+      "DrugName": "COLUMVI",
+      "filled": {
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12186",
+      "DrugName": "COLUMVI",
+      "filled": {
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12191",
+      "DrugName": "BIOGEST",
+      "filled": {
+        "ResponsibleParty": "Marcyrl Pharmaceuticals Industries (MPI)"
+      }
+    },
+    {
+      "MoPHCode": "12192",
+      "DrugName": "TERMINUS",
+      "filled": {
+        "ResponsibleParty": "Recordati Ilac San. ve Tic. A.S"
+      }
+    },
+    {
+      "MoPHCode": "12193",
+      "DrugName": "ORLISTAT",
+      "filled": {
+        "ResponsibleParty": "October Pharma SAE"
+      }
+    },
+    {
+      "MoPHCode": "12194",
+      "DrugName": "ILFLOX",
+      "filled": {
+        "ResponsibleParty": "Ilko Ilac San. ve Tic. A.S"
+      }
+    },
+    {
+      "MoPHCode": "12195",
+      "DrugName": "CEFPROZ",
+      "filled": {
+        "ResponsibleParty": "Medpharma Pharma and Chem Ind's LLC"
+      }
+    },
+    {
+      "MoPHCode": "12196",
+      "DrugName": "OLOHISTINE",
+      "filled": {
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12197",
+      "DrugName": "MATURUS",
+      "filled": {
+        "ResponsibleParty": "Bioprofarma Bago SA"
+      }
+    },
+    {
+      "MoPHCode": "12198",
+      "DrugName": "ARDBEG 80MG ADULTS",
+      "filled": {
+        "ResponsibleParty": "Lanova Farmaceutici SRL"
+      }
+    },
+    {
+      "MoPHCode": "12199",
+      "DrugName": "NEO-PAN",
+      "filled": {
+        "ResponsibleParty": "Medochemie Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12200",
+      "DrugName": "IMUKIN",
+      "filled": {
+        "ResponsibleParty": "Clinigen Healthcare Limited"
+      }
+    },
+    {
+      "MoPHCode": "12201",
+      "DrugName": "PRILA",
+      "filled": {
+        "ResponsibleParty": "Middle East Pharmaceutical Industries- Avalon Pharma"
+      }
+    },
+    {
+      "MoPHCode": "12202",
+      "DrugName": "SPRAVATO",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12203",
+      "DrugName": "ALPHAGAN P",
+      "filled": {
+        "ResponsibleParty": "Abbvie Inc"
+      }
+    },
+    {
+      "MoPHCode": "12204",
+      "DrugName": "TAXOTERE",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "12205",
+      "DrugName": "TAXOTERE",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "12206",
+      "DrugName": "RILUTEK",
+      "filled": {
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "12208",
+      "DrugName": "LEVIOSA",
+      "filled": {
+        "Presentation": "5ml",
+        "ResponsibleParty": "NTC Srl"
+      }
+    },
+    {
+      "MoPHCode": "12209",
+      "DrugName": "MELATONINE ARROW LP",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12210",
+      "DrugName": "OXOMEMAZINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12211",
+      "DrugName": "OXOMEMAZINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12212",
+      "DrugName": "INFLACAM",
+      "filled": {
+        "ResponsibleParty": "Arab Company for Pharmaceuticals and Medicinal Plant (Mepaco-Medifood)"
+      }
+    },
+    {
+      "MoPHCode": "12213",
+      "DrugName": "ALBUKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12214",
+      "DrugName": "DOXORUBICINA PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12215",
+      "DrugName": "BUDENA",
+      "filled": {
+        "ResponsibleParty": "Laboratorio Aldo-Union SL"
+      }
+    },
+    {
+      "MoPHCode": "12216",
+      "DrugName": "IMATINIB PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12217",
+      "DrugName": "IMATINIB PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12218",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12219",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12220",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12221",
+      "DrugName": "CURACNE",
+      "filled": {
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12223",
+      "DrugName": "ARATRO",
+      "filled": {
+        "ResponsibleParty": "Arafarma Group SA"
+      }
+    },
+    {
+      "MoPHCode": "12224",
+      "DrugName": "ARATRO",
+      "filled": {
+        "ResponsibleParty": "Arafarma Group SA"
+      }
+    },
+    {
+      "MoPHCode": "12225",
+      "DrugName": "ARATRO",
+      "filled": {
+        "ResponsibleParty": "Arafarma Group SA"
+      }
+    },
+    {
+      "MoPHCode": "12226",
+      "DrugName": "TALVEY",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12227",
+      "DrugName": "TALVEY",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12228",
+      "DrugName": "CHEMACIN",
+      "filled": {
+        "ResponsibleParty": "Laboratorio Farmaceutico C.T S.r.l."
+      }
+    },
+    {
+      "MoPHCode": "12229",
+      "DrugName": "NIZORTAN",
+      "filled": {
+        "ResponsibleParty": "Tabuk Pharmaceutical Manufacturing Company"
+      }
+    },
+    {
+      "MoPHCode": "12230",
+      "DrugName": "NIZORTAN",
+      "filled": {
+        "ResponsibleParty": "Tabuk Pharmaceutical Manufacturing Company"
+      }
+    },
+    {
+      "MoPHCode": "12231",
+      "DrugName": "LIDONOSTRUM",
+      "filled": {
+        "ResponsibleParty": "Sidefarma - Sociedade Industrial de Expansao Farmaceutica SA"
+      }
+    },
+    {
+      "MoPHCode": "12232",
+      "DrugName": "ORBACTIV",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12233",
+      "DrugName": "AKEEGA",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12234",
+      "DrugName": "AKEEGA",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12235",
+      "DrugName": "LIDOCAINE AGUETTANT PRESERVATIVE FREE",
+      "filled": {
+        "ResponsibleParty": "Aguettant"
+      }
+    },
+    {
+      "MoPHCode": "12236",
+      "DrugName": "LIDOCAINE HYDROCHLORIDE 1%",
+      "filled": {
+        "ResponsibleParty": "Tabuk Pharmaceutical Manufacturing Company"
+      }
+    },
+    {
+      "MoPHCode": "12237",
+      "DrugName": "ZERSA",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12238",
+      "DrugName": "AMOKLAVIN BID",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12239",
+      "DrugName": "INHALEX",
+      "filled": {
+        "ResponsibleParty": "EVA Pharma for Pharmaceuticals and Medical Appliances"
+      }
+    },
+    {
+      "MoPHCode": "12240",
+      "DrugName": "SURGAM",
+      "filled": {
+        "ResponsibleParty": "Fidia Pharma UK Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12241",
+      "DrugName": "PEGASYS",
+      "filled": {
+        "ResponsibleParty": "Pharmaand GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12242",
+      "DrugName": "IMAREM",
+      "filled": {
+        "ResponsibleParty": "Remedica Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12243",
+      "DrugName": "BRADIREM",
+      "filled": {
+        "ResponsibleParty": "Remedica Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12244",
+      "DrugName": "BRADIREM",
+      "filled": {
+        "ResponsibleParty": "Remedica Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12245",
+      "DrugName": "GAVISCON PEPPERMINT LIQUID",
+      "filled": {
+        "ResponsibleParty": "Reckitt Benckiser Healthcare (UK) Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12246",
+      "DrugName": "ERTAPENEM ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12247",
+      "DrugName": "RELANCIUM",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12250",
+      "DrugName": "MEKTOVI",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12251",
+      "DrugName": "BRAFTOVI",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12252",
+      "DrugName": "BRAFTOVI",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12254",
+      "DrugName": "KERENDIA",
+      "filled": {
+        "ResponsibleParty": "Bayer AG"
+      }
+    },
+    {
+      "MoPHCode": "12255",
+      "DrugName": "KERENDIA",
+      "filled": {
+        "ResponsibleParty": "Bayer AG"
+      }
+    },
+    {
+      "MoPHCode": "12256",
+      "DrugName": "JAMP PILOCARPINE",
+      "filled": {
+        "ResponsibleParty": "Jamp Pharma Corporation"
+      }
+    },
+    {
+      "MoPHCode": "12257",
+      "DrugName": "AYECLAV-T",
+      "filled": {
+        "ResponsibleParty": "Humble Healthcare Limited"
+      }
+    },
+    {
+      "MoPHCode": "12258",
+      "DrugName": "METOCLOPRAMIDE",
+      "filled": {
+        "ResponsibleParty": "Savorite Pharmaceuticals Pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12259",
+      "DrugName": "TIGECYCLINE /ANFARM",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12260",
+      "DrugName": "MONODOKS",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12261",
+      "DrugName": "AMOKLAVIN BID 400/57MG FORTE",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12262",
+      "DrugName": "LIDONOSTRUM BOMBA-SPRAY",
+      "filled": {
+        "ResponsibleParty": "Sidefarma - Sociedade Industrial de Expansao Farmaceutica SA"
+      }
+    },
+    {
+      "MoPHCode": "12263",
+      "DrugName": "FARCOTILIUM",
+      "filled": {
+        "ResponsibleParty": "Pharco Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12264",
+      "DrugName": "DECALCIT",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12266",
+      "DrugName": "FLUCTOBAR",
+      "filled": {
+        "ResponsibleParty": "Global Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12267",
+      "DrugName": "GC FLU QUADRIVALENT INFLUENZA VACCINE",
+      "filled": {
+        "ResponsibleParty": "GC Biopharma Corp"
+      }
+    },
+    {
+      "MoPHCode": "12268",
+      "DrugName": "YELLOW FEVER VACCINE, LIVE, FREEZE DRIED",
+      "filled": {
+        "ResponsibleParty": "Federal State Autonomous Scientific Institution \"Chumakov Federal Scientific Center for Research and Development of Immune"
+      }
+    },
+    {
+      "MoPHCode": "12269",
+      "DrugName": "LENALIDOMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12270",
+      "DrugName": "LENALIDOMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12271",
+      "DrugName": "LENALIDOMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12272",
+      "DrugName": "LENALIDOMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12273",
+      "DrugName": "ANASTROZOLE ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12274",
+      "DrugName": "AMOKLAVIN ES",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12275",
+      "DrugName": "ANCAVAZ",
+      "filled": {
+        "ResponsibleParty": "Zeta Pharma for Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12276",
+      "DrugName": "ANCAVAZ",
+      "filled": {
+        "ResponsibleParty": "Zeta Pharma for Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12277",
+      "DrugName": "INFLIXIREL",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12278",
+      "DrugName": "PERTUVIA",
+      "filled": {
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12279",
+      "DrugName": "USTEKIREL",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12280",
+      "DrugName": "USTEKIREL",
+      "filled": {
+        "ResponsibleParty": "Reliance Life Sciences pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12281",
+      "DrugName": "CAPECITABINE SHILPA",
+      "filled": {
+        "ResponsibleParty": "Shilpa Medicare Limited, India"
+      }
+    },
+    {
+      "MoPHCode": "12282",
+      "DrugName": "IMATINIB SHILPA MESYLATE",
+      "filled": {
+        "ResponsibleParty": "Shilpa Medicare Limited, India"
+      }
+    },
+    {
+      "MoPHCode": "12283",
+      "DrugName": "IMATINIB SHILPA MESYLATE",
+      "filled": {
+        "ResponsibleParty": "Shilpa Medicare Limited, India"
+      }
+    },
+    {
+      "MoPHCode": "12284",
+      "DrugName": "BORTEZOMIB SHILPA",
+      "filled": {
+        "ResponsibleParty": "Shilpa Medicare Limited, India"
+      }
+    },
+    {
+      "MoPHCode": "12285",
+      "DrugName": "AZACITIDINE SHILPA",
+      "filled": {
+        "Form": "Injectable powder",
+        "ResponsibleParty": "Shilpa Medicare Limited, India"
+      }
+    },
+    {
+      "MoPHCode": "12286",
+      "DrugName": "PECTUNA",
+      "filled": {
+        "ResponsibleParty": "Cinnagen Co"
+      }
+    },
+    {
+      "MoPHCode": "12287",
+      "DrugName": "RONKOTOL",
+      "filled": {
+        "ResponsibleParty": "Vem Ilac San. Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12288",
+      "DrugName": "JOFLAM",
+      "filled": {
+        "ResponsibleParty": "Jordan River Pharmaceutical Industries LLC"
+      }
+    },
+    {
+      "MoPHCode": "12289",
+      "DrugName": "NIFUNAL",
+      "filled": {
+        "ResponsibleParty": "Amriya Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12290",
+      "DrugName": "VOTRIENT",
+      "filled": {
+        "ResponsibleParty": "Novartis Pharma AG"
+      }
+    },
+    {
+      "MoPHCode": "12291",
+      "DrugName": "VOTRIENT",
+      "filled": {
+        "ResponsibleParty": "Novartis Pharma AG"
+      }
+    },
+    {
+      "MoPHCode": "12292",
+      "DrugName": "PIPERACILLIN/TAZOBACTAM SANDOZ",
+      "filled": {
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12293",
+      "DrugName": "NASONEX",
+      "filled": {
+        "ResponsibleParty": "Organon Pharma (UK) Limited"
+      }
+    },
+    {
+      "MoPHCode": "12294",
+      "DrugName": "IMURAN",
+      "filled": {
+        "ResponsibleParty": "Aspen Pharma Trading Limited"
+      }
+    },
+    {
+      "MoPHCode": "12295",
+      "DrugName": "PONVORY",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12296",
+      "DrugName": "PONVORY",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12297",
+      "DrugName": "DAPALOZIN",
+      "filled": {
+        "ResponsibleParty": "Vivozon Pharmaceutical Co, Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12298",
+      "DrugName": "TIVICAY",
+      "filled": {
+        "ResponsibleParty": "ViiV Healthcare UK Limited"
+      }
+    },
+    {
+      "MoPHCode": "12299",
+      "DrugName": "FULPHILA",
+      "filled": {
+        "ResponsibleParty": "Biosimilar Collaborations Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12300",
+      "DrugName": "TEMOZOLOMIDE PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12301",
+      "DrugName": "TEMOZOLOMIDE PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12302",
+      "DrugName": "SITAVITAE",
+      "filled": {
+        "ResponsibleParty": "Galenicum Vitae Peru SAC"
+      }
+    },
+    {
+      "MoPHCode": "12303",
+      "DrugName": "AEROFOR",
+      "filled": {
+        "ResponsibleParty": "Teriak SA"
+      }
+    },
+    {
+      "MoPHCode": "12304",
+      "DrugName": "AEROFOR",
+      "filled": {
+        "ResponsibleParty": "Teriak SA"
+      }
+    },
+    {
+      "MoPHCode": "12306",
+      "DrugName": "FULSAC",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12307",
+      "DrugName": "MUKORAL",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12308",
+      "DrugName": "VONECIP",
+      "filled": {
+        "ResponsibleParty": "Polifarma Ilaç San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12309",
+      "DrugName": "LEVOXIPOLIN",
+      "filled": {
+        "ResponsibleParty": "Polifarma Ilaç San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12310",
+      "DrugName": "RUXOTOP",
+      "filled": {
+        "ResponsibleParty": "Marcyrl Pharmaceuticals Industries (MPI)"
+      }
+    },
+    {
+      "MoPHCode": "12311",
+      "DrugName": "GASTRAZOLE",
+      "filled": {
+        "ResponsibleParty": "European Egyptian Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12312",
+      "DrugName": "VITA-GERIN",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12313",
+      "DrugName": "FLUOXETINA-Key",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12314",
+      "DrugName": "OCREVUS",
+      "filled": {
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12315",
+      "DrugName": "ERVALI",
+      "filled": {
+        "ResponsibleParty": "Sandoz Pharmaceuticals DD"
+      }
+    },
+    {
+      "MoPHCode": "12316",
+      "DrugName": "ERVALI",
+      "filled": {
+        "ResponsibleParty": "Sandoz Pharmaceuticals DD"
+      }
+    },
+    {
+      "MoPHCode": "12317",
+      "DrugName": "ERVALI",
+      "filled": {
+        "ResponsibleParty": "Sandoz Pharmaceuticals DD"
+      }
+    },
+    {
+      "MoPHCode": "12318",
+      "DrugName": "ERVALI",
+      "filled": {
+        "ResponsibleParty": "Sandoz Pharmaceuticals DD"
+      }
+    },
+    {
+      "MoPHCode": "12319",
+      "DrugName": "SKENAN LP",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12320",
+      "DrugName": "SKENAN LP",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12321",
+      "DrugName": "SKENAN LP",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12322",
+      "DrugName": "ACTISKENAN",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12323",
+      "DrugName": "ACTISKENAN",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12324",
+      "DrugName": "ACTISKENAN",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12325",
+      "DrugName": "ACTISKENAN",
+      "filled": {
+        "ResponsibleParty": "Ethypharm"
+      }
+    },
+    {
+      "MoPHCode": "12326",
+      "DrugName": "NIPIDOL",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12327",
+      "DrugName": "NIPIDOL",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12328",
+      "DrugName": "TEGLUTIK",
+      "filled": {
+        "ResponsibleParty": "Italfarmaco SA"
+      }
+    },
+    {
+      "MoPHCode": "12329",
+      "DrugName": "ZOLICIN",
+      "filled": {
+        "ResponsibleParty": "Tabuk Pharmaceutical Manufacturing Company"
+      }
+    },
+    {
+      "MoPHCode": "12330",
+      "DrugName": "DAKTARIN ORAL",
+      "filled": {
+        "ResponsibleParty": "Johnson & Johnson Consumer NV/SA"
+      }
+    },
+    {
+      "MoPHCode": "12331",
+      "DrugName": "XALAPROST",
+      "filled": {
+        "ResponsibleParty": "Cooper SA Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12332",
+      "DrugName": "EZ-ONE",
+      "filled": {
+        "ResponsibleParty": "Naari Pharma Private Limited"
+      }
+    },
+    {
+      "MoPHCode": "12333",
+      "DrugName": "DOCETAXEL PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12334",
+      "DrugName": "DOCETAXEL PHARMINICIO",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12337",
+      "DrugName": "JOLITE FORTE CREAM",
+      "filled": {
+        "ResponsibleParty": "Jerash Pharmaceuticals Ltd. Co"
+      }
+    },
+    {
+      "MoPHCode": "12338",
+      "DrugName": "TRECZIMUS",
+      "filled": {
+        "ResponsibleParty": "Marcyrl Pharmaceuticals Industries (MPI)"
+      }
+    },
+    {
+      "MoPHCode": "12339",
+      "DrugName": "MUKOZERO",
+      "filled": {
+        "ResponsibleParty": "Humanis Saglik Anonim Sirketi"
+      }
+    },
+    {
+      "MoPHCode": "12340",
+      "DrugName": "KREVAL FORTE",
+      "filled": {
+        "ResponsibleParty": "Recordati Ilac San. ve Tic. A.S"
+      }
+    },
+    {
+      "MoPHCode": "12341",
+      "DrugName": "NILORA",
+      "filled": {
+        "ResponsibleParty": "Shilpa Medicare Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12342",
+      "DrugName": "TREPADIO",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12343",
+      "DrugName": "TREPADIO",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12344",
+      "DrugName": "TREPADIO",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12345",
+      "DrugName": "TREPADIO",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12346",
+      "DrugName": "TREPADIO",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12348",
+      "DrugName": "PLERIXAFOR ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12349",
+      "DrugName": "TRABECTEDIN EVER PHARMA",
+      "filled": {
+        "ResponsibleParty": "Ever Valinject GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12350",
+      "DrugName": "LYXIA",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12351",
+      "DrugName": "LYXIA",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12352",
+      "DrugName": "ENDOXAN",
+      "filled": {
+        "ResponsibleParty": "Baxter Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12353",
+      "DrugName": "UROMITEXAN",
+      "filled": {
+        "ResponsibleParty": "Baxter Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12354",
+      "DrugName": "HOLOXAN",
+      "filled": {
+        "ResponsibleParty": "Baxter Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12355",
+      "DrugName": "APO-ELTROMBOPAG",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12356",
+      "DrugName": "APO-ELTROMBOPAG",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12357",
+      "DrugName": "APO-LENALIDOMIDE",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12358",
+      "DrugName": "APO-LENALIDOMIDE",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12359",
+      "DrugName": "APO-LENALIDOMIDE",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12360",
+      "DrugName": "APO-LENALIDOMIDE",
+      "filled": {
+        "ResponsibleParty": "Apotex Inc"
+      }
+    },
+    {
+      "MoPHCode": "12367",
+      "DrugName": "NEWBUTIN SR",
+      "filled": {
+        "ResponsibleParty": "Jubilant Hollisterstier LLC (JHS), USA/ OsoBio Pharmaceutical Manufacturing LLC (OsoBio), USA"
+      }
+    },
+    {
+      "MoPHCode": "12368",
+      "DrugName": "OPDUALAG",
+      "filled": {
+        "ResponsibleParty": "Bristol-Myers Squibb Company"
+      }
+    },
+    {
+      "MoPHCode": "12369",
+      "DrugName": "ONDAKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12370",
+      "DrugName": "DOXYKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12371",
+      "DrugName": "MUREX",
+      "filled": {
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12372",
+      "DrugName": "DERMOVATE",
+      "filled": {
+        "ResponsibleParty": "Glaxo Wellcome UK Limited"
+      }
+    },
+    {
+      "MoPHCode": "12373",
+      "DrugName": "DERMOVATE",
+      "filled": {
+        "ResponsibleParty": "Glaxo Wellcome UK Limited"
+      }
+    },
+    {
+      "MoPHCode": "12374",
+      "DrugName": "TAKHZYRO",
+      "filled": {
+        "ResponsibleParty": "Takeda Pharmaceuticals International AG"
+      }
+    },
+    {
+      "MoPHCode": "12375",
+      "DrugName": "SUKUBA",
+      "filled": {
+        "ResponsibleParty": "Bioprofarma Bago SA"
+      }
+    },
+    {
+      "MoPHCode": "12376",
+      "DrugName": "CEPROTIN",
+      "filled": {
+        "ResponsibleParty": "Takeda Manufacturing Austria AG"
+      }
+    },
+    {
+      "MoPHCode": "12377",
+      "DrugName": "CEPROTIN",
+      "filled": {
+        "ResponsibleParty": "Takeda Manufacturing Austria AG"
+      }
+    },
+    {
+      "MoPHCode": "12378",
+      "DrugName": "TIOPRAM",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12379",
+      "DrugName": "IRBESARTAN ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12380",
+      "DrugName": "IRBESARTAN ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12381",
+      "DrugName": "PILOCIN",
+      "filled": {
+        "ResponsibleParty": "Jamjoom Pharmaceuticals Co"
+      }
+    },
+    {
+      "MoPHCode": "12382",
+      "DrugName": "DIVINUSMET XR",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12383",
+      "DrugName": "ROLIP",
+      "filled": {
+        "ResponsibleParty": "Tabuk Pharmaceutical Manufacturing Company"
+      }
+    },
+    {
+      "MoPHCode": "12384",
+      "DrugName": "TAVANIC",
+      "filled": {
+        "ResponsibleParty": "Sanofi Aventis Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12385",
+      "DrugName": "DUAZONE",
+      "filled": {
+        "Form": "Metered dose spray",
+        "ResponsibleParty": "Maya Biotech Pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12388",
+      "DrugName": "NGENLA",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12389",
+      "DrugName": "NGENLA",
+      "filled": {
+        "ResponsibleParty": "Pfizer Europe MA EEIG"
+      }
+    },
+    {
+      "MoPHCode": "12391",
+      "DrugName": "OLANZAPINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12392",
+      "DrugName": "OLANZAPINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12393",
+      "DrugName": "RIZATRIPTAN ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12394",
+      "DrugName": "PIPERACILLINE/ TAZOBACTAM ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12395",
+      "DrugName": "BENDANUSTINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12396",
+      "DrugName": "BENDANUSTINE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12397",
+      "DrugName": "LEVETIRACETAM ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12398",
+      "DrugName": "NEBIVOLOL ARROW LAB",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12399",
+      "DrugName": "LACOSAMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12400",
+      "DrugName": "LACOSAMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12401",
+      "DrugName": "LACOSAMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12402",
+      "DrugName": "LACOSAMIDE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12403",
+      "DrugName": "ALFUZOSINE ARROW LP",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12404",
+      "DrugName": "DEXAMETHASONE NOVUMGEN",
+      "filled": {
+        "ResponsibleParty": "Novumgen Limited"
+      }
+    },
+    {
+      "MoPHCode": "12405",
+      "DrugName": "HISCOPINE (HYOSCINE BUTYL BROMIDE INJECTION)",
+      "filled": {
+        "Presentation": "100",
+        "ResponsibleParty": "Indus Pharma Pvt. Limited"
+      }
+    },
+    {
+      "MoPHCode": "12406",
+      "DrugName": "HUMAXONE (CEFTRIAXONE FOR INJECTION USP 1000MG)",
+      "filled": {
+        "Form": "Injectable powder for solution+diluent",
+        "ResponsibleParty": "Humble Healthcare Limited"
+      }
+    },
+    {
+      "MoPHCode": "12407",
+      "DrugName": "LABIXTEN",
+      "filled": {
+        "ResponsibleParty": "Faes Farma SA"
+      }
+    },
+    {
+      "MoPHCode": "12408",
+      "DrugName": "NICTUR",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12409",
+      "DrugName": "FLUCOKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12410",
+      "DrugName": "HEXASIIL VACCINE (DIPHTERIA, TETANUS, PERTUSSIS, HEPATITIS B, POLIO, HAEMOPHILUS INFLUENZA TYPE B)",
+      "filled": {
+        "ResponsibleParty": "Serum Institute of India Pvt Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12411",
+      "DrugName": "AZELTIN",
+      "filled": {
+        "ResponsibleParty": "Biofarma Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12412",
+      "DrugName": "NIFUNAL",
+      "filled": {
+        "ResponsibleParty": "Amriya Pharmaceutical Industries"
+      }
+    },
+    {
+      "MoPHCode": "12413",
+      "DrugName": "PROGESING",
+      "filled": {
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12414",
+      "DrugName": "SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12415",
+      "DrugName": "SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12417",
+      "DrugName": "PROTREX",
+      "filled": {
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12418",
+      "DrugName": "PROTREX",
+      "filled": {
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12424",
+      "DrugName": "NEXICURE",
+      "filled": {
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12433",
+      "DrugName": "NEXOREST",
+      "filled": {
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12435",
+      "DrugName": "SOLUFLEX RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12436",
+      "DrugName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12437",
+      "DrugName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+      "filled": {
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12438",
+      "DrugName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+      "filled": {
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12439",
+      "DrugName": "SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution",
+        "ResponsibleParty": "Serum Products"
+      }
+    },
+    {
+      "MoPHCode": "12440",
+      "DrugName": "DILO MOUTHWASH",
+      "filled": {
+        "ResponsibleParty": "Mediphar Laboratories"
+      }
+    },
+    {
+      "MoPHCode": "12441",
+      "DrugName": "ROLITAC XR",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12442",
+      "DrugName": "ROLITAC XR",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12443",
+      "DrugName": "ROLITAC XR",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12444",
+      "DrugName": "ROLITAC XR",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12445",
+      "DrugName": "SPRAVATO",
+      "filled": {
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12446",
+      "DrugName": "MYFORTIC",
+      "filled": {
+        "ResponsibleParty": "Novartis Pharma AG"
+      }
+    },
+    {
+      "MoPHCode": "12447",
+      "DrugName": "LEUZADA",
+      "filled": {
+        "ResponsibleParty": "Hexal AG"
+      }
+    },
+    {
+      "MoPHCode": "12448",
+      "DrugName": "CABOTAX",
+      "filled": {
+        "ResponsibleParty": "Nano Fanavaran Darouei Alvand Co"
+      }
+    },
+    {
+      "MoPHCode": "12449",
+      "DrugName": "CYBRIN",
+      "filled": {
+        "ResponsibleParty": "Nano Fanavaran Darouei Alvand Co"
+      }
+    },
+    {
+      "MoPHCode": "12450",
+      "DrugName": "VABOMERE",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12451",
+      "DrugName": "PARASWISS",
+      "filled": {
+        "ResponsibleParty": "Swiss Parenterals Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12452",
+      "DrugName": "CEFAZOLINE LDP-LABORATORIOS TORLAN",
+      "filled": {
+        "ResponsibleParty": "LDP Laboratorios Torlan, SA"
+      }
+    },
+    {
+      "MoPHCode": "12453",
+      "DrugName": "DEXAMETHASONE PANPHARMA",
+      "filled": {
+        "ResponsibleParty": "Panpharma"
+      }
+    },
+    {
+      "MoPHCode": "12454",
+      "DrugName": "CEFTRIAXONE LDP-LABORATORIOS TORLAN",
+      "filled": {
+        "ResponsibleParty": "LDP Laboratorios Torlan, SA"
+      }
+    },
+    {
+      "MoPHCode": "12455",
+      "DrugName": "UROSAT",
+      "filled": {
+        "ResponsibleParty": "Pygen LDA"
+      }
+    },
+    {
+      "MoPHCode": "12456",
+      "DrugName": "MERIONAL HG",
+      "filled": {
+        "ResponsibleParty": "IBSA Institut Biochimique SA"
+      }
+    },
+    {
+      "MoPHCode": "12457",
+      "DrugName": "CABERGOL",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12458",
+      "DrugName": "PREGABALINE MEDIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12459",
+      "DrugName": "VIADIS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12460",
+      "DrugName": "FLUKAS",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12461",
+      "DrugName": "CIPRO MEDIS 500",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12462",
+      "DrugName": "PIROXEN DISPERSIBLE",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12463",
+      "DrugName": "DEXAMETHASONE SODIUM PHOSPHATE INJECTION USP",
+      "filled": {
+        "ResponsibleParty": "Indus Pharma Pvt. Limited"
+      }
+    },
+    {
+      "MoPHCode": "12464",
+      "DrugName": "LAMISIL",
+      "filled": {
+        "ResponsibleParty": "Karo Healthcare AB"
+      }
+    },
+    {
+      "MoPHCode": "12466",
+      "DrugName": "REFCON DOUBLE ACTION",
+      "filled": {
+        "ResponsibleParty": "Vefa Ilac San. ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12468",
+      "DrugName": "9% SODIUM CHLORIDE",
+      "filled": {
+        "ResponsibleParty": "Serum and Solutions SAL"
+      }
+    },
+    {
+      "MoPHCode": "12469",
+      "DrugName": "RINGER INJECTION",
+      "filled": {
+        "ResponsibleParty": "Serum and Solutions SAL"
+      }
+    },
+    {
+      "MoPHCode": "12478",
+      "DrugName": "α FUROSEMIDE INJECTION",
+      "filled": {
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12482",
+      "DrugName": "STERILE WATER FOR INJECTION",
+      "filled": {
+        "Form": "Water for injection, irrigation"
+      }
+    },
+    {
+      "MoPHCode": "12483",
+      "DrugName": "SOLUFLEX RINGER'S INJECTION, USP",
+      "filled": {
+        "Form": "Injectable solution"
+      }
+    },
+    {
+      "MoPHCode": "12484",
+      "DrugName": "ANTROLIN",
+      "filled": {
+        "ResponsibleParty": "Neopharmed Gentili SpA"
+      }
+    },
+    {
+      "MoPHCode": "12485",
+      "DrugName": "ZOMAX",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12486",
+      "DrugName": "CYPTERONE",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12487",
+      "DrugName": "LINEZOLID ANFARM",
+      "filled": {
+        "ResponsibleParty": "Anfarm Hellas SA"
+      }
+    },
+    {
+      "MoPHCode": "12488",
+      "DrugName": "ADOL",
+      "filled": {
+        "ResponsibleParty": "Julphar (Gulf Pharmaceutical Industries)"
+      }
+    },
+    {
+      "MoPHCode": "12489",
+      "DrugName": "NICARDIPINE AGUETTANT",
+      "filled": {
+        "ResponsibleParty": "Aguettant"
+      }
+    },
+    {
+      "MoPHCode": "12490",
+      "DrugName": "MEPTID",
+      "filled": {
+        "ResponsibleParty": "Biosyn Arzneimittel GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12491",
+      "DrugName": "GAVISCON DOUBLE ACTION MIXED BERRIES FLAVOR",
+      "filled": {
+        "ResponsibleParty": "Reckitt Benckiser Healthcare (UK) Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12492",
+      "DrugName": "VONSECA",
+      "filled": {
+        "ResponsibleParty": "Zeta Pharma for Pharmaceutical Industries (Zeta Pharma)"
+      }
+    },
+    {
+      "MoPHCode": "12493",
+      "DrugName": "VONSECA",
+      "filled": {
+        "ResponsibleParty": "Zeta Pharma for Pharmaceutical Industries (Zeta Pharma)"
+      }
+    },
+    {
+      "MoPHCode": "12494",
+      "DrugName": "CARBETOCINA GP-PHARM",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12495",
+      "DrugName": "GESTO-CLAIR",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12496",
+      "DrugName": "GESTO-CLAIR",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12497",
+      "DrugName": "QUETIAKEY",
+      "filled": {
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12498",
+      "DrugName": "SUPRAX DS",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12505",
+      "DrugName": "MINOXIDIL BIOGARAN CONSEIL",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12506",
+      "DrugName": "MINOXIDIL BIOGARAN CONSEIL",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12507",
+      "DrugName": "METRONIDAZOLE BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12508",
+      "DrugName": "METRONIDAZOLE BIOGARAN",
+      "filled": {
+        "ResponsibleParty": "Laboratoires Biogaran"
+      }
+    },
+    {
+      "MoPHCode": "12509",
+      "DrugName": "MOMENEX RECORDATI",
+      "filled": {
+        "ResponsibleParty": "Recordati Ilac San. ve Tic. A.S"
+      }
+    },
+    {
+      "MoPHCode": "12510",
+      "DrugName": "NEXIUM IV",
+      "filled": {
+        "ResponsibleParty": "AstraZeneca UK Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12511",
+      "DrugName": "FENOFIBRATE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12512",
+      "DrugName": "VENLAFAXINE ARROW GENERIQUES LP",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12513",
+      "DrugName": "CARMUSTINE WAYMADE",
+      "filled": {
+        "ResponsibleParty": "Waymade Plc"
+      }
+    },
+    {
+      "MoPHCode": "12514",
+      "DrugName": "OXALIPLATIN",
+      "filled": {
+        "ResponsibleParty": "pfizer Canada ULC"
+      }
+    },
+    {
+      "MoPHCode": "12515",
+      "DrugName": "OXALIPLATIN",
+      "filled": {
+        "ResponsibleParty": "pfizer Canada ULC"
+      }
+    },
+    {
+      "MoPHCode": "12516",
+      "DrugName": "BENZIMIR",
+      "filled": {
+        "ResponsibleParty": "Bioprofarma Bago SA"
+      }
+    },
+    {
+      "MoPHCode": "12517",
+      "DrugName": "BUCAINE HEAVY",
+      "filled": {
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12518",
+      "DrugName": "CIFLOSIN",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12519",
+      "DrugName": "FLOXILEVO",
+      "filled": {
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12521",
+      "DrugName": "OMEPREFUL",
+      "filled": {
+        "ResponsibleParty": "Polifarma Ilac San. Ve Tic. AS"
+      }
+    },
+    {
+      "MoPHCode": "12522",
+      "DrugName": "AUGMENTIN DUO",
+      "filled": {
+        "ResponsibleParty": "SmithKline Beecham Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12523",
+      "DrugName": "EPLERENONE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12524",
+      "DrugName": "EPLERENONE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12525",
+      "DrugName": "EPLERENONE ARROW",
+      "filled": {
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12529",
+      "DrugName": "ALDARA",
+      "filled": {
+        "ResponsibleParty": "Viatris Healthcare GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12530",
+      "DrugName": "WINREVAIR",
+      "filled": {
+        "ResponsibleParty": "Merck Sharp & Dohme BV"
+      }
+    },
+    {
+      "MoPHCode": "12531",
+      "DrugName": "WINREVAIR",
+      "filled": {
+        "ResponsibleParty": "Merck Sharp & Dohme BV"
+      }
+    },
+    {
+      "MoPHCode": "12532",
+      "DrugName": "WINREVAIR",
+      "filled": {
+        "ResponsibleParty": "Merck Sharp & Dohme BV"
+      }
+    },
+    {
+      "MoPHCode": "12533",
+      "DrugName": "WINREVAIR",
+      "filled": {
+        "ResponsibleParty": "Merck Sharp & Dohme BV"
+      }
+    },
+    {
+      "MoPHCode": "12534",
+      "DrugName": "PIROXEN",
+      "filled": {
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12535",
+      "DrugName": "SPRAVATO",
+      "filled": {
+        "ATC_Code": "N06AX27",
+        "OtherIngredients": "Esketamine (HCl) - 28mg",
+        "RouteRaw": "Nasal",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12536",
+      "DrugName": "TAVANIC 500MG",
+      "filled": {
+        "ATC_Code": "J01MA12",
+        "OtherIngredients": "Levofloxacin - 500mg/100ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Sanofi Aventis Deutschland GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12537",
+      "DrugName": "NIMBEX",
+      "filled": {
+        "ATC_Code": "M03AC11",
+        "OtherIngredients": "Cisatracurium (besylate) - 20mg/10ml",
+        "RouteRaw": "Infusion/IV",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Aspen Pharmacare Australia Pty Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12538",
+      "DrugName": "CARDIBEE",
+      "filled": {
+        "ATC_Code": "C08CA01",
+        "OtherIngredients": "Amlodipine - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12539",
+      "DrugName": "MOTILCURE",
+      "filled": {
+        "ATC_Code": "A03FA03",
+        "OtherIngredients": "Domperidone - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12540",
+      "DrugName": "ESOPUMP",
+      "filled": {
+        "ATC_Code": "A02BC05",
+        "OtherIngredients": "Esomeprazole - 40mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12541",
+      "DrugName": "AMLO-DECURE",
+      "filled": {
+        "ATC_Code": "C08CA01",
+        "OtherIngredients": "Amlodipine - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12542",
+      "DrugName": "NAUZECURE ODT",
+      "filled": {
+        "ATC_Code": "A04AA01",
+        "OtherIngredients": "Ondansetron - 8mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12543",
+      "DrugName": "NAURASIA ODT",
+      "filled": {
+        "ATC_Code": "A04AA01",
+        "OtherIngredients": "Ondansetron - 8mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12544",
+      "DrugName": "FORTAMET",
+      "filled": {
+        "ATC_Code": "A10BA02",
+        "OtherIngredients": "Metformin - 850mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12545",
+      "DrugName": "AMLODIPINE/VALSARTAN ARROW",
+      "filled": {
+        "ATC_Code": "C09DB01",
+        "OtherIngredients": "Amlodipine (besylate) - 5mg, Valsartan - 160mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12546",
+      "DrugName": "AMLODIPINE ARROW",
+      "filled": {
+        "ATC_Code": "C08CA01",
+        "OtherIngredients": "Amlodipine (besylate) - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12547",
+      "DrugName": "GLOZIN",
+      "filled": {
+        "ATC_Code": "A10BK01",
+        "OtherIngredients": "Dapagliflozin - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "RAM Pharmaceutical Industries Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12548",
+      "DrugName": "α OXALIPLATIN",
+      "filled": {
+        "ATC_Code": "L01XA03",
+        "OtherIngredients": "Oxaliplatin - 50mg/10ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12549",
+      "DrugName": "α OXALIPLATIN",
+      "filled": {
+        "ATC_Code": "L01XA03",
+        "OtherIngredients": "Oxaliplatin - 100mg/20ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12550",
+      "DrugName": "LABILOR 60",
+      "filled": {
+        "ATC_Code": "B01AC24",
+        "OtherIngredients": "Ticagrelor - 60mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12551",
+      "DrugName": "LABILOR 90",
+      "filled": {
+        "ATC_Code": "B01AC24",
+        "OtherIngredients": "Ticagrelor - 90mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12552",
+      "DrugName": "ALBEZORA",
+      "filled": {
+        "ATC_Code": "P02CA03",
+        "OtherIngredients": "Albendazole - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12553",
+      "DrugName": "ROSVATOR",
+      "filled": {
+        "ATC_Code": "C10AA07",
+        "OtherIngredients": "Rosuvastatin (calcium) - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12554",
+      "DrugName": "ROSVATOR",
+      "filled": {
+        "ATC_Code": "C10AA07",
+        "OtherIngredients": "Rosuvastatin (calcium) - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12555",
+      "DrugName": "ZOFAMED ODT",
+      "filled": {
+        "ATC_Code": "A04AA01",
+        "OtherIngredients": "Ondansetron - 8mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12556",
+      "DrugName": "D-CURE CHAPHA",
+      "filled": {
+        "ATC_Code": "A11CC05",
+        "OtherIngredients": "Vitamin D3 - 25,000IU",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12557",
+      "DrugName": "NADIXA CHAPHA",
+      "filled": {
+        "ATC_Code": "D10AF05",
+        "OtherIngredients": "Nadifloxacin - 1%",
+        "RouteRaw": "Topical",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12558",
+      "DrugName": "OXALIPLATINE ARROW LAB",
+      "filled": {
+        "ATC_Code": "L01XA03",
+        "OtherIngredients": "Oxaliplatin - 200mg/40ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12559",
+      "DrugName": "FENOFIBRATE ARROW",
+      "filled": {
+        "ATC_Code": "C10AB05",
+        "OtherIngredients": "Fenofibrate - 160mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12560",
+      "DrugName": "IRBESARTAN/HYDROCHLOROTHIAZIDE ARROW",
+      "filled": {
+        "ATC_Code": "C09DA04",
+        "OtherIngredients": "Irbesartan - 150mg, Hydrochlorothiazide - 12.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12561",
+      "DrugName": "IRBESARTAN/HYDROCHLOROTHIAZIDE ARROW",
+      "filled": {
+        "ATC_Code": "C09DA04",
+        "OtherIngredients": "Irbesartan - 300mg, Hydrochlorothiazide - 25mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12562",
+      "DrugName": "IRBESARTAN/HYDROCHLOROTHIAZIDE ARROW",
+      "filled": {
+        "ATC_Code": "C09DA04",
+        "OtherIngredients": "Irbesartan - 300mg, Hydrochlorothiazide - 12.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12563",
+      "DrugName": "BUDENOSIN",
+      "filled": {
+        "ATC_Code": "R03BA02",
+        "OtherIngredients": "Budesonide - 1mg/2ml",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Neutec Inhaler Ilac San. ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12564",
+      "DrugName": "CYSTADANE",
+      "filled": {
+        "ATC_Code": "A16AA06",
+        "OtherIngredients": "Betaine anhydrous - 1g",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Recordati Rare Diseases"
+      }
+    },
+    {
+      "MoPHCode": "12565",
+      "DrugName": "PONVORY",
+      "filled": {
+        "ATC_Code": "L04AE04",
+        "OtherIngredients": "Ponesimod - 2x2mg, 2x3mg, 2x4mg, 1x5mg, 1x6mg, 1x7mg, 1x8mg, 1x9mg, 3x10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Laboratoires Juvisé Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12566",
+      "DrugName": "PONVORY",
+      "filled": {
+        "ATC_Code": "L04AE04",
+        "OtherIngredients": "Ponesimod - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Laboratoires Juvisé Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12567",
+      "DrugName": "ELREXFIO",
+      "filled": {
+        "ATC_Code": "L01FX32",
+        "OtherIngredients": "Elranatamab - 44mg/1.1ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Pfizer Inc"
+      }
+    },
+    {
+      "MoPHCode": "12568",
+      "DrugName": "ELREXFIO",
+      "filled": {
+        "ATC_Code": "L01FX32",
+        "OtherIngredients": "Elranatamab - 76mg/1.9ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Pfizer Inc"
+      }
+    },
+    {
+      "MoPHCode": "12569",
+      "DrugName": "DEMEPRAZOL",
+      "filled": {
+        "ATC_Code": "A02BC01",
+        "OtherIngredients": "Omeprazole - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12570",
+      "DrugName": "DIMERE",
+      "filled": {
+        "ATC_Code": "L02BA03",
+        "OtherIngredients": "Fulvestrant - 250mg/5ml",
+        "RouteRaw": "IM",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Bioprofarma Bago SA"
+      }
+    },
+    {
+      "MoPHCode": "12571",
+      "DrugName": "IMJUDO",
+      "filled": {
+        "ATC_Code": "L01FX20",
+        "OtherIngredients": "Tremelimumab - 25mg/1.25ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "AstraZeneca AB"
+      }
+    },
+    {
+      "MoPHCode": "12572",
+      "DrugName": "IMJUDO",
+      "filled": {
+        "ATC_Code": "L01FX20",
+        "OtherIngredients": "Tremelimumab - 300mg/15ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "AstraZeneca AB"
+      }
+    },
+    {
+      "MoPHCode": "12573",
+      "DrugName": "NEPEXTO",
+      "filled": {
+        "ATC_Code": "L04AB01",
+        "OtherIngredients": "Etanercept - 50mg/ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Biosimilar Collaborations Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12574",
+      "DrugName": "NEPEXTO",
+      "filled": {
+        "ATC_Code": "L04AB01",
+        "OtherIngredients": "Etanercept - 50mg/ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Biosimilar Collaborations Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12575",
+      "DrugName": "NEPEXTO",
+      "filled": {
+        "ATC_Code": "L04AB01",
+        "OtherIngredients": "Etanercept - 25mg/0.5ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Biosimilar Collaborations Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12576",
+      "DrugName": "DYMISTA",
+      "filled": {
+        "ATC_Code": "R01AD58",
+        "OtherIngredients": "Fluticasone propionate - 50mcg/actuation, Azelastine HCl - 137mcg/actuation",
+        "RouteRaw": "Nasal",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Viatris Healthcare GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12577",
+      "DrugName": "α PACLITAXEL",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 300mg/50ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12578",
+      "DrugName": "α PACLITAXEL",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 30mg/5ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12579",
+      "DrugName": "α BENDAMUSTINE",
+      "filled": {
+        "ATC_Code": "L01AA09",
+        "OtherIngredients": "Bendamustine HCl - 100mg/ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12580",
+      "DrugName": "EREC",
+      "filled": {
+        "ATC_Code": "G04BE03",
+        "OtherIngredients": "Sildenafil - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Adwia"
+      }
+    },
+    {
+      "MoPHCode": "12581",
+      "DrugName": "SECNOL",
+      "filled": {
+        "ATC_Code": "P01AB07",
+        "OtherIngredients": "Secnidazole anhydre - 2g",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Substipharm"
+      }
+    },
+    {
+      "MoPHCode": "12582",
+      "DrugName": "AMLODIPRESS",
+      "filled": {
+        "ATC_Code": "C08CA01",
+        "OtherIngredients": "Amlodipine - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12583",
+      "DrugName": "SOLIRIS",
+      "filled": {
+        "ATC_Code": "L04AJ01",
+        "OtherIngredients": "Eculizumab - 300mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Alexion Europe SAS, France"
+      }
+    },
+    {
+      "MoPHCode": "12584",
+      "DrugName": "ROACCUTANE",
+      "filled": {
+        "ATC_Code": "D10BA01",
+        "OtherIngredients": "Isotretinoin - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Chplapharm Schweiz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12585",
+      "DrugName": "ROACCUTANE",
+      "filled": {
+        "ATC_Code": "D10BA01",
+        "OtherIngredients": "Isotretinoin - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Chplapharm Schweiz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12586",
+      "DrugName": "ROZLYTREK",
+      "filled": {
+        "ATC_Code": "L01EX14",
+        "OtherIngredients": "Entrectinib - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12587",
+      "DrugName": "ROZLYTREK",
+      "filled": {
+        "ATC_Code": "L01EX14",
+        "OtherIngredients": "Entrectinib - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "F. Hoffmann La Roche Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12588",
+      "DrugName": "FIGOFLEX",
+      "filled": {
+        "ATC_Code": "L04AA27",
+        "OtherIngredients": "Fingolimod Hydrochloride - 0.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Algorithm S.A.L., Zouk Mosbeh"
+      }
+    },
+    {
+      "MoPHCode": "12589",
+      "DrugName": "CLAVANCE",
+      "filled": {
+        "ATC_Code": "L01BB04",
+        "OtherIngredients": "Cladribine - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Algorithm S.A.L., Zouk Mosbeh"
+      }
+    },
+    {
+      "MoPHCode": "12590",
+      "DrugName": "FLUMID",
+      "filled": {
+        "ATC_Code": "L04AA31",
+        "OtherIngredients": "Teriflunomide - 14mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Algorithm S.A.L., Zouk Mosbeh"
+      }
+    },
+    {
+      "MoPHCode": "12591",
+      "DrugName": "FLUKAS 200",
+      "filled": {
+        "ATC_Code": "J02AC01",
+        "OtherIngredients": "Fluconazole - 200mg/100ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Les Laboratoires Medis"
+      }
+    },
+    {
+      "MoPHCode": "12592",
+      "DrugName": "CLADRIXA",
+      "filled": {
+        "ATC_Code": "L01BB04",
+        "OtherIngredients": "Cladribine - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12593",
+      "DrugName": "MACIVIA",
+      "filled": {
+        "ATC_Code": "C02KX04",
+        "OtherIngredients": "Macitentan - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12594",
+      "DrugName": "TOFALYX",
+      "filled": {
+        "ATC_Code": "L04AA29",
+        "OtherIngredients": "Tofacitinib - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Concord Biotech Limited"
+      }
+    },
+    {
+      "MoPHCode": "12595",
+      "DrugName": "NINTAVA",
+      "filled": {
+        "ATC_Code": "L01EX09",
+        "OtherIngredients": "Nintedanib - 150mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12596",
+      "DrugName": "CARFILU",
+      "filled": {
+        "ATC_Code": "L01XG02",
+        "OtherIngredients": "Carfilzomib - 60mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12597",
+      "DrugName": "JUBBONTI",
+      "filled": {
+        "ATC_Code": "M05BX04",
+        "OtherIngredients": "Denosumab - 60mg/ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12598",
+      "DrugName": "THALODOMIDE SHIPA",
+      "filled": {
+        "ATC_Code": "L04AX02",
+        "OtherIngredients": "Thalidomide - 50mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Shilpa Medicare Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12599",
+      "DrugName": "TREMFYA",
+      "filled": {
+        "ATC_Code": "L04AC16",
+        "OtherIngredients": "Guselkumab - 200mg/2ml",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12600",
+      "DrugName": "MOMETIX AQ",
+      "filled": {
+        "ATC_Code": "R01AD09",
+        "OtherIngredients": "Mometasone furoate - 0.05%",
+        "RouteRaw": "Nasal",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Drogsan Ilaclari San ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12601",
+      "DrugName": "ETOTAC SR",
+      "filled": {
+        "ATC_Code": "M01AB08",
+        "OtherIngredients": "Etodolac - 600mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Humanis Saglik Anonim Sirketi"
+      }
+    },
+    {
+      "MoPHCode": "12602",
+      "DrugName": "CARDULAR",
+      "filled": {
+        "ATC_Code": "C02CA04",
+        "OtherIngredients": "Doxazosin (mesylate) - 4mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Viatris Austria GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12603",
+      "DrugName": "LEQVIO",
+      "filled": {
+        "ATC_Code": "C10AX16",
+        "OtherIngredients": "Inclisiran - 284mg/1.5ml",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novartis Europharm Limited"
+      }
+    },
+    {
+      "MoPHCode": "12604",
+      "DrugName": "FENOSUP CHAPHA",
+      "filled": {
+        "ATC_Code": "C10AB05",
+        "OtherIngredients": "Fenofibrate - 160mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12605",
+      "DrugName": "DISLEP",
+      "filled": {
+        "ATC_Code": "N05AL07",
+        "OtherIngredients": "Levosulpiride - 25mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12606",
+      "DrugName": "FLUOXETINE CHAPHA",
+      "filled": {
+        "ATC_Code": "N06AB03",
+        "OtherIngredients": "Fluoxetine (HCl) - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12607",
+      "DrugName": "FENOGAL CHAPHA",
+      "filled": {
+        "ATC_Code": "C10AB05",
+        "OtherIngredients": "Fenofibrate micronised - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12608",
+      "DrugName": "TYRUKO",
+      "filled": {
+        "ATC_Code": "L04AA23",
+        "OtherIngredients": "Natalizumab - 300mg/15ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12609",
+      "DrugName": "WYOST",
+      "filled": {
+        "ATC_Code": "M05BX04",
+        "OtherIngredients": "Denosumab - 120mg",
+        "RouteRaw": "SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12610",
+      "DrugName": "XERVEXTA STARTING PACK",
+      "filled": {
+        "ATC_Code": "L01XX52",
+        "OtherIngredients": "Venetoclax - 10mg week 1, Venetoclax - 50mg week 2, Venetoclax - 100mg week 3&4",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12611",
+      "DrugName": "XERVEXTA",
+      "filled": {
+        "ATC_Code": "L01XX52",
+        "OtherIngredients": "Venetoclax - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Hikma Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12612",
+      "DrugName": "MYCOPHENOLATE MOFETIL ARROW",
+      "filled": {
+        "ATC_Code": "L04AA06",
+        "OtherIngredients": "Mycophenolate mofetil - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12613",
+      "DrugName": "TERIFLUNOMID ARROW",
+      "filled": {
+        "ATC_Code": "L04AA31",
+        "OtherIngredients": "Teriflunomide - 14mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12614",
+      "DrugName": "CARBOPLATINE ARROW LAB",
+      "filled": {
+        "ATC_Code": "L01XA02",
+        "OtherIngredients": "Carboplatin - 600mg/60ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12615",
+      "DrugName": "CARBOPLATINE ARROW LAB",
+      "filled": {
+        "ATC_Code": "L01XA02",
+        "OtherIngredients": "Carboplatin - 450mg/45ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12616",
+      "DrugName": "DIMETHYL FUMARATE ARROW",
+      "filled": {
+        "ATC_Code": "L04AX07",
+        "OtherIngredients": "Dimethyl Fumarate - 240mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12617",
+      "DrugName": "DIMETHYL FUMARATE ARROW",
+      "filled": {
+        "ATC_Code": "L04AX07",
+        "OtherIngredients": "Dimethyl Fumarate - 120mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12618",
+      "DrugName": "PIRFENIDONE ARROW",
+      "filled": {
+        "ATC_Code": "L04AX05",
+        "OtherIngredients": "Pirfenidone - 801mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12619",
+      "DrugName": "PIRFENIDONE ARROW",
+      "filled": {
+        "ATC_Code": "L04AX05",
+        "OtherIngredients": "Pirfenidone - 267mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12620",
+      "DrugName": "PMS-TERIFLUNOMIDE",
+      "filled": {
+        "ATC_Code": "L04AA31",
+        "OtherIngredients": "Teriflunomide - 14mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharmascience Inc"
+      }
+    },
+    {
+      "MoPHCode": "12621",
+      "DrugName": "CIDAKOG 125",
+      "filled": {
+        "ATC_Code": "L01EF01",
+        "OtherIngredients": "Palbociclib - 125mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Cipla Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12622",
+      "DrugName": "PULMOFIB 801",
+      "filled": {
+        "ATC_Code": "L04AX05",
+        "OtherIngredients": "Pirfenidone - 801mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "MSN Laboratories Private Limited"
+      }
+    },
+    {
+      "MoPHCode": "12623",
+      "DrugName": "α PACLITAXEL",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 100mg/16.7ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Alfa Laboratoires S.A.L."
+      }
+    },
+    {
+      "MoPHCode": "12624",
+      "DrugName": "PEXITREX",
+      "filled": {
+        "ATC_Code": "L01BA04",
+        "OtherIngredients": "Pemetrexed (disodium) - 1000mg/40ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12625",
+      "DrugName": "PEXITREX",
+      "filled": {
+        "ATC_Code": "L01BA04",
+        "OtherIngredients": "Pemetrexed (disodium) - 500mg/20ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Sandoz GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12626",
+      "DrugName": "HYDROXYCARBAMIDE ARROW",
+      "filled": {
+        "ATC_Code": "L01XX05",
+        "OtherIngredients": "Hydroxycarbamide (or Hydroxyurea) - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12627",
+      "DrugName": "POMALIDOMIDE EUGIA",
+      "filled": {
+        "ATC_Code": "L04AX06",
+        "OtherIngredients": "Pomalidomide - 3mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12628",
+      "DrugName": "POMALIDOMIDE EUGIA",
+      "filled": {
+        "ATC_Code": "L04AX06",
+        "OtherIngredients": "Pomalidomide - 4mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12629",
+      "DrugName": "NILOSTAD",
+      "filled": {
+        "ATC_Code": "L01EA03",
+        "OtherIngredients": "Nilotinib - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Stada Arzneimittel AG"
+      }
+    },
+    {
+      "MoPHCode": "12630",
+      "DrugName": "NILOSTAD",
+      "filled": {
+        "ATC_Code": "L01EA03",
+        "OtherIngredients": "Nilotinib - 150mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Stada Arzneimittel AG"
+      }
+    },
+    {
+      "MoPHCode": "12631",
+      "DrugName": "PEMETREXED PHARMINICIO",
+      "filled": {
+        "ATC_Code": "L01BA04",
+        "OtherIngredients": "Pemetrexed (disodium) - 100mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12632",
+      "DrugName": "CABAZITAXEL AQVIDA",
+      "filled": {
+        "ATC_Code": "L01CD04",
+        "OtherIngredients": "Cabazitaxel - 60mg/3ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "AqVida GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12633",
+      "DrugName": "ERIBULIN AQVIDA",
+      "filled": {
+        "ATC_Code": "L01XX41",
+        "OtherIngredients": "Eribulin mesylate - 0.44mg/ml",
+        "RouteRaw": "IV",
+        "ProductType": "Generic",
+        "ResponsibleParty": "AqVida GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12634",
+      "DrugName": "DOXORUBICINA PHARMINICIO",
+      "filled": {
+        "ATC_Code": "L01DB01",
+        "OtherIngredients": "Doxorubicin HCl - 10mg/5ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12635",
+      "DrugName": "PACLITAXEL PHARMINICIO",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 300mg/50ml",
+        "RouteRaw": "Infusion/IV",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12636",
+      "DrugName": "PACLITAXEL PHARMINICIO",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 100mg/16.7ml",
+        "RouteRaw": "Infusion/IV",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12637",
+      "DrugName": "PACLITAXEL PHARMINICIO",
+      "filled": {
+        "ATC_Code": "L01CD01",
+        "OtherIngredients": "Paclitaxel - 30mg/5ml",
+        "RouteRaw": "Infusion/IV",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharminicio SL"
+      }
+    },
+    {
+      "MoPHCode": "12638",
+      "DrugName": "EURO D HP 50.000 IU",
+      "filled": {
+        "ATC_Code": "A11CC05",
+        "OtherIngredients": "Vitamin D3 - 50,000IU",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Euro-Pharm International Canada Inc"
+      }
+    },
+    {
+      "MoPHCode": "12639",
+      "DrugName": "EURO D 10000 IU",
+      "filled": {
+        "ATC_Code": "A11CC05",
+        "OtherIngredients": "Vitamin D3 - 10,000IU",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Euro-Pharm International Canada Inc"
+      }
+    },
+    {
+      "MoPHCode": "12640",
+      "DrugName": "EMPAMET",
+      "filled": {
+        "ATC_Code": "A10BD20",
+        "OtherIngredients": "Metformin HCl - 1000mg, Empagliflozin - 12.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12641",
+      "DrugName": "EMPA",
+      "filled": {
+        "ATC_Code": "A10BK03",
+        "OtherIngredients": "Empagliflozin - 25mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12642",
+      "DrugName": "EMPA",
+      "filled": {
+        "ATC_Code": "A10BK03",
+        "OtherIngredients": "Empagliflozin - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12643",
+      "DrugName": "TRUQAP",
+      "filled": {
+        "ATC_Code": "L01EX27",
+        "OtherIngredients": "Capivasertib - 160mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "AstraZeneca AB"
+      }
+    },
+    {
+      "MoPHCode": "12644",
+      "DrugName": "TRUQAP",
+      "filled": {
+        "ATC_Code": "L01EX27",
+        "OtherIngredients": "Capivasertib - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "AstraZeneca AB"
+      }
+    },
+    {
+      "MoPHCode": "12645",
+      "DrugName": "FUNGOZOL-UBSA",
+      "filled": {
+        "ATC_Code": "J02AC01",
+        "OtherIngredients": "Fluconazole - 150mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12646",
+      "DrugName": "PAINEXA",
+      "filled": {
+        "ATC_Code": "M01AH05",
+        "OtherIngredients": "Etoricoxib - 90mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12647",
+      "DrugName": "NEUROLIEF",
+      "filled": {
+        "ATC_Code": "N02BF02",
+        "OtherIngredients": "Pregabalin - 75mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12648",
+      "DrugName": "NEUROLIEF",
+      "filled": {
+        "ATC_Code": "N02BF02",
+        "OtherIngredients": "Pregabalin - 150mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12649",
+      "DrugName": "ZANOMET",
+      "filled": {
+        "ATC_Code": "P01AB01",
+        "OtherIngredients": "Metronidazole - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "UBSA Pharma Industries SARL"
+      }
+    },
+    {
+      "MoPHCode": "12650",
+      "DrugName": "DOMPERILIX ODT",
+      "filled": {
+        "ATC_Code": "A03FA03",
+        "OtherIngredients": "Domperidone - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12652",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 2.4mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12653",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 1.7mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12654",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 1mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12655",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 0.5mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12656",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 0.5mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12657",
+      "DrugName": "WEGOVY",
+      "filled": {
+        "ATC_Code": "A10BJ06",
+        "OtherIngredients": "Semaglutide - 0.25mg",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Novo Nordisk AS"
+      }
+    },
+    {
+      "MoPHCode": "12658",
+      "DrugName": "MODAFINIL ARROW",
+      "filled": {
+        "ATC_Code": "N06BA07",
+        "OtherIngredients": "Modafinil - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12659",
+      "DrugName": "FLUCONAZOLE ARROW LAB",
+      "filled": {
+        "ATC_Code": "J02AC01",
+        "OtherIngredients": "Fluconazole - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12660",
+      "DrugName": "TOPIRAMATE ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX11",
+        "OtherIngredients": "Topiramate - 50mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12661",
+      "DrugName": "TOPIRAMATE ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX11",
+        "OtherIngredients": "Topiramate - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12662",
+      "DrugName": "LEVETIRACETAM ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX14",
+        "OtherIngredients": "Levetiracetam - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12663",
+      "DrugName": "LEVETIRACETAM ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX14",
+        "OtherIngredients": "Levetiracetam - 250mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12664",
+      "DrugName": "LEVETIRACETAM ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX14",
+        "OtherIngredients": "Levetiracetam - 1000mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12665",
+      "DrugName": "CASPOFUNGINE STRAGEN",
+      "filled": {
+        "ATC_Code": "J02AX04",
+        "OtherIngredients": "Caspofungin (acetate) - 70mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12666",
+      "DrugName": "CASPOFUNGINE STRAGEN",
+      "filled": {
+        "ATC_Code": "J02AX04",
+        "OtherIngredients": "Caspofungin (acetate) - 50mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Stragen France"
+      }
+    },
+    {
+      "MoPHCode": "12667",
+      "DrugName": "SUXAMETHONIUM AGUETTANT",
+      "filled": {
+        "ATC_Code": "M03AB01",
+        "OtherIngredients": "Suxamethonium Chloride - 10mg/ml",
+        "RouteRaw": "SC",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Aguettant"
+      }
+    },
+    {
+      "MoPHCode": "12668",
+      "DrugName": "CLAVODIS",
+      "filled": {
+        "ATC_Code": "J01CR02",
+        "OtherIngredients": "Amoxicillin (trihydrate) - 875mg, Clavulanic Acid (potassium) - 125mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12669",
+      "DrugName": "CLAVODIS",
+      "filled": {
+        "ATC_Code": "J01CR02",
+        "OtherIngredients": "Amoxicillin (trihydrate) - 400mg/5ml, Clavulanic Acid (potassium) - 57mg/5ml",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12670",
+      "DrugName": "CLAVODIS",
+      "filled": {
+        "ATC_Code": "J01CR02",
+        "OtherIngredients": "Amoxicillin (trihydrate) - 600mg/5ml, Clavulanic Acid (potassium) - 42.9mg/5ml",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12671",
+      "DrugName": "LIZENOR",
+      "filled": {
+        "ATC_Code": "J01XX08",
+        "OtherIngredients": "Linezolide - 600mg/300ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Normon SA"
+      }
+    },
+    {
+      "MoPHCode": "12672",
+      "DrugName": "LIZENOR",
+      "filled": {
+        "ATC_Code": "J01XX08",
+        "OtherIngredients": "Linezolide - 600mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Normon SA"
+      }
+    },
+    {
+      "MoPHCode": "12673",
+      "DrugName": "PANADOL NIGHT",
+      "filled": {
+        "ATC_Code": "N02BE51",
+        "OtherIngredients": "Paracetamol - 500mg, Diphenhydramine HCl - 25mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Haleon Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12674",
+      "DrugName": "AMLOKEY",
+      "filled": {
+        "ATC_Code": "C08CA01",
+        "OtherIngredients": "Amlodipine (besylate) - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Industria Quimica Farmaceutica Vir SA"
+      }
+    },
+    {
+      "MoPHCode": "12675",
+      "DrugName": "LIDONOSTRUM GELE",
+      "filled": {
+        "ATC_Code": "D04AB01",
+        "OtherIngredients": "Lidocaine HCl - 2%",
+        "RouteRaw": "Topical",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Sidefarma - Sociedade Industrial de Expansao Farmaceutica SA"
+      }
+    },
+    {
+      "MoPHCode": "12676",
+      "DrugName": "MITONCO",
+      "filled": {
+        "ATC_Code": "L01DC03",
+        "OtherIngredients": "Mitomycin - 10mg",
+        "RouteRaw": "IV/intravesical",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Korea United Pharm. Inc."
+      }
+    },
+    {
+      "MoPHCode": "12677",
+      "DrugName": "MERO-ORBUCELL",
+      "filled": {
+        "ATC_Code": "J01DH02",
+        "OtherIngredients": "Meropenem (trihydrate) - 1g",
+        "RouteRaw": "Infusion/IV",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12678",
+      "DrugName": "NAMBROL ADULTS",
+      "filled": {
+        "ATC_Code": "R03BA03",
+        "OtherIngredients": "Flunisolide - 1mg/ml",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Lanova Farmaceutici SRL"
+      }
+    },
+    {
+      "MoPHCode": "12679",
+      "DrugName": "SUBIFIX",
+      "filled": {
+        "ATC_Code": "J01DD08",
+        "OtherIngredients": "Cefixime (trihydrate) - 400mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Deva Holding AS"
+      }
+    },
+    {
+      "MoPHCode": "12680",
+      "DrugName": "CETRAK",
+      "filled": {
+        "ATC_Code": "R06AE07",
+        "OtherIngredients": "Cetirizine (dihydrochloride) - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pharco Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12681",
+      "DrugName": "CEFUMAX",
+      "filled": {
+        "ATC_Code": "J01DC02",
+        "OtherIngredients": "Cefuroxime (sodium) - 750mg",
+        "RouteRaw": "IV/IM",
+        "ProductType": "Generic",
+        "Form": "Injectable dry powder",
+        "ResponsibleParty": "Pharco B International"
+      }
+    },
+    {
+      "MoPHCode": "12682",
+      "DrugName": "VAXIGRIP",
+      "filled": {
+        "ATC_Code": "J07BB01",
+        "OtherIngredients": "Influenza vaccine virus inactivated - 15mcg/3strains/0.5ml",
+        "RouteRaw": "IM/SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "12683",
+      "DrugName": "NERLYX",
+      "filled": {
+        "ATC_Code": "L01EH02",
+        "OtherIngredients": "Neratinib - 40mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Pierre Fabre Medicament"
+      }
+    },
+    {
+      "MoPHCode": "12684",
+      "DrugName": "DUODART",
+      "filled": {
+        "ATC_Code": "G04CA52",
+        "OtherIngredients": "Dutasteride - 0.5mg, Tamsulosin HCl - 0.4mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "GlaxoSmithKline UK Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12685",
+      "DrugName": "ARIXTRA",
+      "filled": {
+        "ATC_Code": "B01AX05",
+        "OtherIngredients": "Fondaparinux sodium - 2.5mg/0.5ml",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Aspen Pharmacare Canada Inc"
+      }
+    },
+    {
+      "MoPHCode": "12686",
+      "DrugName": "ARIXTRA",
+      "filled": {
+        "ATC_Code": "B01AX05",
+        "OtherIngredients": "Fondaparinux sodium - 7.5mg/0.6ml",
+        "RouteRaw": "SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Aspen Pharmacare Canada Inc"
+      }
+    },
+    {
+      "MoPHCode": "12687",
+      "DrugName": "DIFEN B12",
+      "filled": {
+        "ATC_Code": "M01AB55",
+        "OtherIngredients": "Diclofenac sodium - 75mg, Betamethasone (sodium phosphate) - 2mg, Hydroxocobalamin sulphate - 10mg",
+        "RouteRaw": "IM",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Laboratorios Casasco S.A.I.C."
+      }
+    },
+    {
+      "MoPHCode": "12688",
+      "DrugName": "TOPIRAMATE ARROW LAB",
+      "filled": {
+        "ATC_Code": "N03AX11",
+        "OtherIngredients": "Topiramate - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12689",
+      "DrugName": "VISAMIT 50",
+      "filled": {
+        "ATC_Code": "N03AX18",
+        "OtherIngredients": "Lacosamide - 50mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12690",
+      "DrugName": "VISAMIT 100",
+      "filled": {
+        "ATC_Code": "N03AX18",
+        "OtherIngredients": "Lacosamide - 100mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12691",
+      "DrugName": "VISAMIT 150",
+      "filled": {
+        "ATC_Code": "N03AX18",
+        "OtherIngredients": "Lacosamide - 150mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12692",
+      "DrugName": "VISAMIT 200",
+      "filled": {
+        "ATC_Code": "N03AX18",
+        "OtherIngredients": "Lacosamide - 200mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12693",
+      "DrugName": "DUPHASTON",
+      "filled": {
+        "ATC_Code": "G03DB01",
+        "OtherIngredients": "Dydrogesterone - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Abbott Laboratories GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12694",
+      "DrugName": "GANATON",
+      "filled": {
+        "ATC_Code": "A03FA07",
+        "OtherIngredients": "Itopride Hydrochloride - 50mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Abbott Laboratories GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12695",
+      "DrugName": "GANATON",
+      "filled": {
+        "ATC_Code": "A03FA07",
+        "OtherIngredients": "Itopride Hydrochloride - 50mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Abbott Laboratories GmbH"
+      }
+    },
+    {
+      "MoPHCode": "12696",
+      "DrugName": "COMBIVENT",
+      "filled": {
+        "ATC_Code": "R03AL02",
+        "OtherIngredients": "Salbutamol (sulfate) - 2.5mg/2.5ml, Ipratropium bromide - 500mcg/2.5ml",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Boehringer Ingelheim SComm"
+      }
+    },
+    {
+      "MoPHCode": "12697",
+      "DrugName": "DEMYLOCAN",
+      "filled": {
+        "ATC_Code": "L01BC08",
+        "OtherIngredients": "Decitabine - 50mg",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Pendopharm, division of Pharmascience Inc"
+      }
+    },
+    {
+      "MoPHCode": "12698",
+      "DrugName": "LAZCLUZE",
+      "filled": {
+        "ATC_Code": "L01EB09",
+        "OtherIngredients": "Lazertinib - 80mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12699",
+      "DrugName": "LAZCLUZE",
+      "filled": {
+        "ATC_Code": "L01EB09",
+        "OtherIngredients": "Lazertinib - 240mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12700",
+      "DrugName": "FIXCORT",
+      "filled": {
+        "ATC_Code": "R03AK07",
+        "OtherIngredients": "Formoterol fumarate dihydrate - 9mcg, Budesonide - 320mcg",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Celtis Ilac San. ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12701",
+      "DrugName": "TIOFIX",
+      "filled": {
+        "ATC_Code": "R03BB04",
+        "OtherIngredients": "Tiotropium bromide - 18mcg",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Neutec Ilac San. ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12702",
+      "DrugName": "RESPITEC",
+      "filled": {
+        "ATC_Code": "R03AL02",
+        "OtherIngredients": "Salbutamol - 100mcg/inhalation, Ipratropium bromide - 20mcg/inhalation",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Neutec Inhaler Ilac San. ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12703",
+      "DrugName": "FORBEFIX",
+      "filled": {
+        "ATC_Code": "R03AK08",
+        "OtherIngredients": "Formoterol fumarate dihydrate - , Beclometasone dipropionate -",
+        "RouteRaw": "Respiratory",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Neutec Inhaler Ilac San. ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12704",
+      "DrugName": "BACTILAM",
+      "filled": {
+        "ATC_Code": "J01CA04",
+        "OtherIngredients": "Amoxicillin (trihydrate) - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12705",
+      "DrugName": "VOREXIM",
+      "filled": {
+        "ATC_Code": "N06AX26",
+        "OtherIngredients": "Vortioxetine - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12706",
+      "DrugName": "VOREXIM",
+      "filled": {
+        "ATC_Code": "N06AX26",
+        "OtherIngredients": "Vortioxetine - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Chaoul Pharmaceuticals (Cha-Pha) SAL"
+      }
+    },
+    {
+      "MoPHCode": "12707",
+      "DrugName": "XAVIRAN",
+      "filled": {
+        "ATC_Code": "B01AF01",
+        "OtherIngredients": "Rivaroxaban - 2.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12708",
+      "DrugName": "GLIANCE",
+      "filled": {
+        "ATC_Code": "A10BK03",
+        "OtherIngredients": "Empagliflozin - 25mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12709",
+      "DrugName": "GLIANCE",
+      "filled": {
+        "ATC_Code": "A10BK03",
+        "OtherIngredients": "Empagliflozin - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12710",
+      "DrugName": "ATHERO ROS",
+      "filled": {
+        "ATC_Code": "C10AA07",
+        "OtherIngredients": "Rosuvastatin (calcium) - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12711",
+      "DrugName": "ATHERO ROS",
+      "filled": {
+        "ATC_Code": "C10AA07",
+        "OtherIngredients": "Rosuvastatin (calcium) - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12712",
+      "DrugName": "SANTA D",
+      "filled": {
+        "ATC_Code": "A11CC05",
+        "OtherIngredients": "Vitamin D3 - 10,000IU",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12713",
+      "DrugName": "PROPOFOL KWALITY",
+      "filled": {
+        "ATC_Code": "N01AX10",
+        "OtherIngredients": "Propofol - 1%",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Humble Healthcare Limited"
+      }
+    },
+    {
+      "MoPHCode": "12714",
+      "DrugName": "KETOPROFEN AGUETTANT",
+      "filled": {
+        "ATC_Code": "M01AE03",
+        "OtherIngredients": "Ketoprofen - 100mg/100ml",
+        "RouteRaw": "Infusion",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Aguettant"
+      }
+    },
+    {
+      "MoPHCode": "12715",
+      "DrugName": "LORCLAST",
+      "filled": {
+        "ATC_Code": "R03DC53",
+        "OtherIngredients": "Montelukast (sodium) - 10mg, Desloratadine - 5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Nobel Ilac San. Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12716",
+      "DrugName": "PRATIN",
+      "filled": {
+        "ATC_Code": "C10AA08",
+        "OtherIngredients": "Pitavastatin Calcium - 2mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Nobel Ilac San. Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12717",
+      "DrugName": "PRATIN",
+      "filled": {
+        "ATC_Code": "C10AA08",
+        "OtherIngredients": "Pitavastatin Calcium - 4mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Nobel Ilac San. Ve Tic AS"
+      }
+    },
+    {
+      "MoPHCode": "12718",
+      "DrugName": "OXUBAT 80",
+      "filled": {
+        "ATC_Code": "M04AA03",
+        "OtherIngredients": "Febuxostat - 80mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12719",
+      "DrugName": "BENTAFLOX 500",
+      "filled": {
+        "ATC_Code": "J01MA12",
+        "OtherIngredients": "Levofloxacin (hemihydrate) - 500mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12720",
+      "DrugName": "LOCAN",
+      "filled": {
+        "ATC_Code": "N01BB52",
+        "OtherIngredients": "Lidocaine - 2.5%, Prilocaine - 2.5%",
+        "RouteRaw": "Topical",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Dar Al Dawa Development & Investment Co Ltd"
+      }
+    },
+    {
+      "MoPHCode": "12721",
+      "DrugName": "FLUDROCORTISONE ACETATE NOVUMGEN",
+      "filled": {
+        "ATC_Code": "H02AA02",
+        "OtherIngredients": "Fludrocortisone acetate - 0.1mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Novumgen Limited"
+      }
+    },
+    {
+      "MoPHCode": "12722",
+      "DrugName": "OPSYNVI",
+      "filled": {
+        "ATC_Code": "C02KX54",
+        "OtherIngredients": "Macitentan - 10mg, Tadalafil - 40mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12723",
+      "DrugName": "OPSYNVI",
+      "filled": {
+        "ATC_Code": "C02KX54",
+        "OtherIngredients": "Macitentan - 10mg, Tadalafil - 20mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Janssen Cilag International NV"
+      }
+    },
+    {
+      "MoPHCode": "12724",
+      "DrugName": "FIRAZYR",
+      "filled": {
+        "ATC_Code": "B06AC02",
+        "OtherIngredients": "Icatibant - 30mg",
+        "RouteRaw": "SC",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Shire Pharmaceuticals Ireland Limited"
+      }
+    },
+    {
+      "MoPHCode": "12725",
+      "DrugName": "RACEDO",
+      "filled": {
+        "ATC_Code": "A07XA04",
+        "OtherIngredients": "Racecadotril - 10mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic"
+      }
+    },
+    {
+      "MoPHCode": "12726",
+      "DrugName": "TIMOLOL BP 2019",
+      "filled": {
+        "ATC_Code": "S01ED01",
+        "OtherIngredients": "Timolol - 0.5%",
+        "RouteRaw": "Ophtalmic",
+        "ProductType": "Generic",
+        "Presentation": "5ml",
+        "ResponsibleParty": "Egyptian International Pharmaceutical Industries Co (Eipico)"
+      }
+    },
+    {
+      "MoPHCode": "12727",
+      "DrugName": "METOPIMAZINE ARROW SANS SUCRE",
+      "filled": {
+        "ATC_Code": "A04AD05",
+        "OtherIngredients": "Metopimazine - 7.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12728",
+      "DrugName": "FINFOLOMOD ARROW",
+      "filled": {
+        "ATC_Code": "L04AA27",
+        "OtherIngredients": "Fingolimod Hydrochloride - 0.5mg",
+        "RouteRaw": "Oral",
+        "ProductType": "Generic",
+        "ResponsibleParty": "Arrow Génériques"
+      }
+    },
+    {
+      "MoPHCode": "12729",
+      "DrugName": "INVANZ",
+      "filled": {
+        "ATC_Code": "J01DH03",
+        "OtherIngredients": "Ertapenem - 1g",
+        "RouteRaw": "Infusion",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Merck Sharp & Dohme BV"
+      }
+    },
+    {
+      "MoPHCode": "12730",
+      "DrugName": "VAGICLIND",
+      "filled": {
+        "ATC_Code": "G01AA10",
+        "OtherIngredients": "Clindamycin (phosphate) - 2%",
+        "RouteRaw": "Vaginal",
+        "ProductType": "Generic",
+        "ResponsibleParty": "SAJA Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12731",
+      "DrugName": "VAGIZOLE",
+      "filled": {
+        "ATC_Code": "G01AF15",
+        "OtherIngredients": "Butoconazole Nitrate - 2%",
+        "RouteRaw": "Vaginal",
+        "ProductType": "Generic",
+        "ResponsibleParty": "SAJA Pharmaceuticals"
+      }
+    },
+    {
+      "MoPHCode": "12732",
+      "DrugName": "VAXIGRIPTETRA, VACCIN GRIPPAL QUADRIVALENT (INACTIVE A VIRION FRAGMENTE)",
+      "filled": {
+        "ATC_Code": "J07BB01",
+        "OtherIngredients": "Influenza vaccine virus (inactivated, split) - 15mcg/4strains/0.5ml",
+        "RouteRaw": "IM/SC",
+        "ProductType": "Brand",
+        "ResponsibleParty": "Sanofi Winthrop Industrie"
+      }
+    },
+    {
+      "MoPHCode": "12733",
+      "DrugName": "BOTOX",
+      "filled": {
+        "ATC_Code": "M03AX01",
+        "OtherIngredients": "Clostridium botulinum type A neurotoxin complex - 100U",
+        "RouteRaw": "IM/SC",
+        "ProductType": "BioTech",
+        "ResponsibleParty": "Abbvie Ltd"
+      }
+    }
+  ]
+}
