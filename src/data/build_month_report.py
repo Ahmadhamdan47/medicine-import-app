@@ -51,6 +51,9 @@ def main():
     ap.add_argument("--label", default="september")
     ap.add_argument("--month", default="September 2026")
     ap.add_argument("--bulletin-date", default="2026-09-03")
+    ap.add_argument("--preview-log", default="/tmp/prev2_apiv2.txt",
+                    help="run log of updateMedApiV2.py; carries the old values for "
+                         "Country and RegistrationNumber, which its payload omits")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
     lab = args.label
@@ -97,6 +100,30 @@ def main():
     mods = upd.get("templateReport", {}).get("section3_modifications", {})
     entries = mods.get("atc_code_changes", [])          # every modified drug
 
+    # The payload's old/new rows omit Country and RegistrationNumber, so those
+    # two before-values survive only in the run log. Every group there is small
+    # enough that the script printed full code lists rather than a sample.
+    from_log = {}
+    if args.preview_log and os.path.exists(args.preview_log):
+        field = None
+        pending = None
+        for line in open(args.preview_log, encoding="utf-8", errors="replace"):
+            m = re.search(r"(\w+) CHANGES: \d+ total", line)
+            if m:
+                field = m.group(1).upper()
+                continue
+            if field and "→" in line:
+                before, _, after = line.partition("→")
+                pending = (before.strip(), after.strip())
+                continue
+            m = re.search(r"Count: \d+ \| Codes: (.+)$", line)
+            if m and pending and field:
+                for c in m.group(1).split(","):
+                    c = c.strip()
+                    if c.isdigit():
+                        from_log[(field, c)] = pending
+                pending = None
+
     added_rows = [row_of(c) for c in added]
     notmk_rows = [row_of(c) for c in notmk]
 
@@ -128,6 +155,23 @@ def main():
     other = [e for e in entries
              if not any(f in e.get("changedFields", [])
                         for f in ["Agent", "Manufacturer", "PublicPrice", "Stratum"])]
+
+    # ---- every individual field change, grouped by what changed ----
+    changes_by_type = defaultdict(list)
+    for e in entries:
+        code = str(e["MoPHCode"])
+        brand = e.get("BrandName") or (v2.get(int(code), {}).get("DrugName") or "")
+        for f in e.get("changedFields", []):
+            if f in e.get("old", {}) or f in e.get("new", {}):
+                before, after = e["old"].get(f), e["new"].get(f)
+            else:
+                before, after = from_log.get((f.upper(), code), (None, None))
+            changes_by_type[f].append({
+                "MoPHCode": code, "BrandName": brand,
+                "before": before, "after": after,
+            })
+    for f in changes_by_type:
+        changes_by_type[f].sort(key=lambda r: (r["BrandName"] or "").upper())
 
     # ---- completeness of the two databases, after the backfill ----
     def gaps(rows, cols, scope=lambda r: True):
@@ -175,6 +219,10 @@ def main():
             "fields_backfilled_from_website": dict(backfill_total),
         },
         "changesByField": dict(by_field),
+        "changesByType": {k: v for k, v in sorted(
+            changes_by_type.items(), key=lambda kv: -len(kv[1]))},
+        "changesByType": {k: v for k, v in sorted(
+            changes_by_type.items(), key=lambda kv: -len(kv[1]))},
         "templateReport": {
             "section1_newly_marketed": {
                 "total_newly_marketed_drugs": len(added_rows),
