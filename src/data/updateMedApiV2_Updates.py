@@ -57,13 +57,19 @@ def safe_str(value):
 
 def build_template_row(record):
     """Build a template-aligned row using available data and placeholders for unavailable columns."""
+    atc_value = record.get("ATC", "") or record.get("ATC_Code", "") or record.get("atc", "") or ""
+    dosage_value = record.get("Dosage", "") or ""
+    form_value = record.get("Form", "") or ""
+
     return {
         "MoPHCode": str(record.get("MoPHCode", "")),
         "BrandName": record.get("DrugName", "") or "",
         "Ingredients": "",
-        "ATC": "",
-        "Strength": record.get("Dosage", "") or "",
-        "DosageForm": record.get("Form", "") or "",
+        "ATC": atc_value,
+        "Dosage": dosage_value,
+        "Strength": dosage_value,
+        "Form": form_value,
+        "DosageForm": form_value,
         "Route": "",
         "Presentation": record.get("Presentation", "") or "",
         "ProductType": "",
@@ -126,7 +132,7 @@ def main():
         # Build query with placeholders
         placeholders = ','.join(['%s'] * len(file_moph_codes))
         query = f"""
-            SELECT MoPHCode, DrugName, RegistrationNumber, Dosage, Presentation, 
+                 SELECT MoPHCode, DrugName, RegistrationNumber, ATC_Code AS ATC, Dosage, Presentation, 
                    Form, Agent, Manufacturer, Country, PublicPrice, Stratum
             FROM drug
             WHERE MoPHCode IN ({placeholders})
@@ -226,6 +232,7 @@ def main():
                 if changes:
                     old_row = {
                         "MoPHCode": moph_code,
+                        "ATC": safe_str(db_record.get('ATC')),
                         "DrugName": safe_str(db_record['DrugName']),
                         "Dosage": safe_str(db_record['Dosage']),
                         "Presentation": safe_str(db_record['Presentation']),
@@ -237,6 +244,7 @@ def main():
                     }
                     new_row = {
                         "MoPHCode": moph_code,
+                        "ATC": safe_str(db_record.get('ATC')),
                         "DrugName": changes.get('DrugName', safe_str(db_record['DrugName'])),
                         "Dosage": changes.get('Dosage', safe_str(db_record['Dosage'])),
                         "Presentation": changes.get('Presentation', safe_str(db_record['Presentation'])),

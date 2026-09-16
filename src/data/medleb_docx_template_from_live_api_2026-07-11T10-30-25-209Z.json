@@ -1,0 +1,2624 @@
+{
+  "generatedAt": "2026-07-11T10:30:25.209Z",
+  "source": {
+    "api": "https://apiv2.medleb.org/drugs/all",
+    "totalRecordsFetched": 5695
+  },
+  "inputSummary": {
+    "deletedCodes": [
+      5220,
+      8838,
+      7401,
+      3755,
+      6768,
+      7441,
+      7442,
+      12465,
+      7577
+    ],
+    "insertedCodes": [
+      12674,
+      12685,
+      12686,
+      12665,
+      12666,
+      12681,
+      12680,
+      12668,
+      12669,
+      12670,
+      12687,
+      12650,
+      12684,
+      12641,
+      12642,
+      12640,
+      12639,
+      12638,
+      12659,
+      12645,
+      2647,
+      12662,
+      12663,
+      12664,
+      12675,
+      12671,
+      12672,
+      12677,
+      12676,
+      12658,
+      12678,
+      12683,
+      12647,
+      12648,
+      12646,
+      12673,
+      12679,
+      12667,
+      12660,
+      12661,
+      12688,
+      12643,
+      12644,
+      12682,
+      12652,
+      12653,
+      12654,
+      12655,
+      12656,
+      12657,
+      12649
+    ],
+    "providedPriceChangeEntries": 35,
+    "providedAgentChangeEntries": 2
+  },
+  "addedMoPHCodes": [
+    "12674",
+    "12685",
+    "12686",
+    "12665",
+    "12666",
+    "12681",
+    "12680",
+    "12668",
+    "12669",
+    "12670",
+    "12687",
+    "12650",
+    "12684",
+    "12641",
+    "12642",
+    "12640",
+    "12639",
+    "12638",
+    "12659",
+    "12645",
+    "2647",
+    "12662",
+    "12663",
+    "12664",
+    "12675",
+    "12671",
+    "12672",
+    "12677",
+    "12676",
+    "12658",
+    "12678",
+    "12683",
+    "12647",
+    "12648",
+    "12646",
+    "12673",
+    "12679",
+    "12667",
+    "12660",
+    "12661",
+    "12688",
+    "12643",
+    "12644",
+    "12682",
+    "12652",
+    "12653",
+    "12654",
+    "12655",
+    "12656",
+    "12657",
+    "12649"
+  ],
+  "notMarketedTrue": [
+    "5220",
+    "8838",
+    "7401",
+    "3755",
+    "6768",
+    "7441",
+    "7442",
+    "12465",
+    "7577"
+  ],
+  "templateReport": {
+    "section1_newly_marketed": {
+      "total_newly_marketed_drugs": 51,
+      "total_atc_codes_newly_marketed_drugs": 11,
+      "rows": [
+        {
+          "MoPHCode": "12674",
+          "BrandName": "AMLOKEY",
+          "Ingredients": "",
+          "ATC": "C08CA01",
+          "Dosage": "5mg",
+          "Strength": "5mg",
+          "Form": "Tablet",
+          "DosageForm": "Tablet",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Mediterranean Pharmaceutical Company",
+          "Manufacturer": "Industria Quimica Farmaceutica Vir SA",
+          "PublicPrice": "349399.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12685",
+          "BrandName": "ARIXTRA",
+          "Ingredients": "",
+          "ATC": "B01AX05",
+          "Dosage": "2.5mg/0.5ml",
+          "Strength": "2.5mg/0.5ml",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "10Prefilled syringes",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Abela Freres S.A.L.",
+          "Manufacturer": "Aspen Notre Dame de Bondeville",
+          "PublicPrice": "2369194.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12686",
+          "BrandName": "ARIXTRA",
+          "Ingredients": "",
+          "ATC": "B01AX05",
+          "Dosage": "7.5mg/0.6ml",
+          "Strength": "7.5mg/0.6ml",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "10Prefilled syringes",
+          "ProductType": "",
+          "Stratum": "C",
+          "Agent": "Abela Freres S.A.L.",
+          "Manufacturer": "Aspen Notre Dame de Bondeville",
+          "PublicPrice": "5171061.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12665",
+          "BrandName": "CASPOFUNGINE STRAGEN",
+          "Ingredients": "",
+          "ATC": "J02AX04",
+          "Dosage": "70mg",
+          "Strength": "70mg",
+          "Form": "Poudre pour solution a diluer pour perfusion",
+          "DosageForm": "Poudre pour solution a diluer pour perfusion",
+          "Route": "",
+          "Presentation": "1Flacon",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Karout pharmacy",
+          "Manufacturer": "Elpen Pharmaceutical Co. Inc",
+          "PublicPrice": "22928852.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12666",
+          "BrandName": "CASPOFUNGINE STRAGEN",
+          "Ingredients": "",
+          "ATC": "J02AX04",
+          "Dosage": "50mg",
+          "Strength": "50mg",
+          "Form": "Poudre pour solution a diluer pour perfusion",
+          "DosageForm": "Poudre pour solution a diluer pour perfusion",
+          "Route": "",
+          "Presentation": "1Flacon",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Karout pharmacy",
+          "Manufacturer": "Elpen Pharmaceutical Co. Inc",
+          "PublicPrice": "18712833.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12681",
+          "BrandName": "CEFUMAX",
+          "Ingredients": "",
+          "ATC": "J01DC02",
+          "Dosage": "750mg",
+          "Strength": "750mg",
+          "Form": "",
+          "DosageForm": "",
+          "Route": "",
+          "Presentation": "1Vial",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "C. Catafago & Co",
+          "Manufacturer": "Pharco B International",
+          "PublicPrice": "415247.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12680",
+          "BrandName": "CETRAK",
+          "Ingredients": "",
+          "ATC": "R06AE07",
+          "Dosage": "10mg",
+          "Strength": "10mg",
+          "Form": "Tablet",
+          "DosageForm": "Tablet",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "C. Catafago & Co",
+          "Manufacturer": "Pharco Pharmaceuticals",
+          "PublicPrice": "806306.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12668",
+          "BrandName": "CLAVODIS",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "1g",
+          "Strength": "1g",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "14",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Medis Pharm Drugstore",
+          "Manufacturer": "Medicef Pharma, India packed by Chaoul Pharmaceuticals (Cha-pha) SAL",
+          "PublicPrice": "627127.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12669",
+          "BrandName": "CLAVODIS",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "457mg/5ml",
+          "Strength": "457mg/5ml",
+          "Form": "Powder for oral suspension",
+          "DosageForm": "Powder for oral suspension",
+          "Route": "",
+          "Presentation": "70ml",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Medis Pharm Drugstore",
+          "Manufacturer": "Medicef Pharma, India packed by Chaoul Pharmaceuticals (Cha-pha) SAL",
+          "PublicPrice": "472265.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12670",
+          "BrandName": "CLAVODIS",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "642.9mg/5ml",
+          "Strength": "642.9mg/5ml",
+          "Form": "Powder for oral suspension",
+          "DosageForm": "Powder for oral suspension",
+          "Route": "",
+          "Presentation": "100ml",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Medis Pharm Drugstore",
+          "Manufacturer": "Medicef Pharma, India packed by Chaoul Pharmaceuticals (Cha-pha) SAL",
+          "PublicPrice": "719276.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12687",
+          "BrandName": "DIFEN B12",
+          "Ingredients": "",
+          "ATC": "M01AB55",
+          "Dosage": "",
+          "Strength": "",
+          "Form": "Injectable solution",
+          "DosageForm": "Injectable solution",
+          "Route": "",
+          "Presentation": "5Ampoules",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Droguerie Phenicia",
+          "Manufacturer": "Mr Pharma SA",
+          "PublicPrice": "978317.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12650",
+          "BrandName": "DOMPERILIX ODT",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "10mg",
+          "Strength": "10mg",
+          "Form": "Tablet, orodispersible",
+          "DosageForm": "Tablet, orodispersible",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "MH Pharma SARL",
+          "Manufacturer": "UBSA Pharma Industries SARL (Secondary Packaging), manufacturer: Athena Drug Delivery Solutions private Ltd, India",
+          "PublicPrice": "327642.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12684",
+          "BrandName": "DUODART",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "0.5mg/0.4mg",
+          "Strength": "0.5mg/0.4mg",
+          "Form": "Capsule, hard",
+          "DosageForm": "Capsule, hard",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Abela Freres S.A.L.",
+          "Manufacturer": "Catalent Germany Schorndorf GmbH",
+          "PublicPrice": "768678.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12641",
+          "BrandName": "EMPA",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "25mg",
+          "Strength": "25mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Pharmaline S.A.L.",
+          "Manufacturer": "Pharmaline SAL",
+          "PublicPrice": "1740724.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12642",
+          "BrandName": "EMPA",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "10mg",
+          "Strength": "10mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Pharmaline S.A.L.",
+          "Manufacturer": "Pharmaline SAL",
+          "PublicPrice": "1740724.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12640",
+          "BrandName": "EMPAMET",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "12.5mg/1000mg",
+          "Strength": "12.5mg/1000mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "60",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Pharmaline S.A.L.",
+          "Manufacturer": "Pharmaline SAL",
+          "PublicPrice": "1840168.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12639",
+          "BrandName": "EURO D 10000 IU",
+          "Ingredients": "",
+          "ATC": "A11CC05",
+          "Dosage": "10,000IU",
+          "Strength": "10,000IU",
+          "Form": "Capsule",
+          "DosageForm": "Capsule",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Venus Drugstore",
+          "Manufacturer": "Catalent Ontario Limited",
+          "PublicPrice": "993100.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12638",
+          "BrandName": "EURO D HP 50.000 IU",
+          "Ingredients": "",
+          "ATC": "A11CC05",
+          "Dosage": "50,000IU",
+          "Strength": "50,000IU",
+          "Form": "Capsule",
+          "DosageForm": "Capsule",
+          "Route": "",
+          "Presentation": "10",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Venus Drugstore",
+          "Manufacturer": "Catalent Ontario Limited",
+          "PublicPrice": "1432536.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12659",
+          "BrandName": "FLUCONAZOLE ARROW LAB",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "200mg",
+          "Strength": "200mg",
+          "Form": "Gelules",
+          "DosageForm": "Gelules",
+          "Route": "",
+          "Presentation": "7",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Karout pharmacy",
+          "Manufacturer": "Generis Farmaceutica SA",
+          "PublicPrice": "3918645.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12645",
+          "BrandName": "FUNGOZOL-UBSA",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "150mg",
+          "Strength": "150mg",
+          "Form": "Capsule",
+          "DosageForm": "Capsule",
+          "Route": "",
+          "Presentation": "1",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "L. Pharm SAL",
+          "Manufacturer": "UBSA Pharma Industries SARL",
+          "PublicPrice": "199657.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "2647",
+          "BrandName": "",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "",
+          "Strength": "",
+          "Form": "",
+          "DosageForm": "",
+          "Route": "",
+          "Presentation": "",
+          "ProductType": "",
+          "Stratum": "",
+          "Agent": "",
+          "Manufacturer": "",
+          "recordMissingFromAPI": true
+        },
+        {
+          "MoPHCode": "12662",
+          "BrandName": "LEVETIRACETAM ARROW LAB",
+          "Ingredients": "",
+          "ATC": "N03AX14",
+          "Dosage": "500mg",
+          "Strength": "500mg",
+          "Form": "Comprimes pellicules secables",
+          "DosageForm": "Comprimes pellicules secables",
+          "Route": "",
+          "Presentation": "60",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Generis Farmaceutica SA",
+          "PublicPrice": "2441762.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12663",
+          "BrandName": "LEVETIRACETAM ARROW LAB",
+          "Ingredients": "",
+          "ATC": "N03AX14",
+          "Dosage": "250mg",
+          "Strength": "250mg",
+          "Form": "Comprimes pellicules secables",
+          "DosageForm": "Comprimes pellicules secables",
+          "Route": "",
+          "Presentation": "60",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Generis Farmaceutica SA",
+          "PublicPrice": "1243054.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12664",
+          "BrandName": "LEVETIRACETAM ARROW LAB",
+          "Ingredients": "",
+          "ATC": "N03AX14",
+          "Dosage": "1000mg",
+          "Strength": "1000mg",
+          "Form": "Comprimes pellicules secables",
+          "DosageForm": "Comprimes pellicules secables",
+          "Route": "",
+          "Presentation": "60",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Generis Farmaceutica SA",
+          "PublicPrice": "2932264.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12675",
+          "BrandName": "LIDONOSTRUM GELE",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "2% 20mg/g",
+          "Strength": "2% 20mg/g",
+          "Form": "Gel",
+          "DosageForm": "Gel",
+          "Route": "",
+          "Presentation": "30g",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Mediterranean Pharmaceutical Company",
+          "Manufacturer": "Sidefarma - Sociedade Industrial de Expansao Farmaceutica SA",
+          "PublicPrice": "804962.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12671",
+          "BrandName": "LIZENOR",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "2mg/ml 600mg/300ml",
+          "Strength": "2mg/ml 600mg/300ml",
+          "Form": "Solution for infusion",
+          "DosageForm": "Solution for infusion",
+          "Route": "",
+          "Presentation": "10Bags of 300ml",
+          "ProductType": "",
+          "Stratum": "C",
+          "Agent": "Droguerie Phenicia",
+          "Manufacturer": "Normon SA",
+          "PublicPrice": "12689600.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12672",
+          "BrandName": "LIZENOR",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "600mg",
+          "Strength": "600mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "10",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Droguerie Phenicia",
+          "Manufacturer": "Normon SA",
+          "PublicPrice": "5416096.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12677",
+          "BrandName": "MERO-ORBUCELL",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "1g",
+          "Strength": "1g",
+          "Form": "Powder for solution for infusion or injection",
+          "DosageForm": "Powder for solution for infusion or injection",
+          "Route": "",
+          "Presentation": "10Vials",
+          "ProductType": "",
+          "Stratum": "C",
+          "Agent": "Pharmadex",
+          "Manufacturer": "Packed by Pharmadex SAL Lebanon under license from Orbucell Pharma Canada",
+          "PublicPrice": "7755818.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12676",
+          "BrandName": "MITONCO",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "10mg",
+          "Strength": "10mg",
+          "Form": "Injection",
+          "DosageForm": "Injection",
+          "Route": "",
+          "Presentation": "1Vial",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Droguerie Phenicia",
+          "Manufacturer": "Korea United Pharm. Inc.",
+          "PublicPrice": "2279157.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12658",
+          "BrandName": "MODAFINIL ARROW",
+          "Ingredients": "",
+          "ATC": "N06BA07",
+          "Dosage": "100mg",
+          "Strength": "100mg",
+          "Form": "Comprime",
+          "DosageForm": "Comprime",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Generis Farmaceutica SA",
+          "PublicPrice": "5361932.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12678",
+          "BrandName": "NAMBROL ADULTS",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "1mg/ml",
+          "Strength": "1mg/ml",
+          "Form": "Solution for nebulization",
+          "DosageForm": "Solution for nebulization",
+          "Route": "",
+          "Presentation": "30Single-dose containers of 1ml",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "New Europharm",
+          "Manufacturer": "Genetic Spa",
+          "PublicPrice": "2279157.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12683",
+          "BrandName": "NERLYX",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "40mg",
+          "Strength": "40mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "180",
+          "ProductType": "",
+          "Stratum": "E2",
+          "Agent": "Mersaco",
+          "Manufacturer": "Excella GmbH & Co KG",
+          "PublicPrice": "399248512.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12647",
+          "BrandName": "NEUROLIEF",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "75mg",
+          "Strength": "75mg",
+          "Form": "Capsule",
+          "DosageForm": "Capsule",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "L. Pharm SAL",
+          "Manufacturer": "Manufactured by Impulse Pharma Pvt Ltd, India Packed by UBSA Pharma Industries SARL",
+          "PublicPrice": "669362.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12648",
+          "BrandName": "NEUROLIEF",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "150mg",
+          "Strength": "150mg",
+          "Form": "Capsule",
+          "DosageForm": "Capsule",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "L. Pharm SAL",
+          "Manufacturer": "Manufactured by Impulse Pharma Pvt Ltd, India Packed by UBSA Pharma Industries SARL",
+          "PublicPrice": "752552.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12646",
+          "BrandName": "PAINEXA",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "90mg",
+          "Strength": "90mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "10",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "L. Pharm SAL",
+          "Manufacturer": "UBSA Pharma Industries SARL (Secondary Packaging), manufacturer: Livealth Biopharma Pvt. Ltd, India",
+          "PublicPrice": "431309.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12673",
+          "BrandName": "PANADOL NIGHT",
+          "Ingredients": "",
+          "ATC": "N02BE51",
+          "Dosage": "",
+          "Strength": "",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "24",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Sadco",
+          "Manufacturer": "Haleon Ireland Dungarvan Limited",
+          "PublicPrice": "315803.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12679",
+          "BrandName": "SUBIFIX",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "400mg",
+          "Strength": "400mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "5",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "New Europharm",
+          "Manufacturer": "Deva Holding AS",
+          "PublicPrice": "2392040.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12667",
+          "BrandName": "SUXAMETHONIUM AGUETTANT",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "10mg/ml",
+          "Strength": "10mg/ml",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "10 prefilled syringes",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Pharmamed",
+          "Manufacturer": "Aguettant",
+          "PublicPrice": "14907089.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12660",
+          "BrandName": "TOPIRAMATE ARROW LAB",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "50mg",
+          "Strength": "50mg",
+          "Form": "Comprimes pellicules",
+          "DosageForm": "Comprimes pellicules",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "APL Swift Services (Malta) Limited",
+          "PublicPrice": "819744.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12661",
+          "BrandName": "TOPIRAMATE ARROW LAB",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "100mg",
+          "Strength": "100mg",
+          "Form": "Comprimes pellicules",
+          "DosageForm": "Comprimes pellicules",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "APL Swift Services (Malta) Limited",
+          "PublicPrice": "1542731.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12688",
+          "BrandName": "TOPIRAMATE ARROW LAB",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "200mg",
+          "Strength": "200mg",
+          "Form": "Comprimes pellicules",
+          "DosageForm": "Comprimes pellicules",
+          "Route": "",
+          "Presentation": "30",
+          "ProductType": "",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "APL Swift Services (Malta) Limited",
+          "PublicPrice": "1542731.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12643",
+          "BrandName": "TRUQAP",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "160mg",
+          "Strength": "160mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "64",
+          "ProductType": "",
+          "Stratum": "E2",
+          "Agent": "Omnipharma",
+          "Manufacturer": "AstraZeneca AB",
+          "PublicPrice": "659577281.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12644",
+          "BrandName": "TRUQAP",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "200mg",
+          "Strength": "200mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "",
+          "Presentation": "64",
+          "ProductType": "",
+          "Stratum": "E2",
+          "Agent": "Omnipharma",
+          "Manufacturer": "AstraZeneca AB",
+          "PublicPrice": "659577281.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12682",
+          "BrandName": "VAXIGRIP",
+          "Ingredients": "",
+          "ATC": "J07BB01",
+          "Dosage": "1dose",
+          "Strength": "1dose",
+          "Form": "Injectable",
+          "DosageForm": "Injectable",
+          "Route": "",
+          "Presentation": "Prefilled syringe                                   1 x 0.5ml",
+          "ProductType": "",
+          "Stratum": "A2",
+          "Agent": "Mersaco",
+          "Manufacturer": "Sanofi Winthrop Industrie",
+          "PublicPrice": "158573.000000",
+          "ATCInferred": true,
+          "ATCSource": "brand"
+        },
+        {
+          "MoPHCode": "12652",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "2.4mg",
+          "Strength": "2.4mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 3ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "31996440.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12653",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "1.7mg",
+          "Strength": "1.7mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 3ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "22659530.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12654",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "1mg",
+          "Strength": "1mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 3ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "13330172.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12655",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "0.5mg",
+          "Strength": "0.5mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 1.5ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "13332689.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12656",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "0.5mg",
+          "Strength": "0.5mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 3ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "19207428.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12657",
+          "BrandName": "WEGOVY",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "0.25mg",
+          "Strength": "0.25mg",
+          "Form": "Solution for injection",
+          "DosageForm": "Solution for injection",
+          "Route": "",
+          "Presentation": "1prefilled pen Flextouch 1.5ml and 4 disposable needles",
+          "ProductType": "",
+          "Stratum": "D",
+          "Agent": "Mersaco",
+          "Manufacturer": "Novo Nordisk AS",
+          "PublicPrice": "13332689.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        },
+        {
+          "MoPHCode": "12649",
+          "BrandName": "ZANOMET",
+          "Ingredients": "",
+          "ATC": "",
+          "Dosage": "500mg",
+          "Strength": "500mg",
+          "Form": "Tablet",
+          "DosageForm": "Tablet",
+          "Route": "",
+          "Presentation": "20",
+          "ProductType": "",
+          "Stratum": "A1",
+          "Agent": "Avicenna Pharm SARL",
+          "Manufacturer": "UBSA Pharma Industries SARL",
+          "PublicPrice": "325082.000000",
+          "ATCInferred": false,
+          "ATCSource": "unresolved"
+        }
+      ]
+    },
+    "section2_newly_not_marketed": {
+      "total_newly_unmarketed_drugs": 9,
+      "total_atc_codes_newly_unmarketed_drugs": 7,
+      "rows": [
+        {
+          "MoPHCode": "5220",
+          "BrandName": "SECNOL",
+          "Ingredients": "Secnidazole anhydre - 2g",
+          "ATC": "P01AB07",
+          "Dosage": "2g",
+          "Strength": "2g",
+          "Form": "Granules en sachet-dose",
+          "DosageForm": "Granules en sachet-dose",
+          "Route": "Oral",
+          "Presentation": "1 Packet / Sachet",
+          "ProductType": "Generic",
+          "Stratum": "A2",
+          "Agent": "Medi drug International SAL (MDI)",
+          "Manufacturer": "Macors",
+          "PublicPrice": "842589.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "8838",
+          "BrandName": "AMOCLAN BID",
+          "Ingredients": "Amoxicillin (trihydrate) - 400mg/5ml, Clavulanic Acid (potassium) - 57.1mg/5ml",
+          "ATC": "J01CR02",
+          "Dosage": "400/57",
+          "Strength": "400/57",
+          "Form": "Chewable tablet",
+          "DosageForm": "Chewable tablet",
+          "Route": "Oral",
+          "Presentation": "18 Pills",
+          "ProductType": "Generic",
+          "Stratum": "A2",
+          "Agent": "Droguerie de l'Union",
+          "Manufacturer": "Hikma Pharmaceuticals",
+          "PublicPrice": "892311.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "7401",
+          "BrandName": "LEVOFLOXACIN- HAMELN",
+          "Ingredients": "Levofloxacin - 500mg/100ml",
+          "ATC": "J01MA12",
+          "Dosage": "5mg/ml",
+          "Strength": "5mg/ml",
+          "Form": "Infusion",
+          "DosageForm": "Infusion",
+          "Route": "Infusion",
+          "Presentation": "1 vial of 100 ml",
+          "ProductType": "Generic",
+          "Stratum": "B",
+          "Agent": "Pharmamed",
+          "Manufacturer": "Siegfried Hameln GmbH",
+          "PublicPrice": "1632769.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "3755",
+          "BrandName": "NORMIX SIROP",
+          "Ingredients": "Rifaximin alpha - 100mg/5ml",
+          "ATC": "A07AA11",
+          "Dosage": "2g/100ml",
+          "Strength": "2g/100ml",
+          "Form": "Granules for oral  suspension",
+          "DosageForm": "Granules for oral  suspension",
+          "Route": "Oral",
+          "Presentation": "60 ml",
+          "ProductType": "Brand",
+          "Stratum": "A1",
+          "Agent": "Droguerie Phenicia",
+          "Manufacturer": "Alfasigma SpA",
+          "PublicPrice": "477064.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "6768",
+          "BrandName": "KETESSE",
+          "Ingredients": "Dexketoprofen (trometamol) - 50mg/2ml",
+          "ATC": "M01AE17",
+          "Dosage": "50mg/2ml",
+          "Strength": "50mg/2ml",
+          "Form": "Solution for injection/ infusion",
+          "DosageForm": "Solution for injection/ infusion",
+          "Route": "Infusion-Intramuscular",
+          "Presentation": "5 Ampules",
+          "ProductType": "Brand",
+          "Stratum": "A1",
+          "Agent": "Mersaco",
+          "Manufacturer": "A. Menarini Manufacturing Logistics and Services SRL",
+          "PublicPrice": "435405.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "7441",
+          "BrandName": "TOPIRAMATE ARROW",
+          "Ingredients": "Topiramate - 100mg",
+          "ATC": "N03AX11",
+          "Dosage": "100mg",
+          "Strength": "100mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "Oral",
+          "Presentation": "28",
+          "ProductType": "G",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Arrow Pharm (Malta) Limited",
+          "PublicPrice": "1440599.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "7442",
+          "BrandName": "TOPIRAMATE ARROW",
+          "Ingredients": "Topiramate - 200mg",
+          "ATC": "N03AX11",
+          "Dosage": "200mg",
+          "Strength": "200mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "Oral",
+          "Presentation": "28",
+          "ProductType": "G",
+          "Stratum": "B",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Arrow Pharm (Malta) Limited",
+          "PublicPrice": "1440599.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "12465",
+          "BrandName": "LAMISIL",
+          "Ingredients": "Terbinafine HCl - 10mg/ml",
+          "ATC": "D01AE15",
+          "Dosage": "1%",
+          "Strength": "1%",
+          "Form": "Spray",
+          "DosageForm": "Spray",
+          "Route": "",
+          "Presentation": "15ml",
+          "ProductType": "B",
+          "Stratum": "A1",
+          "Agent": "Sadco",
+          "Manufacturer": "Delpharm Huningue SAS",
+          "PublicPrice": "506629.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        },
+        {
+          "MoPHCode": "7577",
+          "BrandName": "TOPIRAMATE ARROW",
+          "Ingredients": "Topiramate - 50mg",
+          "ATC": "N03AX11",
+          "Dosage": "50mg",
+          "Strength": "50mg",
+          "Form": "Tablet, film coated",
+          "DosageForm": "Tablet, film coated",
+          "Route": "Oral",
+          "Presentation": "28",
+          "ProductType": "G",
+          "Stratum": "A1",
+          "Agent": "Darapharma S.A.L.",
+          "Manufacturer": "Arrow Pharm (Malta) Limited",
+          "PublicPrice": "591291.000000",
+          "ATCInferred": false,
+          "ATCSource": "direct"
+        }
+      ]
+    },
+    "section3_modifications": {
+      "atc_code_changes": [],
+      "agent_changes": [
+        {
+          "BrandName": "ZANOMET",
+          "old": "Avicenna Pharm SARL",
+          "new": "Avicenna Pharm SARL",
+          "details": {
+            "MoPHCode": "12649",
+            "old": {
+              "Agent": "Avicenna Pharm SARL"
+            },
+            "new": {
+              "Agent": "Avicenna Pharm SARL"
+            },
+            "templateRow": {
+              "MoPHCode": "12649",
+              "BrandName": "ZANOMET",
+              "Ingredients": "",
+              "ATC": "",
+              "Dosage": "500mg",
+              "Strength": "500mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "",
+              "Presentation": "20",
+              "ProductType": "",
+              "Stratum": "A1",
+              "Agent": "Avicenna Pharm SARL",
+              "Manufacturer": "UBSA Pharma Industries SARL",
+              "PublicPrice": "325082.000000",
+              "ATCInferred": false,
+              "ATCSource": "unresolved"
+            }
+          }
+        },
+        {
+          "BrandName": "PMS-TERIFLUNOMIDE",
+          "old": "Droguerie de l'Union",
+          "new": "UPO S.A.L.",
+          "details": {
+            "MoPHCode": "12620",
+            "old": {
+              "Agent": "Droguerie de l'Union"
+            },
+            "new": {
+              "Agent": "UPO S.A.L."
+            },
+            "templateRow": {
+              "MoPHCode": "12620",
+              "BrandName": "PMS-TERIFLUNOMIDE",
+              "Ingredients": "",
+              "ATC": "",
+              "Dosage": "14mg",
+              "Strength": "14mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "",
+              "Presentation": "30",
+              "ProductType": "",
+              "Stratum": "D",
+              "Agent": "UPO S.A.L.",
+              "Manufacturer": "Pharmascience Inc",
+              "PublicPrice": "29079206.000000",
+              "ATCInferred": false,
+              "ATCSource": "unresolved"
+            }
+          }
+        }
+      ],
+      "manufacturer_changes": [],
+      "price_stratum_changes": [
+        {
+          "BrandName": "ZOFRAN INJECTION",
+          "oldPrice": 10068071,
+          "newPrice": 9742118,
+          "oldStratum": "C",
+          "newStratum": "C",
+          "details": {
+            "MoPHCode": "9117",
+            "old": {
+              "PublicPrice": 10068071
+            },
+            "new": {
+              "PublicPrice": 9742118
+            },
+            "templateRow": {
+              "MoPHCode": "9117",
+              "BrandName": "ZOFRAN INJECTION",
+              "Ingredients": "Ondansetron (HCl dihydrate) - 8mg/4ml",
+              "ATC": "A04AA01",
+              "Dosage": "2mg/ml",
+              "Strength": "2mg/ml",
+              "Form": "",
+              "DosageForm": "",
+              "Route": "Intravenous-Intramuscular",
+              "Presentation": "5 Ampules of 4 ml each",
+              "ProductType": "Brand",
+              "Stratum": "C",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Sandoz Pharmaceuticals AG, Switzerland",
+              "PublicPrice": "9742118.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "SIMULECT",
+          "oldPrice": 100838212,
+          "newPrice": 97573579,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "7533",
+            "old": {
+              "PublicPrice": 100838212
+            },
+            "new": {
+              "PublicPrice": 97573579
+            },
+            "templateRow": {
+              "MoPHCode": "7533",
+              "BrandName": "SIMULECT",
+              "Ingredients": "Basiliximab - 20mg",
+              "ATC": "L04AC02",
+              "Dosage": "20mg",
+              "Strength": "20mg",
+              "Form": "Powder and solution for injection",
+              "DosageForm": "Powder and solution for injection",
+              "Route": "IInfusion-Intravenous",
+              "Presentation": "1 vial and 1 ampule",
+              "ProductType": "BioTech",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Patheon Italia SpA",
+              "PublicPrice": "97573579.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "GARDENAL",
+          "oldPrice": 120946,
+          "newPrice": 151854,
+          "oldStratum": "A1",
+          "newStratum": "A1",
+          "details": {
+            "MoPHCode": "10046",
+            "old": {
+              "PublicPrice": 120946
+            },
+            "new": {
+              "PublicPrice": 151854
+            },
+            "templateRow": {
+              "MoPHCode": "10046",
+              "BrandName": "GARDENAL",
+              "Ingredients": "Phenobarbital - 100mg",
+              "ATC": "N03AA02",
+              "Dosage": "100mg",
+              "Strength": "100mg",
+              "Form": "Comprime",
+              "DosageForm": "Comprime",
+              "Route": "Oral",
+              "Presentation": "20 Pills",
+              "ProductType": "Brand",
+              "Stratum": "A1",
+              "Agent": "Mersaco",
+              "Manufacturer": "S.C. Zentiva S.A.",
+              "PublicPrice": "151854.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "RYDAPT",
+          "oldPrice": 1254159941,
+          "newPrice": 1213556561,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "9659",
+            "old": {
+              "PublicPrice": 1254159941
+            },
+            "new": {
+              "PublicPrice": 1213556561
+            },
+            "templateRow": {
+              "MoPHCode": "9659",
+              "BrandName": "RYDAPT",
+              "Ingredients": "Midostaurin - 25mg",
+              "ATC": "L01EX10",
+              "Dosage": "25mg",
+              "Strength": "25mg",
+              "Form": "Capsule, soft",
+              "DosageForm": "Capsule, soft",
+              "Route": "Oral",
+              "Presentation": "4 packs of 28 pills each",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Catalent Germany Eberbach GmbH",
+              "PublicPrice": "1213556561.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "CERTICAN",
+          "oldPrice": 13516410,
+          "newPrice": 13078816,
+          "oldStratum": "C",
+          "newStratum": "C",
+          "details": {
+            "MoPHCode": "5116",
+            "old": {
+              "PublicPrice": 13516410
+            },
+            "new": {
+              "PublicPrice": 13078816
+            },
+            "templateRow": {
+              "MoPHCode": "5116",
+              "BrandName": "CERTICAN",
+              "Ingredients": "Everolimus - 0.5mg",
+              "ATC": "L04AA18",
+              "Dosage": "0.5mg",
+              "Strength": "0.5mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "60 Pills",
+              "ProductType": "Brand",
+              "Stratum": "C",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "13078816.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "REVOLADE",
+          "oldPrice": 151399262,
+          "newPrice": 112547132,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "11624",
+            "old": {
+              "PublicPrice": 151399262
+            },
+            "new": {
+              "PublicPrice": 112547132
+            },
+            "templateRow": {
+              "MoPHCode": "11624",
+              "BrandName": "REVOLADE",
+              "Ingredients": "Eltrombopag Olamine - 50mg",
+              "ATC": "B02BX05",
+              "Dosage": "50mg",
+              "Strength": "50mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "28",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharmaceuticals Manufacturing LLC",
+              "PublicPrice": "112547132.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "AFINITOR",
+          "oldPrice": 154115122,
+          "newPrice": 149125651,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "5897",
+            "old": {
+              "PublicPrice": 154115122
+            },
+            "new": {
+              "PublicPrice": 149125651
+            },
+            "templateRow": {
+              "MoPHCode": "5897",
+              "BrandName": "AFINITOR",
+              "Ingredients": "Everolimus - 5mg",
+              "ATC": "L01EG02",
+              "Dosage": "5mg",
+              "Strength": "5mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "30 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "149125651.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "TOPAMAX",
+          "oldPrice": 1720118,
+          "newPrice": 1568264,
+          "oldStratum": "B",
+          "newStratum": "B",
+          "details": {
+            "MoPHCode": "10456",
+            "old": {
+              "PublicPrice": 1720118
+            },
+            "new": {
+              "PublicPrice": 1568264
+            },
+            "templateRow": {
+              "MoPHCode": "10456",
+              "BrandName": "TOPAMAX",
+              "Ingredients": "Topiramate - 50mg",
+              "ATC": "N03AX11",
+              "Dosage": "50mg",
+              "Strength": "50mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "60 Pills",
+              "ProductType": "Brand",
+              "Stratum": "B",
+              "Agent": "Mersaco",
+              "Manufacturer": "Cilag AG",
+              "PublicPrice": "1568264.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "MYFORTIC",
+          "oldPrice": 17256739,
+          "newPrice": 16698053,
+          "oldStratum": "D",
+          "newStratum": "D",
+          "details": {
+            "MoPHCode": "12446",
+            "old": {
+              "PublicPrice": 17256739
+            },
+            "new": {
+              "PublicPrice": 16698053
+            },
+            "templateRow": {
+              "MoPHCode": "12446",
+              "BrandName": "MYFORTIC",
+              "Ingredients": "Mycophenolic acid (sodium) - 360mg",
+              "ATC": "L04AA06",
+              "Dosage": "360mg",
+              "Strength": "360mg",
+              "Form": "Tablet, gastroresistant",
+              "DosageForm": "Tablet, gastroresistant",
+              "Route": "",
+              "Presentation": "120",
+              "ProductType": "B",
+              "Stratum": "D",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Produktions GmbH, Wehr",
+              "PublicPrice": "16698053.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "JAKAVI",
+          "oldPrice": 178442955,
+          "newPrice": 172665871,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "11837",
+            "old": {
+              "PublicPrice": 178442955
+            },
+            "new": {
+              "PublicPrice": 172665871
+            },
+            "templateRow": {
+              "MoPHCode": "11837",
+              "BrandName": "JAKAVI",
+              "Ingredients": "Ruxolitinib - 5mg",
+              "ATC": "L01EJ01",
+              "Dosage": "5mg",
+              "Strength": "5mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "56",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "172665871.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "HIZENTRA 2G",
+          "oldPrice": 19038230,
+          "newPrice": 18421868,
+          "oldStratum": "D",
+          "newStratum": "D",
+          "details": {
+            "MoPHCode": "9717",
+            "old": {
+              "PublicPrice": 19038230
+            },
+            "new": {
+              "PublicPrice": 18421868
+            },
+            "templateRow": {
+              "MoPHCode": "9717",
+              "BrandName": "HIZENTRA 2G",
+              "Ingredients": "Immunoglobulin human - 2g/10ml",
+              "ATC": "J06BA02",
+              "Dosage": "200mg/ml",
+              "Strength": "200mg/ml",
+              "Form": "Solution for injection for subcutaneous use",
+              "DosageForm": "Solution for injection for subcutaneous use",
+              "Route": "Subcutanous",
+              "Presentation": "1 vial of 10 ml",
+              "ProductType": "BioHuman",
+              "Stratum": "D",
+              "Agent": "Benta Trading Co s.a.l.",
+              "Manufacturer": "Packed by Benta SAL Lebanon under license from CSL Behring AG, Switzerland",
+              "PublicPrice": "18421868.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "MERIONAL HG",
+          "oldPrice": 2011300,
+          "newPrice": 1946184,
+          "oldStratum": "B",
+          "newStratum": "B",
+          "details": {
+            "MoPHCode": "12456",
+            "old": {
+              "PublicPrice": 2011300
+            },
+            "new": {
+              "PublicPrice": 1946184
+            },
+            "templateRow": {
+              "MoPHCode": "12456",
+              "BrandName": "MERIONAL HG",
+              "Ingredients": "Menotropin - 75IU",
+              "ATC": "G03GA02",
+              "Dosage": "75IU",
+              "Strength": "75IU",
+              "Form": "Powder and solvent for solution for injection",
+              "DosageForm": "Powder and solvent for solution for injection",
+              "Route": "",
+              "Presentation": "1powder vial + 1solvent ampoule",
+              "ProductType": "BioHuman",
+              "Stratum": "B",
+              "Agent": "Alisar Pharma Corp",
+              "Manufacturer": "IBSA Institut Biochimique SA",
+              "PublicPrice": "1946184.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "CERTICAN",
+          "oldPrice": 20200153,
+          "newPrice": 19546174,
+          "oldStratum": "D",
+          "newStratum": "D",
+          "details": {
+            "MoPHCode": "5117",
+            "old": {
+              "PublicPrice": 20200153
+            },
+            "new": {
+              "PublicPrice": 19546174
+            },
+            "templateRow": {
+              "MoPHCode": "5117",
+              "BrandName": "CERTICAN",
+              "Ingredients": "Everolimus - 0.75mg",
+              "ATC": "L04AA18",
+              "Dosage": "0.75mg",
+              "Strength": "0.75mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "60 Pills",
+              "ProductType": "Brand",
+              "Stratum": "D",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "19546174.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "AFINITOR",
+          "oldPrice": 221857193,
+          "newPrice": 214674575,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "6930",
+            "old": {
+              "PublicPrice": 221857193
+            },
+            "new": {
+              "PublicPrice": 214674575
+            },
+            "templateRow": {
+              "MoPHCode": "6930",
+              "BrandName": "AFINITOR",
+              "Ingredients": "Everolimus - 10mg",
+              "ATC": "L01EG02",
+              "Dosage": "10mg",
+              "Strength": "10mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "30 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "214674575.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "TASIGNA",
+          "oldPrice": 256154857,
+          "newPrice": 247861853,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "6207",
+            "old": {
+              "PublicPrice": 256154857
+            },
+            "new": {
+              "PublicPrice": 247861853
+            },
+            "templateRow": {
+              "MoPHCode": "6207",
+              "BrandName": "TASIGNA",
+              "Ingredients": "Nilotinib - 150mg",
+              "ATC": "L01EA03",
+              "Dosage": "150mg",
+              "Strength": "150mg",
+              "Form": "Capsule",
+              "DosageForm": "Capsule",
+              "Route": "Oral",
+              "Presentation": "112 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "247861853.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "JADENU",
+          "oldPrice": 28030805,
+          "newPrice": 27123309,
+          "oldStratum": "D",
+          "newStratum": "D",
+          "details": {
+            "MoPHCode": "11704",
+            "old": {
+              "PublicPrice": 28030805
+            },
+            "new": {
+              "PublicPrice": 27123309
+            },
+            "templateRow": {
+              "MoPHCode": "11704",
+              "BrandName": "JADENU",
+              "Ingredients": "Deferasirox - 360mg",
+              "ATC": "V03AC03",
+              "Dosage": "360mg",
+              "Strength": "360mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "30",
+              "ProductType": "Brand",
+              "Stratum": "D",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Sandoz S.R.L.",
+              "PublicPrice": "27123309.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "LITAK 10",
+          "oldPrice": 323240243,
+          "newPrice": 312775353,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "6562",
+            "old": {
+              "PublicPrice": 323240243
+            },
+            "new": {
+              "PublicPrice": 312775353
+            },
+            "templateRow": {
+              "MoPHCode": "6562",
+              "BrandName": "LITAK 10",
+              "Ingredients": "Cladribine - 2mg/ml",
+              "ATC": "L01BB04",
+              "Dosage": "2mg/ml",
+              "Strength": "2mg/ml",
+              "Form": "Solution for SC or IV injection/infusion",
+              "DosageForm": "Solution for SC or IV injection/infusion",
+              "Route": "Infusion-Subcutanous",
+              "Presentation": "5 Vials",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Mediterranean Pharmaceutical Company",
+              "Manufacturer": "Haupt Pharma Wolfratshausen GmbH",
+              "PublicPrice": "312775353.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "TASIGNA",
+          "oldPrice": 324819838,
+          "newPrice": 314303808,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "5120",
+            "old": {
+              "PublicPrice": 324819838
+            },
+            "new": {
+              "PublicPrice": 314303808
+            },
+            "templateRow": {
+              "MoPHCode": "5120",
+              "BrandName": "TASIGNA",
+              "Ingredients": "Nilotinib - 200mg",
+              "ATC": "L01EA03",
+              "Dosage": "200mg",
+              "Strength": "200mg",
+              "Form": "Capsule",
+              "DosageForm": "Capsule",
+              "Route": "Oral",
+              "Presentation": "112 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "314303808.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "HIZENTRA 4G",
+          "oldPrice": 34237996,
+          "newPrice": 33129543,
+          "oldStratum": "D",
+          "newStratum": "D",
+          "details": {
+            "MoPHCode": "9718",
+            "old": {
+              "PublicPrice": 34237996
+            },
+            "new": {
+              "PublicPrice": 33129543
+            },
+            "templateRow": {
+              "MoPHCode": "9718",
+              "BrandName": "HIZENTRA 4G",
+              "Ingredients": "Immunoglobulin human - 4g/20ml",
+              "ATC": "J06BA02",
+              "Dosage": "200mg/ml",
+              "Strength": "200mg/ml",
+              "Form": "Solution for injection for subcutaneous use",
+              "DosageForm": "Solution for injection for subcutaneous use",
+              "Route": "Subcutanous",
+              "Presentation": "1 vial of 20 ml",
+              "ProductType": "BioHuman",
+              "Stratum": "D",
+              "Agent": "Benta Trading Co s.a.l.",
+              "Manufacturer": "Packed by Benta SAL Lebanon under license from CSL Behring AG, Switzerland",
+              "PublicPrice": "33129543.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "TOPAMAX",
+          "oldPrice": 3429486,
+          "newPrice": 3006176,
+          "oldStratum": "B",
+          "newStratum": "B",
+          "details": {
+            "MoPHCode": "10509",
+            "old": {
+              "PublicPrice": 3429486
+            },
+            "new": {
+              "PublicPrice": 3006176
+            },
+            "templateRow": {
+              "MoPHCode": "10509",
+              "BrandName": "TOPAMAX",
+              "Ingredients": "Topiramate - 100mg",
+              "ATC": "N03AX11",
+              "Dosage": "100mg",
+              "Strength": "100mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "60 Pills",
+              "ProductType": "Brand",
+              "Stratum": "B",
+              "Agent": "Mersaco",
+              "Manufacturer": "Cilag AG",
+              "PublicPrice": "3006176.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "JAKAVI",
+          "oldPrice": 352121341,
+          "newPrice": 340721426,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "11838",
+            "old": {
+              "PublicPrice": 352121341
+            },
+            "new": {
+              "PublicPrice": 340721426
+            },
+            "templateRow": {
+              "MoPHCode": "11838",
+              "BrandName": "JAKAVI",
+              "Ingredients": "Ruxolitinib - 15mg",
+              "ATC": "L01EJ01",
+              "Dosage": "15mg",
+              "Strength": "15mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "56",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "340721426.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "JAKAVI",
+          "oldPrice": 352121341,
+          "newPrice": 340721426,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "11839",
+            "old": {
+              "PublicPrice": 352121341
+            },
+            "new": {
+              "PublicPrice": 340721426
+            },
+            "templateRow": {
+              "MoPHCode": "11839",
+              "BrandName": "JAKAVI",
+              "Ingredients": "Ruxolitinib - 20mg",
+              "ATC": "L01EJ01",
+              "Dosage": "20mg",
+              "Strength": "20mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "56",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "340721426.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "",
+          "oldPrice": 38.714286,
+          "newPrice": 11489853,
+          "oldStratum": "",
+          "newStratum": "",
+          "details": {
+            "MoPHCode": "2647",
+            "old": {
+              "PublicPrice": 38.714286
+            },
+            "new": {
+              "PublicPrice": 11489853
+            },
+            "templateRow": {
+              "MoPHCode": "2647",
+              "BrandName": "",
+              "Ingredients": "",
+              "ATC": "",
+              "Dosage": "",
+              "Strength": "",
+              "Form": "",
+              "DosageForm": "",
+              "Route": "",
+              "Presentation": "",
+              "ProductType": "",
+              "Stratum": "",
+              "Agent": "",
+              "Manufacturer": "",
+              "recordMissingFromAPI": true
+            }
+          }
+        },
+        {
+          "BrandName": "SANDOSTATIN LAR",
+          "oldPrice": 39355784,
+          "newPrice": 38081642,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "5848",
+            "old": {
+              "PublicPrice": 39355784
+            },
+            "new": {
+              "PublicPrice": 38081642
+            },
+            "templateRow": {
+              "MoPHCode": "5848",
+              "BrandName": "SANDOSTATIN LAR",
+              "Ingredients": "Octreotide (acetate) - 20mg",
+              "ATC": "H01CB02",
+              "Dosage": "20mg",
+              "Strength": "20mg",
+              "Form": "Injectable powder",
+              "DosageForm": "Injectable powder",
+              "Route": "Intramuscular",
+              "Presentation": "1 Vial",
+              "ProductType": "Brand",
+              "Stratum": "E1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharmaceutical Manufacturing GmbH, Langkampfen",
+              "PublicPrice": "38081642.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "PRIVIGEN",
+          "oldPrice": 45903895,
+          "newPrice": 44417758,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "9184",
+            "old": {
+              "PublicPrice": 45903895
+            },
+            "new": {
+              "PublicPrice": 44417758
+            },
+            "templateRow": {
+              "MoPHCode": "9184",
+              "BrandName": "PRIVIGEN",
+              "Ingredients": "Immunoglobulin human - 5g/50ml",
+              "ATC": "J06BA02",
+              "Dosage": "10% (5g/50ml)",
+              "Strength": "10% (5g/50ml)",
+              "Form": "Injectable solution for infusion",
+              "DosageForm": "Injectable solution for infusion",
+              "Route": "Infusion",
+              "Presentation": "50 ml",
+              "ProductType": "BioHuman",
+              "Stratum": "E1",
+              "Agent": "Benta Trading Co s.a.l.",
+              "Manufacturer": "Packed by Benta SAL Lebanon under license from CSL Behring AG, Switzerland",
+              "PublicPrice": "44417758.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "GLIVEC",
+          "oldPrice": 52168478,
+          "newPrice": 50479525,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "4041",
+            "old": {
+              "PublicPrice": 52168478
+            },
+            "new": {
+              "PublicPrice": 50479525
+            },
+            "templateRow": {
+              "MoPHCode": "4041",
+              "BrandName": "GLIVEC",
+              "Ingredients": "Imatinib (mesylate) - 100mg",
+              "ATC": "L01EA01",
+              "Dosage": "100mg",
+              "Strength": "100mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "60 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Produktions GmbH, Wehr",
+              "PublicPrice": "50479525.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "SANDOSTATIN LAR",
+          "oldPrice": 59034407,
+          "newPrice": 57123171,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "5849",
+            "old": {
+              "PublicPrice": 59034407
+            },
+            "new": {
+              "PublicPrice": 57123171
+            },
+            "templateRow": {
+              "MoPHCode": "5849",
+              "BrandName": "SANDOSTATIN LAR",
+              "Ingredients": "Octreotide (acetate) - 30mg",
+              "ATC": "H01CB02",
+              "Dosage": "30mg",
+              "Strength": "30mg",
+              "Form": "Injectable powder",
+              "DosageForm": "Injectable powder",
+              "Route": "Intramuscular",
+              "Presentation": "1 Vial",
+              "ProductType": "Brand",
+              "Stratum": "E1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharmaceutical Manufacturing GmbH, Langkampfen",
+              "PublicPrice": "57123171.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "RYDAPT",
+          "oldPrice": 627079971,
+          "newPrice": 606778281,
+          "oldStratum": "E2",
+          "newStratum": "E2",
+          "details": {
+            "MoPHCode": "10293",
+            "old": {
+              "PublicPrice": 627079971
+            },
+            "new": {
+              "PublicPrice": 606778281
+            },
+            "templateRow": {
+              "MoPHCode": "10293",
+              "BrandName": "RYDAPT",
+              "Ingredients": "Midostaurin - 25mg",
+              "ATC": "L01EX10",
+              "Dosage": "25mg",
+              "Strength": "25mg",
+              "Form": "Capsule, soft",
+              "DosageForm": "Capsule, soft",
+              "Route": "Oral",
+              "Presentation": "2 packs of 28 pills each",
+              "ProductType": "Brand",
+              "Stratum": "E2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Catalent Germany Eberbach GmbH",
+              "PublicPrice": "606778281.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "ZOFRAN",
+          "oldPrice": 6534634,
+          "newPrice": 6323076,
+          "oldStratum": "B",
+          "newStratum": "B",
+          "details": {
+            "MoPHCode": "8918",
+            "old": {
+              "PublicPrice": 6534634
+            },
+            "new": {
+              "PublicPrice": 6323076
+            },
+            "templateRow": {
+              "MoPHCode": "8918",
+              "BrandName": "ZOFRAN",
+              "Ingredients": "Ondansetron (HCl dihydrate) - 8mg",
+              "ATC": "A04AA01",
+              "Dosage": "8mg",
+              "Strength": "8mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "10 Pills",
+              "ProductType": "Brand",
+              "Stratum": "B",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Sandoz Pharmaceuticals AG, Switzerland",
+              "PublicPrice": "6323076.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "SIRDALUD",
+          "oldPrice": 680450,
+          "newPrice": 658420,
+          "oldStratum": "A1",
+          "newStratum": "A1",
+          "details": {
+            "MoPHCode": "6675",
+            "old": {
+              "PublicPrice": 680450
+            },
+            "new": {
+              "PublicPrice": 658420
+            },
+            "templateRow": {
+              "MoPHCode": "6675",
+              "BrandName": "SIRDALUD",
+              "Ingredients": "Tizanidine HCl - 2mg",
+              "ATC": "M03BX02",
+              "Dosage": "2mg",
+              "Strength": "2mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "30 Pills",
+              "ProductType": "Brand",
+              "Stratum": "A1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Sandoz Pharmaceuticals AG, Switzerland",
+              "PublicPrice": "658420.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "NITRODERM TTS 5",
+          "oldPrice": 705284,
+          "newPrice": 682450,
+          "oldStratum": "A1",
+          "newStratum": "A1",
+          "details": {
+            "MoPHCode": "6599",
+            "old": {
+              "PublicPrice": 705284
+            },
+            "new": {
+              "PublicPrice": 682450
+            },
+            "templateRow": {
+              "MoPHCode": "6599",
+              "BrandName": "NITRODERM TTS 5",
+              "Ingredients": "Glyceryl trinitrate - 5mg/24h",
+              "ATC": "C01DA02",
+              "Dosage": "5mg/24h",
+              "Strength": "5mg/24h",
+              "Form": "Patch",
+              "DosageForm": "Patch",
+              "Route": "Transdermal",
+              "Presentation": "10 Non Stated",
+              "ProductType": "Brand",
+              "Stratum": "A1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Novartis Pharma AG, Switzerland",
+              "PublicPrice": "682450.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "GILENYA",
+          "oldPrice": 74428960,
+          "newPrice": 72019326,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "6306",
+            "old": {
+              "PublicPrice": 74428960
+            },
+            "new": {
+              "PublicPrice": 72019326
+            },
+            "templateRow": {
+              "MoPHCode": "6306",
+              "BrandName": "GILENYA",
+              "Ingredients": "Fingolimod - 0.5mg",
+              "ATC": "L04AA27",
+              "Dosage": "0.5mg",
+              "Strength": "0.5mg",
+              "Form": "Capsule hard",
+              "DosageForm": "Capsule hard",
+              "Route": "Oral",
+              "Presentation": "28 Pills",
+              "ProductType": "Brand",
+              "Stratum": "E1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharma Stein AG",
+              "PublicPrice": "72019326.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "ZOFRAN INJECTION",
+          "oldPrice": 7516596,
+          "newPrice": 7273246,
+          "oldStratum": "C",
+          "newStratum": "C",
+          "details": {
+            "MoPHCode": "9116",
+            "old": {
+              "PublicPrice": 7516596
+            },
+            "new": {
+              "PublicPrice": 7273246
+            },
+            "templateRow": {
+              "MoPHCode": "9116",
+              "BrandName": "ZOFRAN INJECTION",
+              "Ingredients": "Ondansetron (HCl dihydrate) - 4mg/2ml",
+              "ATC": "A04AA01",
+              "Dosage": "2mg/ml",
+              "Strength": "2mg/ml",
+              "Form": "",
+              "DosageForm": "",
+              "Route": "Intravenous-Intramuscular",
+              "Presentation": "5 Ampules of 2 ml each",
+              "ProductType": "Brand",
+              "Stratum": "C",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Sandoz Pharmaceuticals AG, Switzerland",
+              "PublicPrice": "7273246.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "REVOLADE",
+          "oldPrice": 75701015,
+          "newPrice": 56272182,
+          "oldStratum": "E1",
+          "newStratum": "E1",
+          "details": {
+            "MoPHCode": "11625",
+            "old": {
+              "PublicPrice": 75701015
+            },
+            "new": {
+              "PublicPrice": 56272182
+            },
+            "templateRow": {
+              "MoPHCode": "11625",
+              "BrandName": "REVOLADE",
+              "Ingredients": "Eltrombopag Olamine - 25mg",
+              "ATC": "B02BX05",
+              "Dosage": "25mg",
+              "Strength": "25mg",
+              "Form": "Tablet, film coated",
+              "DosageForm": "Tablet, film coated",
+              "Route": "Oral",
+              "Presentation": "28",
+              "ProductType": "Brand",
+              "Stratum": "E1",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Novartis Pharmaceuticals Manufacturing LLC",
+              "PublicPrice": "56272182.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "SIRDALUD",
+          "oldPrice": 890710,
+          "newPrice": 861874,
+          "oldStratum": "A2",
+          "newStratum": "A2",
+          "details": {
+            "MoPHCode": "6676",
+            "old": {
+              "PublicPrice": 890710
+            },
+            "new": {
+              "PublicPrice": 861874
+            },
+            "templateRow": {
+              "MoPHCode": "6676",
+              "BrandName": "SIRDALUD",
+              "Ingredients": "Tizanidine HCl - 4mg",
+              "ATC": "M03BX02",
+              "Dosage": "4mg",
+              "Strength": "4mg",
+              "Form": "Tablet",
+              "DosageForm": "Tablet",
+              "Route": "Oral",
+              "Presentation": "30 Pills",
+              "ProductType": "Brand",
+              "Stratum": "A2",
+              "Agent": "Khalil Fattal & Fils S.A.L.",
+              "Manufacturer": "Pharmaline Licensed by Sandoz Pharmaceuticals AG, Switzerland",
+              "PublicPrice": "861874.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        },
+        {
+          "BrandName": "HIZENTRA 1G",
+          "oldPrice": 9968705,
+          "newPrice": 9645968,
+          "oldStratum": "C",
+          "newStratum": "C",
+          "details": {
+            "MoPHCode": "9716",
+            "old": {
+              "PublicPrice": 9968705
+            },
+            "new": {
+              "PublicPrice": 9645968
+            },
+            "templateRow": {
+              "MoPHCode": "9716",
+              "BrandName": "HIZENTRA 1G",
+              "Ingredients": "Immunoglobulin human - 1g/5ml",
+              "ATC": "J06BA02",
+              "Dosage": "200mg/ml",
+              "Strength": "200mg/ml",
+              "Form": "Solution for injection for subcutaneous use",
+              "DosageForm": "Solution for injection for subcutaneous use",
+              "Route": "Subcutanous",
+              "Presentation": "1 vial of 5 ml",
+              "ProductType": "BioHuman",
+              "Stratum": "C",
+              "Agent": "Benta Trading Co s.a.l.",
+              "Manufacturer": "Packed by Benta SAL Lebanon under license from CSL Behring AG, Switzerland",
+              "PublicPrice": "9645968.000000",
+              "ATCInferred": false,
+              "ATCSource": "direct"
+            }
+          }
+        }
+      ],
+      "other_or_several_modifications": []
+    }
+  }
+}

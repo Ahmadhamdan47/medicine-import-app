@@ -53,13 +53,19 @@ def get_db_connection():
 
 def build_template_row(record):
     """Build a template-aligned row using available data and placeholders for unavailable columns."""
+    atc_value = record.get("ATC", "") or record.get("ATC_Code", "") or record.get("atc", "") or ""
+    dosage_value = record.get("Dosage", "") or ""
+    form_value = record.get("Form", "") or ""
+
     return {
         "MoPHCode": str(record.get("MoPHCode", "")),
         "BrandName": record.get("DrugName", "") or "",
         "Ingredients": "",
-        "ATC": "",
-        "Strength": record.get("Dosage", "") or "",
-        "DosageForm": record.get("Form", "") or "",
+        "ATC": atc_value,
+        "Dosage": dosage_value,
+        "Strength": dosage_value,
+        "Form": form_value,
+        "DosageForm": form_value,
         "Route": "",
         "Presentation": record.get("Presentation", "") or "",
         "ProductType": "",
@@ -120,6 +126,7 @@ def main():
         cursor.execute(
             """
             SELECT MoPHCode, DrugName, Dosage, Presentation, Form, Agent, Manufacturer, Stratum, NotMarketed
+                 , ATC_Code AS ATC
             FROM drug
             """
         )
