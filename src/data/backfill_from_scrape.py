@@ -1,41 +1,61 @@
 #!/usr/bin/env python3
 """
-Fill empty medapiv2 `drug` fields from the MOPH website scrape.
+Fill empty medapiv2 / medlist fields from the MOPH website scrape.
 
 The mouacher carries only the 11 commercial columns, so anything it does not
-cover (ATC, ingredients, route, brand/generic) stays NULL for every drug the
-bulletin inserts -- 199 currently-marketed drugs had no ATC_Code at all. The
-scrape (drugs_full_<label>.csv) has those fields for every code in the bulletin.
+cover (ATC, ingredients, route, brand/generic, and every LNDI column) stays
+NULL for each drug the bulletin inserts. The scrape (drugs_full_<label>.csv)
+has those fields for every code in the bulletin.
 
 Rules:
   * Only ever writes a cell that is currently NULL or ''. Nothing is overwritten.
-  * Only touches drugs whose MoPHCode is in the scrape file.
-  * Marketed drugs only, unless --include-not-marketed.
-  * Preview by default; --commit applies inside one transaction.
+  * Only touches drugs whose code is in the scrape file.
+  * Preview by default; --commit applies inside one transaction per database.
+  * Values longer than the column allow are skipped, never truncated.
 
-Column mapping was chosen by measuring the scrape's vocabulary against what each
-column already holds (marketed rows, September 2026):
+Both schemas keep the bulletin's own wording in the plain columns and the
+website's wording in the LNDI columns, so the scrape maps to different columns
+in each database. Every mapping below was chosen by measuring the scrape's
+values against what the column already holds, not by guessing:
 
-  ATC_Code         <- atc          99.4% of scrape values already in use
-  OtherIngredients <- ingredients  identical "Name - strength" format
-  RouteRaw         <- route        99.8% match (vs 81.3% for Route: the site
-                                   publishes IM/SC/IV, which is RouteRaw's
-                                   vocabulary, not Route's "Intramuscular")
-  ProductType      <- b_g          mapped to the dominant spellings
-  Form             <- form         93.6% of scrape values already in use
-  Presentation     <- presentation 88.7%
-  Dosage           <- dosage       97.8%
-  ResponsibleParty <- responsible_party_name  92.6%
+  medapiv2.drug                      agreement where both sides have a value
+    ATC_Code         <- atc          99.4% of values already in use
+    OtherIngredients <- ingredients  identical "Name - strength" format
+    ProductType      <- b_g          mapped to Generic/Brand/BioTech/BioHuman
+    RouteRaw         <- route        99.8%  (Route itself is only 81.3%: the
+                                     site publishes IM/SC/IV, Route holds
+                                     "Intramuscular")
+    RouteLNDI        <- route        99.8%
+    FormLNDI         <- form         98.9%
+    PresentationLNDI <- presentation 99.4%
+    DosageLNDI       <- dosage       96.7%
+    Form, Presentation, Dosage, ResponsibleParty  (bulletin-fed, empties only)
+
+  medlist.medications
+    atc               <- atc          99.4%
+    bg                <- b_g          100% -- short form here (G/B/BioTech),
+                                      unlike medapiv2's ProductType
+    ingredients       <- ingredients  identical format
+    route_lndi        <- route        99.7%
+    form_lndi         <- form         99.2%
+    presentation_lndi <- presentation 99.6%
+    dosage_lndi       <- dosage       96.8%
+    form, presentation, strength      (bulletin-fed, empties only)
 
 Deliberately NOT filled:
-  Route                 needs the local normalisation tables (routeOptions.csv,
-                        FormAndRouteRaw.tsv); the scrape only has the raw value.
-  ATCRelatedIngredient  only 77.6% derivable as a prefix of OtherIngredients,
-                        and multi-ingredient rows are comma-separated lists.
+  medapiv2.Route                needs the local normalisation tables; the
+                                scrape only has the raw value, and the existing
+                                Route vocabulary has its own errors
+                                (O-Oral, IInfusion-Intravenous, Subcutanous).
+  medapiv2.ATCRelatedIngredient only 77.6% recoverable as a prefix of
+                                OtherIngredients; multi-ingredient rows are
+                                comma-separated lists.
+  subsidy columns               the scrape never populates subsidy_pct.
 
 Usage:
     python3 backfill_from_scrape.py --scrape drugs_full_september.csv
     python3 backfill_from_scrape.py --scrape drugs_full_september.csv --commit
+    python3 backfill_from_scrape.py --db medlist --commit
 """
 import argparse, csv, json, os, sys
 from collections import defaultdict
@@ -44,41 +64,58 @@ from datetime import datetime
 import mysql.connector
 from mysql.connector import Error
 
-# db column -> (scrape column, transform)
 PRODUCT_TYPE = {"G": "Generic", "B": "Brand", "BIOTECH": "BioTech", "BIOHUMAN": "BioHuman"}
 
 
-def map_product_type(v):
+def to_product_type(v):
+    """medapiv2.ProductType spells these out; medlist.bg keeps the short code."""
     return PRODUCT_TYPE.get(v.strip().upper(), v.strip())
 
 
-MAPPING = [
-    ("ATC_Code",         "atc",                    None),
-    ("OtherIngredients", "ingredients",            None),
-    ("RouteRaw",         "route",                  None),
-    ("ProductType",      "b_g",                    map_product_type),
-    ("Form",             "form",                   None),
-    ("Presentation",     "presentation",           None),
-    ("Dosage",           "dosage",                 None),
-    ("ResponsibleParty", "responsible_party_name", None),
-]
-
-# varchar limits that matter; longer values are skipped rather than truncated
-MAXLEN = {"ATC_Code": 255, "RouteRaw": 255, "ProductType": 255, "Form": 150,
-          "Presentation": 150, "Dosage": 255, "ResponsibleParty": 255}
-
-
-def get_db_connection():
-    try:
-        return mysql.connector.connect(
-            host='localhost',
-            user='ommal_ahmad',
-            password='fISfGr^8q!_gUPMY',
-            database='ommal_medapiv2'
-        )
-    except Error as e:
-        print(f"Error: {e}")
-        return None
+TARGETS = {
+    "medapiv2": {
+        "dsn": dict(host="localhost", user="ommal_ahmad",
+                    password="fISfGr^8q!_gUPMY", database="ommal_medapiv2"),
+        "table": "drug",
+        "key": "MoPHCode",
+        "scope": "NotMarketed = 0",
+        "scope_all": None,
+        "columns": [
+            ("ATC_Code",         "atc",                    None),
+            ("OtherIngredients", "ingredients",            None),
+            ("ProductType",      "b_g",                    to_product_type),
+            ("RouteRaw",         "route",                  None),
+            ("RouteLNDI",        "route",                  None),
+            ("FormLNDI",         "form",                   None),
+            ("PresentationLNDI", "presentation",           None),
+            ("DosageLNDI",       "dosage",                 None),
+            ("Form",             "form",                   None),
+            ("Presentation",     "presentation",           None),
+            ("Dosage",           "dosage",                 None),
+            ("ResponsibleParty", "responsible_party_name", None),
+        ],
+    },
+    "medlist": {
+        "dsn": dict(host="localhost", user="ommal_oummal",
+                    password="dMR2id57dviMJJnc", database="ommal_medlist"),
+        "table": "medications",
+        "key": "code",
+        "scope": None,          # medlist holds exactly the current bulletin
+        "scope_all": None,
+        "columns": [
+            ("atc",               "atc",          None),
+            ("bg",                "b_g",          None),
+            ("ingredients",       "ingredients",  None),
+            ("route_lndi",        "route",        None),
+            ("form_lndi",         "form",         None),
+            ("presentation_lndi", "presentation", None),
+            ("dosage_lndi",       "dosage",       None),
+            ("form",              "form",         None),
+            ("presentation",      "presentation", None),
+            ("strength",          "dosage",       None),
+        ],
+    },
+}
 
 
 def load_scrape(path):
@@ -95,40 +132,44 @@ def is_empty(v):
     return v is None or str(v).strip() == ""
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--scrape", default="drugs_full_september.csv")
-    ap.add_argument("--commit", action="store_true", help="apply (default: preview only)")
-    ap.add_argument("--include-not-marketed", action="store_true")
-    ap.add_argument("--label", default="september")
-    args = ap.parse_args()
+def col_limits(cur, schema, table):
+    cur.execute(
+        "SELECT COLUMN_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS "
+        "WHERE TABLE_SCHEMA=%s AND TABLE_NAME=%s", (schema, table))
+    return {r["COLUMN_NAME"]: r["CHARACTER_MAXIMUM_LENGTH"] for r in cur.fetchall()}
 
-    if not os.path.exists(args.scrape):
-        sys.exit(f"ERROR: {args.scrape} not found")
 
-    scrape = load_scrape(args.scrape)
-    print(f"Scrape: {len(scrape)} codes from {args.scrape}")
-
-    conn = get_db_connection()
-    if conn is None:
-        sys.exit("Failed to connect to the database.")
+def run(name, cfg, scrape, commit, include_all, label):
+    print("\n" + "=" * 74)
+    print(f"{name}  ({cfg['dsn']['database']}.{cfg['table']})")
+    print("=" * 74)
+    try:
+        conn = mysql.connector.connect(**cfg["dsn"])
+    except Error as e:
+        print(f"  connection failed: {e}")
+        return None
     conn.autocommit = False
     cur = conn.cursor(dictionary=True)
 
-    cols = ", ".join(db for db, _, _ in MAPPING)
-    where = "" if args.include_not_marketed else " WHERE NotMarketed = 0"
-    cur.execute(f"SELECT MoPHCode, DrugName, NotMarketed, {cols} FROM drug{where}")
+    limits = col_limits(cur, cfg["dsn"]["database"], cfg["table"])
+    cols = sorted({db for db, _, _ in cfg["columns"]})
+    scope = cfg["scope_all"] if include_all else cfg["scope"]
+    where = f" WHERE {scope}" if scope else ""
+    namecol = "DrugName" if name == "medapiv2" else "brand_name"
+    cur.execute(f"SELECT {cfg['key']}, {namecol}, {', '.join(cols)} "
+                f"FROM {cfg['table']}{where}")
     rows = cur.fetchall()
-    print(f"Database: {len(rows)} {'drugs' if args.include_not_marketed else 'marketed drugs'}")
+    print(f"  rows in scope: {len(rows)}"
+          + (f"   ({scope})" if scope else "   (all rows)"))
 
-    updates = defaultdict(list)   # db column -> [(value, moph_code)]
-    skipped_long = defaultdict(int)
-    filled_rows = {}
+    updates = defaultdict(list)
+    skipped = defaultdict(int)
+    touched = {}
     for r in rows:
-        s = scrape.get(r["MoPHCode"])
+        s = scrape.get(r[cfg["key"]])
         if not s:
             continue
-        for db, sc, fn in MAPPING:
+        for db, sc, fn in cfg["columns"]:
             if not is_empty(r[db]):
                 continue
             val = (s.get(sc) or "").strip()
@@ -136,68 +177,97 @@ def main():
                 val = fn(val)
             if not val:
                 continue
-            lim = MAXLEN.get(db)
+            lim = limits.get(db)
             if lim and len(val) > lim:
-                skipped_long[db] += 1
+                skipped[db] += 1
                 continue
-            updates[db].append((val, r["MoPHCode"]))
-            filled_rows.setdefault(r["MoPHCode"], {"DrugName": r["DrugName"], "fields": {}})
-            filled_rows[r["MoPHCode"]]["fields"][db] = val
+            updates[db].append((val, r[cfg["key"]]))
+            touched.setdefault(r[cfg["key"]], {"name": r[namecol], "fields": {}})
+            touched[r[cfg["key"]]]["fields"][db] = val
 
     total = sum(len(v) for v in updates.values())
-    print("\n" + "=" * 72)
-    print("BACKFILL PREVIEW  (only cells that are currently NULL/empty)")
-    print("=" * 72)
-    print(f"\n{'COLUMN':<20}{'CELLS TO FILL':>15}{'SKIPPED (too long)':>22}")
-    for db, _, _ in MAPPING:
-        print(f"{db:<20}{len(updates.get(db, [])):>15}{skipped_long.get(db, 0):>22}")
-    print(f"\n{'TOTAL':<20}{total:>15}")
-    print(f"drugs touched: {len(filled_rows)}")
-
-    for db, _, _ in MAPPING:
-        sample = updates.get(db, [])[:3]
-        if sample:
-            print(f"\n  {db} e.g.")
-            for val, code in sample:
-                print(f"     {code:<8} <- {val[:60]!r}")
+    print(f"\n  {'COLUMN':<20}{'TO FILL':>10}{'SKIPPED (too long)':>22}")
+    for db, _, _ in cfg["columns"]:
+        n = len(updates.get(db, []))
+        if n or skipped.get(db):
+            print(f"  {db:<20}{n:>10}{skipped.get(db, 0):>22}")
+    print(f"  {'-'*52}")
+    print(f"  {'TOTAL':<20}{total:>10}     drugs touched: {len(touched)}")
 
     if not total:
-        print("\nNothing to fill.")
+        print("\n  Nothing to fill.")
         conn.close()
-        return
+        return {"database": cfg["dsn"]["database"], "totalCellsFilled": 0,
+                "cellsPerColumn": {}, "drugs": []}
 
-    if not args.commit:
-        print("\nPreview only. Re-run with --commit to apply.")
+    for db, _, _ in cfg["columns"]:
+        sample = updates.get(db, [])[:2]
+        for val, code in sample:
+            print(f"     {db:<18} {code:<8} <- {val[:52]!r}")
+
+    if not commit:
+        print("\n  Preview only. Re-run with --commit to apply.")
         conn.rollback()
         conn.close()
-        return
+        return None
 
-    print("\nApplying...")
+    print("\n  Applying...")
     for db, pairs in updates.items():
-        cur.executemany(f"UPDATE drug SET {db} = %s WHERE MoPHCode = %s", pairs)
-        print(f"  {db}: {len(pairs)} cells")
-
-    report = {
-        "generatedAt": datetime.now().isoformat(),
-        "sourceFile": os.path.abspath(args.scrape),
-        "scope": "all drugs" if args.include_not_marketed else "marketed drugs only",
-        "rule": "only NULL/empty cells were written; nothing overwritten",
-        "totalCellsFilled": total,
-        "cellsPerColumn": {db: len(updates.get(db, [])) for db, _, _ in MAPPING},
-        "skippedTooLong": dict(skipped_long),
-        "drugs": [{"MoPHCode": str(c), "DrugName": v["DrugName"], "filled": v["fields"]}
-                  for c, v in sorted(filled_rows.items())],
-    }
-    out = os.path.join(os.path.dirname(os.path.abspath(args.scrape)),
-                       f"medleb_db_backfill_from_scrape_{args.label}_"
-                       f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-    with open(out, "w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
-
+        cur.executemany(
+            f"UPDATE {cfg['table']} SET {db} = %s WHERE {cfg['key']} = %s", pairs)
+        print(f"    {db}: {len(pairs)}")
     conn.commit()
-    print(f"\nCommitted {total} cells across {len(filled_rows)} drugs.")
-    print(f"Report: {out}")
     conn.close()
+    print(f"  Committed {total} cells across {len(touched)} drugs.")
+
+    return {
+        "database": cfg["dsn"]["database"],
+        "table": cfg["table"],
+        "scope": scope or "all rows",
+        "totalCellsFilled": total,
+        "cellsPerColumn": {db: len(updates.get(db, [])) for db, _, _ in cfg["columns"]
+                           if updates.get(db)},
+        "skippedTooLong": dict(skipped),
+        "drugs": [{"code": str(c), "name": v["name"], "filled": v["fields"]}
+                  for c, v in sorted(touched.items())],
+    }
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--scrape", default="drugs_full_september.csv")
+    ap.add_argument("--db", choices=["medapiv2", "medlist", "both"], default="both")
+    ap.add_argument("--commit", action="store_true", help="apply (default: preview only)")
+    ap.add_argument("--include-not-marketed", action="store_true",
+                    help="medapiv2: also touch NotMarketed drugs")
+    ap.add_argument("--label", default="september")
+    args = ap.parse_args()
+
+    if not os.path.exists(args.scrape):
+        sys.exit(f"ERROR: {args.scrape} not found")
+    scrape = load_scrape(args.scrape)
+    print(f"Scrape: {len(scrape)} codes from {args.scrape}")
+    print("Rule: only NULL/empty cells are written; nothing is overwritten.")
+
+    names = ["medapiv2", "medlist"] if args.db == "both" else [args.db]
+    reports = []
+    for n in names:
+        rep = run(n, TARGETS[n], scrape, args.commit, args.include_not_marketed, args.label)
+        if rep:
+            reports.append(rep)
+
+    if args.commit and reports:
+        out = os.path.join(os.path.dirname(os.path.abspath(args.scrape)),
+                           f"medleb_db_backfill_from_scrape_{args.label}_"
+                           f"{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump({
+                "generatedAt": datetime.now().isoformat(),
+                "sourceFile": os.path.abspath(args.scrape),
+                "rule": "only NULL/empty cells were written; nothing overwritten",
+                "databases": reports,
+            }, f, ensure_ascii=False, indent=2)
+        print(f"\nReport: {out}")
 
 
 if __name__ == "__main__":
