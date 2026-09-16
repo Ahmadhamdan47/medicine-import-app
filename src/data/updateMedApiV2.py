@@ -56,6 +56,22 @@ def safe_str(value):
     return str(value) if value is not None else ''
 
 
+def is_change(db_value, file_value):
+    """
+    True when the bulletin genuinely changes the stored value.
+
+    A blank in the mouacher means "not stated", not "no value", so it never
+    clears a field that already holds data. The September 2026 bulletin omits
+    Strength for ~812 drugs that do have a Dosage in the database; without this
+    guard those 801 populated dosages would be overwritten with ''.
+    """
+    db_value = safe_str(db_value)
+    file_value = safe_str(file_value)
+    if not file_value.strip() and db_value.strip():
+        return False
+    return db_value != file_value
+
+
 def build_template_row(record):
     """Build a template-aligned row using available data and placeholders for unavailable columns."""
     atc_value = record.get("ATC", "") or record.get("ATC_Code", "") or record.get("atc", "") or ""
@@ -170,62 +186,62 @@ def main():
                 # Check each field for changes
                 db_drug_name = safe_str(db_record['DrugName'])
                 file_drug_name = file_record.get('DrugName', '')
-                if db_drug_name != file_drug_name:
+                if is_change(db_drug_name, file_drug_name):
                     changes['DrugName'] = file_drug_name
                     field_changes['DrugName'][f"{db_drug_name[:50]} → {file_drug_name[:50]}"].append(moph_code)
                 
                 db_reg_num = safe_str(db_record['RegistrationNumber'])
                 file_reg_num = file_record.get('RegistrationNumber', '')
-                if db_reg_num != file_reg_num:
+                if is_change(db_reg_num, file_reg_num):
                     changes['RegistrationNumber'] = file_reg_num
                     field_changes['RegistrationNumber'][f"{db_reg_num} → {file_reg_num}"].append(moph_code)
                 
                 db_dosage = safe_str(db_record['Dosage'])
                 file_dosage = file_record.get('Dosage', '')
-                if db_dosage != file_dosage:
+                if is_change(db_dosage, file_dosage):
                     changes['Dosage'] = file_dosage
                     field_changes['Dosage'][f"{db_dosage[:30]} → {file_dosage[:30]}"].append(moph_code)
                 
                 db_presentation = safe_str(db_record['Presentation'])
                 file_presentation = file_record.get('Presentation', '')
-                if db_presentation != file_presentation:
+                if is_change(db_presentation, file_presentation):
                     changes['Presentation'] = file_presentation
                     field_changes['Presentation'][f"{db_presentation[:30]} → {file_presentation[:30]}"].append(moph_code)
                 
                 db_form = safe_str(db_record['Form'])
                 file_form = file_record.get('Form', '')
-                if db_form != file_form:
+                if is_change(db_form, file_form):
                     changes['Form'] = file_form
                     field_changes['Form'][f"{db_form} → {file_form}"].append(moph_code)
                 
                 db_agent = safe_str(db_record['Agent'])
                 file_agent = file_record.get('Agent', '')
-                if db_agent != file_agent:
+                if is_change(db_agent, file_agent):
                     changes['Agent'] = file_agent
                     field_changes['Agent'][f"{db_agent[:40]} → {file_agent[:40]}"].append(moph_code)
                 
                 db_manufacturer = safe_str(db_record['Manufacturer'])
                 file_manufacturer = file_record.get('Manufacturer', '')
-                if db_manufacturer != file_manufacturer:
+                if is_change(db_manufacturer, file_manufacturer):
                     changes['Manufacturer'] = file_manufacturer
                     field_changes['Manufacturer'][f"{db_manufacturer[:40]} → {file_manufacturer[:40]}"].append(moph_code)
                 
                 db_country = safe_str(db_record['Country'])
                 file_country = file_record.get('Country', '')
-                if db_country != file_country:
+                if is_change(db_country, file_country):
                     changes['Country'] = file_country
                     field_changes['Country'][f"{db_country} → {file_country}"].append(moph_code)
                 
                 # PublicPrice comparison with precision handling
                 db_price = float(db_record['PublicPrice'] or 0)
                 file_price = float(file_record.get('PublicPrice', 0))
-                if round(db_price, 6) != round(file_price, 6):
+                if file_price and round(db_price, 6) != round(file_price, 6):
                     changes['PublicPrice'] = file_price
                     field_changes['PublicPrice'][f"{db_price} → {file_price}"].append(moph_code)
                 
                 db_stratum = safe_str(db_record['Stratum'])
                 file_stratum = file_record.get('Stratum', '')
-                if db_stratum != file_stratum:
+                if is_change(db_stratum, file_stratum):
                     changes['Stratum'] = file_stratum
                     field_changes['Stratum'][f"{db_stratum} → {file_stratum}"].append(moph_code)
                 
