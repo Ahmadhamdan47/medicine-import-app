@@ -1,0 +1,267 @@
+<title>September Mouacher Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F6F7F5; --surface:#FFFFFF; --sunk:#EFF2EE;
+  --ink:#16211D; --muted:#66736C; --faint:#8C978F;
+  --rule:#DCE2DE; --rule-strong:#C3CCC6;
+  --accent:#1F6B4F; --accent-soft:#E4EFE8;
+  --rise:#A8432C; --fall:#2B6C87; --flag:#8A6A2B; --flag-soft:#F5EEDC;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#101511; --surface:#171D19; --sunk:#1C2320;
+    --ink:#E8EDE9; --muted:#95A29B; --faint:#78857E;
+    --rule:#28322C; --rule-strong:#3A463F;
+    --accent:#5FB891; --accent-soft:#172C23;
+    --rise:#E08A6A; --fall:#7FB8D4; --flag:#D0AC63; --flag-soft:#2A2417;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101511; --surface:#171D19; --sunk:#1C2320;
+  --ink:#E8EDE9; --muted:#95A29B; --faint:#78857E;
+  --rule:#28322C; --rule-strong:#3A463F;
+  --accent:#5FB891; --accent-soft:#172C23;
+  --rise:#E08A6A; --fall:#7FB8D4; --flag:#D0AC63; --flag-soft:#2A2417;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+h1,h2,h3{font-family:Spectral,Georgia,"Times New Roman",serif;text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.num{font-variant-numeric:tabular-nums}
+
+/* masthead */
+.mast{border-bottom:2px solid var(--ink);padding-block:44px 18px;margin-bottom:34px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font-family:"IBM Plex Mono",monospace}
+.mast h1{font-size:clamp(34px,6vw,54px);font-weight:600;line-height:1.02;margin-block:14px 10px;
+  letter-spacing:-.015em}
+.mast .sub{color:var(--muted);max-width:60ch;font-size:15px}
+.mast-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:20px;font-size:12.5px;
+  color:var(--muted);font-family:"IBM Plex Mono",monospace}
+.mast-meta b{color:var(--ink);font-weight:600}
+
+/* end state */
+.endstate{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 28px;margin-bottom:12px}
+.endstate h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;font-weight:600;margin-bottom:20px}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px 30px}
+.fig .v{font-family:Spectral,Georgia,serif;font-size:40px;font-weight:600;line-height:1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.fig .k{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.35}
+.fig.rise .v{color:var(--rise)} .fig.fall .v{color:var(--fall)} .fig.acc .v{color:var(--accent)}
+
+/* sections */
+section{margin-top:52px;scroll-margin-top:20px}
+.shead{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule-strong);
+  padding-bottom:10px;margin-bottom:8px}
+.snum{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
+  letter-spacing:.08em}
+.shead h2{font-size:24px;font-weight:600;letter-spacing:-.01em}
+.shead .count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:13px;
+  color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lede{color:var(--muted);max-width:68ch;margin-block:12px 20px;font-size:14.5px}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;padding:11px 12px;
+  border-bottom:1px solid var(--rule-strong);white-space:nowrap;background:var(--sunk)}
+td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.c{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+td.atc{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);white-space:nowrap}
+td.b{font-weight:600}
+td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;
+  white-space:nowrap;font-size:12.5px}
+td.ing{color:var(--muted);font-size:12.5px;min-width:190px}
+.up{color:var(--rise)} .down{color:var(--fall)}
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  padding:1px 6px;border:1px solid var(--rule-strong);border-radius:2px;color:var(--muted);
+  white-space:nowrap}
+
+/* two-up */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;align-items:start}
+
+/* bar list */
+.bars{display:flex;flex-direction:column;gap:9px;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
+.bar{display:grid;grid-template-columns:minmax(96px,auto) 1fr auto;gap:12px;align-items:center;
+  font-size:13px}
+.bar .lbl{color:var(--muted)}
+.bar .track{height:7px;background:var(--sunk);border-radius:1px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);display:block}
+.bar .val{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:12.5px}
+
+/* note */
+.note{border-left:2px solid var(--flag);background:var(--flag-soft);padding:16px 20px;
+  border-radius:0 3px 3px 0;margin-block:22px;font-size:14px}
+.note b{font-weight:600}
+.caption{font-size:12.5px;color:var(--faint);margin-top:9px}
+footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--faint);font-family:"IBM Plex Mono",monospace;
+  display:flex;flex-wrap:wrap;gap:8px 24px}
+@media (max-width:620px){
+  .mast{padding-block:30px 16px}
+  .fig .v{font-size:32px}
+  .bar{grid-template-columns:minmax(80px,auto) 1fr auto}
+}
+</style>
+<div class="wrap">
+<header class="mast">
+<div class="eyebrow">Lebanon · Ministry of Public Health · Drug price bulletin</div>
+<h1>September Mouacher</h1>
+<p class="sub">What changed in the MedLeb registers after the mouacher of 2026-09-03 was applied, and what the two databases hold now.</p>
+<div class="mast-meta">
+<span>Bulletin <b>2026-09-03</b></span>
+<span>Codes in bulletin <b class="num">5,765</b></span>
+<span>Generated <b>2026-09-16</b></span>
+</div></header>
+<div class="endstate"><h2>End state</h2><div class="figs">
+<div class="fig "><div class="v num">5,765</div><div class="k">rows in medlist<br>(exactly the bulletin)</div></div>
+<div class="fig "><div class="v num">5,734</div><div class="k">marketed drugs in medapiv2</div></div>
+<div class="fig acc"><div class="v num">46</div><div class="k">newly marketed</div></div>
+<div class="fig "><div class="v num">7</div><div class="k">newly not marketed</div></div>
+<div class="fig "><div class="v num">973</div><div class="k">drugs modified</div></div>
+<div class="fig acc"><div class="v num">8,196</div><div class="k">empty fields filled from<br>the MoPH website</div></div>
+</div></div>
+<p class="caption">medlist mirrors the bulletin exactly. medapiv2 also keeps delisted drugs, flagged NotMarketed.</p>
+<section><div class='shead'><span class='snum'>01</span><h2>Newly marketed</h2><span class='count'>46 drugs · 35 distinct ATC</span></div>
+<p class="lede">Drugs in this bulletin that the register did not hold. ATC, ingredients and route are not in the bulletin — they come from the MoPH website scrape, which is why every row below is complete.</p>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>ATC</th><th>Ingredients</th><th>Form</th><th>Route</th><th>Agent</th><th>Str.</th><th style='text-align:right'>Price L.L</th></tr></thead><tbody>
+<tr><td class="c">12710</td><td class="b">ATHERO ROS</td><td class="atc">C10AA07</td><td class="ing">Rosuvastatin (calcium) - 20mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Bee Pharm SARL</td><td><span class="pill">A1</span></td><td class="n">499,142</td></tr>
+<tr><td class="c">12711</td><td class="b">ATHERO ROS</td><td class="atc">C10AA07</td><td class="ing">Rosuvastatin (calcium) - 10mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Bee Pharm SARL</td><td><span class="pill">A1</span></td><td class="n">499,142</td></tr>
+<tr><td class="c">12704</td><td class="b">BACTILAM</td><td class="atc">J01CA04</td><td class="ing">Amoxicillin (trihydrate) - 500mg</td><td>Capsule</td><td class="c">Oral</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">6,198,314</td></tr>
+<tr><td class="c">12719</td><td class="b">BENTAFLOX 500</td><td class="atc">J01MA12</td><td class="ing">Levofloxacin (hemihydrate) - 500mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">A2</span></td><td class="n">831,902</td></tr>
+<tr><td class="c">12733</td><td class="b">BOTOX</td><td class="atc">M03AX01</td><td class="ing">Clostridium botulinum type A neurotoxin complex - 100U</td><td>Powder for solution for injection</td><td class="c">IM/SC</td><td>Mersaco</td><td><span class="pill">D</span></td><td class="n">18,625,995</td></tr>
+<tr><td class="c">12696</td><td class="b">COMBIVENT</td><td class="atc">R03AL02</td><td class="ing">Salbutamol (sulfate) - 2.5mg/2.5ml, Ipratropium bromide - 500mcg/2.5ml</td><td>Unit Dose Vial</td><td class="c">Respiratory</td><td>Mersaco</td><td><span class="pill">A2</span></td><td class="n">745,833</td></tr>
+<tr><td class="c">12697</td><td class="b">DEMYLOCAN</td><td class="atc">L01BC08</td><td class="ing">Decitabine - 50mg</td><td>Powder for injection</td><td class="c">Infusion</td><td>UPO S.A.L.</td><td><span class="pill">E1</span></td><td class="n">69,245,291</td></tr>
+<tr><td class="c">12693</td><td class="b">DUPHASTON</td><td class="atc">G03DB01</td><td class="ing">Dydrogesterone - 10mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">A2</span></td><td class="n">935,314</td></tr>
+<tr><td class="c">12728</td><td class="b">FINFOLOMOD ARROW</td><td class="atc">L04AA27</td><td class="ing">Fingolimod Hydrochloride - 0.5mg</td><td>Gélule</td><td class="c">Oral</td><td>Darapharma S.A.L.</td><td><span class="pill">D</span></td><td class="n">18,171,683</td></tr>
+<tr><td class="c">12724</td><td class="b">FIRAZYR</td><td class="atc">B06AC02</td><td class="ing">Icatibant - 30mg</td><td>Solution for injection</td><td class="c">SC</td><td>Abela Frères S.A.L.</td><td><span class="pill">E1</span></td><td class="n">46,336,640</td></tr>
+<tr><td class="c">12700</td><td class="b">FIXCORT</td><td class="atc">R03AK07</td><td class="ing">Formoterol fumarate dihydrate - 9mcg, Budesonide - 320mcg</td><td>Capsair, inhalation powder</td><td class="c">Respiratory</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">1,881,380</td></tr>
+<tr><td class="c">12721</td><td class="b">FLUDROCORTISONE ACETATE NOVUMGEN</td><td class="atc">H02AA02</td><td class="ing">Fludrocortisone acetate - 0.1mg</td><td>Tablet</td><td class="c">Oral</td><td>Sadco</td><td><span class="pill">A2</span></td><td class="n">1,183,925</td></tr>
+<tr><td class="c">12703</td><td class="b">FORBEFIX</td><td class="atc">R03AK08</td><td class="ing">Formoterol fumarate dihydrate - , Beclometasone dipropionate -</td><td>Inhalation aerosol</td><td class="c">Respiratory</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">1,935,133</td></tr>
+<tr><td class="c">12694</td><td class="b">GANATON</td><td class="atc">A03FA07</td><td class="ing">Itopride Hydrochloride - 50mg</td><td>Tablet</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">A1</span></td><td class="n">357,462</td></tr>
+<tr><td class="c">12695</td><td class="b">GANATON</td><td class="atc">A03FA07</td><td class="ing">Itopride Hydrochloride - 50mg</td><td>Tablet</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">A2</span></td><td class="n">1,119,421</td></tr>
+<tr><td class="c">12708</td><td class="b">GLIANCE</td><td class="atc">A10BK03</td><td class="ing">Empagliflozin - 25mg</td><td>Tablet</td><td class="c">Oral</td><td>Pharmapro</td><td><span class="pill">B</span></td><td class="n">1,740,596</td></tr>
+<tr><td class="c">12709</td><td class="b">GLIANCE</td><td class="atc">A10BK03</td><td class="ing">Empagliflozin - 10mg</td><td>Tablet</td><td class="c">Oral</td><td>Pharmapro</td><td><span class="pill">B</span></td><td class="n">1,740,596</td></tr>
+<tr><td class="c">12729</td><td class="b">INVANZ</td><td class="atc">J01DH03</td><td class="ing">Ertapenem - 1g</td><td>Powder for concentrate for solution for infusion</td><td class="c">Infusion</td><td>Droguerie de l&#x27;Union</td><td><span class="pill">B</span></td><td class="n">3,203,721</td></tr>
+<tr><td class="c">12714</td><td class="b">KETOPROFEN AGUETTANT</td><td class="atc">M01AE03</td><td class="ing">Ketoprofen - 100mg/100ml</td><td>Solution for infusion</td><td class="c">Infusion</td><td>Pharmamed</td><td><span class="pill">B</span></td><td class="n">2,963,173</td></tr>
+<tr><td class="c">12698</td><td class="b">LAZCLUZE</td><td class="atc">L01EB09</td><td class="ing">Lazertinib - 80mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">E2</span></td><td class="n">585,843,356</td></tr>
+<tr><td class="c">12699</td><td class="b">LAZCLUZE</td><td class="atc">L01EB09</td><td class="ing">Lazertinib - 240mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">E2</span></td><td class="n">610,948,739</td></tr>
+<tr><td class="c">12720</td><td class="b">LOCAN</td><td class="atc">N01BB52</td><td class="ing">Lidocaine - 2.5%, Prilocaine - 2.5%</td><td>Cream</td><td class="c">Topical</td><td>Sadco</td><td><span class="pill">A2</span></td><td class="n">1,057,604</td></tr>
+<tr><td class="c">12715</td><td class="b">LORCLAST</td><td class="atc">R03DC53</td><td class="ing">Montelukast (sodium) - 10mg, Desloratadine - 5mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>New Larys Pharm SARL</td><td><span class="pill">A2</span></td><td class="n">1,060,292</td></tr>
+<tr><td class="c">11397</td><td class="b">MAGNEVIE B6</td><td class="atc">A12CC</td><td class="ing">Pyridoxine HCl - 10mg, Magnesium lactate dihydrate - 100mg</td><td>Comprimé pelliculé</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">A2</span></td><td class="n">1,131,515</td></tr>
+<tr><td class="c">12727</td><td class="b">METOPIMAZINE ARROW SANS SUCRE</td><td class="atc">A04AD05</td><td class="ing">Metopimazine - 7.5mg</td><td>Comprimés orodispersibles édulcorés à l&#x27;aspartam</td><td class="c">Oral</td><td>Karout pharmacy</td><td><span class="pill">B</span></td><td class="n">1,779,247</td></tr>
+<tr><td class="c">12722</td><td class="b">OPSYNVI</td><td class="atc">C02KX54</td><td class="ing">Macitentan - 10mg, Tadalafil - 40mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">E2</span></td><td class="n">248,046,776</td></tr>
+<tr><td class="c">12723</td><td class="b">OPSYNVI</td><td class="atc">C02KX54</td><td class="ing">Macitentan - 10mg, Tadalafil - 20mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Mersaco</td><td><span class="pill">E2</span></td><td class="n">240,822,183</td></tr>
+<tr><td class="c">12718</td><td class="b">OXUBAT 80</td><td class="atc">M04AA03</td><td class="ing">Febuxostat - 80mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">B</span></td><td class="n">1,356,385</td></tr>
+<tr><td class="c">12716</td><td class="b">PRATIN</td><td class="atc">C10AA08</td><td class="ing">Pitavastatin Calcium - 2mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>New Larys Pharm SARL</td><td><span class="pill">A2</span></td><td class="n">873,498</td></tr>
+<tr><td class="c">12717</td><td class="b">PRATIN</td><td class="atc">C10AA08</td><td class="ing">Pitavastatin Calcium - 4mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>New Larys Pharm SARL</td><td><span class="pill">A2</span></td><td class="n">1,115,389</td></tr>
+<tr><td class="c">12713</td><td class="b">PROPOFOL KWALITY</td><td class="atc">N01AX10</td><td class="ing">Propofol - 1%</td><td>Injectable emulsion</td><td class="c">Infusion</td><td>Multipharm</td><td><span class="pill">A1</span></td><td class="n">169,324</td></tr>
+<tr><td class="c">12725</td><td class="b">RACEDO</td><td class="atc">A07XA04</td><td class="ing">Racecadotril - 10mg</td><td>Granules for oral suspension</td><td class="c">Oral</td><td>Pharmamedic S.A.R.L.</td><td><span class="pill">A1</span></td><td class="n">514,500</td></tr>
+<tr><td class="c">12702</td><td class="b">RESPITEC</td><td class="atc">R03AL02</td><td class="ing">Salbutamol - 100mcg/inhalation, Ipratropium bromide - 20mcg/inhalation</td><td>Inhalation aerosol</td><td class="c">Respiratory</td><td>Medis Pharm Drugstore</td><td><span class="pill">A1</span></td><td class="n">604,729</td></tr>
+<tr><td class="c">12712</td><td class="b">SANTA D</td><td class="atc">A11CC05</td><td class="ing">Vitamin D3 - 10,000IU</td><td>Capsule, soft gelatin</td><td class="c">Oral</td><td>Tamipharm</td><td><span class="pill">A2</span></td><td class="n">935,570</td></tr>
+<tr><td class="c">12726</td><td class="b">TIMOLOL BP 2019</td><td class="atc">S01ED01</td><td class="ing">Timolol - 0.5%</td><td>Eye drops</td><td class="c">Ophtalmic</td><td>C. Catafago &amp; Co</td><td><span class="pill">A1</span></td><td class="n">349,399</td></tr>
+<tr><td class="c">12701</td><td class="b">TIOFIX</td><td class="atc">R03BB04</td><td class="ing">Tiotropium bromide - 18mcg</td><td>Discair, inhalation powder</td><td class="c">Respiratory</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">2,002,325</td></tr>
+<tr><td class="c">12730</td><td class="b">VAGICLIND</td><td class="atc">G01AA10</td><td class="ing">Clindamycin (phosphate) - 2%</td><td>Vaginal cream</td><td class="c">Vaginal</td><td>Macromed S.A.R.L.</td><td><span class="pill">A2</span></td><td class="n">788,836</td></tr>
+<tr><td class="c">12731</td><td class="b">VAGIZOLE</td><td class="atc">G01AF15</td><td class="ing">Butoconazole Nitrate - 2%</td><td>Vaginal cream</td><td class="c">Vaginal</td><td>Macromed S.A.R.L.</td><td><span class="pill">A2</span></td><td class="n">862,747</td></tr>
+<tr><td class="c">12732</td><td class="b">VAXIGRIPTETRA, VACCIN GRIPPAL QUADRIVALENT (INACTIVE A VIRION FRAGMENTE)</td><td class="atc">J07BB01</td><td class="ing">Influenza vaccine virus (inactivated, split) - 15mcg/4strains/0.5ml</td><td>Suspension injectable</td><td class="c">IM/SC</td><td>Mersaco</td><td><span class="pill">A2</span></td><td class="n">970,254</td></tr>
+<tr><td class="c">12690</td><td class="b">VISAMIT 100</td><td class="atc">N03AX18</td><td class="ing">Lacosamide - 100mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">B</span></td><td class="n">6,444,045</td></tr>
+<tr><td class="c">12691</td><td class="b">VISAMIT 150</td><td class="atc">N03AX18</td><td class="ing">Lacosamide - 150mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">C</span></td><td class="n">9,666,276</td></tr>
+<tr><td class="c">12692</td><td class="b">VISAMIT 200</td><td class="atc">N03AX18</td><td class="ing">Lacosamide - 200mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">C</span></td><td class="n">10,740,445</td></tr>
+<tr><td class="c">12689</td><td class="b">VISAMIT 50</td><td class="atc">N03AX18</td><td class="ing">Lacosamide - 50mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Benta Trading Co s.a.l.</td><td><span class="pill">A2</span></td><td class="n">751,272</td></tr>
+<tr><td class="c">12705</td><td class="b">VOREXIM</td><td class="atc">N06AX26</td><td class="ing">Vortioxetine - 10mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">2,685,125</td></tr>
+<tr><td class="c">12706</td><td class="b">VOREXIM</td><td class="atc">N06AX26</td><td class="ing">Vortioxetine - 20mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">5,191,072</td></tr>
+<tr><td class="c">12707</td><td class="b">XAVIRAN</td><td class="atc">B01AF01</td><td class="ing">Rivaroxaban - 2.5mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Pharmaline S.A.L.</td><td><span class="pill">B</span></td><td class="n">2,200,062</td></tr>
+</tbody></table></div>
+<p class="caption">Stratum spread: A1 7 · A2 15 · B 14 · C 2 · D 2 · E1 2 · E2 4</p>
+</section>
+<section><div class='shead'><span class='snum'>02</span><h2>Newly not marketed</h2><span class='count'>7 drugs</span></div>
+<p class="lede">Held in the register but absent from this bulletin. Removed from medlist; flagged NotMarketed in medapiv2 rather than deleted, so prescribing history stays resolvable.</p>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>ATC</th><th>Ingredients</th><th>Agent</th></tr></thead><tbody>
+<tr><td class="c">1161</td><td class="b">CALCIUM RESONIUM</td><td class="atc">V03AE01</td><td class="ing">Calcium Polystyrene Sulphonate - 15g</td><td>Mersaco</td></tr>
+<tr><td class="c">1842</td><td class="b">CEFUMAX</td><td class="atc">J01DC02</td><td class="ing">Cefuroxime (sodium) - 750mg</td><td>C. Catafago &amp; Co</td></tr>
+<tr><td class="c">10908</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 500IU/Vial</td><td>Mersaco</td></tr>
+<tr><td class="c">10909</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 1000IU/Vial</td><td>Mersaco</td></tr>
+<tr><td class="c">439</td><td class="b">SOLU MEDROL Act-O-Vial</td><td class="atc">H02AB04</td><td class="ing">Methylprednisolone sodium succinate - 40mg</td><td>Droguerie Fattal  S.A.L.</td></tr>
+<tr><td class="c">9126</td><td class="b">VILAPRO CHRONO 500</td><td class="atc">N03AG01</td><td class="ing">Sodium valproate - 333mg, Valproic acid - 145mg</td><td>Sadco</td></tr>
+<tr><td class="c">12416</td><td class="b">α DEXAMETHASONE SODIUM PHOSPHATE USP</td><td class="atc">H02AB02</td><td class="ing">Dexamethasone (sodium phosphate) - 8mg/2ml</td><td>Alfa Laboratoires S.A.L.</td></tr>
+</tbody></table></div></section>
+<section><div class='shead'><span class='snum'>03</span><h2>Modifications</h2><span class='count'>973 drugs touched</span></div>
+<p class="lede">Fields the bulletin changed on drugs already held. A drug can appear under more than one field.</p>
+<div class="bars">
+<div class="bar"><span class="lbl">PublicPrice</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val num">356</span></div>
+<div class="bar"><span class="lbl">Agent</span><span class="track"><span class="fill" style="width:80.1%"></span></span><span class="val num">285</span></div>
+<div class="bar"><span class="lbl">Form</span><span class="track"><span class="fill" style="width:77.2%"></span></span><span class="val num">275</span></div>
+<div class="bar"><span class="lbl">Manufacturer</span><span class="track"><span class="fill" style="width:16.9%"></span></span><span class="val num">60</span></div>
+<div class="bar"><span class="lbl">Stratum</span><span class="track"><span class="fill" style="width:3.9%"></span></span><span class="val num">14</span></div>
+<div class="bar"><span class="lbl">Presentation</span><span class="track"><span class="fill" style="width:3.9%"></span></span><span class="val num">14</span></div>
+<div class="bar"><span class="lbl">DrugName</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
+<div class="bar"><span class="lbl">Dosage</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
+<div class="bar"><span class="lbl">Country</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
+<div class="bar"><span class="lbl">RegistrationNumber</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
+</div>
+<div class="cols" style="margin-top:22px">
+<div><div class="tw"><table><thead><tr><th colspan="2">Price movement</th></tr></thead><tbody><tr><td>Increases</td><td class="n up">268</td></tr><tr><td>Decreases</td><td class="n down">84</td></tr><tr><td>Median move</td><td class="n">10.0%</td></tr><tr><td>Placeholder corrections</td><td class="n">4</td></tr></tbody></table></div></div>
+<div><div class="tw"><table><thead><tr><th>Largest decreases</th><th style="text-align:right">L.L</th><th style="text-align:right">Δ</th></tr></thead><tbody>
+<tr><td class="b">SUBIFIX</td><td class="n">2,392,040 → 806,306</td><td class="n down">-66%</td></tr>
+<tr><td class="b">CEFUMAX</td><td class="n">415,247 → 158,573</td><td class="n down">-62%</td></tr>
+<tr><td class="b">BLEO-CELL</td><td class="n">3,817,857 → 1,478,227</td><td class="n down">-61%</td></tr>
+<tr><td class="b">ADALIREL</td><td class="n">7,805,376 → 3,628,375</td><td class="n down">-54%</td></tr>
+<tr><td class="b">CETRAK</td><td class="n">806,306 → 415,247</td><td class="n down">-49%</td></tr>
+</tbody></table></div></div></div>
+<div class="note"><b>Four rows were not price rises.</b> These drugs had left the bulletin earlier and were carried in the register at a placeholder price; returning to this bulletin restored a real one. They are excluded from the median above.<br><br><span class="mono">10638</span> VESICULTURE — <span class="mono">214</span> → <span class="mono">16,638,263 L.L</span><br><span class="mono">7976</span> SOJOURN — <span class="mono">419</span> → <span class="mono">13,214,389 L.L</span><br><span class="mono">7372</span> LEVE TAD — <span class="mono">31</span> → <span class="mono">2,872,060 L.L</span><br><span class="mono">9534</span> CORYFIN GOLA DOLORE — <span class="mono">6</span> → <span class="mono">808,993 L.L</span></div>
+<div class="cols" style="margin-top:22px">
+<div><div class="tw"><table><thead><tr><th>Agent transfer</th><th style="text-align:right">Drugs</th></tr></thead><tbody>
+<tr><td>Abela Freres S.A.L. <span style="color:var(--faint)">→</span> <b>Abela Frères S.A.L.</b></td><td class="n">266</td></tr>
+<tr><td>Levant Alie Houses S.A.L. <span style="color:var(--faint)">→</span> <b>Interpharma S.A.L.</b></td><td class="n">8</td></tr>
+<tr><td>Pharmadex <span style="color:var(--faint)">→</span> <b>Riad Pharmacy</b></td><td class="n">4</td></tr>
+<tr><td>Soins et Sante <span style="color:var(--faint)">→</span> <b>Soins et Santé</b></td><td class="n">3</td></tr>
+<tr><td>BiofinPharma Middle East S.A.L. <span style="color:var(--faint)">→</span> <b>Pharmamedic S.A.R.L.</b></td><td class="n">3</td></tr>
+<tr><td>Droguerie de l&#x27;Union <span style="color:var(--faint)">→</span> <b>Omnipharma</b></td><td class="n">1</td></tr>
+</tbody></table></div><p class="caption">266 of these are the same agent respelled with its accent (Abela Frères), not a transfer of marketing rights.</p></div>
+<div><div class="tw"><table><thead><tr><th>Manufacturer change</th><th style="text-align:right">Drugs</th></tr></thead><tbody>
+<tr><td>Benta SAL under license from Viatris Sante, France <span style="color:var(--faint)">→</span> <b>Benta SAL under license from Viatris Santé, France</b></td><td class="n">13</td></tr>
+<tr><td>Pharmaline Licensed by Merck Sante SAS, France <span style="color:var(--faint)">→</span> <b>Pharmaline Licensed by Merck Santé SAS, France</b></td><td class="n">8</td></tr>
+<tr><td>Arrow Generiques <span style="color:var(--faint)">→</span> <b>Arrow Génériques</b></td><td class="n">5</td></tr>
+<tr><td>SAJA- Saudi Arabia Japanese Pharmaceutical Co <span style="color:var(--faint)">→</span> <b>SAJA-Saudi Arabian Japanese Pharmaceutical Co</b></td><td class="n">4</td></tr>
+<tr><td>Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals) <span style="color:var(--faint)">→</span> <b>SAJA-Saudi Arabian Japanese Pharmaceutical Co</b></td><td class="n">4</td></tr>
+<tr><td>Stallergenes <span style="color:var(--faint)">→</span> <b>Stallergènes</b></td><td class="n">4</td></tr>
+<tr><td>Centre Specialites Pharmaceutiques <span style="color:var(--faint)">→</span> <b>Centre Specialités Pharmaceutiques</b></td><td class="n">3</td></tr>
+<tr><td>Sandoz GmbH, (Schaftenau) <span style="color:var(--faint)">→</span> <b>Novartis Pharmaceutical Manufacturing GmbH</b></td><td class="n">3</td></tr>
+</tbody></table></div><p class="caption">17 distinct changes across 60 drugs.</p></div>
+</div></section>
+<section><div class='shead'><span class='snum'>04</span><h2>Register completeness</h2><span class='count'>after backfill</span></div>
+<p class="lede">The bulletin carries 11 commercial columns only, so every drug it inserts arrives with no ATC, ingredients, route or brand/generic. Those were filled from the MoPH website for both registers. Counts are cells still empty.</p>
+<div class="cols">
+<div><div class="tw"><table><thead><tr><th>medapiv2 · marketed</th><th style="text-align:right">5,734 rows</th></tr></thead><tbody>
+<tr><td class="c">ATC_Code</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">OtherIngredients</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">Dosage</td><td class="n">5</td></tr>
+<tr><td class="c">Form</td><td class="n">4</td></tr>
+<tr><td class="c">RouteLNDI</td><td class="n">2</td></tr>
+<tr><td class="c">ProductType</td><td class="n">1</td></tr>
+</tbody></table></div></div>
+<div><div class="tw"><table><thead><tr><th>medlist · all rows</th><th style="text-align:right">5,765 rows</th></tr></thead><tbody>
+<tr><td class="c">atc</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">bg</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">ingredients</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">strength</td><td class="n">11</td></tr>
+<tr><td class="c">form</td><td class="n" style="color:var(--accent)">0</td></tr>
+<tr><td class="c">route_lndi</td><td class="n">1</td></tr>
+</tbody></table></div></div>
+</div>
+<p class="caption">Filled this cycle: ommal_medapiv2 4,712 cells · ommal_medlist 3,484 cells. No populated cell was overwritten.</p>
+</section>
+<footer><span>MedLeb register update</span><span>Bulletin 2026-09-03</span><span>medlist · medapiv2</span><span>Source: MoPH mouacher + moph.gov.lb</span></footer>
+</div>
