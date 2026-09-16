@@ -1,7 +1,7 @@
 {
   "report": "September 2026 bulletin",
   "bulletinDate": "2026-09-03",
-  "generatedAt": "2026-09-16T12:39:03.866007",
+  "generatedAt": "2026-09-16T12:49:49.657759",
   "endState": {
     "medlist_rows": 5765,
     "medapiv2_total": 11160,
@@ -31,6 +31,6196 @@
     "Presentation": 14,
     "Country": 6,
     "RegistrationNumber": 6
+  },
+  "changesByType": {
+    "PublicPrice": [
+      {
+        "MoPHCode": "10574",
+        "BrandName": "0.45% SODIUM CHLORIDE INJECTION USP",
+        "before": 160885.0,
+        "after": 176974.0
+      },
+      {
+        "MoPHCode": "11135",
+        "BrandName": "0.45% SODIUM CHLORIDE INJECTION USP",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "12179",
+        "BrandName": "0.45% SODIUM CHLORIDE INJECTION USP",
+        "before": 144797.0,
+        "after": 159736.0
+      },
+      {
+        "MoPHCode": "12182",
+        "BrandName": "0.45% SODIUM CHLORIDE INJECTION USP",
+        "before": 162034.0,
+        "after": 178123.0
+      },
+      {
+        "MoPHCode": "10570",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 145946.0,
+        "after": 160885.0
+      },
+      {
+        "MoPHCode": "10571",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 151692.0,
+        "after": 166631.0
+      },
+      {
+        "MoPHCode": "10572",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 164333.0,
+        "after": 180421.0
+      },
+      {
+        "MoPHCode": "10573",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 688359.0,
+        "after": 757310.0
+      },
+      {
+        "MoPHCode": "10575",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 144797.0,
+        "after": 159736.0
+      },
+      {
+        "MoPHCode": "11136",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "11137",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 209151.0,
+        "after": 229836.0
+      },
+      {
+        "MoPHCode": "11138",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 222941.0,
+        "after": 244775.0
+      },
+      {
+        "MoPHCode": "11139",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 181570.0,
+        "after": 199957.0
+      },
+      {
+        "MoPHCode": "12052",
+        "BrandName": "0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 170079.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "10614",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 219493.0,
+        "after": 241328.0
+      },
+      {
+        "MoPHCode": "10615",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 170079.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "10616",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 194211.0,
+        "after": 213747.0
+      },
+      {
+        "MoPHCode": "11140",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 284997.0,
+        "after": 313726.0
+      },
+      {
+        "MoPHCode": "11141",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 220643.0,
+        "after": 242477.0
+      },
+      {
+        "MoPHCode": "11142",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 252820.0,
+        "after": 278102.0
+      },
+      {
+        "MoPHCode": "12180",
+        "BrandName": "10% DEXTROSE INJECTION USP",
+        "before": 170079.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "10611",
+        "BrandName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 172377.0,
+        "after": 189615.0
+      },
+      {
+        "MoPHCode": "11143",
+        "BrandName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 224090.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "12178",
+        "BrandName": "2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 172377.0,
+        "after": 189615.0
+      },
+      {
+        "MoPHCode": "7212",
+        "BrandName": "20 MEQ POTASSIUM OF 0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 278102.0,
+        "after": 305682.0
+      },
+      {
+        "MoPHCode": "9378",
+        "BrandName": "20 MEQ POTASSIUM OF 0.9% SODIUM CHLORIDE INJECTION USP",
+        "before": 229959.0,
+        "after": 252820.0
+      },
+      {
+        "MoPHCode": "7211",
+        "BrandName": "20 MEQ POTASSIUM OF 5% DEXTROSE AND 0.45% SODIUM CHLORIDE INJECTION USP",
+        "before": 229959.0,
+        "after": 252820.0
+      },
+      {
+        "MoPHCode": "10612",
+        "BrandName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 179272.0,
+        "after": 197659.0
+      },
+      {
+        "MoPHCode": "11144",
+        "BrandName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 224090.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "12176",
+        "BrandName": "5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "10613",
+        "BrandName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "11145",
+        "BrandName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+        "before": 226388.0,
+        "after": 249372.0
+      },
+      {
+        "MoPHCode": "12181",
+        "BrandName": "5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION",
+        "before": 195361.0,
+        "after": 214897.0
+      },
+      {
+        "MoPHCode": "10566",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 148244.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "10567",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 148244.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "10568",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 159736.0,
+        "after": 175825.0
+      },
+      {
+        "MoPHCode": "10569",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 179272.0,
+        "after": 197659.0
+      },
+      {
+        "MoPHCode": "11146",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 191913.0,
+        "after": 211449.0
+      },
+      {
+        "MoPHCode": "11147",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 191913.0,
+        "after": 211449.0
+      },
+      {
+        "MoPHCode": "11148",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 208002.0,
+        "after": 228687.0
+      },
+      {
+        "MoPHCode": "11149",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 224090.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "12128",
+        "BrandName": "5% DEXTROSE INJECTION USP",
+        "before": 186167.0,
+        "after": 204554.0
+      },
+      {
+        "MoPHCode": "12127",
+        "BrandName": "7.5% DEXTROSE INJECTION USP",
+        "before": 202256.0,
+        "after": 222941.0
+      },
+      {
+        "MoPHCode": "12468",
+        "BrandName": "9% SODIUM CHLORIDE",
+        "before": 255118.0,
+        "after": 280400.0
+      },
+      {
+        "MoPHCode": "9768",
+        "BrandName": "ACIDE ALENDRONIQUE/ VITAMINE D3 BGR",
+        "before": 815712.0,
+        "after": 784804.0
+      },
+      {
+        "MoPHCode": "11585",
+        "BrandName": "ADALIREL",
+        "before": 7805376.0,
+        "after": 3628375.0
+      },
+      {
+        "MoPHCode": "4468",
+        "BrandName": "ADELPHAN ESIDREX",
+        "before": 371157.0,
+        "after": 371156.0
+      },
+      {
+        "MoPHCode": "9772",
+        "BrandName": "ALDEX",
+        "before": 174062.0,
+        "after": 190764.0
+      },
+      {
+        "MoPHCode": "9790",
+        "BrandName": "ALDEX",
+        "before": 174062.0,
+        "after": 190764.0
+      },
+      {
+        "MoPHCode": "9791",
+        "BrandName": "ALDEX",
+        "before": 170630.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "9792",
+        "BrandName": "ALDEX",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9793",
+        "BrandName": "ALDEX",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "978",
+        "BrandName": "APO-ATENOL",
+        "before": 327898.0,
+        "after": 298333.0
+      },
+      {
+        "MoPHCode": "6092",
+        "BrandName": "APO-ATORVASTATIN",
+        "before": 889624.0,
+        "after": 808993.0
+      },
+      {
+        "MoPHCode": "6093",
+        "BrandName": "APO-ATORVASTATIN",
+        "before": 1088378.0,
+        "after": 1416410.0
+      },
+      {
+        "MoPHCode": "6094",
+        "BrandName": "APO-ATORVASTATIN",
+        "before": 1405390.0,
+        "after": 1828970.0
+      },
+      {
+        "MoPHCode": "983",
+        "BrandName": "APO-CARBAMAZEPINE",
+        "before": 727019.0,
+        "after": 661171.0
+      },
+      {
+        "MoPHCode": "5982",
+        "BrandName": "APO-CLOPIDOGREL",
+        "before": 911125.0,
+        "after": 858715.0
+      },
+      {
+        "MoPHCode": "3571",
+        "BrandName": "APO-PRAVASTATIN",
+        "before": 958160.0,
+        "after": 872154.0
+      },
+      {
+        "MoPHCode": "3579",
+        "BrandName": "APO-PRAVASTATIN",
+        "before": 775397.0,
+        "after": 705517.0
+      },
+      {
+        "MoPHCode": "5589",
+        "BrandName": "APO-TERBINAFINE",
+        "before": 1409691.0,
+        "after": 1245742.0
+      },
+      {
+        "MoPHCode": "8143",
+        "BrandName": "ARCHIFAR",
+        "before": 6443725.0,
+        "after": 6344280.0
+      },
+      {
+        "MoPHCode": "12685",
+        "BrandName": "ARIXTRA",
+        "before": 2369194.0,
+        "after": 5341774.0
+      },
+      {
+        "MoPHCode": "12686",
+        "BrandName": "ARIXTRA",
+        "before": 5171061.0,
+        "after": 12004668.0
+      },
+      {
+        "MoPHCode": "10940",
+        "BrandName": "ARTICAINE MEDIS ADRENALINE",
+        "before": 1881380.0,
+        "after": 1881379.0
+      },
+      {
+        "MoPHCode": "4270",
+        "BrandName": "AURIMEL",
+        "before": 319963.0,
+        "after": 319962.0
+      },
+      {
+        "MoPHCode": "10550",
+        "BrandName": "AVIXAN",
+        "before": 2777275.0,
+        "after": 2777274.0
+      },
+      {
+        "MoPHCode": "10551",
+        "BrandName": "AVIXAN",
+        "before": 2777275.0,
+        "after": 2777274.0
+      },
+      {
+        "MoPHCode": "5397",
+        "BrandName": "BISOCOR 5 PLUS",
+        "before": 678321.0,
+        "after": 678320.0
+      },
+      {
+        "MoPHCode": "7551",
+        "BrandName": "BLEO-CELL",
+        "before": 3817857.0,
+        "after": 1478227.0
+      },
+      {
+        "MoPHCode": "5734",
+        "BrandName": "BRUFEN",
+        "before": 342384.0,
+        "after": 454518.0
+      },
+      {
+        "MoPHCode": "5735",
+        "BrandName": "BRUFEN",
+        "before": 423121.0,
+        "after": 544226.0
+      },
+      {
+        "MoPHCode": "9629",
+        "BrandName": "CABOMETYX",
+        "before": 440893501.0,
+        "after": 335934871.0
+      },
+      {
+        "MoPHCode": "9630",
+        "BrandName": "CABOMETYX",
+        "before": 440893501.0,
+        "after": 335934871.0
+      },
+      {
+        "MoPHCode": "9631",
+        "BrandName": "CABOMETYX",
+        "before": 440893501.0,
+        "after": 335934871.0
+      },
+      {
+        "MoPHCode": "5766",
+        "BrandName": "CAPEDA",
+        "before": 4927423.0,
+        "after": 4927422.0
+      },
+      {
+        "MoPHCode": "1659",
+        "BrandName": "CEFADRIL",
+        "before": 268769.0,
+        "after": 268768.0
+      },
+      {
+        "MoPHCode": "7242",
+        "BrandName": "CEFPROZ 250",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "12681",
+        "BrandName": "CEFUMAX",
+        "before": 415247.0,
+        "after": 158573.0
+      },
+      {
+        "MoPHCode": "12680",
+        "BrandName": "CETRAK",
+        "before": 806306.0,
+        "after": 415247.0
+      },
+      {
+        "MoPHCode": "3780",
+        "BrandName": "CETRAXAL OTICO",
+        "before": 821088.0,
+        "after": 759271.0
+      },
+      {
+        "MoPHCode": "12668",
+        "BrandName": "CLAVODIS",
+        "before": 627127.0,
+        "after": 627126.0
+      },
+      {
+        "MoPHCode": "9534",
+        "BrandName": "CORYFIN GOLA DOLORE",
+        "before": 5.626168,
+        "after": 808993.0
+      },
+      {
+        "MoPHCode": "6342",
+        "BrandName": "CRESULIP 10",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "6343",
+        "BrandName": "CRESULIP 20",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "4285",
+        "BrandName": "CYCLOVEX",
+        "before": 1164664.0,
+        "after": 1164663.0
+      },
+      {
+        "MoPHCode": "7511",
+        "BrandName": "D-CURE",
+        "before": 467657.0,
+        "after": 432717.0
+      },
+      {
+        "MoPHCode": "4112",
+        "BrandName": "DEXTROSE",
+        "before": 329815.0,
+        "after": 363141.0
+      },
+      {
+        "MoPHCode": "4113",
+        "BrandName": "DEXTROSE",
+        "before": 287295.0,
+        "after": 316024.0
+      },
+      {
+        "MoPHCode": "4114",
+        "BrandName": "DEXTROSE",
+        "before": 369209.0,
+        "after": 405661.0
+      },
+      {
+        "MoPHCode": "4115",
+        "BrandName": "DEXTROSE",
+        "before": 170630.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "4117",
+        "BrandName": "DEXTROSE",
+        "before": 194211.0,
+        "after": 213747.0
+      },
+      {
+        "MoPHCode": "4119",
+        "BrandName": "DEXTROSE",
+        "before": 219493.0,
+        "after": 241328.0
+      },
+      {
+        "MoPHCode": "4122",
+        "BrandName": "DEXTROSE",
+        "before": 174062.0,
+        "after": 190764.0
+      },
+      {
+        "MoPHCode": "4124",
+        "BrandName": "DEXTROSE",
+        "before": 174062.0,
+        "after": 190764.0
+      },
+      {
+        "MoPHCode": "4126",
+        "BrandName": "DEXTROSE",
+        "before": 170630.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "4128",
+        "BrandName": "DEXTROSE",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "4130",
+        "BrandName": "DEXTROSE",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "9379",
+        "BrandName": "DEXTROSE",
+        "before": 170630.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "9558",
+        "BrandName": "DEXTROSE",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "9559",
+        "BrandName": "DEXTROSE",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "9586",
+        "BrandName": "DEXTROSE",
+        "before": 195361.0,
+        "after": 214897.0
+      },
+      {
+        "MoPHCode": "9708",
+        "BrandName": "DEXTROSE",
+        "before": 224565.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "9773",
+        "BrandName": "DEXTROSE",
+        "before": 185340.0,
+        "after": 203405.0
+      },
+      {
+        "MoPHCode": "11651",
+        "BrandName": "DEXTROSE",
+        "before": 252820.0,
+        "after": 278102.0
+      },
+      {
+        "MoPHCode": "11653",
+        "BrandName": "DEXTROSE",
+        "before": 284997.0,
+        "after": 313726.0
+      },
+      {
+        "MoPHCode": "11654",
+        "BrandName": "DEXTROSE",
+        "before": 220643.0,
+        "after": 242477.0
+      },
+      {
+        "MoPHCode": "12165",
+        "BrandName": "DEXTROSE",
+        "before": 312577.0,
+        "after": 343605.0
+      },
+      {
+        "MoPHCode": "4749",
+        "BrandName": "DEXTROSE 10% INJECTION, USP",
+        "before": 217195.0,
+        "after": 239029.0
+      },
+      {
+        "MoPHCode": "4750",
+        "BrandName": "DEXTROSE 10% INJECTION, USP",
+        "before": 191913.0,
+        "after": 211449.0
+      },
+      {
+        "MoPHCode": "4751",
+        "BrandName": "DEXTROSE 10% INJECTION, USP",
+        "before": 168929.0,
+        "after": 186167.0
+      },
+      {
+        "MoPHCode": "4157",
+        "BrandName": "DEXTROSE 2.5% & SODIUM CHLORIDE 0.45%",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "4159",
+        "BrandName": "DEXTROSE 2.5% & SODIUM CHLORIDE 0.45%",
+        "before": 198578.0,
+        "after": 218344.0
+      },
+      {
+        "MoPHCode": "11652",
+        "BrandName": "DEXTROSE 2.5% & SODIUM CHLORIDE 0.45%",
+        "before": 224090.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "12164",
+        "BrandName": "DEXTROSE 2.5% & SODIUM CHLORIDE 0.45%",
+        "before": 212598.0,
+        "after": 234433.0
+      },
+      {
+        "MoPHCode": "4754",
+        "BrandName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 185018.0,
+        "after": 203405.0
+      },
+      {
+        "MoPHCode": "4755",
+        "BrandName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 174675.0,
+        "after": 191913.0
+      },
+      {
+        "MoPHCode": "4756",
+        "BrandName": "DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 148566.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "4752",
+        "BrandName": "DEXTROSE 20% INJECTION USP",
+        "before": 316025.0,
+        "after": 348202.0
+      },
+      {
+        "MoPHCode": "4753",
+        "BrandName": "DEXTROSE 20% INJECTION USP",
+        "before": 183869.0,
+        "after": 202256.0
+      },
+      {
+        "MoPHCode": "4147",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.2%",
+        "before": 194165.0,
+        "after": 213747.0
+      },
+      {
+        "MoPHCode": "4155",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.2%",
+        "before": 220643.0,
+        "after": 242477.0
+      },
+      {
+        "MoPHCode": "4149",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.3%",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "4151",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.3%",
+        "before": 204554.0,
+        "after": 225239.0
+      },
+      {
+        "MoPHCode": "4153",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.3%",
+        "before": 220643.0,
+        "after": 242477.0
+      },
+      {
+        "MoPHCode": "4142",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.45%",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "4144",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.45%",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9372",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.45%",
+        "before": 217210.0,
+        "after": 239029.0
+      },
+      {
+        "MoPHCode": "9373",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.45%",
+        "before": 240255.0,
+        "after": 264311.0
+      },
+      {
+        "MoPHCode": "4134",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.9%",
+        "before": 189262.0,
+        "after": 209151.0
+      },
+      {
+        "MoPHCode": "4136",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.9%",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "4138",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.9%",
+        "before": 207894.0,
+        "after": 228687.0
+      },
+      {
+        "MoPHCode": "9711",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.9%",
+        "before": 198578.0,
+        "after": 218344.0
+      },
+      {
+        "MoPHCode": "9712",
+        "BrandName": "DEXTROSE 5% & SODIUM CHLORIDE 0.9%",
+        "before": 226036.0,
+        "after": 249372.0
+      },
+      {
+        "MoPHCode": "4133",
+        "BrandName": "DEXTROSE 5% IN LACTATED RINGER'S",
+        "before": 207404.0,
+        "after": 227538.0
+      },
+      {
+        "MoPHCode": "4808",
+        "BrandName": "DEXTROSE 5% INJECTION USP",
+        "before": 158587.0,
+        "after": 174675.0
+      },
+      {
+        "MoPHCode": "4809",
+        "BrandName": "DEXTROSE 5% INJECTION USP",
+        "before": 171228.0,
+        "after": 188466.0
+      },
+      {
+        "MoPHCode": "4779",
+        "BrandName": "DEXTROSE 5% INJECTION, USP",
+        "before": 193062.0,
+        "after": 212598.0
+      },
+      {
+        "MoPHCode": "4790",
+        "BrandName": "DEXTROSE 5% INJECTION, USP",
+        "before": 171228.0,
+        "after": 188466.0
+      },
+      {
+        "MoPHCode": "4801",
+        "BrandName": "DEXTROSE 5% INJECTION, USP",
+        "before": 158587.0,
+        "after": 174675.0
+      },
+      {
+        "MoPHCode": "4764",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 193062.0,
+        "after": 212598.0
+      },
+      {
+        "MoPHCode": "4765",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "4766",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 148566.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "4767",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 194211.0,
+        "after": 213747.0
+      },
+      {
+        "MoPHCode": "4769",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "4770",
+        "BrandName": "DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 186167.0,
+        "after": 204554.0
+      },
+      {
+        "MoPHCode": "4748",
+        "BrandName": "DEXTROSE 7.5% INJECTION USP",
+        "before": 148566.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "4810",
+        "BrandName": "DEXTROSE 7.5% INJECTION USP",
+        "before": 179456.0,
+        "after": 197659.0
+      },
+      {
+        "MoPHCode": "4747",
+        "BrandName": "DEXTROSE 7.5% INJECTION USP",
+        "before": 163184.0,
+        "after": 179272.0
+      },
+      {
+        "MoPHCode": "5198",
+        "BrandName": "DEXTROSE INJECTION 5%",
+        "before": 212797.0,
+        "after": 234433.0
+      },
+      {
+        "MoPHCode": "5999",
+        "BrandName": "DOMIDONE CHAPHA SUGAR FREE",
+        "before": 319963.0,
+        "after": 319962.0
+      },
+      {
+        "MoPHCode": "7791",
+        "BrandName": "DULOXA 60",
+        "before": 831903.0,
+        "after": 831902.0
+      },
+      {
+        "MoPHCode": "12684",
+        "BrandName": "DUODART",
+        "before": 768678.0,
+        "after": 2369194.0
+      },
+      {
+        "MoPHCode": "5157",
+        "BrandName": "DURALIS",
+        "before": 1204979.0,
+        "after": 1279850.0
+      },
+      {
+        "MoPHCode": "9260",
+        "BrandName": "DURALIS",
+        "before": 624567.0,
+        "after": 351959.0
+      },
+      {
+        "MoPHCode": "4163",
+        "BrandName": "ELECTROLYE 67",
+        "before": 165727.0,
+        "after": 181570.0
+      },
+      {
+        "MoPHCode": "6213",
+        "BrandName": "ENTEROGERMINA",
+        "before": 1131515.0,
+        "after": 1263212.0
+      },
+      {
+        "MoPHCode": "6420",
+        "BrandName": "ENTEROGERMINA",
+        "before": 595322.0,
+        "after": 665202.0
+      },
+      {
+        "MoPHCode": "11121",
+        "BrandName": "ENTEROGERMINA",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "11558",
+        "BrandName": "ENZASTIK 40",
+        "before": 82838963.0,
+        "after": 82838962.0
+      },
+      {
+        "MoPHCode": "10622",
+        "BrandName": "EVENITY",
+        "before": 56729091.0,
+        "after": 45037725.0
+      },
+      {
+        "MoPHCode": "3683",
+        "BrandName": "FASTUM",
+        "before": 177387.0,
+        "after": 236516.0
+      },
+      {
+        "MoPHCode": "11553",
+        "BrandName": "FASTUM",
+        "before": 337304.0,
+        "after": 448843.0
+      },
+      {
+        "MoPHCode": "8739",
+        "BrandName": "FLOXIN-L 500",
+        "before": 831903.0,
+        "after": 831902.0
+      },
+      {
+        "MoPHCode": "5091",
+        "BrandName": "GEMTABINE 200",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "7744",
+        "BrandName": "GOLASEPTINE-LIDOCAINE",
+        "before": 736426.0,
+        "after": 682672.0
+      },
+      {
+        "MoPHCode": "4423",
+        "BrandName": "GRISEOFULVIN",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "8424",
+        "BrandName": "HEDECTON COUGH",
+        "before": 467657.0,
+        "after": 432717.0
+      },
+      {
+        "MoPHCode": "6211",
+        "BrandName": "HEMAX",
+        "before": 33852747.0,
+        "after": 21786122.0
+      },
+      {
+        "MoPHCode": "4165",
+        "BrandName": "HI-SODIUM INJECTION",
+        "before": 176024.0,
+        "after": 193062.0
+      },
+      {
+        "MoPHCode": "4773",
+        "BrandName": "HI-SODIUM INJECTION WITH POTASSIUM",
+        "before": 165727.0,
+        "after": 181570.0
+      },
+      {
+        "MoPHCode": "4772",
+        "BrandName": "HI-SODIUM WITHOUT POTASSIUM INJECTION",
+        "before": 166708.0,
+        "after": 183869.0
+      },
+      {
+        "MoPHCode": "4508",
+        "BrandName": "HYGROTON",
+        "before": 422351.0,
+        "after": 422350.0
+      },
+      {
+        "MoPHCode": "9893",
+        "BrandName": "HYPOTONIC SALINE",
+        "before": 149393.0,
+        "after": 164333.0
+      },
+      {
+        "MoPHCode": "9894",
+        "BrandName": "HYPOTONIC SALINE",
+        "before": 163184.0,
+        "after": 179272.0
+      },
+      {
+        "MoPHCode": "3938",
+        "BrandName": "INFLORAN",
+        "before": 647732.0,
+        "after": 873498.0
+      },
+      {
+        "MoPHCode": "9189",
+        "BrandName": "ISOTONIC SALINE",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "9190",
+        "BrandName": "ISOTONIC SALINE",
+        "before": 174553.0,
+        "after": 191913.0
+      },
+      {
+        "MoPHCode": "9892",
+        "BrandName": "ISOTONIC SALINE",
+        "before": 167780.0,
+        "after": 185018.0
+      },
+      {
+        "MoPHCode": "9895",
+        "BrandName": "ISOTONIC SALINE",
+        "before": 170630.0,
+        "after": 187316.0
+      },
+      {
+        "MoPHCode": "9896",
+        "BrandName": "ISOTONIC SALINE",
+        "before": 166708.0,
+        "after": 183869.0
+      },
+      {
+        "MoPHCode": "1735",
+        "BrandName": "KETOLAC",
+        "before": 268769.0,
+        "after": 268768.0
+      },
+      {
+        "MoPHCode": "1736",
+        "BrandName": "KETOLAC",
+        "before": 268769.0,
+        "after": 268768.0
+      },
+      {
+        "MoPHCode": "4166",
+        "BrandName": "LACTATED RINGER'S",
+        "before": 147095.0,
+        "after": 162034.0
+      },
+      {
+        "MoPHCode": "4167",
+        "BrandName": "LACTATED RINGER'S",
+        "before": 218681.0,
+        "after": 240179.0
+      },
+      {
+        "MoPHCode": "4169",
+        "BrandName": "LACTATED RINGER'S",
+        "before": 234862.0,
+        "after": 257416.0
+      },
+      {
+        "MoPHCode": "9376",
+        "BrandName": "LACTATED RINGER'S",
+        "before": 268908.0,
+        "after": 295339.0
+      },
+      {
+        "MoPHCode": "9377",
+        "BrandName": "LACTATED RINGER'S",
+        "before": 239275.0,
+        "after": 263162.0
+      },
+      {
+        "MoPHCode": "12129",
+        "BrandName": "LACTATED RINGER'S INJECTION USP",
+        "before": 224090.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "12130",
+        "BrandName": "LACTATED RINGER'S INJECTION USP",
+        "before": 237880.0,
+        "after": 262013.0
+      },
+      {
+        "MoPHCode": "4774",
+        "BrandName": "LACTATED RINGER'S INJECTION, USP",
+        "before": 232134.0,
+        "after": 255118.0
+      },
+      {
+        "MoPHCode": "4775",
+        "BrandName": "LACTATED RINGER'S INJECTION, USP",
+        "before": 216046.0,
+        "after": 237880.0
+      },
+      {
+        "MoPHCode": "4776",
+        "BrandName": "LACTATED RINGER'S INJECTION, USP",
+        "before": 158587.0,
+        "after": 174675.0
+      },
+      {
+        "MoPHCode": "7372",
+        "BrandName": "LEVE TAD",
+        "before": 31.314286,
+        "after": 2872060.0
+      },
+      {
+        "MoPHCode": "11955",
+        "BrandName": "LIPAFIB",
+        "before": 627127.0,
+        "after": 627126.0
+      },
+      {
+        "MoPHCode": "12428",
+        "BrandName": "LIPANCURE",
+        "before": 627127.0,
+        "after": 627126.0
+      },
+      {
+        "MoPHCode": "4174",
+        "BrandName": "LO-SODIUM INJECTION",
+        "before": 179456.0,
+        "after": 197659.0
+      },
+      {
+        "MoPHCode": "4778",
+        "BrandName": "LO-SODIUM WITH POTASSIUM INJECTION",
+        "before": 165727.0,
+        "after": 181570.0
+      },
+      {
+        "MoPHCode": "4777",
+        "BrandName": "LO-SODIUM WITHOUT POTASSIUM INJECTION",
+        "before": 166708.0,
+        "after": 183869.0
+      },
+      {
+        "MoPHCode": "9588",
+        "BrandName": "LR",
+        "before": 234862.0,
+        "after": 257416.0
+      },
+      {
+        "MoPHCode": "9897",
+        "BrandName": "LR",
+        "before": 218681.0,
+        "after": 240179.0
+      },
+      {
+        "MoPHCode": "4177",
+        "BrandName": "MANNITOL",
+        "before": 406810.0,
+        "after": 447031.0
+      },
+      {
+        "MoPHCode": "4179",
+        "BrandName": "MANNITOL",
+        "before": 579064.0,
+        "after": 636646.0
+      },
+      {
+        "MoPHCode": "4187",
+        "BrandName": "MANNITOL",
+        "before": 329815.0,
+        "after": 363141.0
+      },
+      {
+        "MoPHCode": "4189",
+        "BrandName": "MANNITOL",
+        "before": 494147.0,
+        "after": 543562.0
+      },
+      {
+        "MoPHCode": "9587",
+        "BrandName": "MANNITOL",
+        "before": 613662.0,
+        "after": 674569.0
+      },
+      {
+        "MoPHCode": "4780",
+        "BrandName": "MANNITOL 10% USP INJECTION",
+        "before": 430943.0,
+        "after": 474611.0
+      },
+      {
+        "MoPHCode": "4781",
+        "BrandName": "MANNITOL 10% USP INJECTION",
+        "before": 326367.0,
+        "after": 358544.0
+      },
+      {
+        "MoPHCode": "10936",
+        "BrandName": "MANNITOL 20% INJECTION USP",
+        "before": 374633.0,
+        "after": 412556.0
+      },
+      {
+        "MoPHCode": "11150",
+        "BrandName": "MANNITOL 20% INJECTION USP",
+        "before": 613662.0,
+        "after": 674569.0
+      },
+      {
+        "MoPHCode": "12177",
+        "BrandName": "MANNITOL 20% INJECTION USP",
+        "before": 401064.0,
+        "after": 441285.0
+      },
+      {
+        "MoPHCode": "4782",
+        "BrandName": "MANNITOL 20% INJECTION, USP",
+        "before": 402213.0,
+        "after": 442434.0
+      },
+      {
+        "MoPHCode": "4783",
+        "BrandName": "MANNITOL 20% INJECTION, USP",
+        "before": 402213.0,
+        "after": 442434.0
+      },
+      {
+        "MoPHCode": "9370",
+        "BrandName": "MIXTE SIMPLE (1)",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9371",
+        "BrandName": "MIXTE SIMPLE (1)",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "9710",
+        "BrandName": "MIXTE SIMPLE (2)",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9713",
+        "BrandName": "MIXTE SIMPLE (2)",
+        "before": 207894.0,
+        "after": 228687.0
+      },
+      {
+        "MoPHCode": "12678",
+        "BrandName": "NAMBROL ADULTS",
+        "before": 2279157.0,
+        "after": 2392040.0
+      },
+      {
+        "MoPHCode": "4262",
+        "BrandName": "NEANXETIN",
+        "before": 422351.0,
+        "after": 422350.0
+      },
+      {
+        "MoPHCode": "12595",
+        "BrandName": "NINTAVA",
+        "before": 138064938.0,
+        "after": 138064937.0
+      },
+      {
+        "MoPHCode": "11212",
+        "BrandName": "ONE-ALPHA",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "9555",
+        "BrandName": "OSMITOL",
+        "before": 579064.0,
+        "after": 636646.0
+      },
+      {
+        "MoPHCode": "4192",
+        "BrandName": "PERITONEAL DIALYSIS SOLUTION WITH 1 1/2% DEXTROSE",
+        "before": 490807.0,
+        "after": 540115.0
+      },
+      {
+        "MoPHCode": "4191",
+        "BrandName": "PERITONEAL DIALYSIS SOLUTION WITH 4 1/4% DEXTROSE",
+        "before": 498744.0,
+        "after": 548159.0
+      },
+      {
+        "MoPHCode": "7787",
+        "BrandName": "PHENYLEPHRINE HYDROCHLORIDE",
+        "before": 10282281.0,
+        "after": 9663055.0
+      },
+      {
+        "MoPHCode": "5345",
+        "BrandName": "PIODIAB 30",
+        "before": 2111753.0,
+        "after": 2111752.0
+      },
+      {
+        "MoPHCode": "9715",
+        "BrandName": "R-SOL",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "9767",
+        "BrandName": "RASAGILINE BIOGARAN",
+        "before": 5214109.0,
+        "after": 5011189.0
+      },
+      {
+        "MoPHCode": "5336",
+        "BrandName": "RESTRALINE",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "11625",
+        "BrandName": "REVOLADE",
+        "before": 56272182.0,
+        "after": 61487652.0
+      },
+      {
+        "MoPHCode": "10552",
+        "BrandName": "RIBAVAN",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "10553",
+        "BrandName": "RIBAVAN",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "12469",
+        "BrandName": "RINGER INJECTION",
+        "before": 204554.0,
+        "after": 225239.0
+      },
+      {
+        "MoPHCode": "4181",
+        "BrandName": "RINGER'S INJECTION USP",
+        "before": 129934.0,
+        "after": 142498.0
+      },
+      {
+        "MoPHCode": "4182",
+        "BrandName": "RINGER'S INJECTION USP",
+        "before": 199957.0,
+        "after": 219493.0
+      },
+      {
+        "MoPHCode": "4184",
+        "BrandName": "RINGER'S INJECTION USP",
+        "before": 205933.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "9714",
+        "BrandName": "RINGER'S INJECTION USP",
+        "before": 224565.0,
+        "after": 247074.0
+      },
+      {
+        "MoPHCode": "4784",
+        "BrandName": "RINGER'S INJECTION, USP",
+        "before": 204554.0,
+        "after": 225239.0
+      },
+      {
+        "MoPHCode": "4785",
+        "BrandName": "RINGER'S INJECTION, USP",
+        "before": 189615.0,
+        "after": 209151.0
+      },
+      {
+        "MoPHCode": "4786",
+        "BrandName": "RINGER'S INJECTION, USP",
+        "before": 154450.0,
+        "after": 168929.0
+      },
+      {
+        "MoPHCode": "8261",
+        "BrandName": "RISCHOTIC OD 1",
+        "before": 371157.0,
+        "after": 371156.0
+      },
+      {
+        "MoPHCode": "8262",
+        "BrandName": "RISCHOTIC OD 2",
+        "before": 371157.0,
+        "after": 371156.0
+      },
+      {
+        "MoPHCode": "10411",
+        "BrandName": "RIXALTA 15",
+        "before": 1164664.0,
+        "after": 1164663.0
+      },
+      {
+        "MoPHCode": "10412",
+        "BrandName": "RIXALTA 20",
+        "before": 1164664.0,
+        "after": 1164663.0
+      },
+      {
+        "MoPHCode": "12248",
+        "BrandName": "SEMATIDE",
+        "before": 9288397.0,
+        "after": 7054533.0
+      },
+      {
+        "MoPHCode": "12249",
+        "BrandName": "SEMATIDE",
+        "before": 9288397.0,
+        "after": 7054533.0
+      },
+      {
+        "MoPHCode": "9955",
+        "BrandName": "SERUFLEX DEXTROSE 5% INJECTION USP",
+        "before": 171228.0,
+        "after": 188466.0
+      },
+      {
+        "MoPHCode": "9958",
+        "BrandName": "SERUFLEX DEXTROSE 5% INJECTION USP",
+        "before": 158587.0,
+        "after": 174675.0
+      },
+      {
+        "MoPHCode": "9957",
+        "BrandName": "SERUFLEX DEXTROSE 5% INJECTION, USP",
+        "before": 171228.0,
+        "after": 188466.0
+      },
+      {
+        "MoPHCode": "9999",
+        "BrandName": "SERUFLEX DEXTROSE 5% INJECTION, USP",
+        "before": 193062.0,
+        "after": 212598.0
+      },
+      {
+        "MoPHCode": "9483",
+        "BrandName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 193062.0,
+        "after": 212598.0
+      },
+      {
+        "MoPHCode": "9484",
+        "BrandName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "10076",
+        "BrandName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 194211.0,
+        "after": 213747.0
+      },
+      {
+        "MoPHCode": "10078",
+        "BrandName": "SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "9784",
+        "BrandName": "SERUFLEX LACTATED RINGER'S INJECTION, USP",
+        "before": 232134.0,
+        "after": 255118.0
+      },
+      {
+        "MoPHCode": "9997",
+        "BrandName": "SERUFLEX LACTATED RINGER'S INJECTION, USP",
+        "before": 216046.0,
+        "after": 237880.0
+      },
+      {
+        "MoPHCode": "9883",
+        "BrandName": "SERUFLEX MANNITOL 20% INJECTION, USP",
+        "before": 402213.0,
+        "after": 442434.0
+      },
+      {
+        "MoPHCode": "10130",
+        "BrandName": "SERUFLEX RINGER'S INJECTION, USP",
+        "before": 204554.0,
+        "after": 225239.0
+      },
+      {
+        "MoPHCode": "9788",
+        "BrandName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 156288.0,
+        "after": 172377.0
+      },
+      {
+        "MoPHCode": "9881",
+        "BrandName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 165482.0,
+        "after": 181570.0
+      },
+      {
+        "MoPHCode": "9560",
+        "BrandName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "9561",
+        "BrandName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 163184.0,
+        "after": 179272.0
+      },
+      {
+        "MoPHCode": "9786",
+        "BrandName": "SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 156288.0,
+        "after": 172377.0
+      },
+      {
+        "MoPHCode": "4203",
+        "BrandName": "SODIUM BICARBONATE",
+        "before": 258887.0,
+        "after": 284997.0
+      },
+      {
+        "MoPHCode": "4211",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 519736.0,
+        "after": 571142.0
+      },
+      {
+        "MoPHCode": "4212",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 167780.0,
+        "after": 185018.0
+      },
+      {
+        "MoPHCode": "4215",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 167780.0,
+        "after": 185018.0
+      },
+      {
+        "MoPHCode": "4217",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 166708.0,
+        "after": 183869.0
+      },
+      {
+        "MoPHCode": "4219",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 174553.0,
+        "after": 191913.0
+      },
+      {
+        "MoPHCode": "4221",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "4223",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 133856.0,
+        "after": 147095.0
+      },
+      {
+        "MoPHCode": "4224",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 149393.0,
+        "after": 164333.0
+      },
+      {
+        "MoPHCode": "4225",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 163184.0,
+        "after": 179272.0
+      },
+      {
+        "MoPHCode": "9374",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 209151.0,
+        "after": 229836.0
+      },
+      {
+        "MoPHCode": "9375",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 222941.0,
+        "after": 244775.0
+      },
+      {
+        "MoPHCode": "9380",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 349596.0,
+        "after": 383826.0
+      },
+      {
+        "MoPHCode": "9556",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9557",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 182720.0,
+        "after": 201106.0
+      },
+      {
+        "MoPHCode": "9709",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 181908.0,
+        "after": 199957.0
+      },
+      {
+        "MoPHCode": "9774",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "9775",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 161805.0,
+        "after": 178123.0
+      },
+      {
+        "MoPHCode": "12481",
+        "BrandName": "SODIUM CHLORIDE",
+        "before": 144797.0,
+        "after": 159736.0
+      },
+      {
+        "MoPHCode": "4787",
+        "BrandName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 161314.0,
+        "after": 176974.0
+      },
+      {
+        "MoPHCode": "4788",
+        "BrandName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 149393.0,
+        "after": 164333.0
+      },
+      {
+        "MoPHCode": "4789",
+        "BrandName": "SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 148566.0,
+        "after": 163184.0
+      },
+      {
+        "MoPHCode": "4795",
+        "BrandName": "SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 156288.0,
+        "after": 172377.0
+      },
+      {
+        "MoPHCode": "4796",
+        "BrandName": "SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 165482.0,
+        "after": 181570.0
+      },
+      {
+        "MoPHCode": "4792",
+        "BrandName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "4793",
+        "BrandName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 163184.0,
+        "after": 179272.0
+      },
+      {
+        "MoPHCode": "4794",
+        "BrandName": "SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 156288.0,
+        "after": 172377.0
+      },
+      {
+        "MoPHCode": "7976",
+        "BrandName": "SOJOURN",
+        "before": 419.268293,
+        "after": 13214389.0
+      },
+      {
+        "MoPHCode": "12436",
+        "BrandName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+        "before": 219493.0,
+        "after": 241328.0
+      },
+      {
+        "MoPHCode": "12437",
+        "BrandName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+        "before": 251670.0,
+        "after": 276952.0
+      },
+      {
+        "MoPHCode": "12438",
+        "BrandName": "SOLUFLEX DEXTROSE 10% INJECTION, USP",
+        "before": 283847.0,
+        "after": 312577.0
+      },
+      {
+        "MoPHCode": "12414",
+        "BrandName": "SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 150543.0,
+        "after": 165482.0
+      },
+      {
+        "MoPHCode": "12415",
+        "BrandName": "SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 222941.0,
+        "after": 244775.0
+      },
+      {
+        "MoPHCode": "9954",
+        "BrandName": "SOLUFLEX DEXTROSE 5% INJECTION USP",
+        "before": 186167.0,
+        "after": 204554.0
+      },
+      {
+        "MoPHCode": "9956",
+        "BrandName": "SOLUFLEX DEXTROSE 5% INJECTION USP",
+        "before": 186167.0,
+        "after": 204554.0
+      },
+      {
+        "MoPHCode": "9959",
+        "BrandName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+        "before": 205703.0,
+        "after": 226388.0
+      },
+      {
+        "MoPHCode": "9998",
+        "BrandName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+        "before": 221792.0,
+        "after": 243626.0
+      },
+      {
+        "MoPHCode": "12064",
+        "BrandName": "SOLUFLEX DEXTROSE 5% INJECTION, USP",
+        "before": 185018.0,
+        "after": 203405.0
+      },
+      {
+        "MoPHCode": "9562",
+        "BrandName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 236731.0,
+        "after": 260864.0
+      },
+      {
+        "MoPHCode": "9563",
+        "BrandName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 211449.0,
+        "after": 232134.0
+      },
+      {
+        "MoPHCode": "10077",
+        "BrandName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 222941.0,
+        "after": 244775.0
+      },
+      {
+        "MoPHCode": "10131",
+        "BrandName": "SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 158587.0,
+        "after": 214897.0
+      },
+      {
+        "MoPHCode": "9585",
+        "BrandName": "SOLUFLEX LACTATED RINGER'S INJECTION, USP",
+        "before": 264311.0,
+        "after": 290743.0
+      },
+      {
+        "MoPHCode": "9584",
+        "BrandName": "SOLUFLEX LACTATED RINGER'S INJECTION, USP",
+        "before": 236731.0,
+        "after": 260864.0
+      },
+      {
+        "MoPHCode": "9785",
+        "BrandName": "SOLUFLEX MANNITOL 20% INJECTION, USP",
+        "before": 603320.0,
+        "after": 664226.0
+      },
+      {
+        "MoPHCode": "11425",
+        "BrandName": "SOLUFLEX POTASSIUM CHLORIDE 20meq/l SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 232134.0,
+        "after": 255118.0
+      },
+      {
+        "MoPHCode": "11424",
+        "BrandName": "SOLUFLEX POTASSIUM CHLORIDE 40meq/l SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 293041.0,
+        "after": 322920.0
+      },
+      {
+        "MoPHCode": "10129",
+        "BrandName": "SOLUFLEX RINGER'S INJECTION, USP",
+        "before": 221792.0,
+        "after": 243626.0
+      },
+      {
+        "MoPHCode": "12435",
+        "BrandName": "SOLUFLEX RINGER'S INJECTION, USP",
+        "before": 216046.0,
+        "after": 237880.0
+      },
+      {
+        "MoPHCode": "12483",
+        "BrandName": "SOLUFLEX RINGER'S INJECTION, USP",
+        "before": 216046.0,
+        "after": 237880.0
+      },
+      {
+        "MoPHCode": "12065",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 176974.0,
+        "after": 194211.0
+      },
+      {
+        "MoPHCode": "12439",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP",
+        "before": 158587.0,
+        "after": 174675.0
+      },
+      {
+        "MoPHCode": "9789",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "9882",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP",
+        "before": 180421.0,
+        "after": 198808.0
+      },
+      {
+        "MoPHCode": "9564",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 218344.0,
+        "after": 240179.0
+      },
+      {
+        "MoPHCode": "9565",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 203405.0,
+        "after": 224090.0
+      },
+      {
+        "MoPHCode": "9787",
+        "BrandName": "SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP",
+        "before": 179272.0,
+        "after": 197659.0
+      },
+      {
+        "MoPHCode": "4227",
+        "BrandName": "STERILE WATER FOR INJECTION",
+        "before": 188772.0,
+        "after": 206852.0
+      },
+      {
+        "MoPHCode": "4229",
+        "BrandName": "STERILE WATER FOR INJECTION",
+        "before": 203481.0,
+        "after": 224090.0
+      },
+      {
+        "MoPHCode": "11650",
+        "BrandName": "STERILE WATER FOR INJECTION",
+        "before": 264311.0,
+        "after": 290743.0
+      },
+      {
+        "MoPHCode": "12482",
+        "BrandName": "STERILE WATER FOR INJECTION",
+        "before": 204554.0,
+        "after": 225239.0
+      },
+      {
+        "MoPHCode": "10771",
+        "BrandName": "STERILE WATER FOR INJECTION USP",
+        "before": 203405.0,
+        "after": 224090.0
+      },
+      {
+        "MoPHCode": "11151",
+        "BrandName": "STERILE WATER FOR INJECTION USP",
+        "before": 264311.0,
+        "after": 290743.0
+      },
+      {
+        "MoPHCode": "4231",
+        "BrandName": "STERILE WATER FOR IRRIGATION",
+        "before": 203481.0,
+        "after": 224090.0
+      },
+      {
+        "MoPHCode": "12679",
+        "BrandName": "SUBIFIX",
+        "before": 2392040.0,
+        "after": 806306.0
+      },
+      {
+        "MoPHCode": "10565",
+        "BrandName": "TARESSA 150",
+        "before": 98617813.0,
+        "after": 98617812.0
+      },
+      {
+        "MoPHCode": "4263",
+        "BrandName": "TRILTEC",
+        "before": 524739.0,
+        "after": 524738.0
+      },
+      {
+        "MoPHCode": "4266",
+        "BrandName": "TRILTEC",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "11179",
+        "BrandName": "TWINCARD 80/10",
+        "before": 1460309.0,
+        "after": 956048.0
+      },
+      {
+        "MoPHCode": "11178",
+        "BrandName": "TWINCARD 80/5",
+        "before": 1131387.0,
+        "after": 956048.0
+      },
+      {
+        "MoPHCode": "10731",
+        "BrandName": "TYSABRI",
+        "before": 126830594.0,
+        "after": 111714554.0
+      },
+      {
+        "MoPHCode": "11064",
+        "BrandName": "VAROXA",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "11065",
+        "BrandName": "VAROXA",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "12682",
+        "BrandName": "VAXIGRIP",
+        "before": 158573.0,
+        "after": 768678.0
+      },
+      {
+        "MoPHCode": "8829",
+        "BrandName": "VENLAX XR 37.5",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "8828",
+        "BrandName": "VENLAX XR 75",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "6387",
+        "BrandName": "VERTINEX",
+        "before": 371157.0,
+        "after": 371156.0
+      },
+      {
+        "MoPHCode": "10638",
+        "BrandName": "VESICULTURE",
+        "before": 213.675728,
+        "after": 16638263.0
+      },
+      {
+        "MoPHCode": "7890",
+        "BrandName": "VIOSTAN 160",
+        "before": 668082.0,
+        "after": 735914.0
+      },
+      {
+        "MoPHCode": "7972",
+        "BrandName": "VIOSTAN 40",
+        "before": 526786.0,
+        "after": 527298.0
+      },
+      {
+        "MoPHCode": "7889",
+        "BrandName": "VIOSTAN 80",
+        "before": 526786.0,
+        "after": 527298.0
+      },
+      {
+        "MoPHCode": "11340",
+        "BrandName": "VIOSTAN AM PLUS 320/10/25",
+        "before": 1881380.0,
+        "after": 1881379.0
+      },
+      {
+        "MoPHCode": "7893",
+        "BrandName": "VIOSTAN PLUS 160/12.5",
+        "before": 668082.0,
+        "after": 767910.0
+      },
+      {
+        "MoPHCode": "7894",
+        "BrandName": "VIOSTAN PLUS 160/25",
+        "before": 671921.0,
+        "after": 767910.0
+      },
+      {
+        "MoPHCode": "7892",
+        "BrandName": "VIOSTAN PLUS 80/12.5",
+        "before": 547520.0,
+        "after": 579772.0
+      },
+      {
+        "MoPHCode": "11476",
+        "BrandName": "VOLDEN",
+        "before": 422351.0,
+        "after": 422350.0
+      },
+      {
+        "MoPHCode": "12655",
+        "BrandName": "WEGOVY",
+        "before": 13332689.0,
+        "after": 10932805.0
+      },
+      {
+        "MoPHCode": "12657",
+        "BrandName": "WEGOVY",
+        "before": 13332689.0,
+        "after": 10932805.0
+      },
+      {
+        "MoPHCode": "7648",
+        "BrandName": "XALIPRO",
+        "before": 2418917.0,
+        "after": 2418916.0
+      },
+      {
+        "MoPHCode": "11823",
+        "BrandName": "ZARLAN",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "11825",
+        "BrandName": "ZARLAN",
+        "before": 1343843.0,
+        "after": 1343842.0
+      },
+      {
+        "MoPHCode": "6222",
+        "BrandName": "ZIOREL",
+        "before": 575933.0,
+        "after": 575932.0
+      },
+      {
+        "MoPHCode": "6223",
+        "BrandName": "ZIOREL",
+        "before": 575933.0,
+        "after": 575932.0
+      }
+    ],
+    "Agent": [
+      {
+        "MoPHCode": "12503",
+        "BrandName": "A.B.C NIGHT",
+        "before": "Pharmadex",
+        "after": "Riad Pharmacy"
+      },
+      {
+        "MoPHCode": "10544",
+        "BrandName": "A.B.C.-COLD",
+        "before": "Pharmadex",
+        "after": "Riad Pharmacy"
+      },
+      {
+        "MoPHCode": "10548",
+        "BrandName": "A.S HEART",
+        "before": "Pharmadex",
+        "after": "Riad Pharmacy"
+      },
+      {
+        "MoPHCode": "1340",
+        "BrandName": "ACTOS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5959",
+        "BrandName": "ACTOS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9705",
+        "BrandName": "ACTOSMET",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7639",
+        "BrandName": "ADVAGRAF",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7640",
+        "BrandName": "ADVAGRAF",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7641",
+        "BrandName": "ADVAGRAF",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7642",
+        "BrandName": "ADVAGRAF",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5182",
+        "BrandName": "AERIUS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7509",
+        "BrandName": "AERIUS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11702",
+        "BrandName": "AERIUS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12233",
+        "BrandName": "AKEEGA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12234",
+        "BrandName": "AKEEGA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10014",
+        "BrandName": "ALERJON",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7555",
+        "BrandName": "ANESTOCIL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10145",
+        "BrandName": "ANORO ELLIPTA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8832",
+        "BrandName": "ARIXTRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9359",
+        "BrandName": "ARIXTRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12685",
+        "BrandName": "ARIXTRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12686",
+        "BrandName": "ARIXTRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9849",
+        "BrandName": "AUGMENTIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10272",
+        "BrandName": "AUGMENTIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8919",
+        "BrandName": "AUGMENTIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12522",
+        "BrandName": "AUGMENTIN DUO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6251",
+        "BrandName": "AUGMENTIN ES",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5980",
+        "BrandName": "AVAMYS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11160",
+        "BrandName": "AVAMYS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10181",
+        "BrandName": "AVODART",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10080",
+        "BrandName": "BACLOCALM",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "10081",
+        "BrandName": "BACLOCALM",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "9333",
+        "BrandName": "BENDAVIVAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "508",
+        "BrandName": "BETNOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "611",
+        "BrandName": "BETNOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "612",
+        "BrandName": "BETNOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10089",
+        "BrandName": "BGLAU",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10079",
+        "BrandName": "BINOSTO",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "1381",
+        "BrandName": "BLOPRESS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "1382",
+        "BrandName": "BLOPRESS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6018",
+        "BrandName": "BLOPRESS PLUS 16MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6017",
+        "BrandName": "BLOPRESS PLUS 8MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6451",
+        "BrandName": "BOOSTRIX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5135",
+        "BrandName": "BRUMIXOL",
+        "before": "Soins et Sante",
+        "after": "Soins et Santé"
+      },
+      {
+        "MoPHCode": "11020",
+        "BrandName": "CAELYX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8876",
+        "BrandName": "CEFIZOX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7396",
+        "BrandName": "CEMIVIL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7397",
+        "BrandName": "CEMIVIL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12376",
+        "BrandName": "CEPROTIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12377",
+        "BrandName": "CEPROTIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7933",
+        "BrandName": "CICLOPLEGICEDOL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12621",
+        "BrandName": "CIDAKOG 125",
+        "before": "Droguerie de l'Union",
+        "after": "Omnipharma"
+      },
+      {
+        "MoPHCode": "9399",
+        "BrandName": "COLISTIN HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10516",
+        "BrandName": "CRESEMBA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10517",
+        "BrandName": "CRESEMBA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7495",
+        "BrandName": "CUREAML",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10478",
+        "BrandName": "CUVITRU",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10479",
+        "BrandName": "CUVITRU",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11411",
+        "BrandName": "DEFIROX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9351",
+        "BrandName": "DERMOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9352",
+        "BrandName": "DERMOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12372",
+        "BrandName": "DERMOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12373",
+        "BrandName": "DERMOVATE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "2417",
+        "BrandName": "DIANEAL PD4 1.36% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9869",
+        "BrandName": "DIANEAL PD4 1.36% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "2419",
+        "BrandName": "DIANEAL PD4 2.27% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9865",
+        "BrandName": "DIANEAL PD4 2.27% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "2420",
+        "BrandName": "DIANEAL PD4 3.86% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9861",
+        "BrandName": "DIANEAL PD4 3.86% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "2423",
+        "BrandName": "DIANEAL PD4 CYCLER 1.36% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9867",
+        "BrandName": "DIANEAL PD4 CYCLER 1.36% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7122",
+        "BrandName": "DIANEAL PD4 CYCLER 2.27% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9864",
+        "BrandName": "DIANEAL PD4 CYCLER 2.27% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "2426",
+        "BrandName": "DIANEAL PD4 CYCLER 3.86% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9863",
+        "BrandName": "DIANEAL PD4 CYCLER 3.86% GLUCOSE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9313",
+        "BrandName": "DIFIRAX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9511",
+        "BrandName": "DIFIRAX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8565",
+        "BrandName": "DIPROFOS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8563",
+        "BrandName": "DIPROSALIC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8560",
+        "BrandName": "DIPROSONE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8016",
+        "BrandName": "DIROGIT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11370",
+        "BrandName": "DUAC ONCE DAILY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9706",
+        "BrandName": "DUETACT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9707",
+        "BrandName": "DUETACT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12684",
+        "BrandName": "DUODART",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12171",
+        "BrandName": "ECINQ",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10332",
+        "BrandName": "EDOLFENE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9261",
+        "BrandName": "ELOCOM",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7327",
+        "BrandName": "ELTROXIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9856",
+        "BrandName": "EMLA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "513",
+        "BrandName": "ENDOXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12352",
+        "BrandName": "ENDOXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10584",
+        "BrandName": "ENGERIX-B 10",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "32",
+        "BrandName": "ENGERIX-B 20",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11677",
+        "BrandName": "ERLEADA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8980",
+        "BrandName": "ESAC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "3600",
+        "BrandName": "EXTRANEAL (ICODEXTRIN 7.5%) SINGLE BAG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "3599",
+        "BrandName": "EXTRANEAL (ICODEXTRIN 7.5%) TWIN BAG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "3180",
+        "BrandName": "FAVERIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10367",
+        "BrandName": "FEIBA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10368",
+        "BrandName": "FEIBA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6239",
+        "BrandName": "FERINJECT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10107",
+        "BrandName": "FLIXOTIDE EVOHALER",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10179",
+        "BrandName": "FLIXOTIDE EVOHALER",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10180",
+        "BrandName": "FLIXOTIDE EVOHALER",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7932",
+        "BrandName": "FLOXEDOL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7214",
+        "BrandName": "FLUORES",
+        "before": "Soins et Sante",
+        "after": "Soins et Santé"
+      },
+      {
+        "MoPHCode": "8347",
+        "BrandName": "FYCOMPA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8348",
+        "BrandName": "FYCOMPA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8349",
+        "BrandName": "FYCOMPA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8350",
+        "BrandName": "FYCOMPA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8351",
+        "BrandName": "FYCOMPA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6620",
+        "BrandName": "GABATREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6621",
+        "BrandName": "GABATREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6622",
+        "BrandName": "GABATREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11644",
+        "BrandName": "GABATREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5779",
+        "BrandName": "GEMCITABINE THYMOORGAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5798",
+        "BrandName": "GEMCITABINE THYMOORGAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10090",
+        "BrandName": "HAIRGAINE 5",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9331",
+        "BrandName": "HALAVEN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "28",
+        "BrandName": "HAVRIX '1440'",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "33",
+        "BrandName": "HAVRIX JUNIOR 720",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6624",
+        "BrandName": "HIBOR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6625",
+        "BrandName": "HIBOR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6860",
+        "BrandName": "HIBOR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6861",
+        "BrandName": "HIBOR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6283",
+        "BrandName": "HIKMA CEFAZOLIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6995",
+        "BrandName": "HIKMA MIDAZOLAM",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "516",
+        "BrandName": "HOLOXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12354",
+        "BrandName": "HOLOXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9703",
+        "BrandName": "IMIGRAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9704",
+        "BrandName": "IMIGRAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6254",
+        "BrandName": "IMIPENEM-CILASTATIN LABATEC",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "6958",
+        "BrandName": "IMMUNINE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7506",
+        "BrandName": "IMURAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12294",
+        "BrandName": "IMURAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5394",
+        "BrandName": "INFANRIX HEXA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "34",
+        "BrandName": "INFANRIX IPV + HIB",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6463",
+        "BrandName": "IRINOTECAN THYMOORGAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6464",
+        "BrandName": "IRINOTECAN THYMOORGAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5671",
+        "BrandName": "ISOFLURANE HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7670",
+        "BrandName": "KARBOTEEN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10535",
+        "BrandName": "KEPPRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10536",
+        "BrandName": "KEPPRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10537",
+        "BrandName": "KEPPRA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6631",
+        "BrandName": "KIOVIG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6632",
+        "BrandName": "KIOVIG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5942",
+        "BrandName": "LAMICTAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6527",
+        "BrandName": "LAMICTAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6528",
+        "BrandName": "LAMICTAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6526",
+        "BrandName": "LAMICTAL LIQUI-TABS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7508",
+        "BrandName": "LANOXIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7507",
+        "BrandName": "LANOXIN PG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5134",
+        "BrandName": "LANTIGEN B",
+        "before": "Soins et Sante",
+        "after": "Soins et Santé"
+      },
+      {
+        "MoPHCode": "11735",
+        "BrandName": "LAROZA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11736",
+        "BrandName": "LAROZA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11737",
+        "BrandName": "LAROZA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7268",
+        "BrandName": "LEFFTARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8719",
+        "BrandName": "LENVIMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8720",
+        "BrandName": "LENVIMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8156",
+        "BrandName": "LOTRIDERM",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12350",
+        "BrandName": "LYXIA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12351",
+        "BrandName": "LYXIA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9240",
+        "BrandName": "MAXIL 750",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6542",
+        "BrandName": "MEROPENEM LABATEC",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "10800",
+        "BrandName": "METOFLEX",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "8745",
+        "BrandName": "MIACIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5792",
+        "BrandName": "MICTONORM",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10474",
+        "BrandName": "MICTONORM",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5979",
+        "BrandName": "MICTONORM XL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10106",
+        "BrandName": "MICTONORM XL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9829",
+        "BrandName": "MOXITEC",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "5683",
+        "BrandName": "MYDOCALM",
+        "before": "Levant Alie Houses S.A.L.",
+        "after": "Interpharma S.A.L."
+      },
+      {
+        "MoPHCode": "9600",
+        "BrandName": "NASONEX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12293",
+        "BrandName": "NASONEX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6360",
+        "BrandName": "NETILDEX",
+        "before": "BiofinPharma Middle East S.A.L.",
+        "after": "Pharmamedic S.A.R.L."
+      },
+      {
+        "MoPHCode": "7839",
+        "BrandName": "NETTACIN",
+        "before": "BiofinPharma Middle East S.A.L.",
+        "after": "Pharmamedic S.A.R.L."
+      },
+      {
+        "MoPHCode": "8957",
+        "BrandName": "NETTACIN",
+        "before": "BiofinPharma Middle East S.A.L.",
+        "after": "Pharmamedic S.A.R.L."
+      },
+      {
+        "MoPHCode": "9245",
+        "BrandName": "NEUMOTROPIO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9489",
+        "BrandName": "NIMBEX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11925",
+        "BrandName": "NIMBEX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12537",
+        "BrandName": "NIMBEX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "1137",
+        "BrandName": "NOPAIN DS",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10114",
+        "BrandName": "NORADRENALINE HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7129",
+        "BrandName": "OLIMEL N7E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7130",
+        "BrandName": "OLIMEL N7E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7126",
+        "BrandName": "OLIMEL N9",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7125",
+        "BrandName": "OLIMEL N9E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7127",
+        "BrandName": "OLIMEL N9E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8958",
+        "BrandName": "ONDANSETRON HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8959",
+        "BrandName": "ONDANSETRON HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6883",
+        "BrandName": "ONLEFIT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7131",
+        "BrandName": "PERIOLIMEL N4E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7132",
+        "BrandName": "PERIOLIMEL N4E",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9315",
+        "BrandName": "PHENTOLEP INJECTION",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12295",
+        "BrandName": "PONVORY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12296",
+        "BrandName": "PONVORY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12565",
+        "BrandName": "PONVORY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12566",
+        "BrandName": "PONVORY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7394",
+        "BrandName": "PRANZA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7395",
+        "BrandName": "PRANZA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "3951",
+        "BrandName": "PRIORIX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8609",
+        "BrandName": "PRIZMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11678",
+        "BrandName": "PROGLAU",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8196",
+        "BrandName": "PROGRAF 0.5 MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9805",
+        "BrandName": "PROGRAF 0.5 MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8194",
+        "BrandName": "PROGRAF 1MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9806",
+        "BrandName": "PROGRAF 1MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8195",
+        "BrandName": "PROGRAF 5MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9807",
+        "BrandName": "PROGRAF 5MG",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6962",
+        "BrandName": "PURI-NETHOL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10840",
+        "BrandName": "REAGILA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10841",
+        "BrandName": "REAGILA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10842",
+        "BrandName": "REAGILA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10843",
+        "BrandName": "REAGILA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7907",
+        "BrandName": "RELVAR ELLIPTA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7908",
+        "BrandName": "RELVAR ELLIPTA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "4028",
+        "BrandName": "REMICADE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6634",
+        "BrandName": "ROTARIX ORAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10805",
+        "BrandName": "SERETIDE DISKUS 100",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10804",
+        "BrandName": "SERETIDE DISKUS 250",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10803",
+        "BrandName": "SERETIDE DISKUS 500",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6606",
+        "BrandName": "SEROXAT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6607",
+        "BrandName": "SEROXAT CR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6608",
+        "BrandName": "SEROXAT CR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10281",
+        "BrandName": "SIMPONI",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10282",
+        "BrandName": "SIMPONI",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9766",
+        "BrandName": "SISACURE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5289",
+        "BrandName": "SOLOTIK",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "5672",
+        "BrandName": "SOLOTIK",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7180",
+        "BrandName": "SOLPADEINE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11676",
+        "BrandName": "SOLPADEINE SOLUBLE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7323",
+        "BrandName": "STELARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8788",
+        "BrandName": "STELARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9150",
+        "BrandName": "STELARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12158",
+        "BrandName": "STELARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12159",
+        "BrandName": "STELARA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11331",
+        "BrandName": "STOMAZOLE",
+        "before": "Pharmadex",
+        "after": "Riad Pharmacy"
+      },
+      {
+        "MoPHCode": "7037",
+        "BrandName": "SUPERSTAT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7038",
+        "BrandName": "SUPERSTAT",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10485",
+        "BrandName": "SUPRANE (DESFLURANE, USP)",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6002",
+        "BrandName": "SYNFLORIX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7824",
+        "BrandName": "TAGIX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12374",
+        "BrandName": "TAKHZYRO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10626",
+        "BrandName": "TAKHZYRO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8713",
+        "BrandName": "TEMODAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8714",
+        "BrandName": "TEMODAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8715",
+        "BrandName": "TEMODAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9507",
+        "BrandName": "TISSEEL LYO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9508",
+        "BrandName": "TISSEEL LYO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9506",
+        "BrandName": "TISSEEL LYO",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8304",
+        "BrandName": "TIVICAY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12298",
+        "BrandName": "TIVICAY",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9550",
+        "BrandName": "TREMFYA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "10625",
+        "BrandName": "TREMFYA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12599",
+        "BrandName": "TREMFYA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9167",
+        "BrandName": "TRIUMEQ",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "7959",
+        "BrandName": "TROPICIL TOP",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9422",
+        "BrandName": "ULTIVA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9423",
+        "BrandName": "ULTIVA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "518",
+        "BrandName": "UROMITEXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12353",
+        "BrandName": "UROMITEXAN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9217",
+        "BrandName": "VALTREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9218",
+        "BrandName": "VALTREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6322",
+        "BrandName": "VANCOMYCIN HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "31",
+        "BrandName": "VARILRIX + SOLVENT IN SYRINGE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "603",
+        "BrandName": "VENTOLIN",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9842",
+        "BrandName": "VENTOLIN EVOHALER",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8610",
+        "BrandName": "VOTREX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11877",
+        "BrandName": "VULGA XR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11878",
+        "BrandName": "VULGA XR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11879",
+        "BrandName": "VULGA XR",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9843",
+        "BrandName": "XYLOCAINE",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8833",
+        "BrandName": "XYZAL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "6434",
+        "BrandName": "ZENTEL",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "11789",
+        "BrandName": "ZERSA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "12237",
+        "BrandName": "ZERSA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8015",
+        "BrandName": "ZOLEDRONIC ACID HIKMA",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "511",
+        "BrandName": "ZOVIRAX",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "688",
+        "BrandName": "ZOVIRAX IV",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9040",
+        "BrandName": "ZYLORIC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "9041",
+        "BrandName": "ZYLORIC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8633",
+        "BrandName": "ZYRTEC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8634",
+        "BrandName": "ZYRTEC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      },
+      {
+        "MoPHCode": "8635",
+        "BrandName": "ZYRTEC",
+        "before": "Abela Freres S.A.L.",
+        "after": "Abela Frères S.A.L."
+      }
+    ],
+    "Form": [
+      {
+        "MoPHCode": "10970",
+        "BrandName": "ACEBUTOLOL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10971",
+        "BrandName": "ACEBUTOLOL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "9768",
+        "BrandName": "ACIDE ALENDRONIQUE/ VITAMINE D3 BGR",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "2481",
+        "BrandName": "ACTICARBINE",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "12322",
+        "BrandName": "ACTISKENAN",
+        "before": "Geules a liberation immediate",
+        "after": "Géules à libération immédiate"
+      },
+      {
+        "MoPHCode": "12323",
+        "BrandName": "ACTISKENAN",
+        "before": "Geules a liberation immediate",
+        "after": "Géules à libération immédiate"
+      },
+      {
+        "MoPHCode": "12324",
+        "BrandName": "ACTISKENAN",
+        "before": "Geules a liberation immediate",
+        "after": "Géules à libération immédiate"
+      },
+      {
+        "MoPHCode": "12325",
+        "BrandName": "ACTISKENAN",
+        "before": "Geules a liberation immediate",
+        "after": "Géules à libération immédiate"
+      },
+      {
+        "MoPHCode": "12023",
+        "BrandName": "ALFA-AMYLASE BGR CONSEIL",
+        "before": "Comprime enrobe",
+        "after": "Comprimé enrobé"
+      },
+      {
+        "MoPHCode": "11203",
+        "BrandName": "ALFUZOSINE BIOGARAN LP",
+        "before": "Comprimes pellicules a liberation prolongee",
+        "after": "Comprimés pelliculés à libération prolongée"
+      },
+      {
+        "MoPHCode": "9776",
+        "BrandName": "ALGESAL SURACTIVE",
+        "before": "Creme",
+        "after": "Crème"
+      },
+      {
+        "MoPHCode": "11089",
+        "BrandName": "ALLOPURINOL BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11090",
+        "BrandName": "ALLOPURINOL BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11091",
+        "BrandName": "ALLOPURINOL BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11094",
+        "BrandName": "ALPRAZOLAM BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "11095",
+        "BrandName": "ALPRAZOLAM BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "11398",
+        "BrandName": "AMIODARONE BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "11766",
+        "BrandName": "AMLODIPINE BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11767",
+        "BrandName": "AMLODIPINE BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11871",
+        "BrandName": "AMLODIPINE/VALSARTAN ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11872",
+        "BrandName": "AMLODIPINE/VALSARTAN ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11873",
+        "BrandName": "AMLODIPINE/VALSARTAN ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11800",
+        "BrandName": "AMOXICILLINE ARROW LAB",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11801",
+        "BrandName": "AMOXICILLINE ARROW LAB",
+        "before": "Comprimes dispersibles",
+        "after": "Comprimés dispersibles"
+      },
+      {
+        "MoPHCode": "10545",
+        "BrandName": "ANAGRELIDE BIOGARAN",
+        "before": "gelule",
+        "after": "gélule"
+      },
+      {
+        "MoPHCode": "12273",
+        "BrandName": "ANASTROZOLE ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11017",
+        "BrandName": "ANASTROZOLE BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "7124",
+        "BrandName": "ANTARENE CODEINE",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10342",
+        "BrandName": "APREPITANT BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "10343",
+        "BrandName": "APREPITANT BIOGARAN 125MG APREPITANT BIOGARAN 80MG",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "8960",
+        "BrandName": "ARICEPT",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "8961",
+        "BrandName": "ARICEPT",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "11080",
+        "BrandName": "ATENOLOL BIOGARAN",
+        "before": "Comprimes  secables",
+        "after": "Comprimés  sécables"
+      },
+      {
+        "MoPHCode": "10484",
+        "BrandName": "ATORVASTATINE ARROW GENERQUES",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11617",
+        "BrandName": "ATORVASTATINE ARROW GENERQUES",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "755",
+        "BrandName": "AXONE",
+        "before": "Vial",
+        "after": "Vial IV/IM"
+      },
+      {
+        "MoPHCode": "1369",
+        "BrandName": "BECOZYM FORTE",
+        "before": "Dragee",
+        "after": "Dragée"
+      },
+      {
+        "MoPHCode": "12395",
+        "BrandName": "BENDANUSTINE ARROW",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "12396",
+        "BrandName": "BENDANUSTINE ARROW",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11124",
+        "BrandName": "BETAHISTINE ARROW",
+        "before": "Comprimes Secables",
+        "after": "Comprimés Sécables"
+      },
+      {
+        "MoPHCode": "6248",
+        "BrandName": "BI-PROFENID LP",
+        "before": "Comprimes secables a liberation prolongee",
+        "after": "Comprimés sécables à libération prolongée"
+      },
+      {
+        "MoPHCode": "11016",
+        "BrandName": "BICALUTAMIDE BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11251",
+        "BrandName": "BISOPROLOL QUIVER LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11252",
+        "BrandName": "BISOPROLOL QUIVER LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11253",
+        "BrandName": "BISOPROLOL QUIVER LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11383",
+        "BrandName": "BISOPROLOL REF",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11384",
+        "BrandName": "BISOPROLOL REF",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11385",
+        "BrandName": "BISOPROLOL REF",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "10947",
+        "BrandName": "BROMAZEPAM BIOGARAN",
+        "before": "Comprimes quadrsecables",
+        "after": "Comprimés quadrsécables"
+      },
+      {
+        "MoPHCode": "8782",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Suspension pour inhalation par nebuliseur",
+        "after": "Suspension pour inhalation par nébuliseur"
+      },
+      {
+        "MoPHCode": "8800",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Suspension pour inhalation par nebuliseur",
+        "after": "Suspension pour inhalation par nébuliseur"
+      },
+      {
+        "MoPHCode": "9238",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Suspension pour inhalation par nebuliseur",
+        "after": "Suspension pour inhalation par nébuliseur"
+      },
+      {
+        "MoPHCode": "9239",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Suspension pour inhalation par nebuliseur",
+        "after": "Suspension pour inhalation par nébuliseur"
+      },
+      {
+        "MoPHCode": "10112",
+        "BrandName": "CANDESARTAN / HYDROCHLOROTHIAZIDE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "10113",
+        "BrandName": "CANDESARTAN / HYDROCHLOROTHIAZIDE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "10109",
+        "BrandName": "CANDESARTAN BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "10110",
+        "BrandName": "CANDESARTAN BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "10111",
+        "BrandName": "CANDESARTAN BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "9326",
+        "BrandName": "CAPECITABINE BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12614",
+        "BrandName": "CARBOPLATINE ARROW LAB",
+        "before": "Solution a diluer pour perfusion (IV)",
+        "after": "Solution à diluer pour perfusion (IV)"
+      },
+      {
+        "MoPHCode": "12615",
+        "BrandName": "CARBOPLATINE ARROW LAB",
+        "before": "Solution a diluer pour perfusion (IV)",
+        "after": "Solution à diluer pour perfusion (IV)"
+      },
+      {
+        "MoPHCode": "2251",
+        "BrandName": "CARBOSYLANE",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "2252",
+        "BrandName": "CARBOSYMAG",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12665",
+        "BrandName": "CASPOFUNGINE STRAGEN",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "12666",
+        "BrandName": "CASPOFUNGINE STRAGEN",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11296",
+        "BrandName": "CASPOFUNGINE STRAGEN",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11297",
+        "BrandName": "CASPOFUNGINE STRAGEN",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11201",
+        "BrandName": "CELECOXIB BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11202",
+        "BrandName": "CELECOXIB BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "2282",
+        "BrandName": "CHLORURE DE POTASSIUM RENAUDIN",
+        "before": "Sol a diluer p perf",
+        "after": "Sol à diluer p perf"
+      },
+      {
+        "MoPHCode": "2283",
+        "BrandName": "CHLORURE DE POTASSIUM RENAUDIN",
+        "before": "Sol a diluer p perf",
+        "after": "Sol à diluer p perf"
+      },
+      {
+        "MoPHCode": "11366",
+        "BrandName": "CINACALCET ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11367",
+        "BrandName": "CINACALCET ARROW",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11368",
+        "BrandName": "CINACALCET ARROW",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "9534",
+        "BrandName": "CORYFIN GOLA DOLORE",
+        "before": "Spray",
+        "after": "Oromucosal spray"
+      },
+      {
+        "MoPHCode": "6193",
+        "BrandName": "CYSTINE B6 BAILLEUL",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "2361",
+        "BrandName": "DAFLON",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "2810",
+        "BrandName": "DECAPEPTYL SR",
+        "before": "Microspheres et solution pour preparation injectable (IM)",
+        "after": "Microsphères et solution pour préparation injectable (IM)"
+      },
+      {
+        "MoPHCode": "2811",
+        "BrandName": "DECAPEPTYL SR",
+        "before": "Microspheres et solution pour preparation injectable (IM)",
+        "after": "Microsphères et solution pour préparation injectable (IM)"
+      },
+      {
+        "MoPHCode": "11868",
+        "BrandName": "DEFERASIROX ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11869",
+        "BrandName": "DEFERASIROX ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11870",
+        "BrandName": "DEFERASIROX ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "2977",
+        "BrandName": "DEPAKINE",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "2979",
+        "BrandName": "DEPAKINE",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "2980",
+        "BrandName": "DEPAKINE",
+        "before": "Solute buvable",
+        "after": "Soluté buvable"
+      },
+      {
+        "MoPHCode": "138",
+        "BrandName": "DIANE '35'",
+        "before": "Dragee",
+        "after": "Dragée"
+      },
+      {
+        "MoPHCode": "12616",
+        "BrandName": "DIMETHYL FUMARATE ARROW",
+        "before": "Gelules gastro-resistantes",
+        "after": "Gélules gastro-résistantes"
+      },
+      {
+        "MoPHCode": "12617",
+        "BrandName": "DIMETHYL FUMARATE ARROW",
+        "before": "Gelules gastro-resistantes",
+        "after": "Gélules gastro-résistantes"
+      },
+      {
+        "MoPHCode": "12099",
+        "BrandName": "DIOSMINE BIOGARAN CONSEIL",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "3427",
+        "BrandName": "DIOVENOR 600",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "3532",
+        "BrandName": "DOBUTAMINE PANPHARMA",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11096",
+        "BrandName": "DOMPERIDONE BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11015",
+        "BrandName": "DONEPEZIL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11018",
+        "BrandName": "DONEPEZIL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11172",
+        "BrandName": "DOXY 100",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "2503",
+        "BrandName": "DOXY 50",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "8888",
+        "BrandName": "DULOXETINE BIOGARAN",
+        "before": "Gelule gastroresistante",
+        "after": "Gélule gastrorésistante"
+      },
+      {
+        "MoPHCode": "8889",
+        "BrandName": "DULOXETINE BIOGARAN",
+        "before": "Gelule gastroresistante",
+        "after": "Gélule gastrorésistante"
+      },
+      {
+        "MoPHCode": "7407",
+        "BrandName": "DUREL FORTE",
+        "before": "comprimes pellicules",
+        "after": "comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10913",
+        "BrandName": "DUTASTERIDE/TAMSULOSINE ARROW",
+        "before": "Gellule",
+        "after": "Géllule"
+      },
+      {
+        "MoPHCode": "10176",
+        "BrandName": "EBASTINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10688",
+        "BrandName": "ENTECAVIR ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10689",
+        "BrandName": "ENTECAVIR ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10133",
+        "BrandName": "ENTECAVIR BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10134",
+        "BrandName": "ENTECAVIR BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12246",
+        "BrandName": "ERTAPENEM ARROW",
+        "before": "Poudre pour solution a diluer pour perfusion",
+        "after": "Poudre pour solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "10811",
+        "BrandName": "ESCITALOPRAM BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "10812",
+        "BrandName": "ESCITALOPRAM BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "10813",
+        "BrandName": "ESCITALOPRAM BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "12096",
+        "BrandName": "ESOMEPRAZOLE BIOGARAN",
+        "before": "Gelules gastroresistantes",
+        "after": "Gélules gastrorésistantes"
+      },
+      {
+        "MoPHCode": "12097",
+        "BrandName": "ESOMEPRAZOLE BIOGARAN",
+        "before": "Gelules gastroresistantes",
+        "after": "Gélules gastrorésistantes"
+      },
+      {
+        "MoPHCode": "11380",
+        "BrandName": "EVEROLIMUS BIOGARAN",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "11381",
+        "BrandName": "EVEROLIMUS BIOGARAN",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "11382",
+        "BrandName": "EVEROLIMUS BIOGARAN",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "10599",
+        "BrandName": "EXEMESTANE BGR",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10814",
+        "BrandName": "EZETIMIBE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "10098",
+        "BrandName": "FEBUXOSTAT BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10099",
+        "BrandName": "FEBUXOSTAT BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "3367",
+        "BrandName": "FENOGAL",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12604",
+        "BrandName": "FENOSUP CHAPHA",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "5856",
+        "BrandName": "FENOSUP LIDOSE",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "8856",
+        "BrandName": "FENTANYL PANPHARMA",
+        "before": "Solution injectable IV et peridurale",
+        "after": "Solution injectable IV et péridurale"
+      },
+      {
+        "MoPHCode": "8857",
+        "BrandName": "FENTANYL PANPHARMA",
+        "before": "Injectable solution IV/Peridurale",
+        "after": "Injectable solution IV/Péridurale"
+      },
+      {
+        "MoPHCode": "8728",
+        "BrandName": "FER PANPHARMA",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "7882",
+        "BrandName": "FERRICURE",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "1747",
+        "BrandName": "FLAGYL",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "10815",
+        "BrandName": "FLECAINIDE BIOGARAN L.P.",
+        "before": "Gelules a liberation prolongee",
+        "after": "Gélules a libération prolongée"
+      },
+      {
+        "MoPHCode": "10816",
+        "BrandName": "FLECAINIDE BIOGARAN L.P.",
+        "before": "Gelules a liberation prolongee",
+        "after": "Gélules a libération prolongée"
+      },
+      {
+        "MoPHCode": "12659",
+        "BrandName": "FLUCONAZOLE ARROW LAB",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "2548",
+        "BrandName": "FLUDEX",
+        "before": "Comprime pellicule a liberation prolongee",
+        "after": "Comprimé pelliculé à libération prolongée"
+      },
+      {
+        "MoPHCode": "11060",
+        "BrandName": "FLUOXETINE BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "10046",
+        "BrandName": "GARDENAL",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "10135",
+        "BrandName": "GEFITINIB BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10968",
+        "BrandName": "GINKGO BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10969",
+        "BrandName": "GINKGO BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "8886",
+        "BrandName": "GINKOR FORT",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "7744",
+        "BrandName": "GOLASEPTINE-LIDOCAINE",
+        "before": "Comprimes a sucer",
+        "after": "Comprimés à sucer"
+      },
+      {
+        "MoPHCode": "11987",
+        "BrandName": "GRANUDOXY",
+        "before": "Comprime pellicule secable",
+        "after": "Comprimé pelliculé sécable"
+      },
+      {
+        "MoPHCode": "12626",
+        "BrandName": "HYDROXYCARBAMIDE ARROW",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "8374",
+        "BrandName": "IPRATROPIUM ARROW ADULTES",
+        "before": "Solution pour Inhalation par nebuliseur",
+        "after": "Solution pour Inhalation par nébuliseur"
+      },
+      {
+        "MoPHCode": "12379",
+        "BrandName": "IRBESARTAN ARROW",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "12380",
+        "BrandName": "IRBESARTAN ARROW",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "10694",
+        "BrandName": "IVABRADINE ARROW",
+        "before": "Tablet, film coated, scored",
+        "after": "Tablet, film coated"
+      },
+      {
+        "MoPHCode": "10447",
+        "BrandName": "IVERMECTINE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "10039",
+        "BrandName": "LAMIVUDINE ARROW",
+        "before": "comprimes pellicules secables",
+        "after": "comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "10074",
+        "BrandName": "LAMIVUDINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10018",
+        "BrandName": "LAMIVUDINE/ ZIDOVUDINE ARROW",
+        "before": "Comprime pellicule secable",
+        "after": "Comprimé pelliculé sécable"
+      },
+      {
+        "MoPHCode": "9810",
+        "BrandName": "LAMOTRIGINE BIOGARAN",
+        "before": "Compimes dispersibles",
+        "after": "Compimés dispersibles"
+      },
+      {
+        "MoPHCode": "10538",
+        "BrandName": "LAMOTRIGINE BIOGARAN",
+        "before": "Compimes dispersibles",
+        "after": "Compimés dispersibles"
+      },
+      {
+        "MoPHCode": "10539",
+        "BrandName": "LAMOTRIGINE BIOGARAN",
+        "before": "Compimes dispersibles",
+        "after": "Compimés dispersibles"
+      },
+      {
+        "MoPHCode": "12269",
+        "BrandName": "LENALIDOMIDE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "12270",
+        "BrandName": "LENALIDOMIDE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "12271",
+        "BrandName": "LENALIDOMIDE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "12272",
+        "BrandName": "LENALIDOMIDE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "12091",
+        "BrandName": "LENALIDOMIDE STRAGEN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12092",
+        "BrandName": "LENALIDOMIDE STRAGEN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12093",
+        "BrandName": "LENALIDOMIDE STRAGEN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12094",
+        "BrandName": "LENALIDOMIDE STRAGEN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11876",
+        "BrandName": "LETROZOLE ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11019",
+        "BrandName": "LETROZOLE BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12397",
+        "BrandName": "LEVETIRACETAM ARROW LAB",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "12662",
+        "BrandName": "LEVETIRACETAM ARROW LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "12663",
+        "BrandName": "LEVETIRACETAM ARROW LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "12664",
+        "BrandName": "LEVETIRACETAM ARROW LAB",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "8809",
+        "BrandName": "LEVETIRACETAM BIOGARAN",
+        "before": "Comprimes pellicules secable",
+        "after": "Comprimés pelliculés secable"
+      },
+      {
+        "MoPHCode": "8810",
+        "BrandName": "LEVETIRACETAM BIOGARAN",
+        "before": "Comprimes pellicules secable",
+        "after": "Comprimés pelliculés secable"
+      },
+      {
+        "MoPHCode": "8811",
+        "BrandName": "LEVETIRACETAM BIOGARAN",
+        "before": "Comprimes pellicules secable",
+        "after": "Comprimés pelliculés secable"
+      },
+      {
+        "MoPHCode": "8410",
+        "BrandName": "LIBRAX DRAGEES",
+        "before": "Dragee",
+        "after": "Dragée"
+      },
+      {
+        "MoPHCode": "11618",
+        "BrandName": "LINEZOLIDE STRAGEN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11518",
+        "BrandName": "LOPERAMIDE ARROW LAB",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "10943",
+        "BrandName": "LOSARTAN BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "10944",
+        "BrandName": "LOSARTAN BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10945",
+        "BrandName": "LOSARTAN/HYDROCHLOROTHIAZIDE BGR",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10946",
+        "BrandName": "LOSARTAN/HYDROCHLOROTHIAZIDE BGR",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "8438",
+        "BrandName": "MAGNE B6",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "11396",
+        "BrandName": "MAGNE B6",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "12209",
+        "BrandName": "MELATONINE ARROW LP",
+        "before": "Compromes a liberation prolongee",
+        "after": "Compromés à libération prolongée"
+      },
+      {
+        "MoPHCode": "8797",
+        "BrandName": "MEMANTINE BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "12507",
+        "BrandName": "METRONIDAZOLE BIOGARAN",
+        "before": "Comprrimes pellicules",
+        "after": "Comprrimés pelliculés"
+      },
+      {
+        "MoPHCode": "12508",
+        "BrandName": "METRONIDAZOLE BIOGARAN",
+        "before": "Comprrimes pellicules",
+        "after": "Comprrimés pelliculés"
+      },
+      {
+        "MoPHCode": "141",
+        "BrandName": "MICROGYNON  '30'",
+        "before": "Dragee",
+        "after": "Dragée"
+      },
+      {
+        "MoPHCode": "6096",
+        "BrandName": "MINOXIDIL BAILLEUL",
+        "before": "Solution pour application cutanee",
+        "after": "Solution pour application cutanée"
+      },
+      {
+        "MoPHCode": "6402",
+        "BrandName": "MINOXIDIL BAILLEUL",
+        "before": "Solution pour application cutanee",
+        "after": "Solution pour application cutanée"
+      },
+      {
+        "MoPHCode": "12505",
+        "BrandName": "MINOXIDIL BIOGARAN CONSEIL",
+        "before": "Solution pour application cutanee",
+        "after": "Solution pour application cutanée"
+      },
+      {
+        "MoPHCode": "12506",
+        "BrandName": "MINOXIDIL BIOGARAN CONSEIL",
+        "before": "Solution pour application cutanee",
+        "after": "Solution pour application cutanée"
+      },
+      {
+        "MoPHCode": "9007",
+        "BrandName": "MODAFINIL ARROW",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "12658",
+        "BrandName": "MODAFINIL ARROW",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "9462",
+        "BrandName": "MOLSIDOMINE BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "9463",
+        "BrandName": "MOLSIDOMINE BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "9464",
+        "BrandName": "MOLSIDOMINE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11229",
+        "BrandName": "MOMETASONE BIOGARAN",
+        "before": "Suspension pour pulverisation nasale",
+        "after": "Suspension pour pulvérisation nasale"
+      },
+      {
+        "MoPHCode": "12612",
+        "BrandName": "MYCOPHENOLATE MOFETIL ARROW",
+        "before": "comprimes pellicules",
+        "after": "comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "6441",
+        "BrandName": "NAFTILUX",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "9823",
+        "BrandName": "NAPROXENE SODIQUE ARROW",
+        "before": "Comprime pellicule secable",
+        "after": "Comprimé pelliculé sécable"
+      },
+      {
+        "MoPHCode": "10973",
+        "BrandName": "NEBIVOLOL BIOGARAN",
+        "before": "Comprimes quadrisecables",
+        "after": "Comprimés quadrisecables"
+      },
+      {
+        "MoPHCode": "2289",
+        "BrandName": "NEO-CODION",
+        "before": "Comprimes enrobes",
+        "after": "Comprimés enrobés"
+      },
+      {
+        "MoPHCode": "12558",
+        "BrandName": "OXALIPLATINE ARROW LAB",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "12115",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "Lyophilised powder for solution for injection",
+        "after": "Concentrate for solution for infusion"
+      },
+      {
+        "MoPHCode": "12116",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "Lyophilised powder for solution for injection",
+        "after": "Concentrate for solution for infusion"
+      },
+      {
+        "MoPHCode": "11831",
+        "BrandName": "PARACETAMOL/CAFEINE/CODEINE BIOGARAN",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "11222",
+        "BrandName": "PEMETREXED STRAGEN",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11223",
+        "BrandName": "PEMETREXED STRAGEN",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "11224",
+        "BrandName": "PEMETREXED STRAGEN",
+        "before": "Solution a diluer pour perfusion",
+        "after": "Solution à diluer pour perfusion"
+      },
+      {
+        "MoPHCode": "12618",
+        "BrandName": "PIRFENIDONE ARROW",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "12619",
+        "BrandName": "PIRFENIDONE ARROW",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "12627",
+        "BrandName": "POMALIDOMIDE EUGIA",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "12628",
+        "BrandName": "POMALIDOMIDE EUGIA",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11386",
+        "BrandName": "PRAMIPEXOLE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11387",
+        "BrandName": "PRAMIPEXOLE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11077",
+        "BrandName": "QUETIAPINE BIOGARAN L.P.",
+        "before": "Comprimes  a liberation prolongee",
+        "after": "Comprimés  à libération prolongée"
+      },
+      {
+        "MoPHCode": "11078",
+        "BrandName": "QUETIAPINE BIOGARAN L.P.",
+        "before": "Comprimes  a liberation prolongee",
+        "after": "Comprimés  à libération prolongée"
+      },
+      {
+        "MoPHCode": "11079",
+        "BrandName": "QUETIAPINE BIOGARAN L.P.",
+        "before": "Comprimes  a liberation prolongee",
+        "after": "Comprimés  à libération prolongée"
+      },
+      {
+        "MoPHCode": "11685",
+        "BrandName": "RACECADOTRIL ARROW",
+        "before": "Gellule",
+        "after": "Géllule"
+      },
+      {
+        "MoPHCode": "8760",
+        "BrandName": "RACECADOTRIL BGR",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "8759",
+        "BrandName": "RACECADOTRIL BIOGARAN CONSEIL",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "9767",
+        "BrandName": "RASAGILINE BIOGARAN",
+        "before": "Comprime",
+        "after": "Comprimé"
+      },
+      {
+        "MoPHCode": "8106",
+        "BrandName": "RELAXINE TRENKER",
+        "before": "Comprimes enrobes",
+        "after": "Comprimés enrobés"
+      },
+      {
+        "MoPHCode": "8101",
+        "BrandName": "REMIFENTANIL MEDIS",
+        "before": "Poudre pour preparation injectable ou pour perfusion IV",
+        "after": "Poudre pour préparation injectable ou pour perfusion IV"
+      },
+      {
+        "MoPHCode": "8102",
+        "BrandName": "REMIFENTANIL MEDIS",
+        "before": "Poudre pour preparation injectable ou pour perfusion IV",
+        "after": "Poudre pour préparation injectable ou pour perfusion IV"
+      },
+      {
+        "MoPHCode": "10158",
+        "BrandName": "REPARIL",
+        "before": "Dragee",
+        "after": "Dragée"
+      },
+      {
+        "MoPHCode": "3414",
+        "BrandName": "RETACNYL - 0.05 %",
+        "before": "Creme dermique",
+        "after": "Crème dermique"
+      },
+      {
+        "MoPHCode": "11074",
+        "BrandName": "RISPERIDONE BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11075",
+        "BrandName": "RISPERIDONE BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "11076",
+        "BrandName": "RISPERIDONE BIOGARAN",
+        "before": "Comprimes pellicules secables",
+        "after": "Comprimés pelliculés sécables"
+      },
+      {
+        "MoPHCode": "9532",
+        "BrandName": "RUPATADINE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11023",
+        "BrandName": "SERTRALINE BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "11024",
+        "BrandName": "SERTRALINE BIOGARAN",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "9782",
+        "BrandName": "SEVELAMER CARBONATE ARROW",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "11802",
+        "BrandName": "SILDENAFIL STRAGEN",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "11575",
+        "BrandName": "SILODOSINE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "11576",
+        "BrandName": "SILODOSINE ARROW",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "10948",
+        "BrandName": "SILODOSINE BIOGARAN",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "10949",
+        "BrandName": "SILODOSINE BIOGARAN",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "11632",
+        "BrandName": "SITAGLIPTINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11633",
+        "BrandName": "SITAGLIPTINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12319",
+        "BrandName": "SKENAN LP",
+        "before": "microgranules a liberation prolongee",
+        "after": "microgranules à libération prolongée"
+      },
+      {
+        "MoPHCode": "12320",
+        "BrandName": "SKENAN LP",
+        "before": "microgranules a liberation prolongee",
+        "after": "microgranules à libération prolongée"
+      },
+      {
+        "MoPHCode": "12321",
+        "BrandName": "SKENAN LP",
+        "before": "microgranules a liberation prolongee",
+        "after": "microgranules à libération prolongée"
+      },
+      {
+        "MoPHCode": "7976",
+        "BrandName": "SOJOURN",
+        "before": "Solution, inhalation",
+        "after": "Inhalation aNESTHETIC"
+      },
+      {
+        "MoPHCode": "10836",
+        "BrandName": "SOLIFENACINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10837",
+        "BrandName": "SOLIFENACINE ARROW",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "7148",
+        "BrandName": "SOMATULINE AUTOGEL",
+        "before": "Solution injectable a liberation prolongee",
+        "after": "Solution injectable à libération prolongée"
+      },
+      {
+        "MoPHCode": "7149",
+        "BrandName": "SOMATULINE AUTOGEL",
+        "before": "Solution injectable a liberation prolongee",
+        "after": "Solution injectable à libération prolongée"
+      },
+      {
+        "MoPHCode": "10132",
+        "BrandName": "SOTALOL BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "10177",
+        "BrandName": "SOTALOL BIOGARAN",
+        "before": "Comprimes secables",
+        "after": "Comprimés sécables"
+      },
+      {
+        "MoPHCode": "7037",
+        "BrandName": "SUPERSTAT",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "7038",
+        "BrandName": "SUPERSTAT",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "10600",
+        "BrandName": "TADALAFIL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12098",
+        "BrandName": "TADALAFIL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "11207",
+        "BrandName": "TAMOXIFENE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "11242",
+        "BrandName": "TAMOXIFENE BIOGARAN",
+        "before": "Comprimes",
+        "after": "Comprimés"
+      },
+      {
+        "MoPHCode": "3196",
+        "BrandName": "TANAKAN",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "8031",
+        "BrandName": "TANAKAN",
+        "before": "Comprime Enrobe",
+        "after": "Comprimé Enrobé"
+      },
+      {
+        "MoPHCode": "9821",
+        "BrandName": "TENOFOVIR DISOPROXIL ARROW",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "10100",
+        "BrandName": "TENOFOVIR DISOPROXIL BIOGARAN",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "9769",
+        "BrandName": "TERGYNAN",
+        "before": "Comprime vaginal",
+        "after": "Comprimé vaginal"
+      },
+      {
+        "MoPHCode": "12613",
+        "BrandName": "TERIFLUNOMID ARROW",
+        "before": "comprimes pellicules",
+        "after": "comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "7284",
+        "BrandName": "TETRALYSAL",
+        "before": "Gelules",
+        "after": "Gélules"
+      },
+      {
+        "MoPHCode": "6955",
+        "BrandName": "TOLEXINE",
+        "before": "Comprimes de microgranules",
+        "after": "Comprimés de microgranules"
+      },
+      {
+        "MoPHCode": "12660",
+        "BrandName": "TOPIRAMATE ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12661",
+        "BrandName": "TOPIRAMATE ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "12688",
+        "BrandName": "TOPIRAMATE ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "3411",
+        "BrandName": "TRACTOCILE",
+        "before": "Injection",
+        "after": "Solution for injection IV use"
+      },
+      {
+        "MoPHCode": "3412",
+        "BrandName": "TRACTOCILE",
+        "before": "Injection",
+        "after": "Concentrate for solution for infusion IV use"
+      },
+      {
+        "MoPHCode": "9698",
+        "BrandName": "TRAMADOL/PARACETAMOL ARROW LAB",
+        "before": "Comprimes pellicules",
+        "after": "Comprimés pelliculés"
+      },
+      {
+        "MoPHCode": "169",
+        "BrandName": "ULTRA LEVURE",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "3915",
+        "BrandName": "ULTRA LEVURE",
+        "before": "Gelule",
+        "after": "Gélule"
+      },
+      {
+        "MoPHCode": "8159",
+        "BrandName": "VALPROATE DE SODIUM ARROW LP",
+        "before": "Comprimes pillicules secable a liberation prolongee",
+        "after": "Comprimés pilliculés sécable à libération prolongée"
+      },
+      {
+        "MoPHCode": "11097",
+        "BrandName": "VENLAFAXINE BIOGARAN LP",
+        "before": "Gelules a liberation prolongee",
+        "after": "Gélules à libération prolongée"
+      },
+      {
+        "MoPHCode": "11098",
+        "BrandName": "VENLAFAXINE BIOGARAN LP",
+        "before": "Gelules a liberation prolongee",
+        "after": "Gélules à libération prolongée"
+      },
+      {
+        "MoPHCode": "10638",
+        "BrandName": "VESICULTURE",
+        "before": "Injectable, lyophilised / freeze-dried / dry powder, for solution",
+        "after": "Powder for bladder irrigation"
+      },
+      {
+        "MoPHCode": "11293",
+        "BrandName": "VORICONAZOLE STRAGEN",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "11294",
+        "BrandName": "VORICONAZOLE STRAGEN",
+        "before": "Comprime pellicule",
+        "after": "Comprimé pelliculé"
+      },
+      {
+        "MoPHCode": "9271",
+        "BrandName": "ZOLMITRIPTAN BIOGARAN",
+        "before": "Comprime orodispersible",
+        "after": "Comprimé orodispersible"
+      },
+      {
+        "MoPHCode": "12114",
+        "BrandName": "ZOLMITRIPTAN BIOGARAN",
+        "before": "Comprime orodispersible",
+        "after": "Comprimé orodispersible"
+      }
+    ],
+    "Manufacturer": [
+      {
+        "MoPHCode": "6256",
+        "BrandName": "AMOPRO",
+        "before": "SAJA- Saudi Arabia Japanese Pharmaceutical Co",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "8782",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Arrow Generiques",
+        "after": "Arrow Génériques"
+      },
+      {
+        "MoPHCode": "8800",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Arrow Generiques",
+        "after": "Arrow Génériques"
+      },
+      {
+        "MoPHCode": "6469",
+        "BrandName": "CARBOPLATINE VIATRIS 10MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6903",
+        "BrandName": "CARBOPLATINE VIATRIS 10MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6655",
+        "BrandName": "CISPLATINE VIATRIS 1MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6656",
+        "BrandName": "CISPLATINE VIATRIS 1MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "12147",
+        "BrandName": "DEPOJOY",
+        "before": "Saudi Arabian Japanese Pharmaceutical (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "12148",
+        "BrandName": "DEPOJOY",
+        "before": "Saudi Arabian Japanese Pharmaceutical (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "10176",
+        "BrandName": "EBASTINE ARROW",
+        "before": "Centre Specialites Pharmaceutiques",
+        "after": "Centre Specialités Pharmaceutiques"
+      },
+      {
+        "MoPHCode": "11198",
+        "BrandName": "ENOXAPARIN LEDRAXEN",
+        "before": "Centre Specialites Pharmaceutiques",
+        "after": "Centre Specialités Pharmaceutiques"
+      },
+      {
+        "MoPHCode": "11199",
+        "BrandName": "ENOXAPARIN LEDRAXEN",
+        "before": "Centre Specialites Pharmaceutiques",
+        "after": "Centre Specialités Pharmaceutiques"
+      },
+      {
+        "MoPHCode": "6653",
+        "BrandName": "EPIRUBICINE VIATRIS 2MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6654",
+        "BrandName": "EPIRUBICINE VIATRIS 2MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "9898",
+        "BrandName": "EPLERENONE ARROW",
+        "before": "Arrow Generiques",
+        "after": "Arrow Génériques"
+      },
+      {
+        "MoPHCode": "9899",
+        "BrandName": "EPLERENONE ARROW",
+        "before": "Arrow Generiques",
+        "after": "Arrow Génériques"
+      },
+      {
+        "MoPHCode": "12524",
+        "BrandName": "EPLERENONE ARROW",
+        "before": "Arrow Generiques",
+        "after": "Arrow Génériques"
+      },
+      {
+        "MoPHCode": "7454",
+        "BrandName": "ERADECIN",
+        "before": "SAJA- Saudi Arabia Japanese Pharmaceutical Co",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "9755",
+        "BrandName": "ERELZI",
+        "before": "Sandoz GmbH, (Schaftenau)",
+        "after": "Novartis Pharmaceutical Manufacturing GmbH"
+      },
+      {
+        "MoPHCode": "9756",
+        "BrandName": "ERELZI",
+        "before": "Sandoz GmbH, (Schaftenau)",
+        "after": "Novartis Pharmaceutical Manufacturing GmbH"
+      },
+      {
+        "MoPHCode": "9757",
+        "BrandName": "ERELZI",
+        "before": "Sandoz GmbH, (Schaftenau)",
+        "after": "Novartis Pharmaceutical Manufacturing GmbH"
+      },
+      {
+        "MoPHCode": "6779",
+        "BrandName": "ETOPOSIDE VIATRIS 20MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "4699",
+        "BrandName": "GLUCOPHAGE",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "4700",
+        "BrandName": "GLUCOPHAGE",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "5115",
+        "BrandName": "GLUCOPHAGE XR",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "5693",
+        "BrandName": "GLUCOPHAGE XR",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "6219",
+        "BrandName": "GLUCOPHAGE XR",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "4701",
+        "BrandName": "GLUCOVANCE",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "4702",
+        "BrandName": "GLUCOVANCE",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "5847",
+        "BrandName": "GLUCOVANCE",
+        "before": "Pharmaline Licensed by Merck Sante SAS, France",
+        "after": "Pharmaline Licensed by Merck Santé SAS, France"
+      },
+      {
+        "MoPHCode": "7204",
+        "BrandName": "ITRAZOL",
+        "before": "SAJA- Saudi Arabia Japanese Pharmaceutical Co",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "7205",
+        "BrandName": "ITRAZOL",
+        "before": "SAJA- Saudi Arabia Japanese Pharmaceutical Co",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "11976",
+        "BrandName": "KISQALI",
+        "before": "Lek Pharmaceuticals dd",
+        "after": "Novartis Pharmaceuticals Manufacturing LLC"
+      },
+      {
+        "MoPHCode": "12309",
+        "BrandName": "LEVOXIPOLIN",
+        "before": "Polifarma Ilac San. ve Tic. AS",
+        "after": "Polifarma Ilaç San. ve Tic. AS"
+      },
+      {
+        "MoPHCode": "6562",
+        "BrandName": "LITAK",
+        "before": "Haupt Pharma Wolfratshausen GmbH",
+        "after": "Lipomed AG"
+      },
+      {
+        "MoPHCode": "7068",
+        "BrandName": "LITAK",
+        "before": "Haupt Pharma Wolfratshausen GmbH",
+        "after": "Lipomed AG"
+      },
+      {
+        "MoPHCode": "5498",
+        "BrandName": "METHYL PREDNISOLONE VIATRIS 120MG",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6904",
+        "BrandName": "METHYL PREDNISOLONE VIATRIS 1G",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "5497",
+        "BrandName": "METHYL PREDNISOLONE VIATRIS 40MG",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "8111",
+        "BrandName": "NOVOMIX 30",
+        "before": "Novo Nordisk Producao Farmaceutica Do Brazil Ltda",
+        "after": "Novo Nordisk Produçao Farmacêutica Do Brazil Ltda"
+      },
+      {
+        "MoPHCode": "8113",
+        "BrandName": "NOVORAPID FLEXPEN",
+        "before": "Novo Nordisk Producao Farmaceutica Do Brazil Ltda",
+        "after": "Novo Nordisk Produçao Farmacêutica Do Brazil Ltda"
+      },
+      {
+        "MoPHCode": "6383",
+        "BrandName": "OXALIPLATINE VIATRIS 5MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "6384",
+        "BrandName": "OXALIPLATINE VIATRIS 5MG/ML",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      },
+      {
+        "MoPHCode": "12115",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "GP-Pharm SA",
+        "after": "AqVida GmbH"
+      },
+      {
+        "MoPHCode": "12116",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "GP-Pharm SA",
+        "after": "AqVida GmbH"
+      },
+      {
+        "MoPHCode": "6149",
+        "BrandName": "PANTOMAX",
+        "before": "Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "6150",
+        "BrandName": "PANTOMAX",
+        "before": "Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "6151",
+        "BrandName": "PANTOMAX",
+        "before": "Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "6152",
+        "BrandName": "PANTOMAX",
+        "before": "Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co"
+      },
+      {
+        "MoPHCode": "12072",
+        "BrandName": "POLGYL",
+        "before": "Polifarma Ilac San. ve Tic. AS",
+        "after": "Polifarma Ilaç San. ve Tic. AS"
+      },
+      {
+        "MoPHCode": "11540",
+        "BrandName": "RESOLOR",
+        "before": "Janssen Cilag SpA",
+        "after": "Sanico NV"
+      },
+      {
+        "MoPHCode": "11541",
+        "BrandName": "RESOLOR",
+        "before": "Janssen Cilag SpA",
+        "after": "Sanico NV"
+      },
+      {
+        "MoPHCode": "6054",
+        "BrandName": "ROXONIN",
+        "before": "SAJA Pharmaceuticals (Saudi Arabia Japanese Pharmaceutical Company Limited) under licence from Daiichi Sankyo Co Ltd Japan",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co under licence from Daiichi Sankyo Co Ltd Japan"
+      },
+      {
+        "MoPHCode": "8869",
+        "BrandName": "ROXONIN",
+        "before": "SAJA Pharmaceuticals (Saudi Arabia Japanese Pharmaceutical Company Limited) under licence from Daiichi Sankyo Co Ltd Japan",
+        "after": "SAJA-Saudi Arabian Japanese Pharmaceutical Co under licence from Daiichi Sankyo Co Ltd Japan"
+      },
+      {
+        "MoPHCode": "10682",
+        "BrandName": "SALCROZINE",
+        "before": "Laboratorios Victoria SA",
+        "after": "Faes Farma Portugal SA"
+      },
+      {
+        "MoPHCode": "3792",
+        "BrandName": "STALORAL",
+        "before": "Stallergenes",
+        "after": "Stallergènes"
+      },
+      {
+        "MoPHCode": "3793",
+        "BrandName": "STALORAL",
+        "before": "Stallergenes",
+        "after": "Stallergènes"
+      },
+      {
+        "MoPHCode": "5860",
+        "BrandName": "STALORAL",
+        "before": "Stallergenes",
+        "after": "Stallergènes"
+      },
+      {
+        "MoPHCode": "5861",
+        "BrandName": "STALORAL",
+        "before": "Stallergenes",
+        "after": "Stallergènes"
+      },
+      {
+        "MoPHCode": "5366",
+        "BrandName": "VANCOMYCINE VIATRIS 500MG",
+        "before": "Benta SAL under license from Viatris Sante, France",
+        "after": "Benta SAL under license from Viatris Santé, France"
+      }
+    ],
+    "Stratum": [
+      {
+        "MoPHCode": "11585",
+        "BrandName": "ADALIREL",
+        "before": "C",
+        "after": "B"
+      },
+      {
+        "MoPHCode": "6093",
+        "BrandName": "APO-ATORVASTATIN",
+        "before": "B",
+        "after": "A2"
+      },
+      {
+        "MoPHCode": "983",
+        "BrandName": "APO-CARBAMAZEPINE",
+        "before": "A2",
+        "after": "A1"
+      },
+      {
+        "MoPHCode": "3579",
+        "BrandName": "APO-PRAVASTATIN",
+        "before": "A2",
+        "after": "A1"
+      },
+      {
+        "MoPHCode": "5157",
+        "BrandName": "DURALIS",
+        "before": "B",
+        "after": "A2"
+      },
+      {
+        "MoPHCode": "7744",
+        "BrandName": "GOLASEPTINE-LIDOCAINE",
+        "before": "A2",
+        "after": "A1"
+      },
+      {
+        "MoPHCode": "3938",
+        "BrandName": "INFLORAN",
+        "before": "A1",
+        "after": "A2"
+      },
+      {
+        "MoPHCode": "12248",
+        "BrandName": "SEMATIDE",
+        "before": "C",
+        "after": "B"
+      },
+      {
+        "MoPHCode": "12249",
+        "BrandName": "SEMATIDE",
+        "before": "C",
+        "after": "B"
+      },
+      {
+        "MoPHCode": "7976",
+        "BrandName": "SOJOURN",
+        "before": "E1",
+        "after": "D"
+      },
+      {
+        "MoPHCode": "11179",
+        "BrandName": "TWINCARD 80/10",
+        "before": "B",
+        "after": "A2"
+      },
+      {
+        "MoPHCode": "7972",
+        "BrandName": "VIOSTAN 40",
+        "before": "A2",
+        "after": "A1"
+      },
+      {
+        "MoPHCode": "7889",
+        "BrandName": "VIOSTAN 80",
+        "before": "A2",
+        "after": "A1"
+      },
+      {
+        "MoPHCode": "7892",
+        "BrandName": "VIOSTAN PLUS 80/12.5",
+        "before": "A2",
+        "after": "A1"
+      }
+    ],
+    "Presentation": [
+      {
+        "MoPHCode": "5673",
+        "BrandName": "AVAXIM PEDIATRIQUE (vaccin inactivé de l'hépatite A adsorbé)",
+        "before": "Seringue preremplie= 1dose",
+        "after": "Seringue préremplie= 1dose"
+      },
+      {
+        "MoPHCode": "8782",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Recipient unidose x20",
+        "after": "Récipient unidose x20"
+      },
+      {
+        "MoPHCode": "8800",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Recipient unidose x20",
+        "after": "Récipient unidose x20"
+      },
+      {
+        "MoPHCode": "9238",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Recipient unidose x20",
+        "after": "Récipient unidose x20"
+      },
+      {
+        "MoPHCode": "9239",
+        "BrandName": "BUDESONIDE ARROW",
+        "before": "Recipient unidose x20",
+        "after": "Récipient unidose x20"
+      },
+      {
+        "MoPHCode": "12615",
+        "BrandName": "CARBOPLATINE ARROW LAB",
+        "before": "1Vial 60ml",
+        "after": "1Vial 45ml"
+      },
+      {
+        "MoPHCode": "12601",
+        "BrandName": "ETOTAC SR",
+        "before": "30",
+        "after": "10"
+      },
+      {
+        "MoPHCode": "8374",
+        "BrandName": "IPRATROPIUM ARROW ADULTES",
+        "before": "Recipient unidose boite de 10",
+        "after": "Récipient unidose boite de 10"
+      },
+      {
+        "MoPHCode": "1757",
+        "BrandName": "LOVENOX",
+        "before": "2 Seringues preremplies",
+        "after": "2 Seringues préremplies"
+      },
+      {
+        "MoPHCode": "1758",
+        "BrandName": "LOVENOX",
+        "before": "2 Seringues preremplies",
+        "after": "2 Seringues préremplies"
+      },
+      {
+        "MoPHCode": "10498",
+        "BrandName": "PENTAXIM",
+        "before": "Seringue preremplie",
+        "after": "Seringue préremplie"
+      },
+      {
+        "MoPHCode": "7148",
+        "BrandName": "SOMATULINE AUTOGEL",
+        "before": "1 Seringue preremplie",
+        "after": "1 Seringue préremplie"
+      },
+      {
+        "MoPHCode": "7149",
+        "BrandName": "SOMATULINE AUTOGEL",
+        "before": "1 Seringue preremplie",
+        "after": "1 Seringue préremplie"
+      },
+      {
+        "MoPHCode": "9809",
+        "BrandName": "VAXIGRIPTETRA, VACCIN GRIPPAL QUADRIVALENT (INACTIVE A VIRION FRAGMENTE)",
+        "before": "1seringue preremplie x 0.5ml avec aiguille attachee",
+        "after": "1seringue préremplie x 0.5ml avec aiguille attachée"
+      }
+    ],
+    "DrugName": [
+      {
+        "MoPHCode": "5545",
+        "BrandName": "AMOXICLAV-ORBUCELL",
+        "before": "ARDINECLAV-ORBUCELL",
+        "after": "AMOXICLAV-ORBUCELL"
+      },
+      {
+        "MoPHCode": "5673",
+        "BrandName": "AVAXIM PEDIATRIQUE (vaccin inactivé de l'hépatite A adsorbé)",
+        "before": "AVAXIM PEDIATRIQUE (vaccin inactive de l'hepatite A adsorbe)",
+        "after": "AVAXIM PEDIATRIQUE (vaccin inactivé de l'hépatite A adsorbé)"
+      },
+      {
+        "MoPHCode": "8881",
+        "BrandName": "BICALUTAMIDE",
+        "before": "BICALUTAMIDE ACCORD",
+        "after": "BICALUTAMIDE"
+      },
+      {
+        "MoPHCode": "6562",
+        "BrandName": "LITAK",
+        "before": "LITAK 10",
+        "after": "LITAK"
+      },
+      {
+        "MoPHCode": "7068",
+        "BrandName": "LITAK",
+        "before": "LITAK 10",
+        "after": "LITAK"
+      },
+      {
+        "MoPHCode": "5733",
+        "BrandName": "TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactivé adsorbé)",
+        "before": "TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactive adsorbe)",
+        "after": "TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactivé adsorbé)"
+      }
+    ],
+    "Dosage": [
+      {
+        "MoPHCode": "10343",
+        "BrandName": "APREPITANT BIOGARAN 125MG APREPITANT BIOGARAN 80MG",
+        "before": "1Gelule 125mg +2Gelules 80mg",
+        "after": "1Gélule 125mg +2Gélules 80mg"
+      },
+      {
+        "MoPHCode": "9534",
+        "BrandName": "CORYFIN GOLA DOLORE",
+        "before": "3 mg/ml",
+        "after": "2.5mg/ml"
+      },
+      {
+        "MoPHCode": "7372",
+        "BrandName": "LEVE TAD",
+        "before": "500 mg",
+        "after": "500mg"
+      },
+      {
+        "MoPHCode": "3411",
+        "BrandName": "TRACTOCILE",
+        "before": "7.5mg/ml",
+        "after": "6.75mg/0.9ml"
+      },
+      {
+        "MoPHCode": "3412",
+        "BrandName": "TRACTOCILE",
+        "before": "7.5mg/ml",
+        "after": "37.5mg/5ml"
+      },
+      {
+        "MoPHCode": "10638",
+        "BrandName": "VESICULTURE",
+        "before": "30 mg",
+        "after": "30mg/Vial"
+      }
+    ],
+    "Country": [
+      {
+        "MoPHCode": "2976",
+        "BrandName": "CORDARONE",
+        "before": "France",
+        "after": "Italy"
+      },
+      {
+        "MoPHCode": "6562",
+        "BrandName": "LITAK",
+        "before": "Germany",
+        "after": "Switzerland"
+      },
+      {
+        "MoPHCode": "7068",
+        "BrandName": "LITAK",
+        "before": "Germany",
+        "after": "Switzerland"
+      },
+      {
+        "MoPHCode": "12115",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "Spain",
+        "after": "Germany"
+      },
+      {
+        "MoPHCode": "12116",
+        "BrandName": "OXALIPLATINO PHARMINICIO",
+        "before": "Spain",
+        "after": "Germany"
+      },
+      {
+        "MoPHCode": "12583",
+        "BrandName": "SOLIRIS",
+        "before": "France",
+        "after": "Ireland"
+      }
+    ],
+    "RegistrationNumber": [
+      {
+        "MoPHCode": "9534",
+        "BrandName": "CORYFIN GOLA DOLORE",
+        "before": "",
+        "after": "175817/1"
+      },
+      {
+        "MoPHCode": "11614",
+        "BrandName": "GENTAMICINE PANPHARMA",
+        "before": "135023/01",
+        "after": "135023/1"
+      },
+      {
+        "MoPHCode": "7372",
+        "BrandName": "LEVE TAD",
+        "before": "",
+        "after": "97679/11"
+      },
+      {
+        "MoPHCode": "12393",
+        "BrandName": "RIZATRIPTAN ARROW",
+        "before": "179617/1",
+        "after": "55025/1"
+      },
+      {
+        "MoPHCode": "7976",
+        "BrandName": "SOJOURN",
+        "before": "",
+        "after": "186970/14"
+      },
+      {
+        "MoPHCode": "10638",
+        "BrandName": "VESICULTURE",
+        "before": "",
+        "after": "58821/1"
+      }
+    ]
   },
   "templateReport": {
     "section1_newly_marketed": {

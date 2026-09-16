@@ -1,4 +1,4 @@
-<title>September Mouacher Report</title>
+<title>September Mouacher Changes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -33,109 +33,93 @@ body{margin:0;background:var(--ground);color:var(--ink);
   font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
 h1,h2,h3{font-family:Spectral,Georgia,"Times New Roman",serif;text-wrap:balance;margin:0}
-.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
 .num{font-variant-numeric:tabular-nums}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
 
-/* masthead */
-.mast{border-bottom:2px solid var(--ink);padding-block:44px 18px;margin-bottom:34px}
+.mast{border-bottom:2px solid var(--ink);padding-block:44px 18px;margin-bottom:30px}
 .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
   font-family:"IBM Plex Mono",monospace}
 .mast h1{font-size:clamp(34px,6vw,54px);font-weight:600;line-height:1.02;margin-block:14px 10px;
   letter-spacing:-.015em}
-.mast .sub{color:var(--muted);max-width:60ch;font-size:15px}
+.mast .sub{color:var(--muted);max-width:62ch;font-size:15px}
 .mast-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:20px;font-size:12.5px;
   color:var(--muted);font-family:"IBM Plex Mono",monospace}
 .mast-meta b{color:var(--ink);font-weight:600}
 
-/* end state */
-.endstate{background:var(--surface);border:1px solid var(--rule);border-radius:3px;
-  padding:26px 28px;margin-bottom:12px}
-.endstate h2{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
-  font-family:"IBM Plex Mono",monospace;font-weight:600;margin-bottom:20px}
-.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px 30px}
-.fig .v{font-family:Spectral,Georgia,serif;font-size:40px;font-weight:600;line-height:1;
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px 30px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:24px 26px}
+.fig .v{font-family:Spectral,Georgia,serif;font-size:38px;font-weight:600;line-height:1;
   font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .fig .k{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.35}
-.fig.rise .v{color:var(--rise)} .fig.fall .v{color:var(--fall)} .fig.acc .v{color:var(--accent)}
+.fig.acc .v{color:var(--accent)}
 
-/* sections */
-section{margin-top:52px;scroll-margin-top:20px}
+section{margin-top:50px}
 .shead{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule-strong);
-  padding-bottom:10px;margin-bottom:8px}
+  padding-bottom:10px}
 .snum{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
   letter-spacing:.08em}
 .shead h2{font-size:24px;font-weight:600;letter-spacing:-.01em}
 .shead .count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:13px;
   color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-.lede{color:var(--muted);max-width:68ch;margin-block:12px 20px;font-size:14.5px}
+.lede{color:var(--muted);max-width:70ch;margin-block:14px 20px;font-size:14.5px}
 
-/* tables */
+h3.sub{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink);font-weight:600;
+  margin-block:30px 10px;display:flex;align-items:baseline;gap:10px}
+h3.sub .n{margin-left:auto;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+h3.sub .hint{font-weight:400;text-transform:none;letter-spacing:0;color:var(--faint);
+  font-family:"IBM Plex Sans",sans-serif;font-size:12.5px}
+
 .tw{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;font-size:13px}
 th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);font-weight:500;padding:11px 12px;
+  text-transform:uppercase;color:var(--muted);font-weight:500;padding:10px 12px;
   border-bottom:1px solid var(--rule-strong);white-space:nowrap;background:var(--sunk)}
-td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+td{padding:8px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
 tr:last-child td{border-bottom:none}
 td.c{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);white-space:nowrap}
 td.atc{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);white-space:nowrap}
 td.b{font-weight:600}
 td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;
   white-space:nowrap;font-size:12.5px}
-td.ing{color:var(--muted);font-size:12.5px;min-width:190px}
+td.ing{color:var(--muted);font-size:12.5px;min-width:180px}
+td.was{color:var(--muted)}
+.arrow{color:var(--faint);padding-inline:2px}
 .up{color:var(--rise)} .down{color:var(--fall)}
+.blank{color:var(--faint);font-style:italic}
 .pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
   padding:1px 6px;border:1px solid var(--rule-strong);border-radius:2px;color:var(--muted);
   white-space:nowrap}
-
-/* two-up */
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;align-items:start}
-
-/* bar list */
-.bars{display:flex;flex-direction:column;gap:9px;background:var(--surface);
-  border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
-.bar{display:grid;grid-template-columns:minmax(96px,auto) 1fr auto;gap:12px;align-items:center;
-  font-size:13px}
-.bar .lbl{color:var(--muted)}
-.bar .track{height:7px;background:var(--sunk);border-radius:1px;overflow:hidden}
-.bar .fill{height:100%;background:var(--accent);display:block}
-.bar .val{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-size:12.5px}
-
-/* note */
-.note{border-left:2px solid var(--flag);background:var(--flag-soft);padding:16px 20px;
-  border-radius:0 3px 3px 0;margin-block:22px;font-size:14px}
-.note b{font-weight:600}
+.note{border-left:2px solid var(--flag);background:var(--flag-soft);padding:15px 19px;
+  border-radius:0 3px 3px 0;margin-block:20px;font-size:13.5px}
 .caption{font-size:12.5px;color:var(--faint);margin-top:9px}
-footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);
   font-size:12.5px;color:var(--faint);font-family:"IBM Plex Mono",monospace;
   display:flex;flex-wrap:wrap;gap:8px 24px}
 @media (max-width:620px){
   .mast{padding-block:30px 16px}
-  .fig .v{font-size:32px}
-  .bar{grid-template-columns:minmax(80px,auto) 1fr auto}
+  .fig .v{font-size:31px}
 }
 </style>
 <div class="wrap">
 <header class="mast">
 <div class="eyebrow">Lebanon · Ministry of Public Health · Drug price bulletin</div>
-<h1>September Mouacher</h1>
-<p class="sub">What changed in the MedLeb registers after the mouacher of 2026-09-03 was applied, and what the two databases hold now.</p>
+<h1>September Mouacher Changes</h1>
+<p class="sub">Every change the mouacher of 2026-09-03 made to the medapiv2 drug register: what was added, what was removed, and each field that was modified, with its value before and after.</p>
 <div class="mast-meta">
 <span>Bulletin <b>2026-09-03</b></span>
-<span>Codes in bulletin <b class="num">5,765</b></span>
+<span>Register <b>medapiv2 · drug</b></span>
+<span>Marketed after <b class="num">5,734</b></span>
 <span>Generated <b>2026-09-16</b></span>
 </div></header>
-<div class="endstate"><h2>End state</h2><div class="figs">
-<div class="fig "><div class="v num">5,765</div><div class="k">rows in medlist<br>(exactly the bulletin)</div></div>
-<div class="fig "><div class="v num">5,734</div><div class="k">marketed drugs in medapiv2</div></div>
-<div class="fig acc"><div class="v num">46</div><div class="k">newly marketed</div></div>
-<div class="fig "><div class="v num">7</div><div class="k">newly not marketed</div></div>
+<div class="figs">
+<div class="fig acc"><div class="v num">46</div><div class="k">added</div></div>
+<div class="fig "><div class="v num">7</div><div class="k">removed</div></div>
 <div class="fig "><div class="v num">973</div><div class="k">drugs modified</div></div>
-<div class="fig acc"><div class="v num">8,196</div><div class="k">empty fields filled from<br>the MoPH website</div></div>
-</div></div>
-<p class="caption">medlist mirrors the bulletin exactly. medapiv2 also keeps delisted drugs, flagged NotMarketed.</p>
-<section><div class='shead'><span class='snum'>01</span><h2>Newly marketed</h2><span class='count'>46 drugs · 35 distinct ATC</span></div>
-<p class="lede">Drugs in this bulletin that the register did not hold. ATC, ingredients and route are not in the bulletin — they come from the MoPH website scrape, which is why every row below is complete.</p>
+<div class="fig "><div class="v num">1,028</div><div class="k">individual field changes</div></div>
+</div>
+<section><div class='shead'><span class='snum'>01</span><h2>Added</h2><span class='count'>46 drugs · 35 distinct ATC</span></div>
+<p class="lede">In this bulletin, not previously in the register.</p>
 <div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>ATC</th><th>Ingredients</th><th>Form</th><th>Route</th><th>Agent</th><th>Str.</th><th style='text-align:right'>Price L.L</th></tr></thead><tbody>
 <tr><td class="c">12710</td><td class="b">ATHERO ROS</td><td class="atc">C10AA07</td><td class="ing">Rosuvastatin (calcium) - 20mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Bee Pharm SARL</td><td><span class="pill">A1</span></td><td class="n">499,142</td></tr>
 <tr><td class="c">12711</td><td class="b">ATHERO ROS</td><td class="atc">C10AA07</td><td class="ing">Rosuvastatin (calcium) - 10mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Bee Pharm SARL</td><td><span class="pill">A1</span></td><td class="n">499,142</td></tr>
@@ -183,85 +167,1082 @@ footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);
 <tr><td class="c">12705</td><td class="b">VOREXIM</td><td class="atc">N06AX26</td><td class="ing">Vortioxetine - 10mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">2,685,125</td></tr>
 <tr><td class="c">12706</td><td class="b">VOREXIM</td><td class="atc">N06AX26</td><td class="ing">Vortioxetine - 20mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Medis Pharm Drugstore</td><td><span class="pill">B</span></td><td class="n">5,191,072</td></tr>
 <tr><td class="c">12707</td><td class="b">XAVIRAN</td><td class="atc">B01AF01</td><td class="ing">Rivaroxaban - 2.5mg</td><td>Tablet, film coated</td><td class="c">Oral</td><td>Pharmaline S.A.L.</td><td><span class="pill">B</span></td><td class="n">2,200,062</td></tr>
-</tbody></table></div>
-<p class="caption">Stratum spread: A1 7 · A2 15 · B 14 · C 2 · D 2 · E1 2 · E2 4</p>
-</section>
-<section><div class='shead'><span class='snum'>02</span><h2>Newly not marketed</h2><span class='count'>7 drugs</span></div>
-<p class="lede">Held in the register but absent from this bulletin. Removed from medlist; flagged NotMarketed in medapiv2 rather than deleted, so prescribing history stays resolvable.</p>
-<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>ATC</th><th>Ingredients</th><th>Agent</th></tr></thead><tbody>
-<tr><td class="c">1161</td><td class="b">CALCIUM RESONIUM</td><td class="atc">V03AE01</td><td class="ing">Calcium Polystyrene Sulphonate - 15g</td><td>Mersaco</td></tr>
-<tr><td class="c">1842</td><td class="b">CEFUMAX</td><td class="atc">J01DC02</td><td class="ing">Cefuroxime (sodium) - 750mg</td><td>C. Catafago &amp; Co</td></tr>
-<tr><td class="c">10908</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 500IU/Vial</td><td>Mersaco</td></tr>
-<tr><td class="c">10909</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 1000IU/Vial</td><td>Mersaco</td></tr>
-<tr><td class="c">439</td><td class="b">SOLU MEDROL Act-O-Vial</td><td class="atc">H02AB04</td><td class="ing">Methylprednisolone sodium succinate - 40mg</td><td>Droguerie Fattal  S.A.L.</td></tr>
-<tr><td class="c">9126</td><td class="b">VILAPRO CHRONO 500</td><td class="atc">N03AG01</td><td class="ing">Sodium valproate - 333mg, Valproic acid - 145mg</td><td>Sadco</td></tr>
-<tr><td class="c">12416</td><td class="b">α DEXAMETHASONE SODIUM PHOSPHATE USP</td><td class="atc">H02AB02</td><td class="ing">Dexamethasone (sodium phosphate) - 8mg/2ml</td><td>Alfa Laboratoires S.A.L.</td></tr>
 </tbody></table></div></section>
-<section><div class='shead'><span class='snum'>03</span><h2>Modifications</h2><span class='count'>973 drugs touched</span></div>
-<p class="lede">Fields the bulletin changed on drugs already held. A drug can appear under more than one field.</p>
-<div class="bars">
-<div class="bar"><span class="lbl">PublicPrice</span><span class="track"><span class="fill" style="width:100.0%"></span></span><span class="val num">356</span></div>
-<div class="bar"><span class="lbl">Agent</span><span class="track"><span class="fill" style="width:80.1%"></span></span><span class="val num">285</span></div>
-<div class="bar"><span class="lbl">Form</span><span class="track"><span class="fill" style="width:77.2%"></span></span><span class="val num">275</span></div>
-<div class="bar"><span class="lbl">Manufacturer</span><span class="track"><span class="fill" style="width:16.9%"></span></span><span class="val num">60</span></div>
-<div class="bar"><span class="lbl">Stratum</span><span class="track"><span class="fill" style="width:3.9%"></span></span><span class="val num">14</span></div>
-<div class="bar"><span class="lbl">Presentation</span><span class="track"><span class="fill" style="width:3.9%"></span></span><span class="val num">14</span></div>
-<div class="bar"><span class="lbl">DrugName</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
-<div class="bar"><span class="lbl">Dosage</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
-<div class="bar"><span class="lbl">Country</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
-<div class="bar"><span class="lbl">RegistrationNumber</span><span class="track"><span class="fill" style="width:1.7%"></span></span><span class="val num">6</span></div>
-</div>
-<div class="cols" style="margin-top:22px">
-<div><div class="tw"><table><thead><tr><th colspan="2">Price movement</th></tr></thead><tbody><tr><td>Increases</td><td class="n up">268</td></tr><tr><td>Decreases</td><td class="n down">84</td></tr><tr><td>Median move</td><td class="n">10.0%</td></tr><tr><td>Placeholder corrections</td><td class="n">4</td></tr></tbody></table></div></div>
-<div><div class="tw"><table><thead><tr><th>Largest decreases</th><th style="text-align:right">L.L</th><th style="text-align:right">Δ</th></tr></thead><tbody>
-<tr><td class="b">SUBIFIX</td><td class="n">2,392,040 → 806,306</td><td class="n down">-66%</td></tr>
-<tr><td class="b">CEFUMAX</td><td class="n">415,247 → 158,573</td><td class="n down">-62%</td></tr>
-<tr><td class="b">BLEO-CELL</td><td class="n">3,817,857 → 1,478,227</td><td class="n down">-61%</td></tr>
-<tr><td class="b">ADALIREL</td><td class="n">7,805,376 → 3,628,375</td><td class="n down">-54%</td></tr>
-<tr><td class="b">CETRAK</td><td class="n">806,306 → 415,247</td><td class="n down">-49%</td></tr>
-</tbody></table></div></div></div>
-<div class="note"><b>Four rows were not price rises.</b> These drugs had left the bulletin earlier and were carried in the register at a placeholder price; returning to this bulletin restored a real one. They are excluded from the median above.<br><br><span class="mono">10638</span> VESICULTURE — <span class="mono">214</span> → <span class="mono">16,638,263 L.L</span><br><span class="mono">7976</span> SOJOURN — <span class="mono">419</span> → <span class="mono">13,214,389 L.L</span><br><span class="mono">7372</span> LEVE TAD — <span class="mono">31</span> → <span class="mono">2,872,060 L.L</span><br><span class="mono">9534</span> CORYFIN GOLA DOLORE — <span class="mono">6</span> → <span class="mono">808,993 L.L</span></div>
-<div class="cols" style="margin-top:22px">
-<div><div class="tw"><table><thead><tr><th>Agent transfer</th><th style="text-align:right">Drugs</th></tr></thead><tbody>
-<tr><td>Abela Freres S.A.L. <span style="color:var(--faint)">→</span> <b>Abela Frères S.A.L.</b></td><td class="n">266</td></tr>
-<tr><td>Levant Alie Houses S.A.L. <span style="color:var(--faint)">→</span> <b>Interpharma S.A.L.</b></td><td class="n">8</td></tr>
-<tr><td>Pharmadex <span style="color:var(--faint)">→</span> <b>Riad Pharmacy</b></td><td class="n">4</td></tr>
-<tr><td>Soins et Sante <span style="color:var(--faint)">→</span> <b>Soins et Santé</b></td><td class="n">3</td></tr>
-<tr><td>BiofinPharma Middle East S.A.L. <span style="color:var(--faint)">→</span> <b>Pharmamedic S.A.R.L.</b></td><td class="n">3</td></tr>
-<tr><td>Droguerie de l&#x27;Union <span style="color:var(--faint)">→</span> <b>Omnipharma</b></td><td class="n">1</td></tr>
-</tbody></table></div><p class="caption">266 of these are the same agent respelled with its accent (Abela Frères), not a transfer of marketing rights.</p></div>
-<div><div class="tw"><table><thead><tr><th>Manufacturer change</th><th style="text-align:right">Drugs</th></tr></thead><tbody>
-<tr><td>Benta SAL under license from Viatris Sante, France <span style="color:var(--faint)">→</span> <b>Benta SAL under license from Viatris Santé, France</b></td><td class="n">13</td></tr>
-<tr><td>Pharmaline Licensed by Merck Sante SAS, France <span style="color:var(--faint)">→</span> <b>Pharmaline Licensed by Merck Santé SAS, France</b></td><td class="n">8</td></tr>
-<tr><td>Arrow Generiques <span style="color:var(--faint)">→</span> <b>Arrow Génériques</b></td><td class="n">5</td></tr>
-<tr><td>SAJA- Saudi Arabia Japanese Pharmaceutical Co <span style="color:var(--faint)">→</span> <b>SAJA-Saudi Arabian Japanese Pharmaceutical Co</b></td><td class="n">4</td></tr>
-<tr><td>Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals) <span style="color:var(--faint)">→</span> <b>SAJA-Saudi Arabian Japanese Pharmaceutical Co</b></td><td class="n">4</td></tr>
-<tr><td>Stallergenes <span style="color:var(--faint)">→</span> <b>Stallergènes</b></td><td class="n">4</td></tr>
-<tr><td>Centre Specialites Pharmaceutiques <span style="color:var(--faint)">→</span> <b>Centre Specialités Pharmaceutiques</b></td><td class="n">3</td></tr>
-<tr><td>Sandoz GmbH, (Schaftenau) <span style="color:var(--faint)">→</span> <b>Novartis Pharmaceutical Manufacturing GmbH</b></td><td class="n">3</td></tr>
-</tbody></table></div><p class="caption">17 distinct changes across 60 drugs.</p></div>
-</div></section>
-<section><div class='shead'><span class='snum'>04</span><h2>Register completeness</h2><span class='count'>after backfill</span></div>
-<p class="lede">The bulletin carries 11 commercial columns only, so every drug it inserts arrives with no ATC, ingredients, route or brand/generic. Those were filled from the MoPH website for both registers. Counts are cells still empty.</p>
-<div class="cols">
-<div><div class="tw"><table><thead><tr><th>medapiv2 · marketed</th><th style="text-align:right">5,734 rows</th></tr></thead><tbody>
-<tr><td class="c">ATC_Code</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">OtherIngredients</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">Dosage</td><td class="n">5</td></tr>
-<tr><td class="c">Form</td><td class="n">4</td></tr>
-<tr><td class="c">RouteLNDI</td><td class="n">2</td></tr>
-<tr><td class="c">ProductType</td><td class="n">1</td></tr>
-</tbody></table></div></div>
-<div><div class="tw"><table><thead><tr><th>medlist · all rows</th><th style="text-align:right">5,765 rows</th></tr></thead><tbody>
-<tr><td class="c">atc</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">bg</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">ingredients</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">strength</td><td class="n">11</td></tr>
-<tr><td class="c">form</td><td class="n" style="color:var(--accent)">0</td></tr>
-<tr><td class="c">route_lndi</td><td class="n">1</td></tr>
-</tbody></table></div></div>
-</div>
-<p class="caption">Filled this cycle: ommal_medapiv2 4,712 cells · ommal_medlist 3,484 cells. No populated cell was overwritten.</p>
+<section><div class='shead'><span class='snum'>02</span><h2>Removed</h2><span class='count'>7 drugs</span></div>
+<p class="lede">Held in the register but absent from this bulletin. Flagged NotMarketed rather than deleted, so prescribing history stays resolvable.</p>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>ATC</th><th>Ingredients</th><th>Form</th><th>Agent</th><th style='text-align:right'>Last price L.L</th></tr></thead><tbody>
+<tr><td class="c">1161</td><td class="b">CALCIUM RESONIUM</td><td class="atc">V03AE01</td><td class="ing">Calcium Polystyrene Sulphonate - 15g</td><td>Powder</td><td>Mersaco</td><td class="n">2,053,391</td></tr>
+<tr><td class="c">1842</td><td class="b">CEFUMAX</td><td class="atc">J01DC02</td><td class="ing">Cefuroxime (sodium) - 750mg</td><td></td><td>C. Catafago &amp; Co</td><td class="n">159,917</td></tr>
+<tr><td class="c">10908</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 500IU/Vial</td><td>Powder and solvent for solution for injection</td><td>Mersaco</td><td class="n">38,126,657</td></tr>
+<tr><td class="c">10909</td><td class="b">ESPEROCT</td><td class="atc">B02BD02</td><td class="ing">Turoctocog Alfa pegol (recombinant coagulation factor VIII) - 1000IU/Vial</td><td>Powder and solvent for solution for injection</td><td>Mersaco</td><td class="n">75,761,363</td></tr>
+<tr><td class="c">439</td><td class="b">SOLU MEDROL Act-O-Vial</td><td class="atc">H02AB04</td><td class="ing">Methylprednisolone sodium succinate - 40mg</td><td>Injectable</td><td>Droguerie Fattal  S.A.L.</td><td class="n">318,491</td></tr>
+<tr><td class="c">9126</td><td class="b">VILAPRO CHRONO 500</td><td class="atc">N03AG01</td><td class="ing">Sodium valproate - 333mg, Valproic acid - 145mg</td><td>Tablet, film coated, prolonged release</td><td>Sadco</td><td class="n">217,702</td></tr>
+<tr><td class="c">12416</td><td class="b">α DEXAMETHASONE SODIUM PHOSPHATE USP</td><td class="atc">H02AB02</td><td class="ing">Dexamethasone (sodium phosphate) - 8mg/2ml</td><td></td><td>Alfa Laboratoires S.A.L.</td><td class="n">44,795</td></tr>
+</tbody></table></div></section>
+<section><div class='shead'><span class='snum'>03</span><h2>Modified</h2><span class='count'>973 drugs · 1,028 field changes</span></div>
+<p class="lede">Every modified field, grouped by what changed. A drug appears under each field the bulletin altered, so the field changes outnumber the drugs.</p>
+<h3 class="sub">Price <span class="hint">Public price in L.L</span><span class="n">356</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th style="text-align:right">Before</th><th style="text-align:right">After</th><th style="text-align:right">Change</th></tr></thead><tbody>
+<tr><td class="c">10574</td><td class="b">0.45% SODIUM CHLORIDE INJECTION USP</td><td class="n was">160,885</td><td class="n">176,974</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">11135</td><td class="b">0.45% SODIUM CHLORIDE INJECTION USP</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">12179</td><td class="b">0.45% SODIUM CHLORIDE INJECTION USP</td><td class="n was">144,797</td><td class="n">159,736</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12182</td><td class="b">0.45% SODIUM CHLORIDE INJECTION USP</td><td class="n was">162,034</td><td class="n">178,123</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">10570</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">145,946</td><td class="n">160,885</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">10571</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">151,692</td><td class="n">166,631</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">10572</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">164,333</td><td class="n">180,421</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">10573</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">688,359</td><td class="n">757,310</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">10575</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">144,797</td><td class="n">159,736</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">11136</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11137</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">209,151</td><td class="n">229,836</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">11138</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">222,941</td><td class="n">244,775</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">11139</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">181,570</td><td class="n">199,957</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12052</td><td class="b">0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">170,079</td><td class="n">187,316</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10614</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">219,493</td><td class="n">241,328</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">10615</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">170,079</td><td class="n">187,316</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10616</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">194,211</td><td class="n">213,747</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11140</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">284,997</td><td class="n">313,726</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11141</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">220,643</td><td class="n">242,477</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">11142</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">252,820</td><td class="n">278,102</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">12180</td><td class="b">10% DEXTROSE INJECTION USP</td><td class="n was">170,079</td><td class="n">187,316</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10611</td><td class="b">2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">172,377</td><td class="n">189,615</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">11143</td><td class="b">2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">224,090</td><td class="n">247,074</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12178</td><td class="b">2.5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">172,377</td><td class="n">189,615</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">7212</td><td class="b">20 MEQ POTASSIUM OF 0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">278,102</td><td class="n">305,682</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9378</td><td class="b">20 MEQ POTASSIUM OF 0.9% SODIUM CHLORIDE INJECTION USP</td><td class="n was">229,959</td><td class="n">252,820</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">7211</td><td class="b">20 MEQ POTASSIUM OF 5% DEXTROSE AND 0.45% SODIUM CHLORIDE INJECTION USP</td><td class="n was">229,959</td><td class="n">252,820</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">10612</td><td class="b">5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">179,272</td><td class="n">197,659</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">11144</td><td class="b">5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">224,090</td><td class="n">247,074</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12176</td><td class="b">5% DEXTROSE 0.45% SODIUM CHLORIDE INJECTION</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10613</td><td class="b">5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">11145</td><td class="b">5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION</td><td class="n was">226,388</td><td class="n">249,372</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">12181</td><td class="b">5% DEXTROSE 0.9% SODIUM CHLORIDE INJECTION</td><td class="n was">195,361</td><td class="n">214,897</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">10566</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">148,244</td><td class="n">163,184</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10567</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">148,244</td><td class="n">163,184</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10568</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">159,736</td><td class="n">175,825</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10569</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">179,272</td><td class="n">197,659</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">11146</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">191,913</td><td class="n">211,449</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">11147</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">191,913</td><td class="n">211,449</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">11148</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">208,002</td><td class="n">228,687</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">11149</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">224,090</td><td class="n">247,074</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12128</td><td class="b">5% DEXTROSE INJECTION USP</td><td class="n was">186,167</td><td class="n">204,554</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">12127</td><td class="b">7.5% DEXTROSE INJECTION USP</td><td class="n was">202,256</td><td class="n">222,941</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">12468</td><td class="b">9% SODIUM CHLORIDE</td><td class="n was">255,118</td><td class="n">280,400</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9768</td><td class="b">ACIDE ALENDRONIQUE/ VITAMINE D3 BGR</td><td class="n was">815,712</td><td class="n">784,804</td><td class="n down">-3.8%</td></tr>
+<tr><td class="c">11585</td><td class="b">ADALIREL</td><td class="n was">7,805,376</td><td class="n">3,628,375</td><td class="n down">-53.5%</td></tr>
+<tr><td class="c">4468</td><td class="b">ADELPHAN ESIDREX</td><td class="n was">371,157</td><td class="n">371,156</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">9772</td><td class="b">ALDEX</td><td class="n was">174,062</td><td class="n">190,764</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9790</td><td class="b">ALDEX</td><td class="n was">174,062</td><td class="n">190,764</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9791</td><td class="b">ALDEX</td><td class="n was">170,630</td><td class="n">187,316</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9792</td><td class="b">ALDEX</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9793</td><td class="b">ALDEX</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">978</td><td class="b">APO-ATENOL</td><td class="n was">327,898</td><td class="n">298,333</td><td class="n down">-9.0%</td></tr>
+<tr><td class="c">6092</td><td class="b">APO-ATORVASTATIN</td><td class="n was">889,624</td><td class="n">808,993</td><td class="n down">-9.1%</td></tr>
+<tr><td class="c">6093</td><td class="b">APO-ATORVASTATIN</td><td class="n was">1,088,378</td><td class="n">1,416,410</td><td class="n up">+30.1%</td></tr>
+<tr><td class="c">6094</td><td class="b">APO-ATORVASTATIN</td><td class="n was">1,405,390</td><td class="n">1,828,970</td><td class="n up">+30.1%</td></tr>
+<tr><td class="c">983</td><td class="b">APO-CARBAMAZEPINE</td><td class="n was">727,019</td><td class="n">661,171</td><td class="n down">-9.1%</td></tr>
+<tr><td class="c">5982</td><td class="b">APO-CLOPIDOGREL</td><td class="n was">911,125</td><td class="n">858,715</td><td class="n down">-5.8%</td></tr>
+<tr><td class="c">3571</td><td class="b">APO-PRAVASTATIN</td><td class="n was">958,160</td><td class="n">872,154</td><td class="n down">-9.0%</td></tr>
+<tr><td class="c">3579</td><td class="b">APO-PRAVASTATIN</td><td class="n was">775,397</td><td class="n">705,517</td><td class="n down">-9.0%</td></tr>
+<tr><td class="c">5589</td><td class="b">APO-TERBINAFINE</td><td class="n was">1,409,691</td><td class="n">1,245,742</td><td class="n down">-11.6%</td></tr>
+<tr><td class="c">8143</td><td class="b">ARCHIFAR</td><td class="n was">6,443,725</td><td class="n">6,344,280</td><td class="n down">-1.5%</td></tr>
+<tr><td class="c">12685</td><td class="b">ARIXTRA</td><td class="n was">2,369,194</td><td class="n">5,341,774</td><td class="n up">+125.5%</td></tr>
+<tr><td class="c">12686</td><td class="b">ARIXTRA</td><td class="n was">5,171,061</td><td class="n">12,004,668</td><td class="n up">+132.2%</td></tr>
+<tr><td class="c">10940</td><td class="b">ARTICAINE MEDIS ADRENALINE</td><td class="n was">1,881,380</td><td class="n">1,881,379</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4270</td><td class="b">AURIMEL</td><td class="n was">319,963</td><td class="n">319,962</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10550</td><td class="b">AVIXAN</td><td class="n was">2,777,275</td><td class="n">2,777,274</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10551</td><td class="b">AVIXAN</td><td class="n was">2,777,275</td><td class="n">2,777,274</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">5397</td><td class="b">BISOCOR 5 PLUS</td><td class="n was">678,321</td><td class="n">678,320</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7551</td><td class="b">BLEO-CELL</td><td class="n was">3,817,857</td><td class="n">1,478,227</td><td class="n down">-61.3%</td></tr>
+<tr><td class="c">5734</td><td class="b">BRUFEN</td><td class="n was">342,384</td><td class="n">454,518</td><td class="n up">+32.8%</td></tr>
+<tr><td class="c">5735</td><td class="b">BRUFEN</td><td class="n was">423,121</td><td class="n">544,226</td><td class="n up">+28.6%</td></tr>
+<tr><td class="c">9629</td><td class="b">CABOMETYX</td><td class="n was">440,893,501</td><td class="n">335,934,871</td><td class="n down">-23.8%</td></tr>
+<tr><td class="c">9630</td><td class="b">CABOMETYX</td><td class="n was">440,893,501</td><td class="n">335,934,871</td><td class="n down">-23.8%</td></tr>
+<tr><td class="c">9631</td><td class="b">CABOMETYX</td><td class="n was">440,893,501</td><td class="n">335,934,871</td><td class="n down">-23.8%</td></tr>
+<tr><td class="c">5766</td><td class="b">CAPEDA</td><td class="n was">4,927,423</td><td class="n">4,927,422</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">1659</td><td class="b">CEFADRIL</td><td class="n was">268,769</td><td class="n">268,768</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7242</td><td class="b">CEFPROZ 250</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12681</td><td class="b">CEFUMAX</td><td class="n was">415,247</td><td class="n">158,573</td><td class="n down">-61.8%</td></tr>
+<tr><td class="c">12680</td><td class="b">CETRAK</td><td class="n was">806,306</td><td class="n">415,247</td><td class="n down">-48.5%</td></tr>
+<tr><td class="c">3780</td><td class="b">CETRAXAL OTICO</td><td class="n was">821,088</td><td class="n">759,271</td><td class="n down">-7.5%</td></tr>
+<tr><td class="c">12668</td><td class="b">CLAVODIS</td><td class="n was">627,127</td><td class="n">627,126</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">6342</td><td class="b">CRESULIP 10</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">6343</td><td class="b">CRESULIP 20</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4285</td><td class="b">CYCLOVEX</td><td class="n was">1,164,664</td><td class="n">1,164,663</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7511</td><td class="b">D-CURE</td><td class="n was">467,657</td><td class="n">432,717</td><td class="n down">-7.5%</td></tr>
+<tr><td class="c">4112</td><td class="b">DEXTROSE</td><td class="n was">329,815</td><td class="n">363,141</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4113</td><td class="b">DEXTROSE</td><td class="n was">287,295</td><td class="n">316,024</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4114</td><td class="b">DEXTROSE</td><td class="n was">369,209</td><td class="n">405,661</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4115</td><td class="b">DEXTROSE</td><td class="n was">170,630</td><td class="n">187,316</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4117</td><td class="b">DEXTROSE</td><td class="n was">194,211</td><td class="n">213,747</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4119</td><td class="b">DEXTROSE</td><td class="n was">219,493</td><td class="n">241,328</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4122</td><td class="b">DEXTROSE</td><td class="n was">174,062</td><td class="n">190,764</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4124</td><td class="b">DEXTROSE</td><td class="n was">174,062</td><td class="n">190,764</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4126</td><td class="b">DEXTROSE</td><td class="n was">170,630</td><td class="n">187,316</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4128</td><td class="b">DEXTROSE</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4130</td><td class="b">DEXTROSE</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9379</td><td class="b">DEXTROSE</td><td class="n was">170,630</td><td class="n">187,316</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9558</td><td class="b">DEXTROSE</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9559</td><td class="b">DEXTROSE</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9586</td><td class="b">DEXTROSE</td><td class="n was">195,361</td><td class="n">214,897</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9708</td><td class="b">DEXTROSE</td><td class="n was">224,565</td><td class="n">247,074</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9773</td><td class="b">DEXTROSE</td><td class="n was">185,340</td><td class="n">203,405</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">11651</td><td class="b">DEXTROSE</td><td class="n was">252,820</td><td class="n">278,102</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">11653</td><td class="b">DEXTROSE</td><td class="n was">284,997</td><td class="n">313,726</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11654</td><td class="b">DEXTROSE</td><td class="n was">220,643</td><td class="n">242,477</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">12165</td><td class="b">DEXTROSE</td><td class="n was">312,577</td><td class="n">343,605</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4749</td><td class="b">DEXTROSE 10% INJECTION, USP</td><td class="n was">217,195</td><td class="n">239,029</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4750</td><td class="b">DEXTROSE 10% INJECTION, USP</td><td class="n was">191,913</td><td class="n">211,449</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4751</td><td class="b">DEXTROSE 10% INJECTION, USP</td><td class="n was">168,929</td><td class="n">186,167</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4157</td><td class="b">DEXTROSE 2.5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4159</td><td class="b">DEXTROSE 2.5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">198,578</td><td class="n">218,344</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">11652</td><td class="b">DEXTROSE 2.5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">224,090</td><td class="n">247,074</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12164</td><td class="b">DEXTROSE 2.5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">212,598</td><td class="n">234,433</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4754</td><td class="b">DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">185,018</td><td class="n">203,405</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4755</td><td class="b">DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">174,675</td><td class="n">191,913</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4756</td><td class="b">DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">148,566</td><td class="n">163,184</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4752</td><td class="b">DEXTROSE 20% INJECTION USP</td><td class="n was">316,025</td><td class="n">348,202</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4753</td><td class="b">DEXTROSE 20% INJECTION USP</td><td class="n was">183,869</td><td class="n">202,256</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4147</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.2%</td><td class="n was">194,165</td><td class="n">213,747</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4155</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.2%</td><td class="n was">220,643</td><td class="n">242,477</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4149</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.3%</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4151</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.3%</td><td class="n was">204,554</td><td class="n">225,239</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4153</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.3%</td><td class="n was">220,643</td><td class="n">242,477</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4142</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4144</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9372</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">217,210</td><td class="n">239,029</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9373</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.45%</td><td class="n was">240,255</td><td class="n">264,311</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4134</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.9%</td><td class="n was">189,262</td><td class="n">209,151</td><td class="n up">+10.5%</td></tr>
+<tr><td class="c">4136</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.9%</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4138</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.9%</td><td class="n was">207,894</td><td class="n">228,687</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9711</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.9%</td><td class="n was">198,578</td><td class="n">218,344</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9712</td><td class="b">DEXTROSE 5% &amp; SODIUM CHLORIDE 0.9%</td><td class="n was">226,036</td><td class="n">249,372</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4133</td><td class="b">DEXTROSE 5% IN LACTATED RINGER&#x27;S</td><td class="n was">207,404</td><td class="n">227,538</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4808</td><td class="b">DEXTROSE 5% INJECTION USP</td><td class="n was">158,587</td><td class="n">174,675</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4809</td><td class="b">DEXTROSE 5% INJECTION USP</td><td class="n was">171,228</td><td class="n">188,466</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4779</td><td class="b">DEXTROSE 5% INJECTION, USP</td><td class="n was">193,062</td><td class="n">212,598</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4790</td><td class="b">DEXTROSE 5% INJECTION, USP</td><td class="n was">171,228</td><td class="n">188,466</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4801</td><td class="b">DEXTROSE 5% INJECTION, USP</td><td class="n was">158,587</td><td class="n">174,675</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4764</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">193,062</td><td class="n">212,598</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4765</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4766</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">148,566</td><td class="n">163,184</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4767</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">194,211</td><td class="n">213,747</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4769</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4770</td><td class="b">DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">186,167</td><td class="n">204,554</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4748</td><td class="b">DEXTROSE 7.5% INJECTION USP</td><td class="n was">148,566</td><td class="n">163,184</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4810</td><td class="b">DEXTROSE 7.5% INJECTION USP</td><td class="n was">179,456</td><td class="n">197,659</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4747</td><td class="b">DEXTROSE 7.5% INJECTION USP</td><td class="n was">163,184</td><td class="n">179,272</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">5198</td><td class="b">DEXTROSE INJECTION 5%</td><td class="n was">212,797</td><td class="n">234,433</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">5999</td><td class="b">DOMIDONE CHAPHA SUGAR FREE</td><td class="n was">319,963</td><td class="n">319,962</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7791</td><td class="b">DULOXA 60</td><td class="n was">831,903</td><td class="n">831,902</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12684</td><td class="b">DUODART</td><td class="n was">768,678</td><td class="n">2,369,194</td><td class="n up">+208.2%</td></tr>
+<tr><td class="c">5157</td><td class="b">DURALIS</td><td class="n was">1,204,979</td><td class="n">1,279,850</td><td class="n up">+6.2%</td></tr>
+<tr><td class="c">9260</td><td class="b">DURALIS</td><td class="n was">624,567</td><td class="n">351,959</td><td class="n down">-43.6%</td></tr>
+<tr><td class="c">4163</td><td class="b">ELECTROLYE 67</td><td class="n was">165,727</td><td class="n">181,570</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">6213</td><td class="b">ENTEROGERMINA</td><td class="n was">1,131,515</td><td class="n">1,263,212</td><td class="n up">+11.6%</td></tr>
+<tr><td class="c">6420</td><td class="b">ENTEROGERMINA</td><td class="n was">595,322</td><td class="n">665,202</td><td class="n up">+11.7%</td></tr>
+<tr><td class="c">11121</td><td class="b">ENTEROGERMINA</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11558</td><td class="b">ENZASTIK 40</td><td class="n was">82,838,963</td><td class="n">82,838,962</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10622</td><td class="b">EVENITY</td><td class="n was">56,729,091</td><td class="n">45,037,725</td><td class="n down">-20.6%</td></tr>
+<tr><td class="c">3683</td><td class="b">FASTUM</td><td class="n was">177,387</td><td class="n">236,516</td><td class="n up">+33.3%</td></tr>
+<tr><td class="c">11553</td><td class="b">FASTUM</td><td class="n was">337,304</td><td class="n">448,843</td><td class="n up">+33.1%</td></tr>
+<tr><td class="c">8739</td><td class="b">FLOXIN-L 500</td><td class="n was">831,903</td><td class="n">831,902</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">5091</td><td class="b">GEMTABINE 200</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7744</td><td class="b">GOLASEPTINE-LIDOCAINE</td><td class="n was">736,426</td><td class="n">682,672</td><td class="n down">-7.3%</td></tr>
+<tr><td class="c">4423</td><td class="b">GRISEOFULVIN</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">8424</td><td class="b">HEDECTON COUGH</td><td class="n was">467,657</td><td class="n">432,717</td><td class="n down">-7.5%</td></tr>
+<tr><td class="c">6211</td><td class="b">HEMAX</td><td class="n was">33,852,747</td><td class="n">21,786,122</td><td class="n down">-35.6%</td></tr>
+<tr><td class="c">4165</td><td class="b">HI-SODIUM INJECTION</td><td class="n was">176,024</td><td class="n">193,062</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4773</td><td class="b">HI-SODIUM INJECTION WITH POTASSIUM</td><td class="n was">165,727</td><td class="n">181,570</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4772</td><td class="b">HI-SODIUM WITHOUT POTASSIUM INJECTION</td><td class="n was">166,708</td><td class="n">183,869</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4508</td><td class="b">HYGROTON</td><td class="n was">422,351</td><td class="n">422,350</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">9893</td><td class="b">HYPOTONIC SALINE</td><td class="n was">149,393</td><td class="n">164,333</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9894</td><td class="b">HYPOTONIC SALINE</td><td class="n was">163,184</td><td class="n">179,272</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">3938</td><td class="b">INFLORAN</td><td class="n was">647,732</td><td class="n">873,498</td><td class="n up">+34.9%</td></tr>
+<tr><td class="c">9189</td><td class="b">ISOTONIC SALINE</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9190</td><td class="b">ISOTONIC SALINE</td><td class="n was">174,553</td><td class="n">191,913</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9892</td><td class="b">ISOTONIC SALINE</td><td class="n was">167,780</td><td class="n">185,018</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">9895</td><td class="b">ISOTONIC SALINE</td><td class="n was">170,630</td><td class="n">187,316</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9896</td><td class="b">ISOTONIC SALINE</td><td class="n was">166,708</td><td class="n">183,869</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">1735</td><td class="b">KETOLAC</td><td class="n was">268,769</td><td class="n">268,768</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">1736</td><td class="b">KETOLAC</td><td class="n was">268,769</td><td class="n">268,768</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4166</td><td class="b">LACTATED RINGER&#x27;S</td><td class="n was">147,095</td><td class="n">162,034</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">4167</td><td class="b">LACTATED RINGER&#x27;S</td><td class="n was">218,681</td><td class="n">240,179</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4169</td><td class="b">LACTATED RINGER&#x27;S</td><td class="n was">234,862</td><td class="n">257,416</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9376</td><td class="b">LACTATED RINGER&#x27;S</td><td class="n was">268,908</td><td class="n">295,339</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9377</td><td class="b">LACTATED RINGER&#x27;S</td><td class="n was">239,275</td><td class="n">263,162</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">12129</td><td class="b">LACTATED RINGER&#x27;S INJECTION USP</td><td class="n was">224,090</td><td class="n">247,074</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12130</td><td class="b">LACTATED RINGER&#x27;S INJECTION USP</td><td class="n was">237,880</td><td class="n">262,013</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4774</td><td class="b">LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">232,134</td><td class="n">255,118</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4775</td><td class="b">LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">216,046</td><td class="n">237,880</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4776</td><td class="b">LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">158,587</td><td class="n">174,675</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11955</td><td class="b">LIPAFIB</td><td class="n was">627,127</td><td class="n">627,126</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12428</td><td class="b">LIPANCURE</td><td class="n was">627,127</td><td class="n">627,126</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4174</td><td class="b">LO-SODIUM INJECTION</td><td class="n was">179,456</td><td class="n">197,659</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4778</td><td class="b">LO-SODIUM WITH POTASSIUM INJECTION</td><td class="n was">165,727</td><td class="n">181,570</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4777</td><td class="b">LO-SODIUM WITHOUT POTASSIUM INJECTION</td><td class="n was">166,708</td><td class="n">183,869</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">9588</td><td class="b">LR</td><td class="n was">234,862</td><td class="n">257,416</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">9897</td><td class="b">LR</td><td class="n was">218,681</td><td class="n">240,179</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4177</td><td class="b">MANNITOL</td><td class="n was">406,810</td><td class="n">447,031</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4179</td><td class="b">MANNITOL</td><td class="n was">579,064</td><td class="n">636,646</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4187</td><td class="b">MANNITOL</td><td class="n was">329,815</td><td class="n">363,141</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4189</td><td class="b">MANNITOL</td><td class="n was">494,147</td><td class="n">543,562</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9587</td><td class="b">MANNITOL</td><td class="n was">613,662</td><td class="n">674,569</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4780</td><td class="b">MANNITOL 10% USP INJECTION</td><td class="n was">430,943</td><td class="n">474,611</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4781</td><td class="b">MANNITOL 10% USP INJECTION</td><td class="n was">326,367</td><td class="n">358,544</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">10936</td><td class="b">MANNITOL 20% INJECTION USP</td><td class="n was">374,633</td><td class="n">412,556</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11150</td><td class="b">MANNITOL 20% INJECTION USP</td><td class="n was">613,662</td><td class="n">674,569</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">12177</td><td class="b">MANNITOL 20% INJECTION USP</td><td class="n was">401,064</td><td class="n">441,285</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4782</td><td class="b">MANNITOL 20% INJECTION, USP</td><td class="n was">402,213</td><td class="n">442,434</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4783</td><td class="b">MANNITOL 20% INJECTION, USP</td><td class="n was">402,213</td><td class="n">442,434</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9370</td><td class="b">MIXTE SIMPLE (1)</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9371</td><td class="b">MIXTE SIMPLE (1)</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9710</td><td class="b">MIXTE SIMPLE (2)</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9713</td><td class="b">MIXTE SIMPLE (2)</td><td class="n was">207,894</td><td class="n">228,687</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">12678</td><td class="b">NAMBROL ADULTS</td><td class="n was">2,279,157</td><td class="n">2,392,040</td><td class="n up">+5.0%</td></tr>
+<tr><td class="c">4262</td><td class="b">NEANXETIN</td><td class="n was">422,351</td><td class="n">422,350</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12595</td><td class="b">NINTAVA</td><td class="n was">138,064,938</td><td class="n">138,064,937</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11212</td><td class="b">ONE-ALPHA</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">9555</td><td class="b">OSMITOL</td><td class="n was">579,064</td><td class="n">636,646</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4192</td><td class="b">PERITONEAL DIALYSIS SOLUTION WITH 1 1/2% DEXTROSE</td><td class="n was">490,807</td><td class="n">540,115</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4191</td><td class="b">PERITONEAL DIALYSIS SOLUTION WITH 4 1/4% DEXTROSE</td><td class="n was">498,744</td><td class="n">548,159</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">7787</td><td class="b">PHENYLEPHRINE HYDROCHLORIDE</td><td class="n was">10,282,281</td><td class="n">9,663,055</td><td class="n down">-6.0%</td></tr>
+<tr><td class="c">5345</td><td class="b">PIODIAB 30</td><td class="n was">2,111,753</td><td class="n">2,111,752</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">9715</td><td class="b">R-SOL</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9767</td><td class="b">RASAGILINE BIOGARAN</td><td class="n was">5,214,109</td><td class="n">5,011,189</td><td class="n down">-3.9%</td></tr>
+<tr><td class="c">5336</td><td class="b">RESTRALINE</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11625</td><td class="b">REVOLADE</td><td class="n was">56,272,182</td><td class="n">61,487,652</td><td class="n up">+9.3%</td></tr>
+<tr><td class="c">10552</td><td class="b">RIBAVAN</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10553</td><td class="b">RIBAVAN</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12469</td><td class="b">RINGER INJECTION</td><td class="n was">204,554</td><td class="n">225,239</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4181</td><td class="b">RINGER&#x27;S INJECTION USP</td><td class="n was">129,934</td><td class="n">142,498</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4182</td><td class="b">RINGER&#x27;S INJECTION USP</td><td class="n was">199,957</td><td class="n">219,493</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4184</td><td class="b">RINGER&#x27;S INJECTION USP</td><td class="n was">205,933</td><td class="n">226,388</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9714</td><td class="b">RINGER&#x27;S INJECTION USP</td><td class="n was">224,565</td><td class="n">247,074</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4784</td><td class="b">RINGER&#x27;S INJECTION, USP</td><td class="n was">204,554</td><td class="n">225,239</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4785</td><td class="b">RINGER&#x27;S INJECTION, USP</td><td class="n was">189,615</td><td class="n">209,151</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4786</td><td class="b">RINGER&#x27;S INJECTION, USP</td><td class="n was">154,450</td><td class="n">168,929</td><td class="n up">+9.4%</td></tr>
+<tr><td class="c">8261</td><td class="b">RISCHOTIC OD 1</td><td class="n was">371,157</td><td class="n">371,156</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">8262</td><td class="b">RISCHOTIC OD 2</td><td class="n was">371,157</td><td class="n">371,156</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10411</td><td class="b">RIXALTA 15</td><td class="n was">1,164,664</td><td class="n">1,164,663</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">10412</td><td class="b">RIXALTA 20</td><td class="n was">1,164,664</td><td class="n">1,164,663</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12248</td><td class="b">SEMATIDE</td><td class="n was">9,288,397</td><td class="n">7,054,533</td><td class="n down">-24.1%</td></tr>
+<tr><td class="c">12249</td><td class="b">SEMATIDE</td><td class="n was">9,288,397</td><td class="n">7,054,533</td><td class="n down">-24.1%</td></tr>
+<tr><td class="c">9955</td><td class="b">SERUFLEX DEXTROSE 5% INJECTION USP</td><td class="n was">171,228</td><td class="n">188,466</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9958</td><td class="b">SERUFLEX DEXTROSE 5% INJECTION USP</td><td class="n was">158,587</td><td class="n">174,675</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9957</td><td class="b">SERUFLEX DEXTROSE 5% INJECTION, USP</td><td class="n was">171,228</td><td class="n">188,466</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9999</td><td class="b">SERUFLEX DEXTROSE 5% INJECTION, USP</td><td class="n was">193,062</td><td class="n">212,598</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9483</td><td class="b">SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">193,062</td><td class="n">212,598</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9484</td><td class="b">SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">10076</td><td class="b">SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">194,211</td><td class="n">213,747</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10078</td><td class="b">SERUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9784</td><td class="b">SERUFLEX LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">232,134</td><td class="n">255,118</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9997</td><td class="b">SERUFLEX LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">216,046</td><td class="n">237,880</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9883</td><td class="b">SERUFLEX MANNITOL 20% INJECTION, USP</td><td class="n was">402,213</td><td class="n">442,434</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">10130</td><td class="b">SERUFLEX RINGER&#x27;S INJECTION, USP</td><td class="n was">204,554</td><td class="n">225,239</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9788</td><td class="b">SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">156,288</td><td class="n">172,377</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">9881</td><td class="b">SERUFLEX SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">165,482</td><td class="n">181,570</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">9560</td><td class="b">SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">9561</td><td class="b">SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">163,184</td><td class="n">179,272</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9786</td><td class="b">SERUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">156,288</td><td class="n">172,377</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4203</td><td class="b">SODIUM BICARBONATE</td><td class="n was">258,887</td><td class="n">284,997</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">4211</td><td class="b">SODIUM CHLORIDE</td><td class="n was">519,736</td><td class="n">571,142</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4212</td><td class="b">SODIUM CHLORIDE</td><td class="n was">167,780</td><td class="n">185,018</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4215</td><td class="b">SODIUM CHLORIDE</td><td class="n was">167,780</td><td class="n">185,018</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4217</td><td class="b">SODIUM CHLORIDE</td><td class="n was">166,708</td><td class="n">183,869</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4219</td><td class="b">SODIUM CHLORIDE</td><td class="n was">174,553</td><td class="n">191,913</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4221</td><td class="b">SODIUM CHLORIDE</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4223</td><td class="b">SODIUM CHLORIDE</td><td class="n was">133,856</td><td class="n">147,095</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4224</td><td class="b">SODIUM CHLORIDE</td><td class="n was">149,393</td><td class="n">164,333</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4225</td><td class="b">SODIUM CHLORIDE</td><td class="n was">163,184</td><td class="n">179,272</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9374</td><td class="b">SODIUM CHLORIDE</td><td class="n was">209,151</td><td class="n">229,836</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9375</td><td class="b">SODIUM CHLORIDE</td><td class="n was">222,941</td><td class="n">244,775</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9380</td><td class="b">SODIUM CHLORIDE</td><td class="n was">349,596</td><td class="n">383,826</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9556</td><td class="b">SODIUM CHLORIDE</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9557</td><td class="b">SODIUM CHLORIDE</td><td class="n was">182,720</td><td class="n">201,106</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9709</td><td class="b">SODIUM CHLORIDE</td><td class="n was">181,908</td><td class="n">199,957</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9774</td><td class="b">SODIUM CHLORIDE</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">9775</td><td class="b">SODIUM CHLORIDE</td><td class="n was">161,805</td><td class="n">178,123</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12481</td><td class="b">SODIUM CHLORIDE</td><td class="n was">144,797</td><td class="n">159,736</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4787</td><td class="b">SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">161,314</td><td class="n">176,974</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4788</td><td class="b">SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">149,393</td><td class="n">164,333</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4789</td><td class="b">SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">148,566</td><td class="n">163,184</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">4795</td><td class="b">SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">156,288</td><td class="n">172,377</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4796</td><td class="b">SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">165,482</td><td class="n">181,570</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4792</td><td class="b">SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">4793</td><td class="b">SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">163,184</td><td class="n">179,272</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">4794</td><td class="b">SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">156,288</td><td class="n">172,377</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">12436</td><td class="b">SOLUFLEX DEXTROSE 10% INJECTION, USP</td><td class="n was">219,493</td><td class="n">241,328</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">12437</td><td class="b">SOLUFLEX DEXTROSE 10% INJECTION, USP</td><td class="n was">251,670</td><td class="n">276,952</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">12438</td><td class="b">SOLUFLEX DEXTROSE 10% INJECTION, USP</td><td class="n was">283,847</td><td class="n">312,577</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12414</td><td class="b">SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">150,543</td><td class="n">165,482</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">12415</td><td class="b">SOLUFLEX DEXTROSE 2.5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">222,941</td><td class="n">244,775</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">9954</td><td class="b">SOLUFLEX DEXTROSE 5% INJECTION USP</td><td class="n was">186,167</td><td class="n">204,554</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9956</td><td class="b">SOLUFLEX DEXTROSE 5% INJECTION USP</td><td class="n was">186,167</td><td class="n">204,554</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9959</td><td class="b">SOLUFLEX DEXTROSE 5% INJECTION, USP</td><td class="n was">205,703</td><td class="n">226,388</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9998</td><td class="b">SOLUFLEX DEXTROSE 5% INJECTION, USP</td><td class="n was">221,792</td><td class="n">243,626</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">12064</td><td class="b">SOLUFLEX DEXTROSE 5% INJECTION, USP</td><td class="n was">185,018</td><td class="n">203,405</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">9562</td><td class="b">SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">236,731</td><td class="n">260,864</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9563</td><td class="b">SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">211,449</td><td class="n">232,134</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">10077</td><td class="b">SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">222,941</td><td class="n">244,775</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">10131</td><td class="b">SOLUFLEX DEXTROSE 5% SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">158,587</td><td class="n">214,897</td><td class="n up">+35.5%</td></tr>
+<tr><td class="c">9585</td><td class="b">SOLUFLEX LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">264,311</td><td class="n">290,743</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9584</td><td class="b">SOLUFLEX LACTATED RINGER&#x27;S INJECTION, USP</td><td class="n was">236,731</td><td class="n">260,864</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9785</td><td class="b">SOLUFLEX MANNITOL 20% INJECTION, USP</td><td class="n was">603,320</td><td class="n">664,226</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11425</td><td class="b">SOLUFLEX POTASSIUM CHLORIDE 20meq/l SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">232,134</td><td class="n">255,118</td><td class="n up">+9.9%</td></tr>
+<tr><td class="c">11424</td><td class="b">SOLUFLEX POTASSIUM CHLORIDE 40meq/l SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">293,041</td><td class="n">322,920</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">10129</td><td class="b">SOLUFLEX RINGER&#x27;S INJECTION, USP</td><td class="n was">221,792</td><td class="n">243,626</td><td class="n up">+9.8%</td></tr>
+<tr><td class="c">12435</td><td class="b">SOLUFLEX RINGER&#x27;S INJECTION, USP</td><td class="n was">216,046</td><td class="n">237,880</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12483</td><td class="b">SOLUFLEX RINGER&#x27;S INJECTION, USP</td><td class="n was">216,046</td><td class="n">237,880</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12065</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">176,974</td><td class="n">194,211</td><td class="n up">+9.7%</td></tr>
+<tr><td class="c">12439</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.45% INJECTION, USP</td><td class="n was">158,587</td><td class="n">174,675</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">9789</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9882</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION USP</td><td class="n was">180,421</td><td class="n">198,808</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9564</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">218,344</td><td class="n">240,179</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">9565</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">203,405</td><td class="n">224,090</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">9787</td><td class="b">SOLUFLEX SODIUM CHLORIDE 0.9% INJECTION, USP</td><td class="n was">179,272</td><td class="n">197,659</td><td class="n up">+10.3%</td></tr>
+<tr><td class="c">4227</td><td class="b">STERILE WATER FOR INJECTION</td><td class="n was">188,772</td><td class="n">206,852</td><td class="n up">+9.6%</td></tr>
+<tr><td class="c">4229</td><td class="b">STERILE WATER FOR INJECTION</td><td class="n was">203,481</td><td class="n">224,090</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">11650</td><td class="b">STERILE WATER FOR INJECTION</td><td class="n was">264,311</td><td class="n">290,743</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">12482</td><td class="b">STERILE WATER FOR INJECTION</td><td class="n was">204,554</td><td class="n">225,239</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">10771</td><td class="b">STERILE WATER FOR INJECTION USP</td><td class="n was">203,405</td><td class="n">224,090</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">11151</td><td class="b">STERILE WATER FOR INJECTION USP</td><td class="n was">264,311</td><td class="n">290,743</td><td class="n up">+10.0%</td></tr>
+<tr><td class="c">4231</td><td class="b">STERILE WATER FOR IRRIGATION</td><td class="n was">203,481</td><td class="n">224,090</td><td class="n up">+10.1%</td></tr>
+<tr><td class="c">12679</td><td class="b">SUBIFIX</td><td class="n was">2,392,040</td><td class="n">806,306</td><td class="n down">-66.3%</td></tr>
+<tr><td class="c">10565</td><td class="b">TARESSA 150</td><td class="n was">98,617,813</td><td class="n">98,617,812</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4263</td><td class="b">TRILTEC</td><td class="n was">524,739</td><td class="n">524,738</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">4266</td><td class="b">TRILTEC</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11179</td><td class="b">TWINCARD 80/10</td><td class="n was">1,460,309</td><td class="n">956,048</td><td class="n down">-34.5%</td></tr>
+<tr><td class="c">11178</td><td class="b">TWINCARD 80/5</td><td class="n was">1,131,387</td><td class="n">956,048</td><td class="n down">-15.5%</td></tr>
+<tr><td class="c">10731</td><td class="b">TYSABRI</td><td class="n was">126,830,594</td><td class="n">111,714,554</td><td class="n down">-11.9%</td></tr>
+<tr><td class="c">11064</td><td class="b">VAROXA</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11065</td><td class="b">VAROXA</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12682</td><td class="b">VAXIGRIP</td><td class="n was">158,573</td><td class="n">768,678</td><td class="n up">+384.7%</td></tr>
+<tr><td class="c">8829</td><td class="b">VENLAX XR 37.5</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">8828</td><td class="b">VENLAX XR 75</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">6387</td><td class="b">VERTINEX</td><td class="n was">371,157</td><td class="n">371,156</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7890</td><td class="b">VIOSTAN 160</td><td class="n was">668,082</td><td class="n">735,914</td><td class="n up">+10.2%</td></tr>
+<tr><td class="c">7972</td><td class="b">VIOSTAN 40</td><td class="n was">526,786</td><td class="n">527,298</td><td class="n up">+0.1%</td></tr>
+<tr><td class="c">7889</td><td class="b">VIOSTAN 80</td><td class="n was">526,786</td><td class="n">527,298</td><td class="n up">+0.1%</td></tr>
+<tr><td class="c">11340</td><td class="b">VIOSTAN AM PLUS 320/10/25</td><td class="n was">1,881,380</td><td class="n">1,881,379</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">7893</td><td class="b">VIOSTAN PLUS 160/12.5</td><td class="n was">668,082</td><td class="n">767,910</td><td class="n up">+14.9%</td></tr>
+<tr><td class="c">7894</td><td class="b">VIOSTAN PLUS 160/25</td><td class="n was">671,921</td><td class="n">767,910</td><td class="n up">+14.3%</td></tr>
+<tr><td class="c">7892</td><td class="b">VIOSTAN PLUS 80/12.5</td><td class="n was">547,520</td><td class="n">579,772</td><td class="n up">+5.9%</td></tr>
+<tr><td class="c">11476</td><td class="b">VOLDEN</td><td class="n was">422,351</td><td class="n">422,350</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">12655</td><td class="b">WEGOVY</td><td class="n was">13,332,689</td><td class="n">10,932,805</td><td class="n down">-18.0%</td></tr>
+<tr><td class="c">12657</td><td class="b">WEGOVY</td><td class="n was">13,332,689</td><td class="n">10,932,805</td><td class="n down">-18.0%</td></tr>
+<tr><td class="c">7648</td><td class="b">XALIPRO</td><td class="n was">2,418,917</td><td class="n">2,418,916</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11823</td><td class="b">ZARLAN</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">11825</td><td class="b">ZARLAN</td><td class="n was">1,343,843</td><td class="n">1,343,842</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">6222</td><td class="b">ZIOREL</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+<tr><td class="c">6223</td><td class="b">ZIOREL</td><td class="n was">575,933</td><td class="n">575,932</td><td class="n down">-0.0%</td></tr>
+</tbody></table></div>
+<div class="note"><b>Carried at a placeholder price.</b> These had left an earlier bulletin and sat at a token value; returning to this one restored a real price. They are not price rises.</div>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th style="text-align:right">Before</th><th style="text-align:right">After</th></tr></thead><tbody>
+<tr><td class="c">10638</td><td class="b">VESICULTURE</td><td class="n was">214</td><td class="n">16,638,263</td></tr>
+<tr><td class="c">7976</td><td class="b">SOJOURN</td><td class="n was">419</td><td class="n">13,214,389</td></tr>
+<tr><td class="c">7372</td><td class="b">LEVE TAD</td><td class="n was">31</td><td class="n">2,872,060</td></tr>
+<tr><td class="c">9534</td><td class="b">CORYFIN GOLA DOLORE</td><td class="n was">6</td><td class="n">808,993</td></tr>
+</tbody></table></div>
+<h3 class="sub">Agent <span class="hint">Local marketing agent</span><span class="n">285</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">12503</td><td class="b">A.B.C NIGHT</td><td class="was">Pharmadex</td><td>Riad Pharmacy</td></tr>
+<tr><td class="c">10544</td><td class="b">A.B.C.-COLD</td><td class="was">Pharmadex</td><td>Riad Pharmacy</td></tr>
+<tr><td class="c">10548</td><td class="b">A.S HEART</td><td class="was">Pharmadex</td><td>Riad Pharmacy</td></tr>
+<tr><td class="c">1340</td><td class="b">ACTOS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5959</td><td class="b">ACTOS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9705</td><td class="b">ACTOSMET</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7639</td><td class="b">ADVAGRAF</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7640</td><td class="b">ADVAGRAF</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7641</td><td class="b">ADVAGRAF</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7642</td><td class="b">ADVAGRAF</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5182</td><td class="b">AERIUS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7509</td><td class="b">AERIUS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11702</td><td class="b">AERIUS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12233</td><td class="b">AKEEGA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12234</td><td class="b">AKEEGA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10014</td><td class="b">ALERJON</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7555</td><td class="b">ANESTOCIL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10145</td><td class="b">ANORO ELLIPTA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8832</td><td class="b">ARIXTRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9359</td><td class="b">ARIXTRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12685</td><td class="b">ARIXTRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12686</td><td class="b">ARIXTRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9849</td><td class="b">AUGMENTIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10272</td><td class="b">AUGMENTIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8919</td><td class="b">AUGMENTIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12522</td><td class="b">AUGMENTIN DUO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6251</td><td class="b">AUGMENTIN ES</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5980</td><td class="b">AVAMYS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11160</td><td class="b">AVAMYS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10181</td><td class="b">AVODART</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10080</td><td class="b">BACLOCALM</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">10081</td><td class="b">BACLOCALM</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">9333</td><td class="b">BENDAVIVAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">508</td><td class="b">BETNOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">611</td><td class="b">BETNOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">612</td><td class="b">BETNOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10089</td><td class="b">BGLAU</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10079</td><td class="b">BINOSTO</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">1381</td><td class="b">BLOPRESS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">1382</td><td class="b">BLOPRESS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6018</td><td class="b">BLOPRESS PLUS 16MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6017</td><td class="b">BLOPRESS PLUS 8MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6451</td><td class="b">BOOSTRIX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5135</td><td class="b">BRUMIXOL</td><td class="was">Soins et Sante</td><td>Soins et Santé</td></tr>
+<tr><td class="c">11020</td><td class="b">CAELYX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8876</td><td class="b">CEFIZOX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7396</td><td class="b">CEMIVIL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7397</td><td class="b">CEMIVIL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12376</td><td class="b">CEPROTIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12377</td><td class="b">CEPROTIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7933</td><td class="b">CICLOPLEGICEDOL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12621</td><td class="b">CIDAKOG 125</td><td class="was">Droguerie de l&#x27;Union</td><td>Omnipharma</td></tr>
+<tr><td class="c">9399</td><td class="b">COLISTIN HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10516</td><td class="b">CRESEMBA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10517</td><td class="b">CRESEMBA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7495</td><td class="b">CUREAML</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10478</td><td class="b">CUVITRU</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10479</td><td class="b">CUVITRU</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11411</td><td class="b">DEFIROX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9351</td><td class="b">DERMOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9352</td><td class="b">DERMOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12372</td><td class="b">DERMOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12373</td><td class="b">DERMOVATE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">2417</td><td class="b">DIANEAL PD4 1.36% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9869</td><td class="b">DIANEAL PD4 1.36% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">2419</td><td class="b">DIANEAL PD4 2.27% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9865</td><td class="b">DIANEAL PD4 2.27% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">2420</td><td class="b">DIANEAL PD4 3.86% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9861</td><td class="b">DIANEAL PD4 3.86% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">2423</td><td class="b">DIANEAL PD4 CYCLER 1.36% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9867</td><td class="b">DIANEAL PD4 CYCLER 1.36% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7122</td><td class="b">DIANEAL PD4 CYCLER 2.27% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9864</td><td class="b">DIANEAL PD4 CYCLER 2.27% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">2426</td><td class="b">DIANEAL PD4 CYCLER 3.86% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9863</td><td class="b">DIANEAL PD4 CYCLER 3.86% GLUCOSE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9313</td><td class="b">DIFIRAX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9511</td><td class="b">DIFIRAX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8565</td><td class="b">DIPROFOS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8563</td><td class="b">DIPROSALIC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8560</td><td class="b">DIPROSONE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8016</td><td class="b">DIROGIT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11370</td><td class="b">DUAC ONCE DAILY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9706</td><td class="b">DUETACT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9707</td><td class="b">DUETACT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12684</td><td class="b">DUODART</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12171</td><td class="b">ECINQ</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10332</td><td class="b">EDOLFENE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9261</td><td class="b">ELOCOM</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7327</td><td class="b">ELTROXIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9856</td><td class="b">EMLA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">513</td><td class="b">ENDOXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12352</td><td class="b">ENDOXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10584</td><td class="b">ENGERIX-B 10</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">32</td><td class="b">ENGERIX-B 20</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11677</td><td class="b">ERLEADA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8980</td><td class="b">ESAC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">3600</td><td class="b">EXTRANEAL (ICODEXTRIN 7.5%) SINGLE BAG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">3599</td><td class="b">EXTRANEAL (ICODEXTRIN 7.5%) TWIN BAG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">3180</td><td class="b">FAVERIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10367</td><td class="b">FEIBA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10368</td><td class="b">FEIBA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6239</td><td class="b">FERINJECT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10107</td><td class="b">FLIXOTIDE EVOHALER</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10179</td><td class="b">FLIXOTIDE EVOHALER</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10180</td><td class="b">FLIXOTIDE EVOHALER</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7932</td><td class="b">FLOXEDOL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7214</td><td class="b">FLUORES</td><td class="was">Soins et Sante</td><td>Soins et Santé</td></tr>
+<tr><td class="c">8347</td><td class="b">FYCOMPA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8348</td><td class="b">FYCOMPA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8349</td><td class="b">FYCOMPA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8350</td><td class="b">FYCOMPA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8351</td><td class="b">FYCOMPA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6620</td><td class="b">GABATREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6621</td><td class="b">GABATREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6622</td><td class="b">GABATREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11644</td><td class="b">GABATREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5779</td><td class="b">GEMCITABINE THYMOORGAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5798</td><td class="b">GEMCITABINE THYMOORGAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10090</td><td class="b">HAIRGAINE 5</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9331</td><td class="b">HALAVEN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">28</td><td class="b">HAVRIX &#x27;1440&#x27;</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">33</td><td class="b">HAVRIX JUNIOR 720</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6624</td><td class="b">HIBOR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6625</td><td class="b">HIBOR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6860</td><td class="b">HIBOR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6861</td><td class="b">HIBOR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6283</td><td class="b">HIKMA CEFAZOLIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6995</td><td class="b">HIKMA MIDAZOLAM</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">516</td><td class="b">HOLOXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12354</td><td class="b">HOLOXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9703</td><td class="b">IMIGRAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9704</td><td class="b">IMIGRAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6254</td><td class="b">IMIPENEM-CILASTATIN LABATEC</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">6958</td><td class="b">IMMUNINE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7506</td><td class="b">IMURAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12294</td><td class="b">IMURAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5394</td><td class="b">INFANRIX HEXA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">34</td><td class="b">INFANRIX IPV + HIB</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6463</td><td class="b">IRINOTECAN THYMOORGAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6464</td><td class="b">IRINOTECAN THYMOORGAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5671</td><td class="b">ISOFLURANE HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7670</td><td class="b">KARBOTEEN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10535</td><td class="b">KEPPRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10536</td><td class="b">KEPPRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10537</td><td class="b">KEPPRA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6631</td><td class="b">KIOVIG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6632</td><td class="b">KIOVIG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5942</td><td class="b">LAMICTAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6527</td><td class="b">LAMICTAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6528</td><td class="b">LAMICTAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6526</td><td class="b">LAMICTAL LIQUI-TABS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7508</td><td class="b">LANOXIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7507</td><td class="b">LANOXIN PG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5134</td><td class="b">LANTIGEN B</td><td class="was">Soins et Sante</td><td>Soins et Santé</td></tr>
+<tr><td class="c">11735</td><td class="b">LAROZA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11736</td><td class="b">LAROZA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11737</td><td class="b">LAROZA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7268</td><td class="b">LEFFTARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8719</td><td class="b">LENVIMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8720</td><td class="b">LENVIMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8156</td><td class="b">LOTRIDERM</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12350</td><td class="b">LYXIA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12351</td><td class="b">LYXIA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9240</td><td class="b">MAXIL 750</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6542</td><td class="b">MEROPENEM LABATEC</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">10800</td><td class="b">METOFLEX</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">8745</td><td class="b">MIACIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5792</td><td class="b">MICTONORM</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10474</td><td class="b">MICTONORM</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5979</td><td class="b">MICTONORM XL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10106</td><td class="b">MICTONORM XL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9829</td><td class="b">MOXITEC</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">5683</td><td class="b">MYDOCALM</td><td class="was">Levant Alie Houses S.A.L.</td><td>Interpharma S.A.L.</td></tr>
+<tr><td class="c">9600</td><td class="b">NASONEX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12293</td><td class="b">NASONEX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6360</td><td class="b">NETILDEX</td><td class="was">BiofinPharma Middle East S.A.L.</td><td>Pharmamedic S.A.R.L.</td></tr>
+<tr><td class="c">7839</td><td class="b">NETTACIN</td><td class="was">BiofinPharma Middle East S.A.L.</td><td>Pharmamedic S.A.R.L.</td></tr>
+<tr><td class="c">8957</td><td class="b">NETTACIN</td><td class="was">BiofinPharma Middle East S.A.L.</td><td>Pharmamedic S.A.R.L.</td></tr>
+<tr><td class="c">9245</td><td class="b">NEUMOTROPIO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9489</td><td class="b">NIMBEX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11925</td><td class="b">NIMBEX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12537</td><td class="b">NIMBEX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">1137</td><td class="b">NOPAIN DS</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10114</td><td class="b">NORADRENALINE HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7129</td><td class="b">OLIMEL N7E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7130</td><td class="b">OLIMEL N7E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7126</td><td class="b">OLIMEL N9</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7125</td><td class="b">OLIMEL N9E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7127</td><td class="b">OLIMEL N9E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8958</td><td class="b">ONDANSETRON HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8959</td><td class="b">ONDANSETRON HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6883</td><td class="b">ONLEFIT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7131</td><td class="b">PERIOLIMEL N4E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7132</td><td class="b">PERIOLIMEL N4E</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9315</td><td class="b">PHENTOLEP INJECTION</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12295</td><td class="b">PONVORY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12296</td><td class="b">PONVORY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12565</td><td class="b">PONVORY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12566</td><td class="b">PONVORY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7394</td><td class="b">PRANZA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7395</td><td class="b">PRANZA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">3951</td><td class="b">PRIORIX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8609</td><td class="b">PRIZMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11678</td><td class="b">PROGLAU</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8196</td><td class="b">PROGRAF 0.5 MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9805</td><td class="b">PROGRAF 0.5 MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8194</td><td class="b">PROGRAF 1MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9806</td><td class="b">PROGRAF 1MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8195</td><td class="b">PROGRAF 5MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9807</td><td class="b">PROGRAF 5MG</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6962</td><td class="b">PURI-NETHOL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10840</td><td class="b">REAGILA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10841</td><td class="b">REAGILA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10842</td><td class="b">REAGILA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10843</td><td class="b">REAGILA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7907</td><td class="b">RELVAR ELLIPTA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7908</td><td class="b">RELVAR ELLIPTA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">4028</td><td class="b">REMICADE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6634</td><td class="b">ROTARIX ORAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10805</td><td class="b">SERETIDE DISKUS 100</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10804</td><td class="b">SERETIDE DISKUS 250</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10803</td><td class="b">SERETIDE DISKUS 500</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6606</td><td class="b">SEROXAT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6607</td><td class="b">SEROXAT CR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6608</td><td class="b">SEROXAT CR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10281</td><td class="b">SIMPONI</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10282</td><td class="b">SIMPONI</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9766</td><td class="b">SISACURE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5289</td><td class="b">SOLOTIK</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">5672</td><td class="b">SOLOTIK</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7180</td><td class="b">SOLPADEINE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11676</td><td class="b">SOLPADEINE SOLUBLE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7323</td><td class="b">STELARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8788</td><td class="b">STELARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9150</td><td class="b">STELARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12158</td><td class="b">STELARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12159</td><td class="b">STELARA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11331</td><td class="b">STOMAZOLE</td><td class="was">Pharmadex</td><td>Riad Pharmacy</td></tr>
+<tr><td class="c">7037</td><td class="b">SUPERSTAT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7038</td><td class="b">SUPERSTAT</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10485</td><td class="b">SUPRANE (DESFLURANE, USP)</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6002</td><td class="b">SYNFLORIX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7824</td><td class="b">TAGIX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12374</td><td class="b">TAKHZYRO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10626</td><td class="b">TAKHZYRO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8713</td><td class="b">TEMODAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8714</td><td class="b">TEMODAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8715</td><td class="b">TEMODAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9507</td><td class="b">TISSEEL LYO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9508</td><td class="b">TISSEEL LYO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9506</td><td class="b">TISSEEL LYO</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8304</td><td class="b">TIVICAY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12298</td><td class="b">TIVICAY</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9550</td><td class="b">TREMFYA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">10625</td><td class="b">TREMFYA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12599</td><td class="b">TREMFYA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9167</td><td class="b">TRIUMEQ</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">7959</td><td class="b">TROPICIL TOP</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9422</td><td class="b">ULTIVA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9423</td><td class="b">ULTIVA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">518</td><td class="b">UROMITEXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12353</td><td class="b">UROMITEXAN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9217</td><td class="b">VALTREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9218</td><td class="b">VALTREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6322</td><td class="b">VANCOMYCIN HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">31</td><td class="b">VARILRIX + SOLVENT IN SYRINGE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">603</td><td class="b">VENTOLIN</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9842</td><td class="b">VENTOLIN EVOHALER</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8610</td><td class="b">VOTREX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11877</td><td class="b">VULGA XR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11878</td><td class="b">VULGA XR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11879</td><td class="b">VULGA XR</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9843</td><td class="b">XYLOCAINE</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8833</td><td class="b">XYZAL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">6434</td><td class="b">ZENTEL</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">11789</td><td class="b">ZERSA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">12237</td><td class="b">ZERSA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8015</td><td class="b">ZOLEDRONIC ACID HIKMA</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">511</td><td class="b">ZOVIRAX</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">688</td><td class="b">ZOVIRAX IV</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9040</td><td class="b">ZYLORIC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">9041</td><td class="b">ZYLORIC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8633</td><td class="b">ZYRTEC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8634</td><td class="b">ZYRTEC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+<tr><td class="c">8635</td><td class="b">ZYRTEC</td><td class="was">Abela Freres S.A.L.</td><td>Abela Frères S.A.L.</td></tr>
+</tbody></table></div>
+<p class="caption">266 of these are one agent respelled with its accent (Abela Frères S.A.L.), not a transfer of marketing rights.</p>
+<h3 class="sub">Form <span class="hint">Pharmaceutical form</span><span class="n">275</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">10970</td><td class="b">ACEBUTOLOL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10971</td><td class="b">ACEBUTOLOL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">9768</td><td class="b">ACIDE ALENDRONIQUE/ VITAMINE D3 BGR</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">2481</td><td class="b">ACTICARBINE</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">12322</td><td class="b">ACTISKENAN</td><td class="was">Geules a liberation immediate</td><td>Géules à libération immédiate</td></tr>
+<tr><td class="c">12323</td><td class="b">ACTISKENAN</td><td class="was">Geules a liberation immediate</td><td>Géules à libération immédiate</td></tr>
+<tr><td class="c">12324</td><td class="b">ACTISKENAN</td><td class="was">Geules a liberation immediate</td><td>Géules à libération immédiate</td></tr>
+<tr><td class="c">12325</td><td class="b">ACTISKENAN</td><td class="was">Geules a liberation immediate</td><td>Géules à libération immédiate</td></tr>
+<tr><td class="c">12023</td><td class="b">ALFA-AMYLASE BGR CONSEIL</td><td class="was">Comprime enrobe</td><td>Comprimé enrobé</td></tr>
+<tr><td class="c">11203</td><td class="b">ALFUZOSINE BIOGARAN LP</td><td class="was">Comprimes pellicules a liberation prolongee</td><td>Comprimés pelliculés à libération prolongée</td></tr>
+<tr><td class="c">9776</td><td class="b">ALGESAL SURACTIVE</td><td class="was">Creme</td><td>Crème</td></tr>
+<tr><td class="c">11089</td><td class="b">ALLOPURINOL BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11090</td><td class="b">ALLOPURINOL BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11091</td><td class="b">ALLOPURINOL BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11094</td><td class="b">ALPRAZOLAM BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">11095</td><td class="b">ALPRAZOLAM BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">11398</td><td class="b">AMIODARONE BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">11766</td><td class="b">AMLODIPINE BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11767</td><td class="b">AMLODIPINE BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11871</td><td class="b">AMLODIPINE/VALSARTAN ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11872</td><td class="b">AMLODIPINE/VALSARTAN ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11873</td><td class="b">AMLODIPINE/VALSARTAN ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11800</td><td class="b">AMOXICILLINE ARROW LAB</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11801</td><td class="b">AMOXICILLINE ARROW LAB</td><td class="was">Comprimes dispersibles</td><td>Comprimés dispersibles</td></tr>
+<tr><td class="c">10545</td><td class="b">ANAGRELIDE BIOGARAN</td><td class="was">gelule</td><td>gélule</td></tr>
+<tr><td class="c">12273</td><td class="b">ANASTROZOLE ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11017</td><td class="b">ANASTROZOLE BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">7124</td><td class="b">ANTARENE CODEINE</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10342</td><td class="b">APREPITANT BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">10343</td><td class="b">APREPITANT BIOGARAN 125MG APREPITANT BIOGARAN 80MG</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">8960</td><td class="b">ARICEPT</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">8961</td><td class="b">ARICEPT</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">11080</td><td class="b">ATENOLOL BIOGARAN</td><td class="was">Comprimes  secables</td><td>Comprimés  sécables</td></tr>
+<tr><td class="c">10484</td><td class="b">ATORVASTATINE ARROW GENERQUES</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11617</td><td class="b">ATORVASTATINE ARROW GENERQUES</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">755</td><td class="b">AXONE</td><td class="was">Vial</td><td>Vial IV/IM</td></tr>
+<tr><td class="c">1369</td><td class="b">BECOZYM FORTE</td><td class="was">Dragee</td><td>Dragée</td></tr>
+<tr><td class="c">12395</td><td class="b">BENDANUSTINE ARROW</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">12396</td><td class="b">BENDANUSTINE ARROW</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11124</td><td class="b">BETAHISTINE ARROW</td><td class="was">Comprimes Secables</td><td>Comprimés Sécables</td></tr>
+<tr><td class="c">6248</td><td class="b">BI-PROFENID LP</td><td class="was">Comprimes secables a liberation prolongee</td><td>Comprimés sécables à libération prolongée</td></tr>
+<tr><td class="c">11016</td><td class="b">BICALUTAMIDE BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11251</td><td class="b">BISOPROLOL QUIVER LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11252</td><td class="b">BISOPROLOL QUIVER LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11253</td><td class="b">BISOPROLOL QUIVER LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11383</td><td class="b">BISOPROLOL REF</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11384</td><td class="b">BISOPROLOL REF</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11385</td><td class="b">BISOPROLOL REF</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">10947</td><td class="b">BROMAZEPAM BIOGARAN</td><td class="was">Comprimes quadrsecables</td><td>Comprimés quadrsécables</td></tr>
+<tr><td class="c">8782</td><td class="b">BUDESONIDE ARROW</td><td class="was">Suspension pour inhalation par nebuliseur</td><td>Suspension pour inhalation par nébuliseur</td></tr>
+<tr><td class="c">8800</td><td class="b">BUDESONIDE ARROW</td><td class="was">Suspension pour inhalation par nebuliseur</td><td>Suspension pour inhalation par nébuliseur</td></tr>
+<tr><td class="c">9238</td><td class="b">BUDESONIDE ARROW</td><td class="was">Suspension pour inhalation par nebuliseur</td><td>Suspension pour inhalation par nébuliseur</td></tr>
+<tr><td class="c">9239</td><td class="b">BUDESONIDE ARROW</td><td class="was">Suspension pour inhalation par nebuliseur</td><td>Suspension pour inhalation par nébuliseur</td></tr>
+<tr><td class="c">10112</td><td class="b">CANDESARTAN / HYDROCHLOROTHIAZIDE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">10113</td><td class="b">CANDESARTAN / HYDROCHLOROTHIAZIDE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">10109</td><td class="b">CANDESARTAN BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">10110</td><td class="b">CANDESARTAN BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">10111</td><td class="b">CANDESARTAN BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">9326</td><td class="b">CAPECITABINE BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12614</td><td class="b">CARBOPLATINE ARROW LAB</td><td class="was">Solution a diluer pour perfusion (IV)</td><td>Solution à diluer pour perfusion (IV)</td></tr>
+<tr><td class="c">12615</td><td class="b">CARBOPLATINE ARROW LAB</td><td class="was">Solution a diluer pour perfusion (IV)</td><td>Solution à diluer pour perfusion (IV)</td></tr>
+<tr><td class="c">2251</td><td class="b">CARBOSYLANE</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">2252</td><td class="b">CARBOSYMAG</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12665</td><td class="b">CASPOFUNGINE STRAGEN</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">12666</td><td class="b">CASPOFUNGINE STRAGEN</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11296</td><td class="b">CASPOFUNGINE STRAGEN</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11297</td><td class="b">CASPOFUNGINE STRAGEN</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11201</td><td class="b">CELECOXIB BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11202</td><td class="b">CELECOXIB BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">2282</td><td class="b">CHLORURE DE POTASSIUM RENAUDIN</td><td class="was">Sol a diluer p perf</td><td>Sol à diluer p perf</td></tr>
+<tr><td class="c">2283</td><td class="b">CHLORURE DE POTASSIUM RENAUDIN</td><td class="was">Sol a diluer p perf</td><td>Sol à diluer p perf</td></tr>
+<tr><td class="c">11366</td><td class="b">CINACALCET ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11367</td><td class="b">CINACALCET ARROW</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11368</td><td class="b">CINACALCET ARROW</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">9534</td><td class="b">CORYFIN GOLA DOLORE</td><td class="was">Spray</td><td>Oromucosal spray</td></tr>
+<tr><td class="c">6193</td><td class="b">CYSTINE B6 BAILLEUL</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">2361</td><td class="b">DAFLON</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">2810</td><td class="b">DECAPEPTYL SR</td><td class="was">Microspheres et solution pour preparation injectable (IM)</td><td>Microsphères et solution pour préparation injectable (IM)</td></tr>
+<tr><td class="c">2811</td><td class="b">DECAPEPTYL SR</td><td class="was">Microspheres et solution pour preparation injectable (IM)</td><td>Microsphères et solution pour préparation injectable (IM)</td></tr>
+<tr><td class="c">11868</td><td class="b">DEFERASIROX ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11869</td><td class="b">DEFERASIROX ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11870</td><td class="b">DEFERASIROX ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">2977</td><td class="b">DEPAKINE</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">2979</td><td class="b">DEPAKINE</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">2980</td><td class="b">DEPAKINE</td><td class="was">Solute buvable</td><td>Soluté buvable</td></tr>
+<tr><td class="c">138</td><td class="b">DIANE &#x27;35&#x27;</td><td class="was">Dragee</td><td>Dragée</td></tr>
+<tr><td class="c">12616</td><td class="b">DIMETHYL FUMARATE ARROW</td><td class="was">Gelules gastro-resistantes</td><td>Gélules gastro-résistantes</td></tr>
+<tr><td class="c">12617</td><td class="b">DIMETHYL FUMARATE ARROW</td><td class="was">Gelules gastro-resistantes</td><td>Gélules gastro-résistantes</td></tr>
+<tr><td class="c">12099</td><td class="b">DIOSMINE BIOGARAN CONSEIL</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">3427</td><td class="b">DIOVENOR 600</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">3532</td><td class="b">DOBUTAMINE PANPHARMA</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11096</td><td class="b">DOMPERIDONE BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11015</td><td class="b">DONEPEZIL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11018</td><td class="b">DONEPEZIL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11172</td><td class="b">DOXY 100</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">2503</td><td class="b">DOXY 50</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">8888</td><td class="b">DULOXETINE BIOGARAN</td><td class="was">Gelule gastroresistante</td><td>Gélule gastrorésistante</td></tr>
+<tr><td class="c">8889</td><td class="b">DULOXETINE BIOGARAN</td><td class="was">Gelule gastroresistante</td><td>Gélule gastrorésistante</td></tr>
+<tr><td class="c">7407</td><td class="b">DUREL FORTE</td><td class="was">comprimes pellicules</td><td>comprimés pelliculés</td></tr>
+<tr><td class="c">10913</td><td class="b">DUTASTERIDE/TAMSULOSINE ARROW</td><td class="was">Gellule</td><td>Géllule</td></tr>
+<tr><td class="c">10176</td><td class="b">EBASTINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10688</td><td class="b">ENTECAVIR ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10689</td><td class="b">ENTECAVIR ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10133</td><td class="b">ENTECAVIR BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10134</td><td class="b">ENTECAVIR BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12246</td><td class="b">ERTAPENEM ARROW</td><td class="was">Poudre pour solution a diluer pour perfusion</td><td>Poudre pour solution à diluer pour perfusion</td></tr>
+<tr><td class="c">10811</td><td class="b">ESCITALOPRAM BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">10812</td><td class="b">ESCITALOPRAM BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">10813</td><td class="b">ESCITALOPRAM BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">12096</td><td class="b">ESOMEPRAZOLE BIOGARAN</td><td class="was">Gelules gastroresistantes</td><td>Gélules gastrorésistantes</td></tr>
+<tr><td class="c">12097</td><td class="b">ESOMEPRAZOLE BIOGARAN</td><td class="was">Gelules gastroresistantes</td><td>Gélules gastrorésistantes</td></tr>
+<tr><td class="c">11380</td><td class="b">EVEROLIMUS BIOGARAN</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">11381</td><td class="b">EVEROLIMUS BIOGARAN</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">11382</td><td class="b">EVEROLIMUS BIOGARAN</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">10599</td><td class="b">EXEMESTANE BGR</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10814</td><td class="b">EZETIMIBE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">10098</td><td class="b">FEBUXOSTAT BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10099</td><td class="b">FEBUXOSTAT BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">3367</td><td class="b">FENOGAL</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12604</td><td class="b">FENOSUP CHAPHA</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">5856</td><td class="b">FENOSUP LIDOSE</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">8856</td><td class="b">FENTANYL PANPHARMA</td><td class="was">Solution injectable IV et peridurale</td><td>Solution injectable IV et péridurale</td></tr>
+<tr><td class="c">8857</td><td class="b">FENTANYL PANPHARMA</td><td class="was">Injectable solution IV/Peridurale</td><td>Injectable solution IV/Péridurale</td></tr>
+<tr><td class="c">8728</td><td class="b">FER PANPHARMA</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">7882</td><td class="b">FERRICURE</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">1747</td><td class="b">FLAGYL</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">10815</td><td class="b">FLECAINIDE BIOGARAN L.P.</td><td class="was">Gelules a liberation prolongee</td><td>Gélules a libération prolongée</td></tr>
+<tr><td class="c">10816</td><td class="b">FLECAINIDE BIOGARAN L.P.</td><td class="was">Gelules a liberation prolongee</td><td>Gélules a libération prolongée</td></tr>
+<tr><td class="c">12659</td><td class="b">FLUCONAZOLE ARROW LAB</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">2548</td><td class="b">FLUDEX</td><td class="was">Comprime pellicule a liberation prolongee</td><td>Comprimé pelliculé à libération prolongée</td></tr>
+<tr><td class="c">11060</td><td class="b">FLUOXETINE BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">10046</td><td class="b">GARDENAL</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">10135</td><td class="b">GEFITINIB BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10968</td><td class="b">GINKGO BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10969</td><td class="b">GINKGO BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">8886</td><td class="b">GINKOR FORT</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">7744</td><td class="b">GOLASEPTINE-LIDOCAINE</td><td class="was">Comprimes a sucer</td><td>Comprimés à sucer</td></tr>
+<tr><td class="c">11987</td><td class="b">GRANUDOXY</td><td class="was">Comprime pellicule secable</td><td>Comprimé pelliculé sécable</td></tr>
+<tr><td class="c">12626</td><td class="b">HYDROXYCARBAMIDE ARROW</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">8374</td><td class="b">IPRATROPIUM ARROW ADULTES</td><td class="was">Solution pour Inhalation par nebuliseur</td><td>Solution pour Inhalation par nébuliseur</td></tr>
+<tr><td class="c">12379</td><td class="b">IRBESARTAN ARROW</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">12380</td><td class="b">IRBESARTAN ARROW</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">10694</td><td class="b">IVABRADINE ARROW</td><td class="was">Tablet, film coated, scored</td><td>Tablet, film coated</td></tr>
+<tr><td class="c">10447</td><td class="b">IVERMECTINE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">10039</td><td class="b">LAMIVUDINE ARROW</td><td class="was">comprimes pellicules secables</td><td>comprimés pelliculés sécables</td></tr>
+<tr><td class="c">10074</td><td class="b">LAMIVUDINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10018</td><td class="b">LAMIVUDINE/ ZIDOVUDINE ARROW</td><td class="was">Comprime pellicule secable</td><td>Comprimé pelliculé sécable</td></tr>
+<tr><td class="c">9810</td><td class="b">LAMOTRIGINE BIOGARAN</td><td class="was">Compimes dispersibles</td><td>Compimés dispersibles</td></tr>
+<tr><td class="c">10538</td><td class="b">LAMOTRIGINE BIOGARAN</td><td class="was">Compimes dispersibles</td><td>Compimés dispersibles</td></tr>
+<tr><td class="c">10539</td><td class="b">LAMOTRIGINE BIOGARAN</td><td class="was">Compimes dispersibles</td><td>Compimés dispersibles</td></tr>
+<tr><td class="c">12269</td><td class="b">LENALIDOMIDE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">12270</td><td class="b">LENALIDOMIDE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">12271</td><td class="b">LENALIDOMIDE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">12272</td><td class="b">LENALIDOMIDE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">12091</td><td class="b">LENALIDOMIDE STRAGEN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12092</td><td class="b">LENALIDOMIDE STRAGEN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12093</td><td class="b">LENALIDOMIDE STRAGEN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12094</td><td class="b">LENALIDOMIDE STRAGEN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11876</td><td class="b">LETROZOLE ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11019</td><td class="b">LETROZOLE BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12397</td><td class="b">LEVETIRACETAM ARROW LAB</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">12662</td><td class="b">LEVETIRACETAM ARROW LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">12663</td><td class="b">LEVETIRACETAM ARROW LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">12664</td><td class="b">LEVETIRACETAM ARROW LAB</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">8809</td><td class="b">LEVETIRACETAM BIOGARAN</td><td class="was">Comprimes pellicules secable</td><td>Comprimés pelliculés secable</td></tr>
+<tr><td class="c">8810</td><td class="b">LEVETIRACETAM BIOGARAN</td><td class="was">Comprimes pellicules secable</td><td>Comprimés pelliculés secable</td></tr>
+<tr><td class="c">8811</td><td class="b">LEVETIRACETAM BIOGARAN</td><td class="was">Comprimes pellicules secable</td><td>Comprimés pelliculés secable</td></tr>
+<tr><td class="c">8410</td><td class="b">LIBRAX DRAGEES</td><td class="was">Dragee</td><td>Dragée</td></tr>
+<tr><td class="c">11618</td><td class="b">LINEZOLIDE STRAGEN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11518</td><td class="b">LOPERAMIDE ARROW LAB</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">10943</td><td class="b">LOSARTAN BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">10944</td><td class="b">LOSARTAN BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10945</td><td class="b">LOSARTAN/HYDROCHLOROTHIAZIDE BGR</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10946</td><td class="b">LOSARTAN/HYDROCHLOROTHIAZIDE BGR</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">8438</td><td class="b">MAGNE B6</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">11396</td><td class="b">MAGNE B6</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">12209</td><td class="b">MELATONINE ARROW LP</td><td class="was">Compromes a liberation prolongee</td><td>Compromés à libération prolongée</td></tr>
+<tr><td class="c">8797</td><td class="b">MEMANTINE BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">12507</td><td class="b">METRONIDAZOLE BIOGARAN</td><td class="was">Comprrimes pellicules</td><td>Comprrimés pelliculés</td></tr>
+<tr><td class="c">12508</td><td class="b">METRONIDAZOLE BIOGARAN</td><td class="was">Comprrimes pellicules</td><td>Comprrimés pelliculés</td></tr>
+<tr><td class="c">141</td><td class="b">MICROGYNON  &#x27;30&#x27;</td><td class="was">Dragee</td><td>Dragée</td></tr>
+<tr><td class="c">6096</td><td class="b">MINOXIDIL BAILLEUL</td><td class="was">Solution pour application cutanee</td><td>Solution pour application cutanée</td></tr>
+<tr><td class="c">6402</td><td class="b">MINOXIDIL BAILLEUL</td><td class="was">Solution pour application cutanee</td><td>Solution pour application cutanée</td></tr>
+<tr><td class="c">12505</td><td class="b">MINOXIDIL BIOGARAN CONSEIL</td><td class="was">Solution pour application cutanee</td><td>Solution pour application cutanée</td></tr>
+<tr><td class="c">12506</td><td class="b">MINOXIDIL BIOGARAN CONSEIL</td><td class="was">Solution pour application cutanee</td><td>Solution pour application cutanée</td></tr>
+<tr><td class="c">9007</td><td class="b">MODAFINIL ARROW</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">12658</td><td class="b">MODAFINIL ARROW</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">9462</td><td class="b">MOLSIDOMINE BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">9463</td><td class="b">MOLSIDOMINE BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">9464</td><td class="b">MOLSIDOMINE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11229</td><td class="b">MOMETASONE BIOGARAN</td><td class="was">Suspension pour pulverisation nasale</td><td>Suspension pour pulvérisation nasale</td></tr>
+<tr><td class="c">12612</td><td class="b">MYCOPHENOLATE MOFETIL ARROW</td><td class="was">comprimes pellicules</td><td>comprimés pelliculés</td></tr>
+<tr><td class="c">6441</td><td class="b">NAFTILUX</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">9823</td><td class="b">NAPROXENE SODIQUE ARROW</td><td class="was">Comprime pellicule secable</td><td>Comprimé pelliculé sécable</td></tr>
+<tr><td class="c">10973</td><td class="b">NEBIVOLOL BIOGARAN</td><td class="was">Comprimes quadrisecables</td><td>Comprimés quadrisecables</td></tr>
+<tr><td class="c">2289</td><td class="b">NEO-CODION</td><td class="was">Comprimes enrobes</td><td>Comprimés enrobés</td></tr>
+<tr><td class="c">12558</td><td class="b">OXALIPLATINE ARROW LAB</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">12115</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">Lyophilised powder for solution for injection</td><td>Concentrate for solution for infusion</td></tr>
+<tr><td class="c">12116</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">Lyophilised powder for solution for injection</td><td>Concentrate for solution for infusion</td></tr>
+<tr><td class="c">11831</td><td class="b">PARACETAMOL/CAFEINE/CODEINE BIOGARAN</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">11222</td><td class="b">PEMETREXED STRAGEN</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11223</td><td class="b">PEMETREXED STRAGEN</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">11224</td><td class="b">PEMETREXED STRAGEN</td><td class="was">Solution a diluer pour perfusion</td><td>Solution à diluer pour perfusion</td></tr>
+<tr><td class="c">12618</td><td class="b">PIRFENIDONE ARROW</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">12619</td><td class="b">PIRFENIDONE ARROW</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">12627</td><td class="b">POMALIDOMIDE EUGIA</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">12628</td><td class="b">POMALIDOMIDE EUGIA</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11386</td><td class="b">PRAMIPEXOLE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11387</td><td class="b">PRAMIPEXOLE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11077</td><td class="b">QUETIAPINE BIOGARAN L.P.</td><td class="was">Comprimes  a liberation prolongee</td><td>Comprimés  à libération prolongée</td></tr>
+<tr><td class="c">11078</td><td class="b">QUETIAPINE BIOGARAN L.P.</td><td class="was">Comprimes  a liberation prolongee</td><td>Comprimés  à libération prolongée</td></tr>
+<tr><td class="c">11079</td><td class="b">QUETIAPINE BIOGARAN L.P.</td><td class="was">Comprimes  a liberation prolongee</td><td>Comprimés  à libération prolongée</td></tr>
+<tr><td class="c">11685</td><td class="b">RACECADOTRIL ARROW</td><td class="was">Gellule</td><td>Géllule</td></tr>
+<tr><td class="c">8760</td><td class="b">RACECADOTRIL BGR</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">8759</td><td class="b">RACECADOTRIL BIOGARAN CONSEIL</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">9767</td><td class="b">RASAGILINE BIOGARAN</td><td class="was">Comprime</td><td>Comprimé</td></tr>
+<tr><td class="c">8106</td><td class="b">RELAXINE TRENKER</td><td class="was">Comprimes enrobes</td><td>Comprimés enrobés</td></tr>
+<tr><td class="c">8101</td><td class="b">REMIFENTANIL MEDIS</td><td class="was">Poudre pour preparation injectable ou pour perfusion IV</td><td>Poudre pour préparation injectable ou pour perfusion IV</td></tr>
+<tr><td class="c">8102</td><td class="b">REMIFENTANIL MEDIS</td><td class="was">Poudre pour preparation injectable ou pour perfusion IV</td><td>Poudre pour préparation injectable ou pour perfusion IV</td></tr>
+<tr><td class="c">10158</td><td class="b">REPARIL</td><td class="was">Dragee</td><td>Dragée</td></tr>
+<tr><td class="c">3414</td><td class="b">RETACNYL - 0.05 %</td><td class="was">Creme dermique</td><td>Crème dermique</td></tr>
+<tr><td class="c">11074</td><td class="b">RISPERIDONE BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11075</td><td class="b">RISPERIDONE BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">11076</td><td class="b">RISPERIDONE BIOGARAN</td><td class="was">Comprimes pellicules secables</td><td>Comprimés pelliculés sécables</td></tr>
+<tr><td class="c">9532</td><td class="b">RUPATADINE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11023</td><td class="b">SERTRALINE BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">11024</td><td class="b">SERTRALINE BIOGARAN</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">9782</td><td class="b">SEVELAMER CARBONATE ARROW</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">11802</td><td class="b">SILDENAFIL STRAGEN</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">11575</td><td class="b">SILODOSINE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">11576</td><td class="b">SILODOSINE ARROW</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">10948</td><td class="b">SILODOSINE BIOGARAN</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">10949</td><td class="b">SILODOSINE BIOGARAN</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">11632</td><td class="b">SITAGLIPTINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11633</td><td class="b">SITAGLIPTINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12319</td><td class="b">SKENAN LP</td><td class="was">microgranules a liberation prolongee</td><td>microgranules à libération prolongée</td></tr>
+<tr><td class="c">12320</td><td class="b">SKENAN LP</td><td class="was">microgranules a liberation prolongee</td><td>microgranules à libération prolongée</td></tr>
+<tr><td class="c">12321</td><td class="b">SKENAN LP</td><td class="was">microgranules a liberation prolongee</td><td>microgranules à libération prolongée</td></tr>
+<tr><td class="c">7976</td><td class="b">SOJOURN</td><td class="was">Solution, inhalation</td><td>Inhalation aNESTHETIC</td></tr>
+<tr><td class="c">10836</td><td class="b">SOLIFENACINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10837</td><td class="b">SOLIFENACINE ARROW</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">7148</td><td class="b">SOMATULINE AUTOGEL</td><td class="was">Solution injectable a liberation prolongee</td><td>Solution injectable à libération prolongée</td></tr>
+<tr><td class="c">7149</td><td class="b">SOMATULINE AUTOGEL</td><td class="was">Solution injectable a liberation prolongee</td><td>Solution injectable à libération prolongée</td></tr>
+<tr><td class="c">10132</td><td class="b">SOTALOL BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">10177</td><td class="b">SOTALOL BIOGARAN</td><td class="was">Comprimes secables</td><td>Comprimés sécables</td></tr>
+<tr><td class="c">7037</td><td class="b">SUPERSTAT</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">7038</td><td class="b">SUPERSTAT</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">10600</td><td class="b">TADALAFIL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12098</td><td class="b">TADALAFIL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">11207</td><td class="b">TAMOXIFENE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">11242</td><td class="b">TAMOXIFENE BIOGARAN</td><td class="was">Comprimes</td><td>Comprimés</td></tr>
+<tr><td class="c">3196</td><td class="b">TANAKAN</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">8031</td><td class="b">TANAKAN</td><td class="was">Comprime Enrobe</td><td>Comprimé Enrobé</td></tr>
+<tr><td class="c">9821</td><td class="b">TENOFOVIR DISOPROXIL ARROW</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">10100</td><td class="b">TENOFOVIR DISOPROXIL BIOGARAN</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">9769</td><td class="b">TERGYNAN</td><td class="was">Comprime vaginal</td><td>Comprimé vaginal</td></tr>
+<tr><td class="c">12613</td><td class="b">TERIFLUNOMID ARROW</td><td class="was">comprimes pellicules</td><td>comprimés pelliculés</td></tr>
+<tr><td class="c">7284</td><td class="b">TETRALYSAL</td><td class="was">Gelules</td><td>Gélules</td></tr>
+<tr><td class="c">6955</td><td class="b">TOLEXINE</td><td class="was">Comprimes de microgranules</td><td>Comprimés de microgranules</td></tr>
+<tr><td class="c">12660</td><td class="b">TOPIRAMATE ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12661</td><td class="b">TOPIRAMATE ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">12688</td><td class="b">TOPIRAMATE ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">3411</td><td class="b">TRACTOCILE</td><td class="was">Injection</td><td>Solution for injection IV use</td></tr>
+<tr><td class="c">3412</td><td class="b">TRACTOCILE</td><td class="was">Injection</td><td>Concentrate for solution for infusion IV use</td></tr>
+<tr><td class="c">9698</td><td class="b">TRAMADOL/PARACETAMOL ARROW LAB</td><td class="was">Comprimes pellicules</td><td>Comprimés pelliculés</td></tr>
+<tr><td class="c">169</td><td class="b">ULTRA LEVURE</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">3915</td><td class="b">ULTRA LEVURE</td><td class="was">Gelule</td><td>Gélule</td></tr>
+<tr><td class="c">8159</td><td class="b">VALPROATE DE SODIUM ARROW LP</td><td class="was">Comprimes pillicules secable a liberation prolongee</td><td>Comprimés pilliculés sécable à libération prolongée</td></tr>
+<tr><td class="c">11097</td><td class="b">VENLAFAXINE BIOGARAN LP</td><td class="was">Gelules a liberation prolongee</td><td>Gélules à libération prolongée</td></tr>
+<tr><td class="c">11098</td><td class="b">VENLAFAXINE BIOGARAN LP</td><td class="was">Gelules a liberation prolongee</td><td>Gélules à libération prolongée</td></tr>
+<tr><td class="c">10638</td><td class="b">VESICULTURE</td><td class="was">Injectable, lyophilised / freeze-dried / dry powder, for solution</td><td>Powder for bladder irrigation</td></tr>
+<tr><td class="c">11293</td><td class="b">VORICONAZOLE STRAGEN</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">11294</td><td class="b">VORICONAZOLE STRAGEN</td><td class="was">Comprime pellicule</td><td>Comprimé pelliculé</td></tr>
+<tr><td class="c">9271</td><td class="b">ZOLMITRIPTAN BIOGARAN</td><td class="was">Comprime orodispersible</td><td>Comprimé orodispersible</td></tr>
+<tr><td class="c">12114</td><td class="b">ZOLMITRIPTAN BIOGARAN</td><td class="was">Comprime orodispersible</td><td>Comprimé orodispersible</td></tr>
+</tbody></table></div>
+<h3 class="sub">Manufacturer <span class="hint">Producing laboratory</span><span class="n">60</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">6256</td><td class="b">AMOPRO</td><td class="was">SAJA- Saudi Arabia Japanese Pharmaceutical Co</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">8782</td><td class="b">BUDESONIDE ARROW</td><td class="was">Arrow Generiques</td><td>Arrow Génériques</td></tr>
+<tr><td class="c">8800</td><td class="b">BUDESONIDE ARROW</td><td class="was">Arrow Generiques</td><td>Arrow Génériques</td></tr>
+<tr><td class="c">6469</td><td class="b">CARBOPLATINE VIATRIS 10MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6903</td><td class="b">CARBOPLATINE VIATRIS 10MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6655</td><td class="b">CISPLATINE VIATRIS 1MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6656</td><td class="b">CISPLATINE VIATRIS 1MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">12147</td><td class="b">DEPOJOY</td><td class="was">Saudi Arabian Japanese Pharmaceutical (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">12148</td><td class="b">DEPOJOY</td><td class="was">Saudi Arabian Japanese Pharmaceutical (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">10176</td><td class="b">EBASTINE ARROW</td><td class="was">Centre Specialites Pharmaceutiques</td><td>Centre Specialités Pharmaceutiques</td></tr>
+<tr><td class="c">11198</td><td class="b">ENOXAPARIN LEDRAXEN</td><td class="was">Centre Specialites Pharmaceutiques</td><td>Centre Specialités Pharmaceutiques</td></tr>
+<tr><td class="c">11199</td><td class="b">ENOXAPARIN LEDRAXEN</td><td class="was">Centre Specialites Pharmaceutiques</td><td>Centre Specialités Pharmaceutiques</td></tr>
+<tr><td class="c">6653</td><td class="b">EPIRUBICINE VIATRIS 2MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6654</td><td class="b">EPIRUBICINE VIATRIS 2MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">9898</td><td class="b">EPLERENONE ARROW</td><td class="was">Arrow Generiques</td><td>Arrow Génériques</td></tr>
+<tr><td class="c">9899</td><td class="b">EPLERENONE ARROW</td><td class="was">Arrow Generiques</td><td>Arrow Génériques</td></tr>
+<tr><td class="c">12524</td><td class="b">EPLERENONE ARROW</td><td class="was">Arrow Generiques</td><td>Arrow Génériques</td></tr>
+<tr><td class="c">7454</td><td class="b">ERADECIN</td><td class="was">SAJA- Saudi Arabia Japanese Pharmaceutical Co</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">9755</td><td class="b">ERELZI</td><td class="was">Sandoz GmbH, (Schaftenau)</td><td>Novartis Pharmaceutical Manufacturing GmbH</td></tr>
+<tr><td class="c">9756</td><td class="b">ERELZI</td><td class="was">Sandoz GmbH, (Schaftenau)</td><td>Novartis Pharmaceutical Manufacturing GmbH</td></tr>
+<tr><td class="c">9757</td><td class="b">ERELZI</td><td class="was">Sandoz GmbH, (Schaftenau)</td><td>Novartis Pharmaceutical Manufacturing GmbH</td></tr>
+<tr><td class="c">6779</td><td class="b">ETOPOSIDE VIATRIS 20MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">4699</td><td class="b">GLUCOPHAGE</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">4700</td><td class="b">GLUCOPHAGE</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">5115</td><td class="b">GLUCOPHAGE XR</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">5693</td><td class="b">GLUCOPHAGE XR</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">6219</td><td class="b">GLUCOPHAGE XR</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">4701</td><td class="b">GLUCOVANCE</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">4702</td><td class="b">GLUCOVANCE</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">5847</td><td class="b">GLUCOVANCE</td><td class="was">Pharmaline Licensed by Merck Sante SAS, France</td><td>Pharmaline Licensed by Merck Santé SAS, France</td></tr>
+<tr><td class="c">7204</td><td class="b">ITRAZOL</td><td class="was">SAJA- Saudi Arabia Japanese Pharmaceutical Co</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">7205</td><td class="b">ITRAZOL</td><td class="was">SAJA- Saudi Arabia Japanese Pharmaceutical Co</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">11976</td><td class="b">KISQALI</td><td class="was">Lek Pharmaceuticals dd</td><td>Novartis Pharmaceuticals Manufacturing LLC</td></tr>
+<tr><td class="c">12309</td><td class="b">LEVOXIPOLIN</td><td class="was">Polifarma Ilac San. ve Tic. AS</td><td>Polifarma Ilaç San. ve Tic. AS</td></tr>
+<tr><td class="c">6562</td><td class="b">LITAK</td><td class="was">Haupt Pharma Wolfratshausen GmbH</td><td>Lipomed AG</td></tr>
+<tr><td class="c">7068</td><td class="b">LITAK</td><td class="was">Haupt Pharma Wolfratshausen GmbH</td><td>Lipomed AG</td></tr>
+<tr><td class="c">5498</td><td class="b">METHYL PREDNISOLONE VIATRIS 120MG</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6904</td><td class="b">METHYL PREDNISOLONE VIATRIS 1G</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">5497</td><td class="b">METHYL PREDNISOLONE VIATRIS 40MG</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">8111</td><td class="b">NOVOMIX 30</td><td class="was">Novo Nordisk Producao Farmaceutica Do Brazil Ltda</td><td>Novo Nordisk Produçao Farmacêutica Do Brazil Ltda</td></tr>
+<tr><td class="c">8113</td><td class="b">NOVORAPID FLEXPEN</td><td class="was">Novo Nordisk Producao Farmaceutica Do Brazil Ltda</td><td>Novo Nordisk Produçao Farmacêutica Do Brazil Ltda</td></tr>
+<tr><td class="c">6383</td><td class="b">OXALIPLATINE VIATRIS 5MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">6384</td><td class="b">OXALIPLATINE VIATRIS 5MG/ML</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+<tr><td class="c">12115</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">GP-Pharm SA</td><td>AqVida GmbH</td></tr>
+<tr><td class="c">12116</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">GP-Pharm SA</td><td>AqVida GmbH</td></tr>
+<tr><td class="c">6149</td><td class="b">PANTOMAX</td><td class="was">Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">6150</td><td class="b">PANTOMAX</td><td class="was">Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">6151</td><td class="b">PANTOMAX</td><td class="was">Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">6152</td><td class="b">PANTOMAX</td><td class="was">Saudi Arabian Japanese Pharmaceuticals Co (SAJA Pharmaceuticals)</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co</td></tr>
+<tr><td class="c">12072</td><td class="b">POLGYL</td><td class="was">Polifarma Ilac San. ve Tic. AS</td><td>Polifarma Ilaç San. ve Tic. AS</td></tr>
+<tr><td class="c">11540</td><td class="b">RESOLOR</td><td class="was">Janssen Cilag SpA</td><td>Sanico NV</td></tr>
+<tr><td class="c">11541</td><td class="b">RESOLOR</td><td class="was">Janssen Cilag SpA</td><td>Sanico NV</td></tr>
+<tr><td class="c">6054</td><td class="b">ROXONIN</td><td class="was">SAJA Pharmaceuticals (Saudi Arabia Japanese Pharmaceutical Company Limited) under licence from Daiichi Sankyo Co Ltd Japan</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co under licence from Daiichi Sankyo Co Ltd Japan</td></tr>
+<tr><td class="c">8869</td><td class="b">ROXONIN</td><td class="was">SAJA Pharmaceuticals (Saudi Arabia Japanese Pharmaceutical Company Limited) under licence from Daiichi Sankyo Co Ltd Japan</td><td>SAJA-Saudi Arabian Japanese Pharmaceutical Co under licence from Daiichi Sankyo Co Ltd Japan</td></tr>
+<tr><td class="c">10682</td><td class="b">SALCROZINE</td><td class="was">Laboratorios Victoria SA</td><td>Faes Farma Portugal SA</td></tr>
+<tr><td class="c">3792</td><td class="b">STALORAL</td><td class="was">Stallergenes</td><td>Stallergènes</td></tr>
+<tr><td class="c">3793</td><td class="b">STALORAL</td><td class="was">Stallergenes</td><td>Stallergènes</td></tr>
+<tr><td class="c">5860</td><td class="b">STALORAL</td><td class="was">Stallergenes</td><td>Stallergènes</td></tr>
+<tr><td class="c">5861</td><td class="b">STALORAL</td><td class="was">Stallergenes</td><td>Stallergènes</td></tr>
+<tr><td class="c">5366</td><td class="b">VANCOMYCINE VIATRIS 500MG</td><td class="was">Benta SAL under license from Viatris Sante, France</td><td>Benta SAL under license from Viatris Santé, France</td></tr>
+</tbody></table></div>
+<h3 class="sub">Presentation <span class="hint">Pack description</span><span class="n">14</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">5673</td><td class="b">AVAXIM PEDIATRIQUE (vaccin inactivé de l&#x27;hépatite A adsorbé)</td><td class="was">Seringue preremplie= 1dose</td><td>Seringue préremplie= 1dose</td></tr>
+<tr><td class="c">8782</td><td class="b">BUDESONIDE ARROW</td><td class="was">Recipient unidose x20</td><td>Récipient unidose x20</td></tr>
+<tr><td class="c">8800</td><td class="b">BUDESONIDE ARROW</td><td class="was">Recipient unidose x20</td><td>Récipient unidose x20</td></tr>
+<tr><td class="c">9238</td><td class="b">BUDESONIDE ARROW</td><td class="was">Recipient unidose x20</td><td>Récipient unidose x20</td></tr>
+<tr><td class="c">9239</td><td class="b">BUDESONIDE ARROW</td><td class="was">Recipient unidose x20</td><td>Récipient unidose x20</td></tr>
+<tr><td class="c">12615</td><td class="b">CARBOPLATINE ARROW LAB</td><td class="was">1Vial 60ml</td><td>1Vial 45ml</td></tr>
+<tr><td class="c">12601</td><td class="b">ETOTAC SR</td><td class="was">30</td><td>10</td></tr>
+<tr><td class="c">8374</td><td class="b">IPRATROPIUM ARROW ADULTES</td><td class="was">Recipient unidose boite de 10</td><td>Récipient unidose boite de 10</td></tr>
+<tr><td class="c">1757</td><td class="b">LOVENOX</td><td class="was">2 Seringues preremplies</td><td>2 Seringues préremplies</td></tr>
+<tr><td class="c">1758</td><td class="b">LOVENOX</td><td class="was">2 Seringues preremplies</td><td>2 Seringues préremplies</td></tr>
+<tr><td class="c">10498</td><td class="b">PENTAXIM</td><td class="was">Seringue preremplie</td><td>Seringue préremplie</td></tr>
+<tr><td class="c">7148</td><td class="b">SOMATULINE AUTOGEL</td><td class="was">1 Seringue preremplie</td><td>1 Seringue préremplie</td></tr>
+<tr><td class="c">7149</td><td class="b">SOMATULINE AUTOGEL</td><td class="was">1 Seringue preremplie</td><td>1 Seringue préremplie</td></tr>
+<tr><td class="c">9809</td><td class="b">VAXIGRIPTETRA, VACCIN GRIPPAL QUADRIVALENT (INACTIVE A VIRION FRAGMENTE)</td><td class="was">1seringue preremplie x 0.5ml avec aiguille attachee</td><td>1seringue préremplie x 0.5ml avec aiguille attachée</td></tr>
+</tbody></table></div>
+<h3 class="sub">Stratum <span class="hint">Pricing stratum</span><span class="n">14</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">11585</td><td class="b">ADALIREL</td><td class="was">C</td><td>B</td></tr>
+<tr><td class="c">6093</td><td class="b">APO-ATORVASTATIN</td><td class="was">B</td><td>A2</td></tr>
+<tr><td class="c">983</td><td class="b">APO-CARBAMAZEPINE</td><td class="was">A2</td><td>A1</td></tr>
+<tr><td class="c">3579</td><td class="b">APO-PRAVASTATIN</td><td class="was">A2</td><td>A1</td></tr>
+<tr><td class="c">5157</td><td class="b">DURALIS</td><td class="was">B</td><td>A2</td></tr>
+<tr><td class="c">7744</td><td class="b">GOLASEPTINE-LIDOCAINE</td><td class="was">A2</td><td>A1</td></tr>
+<tr><td class="c">3938</td><td class="b">INFLORAN</td><td class="was">A1</td><td>A2</td></tr>
+<tr><td class="c">12248</td><td class="b">SEMATIDE</td><td class="was">C</td><td>B</td></tr>
+<tr><td class="c">12249</td><td class="b">SEMATIDE</td><td class="was">C</td><td>B</td></tr>
+<tr><td class="c">7976</td><td class="b">SOJOURN</td><td class="was">E1</td><td>D</td></tr>
+<tr><td class="c">11179</td><td class="b">TWINCARD 80/10</td><td class="was">B</td><td>A2</td></tr>
+<tr><td class="c">7972</td><td class="b">VIOSTAN 40</td><td class="was">A2</td><td>A1</td></tr>
+<tr><td class="c">7889</td><td class="b">VIOSTAN 80</td><td class="was">A2</td><td>A1</td></tr>
+<tr><td class="c">7892</td><td class="b">VIOSTAN PLUS 80/12.5</td><td class="was">A2</td><td>A1</td></tr>
+</tbody></table></div>
+<h3 class="sub">Brand name <span class="hint">Registered brand name</span><span class="n">6</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">5545</td><td class="b">AMOXICLAV-ORBUCELL</td><td class="was">ARDINECLAV-ORBUCELL</td><td>AMOXICLAV-ORBUCELL</td></tr>
+<tr><td class="c">5673</td><td class="b">AVAXIM PEDIATRIQUE (vaccin inactivé de l&#x27;hépatite A adsorbé)</td><td class="was">AVAXIM PEDIATRIQUE (vaccin inactive de l&#x27;hepatite A adsorbe)</td><td>AVAXIM PEDIATRIQUE (vaccin inactivé de l&#x27;hépatite A adsorbé)</td></tr>
+<tr><td class="c">8881</td><td class="b">BICALUTAMIDE</td><td class="was">BICALUTAMIDE ACCORD</td><td>BICALUTAMIDE</td></tr>
+<tr><td class="c">6562</td><td class="b">LITAK</td><td class="was">LITAK 10</td><td>LITAK</td></tr>
+<tr><td class="c">7068</td><td class="b">LITAK</td><td class="was">LITAK 10</td><td>LITAK</td></tr>
+<tr><td class="c">5733</td><td class="b">TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactivé adsorbé)</td><td class="was">TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactive adsorbe)</td><td>TETRAXIM (Vaccin Diphterique, tetanique, coquelucheux acellulaire et Poliomyelitique inactivé adsorbé)</td></tr>
+</tbody></table></div>
+<h3 class="sub">Dosage <span class="hint">Strength</span><span class="n">6</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">10343</td><td class="b">APREPITANT BIOGARAN 125MG APREPITANT BIOGARAN 80MG</td><td class="was">1Gelule 125mg +2Gelules 80mg</td><td>1Gélule 125mg +2Gélules 80mg</td></tr>
+<tr><td class="c">9534</td><td class="b">CORYFIN GOLA DOLORE</td><td class="was">3 mg/ml</td><td>2.5mg/ml</td></tr>
+<tr><td class="c">7372</td><td class="b">LEVE TAD</td><td class="was">500 mg</td><td>500mg</td></tr>
+<tr><td class="c">3411</td><td class="b">TRACTOCILE</td><td class="was">7.5mg/ml</td><td>6.75mg/0.9ml</td></tr>
+<tr><td class="c">3412</td><td class="b">TRACTOCILE</td><td class="was">7.5mg/ml</td><td>37.5mg/5ml</td></tr>
+<tr><td class="c">10638</td><td class="b">VESICULTURE</td><td class="was">30 mg</td><td>30mg/Vial</td></tr>
+</tbody></table></div>
+<h3 class="sub">Country <span class="hint">Country of origin</span><span class="n">6</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">2976</td><td class="b">CORDARONE</td><td class="was">France</td><td>Italy</td></tr>
+<tr><td class="c">6562</td><td class="b">LITAK</td><td class="was">Germany</td><td>Switzerland</td></tr>
+<tr><td class="c">7068</td><td class="b">LITAK</td><td class="was">Germany</td><td>Switzerland</td></tr>
+<tr><td class="c">12115</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">Spain</td><td>Germany</td></tr>
+<tr><td class="c">12116</td><td class="b">OXALIPLATINO PHARMINICIO</td><td class="was">Spain</td><td>Germany</td></tr>
+<tr><td class="c">12583</td><td class="b">SOLIRIS</td><td class="was">France</td><td>Ireland</td></tr>
+</tbody></table></div>
+<h3 class="sub">Registration number <span class="hint">MoPH registration</span><span class="n">6</span></h3>
+<div class="tw"><table><thead><tr><th>Code</th><th>Brand</th><th>Before</th><th>After</th></tr></thead><tbody>
+<tr><td class="c">9534</td><td class="b">CORYFIN GOLA DOLORE</td><td class="was"><span class="blank">empty</span></td><td>175817/1</td></tr>
+<tr><td class="c">11614</td><td class="b">GENTAMICINE PANPHARMA</td><td class="was">135023/01</td><td>135023/1</td></tr>
+<tr><td class="c">7372</td><td class="b">LEVE TAD</td><td class="was"><span class="blank">empty</span></td><td>97679/11</td></tr>
+<tr><td class="c">12393</td><td class="b">RIZATRIPTAN ARROW</td><td class="was">179617/1</td><td>55025/1</td></tr>
+<tr><td class="c">7976</td><td class="b">SOJOURN</td><td class="was"><span class="blank">empty</span></td><td>186970/14</td></tr>
+<tr><td class="c">10638</td><td class="b">VESICULTURE</td><td class="was"><span class="blank">empty</span></td><td>58821/1</td></tr>
+</tbody></table></div>
 </section>
-<footer><span>MedLeb register update</span><span>Bulletin 2026-09-03</span><span>medlist · medapiv2</span><span>Source: MoPH mouacher + moph.gov.lb</span></footer>
+<footer><span>medapiv2 · drug</span><span>Bulletin 2026-09-03</span><span>Source: MoPH mouacher</span></footer>
 </div>
