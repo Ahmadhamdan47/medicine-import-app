@@ -1,6 +1,10 @@
+import sys
+
 import mysql.connector
 from mysql.connector import Error
 import pandas as pd
+
+DEFAULT_TSV = './July.tsv'
 
 def read_tsv(file_path):
     try:
@@ -51,7 +55,9 @@ def truncate_values(row, column_lengths):
     return row
 
 def main():
-    tsv_data = read_tsv('./July.tsv')
+    tsv_path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_TSV
+    print(f"Reading {tsv_path}")
+    tsv_data = read_tsv(tsv_path)
 
     conn = get_db_connection()
     if conn is None:
